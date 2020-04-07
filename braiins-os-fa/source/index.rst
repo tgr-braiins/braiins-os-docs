@@ -12,7 +12,7 @@
 ---------------
 
 #####
-Intro
+مقدمه
 #####
 
 Braiins OS is a fully open-source operating system for ASIC miners. It was the first firmware to implement
@@ -24,7 +24,7 @@ Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer 
 for the near future.
 
 ********
-Features
+امکانات
 ********
 
  * Open-source operating system
@@ -37,16 +37,17 @@ Features
  * Fully customizable fan control (enables immersion cooling)
  * Advanced monitoring to prevent overheating and other issues
 
-*******************
-Support and Contact
-*******************
+************************
+پشتیبانی و ارتباط با ما
+************************
 
-Have questions?
-Our dev and support teams are always available to help.
+سوالی دارید؟
+تیم های پشتیبانی و پشتیبانی ما همیشه برای کمک در دسترس هستند.
 
-Join our Telegram group:
+به گروه تلگرام ما بپیوندید:
 
   * `EN group <https://t.me/BraiinsOS>`_
+  * `FA group <https://t.me/BraiinsOS_SlushPool_FA>`_
   * `RU group <https://t.me/BraiinsOS_RU>`_
   * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
