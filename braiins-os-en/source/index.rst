@@ -57,7 +57,7 @@ Changelog
 20.03
 ---------------------------
 
-See WHATSNEW.MD (Will be published 3/31 on github)
+See `WHATSNEW.MD <https://github.com/braiins/braiins/blob/master/braiins-os/whatsnew.md>`_ on github
 
 ************
 Known Issues
