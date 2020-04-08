@@ -55,16 +55,16 @@ Braiins OS یک سیستم عامل کاملا متن باز برای ماینر
 20.03
 ---------------------------
 
-See WHATSNEW.MD (Will be published 3/31 on github)
+فایل WHATSNEW.MD را مطالعه کنید. (در تاریخ 3/31 در گیت‌هاب منتشر خواهد شد.)
 
-************
-Known Issues
-************
+********************
+مشکلات شناسایی شده
+********************
 
-The following lists issues that are known to be present in released version.
+آنچه در ادامه میبینید لیستی از ایراداتی است که در نسخه منتشر شده وجود دارند.
 
-20.03 (Updated 3/30/2020)
--------------------------
+20.03 (بروز شده در 3/30/2020)
+-------------------------------
 
   * رابط کاربری گرافیکی
 
@@ -73,7 +73,5 @@ The following lists issues that are known to be present in released version.
 
   * پیکربندی
 
-    * SD Card installation will report missing Stratum V2 authentication key in the Miner/Configuration
-      section (Error: missing upstream authority key for securing stratum2+tcp connection in pool").
-      User can configure connection (including the key) in the configuration, or directly in
-      the ``/etc/bosminer.toml`` file.
+    * نصب SD Card عدم وجود کلید احراز هویت  دستگاه Strautum V2 را در تنظیمات ماینر گزارش میدهد. (خطا :  عدم وجود کلید احراز هویت اصلی برای امن سازی strautum2 و اتصال tcp در استخر) کاربر میتواند اتصال ( شامل کلید) را در قسمت تنظیمات یا به طور مستقیم در فایل ``/etc/bosminer.toml`` مشخص کند
+
