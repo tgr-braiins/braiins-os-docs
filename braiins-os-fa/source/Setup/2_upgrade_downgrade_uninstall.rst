@@ -1,5 +1,5 @@
 #####################################
-Upgrade, Downgrade and Uninstallation
+ارتقاء, بازگردانی و حذف نصب
 #####################################
 
 .. contents::
@@ -9,38 +9,28 @@ Upgrade, Downgrade and Uninstallation
 .. _upgrade_bos:
 
 ****************
-Firmware Upgrade
+ارتقاء فریم‌ور
 ****************
 
-The firmware upgrade process uses a standard mechanism for
-installing/upgrading software packages within any OpenWrt based system.
-Follow the steps below to perform the firmware upgrade.
+روند بروز رسانی فریم‌ور از یک‌مکانیسم استاندارد برای نصب / بروز رسانی بسته های نرم افزاری داخل هر سیستمِ بر پایهء OpenWrt استفاده میکند. مراحل زیر را برای بروز رسانی فریم‌ور  دنبال کنید.
 
-Upgrade via web interface
-=========================
+ارتقاء از طریق رابط کاربری وب
+==============================
 
-The firmware periodically checks for availability of a new version and automatically updates the system. In
-case the auto-update feature is disabled, a blue **Upgrade** button appears on
-the right side of the top bar. Proceed to click on the button and
-confirm to start the upgrade.
+فریم‌ور به طور مرتب وجود نسخه جدید را چک و به طور خودکار سیستم را به روز رسانی میکند. در صورتی که گزینه بروز رسانی خودکار غیر فعال باشد، یک دکمه آبی رنگ با عنوان **Upgrade** در سمت راست نوار بالایی نمایان میشود. روی آن کلیک کنید و شروع ارتقا را تایید کنید.
 
-Alternatively, you can update the repository information manually by
-clicking the *Update lists* button in the System > Software menu. In
-case the button is missing, try to refresh the page. To trigger the
-upgrade process, type ``firmware`` into the *Download and install
-package* field and press *OK*.
+به عنوان روش جایگزین، میتوانید اطلاعات مخزن را به صورت دستی با کلیک بر روی دکمه **Update lists** در بخش منوی System > Software بروز رسانی کنید. در صورت عدم وجود دکمه، صفحه را رفرش کنید. برای شروع پروسه ارتقا، کلمه ``firmware`` را داخل پکیج دانلود و نصب تایپ کنید و OK را بزنید.
 
-Upgrade via SSH
-===============
+ارتقاء از طریق SSH
+===================
 
-After connecting to the miner via SSH, the upgrade to the latest firmware can be triggered using the following commands:
+پس از اتصال به ماینر از طریق SSH, ارتقا به آخرین فریم‌ور میتواند با استفاده از دستور زیر آغاز شود:
 
 ::
 
   opkg update && opkg install firmware
 
-Since the firmware installation results in a reboot, the following
-output is expected:
+از آنجاییکه نصب فریم‌ور باعث ریبوت میشود، خروجی زیر انتظار میرود:
 
 ::
 
@@ -53,12 +43,11 @@ output is expected:
 
 .. _upgrade_community_bos_plus:
 
-**********************
-Upgrade to Braiins OS+
-**********************
+**********************************
+ارتقاء به نسخه تجاری Braiins OS+
+**********************************
 
-In order to upgrade from older version or the Community Edition to Braiins OS+, connect to the miner via SSH
-and use the following commands:
+برای ارتقا از نسخه قدیمی یا نسخه آزاد به Braiins OS+، از طریق SSh به ماینر وصل شوید و دستورات زیر را اجرا کنید:
 
 ::
 
@@ -67,11 +56,10 @@ and use the following commands:
 .. _downgrade_bos_plus_community:
 
 **************************************
-Upgrade/Downgrade to Community Edition
+ارتقاء / بازگردانی به نسخه آزاد
 **************************************
 
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, connect to the miner via
-SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+برای ارتقا از نسخه قدیمی Braiins OS یا بازگردانی از Braiins OS+ , ازطریق SSH به ماینر وصل شوید و دستور زیر را استفاده کنید (متغییر ``IP_ADDRESS`` را جایگزین کنید):
 
 ::
 
