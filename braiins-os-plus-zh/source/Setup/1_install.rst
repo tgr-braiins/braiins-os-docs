@@ -1,5 +1,5 @@
 ############
-Installation
+安装
 ############
 
 .. contents::
@@ -7,53 +7,48 @@ Installation
 	:depth: 1
 
 ***************
-Getting Started
+安装前准备
 ***************
 
-This document is a quick-start guide on how to install Braiins OS+ on your mining device. There are two ways to test and use Braiins OS+:
+本文档是您想在矿机上安装Braiins OS+的快速指南。有两种方法能够测试并使用Braiins OS+
 
-  1. **Boot from SD card** with Braiins OS+ image, effectively keeping the stock firmware in the built-in flash memory. In case you encounter
-     any issues, you can simply boot the stock firmware from the internal memory. This is a safe method we suggest to start with.
+  1.**从带有Braiins OS映像文件的SD卡启动**，这样能有效地保留矿机上内置的原厂固件。假如您遇到任何问题，您很轻松就能从矿机内置储存启动原有固件。我们建议您在一开始用这个安全的方法
 
-  2. **Permanently re-flash the stock firmware**, effectively replacing the manufacturer’s firmware completely with Braiins OS+. In this method,
-     the only way to go back to the default stock setup is to restore the manufacturer’s firmware from a backup that you create during install
-     or by flashing a factory firmware.
+  2. **久性地刷新固件**，让Braiins OS完全并有效地替换掉您矿机上的原厂固件。用这个方法安装后，如您想要恢复矿机的原厂固件，只能通过回滚您在安装时创建的原厂固件备份来恢复。
+     
+基于上述原因，我们强烈推荐 **只在支持从SD卡启动的矿机上安装Braiins OS。**.
 
-Due to the aforementioned reasons, it is highly recommended to install Braiins OS+ firmware **only on devices with SD card slots**.
+要想开始使用Braiins OS+和BOSminer+，您会需要：
 
-In order to start mining using Braiins OS+ and BOSminer+ you will need to:
+ * 支持Braiins OS的ASIC矿机
+ * 下载Braiins OS+最新版本
+ * 安装Braiins OS+
+ * 设置Braiins OS+并开始挖矿
 
- * have a supported ASIC miner
- * get the latest version of Braiins OS+
- * install Braiins OS+
- * configure Braiins OS+ and start mining
-
-*Note: Commands used in this manual are for instructional purposes. You might need to adjust file paths and names appropriately.*
+*注：本指南中使用到的命令，是基于说明目的编写。 您可能需要根据实际情况调整命令中的文件路径和名称。*
 
 **************************
-Installation/Upgrade Guide
+安装/升级指南
 **************************
 
-For better navigation among different installation/upgrade paths, use the following guide:
+下方是针对各种安装/升级情景的指南导航
 
- * **Stock -> Braiins OS+ (latest version)** - Follow the guide in the sections :ref:`sd_card_method` or :ref:`remote_ssh_method` below
- * **Braiins OS (older versions) -> Braiins OS+ (latest version)** - Follow this section of the upgrade guide :ref:`upgrade_community_bos_plus`
- * **Braiins OS (older versions) -> Braiins OS Community Edition (latest version)** Follow this section of the upgrade guide :ref:`downgrade_bos_plus_community`
- * **Braiins OS Community Edition (latest version) -> Braiins OS+ (latest version)** Follow this section of the upgrade guide :ref:`upgrade_community_bos_plus`
- * **Braiins OS+ (latest version) -> Braiins OS Community Edition (latest version)** Follow this section of the upgrade guide :ref:`downgrade_bos_plus_community`
- * **Braiins OS+ -> Stock** - Follow the this section of the upgrade guide :ref:`downgrade_bos_stock`
+ * **原厂固件 -> Braiins OS+（最新版）** - 按照 :ref:`SD卡方式` 或 :ref:`远程（SSH）方式` 的步骤进行。 
+ * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** - 按照 :ref:`升级Braiins OS+`的步骤进行。
+ * **Braiins OS社区版（旧版）-> Braiins OS社区版（最新版）** 按照 :ref:`升级/降级到社区版`的步骤进行。
+ * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** 按照 :ref:`升级Braiins OS+`的步骤进行。
+ * **Braiins OS+（最新版）-> Braiins OS社区版（最新版）** 按照 :ref:`升级/降级到社区版`的步骤进行。
+ * **Braiins OS+ -> 原厂固件** - 按照 :ref:`重置Braiins OS初始版本`的步骤进行。
 
 .. _sd_card_method:
 
 **************
-SD card Method
+SD卡方式
 **************
 
- * Download the latest release of transitional firmware image from our `website <https://braiins-os.com/>`_.
-   You can verify the signatures using the public key,
-   which is `available here. <https://slushpool.com/media/download/braiins-os.gpg.pub>`_
- * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_).
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+ * 从我们`官网<https://zh.braiins-os.com/>`_上下载最新发布的SD卡映像。您可以用我们的公钥签名验证映像文件。`点此下载. <https://slushpool.com/media/download/braiins-os.gpg.pub>`_我们的公钥签名。
+ * 将下载的映像烧录到SD卡上（例如使用像`Etcher <https://etcher.io/>`_之类的烧录软件）
+ * 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
 
 	.. |pic1| image:: ./s9-jumpers.png
 	    :width: 45%
@@ -65,27 +60,25 @@ SD card Method
 
 	|pic1|  |pic2|
 
- * Insert the SD card into the device, then start the device.
- * After a moment, you should be able to access the Braiins OS+ interface through the device’s IP address.
+ * 将SD卡插到矿机上，开机。
+ * 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面。
 
-**Using single SD card on multiple device**
+**在多个矿机上使用单个 SD卡e**
 
-The most recently used MAC address is stored on the SD card overlay
-partition to check if the SD has been inserted into the same device. If the
-current MAC address differs from the previous one, then the network and
-system configuration is reset to its default and ``/etc/miner_hwid`` is
-deleted.
+最近一次使用的MAC地址会存储在SD卡的覆盖分区 (Overlay Partition)上，以便检查SD卡是否插入到同一台矿机。
+如果当前的MAC地址与上一次不同，网络和系统配置将被重置为默认，且``/etc/miner_hwid``文件将会被删除。
 
-HW_ID is determined from NAND if it stores Braiins OS firmware. If NAND is corrupted
-or it contains stock firmware, then the file ``/etc/miner_hwid`` is used
-if it exists, otherwise a new HW_ID is generated and stored to
-``/etc/miner_hwid`` to preserve HW_ID until the next boot.
+如果在NAND上存储有Braiins OS固件，HW_ID则由NAND决定
+如果NAND发生损坏，或它储存的是原厂固件，``/etc/miner_hwid``文件将会被使用（如果存在），
+否则就会产生一个新的HW_ID，并直到下一次开机，新的HW_ID都会被保存到``/etc/miner_hwid``里。
 
-Flash Braiins OS+ from SD card to the internal memory (NAND)
+
+将Braiins OS+从SD卡烧录到矿机内置储存（NAND）中
 ============================================================
 
-It is also possible to install Braiins OS+ on the internal memory (NAND) while running the firmware from the SD card.
-In order to permanently flash Braiins OS+ on the NAND, connect to the miner via SSH and use the following command:
+您也可以在SD卡上运行Braiins OS+的同时，将Braiins OS+烧录到矿机内置储存（NAND）中。
+如需将Braiins OS+永久烧录到NAND中，请通过SSH连接矿机并运行以下命令：
+
 
 ::
 
@@ -94,16 +87,16 @@ In order to permanently flash Braiins OS+ on the NAND, connect to the miner via 
 .. _remote_ssh_method:
 
 *******************
-Remote (SSH) Method
+远程（SSH）方式
 *******************
 
-Installation of Braiins OS+ using the so-called *SSH Method* consists of the following steps:
+使用*SSH方式*安装Braiins OS+，请按以下步骤
 
- * *(Custom Firmware)* Flash stock firmware (this step can be skipped if the device is running on stock firmware or on a previous versions of Braiins OS).
- * *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
- * Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
+ * *（自定义）*烧录原厂固件（如果矿机上运行的是原厂固件，或旧版的Braiins OS则这一步可以跳过）。
+ * *（如是在Windows上）*请安装Ubuntu for Windows 10 ，在`微软商店. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_里可以下载。
+ * 在命令行终端中运行以下的命令 (如果需要的，替换占位符 ``IP_ADDRESS`` ) :
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*(请注意，下方命令兼容Ubuntu和Ubuntu for Windows 10。如果您使用的是Linux的其他发行版或者别的操作系统，请您查看相应的文档并按照实际情况更改命令）。*
 
 ::
 
