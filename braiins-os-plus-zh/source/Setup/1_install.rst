@@ -46,8 +46,8 @@
 SD卡方式
 **************
 
- * 从我们`官网<https://zh.braiins-os.com/>` _上下载最新发布的SD卡映像。您可以用我们的公钥签名验证映像文件。`点此下载.  <https://slushpool.com/media/download/braiins-os.gpg.pub>` _我们的公钥签名。
- * 将下载的映像烧录到SD卡上（例如使用像`Etcher <https://etcher.io/>` _之类的烧录软件）
+ * 从我们`官网<https://zh.braiins-os.com/>`_ 上下载最新发布的SD卡映像。您可以用我们的公钥签名验证映像文件。`点此下载.  <https://slushpool.com/media/download/braiins-os.gpg.pub>`_ 我们的公钥签名。
+ * 将下载的映像烧录到SD卡上（例如使用像`Etcher <https://etcher.io/>`_ 之类的烧录软件）
  * 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
 
 	.. |pic1| image:: ./s9-jumpers.png
@@ -93,7 +93,7 @@ SD卡方式
 使用*SSH方式*安装Braiins OS+，请按以下步骤
 
  * *（自定义）*烧录原厂固件（如果矿机上运行的是原厂固件，或旧版的Braiins OS则这一步可以跳过）。
- * *（如是在Windows上）*请安装Ubuntu for Windows 10 ，在`微软商店. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 里可以下载。
+ * *（如是在Windows上）*请安装Ubuntu for Windows 10 ，在`微软商店. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_  里可以下载。
  * 在命令行终端中运行以下的命令 (如果需要的，替换占位符 ``IP_ADDRESS`` ) :
 
 *(请注意，下方命令兼容Ubuntu和Ubuntu for Windows 10。如果您使用的是Linux的其他发行版或者别的操作系统，请您查看相应的文档并按照实际情况更改命令）。*
