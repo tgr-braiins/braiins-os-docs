@@ -58,9 +58,10 @@ Upgrade to Braiins OS+
 .. _downgrade_bos_plus_community:
 
 **************************************
-Upgrade/Downgrade to Community Edition
+升级/降级社区版本
 **************************************
 
+为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令：
 In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, connect to the miner via
 SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
 
@@ -71,43 +72,37 @@ SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accord
 .. _downgrade_bos_stock:
 
 ***********************************
-Reset to initial Braiins OS version
+回滚到之前的Braiins OS版本
 ***********************************
 
-The current firmware package can be downgraded to the version which was initially installed when
-replacing the stock firmware. This can be done using the
+如果您想降级当前固件包到之前您替换矿机原厂固件时的Braiins OS版本，请通使用以下的命令：
 
- -  *IP SET button* - hold it for *10s* until red LED flashes
- -  *SD card* - edit the *uEnv.txt* file so it contains the line **factory_reset=yes**
- -  *miner utility* - call ``miner factory_reset`` from the miner’s
-    command line (while connected via SSH)
- -  *opkg package* - call ``opkg remove firmware`` from the miner’s
-    command line (while connected via SSH)
+ -  *IP set按钮* - ——按下*10秒*，直到红色LED闪烁。
+ -  *SD card* - 编辑 *uEnv.txt* 文件，以包含 **factory_reset=yes** 行
+ -  *矿机*——在矿机的命令行执行 ``miner factory_reset`` 命令（同时要保持通过SSH的连接）
+ -  *opkg包* ——在矿机的命令行执行 ``opkg remove firmware`` 命令（同时要保持通过SSH的连接）
+    
+    ——在矿机的命令行执行 opkg remove firmware命令（同时要保持通过SSH的连接）
 
 ***************************
-Flashing a factory firmware
+刷回原厂固件
 ***************************
 
-Using previously created backup
+用之前的备份刷回
 ===============================
 
-By default, a backup of the original firmware is created during the
-migration to Braiins OS+ and can be restored using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
+默认情况下，在迁移到Braiins OS的过程中会自动创建一份原始固件的备份，并且可以按照以下的命令恢复它：(如果需要的话，替换占位符``BACKUP_ID_DATE`` 和 ``IP_ADDRESS`` ):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-Using factory firmware image
+用原厂固件映像刷回
 =============================
 
-On an Antminer S9, you can alternatively flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
-file.
+在蚂蚁矿机S9上，您也可以用矿机制造商的网站上提供的映像来刷回原厂固件， ``FACTORY_IMAGE`` 会作为 ``tar.gz``（未提取的！）的文件路径或URL。在 `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ 文件内，列出了所有支持的映像以及相应的MD5哈希值。
+
 
 Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
 
