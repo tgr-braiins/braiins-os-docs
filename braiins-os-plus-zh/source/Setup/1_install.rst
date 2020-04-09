@@ -110,10 +110,9 @@ SD卡方式
   python3 upgrade2bos.py IP_ADDRESS
 
 *************************************
-Installing/Upgrading multiple devices
+安装/升级多个设备
 *************************************
+如果您需要在多个设备上进行安装或升级，可以使用我们的配置电子表格，它为不同的用例生成命令。
 
-In case when you need to perform installation or upgrade on multiple devices, you can use
-our configuration spreadsheet that will will generate commands for different use cases.
 
-The spreadsheet is available `here <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+电子表格在 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_可以下载
