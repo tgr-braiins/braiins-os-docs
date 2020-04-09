@@ -34,11 +34,11 @@
 下方是针对各种安装/升级情景的指南导航
 
  * **原厂固件 -> Braiins OS+（最新版）** - 按照 :ref:`sd_card_method or :ref:remote_ssh_method` 的步骤进行。 
- * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** - 按照 :ref:`升级Braiins OS+`的步骤进行。
- * **Braiins OS社区版（旧版）-> Braiins OS社区版（最新版）** 按照 :ref:`升级/降级到社区版`的步骤进行。
- * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** 按照 :ref:`升级Braiins OS+`的步骤进行。
- * **Braiins OS+（最新版）-> Braiins OS社区版（最新版）** 按照 :ref:`升级/降级到社区版`的步骤进行。
- * **Braiins OS+ -> 原厂固件** - 按照 :ref:`重置Braiins OS初始版本`的步骤进行。
+ * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** - 按照 :ref:`upgrade_community_bos_plus`的步骤进行。
+ * **Braiins OS社区版（旧版）-> Braiins OS社区版（最新版）** 按照 :ref:`downgrade_bos_plus_community`的步骤进行。
+ * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** 按照 :ref:`upgrade_community_bos_plus`的步骤进行。
+ * **Braiins OS+（最新版）-> Braiins OS社区版（最新版）** 按照 :ref:`downgrade_bos_plus_community`的步骤进行。
+ * **Braiins OS+ -> 原厂固件** - 按照 :ref:`downgrade_bos_stock`的步骤进行。
 
 .. _sd_card_method:
 
