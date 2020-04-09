@@ -11,43 +11,45 @@
 
 ---------------
 
-#####
-Intro
-#####
+############
+Introducción
+############
 
-Braiins OS+ is an operating system for ASIC miners. It is based on the `Braiins OS <https://braiins-os.com/community-edition>`_ product and provides additional proprietary algorithms for autotuning of miners. When a user provides maximum allowed power consumption in Watts, the system will automatically optimize the mining process to maximize hash rate. This process works across a wide spectrum of inputs, allowing you to optimize for the best possible efficiency or maximum hash rate based on economical considerations. Internal testing shows that for the Antminer S9, it’s possible to achieve efficiency of 70J/THs or even better for low Watts setting. For high power consumption, hash rate can increase by 20%+ (comparing to Antminer S9, 13.5 TH/s stock setting with ~ 94J/TH).
+Braiins OS+ es un sistema operativo para mineros ASIC. Está basado en el producto `Braiins OS <https://braiins-os.com/community-edition>`_ y provee algoritmos adicionales propietarios para el autoajuste de
+mineros. Cuando un usuario provee el consumo máximo de energía permitido en Vatios, el sistema optimizará automáticamente el proceso de minado para maximisar la tasa de hash. Este proceso funciona a través de un amplio espectro de entradas, permitiendole optimizar la mejor eficiencia posible o la tasa de hash máxima basada en consideraciones económicas. Pruebas internas muestran que para el Antminer S9, es posible alcanzar una eficiencia de 70J/THs o incluso mejor para el ajuste de pocos Vatios. Para consumo alto de energía, la tasa de hash puede mejorar 20% (comparado al Antminer S9, de serie a 13.5 TH/s ~ 94J/TH).
 
-Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer S17 support is planned for the near future.
+Los dispositivos actualmente soportados son Antminer S9, S9i y S9j de Bitmain. Soporte para Antminer S17 está planificado en el futuro próximo.
 
-********
-Features
-********
+***************
+Características
+***************
 
- * State-of-the-art autotuning optimization to maximize hash rate or efficiency
- * Open-source operating system
- * Stratum V2 implementation with improved data efficiency and hashrate hijacking prevention
- * CGminer replacement (BOSminer) written from scratch in Rust language
- * Quick startup (5-7 seconds)
- * No random crashes due to undefined behavior
- * Bulk installation
- * Automatic updates with the standard opkg system
- * Fully customizable fan control (enables immersion cooling)
- * Advanced monitoring to prevent overheating and other issues
+ * Lo último en optimización de autoajuste para maximizar la tasa de hash o la eficiencia
+ * Sistema operativo de código abierto
+ * Implementación Stratum V2 con eficiencia de datos mejorada y prevención al secuestro de tasa hash
+ * Reemplazo de CGminer (BOSminer) escrito desde cero en lenguaje Rust
+ * Inicio rápido (5-7 segundos)
+ * Sin bloqueos aleatorios por comportamiento indefinido
+ * Instalación en masa
+ * Actualizaciones automáticas con el sistema de paquetes estándar opkg
+ * Control de ventilador completamente personalizable (permite el enfriamiento por inmersión)
+ * Monitoreo avanzado para prevenir el sobrecalentamiento y otros problemas
 
-*******************
-Support and Contact
-*******************
+******************
+Contacto y Soporte
+******************
 
-Have questions?
-Our dev and support teams are always available to help.
+¿Tiene preguntas?
+Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 
-Join our Telegram group:
+Únase a nuestro grupo en Telegram:
 
   * `EN group <https://t.me/BraiinsOS>`_
+  * `ES group <https://t.me/BraiinsOS_ES>`_
   * `RU group <https://t.me/BraiinsOS_RU>`_
   * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
-  You can also `send VIP request <https://slushpool.kayako.com/en-us/conversation/new/11>`_ to our support team.
+  También puede `enviar petición VIP <https://slushpool.kayako.com/en-us/conversation/new/11>`_ a nuestro equipo de soporte.
 
 
 *********
@@ -57,34 +59,36 @@ Changelog
 20.03
 ---------------------------
 
-  * All mining hardware types
+  * Todos los tipos de hardware de minado
 
-    * [feature] configuration file allows specifying a power limit of the PSU that the autotuning algorithm
-      will take into account in order to maximize the TH/W produced by the mining device
+    * [característica] el archivo de configuración permite especificar un límite de energía para la PSU en
+      el algoritmo de autoajuste que tomará en cuenta para maximizar los TH/W producidos por el dispositivo
+      de minado.
 
   * Antminer S9
 
-    * [feature] Autotuning based on a user-specified power limit
+    * [característica] Autoajuste basado en limite de energía especificado por el usuario
 
-************
-Known Issues
-************
+*******************
+Problemas Conocidos
+*******************
 
-The following lists issues that are known to be present in released version.
+A continuación se listan problemas que se sabe existen en la versión liberada.
 
-20.03 (Updated 3/30/2020)
--------------------------
+20.03 (Actualizado 3/30/2020)
+-----------------------------
 
   * GUI
 
-   * Reference line in hashrate chart has incorrect value for average nominal hashrate. Issue
-     only present when less than 3 hash chains are operational.
-   * Rejection ratio is multiplied by 100. As an example, when rejection rate is 0.1%, then
-     10% will be shown.
+   * La linea de referencia en el gráfico tasa de hash tiene un valor incorrecto para el
+     promedio de tasa hash nominal. El problema solo aparece cuando hay menos de 3 cadenas
+     hash funcionando.
+   * La tasa de rechazo está multiplicada por 100. Por ejemplo cuando la tasa de rechazo es
+     0.1%, muestra entonces 10%.
 
-  * Configuration
+  * Configuración
 
-    * SD Card installation will report missing Stratum V2 authentication key in the Miner/Configuration
-      section (Error: missing upstream authority key for securing stratum2+tcp connection in pool").
-      User can configure connection (including the key) in the configuration, or directly in
-      the ``/etc/bosminer.toml`` file.
+    * La instalación por tarjeta SD reportará una llave de autenticación Stratum V2 faltante en la
+      sección Miner/Configuration (Error: missing upstream authority key for securing stratum2+tcp
+      connection in pool"). El usuario puede configurar la conexión (incluyendo la llave) en la
+      configuración, o directamente en el archivo ``/etc/bosminer.toml``.
