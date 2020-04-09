@@ -1,5 +1,5 @@
 #####################################
-Upgrade, Downgrade and Uninstallation
+升级，降级和卸载
 #####################################
 
 .. contents::
@@ -9,7 +9,7 @@ Upgrade, Downgrade and Uninstallation
 .. _upgrade_bos:
 
 ****************
-Firmware Upgrade
+固件升级
 ****************
 
 The firmware upgrade process uses a standard mechanism for
