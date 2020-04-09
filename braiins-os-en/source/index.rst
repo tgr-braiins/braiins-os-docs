@@ -48,6 +48,8 @@ Join our Telegram group:
 
   * `EN group <https://t.me/BraiinsOS>`_
   * `RU group <https://t.me/BraiinsOS_RU>`_
+  * `ES group <https://t.me/BraiinsOS_ES>`_
+  * `FA group <https://t.me/BraiinsOS_SlushPool_FA>`_
   * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
 *********
