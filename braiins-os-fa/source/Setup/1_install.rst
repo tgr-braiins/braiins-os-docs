@@ -7,13 +7,12 @@ Installation
 	:depth: 1
 
 ***************
-Getting Started
+شروع به کار
 ***************
 
-This document is a quick-start guide on how to install Braiins OS on your mining device. There are two ways to test and use Braiins OS:
+این مستندات یک راهنما برای شروع سریع نصب Braiins OS بر روی دستگاه ماینر شماست. برای تست و استفاده Braiins OS دو راه وجود دارد:
 
-  1. **Boot from SD card** with Braiins OS image, effectively keeping the stock firmware in the built-in flash memory. In case you encounter
-     any issues, you can simply boot the stock firmware from the internal memory. This is a safe method we suggest to start with.
+  1. **روش بوت از حافظه SD کارت** با ایمج Braiins OS, در این روش فیرم ویر اصلی موجود در دستگاه روی حافظه داخلی دستگاه باقی میماند. در صورت مواجهه با هر مشکلی، میتوانید به راحتی فیرم ویر موجود در دستگاه را از حافظه داخلی بوت کنید. این یک روش امن است که برای شروع پیشنهاد میشود.
 
   2. **Permanently re-flash the stock firmware**, effectively replacing the manufacturer’s firmware completely with Braiins OS. In this method,
      the only way to go back to the default stock setup is to restore the manufacturer’s firmware from a backup that you create during install
