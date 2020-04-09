@@ -115,4 +115,4 @@ SD卡方式
 如果您需要在多个设备上进行安装或升级，可以使用我们的配置电子表格，它为不同的用例生成命令。
 
 
-电子表格在 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>` _可以下载
+电子表格在 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_ 可以下载
