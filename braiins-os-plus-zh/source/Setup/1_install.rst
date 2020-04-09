@@ -66,11 +66,11 @@ SD卡方式
 **在多个矿机上使用单个 SD卡e**
 
 最近一次使用的MAC地址会存储在SD卡的覆盖分区 (Overlay Partition)上，以便检查SD卡是否插入到同一台矿机。
-如果当前的MAC地址与上一次不同，网络和系统配置将被重置为默认，且``/etc/miner_hwid``文件将会被删除。
+如果当前的MAC地址与上一次不同，网络和系统配置将被重置为默认，且``/etc/miner_hwid`` 文件将会被删除。
 
 如果在NAND上存储有Braiins OS固件，HW_ID则由NAND决定
-如果NAND发生损坏，或它储存的是原厂固件，``/etc/miner_hwid``文件将会被使用（如果存在），
-否则就会产生一个新的HW_ID，并直到下一次开机，新的HW_ID都会被保存到``/etc/miner_hwid``里。
+如果NAND发生损坏，或它储存的是原厂固件，``/etc/miner_hwid`` 文件将会被使用（如果存在），
+否则就会产生一个新的HW_ID，并直到下一次开机，新的HW_ID都会被保存到 ``/etc/miner_hwid`` 里。
 
 
 将Braiins OS+从SD卡烧录到矿机内置储存（NAND）中
