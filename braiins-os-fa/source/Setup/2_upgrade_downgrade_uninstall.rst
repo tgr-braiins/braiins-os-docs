@@ -71,15 +71,12 @@
 Reset to initial Braiins OS version
 ***********************************
 
-The current firmware package can be downgraded to the version which was initially installed when
-replacing the stock firmware. This can be done using the
+پکیج فریم‌ور کنونی میتواند به نسخه ای که در ابتدا هنگام جایگزینی فریم‌ور اصلی کارخانه نصب شده بود، بازگردانده شود. این کار میتواند به این صورت انجام شود
 
- -  *IP SET button* - hold it for *10s* until red LED flashes
- -  *SD card* - edit the *uEnv.txt* file so it contains the line **factory_reset=yes**
- -  *miner utility* - call ``miner factory_reset`` from the miner’s
-    command line (while connected via SSH)
- -  *opkg package* - call ``opkg remove firmware`` from the miner’s
-    command line (while connected via SSH)
+ -  *IP SET دکمه* - نگه‌داشتن دکمه برای *۱۰ ثانیه* تا زمانیکه LED قرمز چشمک بزند.
+ -  *SD card* - فایل *uEnv.txt* را ویرایش کنید و کد مقابل را به **factory_reset=yes** تغییر دهید.
+ -  *miner utility* - دستور ``miner factory_reset`` را در SSH اجرا کنید.
+ -  *opkg package* - دستور ``opkg remove firmware`` را در SSH اجرا کنید.
 
 ***************************
 Flashing a factory firmware
