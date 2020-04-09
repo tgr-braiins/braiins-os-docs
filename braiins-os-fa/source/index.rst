@@ -43,10 +43,10 @@ Braiins OS یک سیستم عامل کاملا متن باز برای ماینر
 
 به گروه تلگرام ما بپیوندید:
 
-  * `EN group <https://t.me/BraiinsOS>`_
-  * `FA group <https://t.me/BraiinsOS_SlushPool_FA>`_
-  * `RU group <https://t.me/BraiinsOS_RU>`_
-  * `ZH group <https://t.me/BraiinsOS_ZH>`_
+  * `گروه انگلیسی <https://t.me/BraiinsOS>`_
+  * `گروه فارسی <https://t.me/BraiinsOS_SlushPool_FA>`_
+  * `گروه روسی <https://t.me/BraiinsOS_RU>`_
+  * `گروه چینی <https://t.me/BraiinsOS_ZH>`_
 
 ************
 تغییرات نسخه
