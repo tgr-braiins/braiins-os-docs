@@ -93,7 +93,7 @@ SD卡方式
 使用*SSH方式*安装Braiins OS+，请按以下步骤
 
  * *（自定义）*烧录原厂固件（如果矿机上运行的是原厂固件，或旧版的Braiins OS则这一步可以跳过）。
- * *（如是在Windows上）*请安装Ubuntu for Windows 10 ，在` 微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_  里可以下载。
+ * *（如是在Windows上）*请安装Ubuntu for Windows 10 ，在 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_  里可以下载。
  * 在命令行终端中运行以下的命令 (如果需要的，替换占位符 ``IP_ADDRESS`` ) :
 
 *(请注意，下方命令兼容Ubuntu和Ubuntu for Windows 10。如果您使用的是Linux的其他发行版或者别的操作系统，请您查看相应的文档并按照实际情况更改命令）。*
