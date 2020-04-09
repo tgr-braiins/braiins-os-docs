@@ -23,17 +23,16 @@
 此外，您也可以手动在目录“系统>软件”中点击升级列表(*Update lists*)按钮来更新版本库信息。如该按钮不存在，请尝试刷新页面。要启动升级过程，请将 ``firmware`` 命令输入到下载和安装包(Download and install package)项内，然后按OK。
 
 
-Upgrade via SSH
+通过SSH升级
 ===============
 
-After connecting to the miner via SSH, the upgrade to the latest firmware can be triggered using the following commands:
+将矿机通过SSH连接之后，最新固件升级可以使用以下的命令启动：
 
 ::
 
   opkg update && opkg install firmware
 
-Since the firmware installation results in a reboot, the following
-output is expected:
+因为安装固件导致重启，会出现以下的输出:
 
 ::
 
@@ -50,8 +49,7 @@ output is expected:
 Upgrade to Braiins OS+
 **********************
 
-In order to upgrade from older version or the Community Edition to Braiins OS+, connect to the miner via SSH
-and use the following commands:
+为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令：
 
 ::
 
