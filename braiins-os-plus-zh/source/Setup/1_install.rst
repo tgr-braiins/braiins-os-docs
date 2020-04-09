@@ -46,9 +46,9 @@
 SD卡方式
 **************
 
- * 从我们 `官网 <https://zh.braiins-os.com/>`_ 上下载最新发布的SD卡映像。您可以用我们的公钥签名验证映像文件。`点此下载  <https://slushpool.com/media/download/braiins-os.gpg.pub>`_ 我们的公钥签名。
- * 将下载的映像烧录到SD卡上（例如使用像 `Etcher <https://etcher.io/>`_ 之类的烧录软件）
- * 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
+* 从我们 `官网 <https://zh.braiins-os.com/>`_ 上下载最新发布的SD卡映像。您可以用我们的公钥签名验证映像文件。`点此下载  <https://slushpool.com/media/download/braiins-os.gpg.pub>`_ 我们的公钥签名。
+* 将下载的映像烧录到SD卡上（例如使用像 `Etcher <https://etcher.io/>`_ 之类的烧录软件）
+* 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
 
 	.. |pic1| image:: ./s9-jumpers.png
 	    :width: 45%
@@ -60,8 +60,8 @@ SD卡方式
 
 	|pic1|  |pic2|
 
- * 将SD卡插到矿机上，开机。
- * 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面。
+* 将SD卡插到矿机上，开机。
+* 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面。
 
 **在多个矿机上使用单个 SD卡e**
 
