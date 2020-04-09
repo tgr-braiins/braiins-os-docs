@@ -33,11 +33,11 @@
 
 下方是针对各种安装/升级情景的指南导航
 
-* **原厂固件 -> Braiins OS+（最新版）** - 按照 :ref:`sd_card_method or :ref:remote_ssh_method` 的步骤进行。 
+* **原厂固件 -> Braiins OS+（最新版）** - 按照 :ref:`sd_card_method` or :ref:`remote_ssh_method` 的步骤进行。 
 * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** - 按照 :ref:`upgrade_community_bos_plus` 的步骤进行。
 * **Braiins OS社区版（旧版）-> Braiins OS社区版（最新版）** 按照 :ref:`downgrade_bos_plus_community` 的步骤进行。
 * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** 按照 :ref:`upgrade_community_bos_plus` 的步骤进行。
-* **Braiins OS+（最新版）-> Braiins OS社区版（最新版）** 按照 :ref:`downgrade_bos_plus_community 的步骤进行。
+* **Braiins OS+（最新版）-> Braiins OS社区版（最新版）** 按照 :ref:`downgrade_bos_plus_community` 的步骤进行。
 * **Braiins OS+ -> 原厂固件** - 按照 :ref:`downgrade_bos_stock` 的步骤进行。
 
 .. _sd_card_method:
@@ -66,7 +66,7 @@ SD卡方式
 **在多个矿机上使用单个 SD卡e**
 
 最近一次使用的MAC地址会存储在SD卡的覆盖分区 (Overlay Partition)上，以便检查SD卡是否插入到同一台矿机。
-如果当前的MAC地址与上一次不同，网络和系统配置将被重置为默认，且``/etc/miner_hwid`` 文件将会被删除。
+如果当前的MAC地址与上一次不同，网络和系统配置将被重置为默认，且 ``/etc/miner_hwid`` 文件将会被删除。
 
 如果在NAND上存储有Braiins OS固件，HW_ID则由NAND决定
 如果NAND发生损坏，或它储存的是原厂固件，``/etc/miner_hwid`` 文件将会被使用（如果存在），
