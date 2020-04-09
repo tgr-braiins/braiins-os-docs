@@ -33,7 +33,7 @@
 
 下方是针对各种安装/升级情景的指南导航
 
- * **原厂固件 -> Braiins OS+（最新版）** - 按照 :ref:`SD卡方式` 或 :ref:`远程（SSH）方式` 的步骤进行。 
+ * **原厂固件 -> Braiins OS+（最新版）** - 按照 :ref:sd_card_method or :ref:remote_ssh_method` 的步骤进行。 
  * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** - 按照 :ref:`升级Braiins OS+`的步骤进行。
  * **Braiins OS社区版（旧版）-> Braiins OS社区版（最新版）** 按照 :ref:`升级/降级到社区版`的步骤进行。
  * **Braiins OS社区版（旧版）-> Braiins OS+（最新版）** 按照 :ref:`升级Braiins OS+`的步骤进行。
