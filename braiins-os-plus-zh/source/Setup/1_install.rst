@@ -58,7 +58,7 @@ SD卡方式
 	    :width: 45%
 	    :alt: S9 跳线版
 
-|pic1|  |pic2|
+   |pic1|  |pic2|
 
 * 将SD卡插到矿机上，开机。
 * 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面。
