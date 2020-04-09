@@ -52,11 +52,11 @@ SD卡方式
 
 	.. |pic1| image:: ./s9-jumpers.png
 	    :width: 45%
-	    :alt: S9 Jumpers
+	    :alt: S9 跳线
 
 	.. |pic2| image:: ./s9-jumpers-board.png
 	    :width: 45%
-	    :alt: S9 Jumpers Board
+	    :alt: S9 跳线版
 
 	|pic1|  |pic2|
 
