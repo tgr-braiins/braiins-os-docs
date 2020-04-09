@@ -11,42 +11,44 @@
 
 ---------------
 
-#####
-Intro
-#####
+############
+Introducción
+############
 
-Braiins OS is a fully open-source operating system for ASIC miners. It was the first firmware to implement
-overt AsicBoost in 2018, and it now features an implementation of the new mining protocol, Stratum V2.
-Additionally, Braiins OS works in tandem with our new software component, BOSminer, which we've written
-from scratch in Rust language as a replacement for the outdated CGminer.
+Braiins OS es un sistema operativo completamente código abierto para mineros ASIC. Fue el primer firmware
+en implementar overt AsicBoost en 2018, y ahora caracteriza la implementación de un nuevo protocolo de
+minado, Stratum V2. Adicionalmente, BraiinsOS trabaja en conjunto con nuestro nuevo componente de
+software, BOSminer, el cual hemos escrito desde cero en lenguaje Rust como reemplazo del desactualizado
+CGminer.
 
-Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer S17 support is planned
-for the near future.
+Los dispositivos actualmente soportados son Antminer S9, S9i y S9j de Bitmain. Soporte para Antminer S17
+está planificado en el futuro próximo.
 
-********
-Features
-********
+***************
+Características
+***************
 
- * Open-source operating system
- * Stratum V2 implementation with improved data efficiency and hashrate hijacking prevention
- * CGminer replacement (BOSminer) written from scratch in Rust language
- * Quick startup (5-7 seconds)
- * No random crashes due to undefined behavior
- * Bulk installation
- * Automatic updates with the standard opkg system
- * Fully customizable fan control (enables immersion cooling)
- * Advanced monitoring to prevent overheating and other issues
+ * Sistema operativo de código abierto
+ * Implementación Stratum V2 con eficiencia de datos mejorada y prevención al secuestro de tasa hash
+ * Reemplazo de CGminer (BOSminer) escrito desde cero en lenguaje Rust
+ * Inicio rápido (5-7 segundos)
+ * Sin bloqueos aleatorios por comportamiento indefinido
+ * Instalación en masa
+ * Actualizaciones automáticas con el sistema de paquetes estándar opkg
+ * Control de ventilador completamente personalizable (permite el enfriamiento por inmersión)
+ * Monitoreo avanzado para prevenir el sobrecalentamiento y otros problemas
 
-*******************
-Support and Contact
-*******************
+******************
+Contacto y Soporte
+******************
 
-Have questions?
-Our dev and support teams are always available to help.
+¿Tiene preguntas?
+Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 
-Join our Telegram group:
+Únase a nuestro grupo en Telegram:
 
   * `EN group <https://t.me/BraiinsOS>`_
+  * `ES group <https://t.me/BraiinsOS_ES>`_
   * `RU group <https://t.me/BraiinsOS_RU>`_
   * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
@@ -57,27 +59,28 @@ Changelog
 20.03
 ---------------------------
 
-See WHATSNEW.MD (Will be published 3/31 on github)
+Ver WHATSNEW.MD (Será publicado el 3/31 en github)
 
-************
-Known Issues
-************
+*******************
+Problemas Conocidos
+*******************
 
-The following lists issues that are known to be present in released version.
+A continuación se listan problemas que se sabe existen en la versión liberada.
 
-20.03 (Updated 3/30/2020)
--------------------------
+20.03 (Actualizado 3/30/2020)
+-----------------------------
 
   * GUI
 
-   * Reference line in hashrate chart has incorrect value for average nominal hashrate. Issue
-     only present when less than 3 hash chains are operational.
-   * Rejection ratio is multiplied by 100. As an example, when rejection rate is 0.1%, then
-     10% will be shown.
+   * La linea de referencia en el gráfico tasa de hash tiene un valor incorrecto para el
+     promedio de tasa hash nominal. El problema solo aparece cuando hay menos de 3 cadenas
+     hash funcionando.
+   * La tasa de rechazo está multiplicada por 100. Por ejemplo cuando la tasa de rechazo es
+     0.1%, muestra entonces 10%.
 
-  * Configuration
+  * Configuración
 
-    * SD Card installation will report missing Stratum V2 authentication key in the Miner/Configuration
-      section (Error: missing upstream authority key for securing stratum2+tcp connection in pool").
-      User can configure connection (including the key) in the configuration, or directly in
-      the ``/etc/bosminer.toml`` file.
+    * La instalación por tarjeta SD reportará una llave de autenticación Stratum V2 faltante en la
+      sección Miner/Configuration (Error: missing upstream authority key for securing stratum2+tcp
+      connection in pool"). El usuario puede configurar la conexión (incluyendo la llave) en la
+      configuración, o directamente en el archivo ``/etc/bosminer.toml``.
