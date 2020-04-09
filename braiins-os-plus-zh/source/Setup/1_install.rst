@@ -50,15 +50,15 @@ SD卡方式
 * 将下载的映像烧录到SD卡上（例如使用像 `Etcher <https://etcher.io/>`_ 之类的烧录软件）
 * 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
 
-	.. |pic1| image:: ./s9-jumpers.png
+.. |pic1| image:: ./s9-jumpers.png
 	    :width: 45%
 	    :alt: S9 跳线
 
-	.. |pic2| image:: ./s9-jumpers-board.png
+.. |pic2| image:: ./s9-jumpers-board.png
 	    :width: 45%
 	    :alt: S9 跳线版
 
-	|pic1|  |pic2|
+|pic1|  |pic2|
 
 * 将SD卡插到矿机上，开机。
 * 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面。
