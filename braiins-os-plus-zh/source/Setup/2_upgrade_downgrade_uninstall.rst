@@ -12,11 +12,10 @@
 固件升级
 ****************
 
-The firmware upgrade process uses a standard mechanism for
-installing/upgrading software packages within any OpenWrt based system.
-Follow the steps below to perform the firmware upgrade.
+固件的升级，是在任何基于OpenWrt的系统内，使用标准机制来安装/升级软件包的过程。
+请按以下的步骤来进行固件升级。
 
-Upgrade via web interface
+通过网络界面升级
 =========================
 
 The firmware periodically checks for availability of a new version and automatically updates the system. In
