@@ -1,57 +1,60 @@
 #############
-Configuration
+Configuración
 #############
 
 .. contents::
   :local:
   :depth: 2
 
-*****************
-Install Arguments
-*****************
+*************************
+Argumentos de Instalación
+*************************
 
-The installation script uses two types of arguments:
+El script de instalación usa dos tipos de argumentos:
 
-   * positional arguments - required for the installation to be completed;
-   * optional arguments - optional (i.e. not required) for the installation to be completed.
+   * argumentos posicionales - requerido para completar la instalación;
+   * argumentos opcionales - opcional (ej: no requerido) para completar la instalación.
 
-The syntax for the installation script is the following:
+La sintaxis del script de instalación es la siguiente:
 
   ::
 
-    usage: upgrade2bos.py [-h] [--no-backup] [--no-nand-backup]
+    uso: upgrade2bos.py [-h] [--no-backup] [--no-nand-backup]
                       [--no-keep-network] [--keep-hostname] [--no-wait]
                       hostname
 
-**Positional arguments:**
+**Argumentos posicionales:**
 
 .. code-block:: none
 
-    hostname [hostname ...] Hostname or an IP address of the selected miner
+    hostname [hostname ...] Nombre host o dirección IP del minero seleccionado
 
-**Optional arguments:**
+**Argumentos opcionales:**
 
 .. code-block:: none
 
-  -h, --help            show this help message and exit
-  --no-backup           skip miner backup before upgrade
-  --no-nand-backup      skip full NAND backup (config is still being backed
-                        up)
-  --no-keep-network     do not keep miner network configuration (use DHCP)
-  --keep-hostname       keep miner hostname
-  --no-wait             do not wait until system is fully upgraded
+  -h, --help            muestra este mensaje de ayuda y sale
+  --no-backup           salta hacer respaldo al minero antes de actualizar
+  --no-nand-backup      salta respaldo completo NAND (la configuración
+                        sigue siendo respaldada)
+  --no-keep-network     no conservar la configuración de red del minero
+                        (usa DHCP)
+  --keep-hostname       mantener nombre host del minero
+  --no-wait             no esperar hasta que el sistema esté completamente
+                        actualizado
 
 
-*************
-Pool Settings
-*************
+****************
+Ajustes del Pool
+****************
 
-Users can specify multiple pools. All the pools in one group use the fail-over multi-pool strategy, which means
-that BOSminer will automatically switch to the second pool if the first pool dies.
+Los usuarios pueden especificar múltiples pool. Todos los pool en un grupo usan la estrategia multi-pool con
+respaldo, lo que significa que BOSminer cambiará automáticamente al segundo pool si el primer pool muere.
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+La configuración está disponible a través de la web GUI (*Miner -> Configuration*) o en el archivo de configuración
+``/etc/bosminer.toml``.
 
-The syntax is the following:
+La sintaxis es la siguiente:
 
   ::
 
@@ -65,56 +68,56 @@ The syntax is the following:
      user = 'username.workername'
      password = 'secret'
 
-  * *name* - Name of the pool group (explained in the section *Pool Groups* below)
-  * *quota* - User set quota for the group (explained in the section *Pool Groups* below)
-  * *enabled* - Initial state of the pool after BOSminer initialization (default=true)
-  * *url* - Mandatory argument for server URL specified in the format
-    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. You don't have to
-    specify an explicit port for *Stratum V2* on Slush Pool. The reason is
-    that the protocol is still in development and we alternate between
-    two default ports (**3336** and **3337**) across protocol
-    upgrades. Miners that don't upgrade would still be able to use the
-    previous version of the protocol. Miners that do upgrade won't
-    have to worry about upgrading their mining URL with a new port.
-    There is a *new* required element of the URL in the path and that
-    is the public key advertised by the pool that the mining software
-    uses to verify the authenticity of the mining endpoint that it
-    connects to. This prevents man-in-the-middle-attacks that attempt
-    to steal hashrate. Any such attempt results in failed verification
-    and the software refuses to use the given pool entry.
-  * *user* - Mandatory argument for username specified in format ``USERNAME.WORKERNAME``
-  * *password* - Optional password settings
+  * *name* - Nombre del grupo de pool (explicado en la sección *Grupos de Pool* abajo)
+  * *quota* - Cuota fijada por el usuario para el grupo (explicado en la sección *Grupos de Pool* abajo)
+  * *enabled* - Estado inicial del pool luego de la inicializar BOSminer (por defecto=true (verdadero))
+  * *url* - Argumento obligatorio para el URL del servidor especificado en
+    el formato ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. No se necesita
+    especificar un puerto explicito para *Stratum V2* en Slush Pool. La
+    razón es que el protocolo está todavía en desarrollo y nosotros
+    alternamos entre dos puertos por defecto (**3336** y **3337**) a
+    través de actualizaciones al protocolo. Los mineros que no actualicen
+    podrán seguir usando la versión previa del protocolo. Los mineros que
+    actualicen no tendrán que preocuparse en actualizar su URL de minado
+    con un puerto nuevo. Hay un *nuevo* elemento requerido en la ruta del
+    URL que es la llave pública anunciada por el pool que el software de
+    minado usa para verificar la autenticidad del punto final de minado al
+    cual se conecta. Esto previene ataques de intermediarios que intenten
+    robar tasa de hash. Cualquier intento de ello resultará en
+    verificación fallida y el software rechazará usar el pool dado.
+  * *user* - Argumento obligatorio para el nombre de usuario especificado en el formato ``USERNAME.WORKERNAME``
+  * *password* - Ajustes opcionales en password
 
-Pool Groups
-===========
+Grupos de Pool
+==============
 
-  Users can create multiple different pool groups. All pools within one group use the fail-over
-  multi-pool strategy described above. When multiple pool groups are created, the work is
-  distributed to each group with the load-balance strategy, either on a Quota basis or
-  with a Fixed Share Ratio.
+  Los usuarios pueden crear distintos grupos de pool múltiples. Todos los pool dentro de un
+  grupo usarán la estrategia de respaldo multi-pool descrita arriba. Cuando se crean grupos de
+  pool múltiples, el trabajo es distribuido para cada grupo con la estrategia de balanceo de
+  carga, bien sea a base de Cuotas o por una Tasa Compartida Fija.
 
-  Example:
+  Ejemplo:
 
-  Group 1 has two pools specified and is assigned a Quota of "1". Group 2 has just one pool specified
-  and is assigned a Quota of "2".
+  Grupo 1 tiene dos pool especificados y una Cuota asignada de "1". Grupo 2 tiene solo un pool
+  especificado y una Cuota asignada de "2".
 
-  - The work is assigned to the groups with a 1:2 ratio - Group 2 will get twice the amount of work assigned as Group 1.
-  - If the first pool in Group 1 dies, BOSminer will switch to the second pool in Group 1.
+  - El trabajo es asignado a los grupos con una tasa 1:2 - Grupo 2 recibirá el doble de cantidad de trabajo asignado que grupo 1.
+  - Si el primer pool en Grupo 1 muere, BOSminer cambiará al segundo pool en Grupo 1.
 
 
-  It's possible to use Fixed Share Ratio instead of Quota, which will split the work by a specified
-  percentage. A Quota of 1:1 is equivalent to a Fixed Share Ratio of 0.5 (50%) - both of those
-  settings will split the work in half and send it to the two groups.
+  Es posible usar una Tasa Compartida Fija en lugar de una Cuota, lo que dividiría el trabajo en
+  un porcentaje especificado. Una Cuota de 1:1 es equivalente a una Tasa Compartida Fija de 0.5
+  (50%) - ambos ajustes dividirán el trabajo por la mitad y lo enviarán a los dos grupos.
 
-  Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration
-  file ``/etc/bosminer.toml``.
+  La configuración está disponible a través de la web GUI (*Miner -> Configuration*) o en el
+  archivo de configuración ``/etc/bosminer.toml``.
 
-  Example of two groups and multiple pools:
+  Ejemplo de dos grupos y pools multiples:
 
   ::
 
      [[group]]
-     name = 'MyGroup1'
+     name = 'MiGrupo1'
      quota = 1
 
      [[group.pool]]
@@ -128,31 +131,31 @@ Pool Groups
      user = 'userA.worker'
 
      [[group]]
-     name = 'MyGroup2'
+     name = 'MiGrupo2'
      quota = 2
 
      [[group.pool]]
      url = 'stratum+tcp://stratum.slushpool.com:3333'
      user = 'userB.worker'
 
-With this setup, the work will be split between the two groups in ratio 1:2. By default, the miner
-will be mining on the first pool from the group "MyGroup1" and on the one pool defined in the group
-"MyGroup2". If the first pool in "MyGroup1" dies, the miner will be mining on the second pool from
-the group "MyGroup1". Since a second pool url isn't specified for "MyGroup2", nothing will be done
-if the pool in "MyGroup2" fails.
+Con esta disposición, el trabajo será dividido entre los dos grupos, a una tasa 1:2. Por defecto,
+el minero estará minando en el primer pool del grupo "MiGrupo1" y en un pool definido en el grupo
+"MiGrupo2". Si el primer pool en "MiGrupo1" muere, el minero estará minando en el segundo pool
+del grupo "MiGrupo1". Ya que un segundo pool url no está especificado para "MiGrupo2", nada se
+hará si el pool en "MiGrupo2" falla.
 
 *******************
-Hash Chain Settings
+Ajustes Cadena Hash
 *******************
 
-Optional configuration for overriding the default settings for all hash chains. This allows the
-users to control the frequency and voltage of each hash chain and allows them to turn AsicBoost o
-n and off. While autotuning is enabled, these settings are ignored. The global hash chain settings
-can also be overridden by per-chain settings.
+Configuración opcional para anular los ajustes predeterminados de todas las cadenas hash. Esto
+permite a los usuarios controlar la frecuencia y voltaje de cada cadena hash y les permite activar
+o desactivar AsicBoost. Cuando el autoajuste está activado, estos ajustes son ignorados. Los
+ajustes de cadena hash globales pueden también ser anulados en ajustes por-cadena.
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+La configuración esta disponible también a través de la web GUI (*Miner -> Configuration*) o en el archivo de configuración ``/etc/bosminer.toml``.
 
-The syntax is the following:
+La sintaxis es la siguiente:
 
   ::
 
@@ -161,11 +164,11 @@ The syntax is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *asic_boost* - Enable or disable AsicBoost support (default=true)
-  * *frequency* - Set default chip frequency in MHz for all hash chains (default=650.0)
-  * *voltage* - Set default voltage in V for all hash chains (default=8.8)
+  * *asic_boost* - Activa o desactiva soporte AsicBoost (por defecto=true(verdad))
+  * *frequency* - Fija la frecuencia por defecto del chip en MHz para todas las cadenas hash (por defecto=650.0)
+  * *voltage* - Fija el voltaje por defecto en V para todas las cadenas hash (por defecto=8.8)
 
-The syntax for per-chain settings is the following:
+La sintaxis de ajuste por-cadena es la siguiente:
 
   ::
 
@@ -173,53 +176,56 @@ The syntax for per-chain settings is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *[hash_chain.6]* - Override the global settings for hash chain '6'
-  * *frequency* - Override the global chip frequency in MHz for hash chain '6' (default='hash_chain_global.frequency')
-  * *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
+  * *[hash_chain.6]* - Anula los ajustes globales para la cadena hash '6'
+  * *frequency* - Anula la frecuencia de chip global en MHz para la cadena hash '6' (por defecto='hash_chain_global.frequency')
+  * *voltage* - Anula el voltaje global en V para la cadena hash '6' (por defecto='hash_chain_global.voltage')
 
-***************************
-Temperature and Fan Control
-***************************
+***********************************
+Control de Temperatura y ventilador
+***********************************
 
-Temperature Control Mode
-========================
+Modo Control de Temperatura
+===========================
 
-  Braiins OS supports automatic temperature control (using `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
-  The controller can operate in one of three modes:
+  Braiins OS soporta control automático de temperatura (utilizando el `controlador PID <https://es.wikipedia.org/wiki/Controlador_PID>`__).
+  El controlador puede operar en uno de tres modos:
 
-  -  **Automatic** - Miner software tries to regulate the fan
-     speed so that miner temperature is approximately at the target
-     temperature (which can be configured). The allowed temperature range
-     is 0-200 degree Celsius.
-  -  **Manual** - Fans are kept at a fixed, user-defined speed,
-     no matter the temperature. This is useful if you have your own way of
-     cooling the miner or if the temperature sensors don’t work. Allowed
-     fan speed is 0%-100%. The control unit monitors only hot and dangerous temperatures.
-  -  **Disabled** - **WARNING**: this may damage the device because no control is done!
+  -  **Automatic** - El software del minero intenta regular la velocidad
+     del ventilador para que la temperatura sea aproximadamente la
+     target temperature (que puede ser configurada). El rango de
+     temperatura permitido es 0-200 grados Celsius.
+  -  **Manual** - Los ventiladores se mantienen a una velocidad fija,
+     definida por el usuario, sin importar la temperatura. Esto es útil
+     si se tiene una forma propia de enfriar el minero o si los sensores
+     de temperatura no funcionan. La velocidad permitida es entre
+     0%-100%. La unidad de control monitorea solo temperaturas
+     hot (caliente) y dangerous (peligrosa).
+  -  **Disabled** - **ADVERTENCIA**: ¡esto podría dañar el dispositivo
+     porque no se hace ningún control!
 
-  The temperature control mode can be changed in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+  El modo control de temperatura puede cambiarse en la página *Miner -> Configuration* o en el archivo de configuración  ``/etc/bosminer.toml``.
 
-  **Warning**: misconfiguring fans (either by turning them off or to a
-  level that is too slow, or by setting the target temperature too high)
-  may irreversibly **DAMAGE** your miner.
+  **Advertencia**: mal ajustar los ventiladores (bien sea por apagarlos
+  o por usar un nivel muy lento, o colocar una target temperature muy
+  alta) podría **DAÑAR** de forma irreversible su minero.
 
-Default temperature limits
-==========================
+Limites de temperatura por defecto
+==================================
 
-  The default temperature limits are set to prevent the miner from overheating and being damaged.
+  Los limites de temperatura por defecto están ajustados para prevenir que el minero se sobre-caliente y se dañe.
 
-  * **Target temperature** is a temperature that the miner will try to maintain (*default is* **89°C**).
-  * **Hot temperature** is a threshold at which the fans start to run at 100% (*default is* **100°C**).
-  * **Dangerous temperature** is a threshold at which BOSminer shuts down in order to prevent overheating and damaging the miner (*default is* **110°C**).
+  * **Target temperature** es una temperatura que el minero intentará mantener (*por defecto es* **89°C**).
+  * **Hot temperature** es un límite en la cual los ventiladores comenzarán a girar al 100% (*por defecto es* **100°C**).
+  * **Dangerous temperature** es un límite en el cual BOSminer se apagará para prevenir sobre-calentar y dañar el minero (*por defecto es* **110°C**).
 
-  Default temperature limits can be adjusted in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+  Los límites por defecto de temperatura pueden ajustarse en la página *Miner -> Configuration* o en el archivo de configuración``/etc/bosminer.toml``.
 
-Temperature and Fan Control configuration in ``bosminer.toml``
-==============================================================
+Configuración de Control de Temperatura y ventilador en ``bosminer.toml``
+=========================================================================
 
-  The default values can be overridden by editing the corresponding lines in the configuration file, located in ``/etc/bosminer.toml``.
+  Los valores por defecto pueden anularse al editar las líneas correspondientes en el archivo de configuración, ubicado en ``/etc/bosminer.toml``.
 
-  The syntax is the following:
+  La sintaxis es la siguiente:
 
   ::
 
@@ -229,10 +235,10 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      hot_temp = 95
      dangerous_temp = 105
 
-  * *mode* - Set temperature control mode (default='auto')
-  * *target_temp* - Set target temperature in Celsius (default=89.0). This option is ONLY used when 'temp_control.mode' is set to 'auto'!
-  * *hot_temp* - Set hot temperature in Celsius (default=100.0). When this temperature is reached, the fan speed is set to 100%.
-  * *dangerous_temp* - Set dangerous temperature in Celsius (default=110.0). When this temperature is reached, the mining is turned off! **WARNING:** setting this value too high may damage the device!
+  * *mode* - Ajusta el modo de control (por defecto='auto')
+  * *target_temp* - Ajusta la temperatura en Celsius (por defecto=89.0). ¡Esta opción SOLO se usa cuando 'temp_control.mode' está en 'auto'!
+  * *hot_temp* - Ajusta la temperatura caliente en Celsius (por defecto=100.0). Cuando se alcanza esta temperatura, la velocidad del ventilador se pone a 100%.
+  * *dangerous_temp* - Ajusta la temperatura peligrosa en Celsius (por defecto=110.0). Cuando se alcanza esta temperatura, ¡el minado se apaga! **ADVERTENCIA:** ¡fijar muy alto este valor puede dañar el dispositivo!
 
 
   ::
@@ -241,50 +247,54 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      speed = 100
      min_fans = 1
 
-  * *speed* - Set a fixed fan speed in % (default=70). This option is NOT used when *temp_control.mode* is set to 'auto'!
-  * *min_fans* - Set the minimum number of fans required for BOSminer to run (default=1).
-  * To completely **disable fan control**, set 'speed' and 'min_fans' to 0.
+  * *speed* - Ajusta una velocidad de ventilador fija en % (por defecto=70). ¡Esta opción NO se usa cuando *temp_control.mode* está 'auto'!
+  * *min_fans* - Ajusta el número mínimo de ventiladores requeridos para que corra BOSminer (por defecto=1).
+  * Para completamente **deshabilitar control de ventilador**, coloque 'speed' y 'min_fans' en 0.
 
-Fan operation
-=============
+Operación de ventilador
+=======================
 
-  1. Once temperature sensors are initialized, fan control is enabled. If
-     temperature sensors are not working or they read out a temperature of
-     0, fans are automatically set to full speed.
-  2. If the current mode is “fixed fan speed”, the fan is set to a given
-     speed.
-  3. If the current mode is “automatic fan control”, the fan speed is
-     regulated by temperature.
-  4. In case the miner's temperature is above the *HOT temperature*, fans are set to
-     100% (even in “fixed fan speed” mode).
-  5. In case the miner's temperature is above the *DANGEROUS temperature*, BOSminer
-     shuts down (even in “fixed fan speed” mode).
+  1. Al iniciarse los sensores de temperatura, se activa el control de ventilador.
+     Si los sensores de temperatura no están funcionando o leen una temperatura 0,
+     los ventiladores se ponen automáticamente a máxima velocidad.
+  2. Si el modo actual es "velocidad fija de ventilador", el ventilador se pone a
+     la velocidad dada.
+  3. Si el modo actual es "control de ventilador automático", la velocidad de
+     ventilador es regulada por la temperatura.
+  4. En caso de que la temperatura del minero esté por encima de
+     *HOT temperature*, los ventiladores se ponen a 100% (incluso en el modo de
+     velocidad fija de ventilador).
+  5. En caso de que la temperatura del minero esté por encima de
+     *DANGEROUS temperature*, BOSminer se apagará (incluso en el modo de
+     velocidad fija de ventilador).
 
 ************
-SSH password
+Password SSH
 ************
 
-You can set the miner’s password via SSH from a remote host by running
-the below command and replacing *[newpassword]* with your own password.
+Puede poner el password del minero via SSH desde un host remoto al 
+correr el comando de abajo y reemplazar *[passwordnuevo]* con su propio
+password.
 
-  * Note: Braiins OS does **not** keep a history of the commands executed.
+  * Nota: Braiins OS **no*** mantiene el historial de los comandos ejecutados.
 
   .. code:: bash
 
-     ssh root@[miner-hostname-or-ip] 'echo -e "[newpassword]\n[newpassword]" | passwd'
+     ssh root@[minero-hostname-o-ip] 'echo -e "[passwordnuevo]\n[passwordnuevo]" | passwd'
 
-To do this for several hosts in parallel you could use
+Para hacer eso en muchos hosts en paralelo podría usar
 `p-ssh <https://linux.die.net/man/1/pssh>`__.
 
-****************
-MAC & IP address
-****************
+******************
+Dirección MAC e IP
+******************
 
+Por defecto, la dirección MAC del dispositivo se mantiene igual y es heredada
+del firmware (de serie o Braiins OS) almacenada en el dispositivo (NAND). De
+esta forma, una vez que el dispositivo inicie con Braiins OS, tendrá la misma
+dirección IP que tenía con el firmware de fábrica.
 By default, the device’s MAC address stays the same as it is inherited
-from firmware (stock or Braiins OS) stored in the device (NAND). That way, once
-the device boots with Braiins OS, it will have the same IP address as it
-had with the factory firmware.
 
-Alternatively, you can specify a MAC address of your choice by modifying
-the ``ethaddr=`` parameter in the ``uEnv.txt`` file (found in the first
-FAT partition of the SD card).
+Alternativamente, puede especificar una dirección MAC de su selección al
+modificar el parametro ``ethaddr=`` en el archivo ``uEnv.txt`` (ubicado en la
+primera partición FAT de la tarjeta SD).
