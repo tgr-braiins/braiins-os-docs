@@ -1,6 +1,6 @@
-#####################################
-Upgrade, Downgrade and Uninstallation
-#####################################
+#######################################
+Actualizar, Desactualizar y Desinstalar
+#######################################
 
 .. contents::
 	:local:
@@ -8,39 +8,41 @@ Upgrade, Downgrade and Uninstallation
 
 .. _upgrade_bos:
 
-****************
-Firmware Upgrade
-****************
+*******************
+Actualizar Firmware
+*******************
 
-The firmware upgrade process uses a standard mechanism for
-installing/upgrading software packages within any OpenWrt based system.
-Follow the steps below to perform the firmware upgrade.
+El proceso de actualización de firmware usa un mecanismo estandar para
+instalar/actualizar paquetes de software dentro de cualquier sistema
+basado en OpenWrt.
+Siga los pasos abajo para realizar la actualización de firmware.
 
-Upgrade via web interface
-=========================
+Actualizar vía interfaz web
+===========================
 
-The firmware periodically checks for availability of a new version and automatically updates the system. In
-case the auto-update feature is disabled, a blue **Upgrade** button appears on
-the right side of the top bar. Proceed to click on the button and
-confirm to start the upgrade.
+El firmware revisa periódicamente la disponibilidad de una nueva versión y actualiza automáticamente el
+sistema. En caso de que la característica de auto-actualizar esté deshabilitada, un botón azul **Upgrade**
+aparecerá en el lado derecho de la barra superior. Proceda pulsando el botón y confirme para iniciar la
+actualización.
 
-Alternatively, you can update the repository information manually by
-clicking the *Update lists* button in the System > Software menu. In
-case the button is missing, try to refresh the page. To trigger the
-upgrade process, type ``firmware`` into the *Download and install
-package* field and press *OK*.
+Alternativamente, puede actualizar la información del repositorio
+manualmente al pulsar el botón *Update lists* en el menú
+System > Software. En caso de que falte el botón, intente refrescar
+la página. Para activar el proceso de actualización, escriba
+``firmware`` en el campo *Download and install package* y pulse
+*OK*.
 
-Upgrade via SSH
-===============
+Actualizar vía SSH
+==================
 
-After connecting to the miner via SSH, the upgrade to the latest firmware can be triggered using the following commands:
+Luego de conectarse al minero vía SSH, la actualización al último firmware puede activarse usando los siguientes comandos:
 
 ::
 
   opkg update && opkg install firmware
 
-Since the firmware installation results in a reboot, the following
-output is expected:
+Ya que la instalación de firmware resulta en un reinicio, la
+siguiente salida es esperada:
 
 ::
 
@@ -53,12 +55,12 @@ output is expected:
 
 .. _upgrade_community_bos_plus:
 
-**********************
-Upgrade to Braiins OS+
-**********************
+************************
+Actualizar a Braiins OS+
+************************
 
-In order to upgrade from older version or the Community Edition to Braiins OS+, connect to the miner via SSH
-and use the following commands:
+Para actualizar desde una versión previa o la Edición Comunitaria a Braiins OS+, conéctese al minero vía SSH
+y use los siguientes comandos:
 
 ::
 
@@ -66,61 +68,60 @@ and use the following commands:
 
 .. _downgrade_bos_plus_community:
 
-**************************************
-Upgrade/Downgrade to Community Edition
-**************************************
+*************************************************
+Actualizar/Desactualizar a la Edición Comunitaria
+*************************************************
 
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, connect to the miner via
-SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+Para actualizar desde una versión previa de Braiins OS o desactualizar desde Braiins OS+, conéctese al
+minero vía SSH y use el siguiente comando (reemplace ``DIRECCIÓN_IP`` según corresponda):
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade -F /tmp/firmware.tar'
+  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade -F /tmp/firmware.tar'
 
 .. _downgrade_bos_stock:
 
-***********************************
-Reset to initial Braiins OS version
-***********************************
+********************************************
+Reiniciar a la versión inicial de Braiins OS
+********************************************
 
-The current firmware package can be downgraded to the version which was initially installed when
-replacing the stock firmware. This can be done using the
+El paquete de firmware actual puede desactualizarse a la versión que fue inicialmente instalada
+durante el remplazo del firmware de serie. Esto puede hacerse mediante el uso de
 
- -  *IP SET button* - hold it for *10s* until red LED flashes
- -  *SD card* - edit the *uEnv.txt* file so it contains the line **factory_reset=yes**
- -  *miner utility* - call ``miner factory_reset`` from the miner’s
-    command line (while connected via SSH)
- -  *opkg package* - call ``opkg remove firmware`` from the miner’s
-    command line (while connected via SSH)
+ -  *botón IP SET* - mantenga presionado por *10s* hasta que el LED rojo parpadee
+ -  *tarjeta SD* - edite el archivo *uEnv.txt* para que contenga la línea **factory_reset=yes**
+ -  *utilidad miner* - invoque ``miner factory_reset`` desde la línea de comandos del minero
+    (al mantener conexión vía ssh)
+ -  *paquete opkg* - invoque ``opkg remove firmware`` desde la línea de comandos del minero
+    (al mantener conexión vía ssh)
 
-***************************
-Flashing a factory firmware
-***************************
+****************************
+Escribir firmware de fábrica
+****************************
 
-Using previously created backup
-===============================
+Usar respaldo creado previamente
+================================
 
-By default, a backup of the original firmware is created during the
-migration to Braiins OS and can be restored using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
-
-::
-
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631 && source .env/bin/activate
-  python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
-
-Using factory firmware image
-=============================
-
-On an Antminer S9, you can alternatively flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
-file.
-
-Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
+Por defecto, un respaldo del firmware original es creado durante la
+migración a Braiins OS y puede ser restaurado usando los siguientes comandos (reemplace ``RESPALDO_ID_FECHA`` and ``DIRECCIÓN_IP``según corresponda):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631 && source .env/bin/activate
-  python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
+  python3 restore2factory.py backup/RESPALDO_ID_FECHA/ DIRECCIÓN_IP
+
+Usando imagen firmware de fábrica
+=================================
+
+En un Antminer S9, puede alternativamente escribir una imágen firmware
+de fábrica de la página web del fabricante, con ``IMAGEN_DE_FÁBRICA``
+siendo la ruta al archivo o URL al archivo ``tar.gz`` (¡sin extraer!).
+Las imágenes soportadas y sus correspondientes hashes md5 se listan en
+el archivo `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__.
+
+Corra (reemplace ``IMAGEN_DE_FÁBRICA`` y ``DIRECCIÓN_IP`` según corresponda):
+
+::
+
+  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631 && source .env/bin/activate
+  python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
