@@ -96,7 +96,7 @@ SD卡方式
 
 * （如是在Windows上） 请安装Ubuntu for Windows 10 ，在 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_  里 可以下载。
 
-* 在命令行终端中运行以下的命令 (如果需要的，替换占位符 ``IP_ADDRESS`` ) :
+* 在命令行终端中运行以下的命令 (按需替换占位符  ``IP_ADDRESS`` 中的内容) :
 
 (请注意，下方命令兼容Ubuntu和Ubuntu for Windows 10。如果您使用的是Linux的其他发行版或者别的操作系统，请您查看相应的文档并按照实际情况更改命令）。
 
