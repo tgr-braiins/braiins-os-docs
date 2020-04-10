@@ -19,9 +19,9 @@ original del fabricante usando los siguientes comandos:
 Luego de que el script finalice, espere unos minutos y ajuste el
 jumper para arrancar desde NAND (memoria interna).
 
-******************
-Operación BOSminer
-******************
+*********************
+Operación de BOSminer
+*********************
 
 Bosminer puede controlarse desde la línea de comandos o vía página web.
 
