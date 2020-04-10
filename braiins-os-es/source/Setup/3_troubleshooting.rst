@@ -1,36 +1,36 @@
-###############
-Troubleshooting
-###############
+#####################
+Solución de Problemas
+#####################
 
-*****************************************************
-Recovering Bricked (unbootable) Devices Using SD Card
-*****************************************************
+****************************************************************
+Recuperar Dispositivos Bloqueados (no arranca) Usando tarjeta SD
+****************************************************************
 
-If anything goes wrong and your device seems unbootable, you can use the
-previously created SD card image to recover the original firmware from the
-manufacturer by using the following commands:
+Si algo sale mal y su dispositivo parece no arrancar, puede usar la
+imagen de la tarjeta SD creada previamente para recuperar el firmware
+original del fabricante usando los siguientes comandos:
 
 .. code:: bash
 
-   cd braiins-os_am1-s9_ssh_VERSION
+   cd braiins-os_am1-s9_ssh_VERSIÓN
    source .env/bin/activate
-   python3 restore2factory.py backup/2ce9c4aab53c-2018-09-19/ your-miner-hostname-or-ip
+   python3 restore2factory.py backup/2ce9c4aab53c-2018-09-19/ ip-o-nombre-host-de-su-minero
 
-After the script finishes, wait a few minutes and adjust the jumper to
-boot from NAND (internal memory).
+Luego de que el script finalice, espere unos minutos y ajuste el
+jumper para arrancar desde NAND (memoria interna).
 
 ******************
-BOSminer operation
+Operación BOSminer
 ******************
 
-BOSminer can be controlled using the command line or via the web page.
+Bosminer puede controlarse desde la línea de comandos o vía página web.
 
-In order to start or stop BOSminer, use the following commands:
+Para iniciar o detener BOSminer, use los siguientes comandos:
 
 ::
 
 	/etc/init.d/bosmniner stop
 	/etc/init.d/bosmniner start
 
-Alternatively, BOSminer can be controlled in `System -> Startup` page and it is restarted every
-time the user clicks on the `Save & Apply` button in the `Miner -> Configuration` page.
+Alternativamente, BOSminer puede controlarse en la página `System -> Startup` y se reinicia
+cada vez que el usuario pulsa el botón `Save & Apply` en la página `Miner -> Configuration`.
