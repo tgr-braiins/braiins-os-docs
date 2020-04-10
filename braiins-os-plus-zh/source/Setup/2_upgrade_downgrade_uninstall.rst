@@ -46,7 +46,7 @@
 .. _upgrade_community_bos_plus:
 
 **********************
-Upgrade to Braiins OS+
+升级Braiins OS+
 **********************
 
 为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令：
@@ -61,9 +61,8 @@ Upgrade to Braiins OS+
 升级/降级社区版本
 **************************************
 
-为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令：
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, connect to the miner via
-SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令  (按需替换占位符 ``IP_ADDRESS`` 中的内容)：
+
 
 ::
 
@@ -91,7 +90,7 @@ SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accord
 用之前的备份刷回
 ===============================
 
-默认情况下，在迁移到Braiins OS的过程中会自动创建一份原始固件的备份，并且可以按照以下的命令恢复它：(如果需要的话，替换占位符``BACKUP_ID_DATE`` 和 ``IP_ADDRESS`` ):
+默认情况下，在迁移到Braiins OS的过程中会自动创建一份原始固件的备份，并且可以按照以下的命令恢复它 (按需替换占位符 ``FACTORY_IMAGE`` 和  ``IP_ADDRESS`` 中的内容)：
 
 ::
 
