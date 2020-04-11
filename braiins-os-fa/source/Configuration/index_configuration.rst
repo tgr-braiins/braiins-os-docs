@@ -6,16 +6,16 @@ Configuration
   :local:
   :depth: 2
 
-*****************
-Install Arguments
-*****************
+***************
+آرگومان‌های نصب
+***************
 
-The installation script uses two types of arguments:
+اسکریپت نصب از دو آرگومان(پارامتر) استفاده میکند:
 
-   * positional arguments - required for the installation to be completed;
-   * optional arguments - optional (i.e. not required) for the installation to be completed.
+   * پارامترهای موقعیتی- برای تکمیل نصب نیاز هستند؛
+   * پارامترهای اختیاری - اختیاری هستند و برای تکمیل نصب اجباری نیستند..
 
-The syntax for the installation script is the following:
+نحوه نوشتن دستورات برای نصب به شکل زیر است:
 
   ::
 
@@ -23,35 +23,33 @@ The syntax for the installation script is the following:
                       [--no-keep-network] [--keep-hostname] [--no-wait]
                       hostname
 
-**Positional arguments:**
+**آرگومان‌های موقعیتی:**
 
 .. code-block:: none
 
-    hostname [hostname ...] Hostname or an IP address of the selected miner
+    hostname [hostname ...] نام دستگاه میزبان یا آدرس IP ماینر مورد نظر
 
-**Optional arguments:**
+**آرگومان‌های اختیاری:**
 
 .. code-block:: none
 
-  -h, --help            show this help message and exit
-  --no-backup           skip miner backup before upgrade
-  --no-nand-backup      skip full NAND backup (config is still being backed
-                        up)
-  --no-keep-network     do not keep miner network configuration (use DHCP)
-  --keep-hostname       keep miner hostname
-  --no-wait             do not wait until system is fully upgraded
+  -h, --help            این پیام راهنما را نشان میدهد و از آن خارج میشود.
+  --no-backup           پشتیبانگیری از ماینر را قبل از بروزرسانی/ارتقا رد میکند.(پشتیبانگیری نمیکند)
+  --no-nand-backup      پشتیبانگیری کامل از NAND را رد میکند (همچنان از تنظیمات پشتیبان میگیرد)
+  --no-keep-network     تنظیمات شبکه را منتقل نمی‌کند (استفاده از DHCP)
+  --keep-hostname       نام دستگاه ماینر تغییر نمیکند.
+  --no-wait             منتظر تکمیل رونده بروز رسانی نمی‌ماند.
 
 
 *************
-Pool Settings
+تنظیمات استخر
 *************
 
-Users can specify multiple pools. All the pools in one group use the fail-over multi-pool strategy, which means
-that BOSminer will automatically switch to the second pool if the first pool dies.
+کاربرها میتوانند استخرهای متعددی مشخص کنند. تمام استخر ها در یک‌ گروه از استراتژی fail-over چند استخری استفاده میکنند. این به این معنی است که در صورت خرابی یک استخر، BOSminer به صورت خودکار استخر دوم را به کار میاندازد.
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+تنظیمات از طریق رابط کاربری گرافیکی تحت وب (*Miner> Configuration*) و یا در فایل تنظیمات ``/etc/bosminer.toml`` قابل دسترسی است. 
 
-The syntax is the following:
+نحوه نوشتن به صورت زیر است:
 
   ::
 
@@ -65,51 +63,34 @@ The syntax is the following:
      user = 'username.workername'
      password = 'secret'
 
-  * *name* - Name of the pool group (explained in the section *Pool Groups* below)
-  * *quota* - User set quota for the group (explained in the section *Pool Groups* below)
-  * *enabled* - Initial state of the pool after BOSminer initialization (default=true)
-  * *url* - Mandatory argument for server URL specified in the format
-    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. You don't have to
-    specify an explicit port for *Stratum V2* on Slush Pool. The reason is
-    that the protocol is still in development and we alternate between
-    two default ports (**3336** and **3337**) across protocol
-    upgrades. Miners that don't upgrade would still be able to use the
-    previous version of the protocol. Miners that do upgrade won't
-    have to worry about upgrading their mining URL with a new port.
-    There is a *new* required element of the URL in the path and that
-    is the public key advertised by the pool that the mining software
-    uses to verify the authenticity of the mining endpoint that it
-    connects to. This prevents man-in-the-middle-attacks that attempt
-    to steal hashrate. Any such attempt results in failed verification
-    and the software refuses to use the given pool entry.
-  * *user* - Mandatory argument for username specified in format ``USERNAME.WORKERNAME``
-  * *password* - Optional password settings
+  * *name* -   اسم گروه استخر( در قسمت *Pool Groups* در پایین توضیح داده شده)
+  * *quota* - سهمیه تعیین شده توسط کاربر برای گروه ( در قسمت *Pool Groups* در پایین توضیح داده شده است)
+  * *enabled* - وضعیت اولیه استخر پس از راه اندازی اولیهء BOSminer (default=true)
+  * *url* - پارامتر اجباری برای آدرس  سرور در این فرمت مشخص شده:
+    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. شما مجبور نیستید یک پورت آشکار برای *Strautum V2* در Slush Pool مشخص کنید. دلیل این است که پروتکل فعلا در حال تکمیل است و ما بین دو‌ پورت پیش فرض در امتداد ارتقا پروتکل ها جا بجا میشویم (**3336** and **3337**) ماینرهایی که ارتقا نمی یابند، همچنان میتوانند از نسخه قبلی پروتکل استفاده کنند. ماینرهایی که ارتقا می‌یابند نباید نگران ارتقا URL ماینینگ خود با یک پورت جدید باشند.
+    یک اِلِمان ضروری *جدید* برایURL در مسیر وجود دارد که کلید عمومی اعلام شده توسط استخر است که نرم افزار ماینینگ برای تایید هویت اند پوینتی که به آن وصل میشود، استفاده میکند. این کار از حمله نوع مرد میانی (man-in-the-middle-attack) که در تلاش برای دزدیدن هش ریت است،  جلوگیری میکند. هر تلاشی از این نوع با تایید ناموفق مواجه میشود و نرم افزار استفاده از تنظیمات داده شده را رد میکند.
+  * *user* - پارامتر اجباری برای نام کاربری مشخص شده در این فرمت  ``USERNAME.WORKERNAME``
+  * *password* - تنظیمات اختیاری کلمه عبور
 
-Pool Groups
-===========
+گروه های استخر
+===============
 
-  Users can create multiple different pool groups. All pools within one group use the fail-over
-  multi-pool strategy described above. When multiple pool groups are created, the work is
-  distributed to each group with the load-balance strategy, either on a Quota basis or
-  with a Fixed Share Ratio.
+  کاربران میتوانند چند گروه استخر بسازند. تمام استخرهای داخل یک گروه از استراتژی fail-over چند استخری استفاده میکنند که در بالا شرح داده شد. وقتی گروههای چند استخری ساخته میشوند. کار بین هر گروه به وسیله استراتژی load-balance توزیع میشود. یا بر پایه سهمیه بندی یا با نسبت سهم ثابت.
 
-  Example:
+  برای نمونه:
 
-  Group 1 has two pools specified and is assigned a Quota of "1". Group 2 has just one pool specified
-  and is assigned a Quota of "2".
+  گروه ۱ دو استخر مشخص دارد و "۱" سهمیه به این گروه تعلق میگیرد و گروه ۲ یک استخر مشخص دارد و "۲" سهمیه به این گروه تعلق میابد.
 
-  - The work is assigned to the groups with a 1:2 ratio - Group 2 will get twice the amount of work assigned as Group 1.
-  - If the first pool in Group 1 dies, BOSminer will switch to the second pool in Group 1.
+  - کار با نسبت ۱:۲ برای گروهها تعیین میشود. گروه "۲" دو برابر مقدار کاری که برای گروه "۱" داده میشود، تحویل میگیرد. 
+  - اگر استخر اول در گروه ۱ ازکار بیفتد، BOSminer استخر دوم در گروه ۱ را به کار می اندازد.
 
 
-  It's possible to use Fixed Share Ratio instead of Quota, which will split the work by a specified
-  percentage. A Quota of 1:1 is equivalent to a Fixed Share Ratio of 0.5 (50%) - both of those
-  settings will split the work in half and send it to the two groups.
+  مکان این وجود دارد که به جای سهمیه بندی، از نسبت سهم ثابت استفاده کرد. در این روش کار با یک درصد مشخص تقسیم میشود.
+  سهم ۱:۱ برابر با نسبت سهم ثابت ۰.۵ (۵۰٪) است؛ هر دوی این تنظیمات کار را به دو قسمت تقسیم کرده و برای هر دو گروه میفرستد.
 
-  Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration
-  file ``/etc/bosminer.toml``.
+  تنظیمات از طریق رابط کاربری گرافیکی تحت وب (*Miner > Configuration*) و یا در فایل تنظیمات قابل دسترسی است. ``/etc/bosminer.toml``.
 
-  Example of two groups and multiple pools:
+  مثال دو گروه و چند استخری:
 
   ::
 
@@ -135,24 +116,17 @@ Pool Groups
      url = 'stratum+tcp://stratum.slushpool.com:3333'
      user = 'userB.worker'
 
-With this setup, the work will be split between the two groups in ratio 1:2. By default, the miner
-will be mining on the first pool from the group "MyGroup1" and on the one pool defined in the group
-"MyGroup2". If the first pool in "MyGroup1" dies, the miner will be mining on the second pool from
-the group "MyGroup1". Since a second pool url isn't specified for "MyGroup2", nothing will be done
-if the pool in "MyGroup2" fails.
+با این تنظیمات، کار با نسبت ۱:۲ بین دو گروه تقسیم‌ میشود. به طور پیش فرض ماینر بر روی استخر اول از گروه "MyGroup1" و یک گروه مشخص در گروه "MyGroup2" ماینینگ میکند. اگر استخر اول در "MyGroup1" از کار بیفتد، ماینر شروع به ماینینگ روی استخر دوم در "MyGroup1" میکند. از آنجاییکه url دومی برای "MyGroup2" مشخص نشده است، اگر استخری در "MyGroup2" از کار بیفتد، هیچ کاری انجام نمیشود.
 
 *******************
-Hash Chain Settings
+تنظیمات زنجیره هش
 *******************
 
-Optional configuration for overriding the default settings for all hash chains. This allows the
-users to control the frequency and voltage of each hash chain and allows them to turn AsicBoost o
-n and off. While autotuning is enabled, these settings are ignored. The global hash chain settings
-can also be overridden by per-chain settings.
+تنظیمات اختیاری برای بازنویسی تنظیمات پیش فرض برای تمام زنجیره هش ها. این کار این اجازه را به کاربران میدهد تا فرکانس و ولتاژ هر زنجیره هش را کنترل کند و به آنها اجازه میدهد AsicBoost را روشن و خاموش کنند. زمانی که اتو‌تونینگ فعال میشود، این تنظیمات نادیده گرفته میشوند. تنظیمات جهانی زنجیره هش میتوانند توسط تنظیمات هر زنجیره هش بازنویسی شوند.
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+تنظیمات از طریق رابط کاربری گرافیکی تحت وب (*Miner > Configuration*) و یا در فایل تنظیمات قابل دسترسی است. ``/etc/bosminer.toml``.
 
-The syntax is the following:
+نحوه نوشتاری به شکل زیر است::
 
   ::
 
@@ -161,11 +135,11 @@ The syntax is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *asic_boost* - Enable or disable AsicBoost support (default=true)
-  * *frequency* - Set default chip frequency in MHz for all hash chains (default=650.0)
-  * *voltage* - Set default voltage in V for all hash chains (default=8.8)
+  * *asic_boost* - فعال یا غیر فعال کردن پشتیبانی Asicboost (default=true)
+  * *frequency* - تنظیم فرکانس پیش فرض چیپ در مقیاس مگا هرتز برای تمام زنجیره هش ها (default=650.0)
+  * *voltage* - تنظیم ولتاژ پیش فرض در V برای تمام زنجیره هش ها پیش (default=8.8)
 
-The syntax for per-chain settings is the following:
+نحوه نوشتاری برای تنظیمات هر زنجیره هش به شکل زیر است:
 
   ::
 
@@ -173,53 +147,45 @@ The syntax for per-chain settings is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *[hash_chain.6]* - Override the global settings for hash chain '6'
-  * *frequency* - Override the global chip frequency in MHz for hash chain '6' (default='hash_chain_global.frequency')
-  * *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
+  * *[hash_chain.6]* -  بازنویسی تنظیمات کلی برای زنجیره‌هش '6'
+  * *frequency* - بازنویسی فرکانس کلی چیپ در مقیاس مگاهرتز برای زنجیره‌هش '6' (default='hash_chain_global.frequency')
+  * *voltage* - ولتاژ کلی را در V برای زنجیره‌هش '6' بازنویسی کنید. (default='hash_chain_global.voltage')
 
 ***************************
-Temperature and Fan Control
+دما و کنترل فن
 ***************************
 
-Temperature Control Mode
+حالت کنترل دما
 ========================
 
-  Braiins OS supports automatic temperature control (using `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
-  The controller can operate in one of three modes:
+  Braiins OS کنترل اتوماتیک دما را پشتیبانی میکند. (با استفاده از `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
+  کنترلر میتواند در یکی از سه حالت زیر عمل کند:
 
-  -  **Automatic** - Miner software tries to regulate the fan
-     speed so that miner temperature is approximately at the target
-     temperature (which can be configured). The allowed temperature range
-     is 0-200 degree Celsius.
-  -  **Manual** - Fans are kept at a fixed, user-defined speed,
-     no matter the temperature. This is useful if you have your own way of
-     cooling the miner or if the temperature sensors don’t work. Allowed
-     fan speed is 0%-100%. The control unit monitors only hot and dangerous temperatures.
-  -  **Disabled** - **WARNING**: this may damage the device because no control is done!
+  -  **Automatic** - نرم افزار ماینر میکوشد سرعت فن را کنترل کند تا دمای ماینر تقریبا در دمای مورد نظر(که میتواند تنظیم شود) باشد. بازه دمای مجاز بین ۰ تا ۲۰۰ درجه سانتیگراد است.
+  -  **Manual** - فن ها در یک سرعت ثابت تعیین شده توسط کاربر بدون توجه به دما نگه داشته میشوند. این کار وقتی سودمند است اگر شما روش خودتان را برای خنک‌ کردن ماینر داشته باشید یا سنسورهای دما کار نکنند. سرعت مجاز فن بین ۰٪ تا ۱۰۰٪ است. واحد کنترل فقط دمای خیلی بالا و خطرناک را مانیتور میکند.
+  -  **Disabled** - **WARNING**: این حالت ممکن است به دستگاه صدمه بزند چون هیچ کنترلی انجام‌ نمیشود.
 
-  The temperature control mode can be changed in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+  حالت کننرل دما میتواند در صفحه *Miner -> Configuration* یا در فایل تنظیمات ``/etc/bosminer.toml`` تغییر کند.
 
-  **Warning**: misconfiguring fans (either by turning them off or to a
-  level that is too slow, or by setting the target temperature too high)
-  may irreversibly **DAMAGE** your miner.
+  **Warning**:   تنظیم اشتباه فن ها (خاموش کردن فن ها، یا پایین آوردن زیاد سرعت آنها یا تنظیم دما روی دمای بسیار بالا) ممکن است به صورت اجتناب ناپذیری به ماینر شما **صدمه** بزند.
 
-Default temperature limits
+محدودیت های دمای پیش فرض
 ==========================
 
-  The default temperature limits are set to prevent the miner from overheating and being damaged.
+  محدودیت های دمای پیش فرض برای جلوگیری از داغ شدن بیش از حد ماینر و آسیب رسیدن به آن تنظیم شده است.
 
-  * **Target temperature** is a temperature that the miner will try to maintain (*default is* **89°C**).
-  * **Hot temperature** is a threshold at which the fans start to run at 100% (*default is* **100°C**).
-  * **Dangerous temperature** is a threshold at which BOSminer shuts down in order to prevent overheating and damaging the miner (*default is* **110°C**).
+  * **Target temperature** دمای مورد نظر دمایی است که ماینر تلاش میکند در آن دما بماند. ( پیش فرض ۸۹ درجه سانتیگراد) (*default is* **89°C**).
+  * **Hot temperature** دمای بالا آستانه ای است که در آن ۱۰۰٪ فن ها شروع به کار میکنند.(پیش فرض ۱۰۰ درجه سانتیگراد) (*default is* **100°C**).
+  * **Dangerous temperature** دمای خطرناک آستانه ای است در آن BOSminer برای جلوگیری از داغ شدن بیش از حد و آسیب به ماینر خاموش میشود. ( پیش فرض ۱۱۰ درجه سانتیگراد) (*default is* **110°C**).
 
-  Default temperature limits can be adjusted in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+  محدودیت های دمای پیش فرض میتوانند در صفحه *Miner -> Configuration* و یا در فایل تنظیمات ``/etc/bosminer.toml`` ، تنظیم شوند.
 
-Temperature and Fan Control configuration in ``bosminer.toml``
+تنظیمات کنترل دما و فن در ``bosminer.toml``
 ==============================================================
 
-  The default values can be overridden by editing the corresponding lines in the configuration file, located in ``/etc/bosminer.toml``.
+ مقادیر پیش فرض میتواند با ویرایش خط های مربوطه در فایل تنظیمات که در ``/etc/bosminer.toml`` قرار دارد، بازنویسی شوند.
 
-  The syntax is the following:
+  نحوه نوشتن به صورت زیر است:
 
   ::
 
@@ -229,10 +195,10 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      hot_temp = 95
      dangerous_temp = 105
 
-  * *mode* - Set temperature control mode (default='auto')
-  * *target_temp* - Set target temperature in Celsius (default=89.0). This option is ONLY used when 'temp_control.mode' is set to 'auto'!
-  * *hot_temp* - Set hot temperature in Celsius (default=100.0). When this temperature is reached, the fan speed is set to 100%.
-  * *dangerous_temp* - Set dangerous temperature in Celsius (default=110.0). When this temperature is reached, the mining is turned off! **WARNING:** setting this value too high may damage the device!
+  * *mode* - تنظیم حالت کنترل دما (default='auto')
+  * *target_temp* - دمای مورد نظر را به سانتیگراد وارد کنید (پیش فرض= ۸۹.۰). این گزینه فقط زمانی استفاده میشود که 'temp_control.mode' بر روی 'auto' ست شده باشد!
+  * *hot_temp* - دمای بالا را به سانتیگراد وارد کنید ( پیش فرض= ۱۰۰.۰). وقتی به این دما برسد، سرعت فن روی ۱۰۰٪ تنظیم شده است.
+  * *dangerous_temp* - دمای خطرناک را به سانتیگراد وارد کنید ( پیش فرض= ۱۱۰.۰) زمانی که به این دما برسد، عملیات ماینینگ متوقف میشود.**هشدار:** تنظیم این مقدار روی دمای بالا ممکن ایت به دستگاه صدمه بزند!
 
 
   ::
@@ -241,50 +207,38 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      speed = 100
      min_fans = 1
 
-  * *speed* - Set a fixed fan speed in % (default=70). This option is NOT used when *temp_control.mode* is set to 'auto'!
-  * *min_fans* - Set the minimum number of fans required for BOSminer to run (default=1).
-  * To completely **disable fan control**, set 'speed' and 'min_fans' to 0.
+  * *speed* - یک سرعت فن ثابت در مقیاس درصد ٪ تنظیم کنید. ( پیش فرض=۷۰). این گزینه زمانی که 'temo_control.mode' بر روی 'auto' تنظیم شده باشد، کار نخواهد کرد!
+  * *min_fans* - حداقل تعداد فن های مورد نیاز برای کار کردن BOSminer را تنظیم‌ کنید. (پیش فرض=۱)
+  * برای **غیر فعال کردن کنترل فن** به طور کامل، 'speed ' و 'min_fans' را روی عدد صفر تنظیم‌ کنید.
 
-Fan operation
+عملکرد فن
 =============
 
-  1. Once temperature sensors are initialized, fan control is enabled. If
-     temperature sensors are not working or they read out a temperature of
-     0, fans are automatically set to full speed.
-  2. If the current mode is “fixed fan speed”, the fan is set to a given
-     speed.
-  3. If the current mode is “automatic fan control”, the fan speed is
-     regulated by temperature.
-  4. In case the miner's temperature is above the *HOT temperature*, fans are set to
-     100% (even in “fixed fan speed” mode).
-  5. In case the miner's temperature is above the *DANGEROUS temperature*, BOSminer
-     shuts down (even in “fixed fan speed” mode).
+  ۱. زمانی که سنسورهای دما شروع به کار میکنند، کنترل فن فعال میشود. اگر سنسورهای دما کار نکنند یا دمای صفر را نشان میدهند، فن ها به طور خودکار با حداکثر سرعت  شروع به کار میکنند.
+  ۲. اگر حالت کنونی 'fixed fan speed' باشد، فن روی یک سرعت مشخص تنظیم میشود.
+  ۳. اگر حالت کنونی  "automatic fan control" باشد، سرعت فن توسط دما تنظیم میشود.
+  ۴. در صورتی که دمای ماینر بالای دمای بالا باشد، فن ها روی ۱۰۰٪ تنظیم میشوند.( حتی اگر در حالت "fixed fan speed" باشند)
+  ۵. در صورتی که دمای ماینر بالای **دمای خطرناک** باشد، BOSminer متوقف میشود( حتی اگر در حالت "fixed fan speed" باشد)
 
-************
-SSH password
-************
+*************
+کلمه عبور SSH
+*************
 
-You can set the miner’s password via SSH from a remote host by running
-the below command and replacing *[newpassword]* with your own password.
+شما میتوانید کلمه عبور ماینر را از طریق SSH به صورت ریموت و از راه دور با اجرای دستور زیر تنظیم کنید.کلمه *[newpassword]* را با کلمه عبور مورد نظر خودتان عوض کنید.
 
-  * Note: Braiins OS does **not** keep a history of the commands executed.
+  * توجه : Braiins OS از دستورات اجرا شده سابقه ای نگهداری **نمیکند**
 
   .. code:: bash
 
      ssh root@[miner-hostname-or-ip] 'echo -e "[newpassword]\n[newpassword]" | passwd'
 
-To do this for several hosts in parallel you could use
-`p-ssh <https://linux.die.net/man/1/pssh>`__.
+برای انجام این کار برای دستگاههای متعدد به طور موازی میتوانید از نرم‌افزار
+`p-ssh <https://linux.die.net/man/1/pssh>`__. استفاده کنید.
 
 ****************
-MAC & IP address
+مک و آدرس IP
 ****************
 
-By default, the device’s MAC address stays the same as it is inherited
-from firmware (stock or Braiins OS) stored in the device (NAND). That way, once
-the device boots with Braiins OS, it will have the same IP address as it
-had with the factory firmware.
+به طور پیش فرض، آدرس مک دستگاه همانی که از فیرم ویر (اصلی دستگاه یا Braiins OS)  گرفته بود و در دستگاه ذخیره شده بود (NAND) باقی میماند. از این طریق، زمانی که دستگاه با Braiins OS بوت میکند، همان آدرس IP که با فیرم ویر کارخانه داشت، خواهد داشت.
 
-Alternatively, you can specify a MAC address of your choice by modifying
-the ``ethaddr=`` parameter in the ``uEnv.txt`` file (found in the first
-FAT partition of the SD card).
+همچنین شما میتوانید یک آدرس مک به اتنخاب خودتان با تعریف پارامتر ``ethaddr=``  در ``uEnv.txt`` مشخص کنید ( که در اولین قسمت FAT کارت حافظه SD دیده میشود)
