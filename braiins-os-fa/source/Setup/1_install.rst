@@ -68,10 +68,8 @@
 
 آخرین آدرس مک استفاده شده بر روی کارت حافظه SD ذخیره میشود برای اینکه چک‌ شود که ایا SD بر روی همان دستگاه نصب شده است. اگر آدرس فعلی مک با قبلی فرق کند، شبکه  و تنظیمات سیستم به حالت پیش فرض و اولیه ریست میشود و ``/etc/miner_hwid`` پاک میشود.
 
-HW_ID is determined from NAND if it stores Braiins OS firmware. If NAND is corrupted
-or it contains stock firmware, then the file ``/etc/miner_hwid`` is used
-if it exists, otherwise a new HW_ID is generated and stored to
-``/etc/miner_hwid`` to preserve HW_ID until the next boot.
+HW_ID درصورتیکه Braiins OS در NAND ذخیره شده است از آن تعیین می‌شود. اگر NAND آسیب دیده باشد
+یا حاوی سیستم عامل اصلی دستگاه باشد، فایل ``/etc/miner_hwid`` در صورت وجود استفاده می‌شود، در غیر این صورت HW_ID جدید ایجاد و در فایل ``/etc/miner_hwid`` ذخیره می شود برای حفظ HW_ID تا بوت بعدی.
 
 Braiins OS را از کارت حافظه SD به حافظه داخلی دستگاه فلش کنید. (NAND)
 ======================================================================
