@@ -55,9 +55,9 @@
 
 .. _downgrade_bos_plus_community:
 
-**************************************
+*********************************
 ارتقاء / بازگردانی به نسخه آزاد
-**************************************
+*********************************
 
 برای ارتقا از نسخه قدیمی Braiins OS یا بازگردانی از Braiins OS+ , ازطریق SSH به ماینر وصل شوید و دستور زیر را استفاده کنید (متغییر ``IP_ADDRESS`` را جایگزین کنید):
 
@@ -68,7 +68,7 @@
 .. _downgrade_bos_stock:
 
 ***********************************
-Reset to initial Braiins OS version
+بازگردانی به نسخه اولیه Braiins OS
 ***********************************
 
 پکیج فریم‌ور کنونی میتواند به نسخه ای که در ابتدا هنگام جایگزینی فریم‌ور اصلی کارخانه نصب شده بود، بازگردانده شود. این کار میتواند به این صورت انجام شود
@@ -79,21 +79,20 @@ Reset to initial Braiins OS version
  -  *opkg package* - دستور ``opkg remove firmware`` را در SSH اجرا کنید.
 
 ***************************
-Flashing a factory firmware
+فلش به نسخه فریم‌ور کارخانه
 ***************************
 
-Using previously created backup
-===============================
+استفاده از نسخه پشتیبان تهیه شده
+=================================
 
-By default, a backup of the original firmware is created during the
-migration to Braiins OS and can be restored using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
+به طور پیش فرض، یک نسخه پشتیبان از فریم‌ور اصلی در طول مهاجرت به Braiins OS ساخته میشود که میتواند با استفاده از دستورات زیر بازگردانده شود (متغییرهای ``BACKUP_ID_DATE`` و ``IP_ADDRESS`` را با مقادیر متناسب دستگاه خود جایگزین کنید.):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-Using factory firmware image
+استفاد از ایمیج اصلی کارخانه
 =============================
 
 On an Antminer S9, you can alternatively flash a factory firmware image
