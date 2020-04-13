@@ -51,11 +51,11 @@
  * ایمیج دانلود شده را روی یک کارت حافظه SD بازنویسی کنید. (برای نمونه: نرم‌افزار `Etcher <https://etcher.io/>`_).
  * جامپر ها را برای بوت کردن از کارت حافظه SD تنظیم کنید( به جای حافظه NAND) همانطور که در پایین نشان داده میشود.
 
-	.. |pic1| image:: ./s9-jumpers.png
+	.. |pic1| image:: ../_static/s9-jumpers.png
 	    :width: 45%
 	    :alt: S9 Jumpers
 
-	.. |pic2| image:: ./s9-jumpers-board.png
+	.. |pic2| image:: ../_static/s9-jumpers-board.png
 	    :width: 45%
 	    :alt: S9 Jumpers Board
 

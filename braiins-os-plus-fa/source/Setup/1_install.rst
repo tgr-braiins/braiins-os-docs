@@ -55,11 +55,11 @@ SD card Method
  * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_).
  * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
 
-	.. |pic1| image:: ./s9-jumpers.png
+	.. |pic1| image:: ../_static/s9-jumpers.png
 	    :width: 45%
 	    :alt: S9 Jumpers
 
-	.. |pic2| image:: ./s9-jumpers-board.png
+	.. |pic2| image:: ../_static/s9-jumpers-board.png
 	    :width: 45%
 	    :alt: S9 Jumpers Board
 

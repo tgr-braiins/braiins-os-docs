@@ -56,11 +56,11 @@ Método tarjeta SD
  * Escriba la imagen descargada a una tarjeta SD (ej: usando `Etcher <https://etcher.io/>`_).
  * Ajuste los jumpers para arrancar desde la tarjeta SD (en lugar de la memoria NAND), como se muestra abajo.
 
-	.. |pic1| image:: ./s9-jumpers.png
+	.. |pic1| image:: ../_static/s9-jumpers.png
 	    :width: 45%
 	    :alt: Jumpers S9
 
-	.. |pic2| image:: ./s9-jumpers-board.png
+	.. |pic2| image:: ../_static/s9-jumpers-board.png
 	    :width: 45%
 	    :alt: Tarjeta de Jumpers S9
 

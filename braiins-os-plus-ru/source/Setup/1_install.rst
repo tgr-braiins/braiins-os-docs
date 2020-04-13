@@ -38,11 +38,11 @@
 * Перенесите загруженное изображение на SD-карту (например, используя `Etcher <https://etcher.io/>`_).
 * Настройте перемычки для загрузки с SD-карты (вместо памяти NAND), как показано ниже.
 
-.. |pic1| image:: ./s9-jumpers.png
+.. |pic1| image:: ../_static/s9-jumpers.png
     :width: 45%
     :alt: S9 Jumpers
 
-.. |pic2| image:: ./s9-jumpers-board.jpg
+.. |pic2| image:: ../_static/s9-jumpers-board.jpg
     :width: 45%
     :alt: S9 Jumpers Board
 
