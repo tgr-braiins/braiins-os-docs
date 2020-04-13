@@ -11,6 +11,10 @@
 
 ---------------
 
+.. note::
+    The translation into this language is in progress. Not all pages are translated.
+    If you want to contribute, please contact us through one of the telegram groups.
+
 #####
 Intro
 #####
