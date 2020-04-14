@@ -95,14 +95,9 @@
 استفاد از ایمیج اصلی کارخانه
 =============================
 
-On an Antminer S9, you can alternatively flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
-file.
+روی یک دستگاه S9، می‌توانید از یک ایمیج اصلی کارخانه که در وبسایت کارخانه سازنده دستگاه در دسترس است برای عملیات فلش استفاده کنید. با تغییر ``FACTORY_IMAGE`` به مسیر فایل یا آدرس اینترنتی که به ``tar.gz`` ختم میشود. (در حالت فشرده) ایمیج‌های پشتیبانی شده با MD5 متناظر هر ایمیج در فایل `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ لیست شده است.
 
-Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
+ کد زیر را اجرا کنید (متغییرهای ``FACTORY_IMAGE`` و ``IP_ADDRESS`` با مقادیر متناسب دستگاه خود جایگزین کنید.):
 
 ::
 

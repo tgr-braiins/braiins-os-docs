@@ -1,7 +1,7 @@
 .. toctree::
    :hidden:
    :maxdepth: 3
-   :caption: Table of Contents:
+   :caption: فهرست مطالب:
    :glob:
 
    self
