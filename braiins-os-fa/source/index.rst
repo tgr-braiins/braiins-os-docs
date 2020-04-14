@@ -55,7 +55,7 @@ Braiins OS یک سیستم عامل کاملا متن باز برای ماینر
 20.03
 ---------------------------
 
-برای مشاهده روی لینک `WHATSNEW.MD <https://github.com/braiins/braiins/blob/master/braiins-os/whatsnew.md>`_ در گیت‌هاب را مطالعه کنید.
+برای مشاهده لینک `WHATSNEW.MD <https://github.com/braiins/braiins/blob/master/braiins-os/whatsnew.md>`_ در گیت‌هاب را مطالعه کنید.
 
 ********************
 مشکلات شناسایی شده
