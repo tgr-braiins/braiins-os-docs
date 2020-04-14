@@ -16,79 +16,76 @@
     If you want to contribute, please contact us through one of the telegram groups.
 
 #####
-Intro
+简介
 #####
 
-Braiins OS+ is an operating system for ASIC miners. It is based on the `Braiins OS <https://braiins-os.com/community-edition>`_ product and provides additional proprietary algorithms for autotuning of miners. When a user provides maximum allowed power consumption in Watts, the system will automatically optimize the mining process to maximize hash rate. This process works across a wide spectrum of inputs, allowing you to optimize for the best possible efficiency or maximum hash rate based on economical considerations. Internal testing shows that for the Antminer S9, it’s possible to achieve efficiency of 70J/THs or even better for low Watts setting. For high power consumption, hash rate can increase by 20%+ (comparing to Antminer S9, 13.5 TH/s stock setting with ~ 94J/TH).
+Braiins OS+是专为ASIC矿机设计的增强性操作系统。它在已经相当可靠的 `Braiins OS <https://zh.braiins-os.com/community-edition>`_ 社区版的基础上，额外提供独有的矿机自动调整算法。当用户能提供最大允许的功耗（瓦数）时，系统将自动优化挖矿过程，让矿机算力最大化。这一过程具有输入普适性，让您能基于经济上的考虑，对矿机进行最大化效率或最高哈希率的优化。内部测试显示，在蚂蚁矿机S9上使用Braiins OS+能让矿机能效比降到70 J/THs，且在低功耗设定下这一数值将可能更低。同时，增加矿机功率输入也能提升矿机算力20%或更高（与蚂蚁矿机S9原厂固件，在94 J/THs的能耗比下只有13.5TH/秒相比）。
 
-Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer S17 support is planned for the near future.
+目前Braiins OS+支持的设备有比特大陆的蚂蚁矿机S9，S9i以及S9j。对蚂蚁矿机S17的支持也将很快推出。
 
 ********
-Features
+特性
 ********
 
- * State-of-the-art autotuning optimization to maximize hash rate or efficiency
- * Open-source operating system
- * Stratum V2 implementation with improved data efficiency and hashrate hijacking prevention
- * CGminer replacement (BOSminer) written from scratch in Rust language
- * Quick startup (5-7 seconds)
- * No random crashes due to undefined behavior
- * Bulk installation
- * Automatic updates with the standard opkg system
- * Fully customizable fan control (enables immersion cooling)
- * Advanced monitoring to prevent overheating and other issues
+ * 具有能提高算力或效率的高级自动调整优化功能
+ * 开源的操作系统
+ * 完整应用改进数据效率和防止算力劫持的阶层Stratum V2协议
+ * 内置由Rust语言从头编写的CGminer的代替品——BOSminer。
+ * 快速开机（5-7秒）
+ * 未定义行为不会导致莫名其妙的死机
+ * 批量安装
+ * 基于标准opkg包系统的自动更新
+ * 完整的风扇自定义控制（并支持浸没式冷却）
+ * 高级监控系统保证您的矿机健康并预防其他问题
 
 *******************
-Support and Contact
+技术支持与联系方式
 *******************
 
-Have questions?
-Our dev and support teams are always available to help.
+我们的开发和客服团队非常乐意解答您的疑惑。
 
-Join our Telegram group:
+您也可以加入我们的电报群组：
 
-  * `EN group <https://t.me/BraiinsOS>`_
-  * `RU group <https://t.me/BraiinsOS_RU>`_
-  * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
-  You can also `send VIP request <https://slushpool.kayako.com/en-us/conversation/new/11>`_ to our support team.
+  * `英文群组 <https://t.me/BraiinsOS>`_
+  * `俄语群组 <https://t.me/BraiinsOS_RU>`_
+  * `中文群组 <https://t.me/BraiinsOS_ZH>`_ （我们的微信群请详询电报群内客服邀请加入）
+
+ 您也可以向我们的客服团队 `发送VIP请求 <https://slushpool.kayako.com/en-us/conversation/new/11>`_ 。
 
 
 *********
-Changelog
+更新日志
 *********
 
 20.03
 ---------------------------
 
-  * All mining hardware types
+  * 所有矿机硬件类型
+      
+    * 【特性】配置文件让用户能设定电源PSU的功率限制，自动调整算法会在设定的限制下，最大化矿机的能耗比每瓦算力。
 
-    * [feature] configuration file allows specifying a power limit of the PSU that the autotuning algorithm
-      will take into account in order to maximize the TH/W produced by the mining device
+  * 蚂蚁矿机S9
 
-  * Antminer S9
-
-    * [feature] Autotuning based on a user-specified power limit
+    * 【特性】基于用户设定功率限制的自动调整功能。
 
 ************
-Known Issues
+已知问题
 ************
 
-The following lists issues that are known to be present in released version.
+以下列出了已发布版本中存在的已知问题。
 
-20.03 (Updated 3/30/2020)
+20.03 (更新于 3/30/2020)
 -------------------------
 
-  * GUI
+  * 图形交互界面（GUI)
 
-   * Reference line in hashrate chart has incorrect value for average nominal hashrate. Issue
-     only present when less than 3 hash chains are operational.
-   * Rejection ratio is multiplied by 100. As an example, when rejection rate is 0.1%, then
-     10% will be shown.
+   * 算力图表中的平均名义哈希率（Average Nominal Hashrate）参照线数值不准确。此问题
+     只有运行的哈希链数量少于3个时才会发生。
+   * 拒绝率（Rejection ratio）被乘了100。例如，当拒绝率实际是0.1%时，显示的是10%。
 
-  * Configuration
-
-    * SD Card installation will report missing Stratum V2 authentication key in the Miner/Configuration
-      section (Error: missing upstream authority key for securing stratum2+tcp connection in pool").
-      User can configure connection (including the key) in the configuration, or directly in
-      the ``/etc/bosminer.toml`` file.
+  * 配置
+  
+    * 用SD卡安装后，系统可能会在矿机/配置（Configuration）项中，报错缺少阶层Stratum V2协议的验证密钥， 
+      (Error: missing upstream authority key for securing stratum2+tcp connection in pool")。
+      用户可以在配置项中，或直接在 ``/etc/bosminer.toml`` 文件内调整连接（包括密钥）。
