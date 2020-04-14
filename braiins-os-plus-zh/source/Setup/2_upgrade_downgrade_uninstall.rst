@@ -81,7 +81,7 @@
 -  *矿机*——在矿机的命令行执行 ``miner factory_reset`` 命令（同时要保持通过SSH的连接）
 -  *opkg包* ——在矿机的命令行执行 ``opkg remove firmware`` 命令（同时要保持通过SSH的连接）
     
-——在矿机的命令行执行 opkg remove firmware命令（同时要保持通过SSH的连接）
+——在矿机的命令行执行 ``opkg remove firmware`` 命令（同时要保持通过SSH的连接）
 
 ***************************
 刷回原厂固件
