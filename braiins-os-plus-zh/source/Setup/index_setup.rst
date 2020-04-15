@@ -1,6 +1,6 @@
-#####
-Setup
-#####
+###################
+[translateme-setup]
+###################
 
 .. toctree::
    :maxdepth: 3
