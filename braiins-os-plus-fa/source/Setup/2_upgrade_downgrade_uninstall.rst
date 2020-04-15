@@ -1,5 +1,5 @@
 #####################################
-Upgrade, Downgrade and Uninstallation
+ارتقاء, بازگردانی و حذف نصب
 #####################################
 
 .. contents::
@@ -9,38 +9,28 @@ Upgrade, Downgrade and Uninstallation
 .. _upgrade_bos:
 
 ****************
-Firmware Upgrade
+ارتقاء فریم‌ور
 ****************
 
-The firmware upgrade process uses a standard mechanism for
-installing/upgrading software packages within any OpenWrt based system.
-Follow the steps below to perform the firmware upgrade.
+روند بروز رسانی فریم‌ور از یک‌مکانیسم استاندارد برای نصب / بروز رسانی بسته های نرم افزاری داخل هر سیستمِ بر پایهء OpenWrt استفاده میکند. مراحل زیر را برای بروز رسانی فریم‌ور  دنبال کنید.
 
-Upgrade via web interface
-=========================
+ارتقاء از طریق رابط کاربری وب
+==============================
 
-The firmware periodically checks for availability of a new version and automatically updates the system. In
-case the auto-update feature is disabled, a blue **Upgrade** button appears on
-the right side of the top bar. Proceed to click on the button and
-confirm to start the upgrade.
+فریم‌ور به طور مرتب وجود نسخه جدید را چک و به طور خودکار سیستم را به روز رسانی میکند. در صورتی که گزینه بروز رسانی خودکار غیر فعال باشد، یک دکمه آبی رنگ با عنوان **Upgrade** در سمت راست نوار بالایی نمایان میشود. روی آن کلیک کنید و شروع ارتقا را تایید کنید.
 
-Alternatively, you can update the repository information manually by
-clicking the *Update lists* button in the System > Software menu. In
-case the button is missing, try to refresh the page. To trigger the
-upgrade process, type ``firmware`` into the *Download and install
-package* field and press *OK*.
+به عنوان روش جایگزین، میتوانید اطلاعات مخزن را به صورت دستی با کلیک بر روی دکمه *Update lists* در بخش منوی System > Software بروز رسانی کنید. در صورت عدم وجود دکمه، صفحه را رفرش کنید. برای شروع پروسه ارتقا، کلمه ``firmware`` را داخل پکیج دانلود و نصب تایپ کنید و *OK* را بزنید.
 
-Upgrade via SSH
-===============
+ارتقاء از طریق SSH
+===================
 
-After connecting to the miner via SSH, the upgrade to the latest firmware can be triggered using the following commands:
+پس از اتصال به ماینر از طریق SSH, ارتقا به آخرین فریم‌ور میتواند با استفاده از دستور زیر آغاز شود:
 
 ::
 
   opkg update && opkg install firmware
 
-Since the firmware installation results in a reboot, the following
-output is expected:
+از آنجاییکه نصب فریم‌ور باعث ریبوت میشود، خروجی زیر انتظار میرود:
 
 ::
 
@@ -53,12 +43,11 @@ output is expected:
 
 .. _upgrade_community_bos_plus:
 
-**********************
-Upgrade to Braiins OS+
-**********************
+**********************************
+ارتقاء به نسخه Braiins OS+
+**********************************
 
-In order to upgrade from older version or the Community Edition to Braiins OS+, connect to the miner via SSH
-and use the following commands:
+برای ارتقا از نسخه قدیمی یا نسخه آزاد به Braiins OS+، از طریق SSh به ماینر وصل شوید و دستورات زیر را اجرا کنید:
 
 ::
 
@@ -66,12 +55,11 @@ and use the following commands:
 
 .. _downgrade_bos_plus_community:
 
-**************************************
-Upgrade/Downgrade to Community Edition
-**************************************
+*********************************
+ارتقاء / بازگردانی به نسخه آزاد
+*********************************
 
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, connect to the miner via
-SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+برای ارتقا از نسخه قدیمی Braiins OS یا بازگردانی از Braiins OS+ , ازطریق SSH به ماینر وصل شوید و دستور زیر را استفاده کنید (متغییر ``IP_ADDRESS`` را جایگزین کنید):
 
 ::
 
@@ -80,45 +68,36 @@ SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accord
 .. _downgrade_bos_stock:
 
 ***********************************
-Reset to initial Braiins OS version
+بازگردانی به نسخه اولیه Braiins OS
 ***********************************
 
-The current firmware package can be downgraded to the version which was initially installed when
-replacing the stock firmware. This can be done using the
+پکیج فریم‌ور کنونی میتواند به نسخه ای که در ابتدا هنگام جایگزینی فریم‌ور اصلی کارخانه نصب شده بود، بازگردانده شود. این کار میتواند به این صورت انجام شود
 
- -  *IP SET button* - hold it for *10s* until red LED flashes
- -  *SD card* - edit the *uEnv.txt* file so it contains the line **factory_reset=yes**
- -  *miner utility* - call ``miner factory_reset`` from the miner’s
-    command line (while connected via SSH)
- -  *opkg package* - call ``opkg remove firmware`` from the miner’s
-    command line (while connected via SSH)
+ -  *IP SET button* - نگه‌داشتن دکمه برای *۱۰ ثانیه* تا زمانیکه LED قرمز چشمک بزند.
+ -  *SD card* - فایل *uEnv.txt* را ویرایش کنید و کد مقابل را به **factory_reset=yes** تغییر دهید.
+ -  *miner utility* - دستور ``miner factory_reset`` را در SSH اجرا کنید.
+ -  *opkg package* - دستور ``opkg remove firmware`` را در SSH اجرا کنید.
 
 ***************************
-Flashing a factory firmware
+فلش به نسخه فریم‌ور کارخانه
 ***************************
 
-Using previously created backup
-===============================
+استفاده از نسخه پشتیبان تهیه شده
+=================================
 
-By default, a backup of the original firmware is created during the
-migration to Braiins OS+ and can be restored using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
+به طور پیش فرض، یک نسخه پشتیبان از فریم‌ور اصلی در طول مهاجرت به Braiins OS+ ساخته میشود که میتواند با استفاده از دستورات زیر بازگردانده شود (متغییرهای ``BACKUP_ID_DATE`` و ``IP_ADDRESS`` را با مقادیر متناسب دستگاه خود جایگزین کنید.):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-Using factory firmware image
+استفاد از ایمیج اصلی کارخانه
 =============================
 
-On an Antminer S9, you can alternatively flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
-file.
+روی یک دستگاه S9، می‌توانید از یک ایمیج اصلی کارخانه که در وبسایت کارخانه سازنده دستگاه در دسترس است برای عملیات فلش استفاده کنید. با تغییر ``FACTORY_IMAGE`` به مسیر فایل یا آدرس اینترنتی که به ``tar.gz`` ختم میشود. (در حالت فشرده) ایمیج‌های پشتیبانی شده با MD5 متناظر هر ایمیج در فایل `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ لیست شده است.
 
-Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
+ کد زیر را اجرا کنید (متغییرهای ``FACTORY_IMAGE`` و ``IP_ADDRESS`` با مقادیر متناسب دستگاه خود جایگزین کنید.):
 
 ::
 

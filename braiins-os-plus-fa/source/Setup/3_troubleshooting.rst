@@ -1,14 +1,12 @@
-###############
-Troubleshooting
-###############
+#########
+عیب یابی
+#########
 
-*****************************************************
-Recovering Bricked (unbootable) Devices Using SD Card
-*****************************************************
+*****************************************************************
+بازیابی دستگاههای غیر قابل بوت شدن با استفاده از کارت حافظه SD
+*****************************************************************
 
-If anything goes wrong and your device seems unbootable, you can use the
-previously created SD card image to recover the original firmware from the
-manufacturer by using the following commands:
+اگر اشکالی پی بیاید و دستگاه شما غیر قابل بوت شدن شود، شما میتوانید با استفاده از ایمیج کارت حافظه SD که قبلا ساخته شده، فریم‌ور اصلی سازنده را با دنبال کردن دستورات زیر بازیابی کنید:
 
 .. code:: bash
 
@@ -16,21 +14,19 @@ manufacturer by using the following commands:
    source .env/bin/activate
    python3 restore2factory.py backup/2ce9c4aab53c-2018-09-19/ your-miner-hostname-or-ip
 
-After the script finishes, wait a few minutes and adjust the jumper to
-boot from NAND (internal memory).
+پس از آنکه اجرای اسکریپت تمام شد، چند دقیقه صبر کنید و جامپر را برای بوت از NAND (حافظه داخلی) تنظیم کنید.
 
 ******************
-BOSminer operation
+عملکرد BOSminer
 ******************
 
-BOSminer can be controlled using the command line or via the web page.
+BOSminer میتواند با استفاده از ترمینال خط فرمان یا از طریق وبسایت کنترل شود.
 
-In order to start or stop BOSminer, use the following commands:
+برای شروع به کار یا توقف BOSminer, از دستورات زیر استفاده کنید:
 
 ::
 
 	/etc/init.d/bosmniner stop
 	/etc/init.d/bosmniner start
 
-Alternatively, BOSminer can be controlled in `System -> Startup` page and it is restarted every
-time the user clicks on the `Save & Apply` button in the `Miner -> Configuration` page.
+همچنین BOSminer میتواند از صفحه `System > Startup` کنترل شود. هر بار کاربر بر روی `Save and Apply` در صفحه `Miner -> Configuration` کلیک کند، ریستارت میشود.
