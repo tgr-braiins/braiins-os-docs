@@ -1,5 +1,5 @@
 ##################
-Basic User's Guide
+用户基本指南
 ##################
 
 .. contents::
@@ -7,18 +7,18 @@ Basic User's Guide
 	:depth: 2
 
 **************
-Web Statistics
+网页端统计数据
 **************
 
-Statistics that are displayed on the main page of the Web GUI are explained below.
+下方解释了在矿机的网页图形交互界面（GUI）主页中显示的一些数据的意思。
 
-Hash Chains
+计算板
 ===========
 
-   * **ID**                    - Hash Chain ID, corresponds with the labeling on the control board
-   * **REAL HASH RATE**        - Actual hash rate of the hash chain
-   * **NOMINAL HASH RATE**     - Theoretical hash rate of the hash chain, based on the frequency of the chips
-   * **VOLTAGE**               - Voltage used on the hash chain
+   * **ID**                    - 计算板ID, 由控制板上连接计算板接口标注的编号决定
+   * **REAL HASH RATE**        - 计算板当前的实际算力
+   * **NOMINAL HASH RATE**     - 计算板基于目前芯片频率，理应能达到的算力
+   * **VOLTAGE**               - 计算板Voltage used on the hash chain
    * **FREQUENCY**             - Frequency of the chips (average)
    * **BOARD TEMP**            - Temperature reported by the sensors on the hash board
    * **CHIP TEMP**             - Temperature reported by the sensors on the chip
