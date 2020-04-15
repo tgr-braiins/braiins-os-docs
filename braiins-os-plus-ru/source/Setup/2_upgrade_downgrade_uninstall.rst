@@ -27,21 +27,46 @@
 
 ::
 
-   # загрузитt последние пакеты с сервера 
-opkg update
-   # попробуйте обновить прошивку до последней версии
-opkg install firmware
+  opkg update && opkg install firmware
 
 Поскольку при установке прошивки происходит перезагрузка, ожидается следующий вывод:
 
 ::
 
-   ...
-   Collected errors:
-   * opkg_conf_load: Could not lock /var/lock/opkg.lock: Resource temporarily unavailable.
-   Saving config files...
-   Connection to 10.10.10.1 closed by remote host.
-   Connection to 10.10.10.1 closed.
+  ...
+  Collected errors:
+  * opkg_conf_load: Could not lock /var/lock/opkg.lock: Resource temporarily unavailable.
+    Saving config files...
+    Connection to 10.10.10.1 closed by remote host.
+    Connection to 10.10.10.1 closed.
+
+.. _upgrade_community_bos_plus:
+
+**********************
+Переход на Braiins OS+
+**********************
+
+Чтобы обновить старую версию прошивки или open-source версию Общественного релиза до Braiins OS +, подключитесь к майнеру по SSH
+и используйте следующие команды:
+
+::
+
+    opkg update && opkg install bos_plus
+
+.. _downgrade_bos_plus_community:
+
+**************************************
+Обновление / Даунгрейд на Общественный Релиз
+**************************************
+
+Для обновления c более старой версии Braiins OS или перехода с версии Braiins OS+ подключитесь к майнеру через
+SSH и используйте следующую команду (замените ``IP_ADDRESS`` соответственно):
+
+::
+
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade -F /tmp/firmware.tar'
+
+.. _downgrade_bos_stock:
 
 ***********************************
 Сброс до начальной версии Braiins OS
@@ -61,25 +86,23 @@ opkg install firmware
 Использование ранее созданной резервной копии
 ===============================
 
-По умолчанию резервная копия исходной прошивки создается во время миграции на Braiins OS + и может быть восстановлена с помощью следующих команд:
+По умолчанию резервная копия исходной прошивки создается во время миграции на Braiins OS + и может быть восстановлена с помощью следующих команд (замените ``BACKUP_ID_DATE`` и ``IP_ADDRESS`` соответственно):
 
 ::
-	
-	cd FOLDER_PATH/braiins-os_plus
-	source .env/bin/activate
-	python3 restore2factory.py backup/backup-id-date/ your-miner-hostname-or-ip
+
+  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 Использование заводского образа прошивки
 =============================
 
-На Antminer S9 вы можете альтернативно прошить заводской образ прошивки с сайта производителя, где ``FACTORY_IMAGE`` это путь к файлу или URL к ``tar.gz`` (не извлеченный!) файл. Поддерживаемые изображения с соответствующими хэшами MD5 перечислены в `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
+На Antminer S9 вы можете альтернативно прошить заводской образ прошивки с сайта производителя, где ``FACTORY_IMAGE`` это путь к файлу или URL к ``tar.gz`` (не извлеченному!). Поддерживаемые образы с соответствующими хэшами MD5 перечислены в `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
 file.
 
-Запустите:
+Запустите (замените ``BACKUP_ID_DATE`` и ``IP_ADDRESS`` соответственно):
 
 ::
 
-	cd FOLDER_PATH/braiins-os_plus
-	source .env/bin/activate
-	python3 restore2factory.py --factory-image FACTORY_IMAGE your-miner-hostname-or-ip
-
+  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
+  
