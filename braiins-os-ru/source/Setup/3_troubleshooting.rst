@@ -1,14 +1,12 @@
 ###############
-Troubleshooting
+Устранение неполадок
 ###############
 
 *****************************************************
-Recovering Bricked (unbootable) Devices Using SD Card
+Восстановление Bricked (не загружаемых) устройств с помощью SD-карты
 *****************************************************
 
-If anything goes wrong and your device seems unbootable, you can use the
-previously created SD card image to recover the original firmware from the
-manufacturer by using the following commands:
+Если что-то идет не так и ваше устройство кажется не запустимым, вы можете использовать ранее созданный образ SD-карты, чтобы восстановить оригинальную прошивку от производителя, используя следующие команды:
 
 .. code:: bash
 
@@ -16,21 +14,20 @@ manufacturer by using the following commands:
    source .env/bin/activate
    python3 restore2factory.py backup/2ce9c4aab53c-2018-09-19/ your-miner-hostname-or-ip
 
-After the script finishes, wait a few minutes and adjust the jumper to
-boot from NAND (internal memory).
+После завершения сценария подождите несколько минут и настройте перемычку для загрузки из NAND (внутренней памяти).
 
 ******************
-BOSminer operation
+Работа BOSminer
 ******************
 
-BOSminer can be controlled using the command line or via the web page.
+BOSminer можно управлять с помощью командной строки или через веб-страницу.
 
-In order to start or stop BOSminer, use the following commands:
+Чтобы запустить или остановить BOSminer, используйте следующие команды:
 
 ::
 
 	/etc/init.d/bosmniner stop
 	/etc/init.d/bosmniner start
 
-Alternatively, BOSminer can be controlled in `System -> Startup` page and it is restarted every
-time the user clicks on the `Save & Apply` button in the `Miner -> Configuration` page.
+Альтернативно, BOSminer можно настроить на `System -> Startup` странице и он перезапускается каждый раз, когда пользователь нажимает на `Save & Apply` кнопку на `Miner -> Configuration` странице.
+
