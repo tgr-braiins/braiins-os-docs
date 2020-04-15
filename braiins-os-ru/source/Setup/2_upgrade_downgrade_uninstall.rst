@@ -1,5 +1,5 @@
 #####################################
-Upgrade, Downgrade and Uninstallation
+Обновление, даунгрейд и удаление
 #####################################
 
 .. contents::
@@ -8,39 +8,30 @@ Upgrade, Downgrade and Uninstallation
 
 .. _upgrade_bos:
 
-****************
-Firmware Upgrade
-****************
+********************
+Обновления прошивки
+********************
 
-The firmware upgrade process uses a standard mechanism for
-installing/upgrading software packages within any OpenWrt based system.
-Follow the steps below to perform the firmware upgrade.
+Процесс обновления прошивки использует стандартный механизм установки/обновления пакетов программного обеспечения в любой системе на базе OpenWrt.
+Выполните следующие действия, чтобы произвести обновление прошивки.
 
-Upgrade via web interface
-=========================
+Обновление через веб-интерфейс
+==============================
 
-The firmware periodically checks for availability of a new version and automatically updates the system. In
-case the auto-update feature is disabled, a blue **Upgrade** button appears on
-the right side of the top bar. Proceed to click on the button and
-confirm to start the upgrade.
+Прошивка периодически проверяет наличие новой версии и автоматически обновляет систему. В случае, если функция автообновления отключена, синяя кнопка **Upgrade** появляется с правой стороны верхней панели. Нажмите кнопку и подтвердите, чтобы начать обновление.
 
-Alternatively, you can update the repository information manually by
-clicking the *Update lists* button in the System > Software menu. In
-case the button is missing, try to refresh the page. To trigger the
-upgrade process, type ``firmware`` into the *Download and install
-package* field and press *OK*.
+Кроме того, вы можете обновить информацию о хранилище вручную, нажав кнопку *Update lists* в меню System > Software menu. Если кнопка отсутствует, попробуйте обновить страницу. Чтобы запустить процесс обновления, введите ``firmware`` в поле *Download and install package* и нажмите *OK*.
 
-Upgrade via SSH
+Обновление через SSH
 ===============
 
-After connecting to the miner via SSH, the upgrade to the latest firmware can be triggered using the following commands:
+После подключения к майнеру через SSH обновление до последней версии можно запустить с помощью следующих команд:
 
 ::
 
   opkg update && opkg install firmware
 
-Since the firmware installation results in a reboot, the following
-output is expected:
+Поскольку при установке прошивки происходит перезагрузка, ожидается следующий вывод:
 
 ::
 
@@ -54,11 +45,11 @@ output is expected:
 .. _upgrade_community_bos_plus:
 
 **********************
-Upgrade to Braiins OS+
+Переход на Braiins OS+
 **********************
 
-In order to upgrade from older version or the Community Edition to Braiins OS+, connect to the miner via SSH
-and use the following commands:
+Чтобы обновить старую версию прошивки или open-source версию Общественного релиза до Braiins OS +, подключитесь к майнеру по SSH
+и используйте следующие команды:
 
 ::
 
@@ -67,11 +58,11 @@ and use the following commands:
 .. _downgrade_bos_plus_community:
 
 **************************************
-Upgrade/Downgrade to Community Edition
+Обновление / Даунгрейд на Общественный Релиз
 **************************************
 
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, connect to the miner via
-SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+Для обновления c более старой версии Braiins OS или перехода с версии Braiins OS+ подключитесь к майнеру через
+SSH и используйте следующую команду (замените ``IP_ADDRESS`` соответственно):
 
 ::
 
@@ -80,45 +71,37 @@ SSH and use the following command (replace the placeholder ``IP_ADDRESS`` accord
 .. _downgrade_bos_stock:
 
 ***********************************
-Reset to initial Braiins OS version
+Сброс до начальной версии Braiins OS
 ***********************************
 
-The current firmware package can be downgraded to the version which was initially installed when
-replacing the stock firmware. This can be done using the
+Текущий пакет прошивки может быть даунгрейдован до версии, которая была изначально установлена при замене стоковой прошивки. Это можно сделать с помощью
 
- -  *IP SET button* - hold it for *10s* until red LED flashes
- -  *SD card* - edit the *uEnv.txt* file so it contains the line **factory_reset=yes**
- -  *miner utility* - call ``miner factory_reset`` from the miner’s
-    command line (while connected via SSH)
- -  *opkg package* - call ``opkg remove firmware`` from the miner’s
-    command line (while connected via SSH)
+-  *кнопки IP SET* - жмите на нее *10сек* пока красный светодиод не начнет мигать
+-  *SD карты* - измените *uEnv.txt* файл так, чтобы он содержал строку **factory_reset=yes**
+-  *miner utility* - вызовите ``miner factory_reset`` в командной строке майнера (во то время как SSH подключен)
+-  *opkg package* - вызовите ``opkg remove firmware`` в командной строке майнера (во то время как SSH подключен)
 
 ***************************
-Flashing a factory firmware
+Перепрошивка заводской прошивки
 ***************************
 
-Using previously created backup
+Использование ранее созданной резервной копии
 ===============================
 
-By default, a backup of the original firmware is created during the
-migration to Braiins OS and can be restored using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
+По умолчанию резервная копия исходной прошивки создается во время миграции на Braiins OS + и может быть восстановлена с помощью следующих команд (замените ``BACKUP_ID_DATE`` и ``IP_ADDRESS`` соответственно):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-Using factory firmware image
+Использование заводского образа прошивки
 =============================
 
-On an Antminer S9, you can alternatively flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
+На Antminer S9 вы можете альтернативно прошить заводской образ прошивки с сайта производителя, где ``FACTORY_IMAGE`` это путь к файлу или URL к ``tar.gz`` (не извлеченному!). Поддерживаемые образы с соответствующими хэшами MD5 перечислены в `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
 file.
 
-Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
+Запустите (замените ``BACKUP_ID_DATE`` и ``IP_ADDRESS`` соответственно):
 
 ::
 
