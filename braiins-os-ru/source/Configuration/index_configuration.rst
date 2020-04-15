@@ -1,5 +1,5 @@
 #############
-Configuration
+Конфигурация
 #############
 
 .. contents::
@@ -7,15 +7,14 @@ Configuration
   :depth: 2
 
 *****************
-Install Arguments
+Аргументы установки
 *****************
 
-The installation script uses two types of arguments:
+Сценарий установки использует два типа аргументов:
+   * позиционные аргументы - требуются для завершения установки;
+   * опциональные аргументы - опциональные (т.е. не обязательные) для завершения установки.
 
-   * positional arguments - required for the installation to be completed;
-   * optional arguments - optional (i.e. not required) for the installation to be completed.
-
-The syntax for the installation script is the following:
+Синтаксис для установочного скрипта следующий:
 
   ::
 
@@ -23,35 +22,33 @@ The syntax for the installation script is the following:
                       [--no-keep-network] [--keep-hostname] [--no-wait]
                       hostname
 
-**Positional arguments:**
+**Позиционные аргументы:**
 
 .. code-block:: none
 
-    hostname [hostname ...] Hostname or an IP address of the selected miner
+    hostname [hostname ...] Имя хоста или IP-адрес выбранного майнера
 
-**Optional arguments:**
+**Опциональные аргументы:**
 
 .. code-block:: none
 
-  -h, --help            show this help message and exit
-  --no-backup           skip miner backup before upgrade
-  --no-nand-backup      skip full NAND backup (config is still being backed
-                        up)
-  --no-keep-network     do not keep miner network configuration (use DHCP)
-  --keep-hostname       keep miner hostname
-  --no-wait             do not wait until system is fully upgraded
+  -h, --help            показать это справочное сообщение и выйти
+  --no-backup           пропустить резервное копирование майнера перед обновлением
+  --no-nand-backup      пропустить полное резервное копирование NAND (конфигурация все еще копируется)
+  --no-keep-network     не сохранять конфигурацию сети майнера (использование DHCP)
+  --keep-hostname       сохранить имя хоста майнера
+  --no-wait             не ждать, пока система полностью обновится
 
 
-*************
-Pool Settings
-*************
+************
+Настройки пула
+************
 
-Users can specify multiple pools. All the pools in one group use the fail-over multi-pool strategy, which means
-that BOSminer will automatically switch to the second pool if the first pool dies.
+Пользователи могут указать несколько пулов. Все пулы в одной группе используют стратегию переключения при ошибки пула, что означает, что BOSminer автоматически переключится на второй пул, если первый пул "умрет".
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
-
-The syntax is the following:
+Конфигурация доступна через веб-интерфейс (*Miner -> Configuration*) или в файле конфигурации ``/etc/bosminer.toml``.
+ 
+Синтаксис следующий:
 
   ::
 
@@ -65,53 +62,42 @@ The syntax is the following:
      user = 'username.workername'
      password = 'secret'
 
-  * *name* - Name of the pool group (explained in the section *Pool Groups* below)
-  * *quota* - User set quota for the group (explained in the section *Pool Groups* below)
-  * *enabled* - Initial state of the pool after BOSminer initialization (default=true)
-  * *url* - Mandatory argument for server URL specified in the format
-    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. You don't have to
-    specify an explicit port for *Stratum V2* on Slush Pool. The reason is
-    that the protocol is still in development and we alternate between
-    two default ports (**3336** and **3337**) across protocol
-    upgrades. Miners that don't upgrade would still be able to use the
-    previous version of the protocol. Miners that do upgrade won't
-    have to worry about upgrading their mining URL with a new port.
-    There is a *new* required element of the URL in the path and that
-    is the public key advertised by the pool that the mining software
-    uses to verify the authenticity of the mining endpoint that it
-    connects to. This prevents man-in-the-middle-attacks that attempt
-    to steal hashrate. Any such attempt results in failed verification
-    and the software refuses to use the given pool entry.
-  * *user* - Mandatory argument for username specified in format ``USERNAME.WORKERNAME``
-  * *password* - Optional password settings
+  * *name* - Имя группы пула (объяснено в разделе *Группы пулов* ниже)
+  * *quota* - Пользователь установил квоту для группы (объяснено в разделе *Pool Groups* ниже)
+  * *enabled* - Начальное состояние пула после инициализации BOSminer (default=true)
+  * *url* - Обязательный аргумент для URL сервера, указанного в формате
+    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. Вам не нужно указывать конкретный порт 
+    для * Stratum V2 * в Slush Pool. Причина в том, что протокол все еще 
+    находится в разработке, и мы чередуем два порта по умолчанию (**3336** и **3337**) 
+    при обновлении протокола. Майнеры, которые не обновляются, могут использовать 
+    предыдущую версию протокола. Майнерам, которые делают обновление, не придется беспокоиться 
+    об обновлении своего майнинг-URL с новым портом. Есть *новый* обязательный элемент URL-адреса, 
+    который представляет собой открытый ключ, объявленный пулом. Этот элемент использует 
+    программное обеспечение для майнинга для проверки подлинности конечной точки майнинга, 
+    к которой оно подключается. Это предотвращает атаки типа «человек посередине», 
+    которые пытаются украсть хэшрейт. Любая такая попытка приводит к неудачной проверке, 
+    и программное обеспечение отказывается использовать данную запись пула.
+  * *user* - Обязательный аргумент для имени пользователя в формате ``USERNAME.WORKERNAME``
+  * *password* - Опциональные настройки пароля
 
-Pool Groups
+Группы пулов
 ===========
 
-  Users can create multiple different pool groups. All pools within one group use the fail-over
-  multi-pool strategy described above. When multiple pool groups are created, the work is
-  distributed to each group with the load-balance strategy, either on a Quota basis or
-  with a Fixed Share Ratio.
+Пользователи могут создавать несколько разных групп пулов. Все пулы в пределах одной группы используют вышеописанную стратегию восстановления при сбое. При создании нескольких групп пулов работа распределяется по каждой группе с помощью стратегии распределения нагрузки либо на основе квот, либо с фиксированным коэффициентом распределения.
 
-  Example:
+Пример:
 
-  Group 1 has two pools specified and is assigned a Quota of "1". Group 2 has just one pool specified
-  and is assigned a Quota of "2".
+Группа 1 имеет два указанных пула и ей назначена квота "1". В группе 2 указаны два пула, и ей назначена квота "1".
+- Если первый пул в группе 1 умрет, BOSminer переключится на второй пул в группе 1.
+- Работа назначается группам с соотношением 1: 2. - Группа 2 получит вдвое больше работы, назначенной Группе 1.
 
-  - The work is assigned to the groups with a 1:2 ratio - Group 2 will get twice the amount of work assigned as Group 1.
-  - If the first pool in Group 1 dies, BOSminer will switch to the second pool in Group 1.
+Вместо квоты можно использовать фиксированный коэффициент распределения, что разделит работу на основании определенного процентного соотношения. Квота 1:1 эквивалентна фиксированному коэффициенту распределения 0,5 (50%) - оба эти параметра разделят работу пополам и отправят ее двум группам.
 
+Конфигурация доступна через веб-интерфейс (*Miner -> Configuration*) или в файле конфигурации ``/etc/bosminer.toml``.
 
-  It's possible to use Fixed Share Ratio instead of Quota, which will split the work by a specified
-  percentage. A Quota of 1:1 is equivalent to a Fixed Share Ratio of 0.5 (50%) - both of those
-  settings will split the work in half and send it to the two groups.
+Пример с двумя группами и несколькими пулами:
 
-  Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration
-  file ``/etc/bosminer.toml``.
-
-  Example of two groups and multiple pools:
-
-  ::
+::
 
      [[group]]
      name = 'MyGroup1'
@@ -135,24 +121,17 @@ Pool Groups
      url = 'stratum+tcp://stratum.slushpool.com:3333'
      user = 'userB.worker'
 
-With this setup, the work will be split between the two groups in ratio 1:2. By default, the miner
-will be mining on the first pool from the group "MyGroup1" and on the one pool defined in the group
-"MyGroup2". If the first pool in "MyGroup1" dies, the miner will be mining on the second pool from
-the group "MyGroup1". Since a second pool url isn't specified for "MyGroup2", nothing will be done
-if the pool in "MyGroup2" fails.
+При такой настройке работа будет разделена между двумя группами в соотношении 1:2. По умолчанию майнер будет майнить на первом пуле из группы «MyGroup1» и на единственном пуле, указанным в группе «MyGroup2». Если первый пул в «MyGroup1» "умрет", майнер переключится на второй пул из группы «MyGroup1». Поскольку второй URL-адрес пула не указан для «MyGroup2», ничего не будет предпринято, если на пуле в «MyGroup2» выскочит ошибка.
 
 *******************
-Hash Chain Settings
+Настройки хэш-цепочек (Hash Chain) 
 *******************
 
-Optional configuration for overriding the default settings for all hash chains. This allows the
-users to control the frequency and voltage of each hash chain and allows them to turn AsicBoost o
-n and off. While autotuning is enabled, these settings are ignored. The global hash chain settings
-can also be overridden by per-chain settings.
-
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
-
-The syntax is the following:
+Речь идет о необязательной конфигурации для переопределения настроек по умолчанию для всех хэш-цепочек. Это позволяет пользователям контролировать частоту и напряжение каждой хэш-цепочки и позволяет им включать и выключать AsicBoost.
+Пока автонастройка включена, эти настройки игнорируются. Глобальные настройки хэш-цепочек также могут быть переопределены настройками для каждой цепочки.
+Конфигурация доступна через веб-интерфейс (*Miner -> Configuration*) или в файле конфигурации ``/etc/bosminer.toml``.
+ 
+Синтаксис следующий:
 
   ::
 
@@ -161,11 +140,11 @@ The syntax is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *asic_boost* - Enable or disable AsicBoost support (default=true)
-  * *frequency* - Set default chip frequency in MHz for all hash chains (default=650.0)
-  * *voltage* - Set default voltage in V for all hash chains (default=8.8)
+* *asic_boost* - Включить или отключить поддержку AsicBoost (default=true)
+* *frequency* - Установить частоту чипа по умолчанию в MHz для всех цепочек хеширования (default=650.0)
+* *voltage* - Установить напряжение по умолчанию в V для всех цепочек хеширования (default=8.8)
 
-The syntax for per-chain settings is the following:
+Синтаксис настроек для каждой цепочки следующий:
 
   ::
 
@@ -173,53 +152,45 @@ The syntax for per-chain settings is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *[hash_chain.6]* - Override the global settings for hash chain '6'
-  * *frequency* - Override the global chip frequency in MHz for hash chain '6' (default='hash_chain_global.frequency')
-  * *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
+* *[hash_chain.6]* - Переопределить глобальные настройки для цепочки хэшей '6'
+* *frequency* - Переопределить глобальную частоту чипа в MHz для цепочки хэшей '6' (default='hash_chain_global.frequency')
+* *voltage* - Отменить глобальное напряжение в V для хэш-цепи '6' (default='hash_chain_global.voltage')
+
 
 ***************************
-Temperature and Fan Control
+Контроль температуры и вентиляторов
 ***************************
 
-Temperature Control Mode
+Режим контроля температуры
 ========================
 
-  Braiins OS supports automatic temperature control (using `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
-  The controller can operate in one of three modes:
+Braiins OS поддерживает автоматический контроль температуры (используя `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
+Контроллер может работать в одном из трех режимов:
 
-  -  **Automatic** - Miner software tries to regulate the fan
-     speed so that miner temperature is approximately at the target
-     temperature (which can be configured). The allowed temperature range
-     is 0-200 degree Celsius.
-  -  **Manual** - Fans are kept at a fixed, user-defined speed,
-     no matter the temperature. This is useful if you have your own way of
-     cooling the miner or if the temperature sensors don’t work. Allowed
-     fan speed is 0%-100%. The control unit monitors only hot and dangerous temperatures.
-  -  **Disabled** - **WARNING**: this may damage the device because no control is done!
+-  **Automatic** - Программное обеспечение майнера пытается регулировать скорость вращения вентилятора так, чтобы температура майнера была приблизительно равна целевой температуре (которую можно настроить). Допустимый диапазон температур составляет 0-200 градусов по Цельсию.
+-  **Manual** - Вентиляторы поддерживаются на фиксированной, определенной пользователем скорости, независимо от температуры. Это полезно, если у вас есть собственный способ охлаждения майнера или если датчики температуры не работают. Допустимая скорость вращения вентилятора составляет 0% -100%. Блок управления контролирует только горячие и опасные температуры.
+-  **Disabled** - **WARNING**: это может повредить устройство, потому что контроль не выполняется!
 
-  The temperature control mode can be changed in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+Режим контроля температуры можно изменить на *Miner -> Configuration* странице или в в файле конфигурации ``/etc/bosminer.toml``.
 
-  **Warning**: misconfiguring fans (either by turning them off or to a
-  level that is too slow, or by setting the target temperature too high)
-  may irreversibly **DAMAGE** your miner.
+** Предупреждение**: неправильная настройка вентиляторов (либо путем их выключения, либо при установке слишком низкого уровня вращения, либо при установке слишком высокой целевой температуры) может необратимо **ПОВРЕДИТЬ** ваш майнер.
 
-Default temperature limits
+Температурные пределы по умолчанию
 ==========================
 
-  The default temperature limits are set to prevent the miner from overheating and being damaged.
+Температурные пределы по умолчанию установлены для предотвращения перегрева и повреждения майнера.
+**Target temperature** это температура, которую старается поддерживать майнер (*по умолчанию* **89°C**).
+**Hot temperature** порог, при котором вентиляторы начинают работать на 100% (*по умолчанию* **100°C**).
+**Dangerous temperature** порог, при котором BOSminer отключается, чтобы предотвратить перегрев и повреждение майнера (*по умолчанию* **110°C**).
 
-  * **Target temperature** is a temperature that the miner will try to maintain (*default is* **89°C**).
-  * **Hot temperature** is a threshold at which the fans start to run at 100% (*default is* **100°C**).
-  * **Dangerous temperature** is a threshold at which BOSminer shuts down in order to prevent overheating and damaging the miner (*default is* **110°C**).
+Температурные пределы по умолчанию можно отрегулировать на *Miner -> Configuration* странице или в файле конфигурации ``/etc/bosminer.toml``.
 
-  Default temperature limits can be adjusted in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
-
-Temperature and Fan Control configuration in ``bosminer.toml``
+Конфигурация контроля температуры и вентиляторов в ``bosminer.toml``
 ==============================================================
 
-  The default values can be overridden by editing the corresponding lines in the configuration file, located in ``/etc/bosminer.toml``.
+Значения по умолчанию можно изменить, отредактировав соответствующие строки в файле конфигурации, расположенном в ``/etc/bosminer.toml``.
 
-  The syntax is the following:
+Синтаксис следующий:
 
   ::
 
@@ -229,10 +200,10 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      hot_temp = 95
      dangerous_temp = 105
 
-  * *mode* - Set temperature control mode (default='auto')
-  * *target_temp* - Set target temperature in Celsius (default=89.0). This option is ONLY used when 'temp_control.mode' is set to 'auto'!
-  * *hot_temp* - Set hot temperature in Celsius (default=100.0). When this temperature is reached, the fan speed is set to 100%.
-  * *dangerous_temp* - Set dangerous temperature in Celsius (default=110.0). When this temperature is reached, the mining is turned off! **WARNING:** setting this value too high may damage the device!
+* *mode* - Установка режима контроля температуры (default='auto')
+* *target_temp* - Установка целевой температуры в градусах Цельсия (default=89.0). Эта опция используется ТОЛЬКО когда 'temp_control.mode' установлен на 'auto'!
+* *hot_temp* - Установка температуры в градусах Цельсия (default=100.0). Когда майнер достигнет этой температуры, скорость вентилятора установится на 100%.
+* *dangerous_temp* - Установка опасных температурных пределов в градусах Цельсия (default=110.0). Когда майнер достигнет этой температуры, майнинг отключится! **ПРЕДУПРЕЖДЕНИЕ:** слишком высокое значение этого параметра может повредить устройство!
 
 
   ::
@@ -241,50 +212,38 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      speed = 100
      min_fans = 1
 
-  * *speed* - Set a fixed fan speed in % (default=70). This option is NOT used when *temp_control.mode* is set to 'auto'!
-  * *min_fans* - Set the minimum number of fans required for BOSminer to run (default=1).
-  * To completely **disable fan control**, set 'speed' and 'min_fans' to 0.
+* *speed* - Установка фиксированной скорости вентилятора в % (default=70). Эта опция НЕ используется, когда *temp_control.mode* установлен на 'auto'!
+* *min_fans* - Установка минимального количества вентиляторов, необходимых для запуска BOSminer (default=1).
+* Чтобы полностью **отключить управление вентилятором**, установите 'speed' и 'min_fans' на 0.
 
-Fan operation
+Работа вентилятора
 =============
 
-  1. Once temperature sensors are initialized, fan control is enabled. If
-     temperature sensors are not working or they read out a temperature of
-     0, fans are automatically set to full speed.
-  2. If the current mode is “fixed fan speed”, the fan is set to a given
-     speed.
-  3. If the current mode is “automatic fan control”, the fan speed is
-     regulated by temperature.
-  4. In case the miner's temperature is above the *HOT temperature*, fans are set to
-     100% (even in “fixed fan speed” mode).
-  5. In case the miner's temperature is above the *DANGEROUS temperature*, BOSminer
-     shuts down (even in “fixed fan speed” mode).
+1. Как только датчики температуры инициализированы, управление вентилятором включается. Если температурные датчики не работают или они считывают температуру 0, вентиляторы автоматически устанавливаются на полную скорость.
+2. Если текущим режимом является “fixed fan speed”, вентилятор устанавливается на заданную скорость.
+3. Если текущим режимом является “automatic fan control”, скорость вентилятора регулируется температурой.
+4. В случае, если температура майнера выше * HOT temperature*, вентиляторы устанавливаются на 100% (даже в режиме “fixed fan speed”).
+5. В случае, если температура майнера выше *DANGEROUS temperature*, BOSminer
+   Выключается (даже в режиме “fixed fan speed”).
 
 ************
-SSH password
+SSH пароль
 ************
 
-You can set the miner’s password via SSH from a remote host by running
-the below command and replacing *[newpassword]* with your own password.
+Вы можете установить пароль майнера через SSH с удаленного хоста, выполнив следующую команду и заменив *[newpassword]* на ваш собственный пароль.
 
-  * Note: Braiins OS does **not** keep a history of the commands executed.
+*Примечание: Braiins OS *\ **не**\ * хранит историю выполненных команд.*
 
   .. code:: bash
 
      ssh root@[miner-hostname-or-ip] 'echo -e "[newpassword]\n[newpassword]" | passwd'
 
-To do this for several hosts in parallel you could use
-`p-ssh <https://linux.die.net/man/1/pssh>`__.
+Чтобы выполнить для нескольких хостов параллельно, вы можете использовать`p-ssh <https://linux.die.net/man/1/pssh>`__.
 
 ****************
-MAC & IP address
+MAC & IP адреса
 ****************
 
-By default, the device’s MAC address stays the same as it is inherited
-from firmware (stock or Braiins OS) stored in the device (NAND). That way, once
-the device boots with Braiins OS, it will have the same IP address as it
-had with the factory firmware.
+По умолчанию MAC-адрес устройства остается таким же, каким он был во встроенном программного обеспечения (стоковая версия или Braiins OS), хранящимся в устройстве (NAND). Таким образом, после загрузки устройства с Braiins OS, оно будет иметь тот же IP-адрес, что и при заводской прошивке.
 
-Alternatively, you can specify a MAC address of your choice by modifying
-the ``ethaddr=`` parameter in the ``uEnv.txt`` file (found in the first
-FAT partition of the SD card).
+Кроме того, вы можете указать MAC-адрес по вашему выбору, изменив ``ethaddr=`` параметр в файле ``uEnv.txt`` (который можете найти в первом FAT разделе SD-карты).
