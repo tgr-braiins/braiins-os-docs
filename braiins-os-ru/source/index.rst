@@ -11,73 +11,72 @@
 
 ---------------
 
-#####
-Intro
-#####
+########
+Введение
+########
 
-Braiins OS is a fully open-source operating system for ASIC miners. It was the first firmware to implement
-overt AsicBoost in 2018, and it now features an implementation of the new mining protocol, Stratum V2.
-Additionally, Braiins OS works in tandem with our new software component, BOSminer, which we've written
-from scratch in Rust language as a replacement for the outdated CGminer.
+Braiins OS + представляет улучшенную операционную систему для ASIC-майнеров. Система построенна на проверенном продукте Braiins OS (https://braiins-os.org/, https://docs.braiins-os.org/), и включает в себя дополнительные проприетарные алгоритмы для автоматической настройки майнеров. Если пользователь ограничит максимально допустимое энергопотребление в ваттах, система автоматически оптимизирует процесс майнинга для максимизации хешрейта. Этот процесс может работать с широким спектром входных данных, что позволяет оптимизировать майнинг для достижения максимально возможной эффективности или максимального хешрейта, исходя из экономических соображений. Внутреннее тестирование подтвердило, что для Antminer S9 можно достичь эффективности 70J/THs или даже выше при низких настройках мощности (Watts). При высоком энергопотреблении хешрейт может увеличиться на 20%+ (в сравнении с Antminer S9, который имеет 13.5 TH/s по умолчанию ~ 94J/TH).
 
-Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer S17 support is planned
-for the near future.
+В настоящее время поддерживаются устройства Bitmain Antminer S9, S9i и S9j. Antminer S17 планируются в ближайшее время.
 
-********
-Features
-********
+**************
+Характеристики
+**************
 
- * Open-source operating system
- * Stratum V2 implementation with improved data efficiency and hashrate hijacking prevention
- * CGminer replacement (BOSminer) written from scratch in Rust language
- * Quick startup (5-7 seconds)
- * No random crashes due to undefined behavior
- * Bulk installation
- * Automatic updates with the standard opkg system
- * Fully customizable fan control (enables immersion cooling)
- * Advanced monitoring to prevent overheating and other issues
+ * Передовая оптимизация автонастройки для максимизации скорости хэширования или эффективности
+ * Операционная система с открытым исходным кодом
+ * Полная имплементация Stratum V2 с улучшенной эффективностью переноса данных и предотвращением перехвата хэшрейта
+ * Замена CGminer (BOSminer) написана с нуля на языке Rust
+ * Быстрый запуск (5-7 секунд)
+ * Никаких случайных сбоев из-за неопределенного поведения
+ * Массовая установка
+ * Автоматические обновления со стандартной системой opkg
+ * Полностью настраиваемое управление вентилятором (поддержка иммерсионного охлаждения)
+ * Расширенный мониторинг для предотвращения перегрева и других проблем
 
-*******************
-Support and Contact
-*******************
+**************************
+Служба поддержки и контакт
+**************************
 
-Have questions?
-Our dev and support teams are always available to help.
+Есть вопросы?
+Наша команда разработчиков и поддержки всегда готовы помочь.
 
-Join our Telegram group:
+Присоединяйтесь к нашим группам в Telegram:
 
-  * `EN group <https://t.me/BraiinsOS>`_
-  * `RU group <https://t.me/BraiinsOS_RU>`_
-  * `ZH group <https://t.me/BraiinsOS_ZH>`_
+  * `EN группа <https://t.me/BraiinsOS>`_
+  * `RU группа <https://t.me/BraiinsOS_RU>`_
+  * `ZH группа <https://t.me/BraiinsOS_ZH>`_
+  
+  Вы также можете `отправить VIP-запрос <https://slushpool.kayako.com/en-us/conversation/new/11>`_ в нашу службу поддержки.
 
-*********
-Changelog
-*********
+****************
+Журнал изменений
+****************
 
 20.03
 ---------------------------
 
-See WHATSNEW.MD (Will be published 3/31 on github)
+Смотри WHATSNEW.MD (Будет опубликовано 3/31 на github)
 
-************
-Known Issues
-************
+****************
+Известные ошибки
+****************
 
-The following lists issues that are known to be present in released version.
+Ниже перечислены проблемы, которые, как известно, присутствуют в выпущенной версии.
 
-20.03 (Updated 3/30/2020)
--------------------------
+20.03 (обновлено 30.03.2020)
+----------------------------
 
-  * GUI
+* GUI
 
-   * Reference line in hashrate chart has incorrect value for average nominal hashrate. Issue
-     only present when less than 3 hash chains are operational.
-   * Rejection ratio is multiplied by 100. As an example, when rejection rate is 0.1%, then
-     10% will be shown.
+    * Ссылочная линия на графике хэшрейта имеет неверное значение для среднего номинального хэшрейта. Ошибка
+      присутствует только тогда, когда работают менее 3 цепочек хешей.
+    * Коэффициент отклонения умножается на 100. Например, когда коэффициент отклонения составляет 0,1%, тогда
+      10% будет показано.
 
-  * Configuration
+   * Конфигурация
 
-    * SD Card installation will report missing Stratum V2 authentication key in the Miner/Configuration
-      section (Error: missing upstream authority key for securing stratum2+tcp connection in pool").
-      User can configure connection (including the key) in the configuration, or directly in
-      the ``/etc/bosminer.toml`` file.
+     * При установке SD-карты появится сообщение об отсутствии ключа аутентификации Stratum V2 в Miner/Configuration.
+       раздел (Error: missing upstream authority key for securing stratum2+tcp connection in pool).
+       Пользователь может настроить соединение (включая ключ) в конфигурации или непосредственно в
+       файл ``/etc/bosminer.toml`.
