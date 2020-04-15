@@ -15,15 +15,16 @@
 مقدمه
 #####
 
-Braiins OS+ is an operating system for ASIC miners. It is based on the `Braiins OS <https://braiins-os.com/community-edition>`_ product and provides additional proprietary algorithms for autotuning of miners. When a user provides maximum allowed power consumption in Watts, the system will automatically optimize the mining process to maximize hash rate. This process works across a wide spectrum of inputs, allowing you to optimize for the best possible efficiency or maximum hash rate based on economical considerations. Internal testing shows that for the Antminer S9, it’s possible to achieve efficiency of 70J/THs or even better for low Watts setting. For high power consumption, hash rate can increase by 20%+ (comparing to Antminer S9, 13.5 TH/s stock setting with ~ 94J/TH).
+Braiins OS+ سیستم عاملی برای ماینرهای ASIC است که بر اساس محصول Braiins OS بوده و الگوریتم های اختصاصی برای اتوتیونینگ ماینرها فراهم میکند. وقتی کاربری بیشترین مقدار مصرف برق را در مقیاس وات استفاده میکند، سیستم به طور خودکار پروسه ماینینگ را برای بالا بردن هش‌ریت بهینه سازی میکند. این فرایند در طیف گسترده ای از ورودی‌ها کار میکند و به شما اجازه میدهد تا برای بهترین بهره وری ممکن یا بیشترین نرخ هش ریت بر اساس ملاحظات اقتصادی بهینه سازی کنید. آزمایش داخلی نشان میدهد که برای Antminer S9 میتوان به اثربخشی 70J/THs یا حتی بهتر برای تنظیمات وات پایین دست یافت. برای مصرف برق بالا، هش ریت میتواند تا ۲۰٪ + افزایش یابد. (در مقایسه  Antminer S9, 13.5 TH/s با تنظیمات کارخانه در حدود 94J/TH است)
 
-Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer S17 support is planned for the near future.
+
+درحال حاضر دستگاه‌های شرکت Bitmain Antminer مدلهای S9, S9i, S9j پشتیبانی می‌شوند. در آینده نزدیک دستگاه Antminer S17 نیز پشتیبانی خواهد شد.
 
 ********
-Features
+امکانات
 ********
 
- * State-of-the-art autotuning optimization to maximize hash rate or efficiency
+ * بهینه سازی اتوتونینگ پیشرفته برای به حداکثر رساندن نرخ هش یا کارآیی
  * سیستم عامل متن باز
  * اجرای Stratum V2 با بازده اطلاعاتی بهبود یافته و جلوگیری از دزدی هش ریت
  * جایگزینی سی جی ماینر (ماینر BOS) که به زبان Rust از پایه نوشته شده
@@ -58,14 +59,13 @@ Features
 20.03
 ---------------------------
 
-  * All mining hardware types
+  * تغییرات اعمال شده روی همه دستگاه‌های پشتیبانی شده
 
-    * [feature] configuration file allows specifying a power limit of the PSU that the autotuning algorithm
-      will take into account in order to maximize the TH/W produced by the mining device
+    * [feature] فایل پیکربندی اجازه میدهد تا محدودیت توان PSU را مشخص کنیم تا این محدودیت توسط الگوریتم اتوتیونیگ برای به حداکثر رساندن TH/W تولید شده توسط دستگاه ماینینگ در نظر گرفته شود.
 
-  * Antminer S9
+  * Antminer S9 دستگاه
 
-    * [feature] Autotuning based on a user-specified power limit
+    * [feature] اتوتیونیگ بر اساس محدودیت توان برق مشخص شده توسط کاربر
 
 ********************
 مشکلات شناسایی شده
@@ -74,7 +74,7 @@ Features
 آنچه در ادامه میبینید لیستی از ایراداتی است که در نسخه منتشر شده وجود دارند.
 
 20.03 (بروز شده در 3/30/2020)
--------------------------
+-------------------------------
 
   * رابط کاربری گرافیکی
 
