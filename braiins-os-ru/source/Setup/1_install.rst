@@ -1,5 +1,5 @@
 ############
-Installation
+Установка
 ############
 
 .. contents::
@@ -7,53 +7,49 @@ Installation
 	:depth: 1
 
 ***************
-Getting Started
+Начинаем
 ***************
 
-This document is a quick-start guide on how to install Braiins OS on your mining device. There are two ways to test and use Braiins OS:
+Этот документ представляет собой краткое руководство по установке Braiins OS на ваше майнинг-устройство. Есть два способа как тестировать и использовать Braiins OS:
 
-  1. **Boot from SD card** with Braiins OS image, effectively keeping the stock firmware in the built-in flash memory. In case you encounter
-     any issues, you can simply boot the stock firmware from the internal memory. This is a safe method we suggest to start with.
+1. **Загрузка с SD-карты** с образом Braiins OS, что позволяет сохранить стоковую прошивку во встроенной флэш-памяти. В случае возникновения каких-либо проблем вы сможете просто загрузить стоковую прошивку из внутренней памяти. Это безопасный метод, с которого мы предлагаем начинать.
 
-  2. **Permanently re-flash the stock firmware**, effectively replacing the manufacturer’s firmware completely with Braiins OS. In this method,
-     the only way to go back to the default stock setup is to restore the manufacturer’s firmware from a backup that you create during install
-     or by flashing a factory firmware.
+2. **Полностью перепрошить стоковую прошивку**, заменив при этом прошивку производителя безвозвратно на Braiins OS. В этом случае, единственный способ вернуться к стандартным настройкам по умолчанию – это восстановить прошивку производителя из резервной копии, созданной во время установки, или путем перепрошития заводской прошивки.
 
-Due to the aforementioned reasons, it is highly recommended to install Braiins OS firmware **only on devices with SD card slots**.
+По вышеупомянутым причинам настоятельно рекомендуется устанавливать прошивку Braiins OS **только на устройства со слотами для SD карт**.
 
-In order to start mining using Braiins OS and BOSminer you will need to:
+Чтобы начать майнинг с использованием Braiins OS и BOSminer, необходимо:
 
- * have a supported ASIC miner
- * get the latest version of Braiins OS
- * install Braiins OS
- * configure Braiins OS and start mining
+  * иметь поддерживаемый ASIC-майнер 
+  * загрузить последнюю версию Braiins OS
+  * установить Braiins OS
+  * настроить Braiins OS и начать майнинг
 
-*Note: Commands used in this manual are for instructional purposes. You might need to adjust file paths and names appropriately.*
+*Примечание: Команды, используемые в данном руководстве, предназначены для ознакомительных целей. Возможно, вам придется соответствующим образом настроить пути и имена файлов.*
 
 **************************
-Installation/Upgrade Guide
+Руководство по установке / Обновлению
 **************************
 
-For better navigation among different installation/upgrade paths, use the following guide:
+Для лучшей навигации по различным путям установки / обновления используйте следующее руководство:
 
- * **Stock -> Braiins OS+ (latest version)** - Follow the guide in the sections :ref:`sd_card_method` or :ref:`remote_ssh_method` below
- * **Braiins OS (older versions) -> Braiins OS+ (latest version)** - Follow this section of the upgrade guide :ref:`upgrade_community_bos_plus`
- * **Braiins OS (older versions) -> Braiins OS Community Edition (latest version)** Follow this section of the upgrade guide :ref:`downgrade_bos_plus_community`
- * **Braiins OS Community Edition (latest version) -> Braiins OS+ (latest version)** Follow this section of the upgrade guide :ref:`upgrade_community_bos_plus`
- * **Braiins OS+ (latest version) -> Braiins OS Community Edition (latest version)** Follow this section of the upgrade guide :ref:`downgrade_bos_plus_community`
+ * **Стоковая прошивка -> Braiins OS+ (последняя версия)** - Следуйте инструкциям в разделах :ref:`sd_card_method` или 		:ref:`remote_ssh_method` below
+ * **Braiins OS (старшие версии) -> Braiins OS+ (последняя версия)** - Следуйте этому разделу руководства по обновлению :ref:`upgrade_community_bos_plus`
+ * **Braiins OS (старшие версии) -> Braiins OS Общественный Релиз (последняя версия)** Следуйте этому разделу руководства по обновлению :ref:`downgrade_bos_plus_community`
+ * **Braiins OS Общественный Релиз (последняя версия) -> Braiins OS+ (последняя версия)** Следуйте этому разделу руководства по обновлению :ref:`upgrade_community_bos_plus`
+ * **Braiins OS+ (последняя версия) -> Braiins OS Общественный Релиз (последняя версия)** Следуйте этому разделу руководства по обновлению :ref:`downgrade_bos_plus_community`
  * **Braiins OS+ -> Stock** - Follow the this section of the upgrade guide :ref:`downgrade_bos_stock`
 
 .. _sd_card_method:
 
 **************
-SD card Method
+Метод SD-карты
 **************
 
- * Download the latest release of transitional firmware image from our `website <https://braiins-os.com/>`_.
-   You can verify the signatures using the public key,
-   which is `available here. <https://slushpool.com/media/download/braiins-os.gpg.pub>`_
- * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_).
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+* Загрузите последнюю версию с нашего `веб-сайта <https://braiins-os.com/>`_.
+Вы можете проверить подписи с помощью открытого ключа, который `доступен здесь. <https://slushpool.com/media/download/braiins-os.gpg.pub>`_
+* Перенесите загруженный образ на SD-карту (например, используя `Etcher <https://etcher.io/>`_).
+* Настройте перемычки для загрузки с SD-карты (вместо памяти NAND), как показано ниже.
 
 	.. |pic1| image:: ../_static/s9-jumpers.png
 	    :width: 45%
@@ -65,27 +61,20 @@ SD card Method
 
 	|pic1|  |pic2|
 
- * Insert the SD card into the device, then start the device.
- * After a moment, you should be able to access the Braiins OS interface through the device’s IP address.
+* Вставьте SD-карту в устройство, затем запустите устройство.
+* Через некоторое время вы сможете получить доступ к интерфейсу Braiins OS+ через IP-адрес устройства.
 
-**Using single SD card on multiple device**
+**Использование одной SD-карты на нескольких устройствах**
 
-The most recently used MAC address is stored on the SD card overlay
-partition to check if the SD has been inserted into the same device. If the
-current MAC address differs from the previous one, then the network and
-system configuration is reset to its default and ``/etc/miner_hwid`` is
-deleted.
+Последний использованный MAC-адрес сохраняется в разделе наложения SD-карты (SD card overlay partition), чтобы проверить, была ли SD-карта вставлена в то же устройство. Если текущий MAC-адрес отличается от предыдущего, тогда конфигурация сети и системы сбрасывается на значение по умолчанию и ``/etc/miner_hwid`` удаляется.
 
-HW_ID is determined from NAND if it stores Braiins OS firmware. If NAND is corrupted
-or it contains stock firmware, then the file ``/etc/miner_hwid`` is used
-if it exists, otherwise a new HW_ID is generated and stored to
-``/etc/miner_hwid`` to preserve HW_ID until the next boot.
+HW_ID определяется из NAND, если в нем хранится прошивка Braiins OS. Если NAND поврежден или содержит стоковую прошивку, то используется файл ``/etc/miner_hwid``, если он существует, в противном случае генерируется новый HW_ID и сохраняется в ``/etc/miner_hwid`` для сохранения HW_ID до следующего загрузки.
 
-Flash Braiins OS from SD card to the internal memory (NAND)
+Перенос Braiins OS с SD карты во внутреннюю память (NAND)
 ============================================================
 
-It is also possible to install Braiins OS on the internal memory (NAND) while running the firmware from the SD card.
-In order to permanently flash Braiins OS on the NAND, connect to the miner via SSH and use the following command:
+Также можно установить Braiins OS+ во внутреннюю память (NAND) во время работы прошивки с SD-карты.
+Чтобы перенести Braiins OS+ на NAND, подключитесь к майнеру через SSH и используйте следующую команду:
 
 ::
 
@@ -93,34 +82,34 @@ In order to permanently flash Braiins OS on the NAND, connect to the miner via S
 
 .. _remote_ssh_method:
 
-*******************
-Remote (SSH) Method
-*******************
+**********
+Метод SSH
+**********
 
-Installation of Braiins OS using the so-called *SSH Method* consists of the following steps:
+Установка Braiins OS с использованием так называемого *Метода SSH* состоит из следующих шагов:
 
- * *(Custom Firmware)* Flash stock firmware (this step can be skipped if the device is running on stock firmware or on a previous versions of Braiins OS).
- * *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
- * Run the following commands in your command line terminal (replace the placeholders ``IP_ADDRESS`` accordingly) :
+* *(Кастомная прошивка)* Перепрошейте на заводскую прошивку (этот шаг можно пропустить, если устройство работает на заводской прошивке или на предыдущих версиях Braiins OS).
+* *(Только Windows)* Установите *Ubuntu для Windows 10* доступный в Microsoft Store `здесь. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* Запустите следующие команды в командной строке:
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*(Обратите внимание, что команды совместимы с Ubuntu и Ubuntu для Windows 10. Если вы используете другой дистрибутив Linux или другую ОС, пожалуйста, ознакомьтесь с соответствующей документацией и отредактируйте команды при необходимости.)*
 
 ::
 
-  # Prepare the enviroment and download the firmware (this step can be skipped if it was already done before)
+  # Подготовьте среду и загрузите прошивку (этот шаг можно пропустить, если это уже было сделано ранее)
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   wget -c https://feeds.braiins-os.org/20.03/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631.tar.gz -O - | tar -xz && cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate && python3 -m pip install -r requirements.txt && deactivate
   
-  # Install Braiins OS on the device
+  # Установите Braiins OS на устройство
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-0-6ec1a631 && source .env/bin/activate
   python3 upgrade2bos.py IP_ADDRESS
 
 *************************************
-Installing/Upgrading multiple devices
+Установка / Обновление нескольких устройств
 *************************************
 
-In case when you need to perform installation or upgrade on multiple devices, you can use
-our configuration spreadsheet that will will generate commands for different use cases.
+В случае, если вам нужно выполнить установку или обновление на нескольких устройствах, вы можете использовать
+нашу таблицу конфигурации, которая будет генерировать команды для различных случаев использования.
 
-The spreadsheet is available `here <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+Таблица доступна `здесь <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
