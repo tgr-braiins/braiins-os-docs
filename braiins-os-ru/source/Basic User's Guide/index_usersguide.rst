@@ -7,140 +7,134 @@ Basic User's Guide
 	:depth: 2
 
 **************
-Web Statistics
+Веб-статистика
 **************
 
-Statistics that are displayed on the main page of the Web GUI are explained below.
+Статистика, отображаемая на главной странице веб-интерфейса, их описание находится ниже.
 
-Hash Chains
+Хэш-цепочки
 ===========
 
-   * **ID**                    - Hash Chain ID, corresponds with the labeling on the control board
-   * **REAL HASH RATE**        - Actual hash rate of the hash chain
-   * **NOMINAL HASH RATE**     - Theoretical hash rate of the hash chain, based on the frequency of the chips
-   * **VOLTAGE**               - Voltage used on the hash chain
-   * **FREQUENCY**             - Frequency of the chips (average)
-   * **BOARD TEMP**            - Temperature reported by the sensors on the hash board
-   * **CHIP TEMP**             - Temperature reported by the sensors on the chip
-   * **ASIC#**                 - Number of functioning ASIC chips
-   * **CORE#**                 - Summary of active cores on all functioning chips
-   * **HARDWARE ERRORS**       - Number of hardware faults - invalid work due to a hardware miscalculation
-   * **HW ERROR HASH RATE**    - Hash rate "loss" due to HW errors; adding HW Error Hash Rate together with the Real Hash Rate should equal the Nominal Hash Rate
+* **ID**                    - ID хэш-цепочки, соответствует маркировке на плате управления
+* **REAL HASH RATE**        - Фактический хешрейт в хеш-цепочке
+* **NOMINAL HASH RATE**     - Теоретическая хешрейт хеш-цепочки, основанный на частоте чипов 
+* **VOLTAGE**               - Напряжение, используемое в хеш-цепочке
+* **FREQUENCY**             - Частота чипов (средняя)
+* **BOARD TEMP**            - Температура, сообщаемая датчиками на хэш-плате
+* **CHIP TEMP**             - Температура сообщаемая датчиками на чипе
+* **ASIC#**                 - Количество функционирующих ASIC-чипов 
+* **CORE#**                 - Сводка активных ядер на всех функционирующих чипах
+* **HARDWARE ERRORS**       - Количество аппаратных сбоев - неправильная работа из-за просчета оборудования
+* **HW ERROR HASH RATE**    - "Потери" хешрейта из-за ошибок HW; сумма  HW Error Hash Rate и Real Hash Rate  должна равняться Nominal Hash Rate
 
-Pools
+
+Пулы
 =====
 
-   * **ID**                    - Pool order, as specified by the user
-   * **URL**                   - Mining pool URL address
-   * **USER**                  - Username and worker name, as specified by the user
-   * **STATUS**                - Status of the pool - "Alive" when the pool is reachable by the miner, "Dead" when the pool is not reachable on that URL
-   * **ACTIVE**                - Active status: "Yes" - jobs are submited to the pool; "No" - pool is not used
-   * **ACCEPTED**              - Number of submited shares that were accepted by the pool
-   * **REJECTED**              - Number of submited shares that were rejected by the pool
-   * **STALE**                 - Number of submited shares for a job that is no longer valid
-   * **LAST DIFFICULTY**       - Last share difficulty
-   * **GENERATED WORK**        - Amount of generated work for the chips to solve
-   * **ASICBOOST**             - AsicBoost status - "Yes" for enabled, "No" for disabled
+* **ID**                    - Порядок пулов, указанный пользователем
+* **URL**                   - URL-адрес майнинга
+* **USER**                  - Имя пользователя и Имя воркера, указанные пользователем
+* **STATUS**                - Статус пула - "Alive" когда пул доступен, "Dead" когда пул не доступен на этом URL-адресе
+* **ACTIVE**                - Статус Active: "Yes" – работа отправляется на пул; "No" – пул не используется
+* **ACCEPTED**              - Количество отправленных шеров, которые были приняты пулом
+* **REJECTED**              - Количество отправленных шеров, которые были отвергнуты пулом
+* **STALE**                 - Количество отправленных шеров, которые более не действительны
+* **LAST DIFFICULTY**       - Сложность последнего шера
+* **GENERATED WORK**        - Количество сгенерированной работы для чипов
+* **ASICBOOST**             - AsicBoost статус - "Yes" включен, "No" выключен
 
-Summary
+Сводка
 =======
 
-   * **HASH RATE 1M**          - Average hash rate for the last 1 minute
-   * **HASH RATE 15M**         - Average hash rate for the last 15 minutes
-   * **HASH RATE 24H**         - Average hash rate for the last 24 hours
-   * **FOUND BLOCKS**          - Number of blocks found
-   * **ACCEPTED**              - Number of submited shares that were accepted by the pool
-   * **DIFFICULTY ACCEPTED**   - Difficulty of the last accepted share
-   * **REJECTED**              - Number of submited shares that were rejected by the pool
-   * **DIFFICULTY REJECTED**   - Difficulty of the last rejected share
-   * **REJECTION RATIO**       - Ratio of rejected shares and total number of shares (including accepted)
-   * **ELAPSED TIME**          - Elapsed time since BOSminer started
-   * **HARDWARE ERRORS**       - Number of hardware faults - rejected work due to a hardware miscalculation
-   * **SHARES/1M**             - Average amount of shares accepted per minute
+   * **HASH RATE 1M**          - Средний хешрейт за последнюю 1 минуту
+   * **HASH RATE 15M**         - Средний хешрейт за последних 15 минут
+   * **HASH RATE 24H**         - Средний хешрейт за последних 24 часа
+   * **FOUND BLOCKS**          - Количество найденных блоков
+   * **ACCEPTED**              - Количество отправленных шеров, которые были приняты пулом
+   * **DIFFICULTY ACCEPTED**   - Сложность последнего принятого шера
+   * **REJECTED**              - Количество отправленных шеров, которые отвергнуты пулом
+   * **DIFFICULTY REJECTED**   - Сложность последнего отвергнутого шера
+   * **REJECTION RATIO**       - Соотношение отвергнутых шеров и общего количества шеров (включая отвергнутые)
+   * **ELAPSED TIME**          - Время, которое прошло с момента запуска BOSminer
+   * **HARDWARE ERRORS**       - Количество аппаратных сбоев - отказ от работы из-за аппаратного просчета
+   * **SHARES/1M**             - Среднее количество шеров, принятых за минуту
 
-Fan Monitor
+Мониторинг вентиляторов
 ===========
 
-   * **ID**                    - Order of the fans
-   * **SPEED**                 - Speed of the fan (% PWM)
-   * **RPM**                   - Revolutions per minute of the fan
+   * **ID**                    - Порядок вентиляторов
+   * **SPEED**                 - Скорость вентилятора (% RPM)
+   * **RPM**                   - Обороты вентилятора в минуту
 
 *************************
-Miner Signalization (LED)
+Сигнализация майнера (LED)
 *************************
 
-Miner LED signalization depends on its operational mode. There are two
-modes (*recovery* and *normal*) which are signaled by the **green** and
-**red LEDs** on the front panel. The LED on the control board (inside)
-always shows the *heartbeat* (i.e. flashes at a load average based
-rate).
+Светодиодная сигнализация майнера зависит от его режима работы. Есть два режима (*восстановление* и *нормальный*) которые сигнализируются **зеленым** и **красным цветом светодиода** на передней панели. Светодиод на плате управления (внутри) всегда работает в режиме *сердцебиение* (то есть мигает со средней скоростью нагрузки).
 
-Recovery Mode
+Режим восстановления
 =============
 
-Recovery mode is signaled by the **flashing green LED** (50 ms on, 950
-ms off) on the front panel. The **red LED** represents access to a NAND
-disk and flashes during factory reset when data is written to NAND.
+Режим восстановления сигнализируется **мигающим зеленым светодиодом** (50 мс вкл, 950 мс выкл) на передней панели. **Красный светодиод** обозначает доступ к диску NAND и мигает во время сброса к заводским настройкам при записи данных в NAND.
 
-Normal Mode
+Нормальный режим
 ===========
 
-The normal mode state is signaled by the combination of the front panel
-**red** and **green LEDs** as specified in the table below:
+Состояние нормального режима сигнализируется комбинацией светодиодов на передней панели **красного цвета** и **зеленого цвета**, как указано в таблице ниже:
 
-   +--------------------+---------------------------+--------------------+
-   | red LED            | green LED                 | meaning            |
-   +====================+===========================+====================+
-   | on                 | off                       | *bosminer* or      |
-   |                    |                           | *bosminer_monitor* |
-   |                    |                           | are not running    |
-   +--------------------+---------------------------+--------------------+
-   | slow flashing      | off                       | hash rate is below |
-   |                    |                           | 80% of expected    |
-   |                    |                           | hash rate or the   |
-   |                    |                           | miner cannot       |
-   |                    |                           | connect to any     |
-   |                    |                           | pool (all pools    |
-   |                    |                           | are dead)          |
-   +--------------------+---------------------------+--------------------+
-   | off                | very slow flashing (1 sec | *miner* is         |
-   |                    | on, 1 sec off)            | operational and    |
-   |                    |                           | hash rate above 80 |
-   |                    |                           | % of expected hash |
-   |                    |                           | rate               |
-   +--------------------+---------------------------+--------------------+
-   | fast flashing      | N/A                       | LED override       |
-   |                    |                           | requested by user  |
-   |                    |                           | (``miner fault_lig |
-   |                    |                           | ht on``)           |
-   +--------------------+---------------------------+--------------------+
++--------------------+---------------------------+--------------------+
+| Красный светодиод  | Зеленый светодиод         | Значение           |
++====================+===========================+====================+
+| включен            | выключен                  | *bosminer* или     |
+|                    |                           | *bosminer_monitor* |
+|                    |                           | не работают        |
++--------------------+---------------------------+--------------------+
+| медленно мигает    | выключен                  | хешрейт на 80%     |
+|                    |                           | ниже чем ожидаемый |
+|                    |                           | хешрейт или майнер |
+|                    |                           | не может           |
+|                    |                           | подключится к      |
+|                    |                           | пулу (все пулы     |
+|                    |                           | недоступны - dead) |   
++--------------------+---------------------------+--------------------+
+| выключен           | очень медленно мигает     | *майнер*           |
+|                    | (секунду включен,         | рабочий и хешрейт  |
+|                    | (секунду выключен)        | превышает 80%      |
+|                    |                           | от ожидаемого      |
+|                    |                           | хешрейта           |                     
++--------------------+---------------------------+--------------------+
+| часто мигает       | N/A                       | переопределение    |
+|                    |                           | светодиодов        |
+|                    |                           | запрошенное        |
+|                    |                           | пользователем      |                                                                 
+|                    |                           | (``miner fault_lig |
+|                    |                           | ht on``)           |
++--------------------+---------------------------+--------------------+
 
 *******************
-Identifying a miner
+Идентификация майнера
 *******************
 
-LED blinking
+Мигание светодиода
 ============
 
-The local miner utility can also be used to identify a particular device
-by enabling aggressive blinking of the **red LED**:
+Утилита локального майнера также может быть использована для идентификации конкретного устройства включив активное мигание **красного всетодиода**:
 
 .. code:: bash
 
    miner fault_light on
 
-Similarly to disable the LED run:
+Аналогично отключить запуск светодиодов:
 
 .. code:: bash
 
    miner fault_light off
 
-Discover script
+Discover Script
 ===============
 
-The script *discover.py* is to be used to discover
-supported mining devices in the local network and has two working modes.
-First, clone the repository and prepare the enviroment using the following commands:
+Скрипт *discover.py* используется для обнаружения поддерживаемых майнинговых устройств в локальной сети и имеет два режима работы.
+Сначала клонируйте репозиторий и подготовьте среду с помощью следующих команд:
 
 .. code:: bash
 
@@ -152,12 +146,10 @@ First, clone the repository and prepare the enviroment using the following comma
     source .env/bin/activate
     python3 -m pip install -r requirements.txt
 
-Listen mode
------------
+Режим прослушивания (Listen mode)
+----------
 
-In this mode, IP and MAC addresses of the device are displayed after the
-IP Report button is pressed. Parameter ``--format`` can be used to
-change the default formatting of IP/MAC information.
+В этом режиме IP и MAC-адреса устройства отображаются после нажатия кнопки IP Report. Параметр ``--format`` может использоваться для изменения стандартного форматирования информации IP / MAC.
 
 .. code:: bash
 
@@ -165,15 +157,12 @@ change the default formatting of IP/MAC information.
 
    10.33.10.191 (a0:b0:45:02:f5:35)
 
-Scan mode
+Режим сканирования (Scan mode)
 ---------
 
-In this mode, the script scans the specified network range for supported
-devices. The parameter is expected to include a list of IP addresses or
-an IP subnetwork with a mask (example below) to scan a whole subnetwork.
+В этом режиме скрипт сканирует указанный диапазон сети на поддерживаемые устройства. Ожидается, что этот параметр будет включать в себя список IP-адресов или IP-подсеть с маской (пример ниже) для сканирования всей подсети.
 
-For each device, the output includes a MAC address, IP address, system
-info, hostname, and a mining username configured.
+Для каждого устройства выходные данные включают MAC-адрес, IP-адрес, системную информацию, имя хоста и имя пользователя для майнинга.
 
 .. code:: bash
 
@@ -182,21 +171,16 @@ info, hostname, and a mining username configured.
    00:7e:92:77:a0:ca (10.55.0.133) | bOS am1-s9_2018-11-27-0-c34516b0 [nand] {1015120 KiB RAM} dhcp(miner-w3) @userName.worker3
    00:94:cb:12:a0:ce (10.55.0.145) | Antminer S9 Fri Nov 17 17:57:49 CST 2017 (S9_V2.55) {1015424 KiB RAM} dhcp(antMiner) @userName.worker5
 
-************************
-Enter/Exit Recovery Mode
-************************
+*************
+Вход / Выход из режима восстановления (Recovery Mode)
+*************
 
-Users don’t typically have to enter recovery mode while using Braiins OS
-in a standard way. The ``restore2factory.py`` downgrade process uses it
-to restore the original factory firmware from the manufacturer. It can
-also be useful when repairing or investigating the currently installed
-system.
+Обычно пользователям нет необходимости переходить в режим восстановления при использовании Braiins OS стандартным способом. Процесс восстановления ``restore2factory.py`` использует этот режим для восстановления оригинальной заводской прошивки от производителя. Это также может быть полезно при ремонте/исследовании установленной в данный момент системы. 
 
-Recovery mode can be invoked in the following different ways:
+Режим восстановления может быть активирован различными способами:
 
-   *  *IP SET button* - hold it for *3s* until green LED flashes
-   *  *SD card* - first partition with FAT contains file *uEnv.txt* with a line **recovery=yes**
-   *  *miner utility* - call ``miner run_recovery`` from the miner’s command line
+   *IP SET кнопка* - держите в течении *3s* пока зеленый светодиод не начнет мигать
+   *SD карта* - Первый раздел с FAT содержит файл *uEnv.txt* со строкой  **recovery=yes**
+   *miner utility* - вызовите ``miner run_recovery`` из командной строки майнера
 
-Recovery mode can be exited by rebooting the device. If the device reboots to the recovery mode, it means that
-there is a problem with the installation or configuration.
+Из режима восстановления можно выйти, перезагрузив устройство. Если устройство после перезагрузки снова находится в режиме восстановления, присутствуют проблемы с установкой/настройкой устройства.
