@@ -221,16 +221,15 @@ Pool Settings
   ۵. در صورتی که دمای ماینر بالای *دمای خطرناک* باشد، BOSminer متوقف میشود( حتی اگر در حالت "fixed fan speed" باشد)
 
 ******************
-Tuning Adjustments
+تنظیمات تونینگ
 ******************
 
-Tuning can be configured either via web GUI or in the configuration file ``/etc/bosminer.toml``.
+تیونینگ می‌تواند از طریق GUI وب یا در فایل پیکربندی ``/etc/bosminer.toml`` تنظیم شود.
 
-To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
-the *Autotuning* section.
+برای تغییر پیکربندی از طریق GUI وب ، وارد منوی *Miner -> Configuration* شوید و بخش *Autotuning* را ویرایش کنید.
 
-To make a configuration change in the configuration file, connect to the miner via SSH and edit
-the file ``/etc/bosminer.toml``. The syntax is the following:
+
+برای ایجاد تغییر در پرونده پیکربندی ، از طریق SSH به ماینر متصل شوید و فایل ``/etc/bosminer.toml`` را ویرایش کنید. نحوه نوشتاری به شرح زیر است:
 
   ::
 
@@ -238,17 +237,16 @@ the file ``/etc/bosminer.toml``. The syntax is the following:
      enabled = true
      psu_power_limit = 1200
 
-The *enabled* line can hold values *true* for enabled autotuning, or *false* for disabled autotuning.
-The *psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the PSU power
-limit (in Watts) for three hashboards and the control board.
+سطر *enabled* می تواند با مقدار *true* اتوتیونینگ را فعال و برای با مقدار *false* غیرفعال کند. 
+*psu_power_limit* می تواند مقادیر عددی (حداقل 100 و حداکثر 5000) را در اختیار داشته باشد و حداکثر توان PSU (در واحد وات) را برای سه هش‌بورد و بورد کنترل نشان می دهد.
 
-Alternatively, it's possible to turn on autotuning automatically after the installation finishes
-specifying the ``--power-limit POWER_LIMIT``   argument in the installation command.
 
-In order to change power limit on multiple devices, you can use
-our configuration spreadsheet that will will generate commands for different use cases.
 
-The spreadsheet is available `here <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+از طرف دیگر، میتوان اتوتیونینگ را به طور خودکار پس از اتمام نصب با مشخص کردن آرگومان ``--power-limit POWER_LIMIT`` در دستور نصب، روشن کرد.
+
+به منظور تغییر محدودیت برق برای چندین دستگاه، می توانید از صفحه پیکربندی ما استفاده کنید تا دستورات را همزمان برای شما ایجاد میکند.
+
+برای مشاهده فایل ایجاد کننده دستورات `اینجا کلیک کنید <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
 
 *************
 کلمه عبور SSH
