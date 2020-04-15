@@ -1,6 +1,6 @@
-#############
-Configuration
-#############
+####################
+TLM - Configuration
+####################
 
 .. contents::
   :local:
