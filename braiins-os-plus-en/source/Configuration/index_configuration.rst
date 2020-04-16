@@ -226,9 +226,9 @@ Temperature and Fan Control configuration in ``bosminer.toml``
 
      [temp_control]
      mode = 'auto'
-     target_temp = 85
-     hot_temp = 95
-     dangerous_temp = 105
+     target_temp = 89
+     hot_temp = 100
+     dangerous_temp = 110
 
   * *mode* - Set temperature control mode (default='auto')
   * *target_temp* - Set target temperature in Celsius (default=89.0). This option is ONLY used when 'temp_control.mode' is set to 'auto'!
