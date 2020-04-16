@@ -172,12 +172,12 @@
   Braiins OS+支持自动风扇控制 （使用 `PID控制器 <https://zh.wikipedia.org/wiki/PID%E6%8E%A7%E5%88%B6%E5%99%A8>`__）。
   控制器能在三种模式下运行：
 
-  -  **Automatic（自动）** - 矿机软件自动调整风扇转速，使矿机的温度大概保持在一个目标温度。
+  -  **自动（Automatic）** - 矿机软件自动调整风扇转速，使矿机的温度大概保持在一个目标温度。
      目标温度可调，它的允许设置范围在0-200摄氏度之间。
-  -  **Manual（手动）** - 无论温度如何，风扇转速始终保持固定在用户自定义的转速。
+  -  **手动（Manual）** - 无论温度如何，风扇转速始终保持固定在用户自定义的转速。
      如果您有自己的降温方法，或在温度传感器不起作用的情况下，这一模式是很有用的。
      允许设置的风扇转速范围为0%-100%。控制器仅监控过热和危险温度。
-  -  **Disabled（禁用）** - **警告**： 没有温度控制，设备可能会损坏！
+  -  **禁用（Disabled）** - **警告**： 没有温度控制，设备可能会损坏！
 
   温度控制模式可以在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
@@ -194,7 +194,7 @@
 
   默认温度限制的温度值可以在 *Miner（矿机）  -> Configuration（配置）* 页面中，或在 ``/etc/bosminer.toml`` 配置文件中调整。
   
-在 ``bosminer.toml`` 配置文件中的温度和风扇控制
+在 ``bosminer.toml`` 配置文件中的温度和风扇控制（Temperature and Fan Control configuration in bosminer.toml）
 ==============================================================
 
   在配置文件 ``/etc/bosminer.toml`` 中，编辑相应行可以修改默认值。
@@ -225,32 +225,24 @@
   * *min_fans* - 设定BOSminer运行所需要的最少风扇数量 （默认值=1）。
   * 要想完全 **禁用风扇控制**, 请将 'speed' （转速）和'min_fans' （最少风扇数）设定为0。
 
-Fan operation
+风扇的运行（Fan operation）
 =============
 
-  1. Once temperature sensors are initialized, fan control is enabled. If
-     temperature sensors are not working or they read out a temperature of
-     0, fans are automatically set to full speed.
-  2. If the current mode is “fixed fan speed”, the fan is set to a given
-     speed.
-  3. If the current mode is “automatic fan control”, the fan speed is
-     regulated by temperature.
-  4. In case the miner's temperature is above the *HOT temperature*, fans are set to
-     100% (even in “fixed fan speed” mode).
-  5. In case the miner's temperature is above the *DANGEROUS temperature*, BOSminer
-     shuts down (even in “fixed fan speed” mode).
+  1. 一旦温度传感器启动，风扇控制也将启用。如温度传感器失效，或温度读数为零，风扇转速将自动设置为全速。
+  2. 如果当前模式为“固定风扇转速（Fixed fan speed）”，风扇将调节到设定的转速。
+  3. 如果当前模式为“自动风扇控制（Automatic fan control)”，风扇的转速调整由温度决定。
+  4. 如果矿机温度超过 *过热温度（HOT temperature）*, 风扇转速将自动设为100%（即使在“固定风扇转速（Fixed fan speed）”模式下）。
+  5. 如果矿机温度超过 *危险温度（DANGEROUS temperature）*, BOSminer将会关闭（即使在“固定风扇转速（Fixed fan speed）”模式下）。
 
 ******************
-Tuning Adjustments
+调节自动调整（Tuning Adjustments）
 ******************
 
-Tuning can be configured either via web GUI or in the configuration file ``/etc/bosminer.toml``.
+自动调整功能可以通过矿机网页界面或 ``/etc/bosminer.toml`` 配置文档进行配置。
 
-To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
-the *Autotuning* section.
+调节自动调整功能，可以在矿机网页界面目录 *Miner（矿机） -> Configuration（配置）* 页面中的Autotuning （自动调整功能）部分进行。
 
-To make a configuration change in the configuration file, connect to the miner via SSH and edit
-the file ``/etc/bosminer.toml``. The syntax is the following:
+使用SSH远程连接矿机，也可以用更改配置文件的办法，对 ``/etc/bosminer.toml`` 文件进行编辑。句法示例如下：
 
   ::
 
@@ -258,17 +250,14 @@ the file ``/etc/bosminer.toml``. The syntax is the following:
      enabled = true
      psu_power_limit = 1200
 
-The *enabled* line can hold values *true* for enabled autotuning, or *false* for disabled autotuning.
-The *psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the PSU power
-limit (in Watts) for three hashboards and the control board.
+  * *enabled（启用）* 的值可以是开启自动调整功能 *true* ， 或关闭自动调整功能 *false* 。
+  * *psu_power_limit（电源功率限制）* 的值可以是一个（最小100最大5000）的数值，代表（以瓦为单位）包括控制板以及三块运算板在内的矿机电源输入功率限制。
 
-Alternatively, it's possible to turn on autotuning automatically after the installation finishes
-specifying the ``--power-limit POWER_LIMIT``   argument in the installation command.
+同样，在固件安装完成后，在安装命令行使用 ``--power-limit POWER_LIMIT`` 参数，指定自动调整功能自动运行也是可行的。
 
-In order to change power limit on multiple devices, you can use
-our configuration spreadsheet that will will generate commands for different use cases.
+如需同时调整多台矿机上的电源功率限值，您可以使用下面这个配置表格，生成不同情况下会用到的不同命令。
 
-The spreadsheet is available `here <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+点 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_ 前往表格。
 
 ************
 SSH password
