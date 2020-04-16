@@ -253,37 +253,31 @@
   * *enabled（启用）* 的值可以是开启自动调整功能 *true* ， 或关闭自动调整功能 *false* 。
   * *psu_power_limit（电源功率限制）* 的值可以是一个（最小100最大5000）的数值，代表（以瓦为单位）包括控制板以及三块运算板在内的矿机电源输入功率限制。
 
-同样，在固件安装完成后，在安装命令行使用 ``--power-limit POWER_LIMIT`` 参数，指定自动调整功能自动运行也是可行的。
+此外，在固件安装完成后，在安装命令行使用 ``--power-limit POWER_LIMIT`` 参数，指定自动调整功能自动运行也是可行的。
 
 如需同时调整多台矿机上的电源功率限值，您可以使用下面这个配置表格，生成不同情况下会用到的不同命令。
 
 点 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_ 前往表格。
 
 ************
-SSH password
+SSH远程密码（SSH password）
 ************
 
-You can set the miner’s password via SSH from a remote host by running
-the below command and replacing *[newpassword]* with your own password.
+您可以通过SSH从远程主机运行以下的命令来设置矿机的密码，请您使用您自己想用的密码替换下方命令中的 *[newpassword]* 项。
 
-  * Note: Braiins OS+ does **not** keep a history of the commands executed.
+  注：Braiins OS+ 不会保留已执行命令的历史记录。
 
   .. code:: bash
 
      ssh root@[miner-hostname-or-ip] 'echo -e "[newpassword]\n[newpassword]" | passwd'
 
-To do this for several hosts in parallel you could use
-`p-ssh <https://linux.die.net/man/1/pssh>`__.
+如需在多台主机上同时执行此操作，可以使用 `p-ssh <https://linux.die.net/man/1/pssh>`__。
 
 ****************
-MAC & IP address
+MAC地址和IP地址（MAC & IP address）
 ****************
 
-By default, the device’s MAC address stays the same as it is inherited
-from firmware (stock or Braiins OS) stored in the device (NAND). That way, once
-the device boots with Braiins OS+, it will have the same IP address as it
-had with the factory firmware.
+默认情况下，安装新固件后矿机的MAC地址，是从矿机（NAND）上的原有固件（原厂或Braiins OS）继承而来并保持不变。
+同理，新安装Braiins OS+的矿机开机后的IP地址和之前应该也是一样的。
 
-Alternatively, you can specify a MAC address of your choice by modifying
-the ``ethaddr=`` parameter in the ``uEnv.txt`` file (found in the first
-FAT partition of the SD card).
+此外，您也可以通过修改（位于SD卡第一个FAT分区中）的 ``uEnv.txt`` 文件中的 ``ethaddr=`` 参数，指定一个具体的MAC地址。
