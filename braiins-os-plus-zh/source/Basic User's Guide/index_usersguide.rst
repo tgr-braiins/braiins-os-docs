@@ -135,10 +135,10 @@ Similarly to disable the LED run:
 
    miner fault_light off
 
-Discover script
+发现脚本
 ===============
 
-The script *discover.py* is to be used to discover
+  The script *discover.py* is to be used to discover
 supported mining devices in the local network and has two working modes.
 First, clone the repository and prepare the enviroment using the following commands:
 
@@ -152,12 +152,10 @@ First, clone the repository and prepare the enviroment using the following comma
     source .env/bin/activate
     python3 -m pip install -r requirements.txt
 
-Listen mode
+监听模式
 -----------
 
-In this mode, IP and MAC addresses of the device are displayed after the
-IP Report button is pressed. Parameter ``--format`` can be used to
-change the default formatting of IP/MAC information.
+在此模式下，按下IP Report按钮后，矿机的IP和MAC地址将会显示。参数 ``--format`` 可以用于改变IP/MAC信息的默认格式。
 
 .. code:: bash
 
@@ -165,15 +163,12 @@ change the default formatting of IP/MAC information.
 
    10.33.10.191 (a0:b0:45:02:f5:35)
 
-Scan mode
+扫描模式
 ---------
 
-In this mode, the script scans the specified network range for supported
-devices. The parameter is expected to include a list of IP addresses or
-an IP subnetwork with a mask (example below) to scan a whole subnetwork.
+在此模式下，脚本扫描指定的网络范围以查询支持的设备。该参数应该包含IP地址列表或带掩码IP子网络（以下表列），以扫描整个子网络。
 
-For each device, the output includes a MAC address, IP address, system
-info, hostname, and a mining username configured.
+每个设备的输出包含MAC地址，IP地址，系统消息，主机名以及挖矿用户名。
 
 .. code:: bash
 
@@ -183,20 +178,17 @@ info, hostname, and a mining username configured.
    00:94:cb:12:a0:ce (10.55.0.145) | Antminer S9 Fri Nov 17 17:57:49 CST 2017 (S9_V2.55) {1015424 KiB RAM} dhcp(antMiner) @userName.worker5
 
 ************************
-Enter/Exit Recovery Mode
+Enter/Exit 恢复模式
 ************************
 
-Users don’t typically have to enter recovery mode while using Braiins OS
-in a standard way. The ``restore2factory.py`` downgrade process uses it
-to restore the original factory firmware from the manufacturer. It can
-also be useful when repairing or investigating the currently installed
-system.
+标准使用Braiins OS时，用户通常无需进入恢复模式。 ``restore2factory.py`` 降级过程使用它来恢复原始的原厂固件。在修复/检查当前安装系统时，也可以使用恢复模式。
 
-Recovery mode can be invoked in the following different ways:
 
-   *  *IP SET button* - hold it for *3s* until green LED flashes
-   *  *SD card* - first partition with FAT contains file *uEnv.txt* with a line **recovery=yes**
-   *  *miner utility* - call ``miner run_recovery`` from the miner’s command line
+恢复模式能以两种方式调用：
 
-Recovery mode can be exited by rebooting the device. If the device reboots to the recovery mode, it means that
-there is a problem with the installation or configuration.
+   *  *IP set按钮*——按下3秒钟，然后绿色LED会闪烁
+   *  *SD卡* - SD卡——第一个文件分配表分区中包含带有**recovery=yes**命令的*uEnv.txt*文件
+   *  *miner utility* - 矿机使用程序——从矿机的命令行启动 ``miner run_recovery`` 
+
+通过重启设备可以退出恢复模式。 如果设备重新启动到恢复模式，则意味着安装/配置存在问题。
+
