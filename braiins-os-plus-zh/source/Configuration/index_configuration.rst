@@ -49,7 +49,7 @@
 
 在网站端的（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
-The syntax is the following:
+句法如下：
 
   ::
 
@@ -63,27 +63,20 @@ The syntax is the following:
      user = 'username.workername'
      password = 'secret'
 
-  * *name* - Name of the pool group (explained in the section *Pool Groups* below)
-  * *quota* - User set quota for the group (explained in the section *Pool Groups* below)
-  * *enabled* - Initial state of the pool after BOSminer initialization (default=true)
-  * *url* - Mandatory argument for server URL specified in the format
-    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. You don't have to
-    specify an explicit port for *Stratum V2* on Slush Pool. The reason is
-    that the protocol is still in development and we alternate between
-    two default ports (**3336** and **3337**) across protocol
-    upgrades. Miners that don't upgrade would still be able to use the
-    previous version of the protocol. Miners that do upgrade won't
-    have to worry about upgrading their mining URL with a new port.
-    There is a *new* required element of the URL in the path and that
-    is the public key advertised by the pool that the mining software
-    uses to verify the authenticity of the mining endpoint that it
-    connects to. This prevents man-in-the-middle-attacks that attempt
-    to steal hashrate. Any such attempt results in failed verification
-    and the software refuses to use the given pool entry.
-  * *user* - Mandatory argument for username specified in format ``USERNAME.WORKERNAME``
-  * *password* - Optional password settings
+  * *name* - 矿池组名（在下一部分关于矿池组的介绍中会具体说明）
+  * *quota* - 用户设定矿机组内矿池的算力比例配额（在下一部分关于矿池组的介绍中会说明）
+  * *enabled* - BOSminer初始化后的矿池初始状态 （默认值=true （矿池组启用））
+  * *url* - 矿池服务器URL地址是必要参数，它以
+    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY`` 为格式。
+    使用Slush Pool矿池时，您无需为阶层Stratum V2协议指定特定的端口。
+    因为目前该协议还在开发过程中，我们的矿池会在两个默认端口 （**3336** 和 **3337**）间切换。
+    未升级的矿工仍可继续使用旧版阶层Stratum协议。已进行升级的矿工也无需担心因为新端口的原因，需要更新矿池服务器URL地址。
+    在矿池服务器URL地址中，现在需要填写一个新元素——矿池的公钥，挖矿软件需要使用矿池的公钥来验证连接到的挖矿终点。
+    如果对矿工算力进行中间人攻击则会验证失败，软件会拒绝所给的矿池地址，从而预防中间人攻击窃取矿工的算力。
+  * *user* - 用户名是必要参数，它以 ``USERNAME.WORKERNAME`` （用户名.矿工名）的格式指定
+  * *password* - 密码的设置是非必须的
 
-Pool Groups
+矿池组
 ===========
 
   Users can create multiple different pool groups. All pools within one group use the fail-over
@@ -227,10 +220,10 @@ Temperature Control Mode
      hot_temp = 100
      dangerous_temp = 110
 
-  * *mode（模式）* - 温度控制模式设定 （默认值='auto'（自动））
-  * *target_temp（目标温度）* - 设定以摄氏度为单位的目标温度（默认值=89.0）。 该选项仅在 'temp_control.mode' （温度控制模式）设定为 'auto' （自动）的情况下可用！
-  * *hot_temp（过热温度）* - 设定以摄氏度为单位的过热温度（默认值=100.0）。 当矿机达到该温度时，风扇转速会自动调整为100%。
-  * *dangerous_temp（危险温度）* - 设定以摄氏度为单位的危险温度（默认值=110.0）。 当矿机达到该温度时，矿机将会自动关闭！**警告：** 将危险温度值设置太高会损坏矿机！
+  * *mode* - 温度控制模式设定 （默认值='auto'（自动））
+  * *target_temp* - 设定以摄氏度为单位的目标温度（默认值=89.0）。 该选项仅在 'temp_control.mode' （温度控制模式）设定为 'auto' （自动）的情况下可用！
+  * *hot_temp* - 设定以摄氏度为单位的过热温度（默认值=100.0）。 当矿机达到该温度时，风扇转速会自动调整为100%。
+  * *dangerous_temp* - 设定以摄氏度为单位的危险温度（默认值=110.0）。 当矿机达到该温度时，矿机将会自动关闭！**警告：** 将危险温度值设置太高会损坏矿机！
 
 
   ::
@@ -239,8 +232,8 @@ Temperature Control Mode
      speed = 100
      min_fans = 1
 
-  * *speed（转速）* - 设定以 %为单位（默认值=70）的风扇固定转速。 当 *temp_control.mode* 风扇控制模式）设定为 'auto'（自动）时，请不要使用本选项！
-  * *min_fans（最少风扇数）* - 设定BOSminer运行所需要的最少风扇数量 （默认值=1）。
+  * *speed* - 设定以 %为单位（默认值=70）的风扇固定转速。 当 *temp_control.mode* 风扇控制模式）设定为 'auto'（自动）时，请不要使用本选项！
+  * *min_fans* - 设定BOSminer运行所需要的最少风扇数量 （默认值=1）。
   * 要想完全 **禁用风扇控制**, 请将 'speed' （转速）和'min_fans' （最少风扇数）设定为0。
 
 Fan operation
