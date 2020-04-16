@@ -47,7 +47,7 @@
 
 用户可以同时设置多个矿池。在同组（Group）下的矿池，使用“多矿池故障转移策略”（Fail-over multipool strategy），这意味着在一个矿池不可用的情况下， BOSminer将自动切换到第二个矿池。
 
-在网站端的（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
+在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
 句法如下：
 
@@ -135,7 +135,7 @@
 对单个运算板的设置能够超控所有运算板的全局设置。
 当矿机的自动调整功能（Autotuning）开启时，以上设置一律无效！
 
-在矿机网页界面（Miner （矿机）-> Configuration （配置））中，或在配置文件/etc/bosminer.toml中可以进行设置。
+在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在配置文件 ``/etc/bosminer.toml`` 中可以进行设置。
 
 句法示例如下：
 
@@ -163,30 +163,25 @@
   * *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
 
 ***************************
-Temperature and Fan Control
+温度和风扇控制
 ***************************
 
-Temperature Control Mode
+温度控制模式
 ========================
 
-  Braiins OS+ supports automatic temperature control (using `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
-  The controller can operate in one of three modes:
+  Braiins OS+支持自动风扇控制 （使用 `PID控制器 <https://zh.wikipedia.org/wiki/PID%E6%8E%A7%E5%88%B6%E5%99%A8>`__）。
+  控制器能在三种模式下运行：
 
-  -  **Automatic** - Miner software tries to regulate the fan
-     speed so that miner temperature is approximately at the target
-     temperature (which can be configured). The allowed temperature range
-     is 0-200 degree Celsius.
-  -  **Manual** - Fans are kept at a fixed, user-defined speed,
-     no matter the temperature. This is useful if you have your own way of
-     cooling the miner or if the temperature sensors don’t work. Allowed
-     fan speed is 0%-100%. The control unit monitors only hot and dangerous temperatures.
-  -  **Disabled** - **WARNING**: this may damage the device because no control is done!
+  -  **Automatic（自动）** - 矿机软件自动调整风扇转速，使矿机的温度大概保持在一个目标温度。
+     目标温度可调，它的允许设置范围在0-200摄氏度之间。
+  -  **Manual（手动）** - 无论温度如何，风扇转速始终保持固定在用户自定义的转速。
+     如果您有自己的降温方法，或在温度传感器不起作用的情况下，这一模式是很有用的。
+     允许设置的风扇转速范围为0%-100%。控制器仅监控过热和危险温度。
+  -  **Disabled（禁用）** - **警告**： 没有温度控制，设备可能会损坏！
 
-  The temperature control mode can be changed in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+  温度控制模式可以在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
-  **Warning**: misconfiguring fans (either by turning them off or to a
-  level that is too slow, or by setting the target temperature too high)
-  may irreversibly **DAMAGE** your miner.
+  **警告**: 不正确地配置风扇（无论是关闭风扇还是使用过低的转速，或设置太高的目标温度）可能导致您的矿机不可逆转地 **损坏** 。
 
 默认温度限制（Default temperature limits）
 ==========================
