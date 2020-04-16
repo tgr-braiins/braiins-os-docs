@@ -89,13 +89,12 @@
   - 分配到2号矿池组的算力始终会是分配到1号的两倍。
   - 如果1号矿池组中的第一个矿池地址不可用，BOSminer将会自动切换到1号矿池组中的第二个矿池地址。
   
-  基于固定百分比（Fixed Share Ratio）和基于比例配额（Quota basis）的算力分配模式不可以同时使用！
-  在矿池组比例配额为1：1的情况下，就相当于设置0.5（50%）的固定百分比。 即对半分配发送到两个矿池组的算力。
+  基于固定百分比（Fixed Share Ratio）和基于比例配额（Quota basis）的算力分配模式不可以同时使用，只能二选一！
+  在矿池组比例配额为1：1的情况下，就相当于设置了0.5（50%）的固定百分比。 即对半分配发送到两个矿池组的算力。
 
-  Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration
-  file ``/etc/bosminer.toml``.
-
-  Example of two groups and multiple pools:
+  在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在配置文件 ``/etc/bosminer.toml`` 中可以进行设置。
+  
+  两个矿池组和多个矿池地址的设置案例：
 
   ::
 
@@ -121,11 +120,10 @@
      url = 'stratum+tcp://stratum.slushpool.com:3333'
      user = 'userB.worker'
 
-With this setup, the work will be split between the two groups in ratio 1:2. By default, the miner
-will be mining on the first pool from the group "MyGroup1" and on the one pool defined in the group
-"MyGroup2". If the first pool in "MyGroup1" dies, the miner will be mining on the second pool from
-the group "MyGroup1". Since a second pool url isn't specified for "MyGroup2", nothing will be done
-if the pool in "MyGroup2" fails.
+在上面的设置案例中，算力以1：2的比例分到了两个矿池组。
+默认情况下，矿机会选择在1号组"MyGroup1"内的第一个矿池地址，和在2号组"MyGroup2"内设置的矿池地址挖矿。
+如果1号组"MyGroup1"内的第一个矿池地址不可用，矿机会自动切换到组内的第二个矿池地址挖矿。
+如果2号组"MyGroup2"内设置的矿池地址不可用，矿机则什么也不会做。
 
 *******************
 Hash Chain Settings
