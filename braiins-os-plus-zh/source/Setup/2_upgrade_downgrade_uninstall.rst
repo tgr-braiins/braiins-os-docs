@@ -98,7 +98,7 @@
 用原厂固件映像刷回
 =============================
 
-在蚂蚁矿机S9上，您也可以用矿机制造商的网站上提供的映像来刷回原厂固件， ``FACTORY_IMAGE`` （原厂固件）会作为 `tar.gz`` 不要解压这个压缩包！）的文件路径或URL。在 `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ 文件内，列出了所有支持的映像以及相应的MD5哈希值。
+在蚂蚁矿机S9上，您也可以用矿机制造商的网站上提供的映像来刷回原厂固件， ``FACTORY_IMAGE`` （原厂固件）会作为 ``tar.gz`` （不要解压这个压缩包！）的文件路径或URL。在 `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ 文件内，列出了所有支持的映像以及相应的MD5哈希值。
 
 
 (按需替换占位符 ``FACTORY_IMAGE`` （原厂固件）和 ``IP_ADDRESS`` （IP地址）中的内容）并运行：
