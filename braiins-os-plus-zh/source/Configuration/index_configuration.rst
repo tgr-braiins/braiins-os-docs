@@ -1,5 +1,5 @@
 ####################
-TLM - Configuration
+配置
 ####################
 
 .. contents::
@@ -7,15 +7,15 @@ TLM - Configuration
   :depth: 2
 
 *****************
-Install Arguments
+安装参数（Install arguments）
 *****************
 
-The installation script uses two types of arguments:
+安装脚本使用两种参数：
 
-   * positional arguments - required for the installation to be completed;
-   * optional arguments - optional (i.e. not required) for the installation to be completed.
+   * 位置参数（Positional Arguments）——完成安装所需的参数。
+   * 可选参数（Optional Arguments）——安装过程中可选（即非必须）的参数。
 
-The syntax for the installation script is the following:
+安装脚本的句法如下：
 
   ::
 
@@ -23,33 +23,31 @@ The syntax for the installation script is the following:
                       [--no-keep-network] [--keep-hostname] [--no-wait]
                       hostname
 
-**Positional arguments:**
+**位置参数：**
 
 .. code-block:: none
 
-    hostname [hostname ...] Hostname or an IP address of the selected miner
+    hostname [hostname ...] 选中矿机的矿机名或IP地址
 
-**Optional arguments:**
+**可选参数：**
 
 .. code-block:: none
 
-  -h, --help            show this help message and exit
-  --no-backup           skip miner backup before upgrade
-  --no-nand-backup      skip full NAND backup (config is still being backed
-                        up)
-  --no-keep-network     do not keep miner network configuration (use DHCP)
-  --keep-hostname       keep miner hostname
-  --no-wait             do not wait until system is fully upgraded
+  -h, --help            显示帮助信息并退出
+  --no-backup           在矿机固件升级后跳过备份
+  --no-nand-backup      跳过对矿机内置储存（NAND）的完整备份（但仍备份矿机配置）
+  --no-keep-network     不保留矿机的网络参数（使用DHCP）
+  --keep-hostname       保留矿机用户名
+  --no-wait             直到系统完成完整升级过程，不等待
 
 
 *************
-Pool Settings
+矿池设置
 *************
 
-Users can specify multiple pools. All the pools in one group use the fail-over multi-pool strategy, which means
-that BOSminer will automatically switch to the second pool if the first pool dies.
+用户可以同时设置多个矿池。在同组（Group）下的矿池，使用“多矿池故障转移策略”（Fail-over multipool strategy），这意味着在一个矿池不可用的情况下， BOSminer将自动切换到第二个矿池。
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+在网站端的（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
 The syntax is the following:
 
