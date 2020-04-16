@@ -241,9 +241,9 @@ Temperature Control Mode
      speed = 100
      min_fans = 1
 
-  * *speed* - Set a fixed fan speed in % (default=70). This option is NOT used when *temp_control.mode* is set to 'auto'!
-  * *min_fans* - Set the minimum number of fans required for BOSminer to run (default=1).
-  * To completely **disable fan control**, set 'speed' and 'min_fans' to 0.
+  * *speed（转速）* - 设定以 %为单位（默认值=70）的风扇固定转速。 当 *temp_control.mode* 风扇控制模式）设定为 'auto'（自动）时，请不要使用本选项！
+  * *min_fans（最少风扇数）* - 设定BOSminer运行所需要的最少风扇数量 （默认值=1）。
+  * 要想完全 **禁用风扇控制**, 请将 'speed' （转速）和'min_fans' （最少风扇数）设定为0。
 
 Fan operation
 =============
