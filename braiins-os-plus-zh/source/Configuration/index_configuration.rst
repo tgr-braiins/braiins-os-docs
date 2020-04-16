@@ -127,17 +127,17 @@
 如果2号组"MyGroup2"内设置的矿池地址不可用，矿机则什么也不会做。
 
 *******************
-Hash Chain Settings
+运算板设置
 *******************
 
-Optional configuration for overriding the default settings for all hash chains. This allows the
-users to control the frequency and voltage of each hash chain and allows them to turn AsicBoost o
-n and off. While autotuning is enabled, these settings are ignored. The global hash chain settings
-can also be overridden by per-chain settings.
+运算板设置能超控所有运算板的默认设置，由矿工自行选择。
+它让矿工能直接设置每个运算板的频率和电压，以及开关AsicBoost功能。
+对单个运算板的设置能够超控所有运算板的全局设置。
+当矿机的自动调整功能（Autotuning）开启时，以上设置一律无效！
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+在矿机网页界面（Miner （矿机）-> Configuration （配置））中，或在配置文件/etc/bosminer.toml中可以进行设置。
 
-The syntax is the following:
+句法示例如下：
 
   ::
 
@@ -146,11 +146,11 @@ The syntax is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *asic_boost* - Enable or disable AsicBoost support (default=true)
-  * *frequency* - Set default chip frequency in MHz for all hash chains (default=650.0)
-  * *voltage* - Set default voltage in V for all hash chains (default=8.8)
+  * *asic_boost* - 设置启用或禁用AsicBoost支持（默认值=true）
+  * *frequency* - 为所有运算板设定以兆赫兹Mhz为单位的默认芯片频率 （默认值=650.0）
+  * *voltage* - 为所有运算板设定以伏V为单位的默认电压（默认值=8.8）
 
-The syntax for per-chain settings is the following:
+设置超控单个运算板的句法示例如下：
 
   ::
 
@@ -158,9 +158,9 @@ The syntax for per-chain settings is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *[hash_chain.6]* - Override the global settings for hash chain '6'
-  * *frequency* - Override the global chip frequency in MHz for hash chain '6' (default='hash_chain_global.frequency')
-  * *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
+  * *[hash_chain.6]* - 超控'6'号运算板的全局设置
+  * *frequency* - 超控'6'号运算板以兆赫兹Mhz为单位的全局芯片频率设置（默认值='hash_chain_global.frequency'）
+  * *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
 
 ***************************
 Temperature and Fan Control
