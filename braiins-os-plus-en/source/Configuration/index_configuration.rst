@@ -98,7 +98,8 @@ Pool Groups
   Group 1 has two pools specified and is assigned a Quota of "1". Group 2 has just one pool specified
   and is assigned a Quota of "2".
 
-  - The work is assigned to the groups with a 1:2 ratio - Group 2 will get twice the amount of work assigned as Group 1.
+  - The work is assigned to the groups with a 1:2 ratio 
+  - Group 2 will get twice the amount of work assigned as Group 1.
   - If the first pool in Group 1 dies, BOSminer will switch to the second pool in Group 1.
 
 
