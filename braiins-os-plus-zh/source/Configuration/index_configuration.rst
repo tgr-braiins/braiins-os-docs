@@ -12,7 +12,7 @@
 
 安装脚本使用两种参数：
 
-   * 位置参数（Positional Arguments）——完成安装所需的参数。
+   * 位置参数（Positional Arguments）——完成安装所必需的参数。
    * 可选参数（Optional Arguments）——安装过程中可选（即非必须）的参数。
 
 安装脚本的句法如下：
@@ -72,30 +72,25 @@
     因为目前该协议还在开发过程中，我们的矿池会在两个默认端口 （**3336** 和 **3337**）间切换。
     未升级的矿工仍可继续使用旧版阶层Stratum协议。已进行升级的矿工也无需担心因为新端口的原因，需要更新矿池服务器URL地址。
     在矿池服务器URL地址中，现在需要填写一个新元素——矿池的公钥，挖矿软件需要使用矿池的公钥来验证连接到的挖矿终点。
-    如果对矿工算力进行中间人攻击则会验证失败，软件会拒绝所给的矿池地址，从而预防中间人攻击窃取矿工的算力。
+    如果对矿工算力进行中间人攻击则会验证失败，软件会拒绝所给的矿池地址，从而预防中间人攻击窃取矿工的算力
   * *user* - 用户名是必要参数，它以 ``USERNAME.WORKERNAME`` （用户名.矿工名）的格式指定
   * *password* - 密码的设置是非必须的
 
 矿池组
 ===========
 
-  Users can create multiple different pool groups. All pools within one group use the fail-over
-  multi-pool strategy described above. When multiple pool groups are created, the work is
-  distributed to each group with the load-balance strategy, either on a Quota basis or
-  with a Fixed Share Ratio.
+  用户可以创建多个不同的矿池组。位于同组内的矿池都使用上文所述的“多矿池故障转移策略”（Fail-over multipool strategy）。
+  在创建了多个多池组的情况下，算力会基于比例配额（Quota basis），或基于固定百分比（Fixed Share Ratio）按照负载平衡的策略进行分配。
 
-  Example:
+  案例说明:
 
-  Group 1 has two pools specified and is assigned a Quota of "1". Group 2 has just one pool specified
-  and is assigned a Quota of "2".
-
-  - The work is assigned to the groups with a 1:2 ratio - Group 2 will get twice the amount of work assigned as Group 1.
-  - If the first pool in Group 1 dies, BOSminer will switch to the second pool in Group 1.
-
-
-  It's possible to use Fixed Share Ratio instead of Quota, which will split the work by a specified
-  percentage. A Quota of 1:1 is equivalent to a Fixed Share Ratio of 0.5 (50%) - both of those
-  settings will split the work in half and send it to the two groups.
+  1号矿池组的比例配额（Quota）为"1"，其中有2个矿池地址。2号矿池组的比例配额为"2"，其中只有1个矿池地址。
+  - 两个矿池组的算力分配为1：2。
+  - 分配到2号矿池组的算力始终会是分配到1号的两倍。
+  - 如果1号矿池组中的第一个矿池地址不可用，BOSminer将会自动切换到1号矿池组中的第二个矿池地址。
+  
+  基于固定百分比（Fixed Share Ratio）和基于比例配额（Quota basis）的算力分配模式不可以同时使用！
+  在矿池组比例配额为1：1的情况下，就相当于设置0.5（50%）的固定百分比。 即对半分配发送到两个矿池组的算力。
 
   Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration
   file ``/etc/bosminer.toml``.
