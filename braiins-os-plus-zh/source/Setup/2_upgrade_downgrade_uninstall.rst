@@ -49,7 +49,7 @@
 升级Braiins OS+
 **********************
 
-为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令：
+要想从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令：
 
 ::
 
@@ -61,7 +61,7 @@
 升级/降级社区版本
 **************************************
 
-为了从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令  (按需替换占位符 ``IP_ADDRESS`` 中的内容)：
+要想从旧版或社区版本升级Braiins OS+, 请通过SSH连接矿机并运行以下命令  (按需替换占位符 ``IP_ADDRESS`` （IP地址） 中的内容)：
 
 
 ::
@@ -76,12 +76,10 @@
 
 如果您想降级当前固件包到之前您替换矿机原厂固件时的Braiins OS版本，请通使用以下的命令：
 
--  *IP set按钮* - ——按下*10秒*，直到红色LED闪烁。
--  *SD card* - 编辑 *uEnv.txt* 文件，以包含 **factory_reset=yes** 行
--  *矿机*——在矿机的命令行执行 ``miner factory_reset`` 命令（同时要保持通过SSH的连接）
--  *opkg包* ——在矿机的命令行执行 ``opkg remove firmware`` 命令（同时要保持通过SSH的连接）
-    
-——在矿机的命令行执行 ``opkg remove firmware`` 命令（同时要保持通过SSH的连接）
+-  *IP set按钮* - 按下*10秒*，直到红色LED闪烁。
+-  *SD卡* - 编辑 *uEnv.txt* 文件，以包含 **factory_reset=yes** 行
+-  *矿机实用工具* - 在矿机的命令行执行 ``miner factory_reset`` （矿机恢复原厂）命令（同时要保持通过SSH的连接）
+-  *opkg包* - 在矿机的命令行执行 ``opkg remove firmware`` （OPKG移除固件）命令（同时要保持通过SSH的连接）
 
 ***************************
 刷回原厂固件
@@ -90,7 +88,7 @@
 用之前的备份刷回
 ===============================
 
-默认情况下，在迁移到Braiins OS的过程中会自动创建一份原始固件的备份，并且可以按照以下的命令恢复它 (按需替换占位符 ``FACTORY_IMAGE`` 和  ``IP_ADDRESS`` 中的内容)：
+默认情况下，在迁移到Braiins OS的过程中会自动创建一份原始固件的备份，并且可以按照以下的命令恢复它 (按需替换占位符 ``FACTORY_IMAGE`` （原厂固件）和  ``IP_ADDRESS``（IP地址）中的内容）：
 
 ::
 
@@ -100,10 +98,10 @@
 用原厂固件映像刷回
 =============================
 
-在蚂蚁矿机S9上，您也可以用矿机制造商的网站上提供的映像来刷回原厂固件， ``FACTORY_IMAGE`` 会作为 ``tar.gz``（不要解压！）的文件路径或URL。在 `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ 文件内，列出了所有支持的映像以及相应的MD5哈希值。
+在蚂蚁矿机S9上，您也可以用矿机制造商的网站上提供的映像来刷回原厂固件， ``FACTORY_IMAGE`` （原厂固件）会作为 ``tar.gz``（不要解压这个压缩包！）的文件路径或URL。在 `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__ 文件内，列出了所有支持的映像以及相应的MD5哈希值。
 
 
-(按实际情况替换占位符 ``FACTORY_IMAGE`` （原厂固件）和 ``IP_ADDRESS`` （IP地址））并运行：
+(按需替换占位符 ``FACTORY_IMAGE`` （原厂固件）和 ``IP_ADDRESS`` （IP地址）中的内容）并运行：
 
 ::
 
