@@ -203,36 +203,36 @@ Temperature Control Mode
   level that is too slow, or by setting the target temperature too high)
   may irreversibly **DAMAGE** your miner.
 
-Default temperature limits
+默认温度限制（Default temperature limits）
 ==========================
 
-  The default temperature limits are set to prevent the miner from overheating and being damaged.
+  设置默认温度限制是为了防止矿机的过热及损坏。
 
-  * **Target temperature** is a temperature that the miner will try to maintain (*default is* **89°C**).
-  * **Hot temperature** is a threshold at which the fans start to run at 100% (*default is* **100°C**).
-  * **Dangerous temperature** is a threshold at which BOSminer shuts down in order to prevent overheating and damaging the miner (*default is* **110°C**).
+  * **目标温度（Target temperature）** 指矿机会尝试保持的温度（*默认值* 为 **89°C**）。
+  * **过热温度（Hot temperature）** 指风扇会开始以100%转速运行的阈值温度（*默认值* 为 **100°C**）。
+  * **危险温度（Dangerous temperature）** 指为防止矿机的过热及损坏，BOSminer会自动关闭的阈值温度（*默认值* 为 **110°C**）。
 
-  Default temperature limits can be adjusted in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
-
-Temperature and Fan Control configuration in ``bosminer.toml``
+  默认温度限制的温度值可以在 *Miner（矿机）  -> Configuration（配置）* 页面中，或在 ``/etc/bosminer.toml`` 配置文件中调整。
+  
+在 ``bosminer.toml`` 配置文件中的温度和风扇控制
 ==============================================================
 
-  The default values can be overridden by editing the corresponding lines in the configuration file, located in ``/etc/bosminer.toml``.
+  在配置文件 ``/etc/bosminer.toml`` 中，编辑相应行可以修改默认值。
 
-  The syntax is the following:
+  句法如下：
 
   ::
 
      [temp_control]
      mode = 'auto'
-     target_temp = 85
-     hot_temp = 95
-     dangerous_temp = 105
+     target_temp = 89
+     hot_temp = 100
+     dangerous_temp = 110
 
-  * *mode* - Set temperature control mode (default='auto')
-  * *target_temp* - Set target temperature in Celsius (default=89.0). This option is ONLY used when 'temp_control.mode' is set to 'auto'!
-  * *hot_temp* - Set hot temperature in Celsius (default=100.0). When this temperature is reached, the fan speed is set to 100%.
-  * *dangerous_temp* - Set dangerous temperature in Celsius (default=110.0). When this temperature is reached, the mining is turned off! **WARNING:** setting this value too high may damage the device!
+  * *mode（模式）* - 温度控制模式设定 （默认值='auto'（自动））
+  * *target_temp（目标温度）* - 设定以摄氏度为单位的目标温度（默认值=89.0）。 该选项仅在 'temp_control.mode' （温度控制模式）设定为 'auto' （自动）的情况下可用！
+  * *hot_temp（过热温度）* - 设定以摄氏度为单位的过热温度（默认值=100.0）。 当矿机达到该温度时，风扇转速会自动调整为100%。
+  * *dangerous_temp（危险温度）* - 设定以摄氏度为单位的危险温度（默认值=110.0）。 当矿机达到该温度时，矿机将会自动关闭！**警告：** 将危险温度值设置太高会损坏矿机！
 
 
   ::
