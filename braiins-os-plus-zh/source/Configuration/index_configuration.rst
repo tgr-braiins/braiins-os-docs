@@ -27,7 +27,7 @@
 
 .. code-block:: none
 
-    hostname [hostname ...] 选中矿机的矿机名或IP地址
+    hostname [hostname ...] 选中矿机的矿机用户名或IP地址
 
 **可选参数：**
 
