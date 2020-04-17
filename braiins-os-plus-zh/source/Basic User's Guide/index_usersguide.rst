@@ -18,14 +18,14 @@
    * **ID**                    - 运算板编号（由连接到控制板上的接口编号决定）
    * **REAL HASH RATE**        - 实时算力（运算板当前的实际算力）
    * **NOMINAL HASH RATE**     - 名义算力（运算板基于当前芯片频率，理应能达到的算力）
-   * **VOLTAGE**               - 运算板电压 
-   * **FREQUENCY**             - 芯片平均频率
-   * **BOARD TEMP**            - 运算板传感器温度 
-   * **CHIP TEMP**             - 芯片传感器温度
+   * **VOLTAGE**               - 电压 （运算板电压）
+   * **FREQUENCY**             - 频率（芯片平均频率）
+   * **BOARD TEMP**            - 运算板温度 
+   * **CHIP TEMP**             - 芯片温度
    * **ASIC#**                 - 工作中芯片数
    * **CORE#**                 - 工作中核心数
    * **HARDWARE ERRORS**       - 硬件故障数（硬件误算导致的无效工作）
-   * **HW ERROR HASH RATE**    - 硬件故障算力损失（实时算力和名义算力的差值）
+   * **HW ERROR HASH RATE**    - 硬件故障算力损耗（实时算力和名义算力的差值）
 
 矿池
 =====
