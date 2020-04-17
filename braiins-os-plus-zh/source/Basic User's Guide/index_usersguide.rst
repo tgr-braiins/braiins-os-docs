@@ -83,61 +83,58 @@ disk and flashes during factory reset when data is written to NAND.
 正常模式（Normal Mode）
 ===========
 
-The normal mode state is signaled by the combination of the front panel
-**red** and **green LEDs** as specified in the table below:
+正常模式以**红色**和**绿色LED灯**表示。下表说明了所有信号组合：
 
    +--------------------+---------------------------+--------------------+
-   | 红色LED            | 绿色LED                    | 含义           |
+   | 红色LED灯           | 绿色LED灯                 | 含义                |
    +====================+===========================+====================+
    | 常亮                | 熄灭                      | *bosminer* 或      |
    |                    |                           | *bosminer_monitor* |
    |                    |                           | 不工作	       |
    +--------------------+---------------------------+--------------------+
-   | 慢闪               | 熄灭                       | 哈希率低于预期      |
-   |                    |                           | 哈希率的80%，       |
-   |                    |                           | 或者矿机无法        |
-   |                    |                           | 连接到任何矿池      |
-   |                    |                           | （所有矿池死掉了）   |
-   |                    |                           |		         |
+   | 慢闪                | 熄灭                      | 算力低于预期算力的80%|
+   |                    |                           | 或矿机无法连接到     |
+   |                    |                           | 任何矿池            |
+   |                    |                           |（所有矿池地址都失    |
+   |                    |                           |  效了）             |
+   |                    |                           | 	                 |
    |                    |                           | 	                 |
    +--------------------+---------------------------+--------------------+
    | 熄灭                | 极慢闪 (1 秒亮，1秒灭）    | *矿机* 正常工作，   |
-   |                    | 		            | 且哈希率高于预期的   |
-   |                    |                           | 哈希率的80%         |
+   |                    | 		            | 且算力高于名义算力   |
+   |                    |                           | 的80%              |
    |                    |                           | 			 |
    |                    |                           |	                 |
    +--------------------+---------------------------+--------------------+
-   | 快闪  	       | 不适用                    | LED用户超控         |
-   |                    |                           |(``miner fault_lig	 |
-   |                    |                           | ht on``)	         |
+   | 快闪  	       | 不适用                    | 用户超控LED灯       |
+   |                    |                           |（``miner fault_lig	|
+   |                    |                           | ht on``）	        |
    |                    |                           |     	         |
    +--------------------+---------------------------+--------------------+
 
 *******************
-Identifying a miner
+用灯光信号找矿机（Identifying a miner）
 *******************
 
-LED blinking
+LED灯闪烁（LED blinking）
 ============
 
-可以通过让矿机的**红色LED**快闪的方式，在矿场里找出具体的某个矿机。
+可以通过让矿机上的**红色LED灯**快闪的方式，在矿场里找出具体的某个矿机：
 
 .. code:: bash
 
    miner fault_light on
 
-同样，也可以禁用LED快闪运行：
+要关闭LED灯快闪也是可以的：
 
 .. code:: bash
 
    miner fault_light off
 
-发现脚本
+用于发现矿机的脚本（Discover script）
 ===============
 
-  The script *discover.py* is to be used to discover
-supported mining devices in the local network and has two working modes.
-First, clone the repository and prepare the enviroment using the following commands:
+  脚本文件*discover.py*可以用来在本地网络中发现矿机，它有两个工作模式。首先要做的是运行下面的命令，从Github上复制资料库并准备运行环境：
 
 .. code:: bash
 
@@ -149,10 +146,10 @@ First, clone the repository and prepare the enviroment using the following comma
     source .env/bin/activate
     python3 -m pip install -r requirements.txt
 
-监听模式
+监听模式（Listen mode）
 -----------
 
-在此模式下，按下IP Report按钮后，矿机的IP和MAC地址将会显示。参数 ``--format`` 可以用于改变IP/MAC信息的默认格式。
+在此模式下，按下IP Report按钮后将会显示矿机的IP和MAC地址。参数 ``--format`` 可以用于更改IP/MAC信息的默认格式。
 
 .. code:: bash
 
@@ -160,12 +157,12 @@ First, clone the repository and prepare the enviroment using the following comma
 
    10.33.10.191 (a0:b0:45:02:f5:35)
 
-扫描模式
+扫描模式（Scan mode）
 ---------
 
-在此模式下，脚本扫描指定的网络范围以查询支持的设备。该参数应该包含IP地址列表或带掩码IP子网络（以下表列），以扫描整个子网络。
+在此模式下，脚本会扫描指定的网络范围，找出支持的矿机。要扫描整个子网，参数设置应该包含IP地址表，或带掩码的IP子网（示例如下）。
 
-每个设备的输出包含MAC地址，IP地址，系统消息，主机名以及挖矿用户名。
+输出信息包含每个矿机的MAC地址，IP地址，系统消息，矿机用户名（Hostname）以及矿池用户名。
 
 .. code:: bash
 
@@ -175,17 +172,18 @@ First, clone the repository and prepare the enviroment using the following comma
    00:94:cb:12:a0:ce (10.55.0.145) | Antminer S9 Fri Nov 17 17:57:49 CST 2017 (S9_V2.55) {1015424 KiB RAM} dhcp(antMiner) @userName.worker5
 
 ************************
-Enter/Exit 恢复模式
+进入或退出恢复模式（Enter/Exit Recovery Mode）
 ************************
 
-标准使用Braiins OS时，用户通常无需进入恢复模式。 ``restore2factory.py`` 降级过程使用它来恢复原始的原厂固件。在修复/检查当前安装系统时，也可以使用恢复模式。
+正常使用Braiins OS时，通常没有必要进入恢复模式。``restore2factory.py`` 降级脚本可以用来恢复最初的原厂固件。在修复/诊断当前安装的系统时，也可以用恢复模式这一方式来找出并修复问题。
 
+恢复模式的调用方式有两种不同方式：
 
-恢复模式能以两种方式调用：
+*  *IP set按钮* - 按下3秒，然后绿色LED会闪烁
+*  *SD卡* - 修改SD卡内第一个FAT格式的分区中，含带有**recovery=yes**命令的*uEnv.txt*文件
+或
 
-*  *IP set按钮*——按下3秒钟，然后绿色LED会闪烁
-*  *SD卡* - SD卡——第一个文件分配表分区中包含带有**recovery=yes**命令的*uEnv.txt*文件
-*  *miner utility* - 矿机使用程序——从矿机的命令行启动 ``miner run_recovery`` 
+*  *miner utility* - 在矿机实用程序（Miner utility）中的命令行运行 ``miner run_recovery`` 命令
 
-通过重启设备可以退出恢复模式。 如果设备重新启动到恢复模式，则意味着安装/配置存在问题。
+重启设备即可退出恢复模式。 如果设备重启到恢复模式，则表示安装/配置有问题。
 
