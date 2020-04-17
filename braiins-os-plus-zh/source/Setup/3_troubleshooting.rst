@@ -29,4 +29,4 @@ BOSminer可以通过命令行或在网页上进行控制。
 	/etc/init.d/bosmniner stop
 	/etc/init.d/bosmniner start
 
-此外，BOSminer也可以在System -> Startup页面中控制，用户每次点击Miner -> Configuration页内的Save & Apply按钮，BOSminer都会重新启动。
+此外，BOSminer也可以在System（系统）-> Startup（启动）页面中控制，用户每次点击Miner（矿机） -> Configuration（配置）页内的Save & Apply（保存并应用）按钮，BOSminer都会重新启动。

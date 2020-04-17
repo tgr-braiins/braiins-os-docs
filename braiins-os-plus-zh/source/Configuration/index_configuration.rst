@@ -1,5 +1,5 @@
 ####################
-TLM - Configuration
+配置（Configuration）
 ####################
 
 .. contents::
@@ -7,15 +7,15 @@ TLM - Configuration
   :depth: 2
 
 *****************
-Install Arguments
+安装参数（Install arguments）
 *****************
 
-The installation script uses two types of arguments:
+安装脚本使用两种参数：
 
-   * positional arguments - required for the installation to be completed;
-   * optional arguments - optional (i.e. not required) for the installation to be completed.
+   * 位置参数（Positional Arguments）——完成安装所必需的参数。
+   * 可选参数（Optional Arguments）——安装过程中可选（即非必须）的参数。
 
-The syntax for the installation script is the following:
+安装脚本的句法如下：
 
   ::
 
@@ -23,35 +23,33 @@ The syntax for the installation script is the following:
                       [--no-keep-network] [--keep-hostname] [--no-wait]
                       hostname
 
-**Positional arguments:**
+**位置参数：**
 
 .. code-block:: none
 
-    hostname [hostname ...] Hostname or an IP address of the selected miner
+    hostname [hostname ...] 选中矿机的矿机用户名或IP地址
 
-**Optional arguments:**
+**可选参数：**
 
 .. code-block:: none
 
-  -h, --help            show this help message and exit
-  --no-backup           skip miner backup before upgrade
-  --no-nand-backup      skip full NAND backup (config is still being backed
-                        up)
-  --no-keep-network     do not keep miner network configuration (use DHCP)
-  --keep-hostname       keep miner hostname
-  --no-wait             do not wait until system is fully upgraded
+  -h, --help            显示帮助信息并退出
+  --no-backup           在矿机固件升级后跳过备份
+  --no-nand-backup      跳过对矿机内置储存（NAND）的完整备份（但仍备份矿机配置）
+  --no-keep-network     不保留矿机的网络参数（使用DHCP）
+  --keep-hostname       保留矿机用户名
+  --no-wait             直到系统完成完整升级过程，不等待
 
 
 *************
-Pool Settings
+矿池设置（Pool Settings）
 *************
 
-Users can specify multiple pools. All the pools in one group use the fail-over multi-pool strategy, which means
-that BOSminer will automatically switch to the second pool if the first pool dies.
+用户可以同时设置多个矿池。在同组（Group）下的矿池，使用“多矿池故障转移策略”（Fail-over multipool strategy），这意味着在一个矿池不可用的情况下， BOSminer将自动切换到第二个矿池。
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
-The syntax is the following:
+句法如下：
 
   ::
 
@@ -65,51 +63,39 @@ The syntax is the following:
      user = 'username.workername'
      password = 'secret'
 
-  * *name* - Name of the pool group (explained in the section *Pool Groups* below)
-  * *quota* - User set quota for the group (explained in the section *Pool Groups* below)
-  * *enabled* - Initial state of the pool after BOSminer initialization (default=true)
-  * *url* - Mandatory argument for server URL specified in the format
-    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. You don't have to
-    specify an explicit port for *Stratum V2* on Slush Pool. The reason is
-    that the protocol is still in development and we alternate between
-    two default ports (**3336** and **3337**) across protocol
-    upgrades. Miners that don't upgrade would still be able to use the
-    previous version of the protocol. Miners that do upgrade won't
-    have to worry about upgrading their mining URL with a new port.
-    There is a *new* required element of the URL in the path and that
-    is the public key advertised by the pool that the mining software
-    uses to verify the authenticity of the mining endpoint that it
-    connects to. This prevents man-in-the-middle-attacks that attempt
-    to steal hashrate. Any such attempt results in failed verification
-    and the software refuses to use the given pool entry.
-  * *user* - Mandatory argument for username specified in format ``USERNAME.WORKERNAME``
-  * *password* - Optional password settings
+  * *name* - 矿池组名（在下一部分关于矿池组的介绍中会具体说明）
+  * *quota* - 用户设定矿机组内矿池的算力比例配额（在下一部分关于矿池组的介绍中会说明）
+  * *enabled* - BOSminer初始化后的矿池初始状态 （默认值=true （矿池组启用））
+  * *url* - 矿池服务器URL地址是必要参数，它以
+    ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY`` 为格式。
+    使用Slush Pool矿池时，您无需为阶层Stratum V2协议指定特定的端口。
+    因为目前该协议还在开发过程中，我们的矿池会在两个默认端口 （**3336** 和 **3337**）间切换。
+    未升级的矿工仍可继续使用旧版阶层Stratum协议。已进行升级的矿工也无需担心因为新端口的原因，需要更新矿池服务器URL地址。
+    在矿池服务器URL地址中，现在需要填写一个新元素——矿池的公钥，挖矿软件需要使用矿池的公钥来验证连接到的挖矿终点。
+    如果对矿工算力进行中间人攻击则会验证失败，软件会拒绝所给的矿池地址，从而预防中间人攻击窃取矿工的算力
+  * *user* - 用户名是必要参数，它以 ``USERNAME.WORKERNAME`` （用户名.矿工名）的格式指定
+  * *password* - 密码的设置是非必须的
 
-Pool Groups
+矿池组（Pool Groups）
 ===========
 
-  Users can create multiple different pool groups. All pools within one group use the fail-over
-  multi-pool strategy described above. When multiple pool groups are created, the work is
-  distributed to each group with the load-balance strategy, either on a Quota basis or
-  with a Fixed Share Ratio.
+  用户可以创建多个不同的矿池组。位于同组内的矿池都使用上文所述的“多矿池故障转移策略”（Fail-over multipool strategy）。
+  在创建了多个多池组的情况下，算力会基于比例配额（Quota basis），或基于固定百分比（Fixed Share Ratio）按照负载平衡的策略进行分配。
 
-  Example:
+  案例说明:
 
-  Group 1 has two pools specified and is assigned a Quota of "1". Group 2 has just one pool specified
-  and is assigned a Quota of "2".
+  1号矿池组的比例配额（Quota）为"1"，其中有2个矿池地址。2号矿池组的比例配额为"2"，其中只有1个矿池地址。
+  
+  - 两个矿池组的算力分配为1：2。
+  - 分配到2号矿池组的算力始终会是分配到1号的两倍。
+  - 如果1号矿池组中的第一个矿池地址不可用，BOSminer将会自动切换到1号矿池组中的第二个矿池地址。
+  
+  基于固定百分比（Fixed Share Ratio）和基于比例配额（Quota basis）的算力分配模式不可以同时使用，只能二选一！
+  在矿池组比例配额为1：1的情况下，就相当于设置了0.5（50%）的固定百分比。 即对半分配发送到两个矿池组的算力。
 
-  - The work is assigned to the groups with a 1:2 ratio - Group 2 will get twice the amount of work assigned as Group 1.
-  - If the first pool in Group 1 dies, BOSminer will switch to the second pool in Group 1.
-
-
-  It's possible to use Fixed Share Ratio instead of Quota, which will split the work by a specified
-  percentage. A Quota of 1:1 is equivalent to a Fixed Share Ratio of 0.5 (50%) - both of those
-  settings will split the work in half and send it to the two groups.
-
-  Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration
-  file ``/etc/bosminer.toml``.
-
-  Example of two groups and multiple pools:
+  在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在配置文件 ``/etc/bosminer.toml`` 中可以进行设置。
+  
+  两个矿池组和多个矿池地址的设置案例：
 
   ::
 
@@ -135,24 +121,23 @@ Pool Groups
      url = 'stratum+tcp://stratum.slushpool.com:3333'
      user = 'userB.worker'
 
-With this setup, the work will be split between the two groups in ratio 1:2. By default, the miner
-will be mining on the first pool from the group "MyGroup1" and on the one pool defined in the group
-"MyGroup2". If the first pool in "MyGroup1" dies, the miner will be mining on the second pool from
-the group "MyGroup1". Since a second pool url isn't specified for "MyGroup2", nothing will be done
-if the pool in "MyGroup2" fails.
+在上面的设置案例中，算力以1：2的比例分到了两个矿池组。
+默认情况下，矿机会选择在1号组"MyGroup1"内的第一个矿池地址，和在2号组"MyGroup2"内设置的矿池地址挖矿。
+如果1号组"MyGroup1"内的第一个矿池地址不可用，矿机会自动切换到组内的第二个矿池地址挖矿。
+如果2号组"MyGroup2"内设置的矿池地址不可用，矿机则什么也不会做。
 
 *******************
-Hash Chain Settings
+运算板设置（Hash Chain Settings）
 *******************
 
-Optional configuration for overriding the default settings for all hash chains. This allows the
-users to control the frequency and voltage of each hash chain and allows them to turn AsicBoost o
-n and off. While autotuning is enabled, these settings are ignored. The global hash chain settings
-can also be overridden by per-chain settings.
+运算板设置能超控所有运算板的默认设置，由矿工自行选择。
+它让矿工能直接设置每个运算板的频率和电压，以及开关AsicBoost功能。
+对单个运算板的设置能够超控所有运算板的全局设置。
+**当矿机的自动调整功能（Autotuning）开启时，上述设置一律无效！**
 
-Configuration is available through web GUI (*Miner -> Configuration*) or in the configuration file ``/etc/bosminer.toml``.
+在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在配置文件 ``/etc/bosminer.toml`` 中可以进行设置。
 
-The syntax is the following:
+句法示例如下：
 
   ::
 
@@ -161,11 +146,11 @@ The syntax is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *asic_boost* - Enable or disable AsicBoost support (default=true)
-  * *frequency* - Set default chip frequency in MHz for all hash chains (default=650.0)
-  * *voltage* - Set default voltage in V for all hash chains (default=8.8)
+  * *asic_boost* - 设置启用或禁用AsicBoost支持（默认值=true）
+  * *frequency* - 为所有运算板设定以兆赫兹Mhz为单位的默认芯片频率 （默认值=650.0）
+  * *voltage* - 为所有运算板设定以伏V为单位的默认电压（默认值=8.8）
 
-The syntax for per-chain settings is the following:
+设置超控单个运算板的句法示例如下：
 
   ::
 
@@ -173,66 +158,61 @@ The syntax for per-chain settings is the following:
      frequency = 650.0
      voltage = 8.8
 
-  * *[hash_chain.6]* - Override the global settings for hash chain '6'
-  * *frequency* - Override the global chip frequency in MHz for hash chain '6' (default='hash_chain_global.frequency')
-  * *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
+  * *[hash_chain.6]* - 超控'6'号运算板的全局设置
+  * *frequency* - 超控'6'号运算板以兆赫兹Mhz为单位的全局芯片频率设置（默认值='hash_chain_global.frequency'）
+  * *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
 
 ***************************
-Temperature and Fan Control
+温度和风扇控制（Temperature and Fan Control）
 ***************************
 
-Temperature Control Mode
+温度控制模式（Temperature Control Mode）
 ========================
 
-  Braiins OS+ supports automatic temperature control (using `PID controller <https://en.wikipedia.org/wiki/PID_controll>`__).
-  The controller can operate in one of three modes:
+  Braiins OS+支持自动风扇控制 （使用 `PID控制器 <https://zh.wikipedia.org/wiki/PID%E6%8E%A7%E5%88%B6%E5%99%A8>`__）。
+  控制器能在三种模式下运行：
 
-  -  **Automatic** - Miner software tries to regulate the fan
-     speed so that miner temperature is approximately at the target
-     temperature (which can be configured). The allowed temperature range
-     is 0-200 degree Celsius.
-  -  **Manual** - Fans are kept at a fixed, user-defined speed,
-     no matter the temperature. This is useful if you have your own way of
-     cooling the miner or if the temperature sensors don’t work. Allowed
-     fan speed is 0%-100%. The control unit monitors only hot and dangerous temperatures.
-  -  **Disabled** - **WARNING**: this may damage the device because no control is done!
+  -  **自动（Automatic）** - 矿机软件自动调整风扇转速，使矿机的温度大概保持在一个目标温度。
+     目标温度可调，它的允许设置范围在0-200摄氏度之间。
+  -  **手动（Manual）** - 无论温度如何，风扇转速始终保持固定在用户自定义的转速。
+     如果您有自己的降温方法，或在温度传感器不起作用的情况下，这一模式是很有用的。
+     允许设置的风扇转速范围为0%-100%。控制器仅监控过热和危险温度。
+  -  **禁用（Disabled）** - **警告**： 没有温度控制，设备可能会损坏！
 
-  The temperature control mode can be changed in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
+  温度控制模式可以在矿机网页界面（*Miner（矿机） -> Configuration（配置）*）中，或在 ``/etc/bosminer.toml`` 配置文件中可以进行设置。
 
-  **Warning**: misconfiguring fans (either by turning them off or to a
-  level that is too slow, or by setting the target temperature too high)
-  may irreversibly **DAMAGE** your miner.
+  **警告**: 不正确地配置风扇（无论是关闭风扇还是使用过低的转速，或设置太高的目标温度）可能导致您的矿机不可逆转地 **损坏** 。
 
-Default temperature limits
+默认温度限制（Default temperature limits）
 ==========================
 
-  The default temperature limits are set to prevent the miner from overheating and being damaged.
+  设置默认温度限制是为了防止矿机的过热及损坏。
 
-  * **Target temperature** is a temperature that the miner will try to maintain (*default is* **89°C**).
-  * **Hot temperature** is a threshold at which the fans start to run at 100% (*default is* **100°C**).
-  * **Dangerous temperature** is a threshold at which BOSminer shuts down in order to prevent overheating and damaging the miner (*default is* **110°C**).
+  * **目标温度（Target temperature）** 指矿机会尝试保持的温度（*默认值* 为 **89°C**）。
+  * **过热温度（Hot temperature）** 指风扇会开始以100%转速运行的阈值温度（*默认值* 为 **100°C**）。
+  * **危险温度（Dangerous temperature）** 指为防止矿机的过热及损坏，BOSminer会自动关闭的阈值温度（*默认值* 为 **110°C**）。
 
-  Default temperature limits can be adjusted in the *Miner -> Configuration* page or in the configuration file ``/etc/bosminer.toml``.
-
-Temperature and Fan Control configuration in ``bosminer.toml``
+  默认温度限制的温度值可以在 *Miner（矿机）  -> Configuration（配置）* 页面中，或在 ``/etc/bosminer.toml`` 配置文件中调整。
+  
+在 ``bosminer.toml`` 配置文件中的温度和风扇控制（Temperature and Fan Control configuration in bosminer.toml）
 ==============================================================
 
-  The default values can be overridden by editing the corresponding lines in the configuration file, located in ``/etc/bosminer.toml``.
+  在配置文件 ``/etc/bosminer.toml`` 中，编辑相应行可以修改默认值。
 
-  The syntax is the following:
+  句法如下：
 
   ::
 
      [temp_control]
      mode = 'auto'
-     target_temp = 85
-     hot_temp = 95
-     dangerous_temp = 105
+     target_temp = 89
+     hot_temp = 100
+     dangerous_temp = 110
 
-  * *mode* - Set temperature control mode (default='auto')
-  * *target_temp* - Set target temperature in Celsius (default=89.0). This option is ONLY used when 'temp_control.mode' is set to 'auto'!
-  * *hot_temp* - Set hot temperature in Celsius (default=100.0). When this temperature is reached, the fan speed is set to 100%.
-  * *dangerous_temp* - Set dangerous temperature in Celsius (default=110.0). When this temperature is reached, the mining is turned off! **WARNING:** setting this value too high may damage the device!
+  * *mode* - 温度控制模式设定 （默认值='auto'（自动））
+  * *target_temp* - 设定以摄氏度为单位的目标温度（默认值=89.0）。 该选项仅在 'temp_control.mode' （温度控制模式）设定为 'auto' （自动）的情况下可用！
+  * *hot_temp* - 设定以摄氏度为单位的过热温度（默认值=100.0）。 当矿机达到该温度时，风扇转速会自动调整为100%。
+  * *dangerous_temp* - 设定以摄氏度为单位的危险温度（默认值=110.0）。 当矿机达到该温度时，矿机将会自动关闭！**警告：** 将危险温度值设置太高会损坏矿机！
 
 
   ::
@@ -241,36 +221,28 @@ Temperature and Fan Control configuration in ``bosminer.toml``
      speed = 100
      min_fans = 1
 
-  * *speed* - Set a fixed fan speed in % (default=70). This option is NOT used when *temp_control.mode* is set to 'auto'!
-  * *min_fans* - Set the minimum number of fans required for BOSminer to run (default=1).
-  * To completely **disable fan control**, set 'speed' and 'min_fans' to 0.
+  * *speed* - 设定以 %为单位（默认值=70）的风扇固定转速。 当 *temp_control.mode* 风扇控制模式）设定为 'auto'（自动）时，请不要使用本选项！
+  * *min_fans* - 设定BOSminer运行所需要的最少风扇数量 （默认值=1）。
+  * 要想完全 **禁用风扇控制**, 请将 'speed' （转速）和'min_fans' （最少风扇数）设定为0。
 
-Fan operation
+风扇的运行（Fan operation）
 =============
 
-  1. Once temperature sensors are initialized, fan control is enabled. If
-     temperature sensors are not working or they read out a temperature of
-     0, fans are automatically set to full speed.
-  2. If the current mode is “fixed fan speed”, the fan is set to a given
-     speed.
-  3. If the current mode is “automatic fan control”, the fan speed is
-     regulated by temperature.
-  4. In case the miner's temperature is above the *HOT temperature*, fans are set to
-     100% (even in “fixed fan speed” mode).
-  5. In case the miner's temperature is above the *DANGEROUS temperature*, BOSminer
-     shuts down (even in “fixed fan speed” mode).
+  1. 一旦温度传感器启动，风扇控制也将启用。如温度传感器失效，或温度读数为零，风扇转速将自动设置为全速。
+  2. 如果当前模式为“固定风扇转速（Fixed fan speed）”，风扇将调节到设定的转速。
+  3. 如果当前模式为“自动风扇控制（Automatic fan control)”，风扇的转速调整由温度决定。
+  4. 如果矿机温度超过 *过热温度（HOT temperature）*, 风扇转速将自动设为100%（即使在“固定风扇转速（Fixed fan speed）”模式下）。
+  5. 如果矿机温度超过 *危险温度（DANGEROUS temperature）*, BOSminer将会关闭（即使在“固定风扇转速（Fixed fan speed）”模式下）。
 
 ******************
-Tuning Adjustments
+调节自动调整（Tuning Adjustments）
 ******************
 
-Tuning can be configured either via web GUI or in the configuration file ``/etc/bosminer.toml``.
+自动调整功能可以通过矿机网页界面或 ``/etc/bosminer.toml`` 配置文档进行配置。
 
-To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
-the *Autotuning* section.
+调节自动调整功能，可以在矿机网页界面目录 *Miner（矿机） -> Configuration（配置）* 页面中的Autotuning （自动调整功能）部分进行。
 
-To make a configuration change in the configuration file, connect to the miner via SSH and edit
-the file ``/etc/bosminer.toml``. The syntax is the following:
+使用SSH远程连接矿机，也可以用更改配置文件的办法，对 ``/etc/bosminer.toml`` 文件进行编辑。句法示例如下：
 
   ::
 
@@ -278,43 +250,34 @@ the file ``/etc/bosminer.toml``. The syntax is the following:
      enabled = true
      psu_power_limit = 1200
 
-The *enabled* line can hold values *true* for enabled autotuning, or *false* for disabled autotuning.
-The *psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the PSU power
-limit (in Watts) for three hashboards and the control board.
+  * *enabled（启用）* 的值可以是开启自动调整功能 *true* ， 或关闭自动调整功能 *false* 。
+  * *psu_power_limit（电源功率限制）* 的值可以是一个（最小100最大5000）的数值，代表（以瓦为单位）包括控制板以及三块运算板在内的矿机电源输入功率限制。
 
-Alternatively, it's possible to turn on autotuning automatically after the installation finishes
-specifying the ``--power-limit POWER_LIMIT``   argument in the installation command.
+此外，在固件安装完成后，在安装命令行使用 ``--power-limit POWER_LIMIT`` 参数，指定自动调整功能自动运行也是可行的。
 
-In order to change power limit on multiple devices, you can use
-our configuration spreadsheet that will will generate commands for different use cases.
+如需同时调整多台矿机上的电源功率限值，您可以使用下面这个配置表格，生成不同情况下会用到的不同命令。
 
-The spreadsheet is available `here <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+点 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_ 前往表格。
 
 ************
-SSH password
+SSH远程密码（SSH password）
 ************
 
-You can set the miner’s password via SSH from a remote host by running
-the below command and replacing *[newpassword]* with your own password.
+您可以通过SSH从远程主机运行以下的命令来设置矿机的密码，请您使用您自己想用的密码替换下方命令中的 *[newpassword]* 项。
 
-  * Note: Braiins OS+ does **not** keep a history of the commands executed.
+  注：Braiins OS+ 不会保留已执行命令的历史记录。
 
   .. code:: bash
 
      ssh root@[miner-hostname-or-ip] 'echo -e "[newpassword]\n[newpassword]" | passwd'
 
-To do this for several hosts in parallel you could use
-`p-ssh <https://linux.die.net/man/1/pssh>`__.
+如需在多台主机上同时执行此操作，可以使用 `p-ssh <https://linux.die.net/man/1/pssh>`__。
 
 ****************
-MAC & IP address
+MAC地址和IP地址（MAC & IP address）
 ****************
 
-By default, the device’s MAC address stays the same as it is inherited
-from firmware (stock or Braiins OS) stored in the device (NAND). That way, once
-the device boots with Braiins OS+, it will have the same IP address as it
-had with the factory firmware.
+默认情况下，安装新固件后矿机的MAC地址，是从矿机（NAND）上的原有固件（原厂或Braiins OS）继承而来并保持不变。
+同理，新安装Braiins OS+的矿机开机后的IP地址和之前应该也是一样的。
 
-Alternatively, you can specify a MAC address of your choice by modifying
-the ``ethaddr=`` parameter in the ``uEnv.txt`` file (found in the first
-FAT partition of the SD card).
+此外，您也可以通过修改（位于SD卡第一个FAT分区中）的 ``uEnv.txt`` 文件中的 ``ethaddr=`` 参数，指定一个具体的MAC地址。
