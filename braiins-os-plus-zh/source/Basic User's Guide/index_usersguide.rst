@@ -186,9 +186,9 @@ Enter/Exit 恢复模式
 
 恢复模式能以两种方式调用：
 
-   *  *IP set按钮*——按下3秒钟，然后绿色LED会闪烁
-   *  *SD卡* - SD卡——第一个文件分配表分区中包含带有**recovery=yes**命令的*uEnv.txt*文件
-   *  *miner utility* - 矿机使用程序——从矿机的命令行启动 ``miner run_recovery`` 
+  *  *IP set按钮*——按下3秒钟，然后绿色LED会闪烁
+  *  *SD卡* - SD卡——第一个文件分配表分区中包含带有**recovery=yes**命令的*uEnv.txt*文件
+  *  *miner utility* - 矿机使用程序——从矿机的命令行启动 ``miner run_recovery`` 
 
 通过重启设备可以退出恢复模式。 如果设备重新启动到恢复模式，则意味着安装/配置存在问题。
 
