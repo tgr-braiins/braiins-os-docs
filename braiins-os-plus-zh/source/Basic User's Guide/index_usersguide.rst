@@ -36,8 +36,8 @@
    * **STATUS**                - 矿池状态（"Alive" 连接正常，"Dead" 连接失效）
    * **ACTIVE**                - 活跃状态（"Yes" 算力提交到矿池，"No" 矿池不活跃）
    * **ACCEPTED**              - 已接受（已被矿池接受的份额（Share）数）
-   * **REJECTED**              - 已拒绝（已被矿池拒绝的份额（Share）数）
-   * **STALE**                 - 已过时（已过时不再有效的份额（Share）数）
+   * **REJECTED**              - 已拒绝（已被矿池拒绝的份额数）
+   * **STALE**                 - 已过时（已过时不再有效的份额数）
    * **LAST DIFFICULTY**       - 最后难度（最后的份额难度）
    * **GENERATED WORK**        - 已产生工作
    * **ASICBOOST**             - AsicBost状态（"Yes"开启 "No"关闭）
@@ -50,13 +50,13 @@
    * **HASH RATE 24H**         - 日平均算力
    * **FOUND BLOCKS**          - 已找到区块
    * **ACCEPTED**              - 已接受（已被矿池接受的份额（Share）数）
-   * **DIFFICULTY ACCEPTED**   - 最后接受难度（矿池最后接受的提交份额（Share）的难度）
-   * **REJECTED**              - 已拒绝（已被矿池拒绝的份额（Share）数）
-   * **DIFFICULTY REJECTED**   - 最后拒绝难度（矿池最后拒绝的提交份额（Share）的难度）
-   * **REJECTION RATIO**       - 拒绝比（被拒绝份额（Share）占总份额的比率）
+   * **DIFFICULTY ACCEPTED**   - 最后接受难度（矿池最后接受的提交份额的难度）
+   * **REJECTED**              - 已拒绝（已被矿池拒绝的份额数）
+   * **DIFFICULTY REJECTED**   - 最后拒绝难度（矿池最后拒绝的提交份额的难度）
+   * **REJECTION RATIO**       - 拒绝比（被拒绝份额占总份额的比率）
    * **ELAPSED TIME**          - 开机时间
    * **HARDWARE ERRORS**       - 硬件故障数（硬件误算导致的无效工作）
-   * **SHARES/1M**             - 每分钟接受量（平均每分钟被接受的份额（Share）数量）
+   * **SHARES/1M**             - 每分钟接受量（平均每分钟被接受的份额数量）
 
 风扇监控（Fan Monitor）
 ===========
@@ -74,16 +74,14 @@
 恢复模式（Recovery Mode）
 =============
 
-Recovery mode is signaled by the **flashing green LED** (50 ms on, 950
-ms off) on the front panel. The **red LED** represents access to a NAND
-disk and flashes during factory reset when data is written to NAND.
-
-恢复模式，以**绿色LED灯闪烁**（50毫秒亮，950毫秒灭）表示。**红色LED灯**代表访问矿机内部储存（NAND），比如在恢复原厂设置期间写入数据到NAND时闪烁。
+恢复模式，以**绿色LED灯闪烁**（50毫秒亮，950毫秒灭）表示。**红色LED灯**代表访问矿机内部储存（NAND），比如在恢复原厂设置期间写入数据到NAND时就会闪烁。
 
 正常模式（Normal Mode）
 ===========
 
 正常模式以**红色**和**绿色LED灯**表示。下表说明了所有信号组合：
+
+**NOTE: IT SEEMS THAT THE TABLE BELOW IS NOT WORKING FUNCTIONALLY, PLEASE ADJUST!**
 
    +--------------------+---------------------------+--------------------+
    | 红色LED灯           | 绿色LED灯                 | 含义                |
