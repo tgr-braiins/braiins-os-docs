@@ -12,7 +12,7 @@
 
 下面是对矿机网页界面（GUI）主页中的一些数据的说明。
 
-运算板
+运算板（Hash Chains）
 ===========
 
    * **ID**                    - 运算板编号（由连接到控制板上的接口编号决定）
@@ -27,7 +27,7 @@
    * **HARDWARE ERRORS**       - 硬件故障数（硬件误算导致的无效工作）
    * **HW ERROR HASH RATE**    - 硬件故障算力损耗（实时算力和名义算力的差值）
 
-矿池
+矿池（Pools）
 =====
 
    * **ID**                    - 矿池编号（由用户自定）
@@ -42,7 +42,7 @@
    * **GENERATED WORK**        - 已产生工作
    * **ASICBOOST**             - AsicBost状态（"Yes"开启 "No"关闭）
 
-总览
+总览（Summary）
 =======
 
    * **HASH RATE 1M**          - 分钟平均算力
@@ -58,7 +58,7 @@
    * **HARDWARE ERRORS**       - 硬件故障数（硬件误算导致的无效工作）
    * **SHARES/1M**             - 每分钟接受量（平均每分钟被接受的份额（Share）数量）
 
-风扇监控
+风扇监控（Fan Monitor）
 ===========
 
    * **ID**                    - 风扇序号
@@ -66,23 +66,21 @@
    * **RPM**                   - 风扇转速
 
 *************************
-矿机LED灯信号
+矿机LED灯信号（Miner Signalization (LED)）
 *************************
 
-Miner LED signalization depends on its operational mode. There are two
-modes (*recovery* and *normal*) which are signaled by the **green** and
-**red LEDs** on the front panel. The LED on the control board (inside)
-always shows the *heartbeat* (i.e. flashes at a load average based
-rate).
+矿机的LED灯信号取决于矿机的当前工作模式。在矿机前面板上有一个 **绿色** 和一个 **红色** 的两个LED灯，它们一起能表示出矿机的（*恢复* 和*正常*）这两种模式。矿机（内部）控制板上的LED灯表示矿机的*心跳* （即按平均占用率闪烁）。
 
-恢复模式
+恢复模式（Recovery Mode）
 =============
 
 Recovery mode is signaled by the **flashing green LED** (50 ms on, 950
 ms off) on the front panel. The **red LED** represents access to a NAND
 disk and flashes during factory reset when data is written to NAND.
 
-正常模式
+恢复模式，以**绿色LED灯闪烁**（50毫秒亮，950毫秒灭）表示。**红色LED灯**代表访问矿机内部储存（NAND），比如在恢复原厂设置期间写入数据到NAND时闪烁。
+
+正常模式（Normal Mode）
 ===========
 
 The normal mode state is signaled by the combination of the front panel
