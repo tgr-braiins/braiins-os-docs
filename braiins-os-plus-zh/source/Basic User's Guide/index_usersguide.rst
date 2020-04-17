@@ -10,63 +10,63 @@
 网页端统计数据
 **************
 
-下方解释了在矿机的网页图形交互界面（GUI）主页中显示的一些数据的意思。
+下面是对矿机网页界面（GUI）主页中的一些数据的说明。
 
-计算板
+运算板
 ===========
 
-   * **ID**                    - 计算板ID, 由控制板上连接计算板接口标注的编号决定
-   * **REAL HASH RATE**        - 计算板当前的实际算力
-   * **NOMINAL HASH RATE**     - 计算板基于目前芯片频率，理应能达到的算力
-   * **VOLTAGE**               - 计算板Voltage used on the hash chain
-   * **FREQUENCY**             - Frequency of the chips (average)
-   * **BOARD TEMP**            - Temperature reported by the sensors on the hash board
-   * **CHIP TEMP**             - Temperature reported by the sensors on the chip
-   * **ASIC#**                 - Number of functioning ASIC chips
-   * **CORE#**                 - Summary of active cores on all functioning chips
-   * **HARDWARE ERRORS**       - Number of hardware faults - invalid work due to a hardware miscalculation
-   * **HW ERROR HASH RATE**    - Hash rate "loss" due to HW errors; adding HW Error Hash Rate together with the Real Hash Rate should equal the Nominal Hash Rate
+   * **ID**                    - 运算板编号（由连接到控制板上的接口编号决定）
+   * **REAL HASH RATE**        - 实时算力（运算板当前的实际算力）
+   * **NOMINAL HASH RATE**     - 名义算力（运算板基于当前芯片频率，理应能达到的算力）
+   * **VOLTAGE**               - 运算板电压 
+   * **FREQUENCY**             - 芯片平均频率
+   * **BOARD TEMP**            - 运算板传感器温度 
+   * **CHIP TEMP**             - 芯片传感器温度
+   * **ASIC#**                 - 工作中芯片数
+   * **CORE#**                 - 工作中核心数
+   * **HARDWARE ERRORS**       - 硬件故障数（硬件误算导致的无效工作）
+   * **HW ERROR HASH RATE**    - 硬件故障算力损失（实时算力和名义算力的差值）
 
-Pools
+矿池
 =====
 
-   * **ID**                    - Pool order, as specified by the user
-   * **URL**                   - Mining pool URL address
-   * **USER**                  - Username and worker name, as specified by the user
-   * **STATUS**                - Status of the pool - "Alive" when the pool is reachable by the miner, "Dead" when the pool is not reachable on that URL
-   * **ACTIVE**                - Active status: "Yes" - jobs are submited to the pool; "No" - pool is not used
-   * **ACCEPTED**              - Number of submited shares that were accepted by the pool
-   * **REJECTED**              - Number of submited shares that were rejected by the pool
-   * **STALE**                 - Number of submited shares for a job that is no longer valid
-   * **LAST DIFFICULTY**       - Last share difficulty
-   * **GENERATED WORK**        - Amount of generated work for the chips to solve
-   * **ASICBOOST**             - AsicBoost status - "Yes" for enabled, "No" for disabled
+   * **ID**                    - 矿池编号（由用户自定）
+   * **URL**                   - 矿池地址（矿池的URL地址）
+   * **USER**                  - 用户名（矿池上的用户名或矿工名，由用户自定）
+   * **STATUS**                - 矿池状态（"Alive" 连接正常，"Dead" 连接失效）
+   * **ACTIVE**                - 活跃状态（"Yes" 算力提交到矿池，"No" 矿池不活跃）
+   * **ACCEPTED**              - 已接受（已被矿池接受的份额（Share）数）
+   * **REJECTED**              - 已拒绝（已被矿池拒绝的份额（Share）数）
+   * **STALE**                 - 已过时（已过时不再有效的份额（Share）数）
+   * **LAST DIFFICULTY**       - 最后难度（最后的份额难度）
+   * **GENERATED WORK**        - 已产生工作
+   * **ASICBOOST**             - AsicBost状态（"Yes"开启 "No"关闭）
 
-Summary
+总览
 =======
 
-   * **HASH RATE 1M**          - Average hash rate for the last 1 minute
-   * **HASH RATE 15M**         - Average hash rate for the last 15 minutes
-   * **HASH RATE 24H**         - Average hash rate for the last 24 hours
-   * **FOUND BLOCKS**          - Number of blocks found
-   * **ACCEPTED**              - Number of submited shares that were accepted by the pool
-   * **DIFFICULTY ACCEPTED**   - Difficulty of the last accepted share
-   * **REJECTED**              - Number of submited shares that were rejected by the pool
-   * **DIFFICULTY REJECTED**   - Difficulty of the last rejected share
-   * **REJECTION RATIO**       - Ratio of rejected shares and total number of shares (including accepted)
-   * **ELAPSED TIME**          - Elapsed time since BOSminer started
-   * **HARDWARE ERRORS**       - Number of hardware faults - rejected work due to a hardware miscalculation
-   * **SHARES/1M**             - Average amount of shares accepted per minute
+   * **HASH RATE 1M**          - 分钟平均算力
+   * **HASH RATE 15M**         - 刻钟平均算力
+   * **HASH RATE 24H**         - 日平均算力
+   * **FOUND BLOCKS**          - 已找到区块
+   * **ACCEPTED**              - 已接受（已被矿池接受的份额（Share）数）
+   * **DIFFICULTY ACCEPTED**   - 最后接受难度（矿池最后接受的提交份额（Share）的难度）
+   * **REJECTED**              - 已拒绝（已被矿池拒绝的份额（Share）数）
+   * **DIFFICULTY REJECTED**   - 最后拒绝难度（矿池最后拒绝的提交份额（Share）的难度）
+   * **REJECTION RATIO**       - 拒绝比（被拒绝份额（Share）占总份额的比率）
+   * **ELAPSED TIME**          - 开机时间
+   * **HARDWARE ERRORS**       - 硬件故障数（硬件误算导致的无效工作）
+   * **SHARES/1M**             - 每分钟接受量（平均每分钟被接受的份额（Share）数量）
 
-Fan Monitor
+风扇监控
 ===========
 
-   * **ID**                    - Order of the fans
-   * **SPEED**                 - Speed of the fan (% PWM)
-   * **RPM**                   - Revolutions per minute of the fan
+   * **ID**                    - 风扇序号
+   * **SPEED**                 - 风扇速度
+   * **RPM**                   - 风扇转速
 
 *************************
-Miner Signalization (LED)
+矿机LED灯信号
 *************************
 
 Miner LED signalization depends on its operational mode. There are two
