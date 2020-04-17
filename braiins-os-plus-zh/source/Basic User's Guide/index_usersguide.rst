@@ -75,44 +75,44 @@ modes (*recovery* and *normal*) which are signaled by the **green** and
 always shows the *heartbeat* (i.e. flashes at a load average based
 rate).
 
-Recovery Mode
+恢复模式
 =============
 
 Recovery mode is signaled by the **flashing green LED** (50 ms on, 950
 ms off) on the front panel. The **red LED** represents access to a NAND
 disk and flashes during factory reset when data is written to NAND.
 
-Normal Mode
+正常模式
 ===========
 
 The normal mode state is signaled by the combination of the front panel
 **red** and **green LEDs** as specified in the table below:
 
    +--------------------+---------------------------+--------------------+
-   | red LED            | green LED                 | meaning            |
+   | 红色LED            | 绿色LED                    | 含义           |
    +====================+===========================+====================+
-   | on                 | off                       | *bosminer* or      |
+   | 常亮                | 熄灭                      | *bosminer* 或      |
    |                    |                           | *bosminer_monitor* |
-   |                    |                           | are not running    |
+   |                    |                           | 不工作	       |
    +--------------------+---------------------------+--------------------+
-   | slow flashing      | off                       | hash rate is below |
-   |                    |                           | 80% of expected    |
-   |                    |                           | hash rate or the   |
-   |                    |                           | miner cannot       |
-   |                    |                           | connect to any     |
-   |                    |                           | pool (all pools    |
-   |                    |                           | are dead)          |
+   | 慢闪               | 熄灭                       | 哈希率低于预期      |
+   |                    |                           | 哈希率的80%，       |
+   |                    |                           | 或者矿机无法        |
+   |                    |                           | 连接到任何矿池      |
+   |                    |                           | （所有矿池死掉了）   |
+   |                    |                           |		         |
+   |                    |                           | 	                 |
    +--------------------+---------------------------+--------------------+
-   | off                | very slow flashing (1 sec | *miner* is         |
-   |                    | on, 1 sec off)            | operational and    |
-   |                    |                           | hash rate above 80 |
-   |                    |                           | % of expected hash |
-   |                    |                           | rate               |
+   | 熄灭                | 极慢闪 (1 秒亮，1秒灭）    | *矿机* 正常工作，   |
+   |                    | 		            | 且哈希率高于预期的   |
+   |                    |                           | 哈希率的80%         |
+   |                    |                           | 			 |
+   |                    |                           |	                 |
    +--------------------+---------------------------+--------------------+
-   | fast flashing      | N/A                       | LED override       |
-   |                    |                           | requested by user  |
-   |                    |                           | (``miner fault_lig |
-   |                    |                           | ht on``)           |
+   | 快闪  	       | 不适用                    | LED用户超控         |
+   |                    |                           |(``miner fault_lig	 |
+   |                    |                           | ht on``)	         |
+   |                    |                           |     	         |
    +--------------------+---------------------------+--------------------+
 
 *******************
@@ -122,14 +122,13 @@ Identifying a miner
 LED blinking
 ============
 
-The local miner utility can also be used to identify a particular device
-by enabling aggressive blinking of the **red LED**:
+可以通过让矿机的**红色LED**快闪的方式，在矿场里找出具体的某个矿机。
 
 .. code:: bash
 
    miner fault_light on
 
-Similarly to disable the LED run:
+同样，也可以禁用LED快闪运行：
 
 .. code:: bash
 
