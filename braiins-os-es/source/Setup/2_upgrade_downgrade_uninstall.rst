@@ -117,7 +117,7 @@ En un Antminer S9, puede alternativamente escribir una imágen firmware
 de fábrica de la página web del fabricante, con ``IMAGEN_DE_FÁBRICA``
 siendo la ruta al archivo o URL al archivo ``tar.gz`` (¡sin extraer!).
 Las imágenes soportadas y sus correspondientes hashes md5 se listan en
-el archivo `platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__.
+el archivo `platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__.
 
 Corra (reemplace ``IMAGEN_DE_FÁBRICA`` y ``DIRECCIÓN_IP`` según corresponda):
 

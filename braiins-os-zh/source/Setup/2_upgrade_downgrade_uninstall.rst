@@ -115,7 +115,7 @@ On an Antminer S9, you can alternatively flash a factory firmware image
 from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
 or URL to the ``tar.gz`` (not extracted!) file. Supported images with
 corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins-os/blob/master/upgrade/am1/platform.py>`__
+`platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__
 file.
 
 Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
