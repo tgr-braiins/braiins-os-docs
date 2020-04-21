@@ -59,13 +59,7 @@ Braiis OS是用于ASIC矿机的完全开源操作系统。Braiins OS固件在201
 20.03
 ---------------------------
 
-  * 所有矿机硬件类型
-      
-    * 【特性】配置文件让用户能设定电源PSU的功率限制，自动调整算法会在设定的限制下，最大化矿机的能耗比每瓦算力。
-
-  * 蚂蚁矿机S9
-
-    * 【特性】基于用户设定功率限制的自动调整功能。
+更新历史见Github上的 `WHATSNEW.MD <https://github.com/braiins/braiins/blob/master/braiins-os/whatsnew.md>`_ 文件。
 
 ************
 已知问题
