@@ -127,7 +127,6 @@ Parpadeo LED
 
 La herramienta local del minero también puede usarse para identificar un
 dispositivo en particular al activar el parpadeo agresivo del **LED rojo**:
-The local miner utility can also be used to identify a particular device
 
 .. code:: bash
 
