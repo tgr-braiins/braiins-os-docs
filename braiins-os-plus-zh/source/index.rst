@@ -15,6 +15,14 @@
 简介
 #####
 
+.. note::
+
+   There is new version 20.04 available. We are working on translation of the documentation into
+   different languages. Only documentation in English is currently up-to-date:
+   
+   * `Braiins OS+ <https://docs.braiins-os.com/plus-en/>`_
+   * `Braiins OS <https://docs.braiins-os.com/plus-en/>`_
+
 Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相当可靠的 `Braiins OS <https://zh.braiins-os.com/community-edition>`_ 社区版的基础上，额外提供独有的矿机自动调整算法。当用户能提供最大允许的功耗（瓦数）时，系统将自动优化挖矿过程，让矿机算力最大化。这一过程具有输入普适性，让您能基于经济上的考虑，对矿机进行最大化效率或最高哈希率的优化。内部测试显示，在蚂蚁矿机S9上使用Braiins OS+能让矿机能效比降到70 J/THs，且在低功耗设定下，这一数值还可能降到更低。同时，增加矿机输入功率，也能提升矿机算力20%或更高（与蚂蚁矿机S9原厂固件，在94 J/THs的能耗比下只有13.5TH/秒相比）。
 
 目前Braiins OS+ 支持的设备，有比特大陆的蚂蚁矿机S9，S9i以及S9j。对蚂蚁矿机S17的支持也将很快推出。

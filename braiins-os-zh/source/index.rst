@@ -15,6 +15,14 @@
 简介
 #####
 
+.. note::
+
+   There is new version 20.04 available. We are working on translation of the documentation into
+   different languages. Only documentation in English is currently up-to-date:
+   
+   * `Braiins OS+ <https://docs.braiins-os.com/plus-en/>`_
+   * `Braiins OS <https://docs.braiins-os.com/plus-en/>`_
+
 Braiis OS是用于ASIC矿机的完全开源操作系统。在2018年，Braiins OS是首个启用显性AsicBoost的矿机固件。它现在也支持新的挖矿协议——阶层Stratum V2协议的完整应用。此外，Braiins OS与我们新的挖矿软件组件BOSminer配合运作，BOSminer是用Rust语言从头编写，对过时的CGminer的替代品。
 
 目前Braiins OS 支持的设备，有比特大陆的蚂蚁矿机S9，S9i以及S9j。对蚂蚁矿机S17的支持也将很快推出。
