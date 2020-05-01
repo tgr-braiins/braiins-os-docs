@@ -81,6 +81,7 @@ Features, PROs and CONs of this method:
   + turns on autotuning on default power limit (1420W) when installing Braiins OS+
   + batch mode available to manage multiple devices at once
   + easy to use
+  
   - does not work on miner with locked SSH
 
 .. _bosbox_install:
@@ -331,6 +332,7 @@ Features, PROs and CONs of this method:
   + migrates the network configuration
   + migrates pool URLs, users and passwords
   + turns on autotuning on default power limit (1420W)
+  
   - cannot be used on stock firmware released in 2019 and later
   - cannot configure the installation (e.g. it will always migrate the network settings)
   - no batch-mode (unless you create your own scripts)
@@ -365,6 +367,7 @@ Features, PROs and CONs of this method:
   + replaces SSH locked stock firmware with Braiins OS+
   + uses the network configuration stored on the NAND (this can be turned off, see the section *Network settings* bellow)
   + turns on autotuning on default power limit (1420W)
+  
   - does not migrate pool URLs, users and passwords
   - no batch-mode
 
@@ -454,6 +457,7 @@ Features, PROs and CONs of this method:
   + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
   + parameters are available to customize the process
   + turns on autotuning on default power limit (1420W) when installing Braiins OS+
+  
   - no batch-mode (unless you create your own scripts)
   - requires a long setup
   - does not work on miner with locked SSH
@@ -466,7 +470,7 @@ Preparing the environment
 First, you need to prepare the Python environment. This consists of the following steps:
 
 * *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
- * Run the following commands in your command line terminal:
+* Run the following commands in your command line terminal:
 
 *(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
 
@@ -495,10 +499,10 @@ Install Braiins OS+ using SSH package
 
 Installation of Braiins OS+ using the so-called *SSH Method* consists of the following steps:
 
- * *(Custom Firmware)* Flash stock firmware. This step can be skipped if the device is running on stock firmware or on a previous versions of Braiins OS. *(Note: It is possible, that Braiins OS+ can be installed directly over a custom firmware, but as they differ from the stock version, it might be necessary to flash stock firmware first.)*
- * *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
- * Prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
- * Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
+* *(Custom Firmware)* Flash stock firmware. This step can be skipped if the device is running on stock firmware or on a previous versions of Braiins OS. *(Note: It is possible, that Braiins OS+ can be installed directly over a custom firmware, but as they differ from the stock version, it might be necessary to flash stock firmware first.)*
+* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* Prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
+* Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
 
 *(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
 
@@ -584,6 +588,7 @@ Features, PROs and CONs of this method:
   + switch to Braiins OS+ from other versions remotely
   + revert to the initial version of Braiins OS remotely
   + migrates the configuration and continue to mine without a need to configure anything (when updating or switching to Braiins OS+)
+  
   - no batch-mode (unless you create your own scripts)
 
 .. _opkg_update:
@@ -663,6 +668,7 @@ Features, PROs and CONs of this method:
   + installs various version of Braiins OS, while connected to the miner
   + migrates the configuration
   + parameters are available to customize the process
+  
   - no batch-mode (unless you create your own scripts)
   - cannot switch to an older version of Braiins OS (released before 2020)
 
@@ -679,6 +685,7 @@ TODO update link
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
+
   * **ssh** - to connect to the miner
   * **wget** - used for downloading files, in this case the firmware package
   * **sysupgrade** - to actually flash the downloaded firmware package
@@ -696,6 +703,7 @@ TODO update link
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
+
   * **ssh** - to connect to the miner
   * **wget** - used for downloading files, in this case the firmware package
   * **sysupgrade** - to actually flash the downloaded firmware package
@@ -716,6 +724,7 @@ Features, PROs and CONs of this method:
   + installs any version of Braiins OS remotely
   + install a clean version of Braiins OS
   + parameters are available to customize the process
+  
   - no batch-mode (unless you create your own scripts)
 
 =====
@@ -724,8 +733,8 @@ Usage
 
 Usage of the Bos2Bos script requires the following setup:
 
- * *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
- * Run the following commands in your command line terminal:
+* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* Run the following commands in your command line terminal:
 
 *(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
 
