@@ -14,31 +14,31 @@ There are many tools, packages and scripts, that can be used to manage Braiins O
 
  * Install Braiins OS+
   * Using Braiins OS+ Box :ref:`bosbox_install`
-  * Using web package
-  * Using SD card
-  * Using SSH scripts
+  * Using web package :ref:`web_package_install`
+  * Using SD card :ref:`sd_install`
+  * Using SD card and OPKG :ref:`opkg_nand_install`
+  * Using SSH scripts :ref:`ssh_package_install`
  * Update Braiins OS+
   * Using Braiins OS+ Box :ref:`bosbox_update`
-  * Using OPKG
-  * Using sysupgrade package
-  * Using bos2bos script
+  * Using OPKG :ref:`opkg_update`
+  * Using sysupgrade package :ref:`sysupgrade_switch_braiinsplus`
+  * Using bos2bos script :ref:`bos2bos`
  * Switching to Braiins OS (version without autotuning)
-  * Using OPKG
-  * Using sysupgrade package
-  * Using bos2bos script
+  * Using sysupgrade package :ref:`sysupgrade_switch_braiinsos`
+  * Using bos2bos script :ref:`bos2bos`
  * Switching to Braiins OS+ (version with autotuning)
-  * Using OPKG
-  * Using sysupgrade package
-  * Using bos2bos script
+  * Using OPKG :ref:`opkg_switch_to_braiinsplus`
+  * Using sysupgrade package :ref:`sysupgrade_switch_braiinsplus`
+  * Using bos2bos script :ref:`bos2bos`
  * Reset to initial Braiins OS version (version, which was installed for the first time on device) - factory reset
-  * Using OPKG
-  * Using SD card
-  * Using "miner" tool
-  * Using bos2bos script
-  * Using the IP report button
+  * Using OPKG :ref:`opkg_factory_reset`
+  * Using SD card :ref:`sd_factory_reset`
+  * Using "miner" tool :ref:`miner_factory_reset`
+  * Using bos2bos script :ref:`bos2bos`
+  * Using the IP report button TODO :ref:``
  * Uninstall Braiins OS+
   * Using Braiins OS+ Box :ref:`bosbox_uninstall`
-  * Using SSH scripts
+  * Using SSH scripts :ref:`ssh_package_uninstall`
 
 .. _bosbox:
 ***************
@@ -103,6 +103,13 @@ Web Package
 
 The Web package can be used to switch from stock firmware, which was released before 2019. It should also work on other stock-based firmwares. This package cannot be used on stock firmware, released in 2019 and later, because of the signature verification, that was implemented. The signature verification prevents the usage of other than original stock firmwares.
 
+=====
+Usage
+=====
+
+  * Download the **Web Package** from our `website <https://braiins-os.com/>`_.
+  * Follow the sections bellow
+
 =======================================
 Features, PROs and CONs of this method:
 =======================================
@@ -130,6 +137,13 @@ SD card image
 *************
 
 If you are running stock firmware, which was released in 2019 and later, the only way to install Braiins OS+ is to insert an SD card with Braiins OS+ flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of other than stock firmware usage.
+
+=====
+Usage
+=====
+
+  * Download the **SD card image** from our `website <https://braiins-os.com/>`_.
+  * Follow the sections bellow
 
 =======================================
 Features, PROs and CONs of this method:
@@ -209,6 +223,13 @@ Remote (SSH) install package
 ****************************
 
 With the *Remote (SSH) install package* you can install or uninstall Braiins OS+. This method is not recommended, as it requires a Python setup. Use the Braiins OS+ Box instead.
+
+=====
+Usage
+=====
+
+  * Download the **Remote (SSH) install package** from our `website <https://braiins-os.com/>`_.
+  * Follow the sections bellow
 
 =======================================
 Features, PROs and CONs of this method:
@@ -410,16 +431,6 @@ Sysupgrade package
 
 Sysupgrade is used to upgrade the system running on the device. With this method, you can install various versions of Braiins OS or create a backup of the system. Installation of a firmware using *Braiins OS web interface* or using *opkg install firmware* uses this method. It's recommended to use the *Braiins OS web interface* or *opkg install firmware* instead of this method.
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
-
-  + installs various version of Braiins OS, while connected to the miner
-  + migrates the configuration
-  + parameters are available to customize the process
-  - no batch-mode (unless you create your own scripts)
-  - cannot switch to an older version of Braiins OS (released before 2020)
-
 =====
 Usage
 =====
@@ -432,6 +443,15 @@ In order to use sysupgrade, you need to connect to the miner via SSH. The syntax
 
 The most important parameters are **--help** (to display the help) and **-F** to force the installation. It's not recommended to use this method (besides the way, it is described bellow), unless you really know, what you are doing.
 
+=======================================
+Features, PROs and CONs of this method:
+=======================================
+
+  + installs various version of Braiins OS, while connected to the miner
+  + migrates the configuration
+  + parameters are available to customize the process
+  - no batch-mode (unless you create your own scripts)
+  - cannot switch to an older version of Braiins OS (released before 2020)
 
 .. _sysupgrade_switch_braiinsos:
 ==============================================================================
@@ -492,7 +512,7 @@ Usage
 Usage of the Bos2Bos script requires the following setup:
 
  * *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
- * Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
+ * Run the following commands in your command line terminal:
 
 *(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
 
