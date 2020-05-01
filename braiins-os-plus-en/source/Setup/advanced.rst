@@ -86,11 +86,11 @@ Features, PROs and CONs of this method:
 
 .. _bosbox_install:
 
-=========================================
-Install Braiins OS+ using Braiins OS+ Box
-=========================================
+======================================
+Install Braiins OS+ using BOS+ Toolbox
+======================================
 
-  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
@@ -137,11 +137,11 @@ This command will install Braiins OS+ on the miners, that are specified in the *
 
 .. _bosbox_update:
 
-===========================================
-Update Braiins OS+ using Braiins OS+ Box
-===========================================
+=====================================
+Update Braiins OS+ using BOS+ Toolbox
+=====================================
 
-  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
@@ -179,11 +179,11 @@ This command will look for an update for the miners, that are specified in the *
 
 .. _bosbox_uninstall:
 
-===========================================
-Uninstall Braiins OS+ using Braiins OS+ Box
-===========================================
+========================================
+Uninstall Braiins OS+ using BOS+ Toolbox
+========================================
 
-  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
@@ -218,10 +218,10 @@ This command will uninstall Braiins OS+ from the miners, that are specified in t
 .. _bosbox_configure:
 
 ===========================================
-Configure Braiins OS+ using Braiins OS+ Box
+Configure Braiins OS+ using BOS+ Toolbox
 ===========================================
 
-  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
@@ -273,11 +273,11 @@ The first command will load the configuration of the miners, that are specified 
 
 .. _bosbox_scan:
 
-=========================================================
-Scan the network to identify miners using Braiins OS+ Box
-=========================================================
+======================================================
+Scan the network to identify miners using BOS+ Toolbox
+======================================================
 
-  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
 ::
