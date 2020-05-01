@@ -52,6 +52,7 @@ There are many tools, packages and scripts, that can be used to manage Braiins O
   * Using SSH scripts :ref:`ssh_package_uninstall`
 
 .. _bosbox:
+
 ***************
 BOS+ Toolbox
 ***************
@@ -85,6 +86,7 @@ Features, PROs and CONs of this method:
   - does not work on miner with locked SSH
 
 .. _bosbox_install:
+
 =========================================
 Install Braiins OS+ using Braiins OS+ Box
 =========================================
@@ -135,6 +137,7 @@ Arguments                             Description
 This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
 
 .. _bosbox_update:
+
 ===========================================
 Update Braiins OS+ using Braiins OS+ Box
 ===========================================
@@ -176,6 +179,7 @@ Arguments                             Description
 This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
 .. _bosbox_uninstall:
+
 ===========================================
 Uninstall Braiins OS+ using Braiins OS+ Box
 ===========================================
@@ -213,6 +217,7 @@ Arguments                             Description
 This command will uninstall Braiins OS+ from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
 .. _bosbox_configure:
+
 ===========================================
 Configure Braiins OS+ using Braiins OS+ Box
 ===========================================
@@ -268,6 +273,7 @@ save_apply                            save and apply the settings from the CSV f
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
 
 .. _bosbox_scan:
+
 =========================================================
 Scan the network to identify miners using Braiins OS+ Box
 =========================================================
@@ -310,6 +316,7 @@ listen                                listen for incoming broadcast from devices
 This command will scan the network, in the range 10.10.10.0 - 10.10.10.255 and list the found miners, with their IP addresses.
 
 .. _web_package:
+
 ***********
 Web Package
 ***********
@@ -337,6 +344,7 @@ Features, PROs and CONs of this method:
   - no batch-mode (unless you create your own scripts)
 
 .. _web_package_install:
+
 =====================================
 Install Braiins OS+ using Web package
 =====================================
@@ -346,6 +354,7 @@ Install Braiins OS+ using Web package
   * Upload the downloaded package and flash the image.
 
 .. _sd:
+
 *************
 SD card image
 *************
@@ -371,6 +380,7 @@ Features, PROs and CONs of this method:
   - no batch-mode
 
 .. _sd_install:
+
 =================================
 Install Braiins OS+ using SD card
 =================================
@@ -394,6 +404,7 @@ Install Braiins OS+ using SD card
  * *[Optional]:* You can now install Braiins OS+ to the NAND (see the section :ref:`sd_nand_install`)
 
 .. _sd_network:
+
 ================
 Network settings
 ================
@@ -410,6 +421,7 @@ Network settings
 Disabling usage of old network settings is beneficial for the users, that have problems with the miner not being visible in the network (e.g. static IP address used on NAND is out of range of the network). By doing so, DHCP is used.
 
 .. _sd_nand_install:
+
 ============
 NAND install
 ============
@@ -419,6 +431,7 @@ The SD card can be used to replace the firmware running on NAND with Braiins OS+
   * using the *miner* tool, via SSH - follow this section of the guide :ref:`opkg_nand_install`
 
 .. _sd_factory_reset:
+
 =======================================
 Braiins OS+ factory reset using SD card
 =======================================
@@ -433,6 +446,7 @@ You can do a factory reset, by following the steps bellow:
     factory_reset=yes
 
 .. _ssh_package:
+
 ****************************
 Remote (SSH) install package
 ****************************
@@ -462,6 +476,7 @@ Features, PROs and CONs of this method:
   - does not work on miner with locked SSH
 
 .. _ssh_package_environment:
+
 =========================
 Preparing the environment
 =========================
@@ -491,6 +506,7 @@ First, you need to prepare the Python environment. This consists of the followin
   python3 -m pip install -r requirements.txt
 
 .. _ssh_package_install:
+
 =====================================
 Install Braiins OS+ using SSH package
 =====================================
@@ -516,11 +532,13 @@ Installation of Braiins OS+ using the so-called *SSH Method* consists of the fol
   python3 upgrade2bos.py IP_ADDRESS
 
 .. _ssh_package_uninstall:
+
 =======================================
 Uninstall Braiins OS+ using SSH package
 =======================================
 
 .. _ssh_package_uninstall_image:
+
 Using factory firmware image
 =============================
 
@@ -541,6 +559,7 @@ Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 .. _ssh_package_uninstall_backup:
+
 Using previously created backup
 ===============================
 
@@ -556,6 +575,7 @@ If you created a backup of the original firmware during the installation of Brai
 **Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
 
 .. _opkg:
+
 ****
 OPKG
 ****
@@ -590,6 +610,7 @@ Features, PROs and CONs of this method:
   - no batch-mode (unless you create your own scripts)
 
 .. _opkg_update:
+
 =============================
 Update Braiins OS+ using OPKG
 =============================
@@ -607,6 +628,7 @@ With OPKG you can easily update your current installation of Braiins OS+, by con
 This will migrate the configuration and continue to mine without a need to configure anything.
 
 .. _opkg_switch_to_braiinsplus:
+
 ====================================================
 Switch to Braiins OS+ from other versions using OPKG
 ====================================================
@@ -624,6 +646,7 @@ With OPKG you can easily switch to Braiins OS+, by connecting to the miner via S
 This will migrate the configuration and continue to mine without a need to configure anything. Default power limit will be set (1420W).
 
 .. _opkg_factory_reset:
+
 ====================================
 Braiins OS+ factory reset using OPKG
 ====================================
@@ -641,6 +664,7 @@ With OPKG you can easily revert to the initial version of Braiins OS (the versio
 This will reset the configuration to the state after the first Braiins OS installation.
 
 .. _sysupgrade:
+
 ******************
 Sysupgrade package
 ******************
@@ -671,6 +695,7 @@ Features, PROs and CONs of this method:
   - cannot switch to an older version of Braiins OS (released before 2020)
 
 .. _sysupgrade_switch_braiinsos:
+
 ==============================================================================
 Switch to Braiins OS (without autotuning) from other versions using Sysupgrade
 ==============================================================================
@@ -689,6 +714,7 @@ This command contains the following commands:
   * **sysupgrade** - to actually flash the downloaded firmware package
 
 .. _sysupgrade_switch_braiinsplus:
+
 ==========================================================
 Switch to Braiins OS+ from other versions using Sysupgrade
 ==========================================================
@@ -709,6 +735,7 @@ This command contains the following commands:
 Note: It's recommended to use the *BOS+ Toolbox*, *Braiins OS web interface* or *opkg install bos_plus* instead of this method.
 
 .. _bos2bos:
+
 **************
 Bos2Bos script
 **************
@@ -771,6 +798,7 @@ Miner tool
 **********
 
 .. _miner_nand_install:
+
 =======================================
 SD to NAND install using the Miner tool
 =======================================
@@ -783,6 +811,7 @@ The SD card can be used to replace the firmware running on NAND with Braiins OS+
 
 
 .. _miner_factory_reset:
+
 ==============================================
 Braiins OS+ factory reset using the Miner tool
 ==============================================
@@ -794,6 +823,7 @@ Factory reset can also be done using the *Miner tool*. Use the following command
     miner nand_install
 
 .. _miner_detect:
+
 ========================================
 Detect device with LEDs using Miner tool
 ========================================
