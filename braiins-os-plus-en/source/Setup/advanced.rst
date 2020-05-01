@@ -226,7 +226,6 @@ Configure Braiins OS+ using Braiins OS+ Box
   #switch to a directory, where you downloaded the BOS+ Toolbox, using the command "cd"
   cd PATH_TO_BOS+_TOOLBOX
 
-TODO check multiconfiger 
   #run the downloaded tool (for Linux version, delete the ".exe")
   ./bos-toolbox.exe multiconfiger ARGUMENTS ACTION TABLE
 
@@ -474,17 +473,16 @@ First, you need to prepare the Python environment. This consists of the followin
 
 *(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
 
-TODO update links, paths 
 ::
 
   #Update the repositories and install dependencies
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #Download and extract the firmware package
-  wget -c https://feeds.braiins-os.com/20.03/braiins-os-plus_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.04/braiins-os_am1-s9_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
   
   #Change the directory to the unpacked firmware folder
-  cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
+  cd ./braiins-os_am1-s9_2020-04-30-1-cbf99510
   
   #Create a virtual environment and activate it
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
