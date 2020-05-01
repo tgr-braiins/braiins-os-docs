@@ -13,13 +13,13 @@ Road map
 There are many tools, packages and scripts, that can be used to manage Braiins OS+. For better navigation, use the following tree:
 
  * Install Braiins OS+
-  * Using Braiins OS+ Box :ref:`bosbox_install`
+  * Using BOS+ Toolbox :ref:`bosbox_install`
   * Using web package :ref:`web_package_install`
   * Using SD card :ref:`sd_install`
   * Using SD card and OPKG :ref:`opkg_nand_install`
   * Using SSH scripts :ref:`ssh_package_install`
  * Update Braiins OS+
-  * Using Braiins OS+ Box :ref:`bosbox_update`
+  * Using BOS+ Toolbox :ref:`bosbox_update`
   * Using OPKG :ref:`opkg_update`
   * Using sysupgrade package :ref:`sysupgrade_switch_braiinsplus`
   * Using bos2bos script :ref:`bos2bos`
@@ -37,21 +37,21 @@ There are many tools, packages and scripts, that can be used to manage Braiins O
   * Using bos2bos script :ref:`bos2bos`
   * Using the IP report button TODO :ref:``
  * Uninstall Braiins OS+
-  * Using Braiins OS+ Box :ref:`bosbox_uninstall`
+  * Using BOS+ Toolbox :ref:`bosbox_uninstall`
   * Using SSH scripts :ref:`ssh_package_uninstall`
 
 .. _bosbox:
 ***************
-Braiins OS+ Box
+BOS+ Toolbox
 ***************
 
-Braiins OS+ Box is a new tool, that allow the user to easily install, uninstall, update, detect and configure Braiins OS+. It also allows to do it in batch mode, which makes the management of a larger number of devices more easy. This is the recommended way to manage your machines.
+BOS+ Toolbox is a new tool, that allow the user to easily install, uninstall, update, detect and configure Braiins OS+. It also allows to do it in batch mode, which makes the management of a larger number of devices more easy. This is the recommended way to manage your machines.
 
 =====
 Usage
 =====
 
-  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
   * Follow the sections bellow
 
 =======================================
@@ -73,27 +73,27 @@ Features, PROs and CONs of this method:
 
 .. _bosbox_install:
 =========================================
-Install Braiins OS+ using Braiins OS+ Box
+Install Braiins OS+ using BOS+ Toolbox
 =========================================
 
 .. _bosbox_update:
 ===========================================
-Update Braiins OS+ using Braiins OS+ Box
+Update Braiins OS+ using BOS+ Toolbox
 ===========================================
 
 .. _bosbox_uninstall:
 ===========================================
-Uninstall Braiins OS+ using Braiins OS+ Box
+Uninstall Braiins OS+ using BOS+ Toolbox
 ===========================================
 
 .. _bosbox_configure:
 ===========================================
-Configure Braiins OS+ using Braiins OS+ Box
+Configure Braiins OS+ using BOS+ Toolbox
 ===========================================
 
 .. _bosbox_scan:
 =========================================================
-Scan the network to identify miners using Braiins OS+ Box
+Scan the network to identify miners using BOS+ Toolbox
 =========================================================
 
 .. _web_package:
@@ -153,7 +153,7 @@ Features, PROs and CONs of this method:
   + uses the network configuration stored on the NAND (this can be turned off, see the section *Network settings* bellow)
   + turns on autotuning on default power limit (1420W)
   - does not migrate pool URLs, users and passwords
-  - no batch-mode (unless you create your own scripts)
+  - no batch-mode
 
 .. _sd_install:
 =================================
@@ -186,7 +186,7 @@ Network settings
  By default, network configuration stored on the NAND is used, while running Braiins OS+ from an SD card. This feature can be turned off, by following the steps bellow:
 
   * Mount the first FAT partition of the SD card
-  * Open the file uEnv.txt and insert the following value
+  * Open the file uEnv.txt and insert the following string (make sure there is only one string per line)
 
   ::
 
@@ -211,7 +211,7 @@ Braiins OS+ factory reset using SD card
 You can do a factory reset, by following the steps bellow:
 
   * Mount the first FAT partition of the SD card
-  * Open the file uEnv.txt and insert the following value
+  * Open the file uEnv.txt and insert the following string (make sure there is only one string per line)
 
   ::
 
@@ -222,7 +222,7 @@ You can do a factory reset, by following the steps bellow:
 Remote (SSH) install package
 ****************************
 
-With the *Remote (SSH) install package* you can install or uninstall Braiins OS+. This method is not recommended, as it requires a Python setup. Use the Braiins OS+ Box instead.
+With the *Remote (SSH) install package* you can install or uninstall Braiins OS+. This method is not recommended, as it requires a Python setup. Use the BOS+ Toolbox instead.
 
 =====
 Usage
@@ -386,7 +386,7 @@ With OPKG you can easily update your current installation of Braiins OS+, by con
   opkg install firmware
 
   #you can also connect to the miner and run the commands at the same time
-  ssh root@IP_ADDRESS "opkg update && install firmware"
+  ssh root@IP_ADDRESS "opkg update && opkg install firmware"
 
 This will migrate the configuration and continue to mine without a need to configure anything.
 
@@ -403,7 +403,7 @@ With OPKG you can easily switch to Braiins OS+, by connecting to the miner via S
   opkg install firmware
 
   #you can also connect to the miner and run the commands at the same time
-  ssh root@IP_ADDRESS "opkg update && install bos_plus"
+  ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
 
 This will migrate the configuration and continue to mine without a need to configure anything. Default power limit will be set (1420W).
 
@@ -420,7 +420,7 @@ With OPKG you can easily revert to the initial version of Braiins OS (the versio
   opkg remove firmware
 
   #you can also connect to the miner and run the commands at the same time
-  ssh root@IP_ADDRESS "opkg update && remove firmware"
+  ssh root@IP_ADDRESS "opkg update && opkg remove firmware"
 
 This will reset the configuration to the state after the first Braiins OS installation.
 
@@ -463,7 +463,7 @@ In order to upgrade from older version of Braiins OS or downgrade from Braiins O
 TODO update link
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade -F /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
   * **ssh** - to connect to the miner
@@ -480,14 +480,14 @@ In order to upgrade from older version of Braiins OS, use the following command 
 TODO update link
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade -F /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
   * **ssh** - to connect to the miner
   * **wget** - used for downloading files, in this case the firmware package
   * **sysupgrade** - to actually flash the downloaded firmware package
 
-Note: It's recommended to use the *Braiins OS+ Box*, *Braiins OS web interface* or *opkg install bos_plus* instead of this method.
+Note: It's recommended to use the *BOS+ Toolbox*, *Braiins OS web interface* or *opkg install bos_plus* instead of this method.
 
 .. _bos2bos:
 **************
