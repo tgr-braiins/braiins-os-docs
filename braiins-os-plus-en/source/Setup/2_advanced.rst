@@ -17,7 +17,7 @@ There are many tools, packages and scripts, that can be used to manage Braiins O
   * Using BOS+ Toolbox (:ref:`bosbox_install`)
   * Using web package (:ref:`web_package_install`)
   * Using SD card (:ref:`sd_install`)
-  * Using SD card and OPKG (:ref:`opkg_nand_install`)
+  * Using SD card and miner tool (:ref:`miner_nand_install`)
   * Using SSH scripts (:ref:`ssh_package_install`)
   
  * Update Braiins OS+
@@ -427,7 +427,7 @@ NAND install
 
 The SD card can be used to replace the firmware running on NAND with Braiins OS+. This can be done either:
   * using the web interface - section *System -> Install current system to device (NAND)*
-  * using the *miner* tool, via SSH - follow this section of the guide :ref:`opkg_nand_install`
+  * using the *miner* tool, via SSH - follow this section of the guide :ref:`miner_nand_install`
 
 .. _sd_factory_reset:
 
@@ -701,10 +701,9 @@ Switch to Braiins OS (without autotuning) from other versions using Sysupgrade
 
 In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
 
-TODO update link
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 
@@ -720,10 +719,9 @@ Switch to Braiins OS+ from other versions using Sysupgrade
 
 In order to upgrade from older version of Braiins OS, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
 
-TODO update link
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-03-29-0-6ec1a631_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 
