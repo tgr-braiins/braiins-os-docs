@@ -52,6 +52,7 @@ Usage
 =====
 
   * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
   * Follow the sections bellow
 
 =======================================
@@ -73,28 +74,229 @@ Features, PROs and CONs of this method:
 
 .. _bosbox_install:
 =========================================
-Install Braiins OS+ using BOS+ Toolbox
+Install Braiins OS+ using Braiins OS+ Box
 =========================================
+
+  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
+  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+
+::
+
+  #switch to a directory, where you downloaded the BOS+ Toolbox, using the command "cd"
+  cd PATH_TO_BOS+_TOOLBOX
+
+  #run the downloaded tool (for Linux version, delete the ".exe")
+  ./bos-toolbox.exe install ARGUMENTS HOSTNAME
+
+You can use the following arguments to adjust the process:
+
+**Important note:** 
+When installing Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
+When installing Braiins OS+ on **multiple devices**, do **NOT** use the HOSTNAME argument, but use the *--batch BATCH* argument instead.
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+--batch BATCH                         path to file with list of hosts (IP addresses) to install to
+--backup                              do miner backup before upgrade
+--no-nand-backup                      skip full NAND backup (config is still being backed up)
+--pool-user [POOL_USER]               set username and workername for default pool
+--psu-power-limit [PSU_POWER_LIMIT]   set PSU power limit (in watts)
+--no-keep-network                     do not keep miner network configuration (use DHCP)
+--no-keep-pools                       do not keep miner pool configuration
+--no-keep-hostname                    do not keep miner hostname and generate new one based on MAC
+--keep-hostname                       force to keep any miner hostname
+--no-wait                             do not wait until system is fully upgraded
+--dry-run                             do all upgrade steps without actual upgrade
+--post-upgrade [POST_UPGRADE]         path to directory with stage3.sh script
+--install-password INSTALL_PASSWORD   ssh password for installation
+====================================  ============================================================
+
+**Example:**
+
+::
+
+  ./bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
+
+This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
 
 .. _bosbox_update:
 ===========================================
-Update Braiins OS+ using BOS+ Toolbox
+Update Braiins OS+ using Braiins OS+ Box
 ===========================================
+
+  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
+  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+
+::
+
+  #switch to a directory, where you downloaded the BOS+ Toolbox, using the command "cd"
+  cd PATH_TO_BOS+_TOOLBOX
+
+  #run the downloaded tool (for Linux version, delete the ".exe")
+  ./bos-toolbox.exe update ARGUMENTS HOSTNAME
+
+You can use the following **arguments** to adjust the process:
+
+**Important note:** 
+When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
+When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+--h, --help                           show this help message and exit
+--batch BATCH                         path to file with list of hosts to install to
+-p PASSWORD, --password PASSWORD      administration password
+-i, --ignore                          no halt on errors
+====================================  ============================================================
+
+
+**Example:**
+
+::
+
+  ./bos-toolbox.exe update --batch listOfMiners.csv
+
+This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
 .. _bosbox_uninstall:
 ===========================================
-Uninstall Braiins OS+ using BOS+ Toolbox
+Uninstall Braiins OS+ using Braiins OS+ Box
 ===========================================
+
+  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
+  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+
+::
+
+  #switch to a directory, where you downloaded the BOS+ Toolbox, using the command "cd"
+  cd PATH_TO_BOS+_TOOLBOX
+
+  #run the downloaded tool (for Linux version, delete the ".exe")
+  ./bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+
+You can use the following arguments to adjust the process:
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+--batch BATCH                         path to file with list of hosts
+--factory-image FACTORY_IMAGE         path/url to original firmware upgrade image (default:
+                                      Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
+                                      NF.tar.gz)
+====================================  ============================================================
+
+**Example:**
+
+::
+
+  ./bos-toolbox.exe uninstall --batch listOfMiners.csv
+
+This command will uninstall Braiins OS+ from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
 .. _bosbox_configure:
 ===========================================
-Configure Braiins OS+ using BOS+ Toolbox
+Configure Braiins OS+ using Braiins OS+ Box
 ===========================================
+
+  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
+  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+
+::
+
+  #switch to a directory, where you downloaded the BOS+ Toolbox, using the command "cd"
+  cd PATH_TO_BOS+_TOOLBOX
+
+TODO check multiconfiger 
+  #run the downloaded tool (for Linux version, delete the ".exe")
+  ./bos-toolbox.exe multiconfiger ARGUMENTS ACTION TABLE
+
+You can use the following **arguments** to adjust the process:
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+-u USER, --user USER                  Administration username
+-p PASSWORD, --password PASSWORD      Administration password or "prompt"
+-c, --check                           Dry run sans writes
+-i, --ignore                          No halt on errors
+====================================  ============================================================
+
+You **have to use one** of the following **actions** to adjust the process:
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+load                                  load the current configuration of the miners (specified in 
+                                      the CSV file) and insert them to the CSV file
+save                                  save the settings from the CSV file to the miners 
+                                      (this does not apply them)
+apply                                 apply the settings, which were copied from the CSV file to 
+                                      the miners
+save_apply                            save and apply the settings from the CSV file to the miners
+====================================  ============================================================
+
+**Example:**
+
+::
+
+  ./bos-toolbox.exe multiconfiger --user root load listOfMiners.csv
+  
+  #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
+  
+  ./bos-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
+
+The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
 
 .. _bosbox_scan:
 =========================================================
-Scan the network to identify miners using BOS+ Toolbox
+Scan the network to identify miners using Braiins OS+ Box
 =========================================================
+
+  * Download the **Braiins OS+ Box** from our `website <https://braiins-os.com/>`_.
+  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+
+::
+
+  #switch to a directory, where you downloaded the BOS+ Toolbox, using the command "cd"
+  cd PATH_TO_BOS+_TOOLBOX
+
+  #run the downloaded tool (for Linux version, delete the ".exe")
+  ./bos-toolbox.exe discover ARGUMENTS
+
+You can use the following **arguments** to adjust the process:
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+====================================  ============================================================
+
+You **have to use one** of the following **arguments** to adjust the process:
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+scan                                  actively scan provided range of address
+listen                                listen for incoming broadcast from devices (when the IP
+                                      report button is pressed)
+====================================  ============================================================
+
+**Example:**
+
+::
+
+  ./bos-toolbox.exe discover scan 10.10.10.0/24
+
+This command will scan the network, in the range 10.10.10.0 - 10.10.10.255 and list the found miners, with their IP addresses.
 
 .. _web_package:
 ***********
