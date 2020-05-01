@@ -13,30 +13,41 @@ Road map
 There are many tools, packages and scripts, that can be used to manage Braiins OS+. For better navigation, use the following tree:
 
  * Install Braiins OS+
+ 
   * Using BOS+ Toolbox :ref:`bosbox_install`
   * Using web package :ref:`web_package_install`
   * Using SD card :ref:`sd_install`
   * Using SD card and OPKG :ref:`opkg_nand_install`
   * Using SSH scripts :ref:`ssh_package_install`
+  
  * Update Braiins OS+
+ 
   * Using BOS+ Toolbox :ref:`bosbox_update`
   * Using OPKG :ref:`opkg_update`
   * Using sysupgrade package :ref:`sysupgrade_switch_braiinsplus`
   * Using bos2bos script :ref:`bos2bos`
+  
  * Switching to Braiins OS (version without autotuning)
+ 
   * Using sysupgrade package :ref:`sysupgrade_switch_braiinsos`
   * Using bos2bos script :ref:`bos2bos`
+  
  * Switching to Braiins OS+ (version with autotuning)
+ 
   * Using OPKG :ref:`opkg_switch_to_braiinsplus`
   * Using sysupgrade package :ref:`sysupgrade_switch_braiinsplus`
   * Using bos2bos script :ref:`bos2bos`
+  
  * Reset to initial Braiins OS version (version, which was installed for the first time on device) - factory reset
+ 
   * Using OPKG :ref:`opkg_factory_reset`
   * Using SD card :ref:`sd_factory_reset`
   * Using "miner" tool :ref:`miner_factory_reset`
   * Using bos2bos script :ref:`bos2bos`
   * Using the IP report button TODO :ref:``
+  
  * Uninstall Braiins OS+
+ 
   * Using BOS+ Toolbox :ref:`bosbox_uninstall`
   * Using SSH scripts :ref:`ssh_package_uninstall`
 
