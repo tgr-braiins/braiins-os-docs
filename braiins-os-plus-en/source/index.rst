@@ -77,6 +77,7 @@ This release covers mostly user facing issues, installation/deinstalation diffic
 
   * Antminer S9
   
+    * [feature] Tuner status is now shown in the GUI. TUNERSTATUS API command was added.
     * [bug] some devices were experiencing random I2C controller bus lockups and would fail to communicate with hashboard power controllers connected to the shared I2C bus. We have found out that the cause was the Xilinx I2C controller core that we have integrated into the FPGA bitstream. We have switched to the I2C present in the SoC and the bitstream only routes the signal of the peripheral (IIC0) to corresponding FPGA pins.
 
 20.03
