@@ -22,7 +22,7 @@ You can easily install Braiins OS via the web interface upgrade process. In orde
   * Login on your miner and go to the section *System -> Upgrade*.
   * Upload the downloaded package and flash the image.
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS and autotuning will be turned on.
+Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
 
 **Multiple-device installation**
 
@@ -45,7 +45,7 @@ Installation of Braiins OS can easily be done using the BOS Toolbox. In order to
       
       ./bos-toolbox install --batch listOfMiners.csv		
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS and autotuning will be turned on.
+Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_install`.
 
