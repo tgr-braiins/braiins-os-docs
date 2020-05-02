@@ -26,9 +26,9 @@ Braiins OS+ will be installed on the miner. The network configuration (e.g. Stat
 
 **Multiple-device installation**
 
-Installation of Braiins OS+ can easily be done using the BOS Toolbox. In order to do so, follow the steps bellow:
+Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order to do so, follow the steps bellow:
 
-  * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. Use only one IP address per line!
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
   * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
@@ -147,10 +147,10 @@ This will revert back to stock firmware. It will automatically install an older 
 
 **Multiple device uninstallation**
 
-You can easily uninstall Braiins OS on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps below:
+You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps below:
 
   * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
   * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
 
