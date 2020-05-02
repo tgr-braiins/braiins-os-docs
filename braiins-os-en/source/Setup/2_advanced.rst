@@ -488,10 +488,10 @@ First, you need to prepare the Python environment. This consists of the followin
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #Download and extract the firmware package
-  wget -c https://feeds.braiins-os.com/20.04/braiins-os_am1-s9_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.org/20.04/braiins-os_am1-s9_ssh_2020-04-30-0-259943b5.tar.gz -O - | tar -xz
   
   #Change the directory to the unpacked firmware folder
-  cd ./braiins-os_am1-s9_2020-04-30-1-cbf99510
+  cd ./braiins-os_am1-s9_ssh_2020-04-30-0-259943b5
   
   #Create a virtual environment and activate it
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -716,7 +716,7 @@ In order to upgrade from older version of Braiins OS, use the following command 
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 
