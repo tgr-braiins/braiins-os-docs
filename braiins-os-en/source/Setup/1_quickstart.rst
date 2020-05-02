@@ -31,7 +31,7 @@ Installation of Braiins OS can easily be done using the BOS Toolbox. In order to
   * Download **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -101,7 +101,7 @@ Updating Braiins OS on multiple devices at once can easily be done using the **B
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -129,11 +129,11 @@ You can easily uninstall Braiins OS on a single device using the **BOS Toolbox**
 
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
   * Once you've downloaded the BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
-  * Now replace the _IP_ADDRESS_ placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Now replace the *IP_ADDRESS* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
     For **Windows** command terminal: ::
 
@@ -152,7 +152,7 @@ You can easily uninstall Braiins OS on multiple devices using the **BOS Toolbox*
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.)Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
