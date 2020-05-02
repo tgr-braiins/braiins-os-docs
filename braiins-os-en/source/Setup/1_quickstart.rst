@@ -113,20 +113,66 @@ For more information about this process, and for more options visit the sections
 Uninstall Braiins OS
 ********************
 
-Uninstallation of Braiins OS can easily be done using the **BOS Toolbox**. In order to do so, follow the steps bellow:
+**Single device uninstallation**
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+You can easily uninstall Braiins OS on a single device using the **BOS Toolbox**. In order to do so, follow the steps bellow:
 
-::
+- Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+- Once you've downloaded the BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe uninstall --batch listOfMiners.csv
+- Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: 
 
-This will revert back to stock firmware. It will automatically install an older version, where the SSH was not locked, so you can access your miner remotely.
+  ```
+  cd FILE_PATH_TO_BOS_TOOLBOX
+  ```
+
+- Now replace the *IP_ADDRESS* placeholder with your device's IP Address (or host name) and run the command.
+
+  For ***Windows*** command terminal:
+
+  ```
+  bos-toolbox.exe uninstall IP_ADDRESS
+  ```
+
+  For ***Linux*** command terminal:
+
+  ```
+  ./bos-toolbox uninstall IP_ADDRESS
+  ```
+
+This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
+
+**Multiple device uninstallation**
+
+You can easily uninstall Braiins OS on multiple devices using the **BOS Toolbox**. In order to do so, follow the steps below:
+
+- Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+
+- Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.)Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
+
+- Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+
+- Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: 
+
+  ```
+  cd FILE_PATH_TO_BOS_TOOLBOX
+  ```
+
+- Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the command:
+
+  For ***Windows*** command terminal:
+
+  ```
+  bos-toolbox.exe uninstall --batch listOfMiners.csv
+  ```
+
+  For ***Linux*** command terminal:
+
+  ```
+  ./bos-toolbox uninstall --batch listOfMiners.csv		
+  ```
+
+This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
