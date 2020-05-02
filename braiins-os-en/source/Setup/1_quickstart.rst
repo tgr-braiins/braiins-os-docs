@@ -28,17 +28,29 @@ Braiins OS will be installed on the miner. The network configuration (e.g. Stati
 
 Installation of Braiins OS can easily be done using the BOS Toolbox. In order to do so, follow the steps bellow:
 
-  * Download **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+- Download **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+- Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
+- Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
-  ::
+- Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: 
 
-    #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-    cd PATH_TO_BOS_TOOLBOX
+  ```
+  cd FILE_PATH_TO_BOS_TOOLBOX
+  ```
 
-    #run the downloaded tool (for Linux version, delete the ".exe")
-    ../bos-toolbox.exe install --batch listOfMiners.csv
+- Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the command:
+
+  For ***Windows*** command terminal:
+
+  ```
+  bos-toolbox.exe install --batch listOfMiners.csv
+  ```
+
+  For ***Linux*** command terminal:
+
+  ```
+  ./bos-toolbox install --batch listOfMiners.csv		
+  ```
 
 Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS and autotuning will be turned on.
 
@@ -93,19 +105,31 @@ package* field and press *OK*.
 
 Updating Braiins OS on multiple devices at once can easily be done using the **BOS Toolbox**. In order to do so, follow the steps bellow:
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+- Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+- Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
+- Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
-::
+- Replace the *FILE_PATH_TO_BOX_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: 
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+  ```
+  cd FILE_PATH_TO_BOS_TOOLBOX
+  ```
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe update --batch listOfMiners.csv
+- Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the command:
 
-This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
+  For ***Windows*** command terminal:
+
+  ```
+  bos-toolbox.exe update --batch listOfMiners.csv
+  ```
+
+  For ***Linux*** command terminal:
+
+  ```
+  ./bos-toolbox update --batch listOfMiners.csv		
+  ```
+
+This command will look for an update for the miners that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_update`.   
 
