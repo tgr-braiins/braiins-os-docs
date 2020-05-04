@@ -133,7 +133,7 @@ You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *IP_ADDRESS* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Now replace the *IP_ADDRESS* placeholder with your miner's IP address (or host name) in the command below and run the appropriate command for your operating system:
 
     For **Windows** command terminal: ::
 
