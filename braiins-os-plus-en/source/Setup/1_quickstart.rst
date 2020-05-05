@@ -192,7 +192,7 @@ Configure Braiins OS+
 
 **Single device configuration**
 
-You can configure Braiins OS+ on single device using the **web interface** of the miner or directly in the configuration file located in **/etc/bosminer.toml** (for more information, visit the **Configuration** section).
+You can configure Braiins OS+ on single device using the **web interface** of the miner or directly in the configuration file located in **/etc/bosminer.toml** (for more information, visit the `Configuration section <https://docs.braiins-os.com/plus-en/Configuration/index_configuration.html>`_).
 
 **Multiple device configuration**
 
