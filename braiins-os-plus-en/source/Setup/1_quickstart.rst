@@ -45,6 +45,10 @@ Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order 
       
       ./bos-plus-toolbox install --batch listOfMiners.csv		
 
+    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox  
+
 Braiins OS+ will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS+ and autotuning will be turned on.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_install`.
@@ -114,7 +118,11 @@ Updating Braiins OS+ on multiple devices at once can easily be done using the **
     For **Linux** command terminal: ::
       
       ./bos-plus-toolbox update --batch listOfMiners.csv
-      
+
+    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox 
+
 This command will look for an update for the miners that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_update`.   
@@ -143,6 +151,10 @@ You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox
       
       ./bos-plus-toolbox uninstall IP_ADDRESS
       
+    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox 
+
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
 **Multiple device uninstallation**
@@ -166,6 +178,10 @@ You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbo
       
       ./bos-plus-toolbox uninstall --batch listOfMiners.csv
       
+    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox 
+
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
