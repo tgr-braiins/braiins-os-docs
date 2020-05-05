@@ -6,9 +6,15 @@ Configuration
   :local:
   :depth: 2
 
-*****************
-Install Arguments
-*****************
+****************************************
+Configure Braiins OS+ using BOS+ Toolbox
+****************************************
+
+You can easily configure Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
+
+************************************************
+Configure Braiins OS+ using Remote (SSH) Package
+************************************************
 
 The installation script uses two types of arguments:
 
