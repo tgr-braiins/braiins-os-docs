@@ -185,3 +185,15 @@ You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbo
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
+
+*********************
+Configure Braiins OS+
+*********************
+
+**Single device configuration**
+
+You can configure Braiins OS+ on single device using the **web interface** of the miner or directly in the configuration file located in **/etc/bosminer.toml** (for more information, visit the **Configuration** section).
+
+**Multiple device configuration**
+
+You can easily configure Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
