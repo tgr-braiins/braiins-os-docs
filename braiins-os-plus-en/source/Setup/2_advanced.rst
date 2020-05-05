@@ -264,11 +264,11 @@ Configure Braiins OS+ using BOS+ Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe uninstall ARGUMENTS ACTION TABLE
+      bos-plus-toolbox.exe config ARGUMENTS ACTION TABLE
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox uninstall ARGUMENTS ACTION TABLE
+      ./bos-plus-toolbox config ARGUMENTS ACTION TABLE
       
     **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -304,11 +304,11 @@ save_apply                            save and apply the settings from the CSV f
 
 ::
 
-  bos-toolbox.exe multiconfiger --user root load listOfMiners.csv
+  bos-toolbox.exe config --user root load listOfMiners.csv
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  bos-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root save_apply listOfMiners.csv
 
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
 
