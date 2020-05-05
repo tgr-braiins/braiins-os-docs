@@ -88,18 +88,26 @@ Features, PROs and CONs of this method:
 ======================================
 Install Braiins OS using BOS Toolbox
 ======================================
+  * Download **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
-::
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+    For **Windows** command terminal: ::
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.exe install ARGUMENTS HOSTNAME
+
+    For **Linux** command terminal: ::
+      
+      ./bos-toolbox install ARGUMENTS HOSTNAME
+
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-toolbox
 
 You can use the following arguments to adjust the process:
 
@@ -129,7 +137,7 @@ Arguments                             Description
 
 ::
 
-  ./bos-toolbox.exe install --batch listOfMiners.csv --install-password admin
+  bos-toolbox.exe install --batch listOfMiners.csv --install-password admin
 
 This command will install Braiins OS on the miners, that are specified in the *listOfMiners.csv* file. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
 
@@ -139,17 +147,26 @@ This command will install Braiins OS on the miners, that are specified in the *l
 Update Braiins OS using BOS Toolbox
 =====================================
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-::
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe update ARGUMENTS HOSTNAME
+    For **Windows** command terminal: ::
+
+      bos-toolbox.exe update ARGUMENTS HOSTNAME
+
+    For **Linux** command terminal: ::
+      
+      ./bos-toolbox update ARGUMENTS HOSTNAME
+
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -171,7 +188,7 @@ Arguments                             Description
 
 ::
 
-  ./bos-toolbox.exe update --batch listOfMiners.csv
+  bos-toolbox.exe update --batch listOfMiners.csv
 
 This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
@@ -181,19 +198,32 @@ This command will look for an update for the miners, that are specified in the *
 Uninstall Braiins OS using BOS Toolbox
 ========================================
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.)Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
+  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-::
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+    For **Windows** command terminal: ::
+
+      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+
+    For **Linux** command terminal: ::
+      
+      ./bos-toolbox uninstall ARGUMENTS HOSTNAME
+
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-toolbox
 
 You can use the following arguments to adjust the process:
+
+**Important note:** 
+When updating Braiins OS on a **single device**, use the *HOSTNAME* argument (IP address).
+When updating Braiins OS on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
 
 ====================================  ============================================================
 Arguments                             Description
@@ -209,7 +239,7 @@ Arguments                             Description
 
 ::
 
-  ./bos-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-toolbox.exe uninstall --batch listOfMiners.csv
 
 This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
@@ -219,17 +249,26 @@ This command will uninstall Braiins OS from the miners, that are specified in th
 Configure Braiins OS using BOS Toolbox
 ===========================================
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.)Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
+  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-::
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe multiconfiger ARGUMENTS ACTION TABLE
+    For **Windows** command terminal: ::
+
+      bos-toolbox.exe uninstall ARGUMENTS ACTION TABLE
+
+    For **Linux** command terminal: ::
+      
+      ./bos-toolbox uninstall ARGUMENTS ACTION TABLE
+
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -261,11 +300,11 @@ save_apply                            save and apply the settings from the CSV f
 
 ::
 
-  ./bos-toolbox.exe multiconfiger --user root load listOfMiners.csv
+  bos-toolbox.exe multiconfiger --user root load listOfMiners.csv
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  ./bos-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
+  bos-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
 
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
 
@@ -275,16 +314,27 @@ The first command will load the configuration of the miners, that are specified 
 Scan the network to identify miners using BOS Toolbox
 ======================================================
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) and use the following commands:
 
-::
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.)Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
+  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-  #switch to a directory, where you downloaded the BOS Toolbox, using the command "cd"
-  cd PATH_TO_BOS_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
-  #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe discover ARGUMENTS
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+
+    For **Windows** command terminal: ::
+
+      bos-toolbox.exe uninstall ARGUMENTS
+
+    For **Linux** command terminal: ::
+      
+      ./bos-toolbox uninstall ARGUMENTS
+
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -308,7 +358,7 @@ listen                                listen for incoming broadcast from devices
 
 ::
 
-  ./bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.exe discover scan 10.10.10.0/24
 
 This command will scan the network, in the range 10.10.10.0 - 10.10.10.255 and list the found miners, with their IP addresses.
 
