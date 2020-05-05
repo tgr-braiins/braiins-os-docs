@@ -45,7 +45,7 @@ Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order 
       
       ./bos-plus-toolbox install --batch listOfMiners.csv		
 
-    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox  
 
@@ -119,7 +119,7 @@ Updating Braiins OS+ on multiple devices at once can easily be done using the **
       
       ./bos-plus-toolbox update --batch listOfMiners.csv
 
-    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -151,7 +151,7 @@ You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox
       
       ./bos-plus-toolbox uninstall IP_ADDRESS
       
-    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -178,7 +178,7 @@ You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbo
       
       ./bos-plus-toolbox uninstall --batch listOfMiners.csv
       
-    *Note: when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox 
 
