@@ -1,5 +1,5 @@
 ###########
-Quick Start
+快速指南
 ###########
 
 .. contents::
@@ -7,11 +7,11 @@ Quick Start
   :depth: 2
 
 *******************
-Install Braiins OS+
+安装Braiins OS+
 *******************
 
 ============================================
-Running stock firmware released before 2019
+在矿机上是2019年**之前**版本的原厂固件的情况下
 ============================================
 
 **Single device installation**
@@ -54,7 +54,7 @@ Braiins OS+ will be installed on the miner. The network configuration (e.g. Stat
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_install`.
 
 ==================================================
-Running stock firmware released in 2019 or later
+在矿机上是2019年**之后**版本的原厂固件的情况下
 ==================================================
 
 If you are running stock firmware that was released in 2019 and later, the only way to install Braiins OS+ is to insert an SD card with Braiins OS+ flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares.
