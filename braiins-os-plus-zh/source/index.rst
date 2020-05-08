@@ -62,16 +62,17 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
   * 在所有类型的矿机上
 
     * 【特性】对重联的支持——我们在固件中应用了（`client.reconnect`）重联命令（在阶层Stratum V1协议中)，和阶层Stratum V2协议的重联消息
-    * 【特性】改进了安装/卸载的进程（或者说**upgrade2bos**和**restore2factory**）（从原厂固件过渡到Braiins OS等情况同理）：
+    * 【特性】改进了安装/卸载（**upgrade2bos**和**restore2factory**这两个进程）（从原厂固件过渡到Braiins OS等情况的进程同理）
     * 【特性】通过命令行命令（`--pool-user`）可以自定义矿池用户了
     * 【特性】您原厂矿机固件中之前的矿池设置，现在会自动移植到BOSminer的配置中了。您也可以使用（`--no-keep-pools`）命令停用自动移植。
-    * 【特性】we now provide binary form of **upgrade2bos** (based on pyinstaller) that contains the latest Braiins OS installation image
-    * 【特性】similarly, **restore2factory** (based on pyinstaller) is now available in binary form and doesn't require any longer downloading/finding out the correct factory firmware.
-    * 【特性】disk space and time consuming backup of the original firmware is now disabled by default (can be enabled by `--backup`)
-    * 【特性】keeping host name while performing first time install is now driving by 2 options `--keep-hostname` and `--no-keep-hostname` allowing to force override and automatic hostname generation based on MAC address
-    * 【特性】support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
-    * 【特性】system now provides **logs** covering **longer timespan** of **BOSminer** operation due to enabling **log rotation** and compression of '/var/log/syslog.old' when it is bigger than 32 KiB
-    * 【BUG修复】SD card image now contains slushpool authority public key that was missing
+    * 【特性】我们现在提供（基于pyinstaller的）二进制格式的**upgrade2bos**进程，它内置有最新的Braiins OS安装映像文件
+    * 【特性】同样提供的也有（基于pyinstaller的）二进制格式的**restore2factory**进程，且现在不需要去下载或找到合适的原厂固件了。 
+    * 【特性】默认停用了又占地方又花时间的原厂固件备份，可以通过（`--backup`）命令恢复启用。
+    * 【特性】首次安装中保留主机名（Host name）的功能，可以通过（`--keep-hostname`）和（`--no-keep-hostname`）这两个命令控制，从而能超控根据MAC地址自动生成主机名。 
+    * 【特性】在**BOS**工具箱中，现已集成了对开启/关闭预先发布版的支持
+       support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
+    * 【特性】由于现在系统开启了**日志轮替**和对超过32KiB的'/var/log/syslog.old'旧系统记录文件进行自动压缩的功能，**BOSminer**将能够提供的**更长时间**的**系统日志**。
+    * 【BUG修复】SD卡固件中现SD card image now contains slushpool authority public key that was missing
     * 【BUG修复】rejection rate is now correctly being displayed
     * 【BUG修复】unknown stratum V1 messages received from the server are now being logged for diagnostics
 
