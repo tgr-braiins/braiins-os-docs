@@ -16,13 +16,13 @@
 
 **单一矿机安装**
 
-You can easily install Braiins OS+ via the web interface upgrade process. In order to do so, follow the steps bellow:
+您从矿机网页端后台就能轻松升级。请参寻以下步骤：
 
-  * Download the **Web Package** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Login on your miner and go to the section *System -> Upgrade*.
-  * Upload the downloaded package and flash the image.
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **网页后台方式安装包**。
+  * 登陆您矿机的网页端后台，点击*System（系统） -> Upgrade（升级）*。
+  * 上传您下载的安装包，并刷入固件映像。
 
-Braiins OS+ will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS+ and autotuning will be turned on.
+Braiins OS+就会被安装到您的矿机上。网络配置（如静态IP地址）和矿池以及用户设置将会自动转移到新安装的Braiins OS+上，矿机自动调整将默认自动开启。 
 
 **多矿机安装**
 
