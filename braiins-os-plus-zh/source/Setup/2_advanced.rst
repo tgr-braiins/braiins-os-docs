@@ -20,40 +20,40 @@
   * 使用SD卡刷和矿机工具（Miner tool） （:ref:`miner_nand_install`）
   * 使用SSH脚本（:ref:`ssh_package_install`）
   
- * Update Braiins OS+
+ * 升级Braiins OS+
  
-  * Using BOS+ Toolbox （:ref:`bosbox_update`）
-  * Using OPKG （:ref:`opkg_update`）
-  * Using sysupgrade package （:ref:`sysupgrade_switch_braiinsplus`）
-  * Using bos2bos script （:ref:`bos2bos`）
+  * 使用BOS+工具箱 （:ref:`bosbox_update`）
+  * 使用OPKG批量包 （:ref:`opkg_update`）
+  * 使用SYSUPGRADE（系统升级）包 （:ref:`sysupgrade_switch_braiinsplus`）
+  * 使用BOS2BOS（从Braiins OS升级到Braiins OS其他版本的）脚本 （:ref:`bos2bos`）
   
- * Switching to Braiins OS (version without autotuning)
+ * 降级到Braiins OS社区版（不带自动调整功能）
  
-  * Using sysupgrade package （:ref:`sysupgrade_switch_braiinsos`）
-  * Using bos2bos script （:ref:`bos2bos`）
+  * 使用SYSUPGRADE（系统升级）包 （:ref:`sysupgrade_switch_braiinsos`）
+  * 使用BOS2BOS（从Braiins OS升级到Braiins OS其他版本的）脚本 （:ref:`bos2bos`）
   
- * Switching to Braiins OS+ (version with autotuning)
+ * 升级到Braiins OS+（带自动调整功能）
  
-  * Using OPKG （:ref:`opkg_switch_to_braiinsplus`）
-  * Using sysupgrade package （:ref:`sysupgrade_switch_braiinsplus`）
-  * Using bos2bos script （:ref:`bos2bos`）
+  * 使用OPKG批量包 （:ref:`opkg_switch_to_braiinsplus`）
+  * 使用SYSUPGRADE（系统升级）包 （:ref:`sysupgrade_switch_braiinsplus`）
+  * 使用BOS2BOS（从Braiins OS升级到Braiins OS的其他版本）脚本 （:ref:`bos2bos`）
   
- * Reset to initial Braiins OS version (version, which was installed for the first time on device) - factory reset
+ * 重置到Braiins OS初始版本（矿机首次安装Braiins OS的版本） - 恢复出厂设置
  
-  * Using OPKG （:ref:`opkg_factory_reset`）
-  * Using SD card （:ref:`sd_factory_reset`）
-  * Using "miner" tool （:ref:`miner_factory_reset`）
-  * Using bos2bos script （:ref:`bos2bos`）
+  * 使用OPKG批量包 （:ref:`opkg_factory_reset`）
+  * 使用SD卡刷 （:ref:`sd_factory_reset`）
+  * 使用矿机工具（Miner tool） （:ref:`miner_factory_reset`）
+  * 使用BOS2BOS（从Braiins OS升级到Braiins OS其他版本的）脚本（:ref:`bos2bos`）
   
- * Uninstall Braiins OS+
+ * 卸载Braiins OS+
  
-  * Using BOS+ Toolbox （:ref:`bosbox_uninstall`）
-  * Using SSH scripts （:ref:`ssh_package_uninstall`）
+  * 使用BOS+工具箱 （:ref:`bosbox_uninstall`）
+  * 使用SSH脚本 （:ref:`ssh_package_uninstall`）
 
 .. _bosbox:
 
 ***************
-BOS+ Toolbox
+BOS+工具箱
 ***************
 
 BOS+ Toolbox is a new tool, that allow the user to easily install, uninstall, update, detect and configure Braiins OS+. It also allows to do it in batch mode, which makes the management of a larger number of devices more easy. This is the recommended way to manage your machines.
