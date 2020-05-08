@@ -11,10 +11,10 @@
 *******************
 
 ============================================
-在矿机上是2019年**之前**版本的原厂固件的情况下
+在矿机上是2019年之前版本的原厂固件的情况下
 ============================================
 
-**Single device installation**
+**单一矿机安装**
 
 You can easily install Braiins OS+ via the web interface upgrade process. In order to do so, follow the steps bellow:
 
@@ -24,7 +24,7 @@ You can easily install Braiins OS+ via the web interface upgrade process. In ord
 
 Braiins OS+ will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS+ and autotuning will be turned on.
 
-**Multiple-device installation**
+**多矿机安装**
 
 Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order to do so, follow the steps bellow:
 
@@ -54,7 +54,7 @@ Braiins OS+ will be installed on the miner. The network configuration (e.g. Stat
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_install`.
 
 ==================================================
-在矿机上是2019年**之后**版本的原厂固件的情况下
+在矿机上是2019年之后版本的原厂固件的情况下
 ==================================================
 
 If you are running stock firmware that was released in 2019 and later, the only way to install Braiins OS+ is to insert an SD card with Braiins OS+ flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares.
@@ -82,10 +82,10 @@ In order to install Braiins OS+ via the SD card method, follow the steps bellow:
 For more information about this process, and for more options visit the sections :ref:`sd` and :ref:`sd_install`.
 
 ******************
-Update Braiins OS+
+更新Braiins OS+
 ******************
 
-**Single device update**
+**单一矿机更新**
 
 The firmware periodically checks for availability of a new version. In
 case of a new version being available a blue **Upgrade** button appears in the web interface, on
@@ -98,7 +98,7 @@ case the button is missing, try to refresh the page. To trigger the
 upgrade process, type ``firmware`` into the *Download and install
 package* field and press *OK*.
 
-**Multiple device update**
+**多矿机更新**
 
 Updating Braiins OS+ on multiple devices at once can easily be done using the **BOS+ Toolbox**. In order to do so, follow the steps bellow:
 
@@ -128,10 +128,10 @@ This command will look for an update for the miners that are specified in the *l
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_update`.   
 
 *********************
-Uninstall Braiins OS+
+卸载Braiins OS+
 *********************
 
-**Single device uninstallation**
+**单一矿机卸载**
 
 You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox**. In order to do so, follow the steps bellow:
 
@@ -157,7 +157,7 @@ You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox
 
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
-**Multiple device uninstallation**
+**多矿机卸载**
 
 You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps below:
 
@@ -187,13 +187,13 @@ This will revert back to stock firmware. It will automatically install an older 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
 
 *********************
-Configure Braiins OS+
+配置Braiins OS+
 *********************
 
-**Single device configuration**
+**单一矿机配置**
 
 You can configure Braiins OS+ on single device using the **web interface** of the miner or directly in the configuration file located in **/etc/bosminer.toml** (for more information, visit the :ref:`configuration` section).
 
-**Multiple device configuration**
+**多矿机配置**
 
 You can easily configure Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
