@@ -1,5 +1,5 @@
 ##############
-Advanced Guide
+高级指南
 ##############
 
 .. contents::
@@ -7,48 +7,48 @@ Advanced Guide
 	:depth: 1
 
 ********
-Road map
+工具及使用场景一览
 ********
 
-There are many tools, packages and scripts, that can be used to manage Braiins OS+. For better navigation, use the following tree:
+有很多工具、安装包以及脚本都可以用于管理Braiins OS+。请使用下方的树状列表查找最适合您的情况：
 
- * Install Braiins OS+
+ * 安装Braiins OS+
  
-  * Using BOS+ Toolbox (:ref:`bosbox_install`)
-  * Using web package (:ref:`web_package_install`)
-  * Using SD card (:ref:`sd_install`)
-  * Using SD card and miner tool (:ref:`miner_nand_install`)
-  * Using SSH scripts (:ref:`ssh_package_install`)
+  * 使用BOS+工具箱 （:ref:`bosbox_install`）
+  * 使用网页端后台方式安装包 （:ref:`web_package_install`）
+  * 使用SD卡刷 （:ref:`sd_install`）
+  * 使用SD卡刷和矿机工具（Miner tool） （:ref:`miner_nand_install`）
+  * 使用SSH脚本（:ref:`ssh_package_install`）
   
  * Update Braiins OS+
  
-  * Using BOS+ Toolbox (:ref:`bosbox_update`)
-  * Using OPKG (:ref:`opkg_update`)
-  * Using sysupgrade package (:ref:`sysupgrade_switch_braiinsplus`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Using BOS+ Toolbox （:ref:`bosbox_update`）
+  * Using OPKG （:ref:`opkg_update`）
+  * Using sysupgrade package （:ref:`sysupgrade_switch_braiinsplus`）
+  * Using bos2bos script （:ref:`bos2bos`）
   
  * Switching to Braiins OS (version without autotuning)
  
-  * Using sysupgrade package (:ref:`sysupgrade_switch_braiinsos`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Using sysupgrade package （:ref:`sysupgrade_switch_braiinsos`）
+  * Using bos2bos script （:ref:`bos2bos`）
   
  * Switching to Braiins OS+ (version with autotuning)
  
-  * Using OPKG (:ref:`opkg_switch_to_braiinsplus`)
-  * Using sysupgrade package (:ref:`sysupgrade_switch_braiinsplus`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Using OPKG （:ref:`opkg_switch_to_braiinsplus`）
+  * Using sysupgrade package （:ref:`sysupgrade_switch_braiinsplus`）
+  * Using bos2bos script （:ref:`bos2bos`）
   
  * Reset to initial Braiins OS version (version, which was installed for the first time on device) - factory reset
  
-  * Using OPKG (:ref:`opkg_factory_reset`)
-  * Using SD card (:ref:`sd_factory_reset`)
-  * Using "miner" tool (:ref:`miner_factory_reset`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Using OPKG （:ref:`opkg_factory_reset`）
+  * Using SD card （:ref:`sd_factory_reset`）
+  * Using "miner" tool （:ref:`miner_factory_reset`）
+  * Using bos2bos script （:ref:`bos2bos`）
   
  * Uninstall Braiins OS+
  
-  * Using BOS+ Toolbox (:ref:`bosbox_uninstall`)
-  * Using SSH scripts (:ref:`ssh_package_uninstall`)
+  * Using BOS+ Toolbox （:ref:`bosbox_uninstall`）
+  * Using SSH scripts （:ref:`ssh_package_uninstall`）
 
 .. _bosbox:
 
