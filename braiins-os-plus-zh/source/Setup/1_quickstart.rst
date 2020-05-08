@@ -16,36 +16,36 @@
 
 **单一矿机安装**
 
-您从矿机网页端后台就能轻松升级。请参寻以下步骤：
+您从矿机网页端后台就能轻松升级。请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **网页后台方式安装包**。
   * 登陆您矿机的网页端后台，点击*System（系统） -> Upgrade（升级）*。
   * 上传您下载的安装包，并刷入固件映像。
 
-Braiins OS+就会被安装到您的矿机上。网络配置（如静态IP地址）和矿池以及用户设置将会自动转移到新安装的Braiins OS+上，矿机自动调整将默认自动开启。 
+Braiins OS+就会被安装到您的矿机上。网络配置（如静态IP地址）和矿池以及用户设置，将会自动转移到新安装的Braiins OS+上，矿机自动调整功能也将自动开启。 
 
 **多矿机安装**
 
-Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order to do so, follow the steps bellow:
+使用BOS+工具箱，您可以轻松地在多个矿机上配置Braiins OS+。请参照以下步骤：
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载**BOS+工具箱**。
+  * 创建一个文本文件，命名文件为"listOfMiners"并将文件后缀从".txt"改为".csv"。在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！然后将文件和BOS+工具箱放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
-    For **Windows** command terminal: ::
+    **Windows** 命令提示行请用： ::
 
       bos-plus-toolbox.exe install --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    **Linux** Terminal控制终端请用： ::
       
       ./bos-plus-toolbox install --batch listOfMiners.csv		
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox  
 
