@@ -26,11 +26,11 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量安装**
 
-使用BOS+工具箱，您可以轻松地在多个矿机上批量配置Braiins OS+，请参照以下步骤：
+使用BOS+工具箱，您可以轻松地多台矿机上批量安装Braiins OS+，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个文本文件，命名文件名为"listOfMiners"，并将文件后缀从".txt"改为".csv"。在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！然后将文件和BOS+工具箱放在同一路径下（同一文件夹中）。 
-  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
   * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
@@ -51,7 +51,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地址）和矿池以及用户设置，将会自动转移到新安装的Braiins OS+上，矿机自动调整功能也将自动开启。 
 
-关于此过程的更多信息，请详见 :ref:`bosbox` 和 :ref:`bosbox_install` 这两个部分的内容。
+关于此过程的更多信息，请详见文档的 :ref:`bosbox` 和 :ref:`bosbox_install` 这两个部分的内容。
 
 ==================================================
 在矿机上是2019年之后版本的原厂固件的情况下
@@ -79,7 +79,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
  * 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面了。
  * *[可选操作]：* 您也可以将Braiins OS+从SD卡刷到内置储存（NAND）上。具体请详见 :ref:`sd_nand_install`这一部分的内容。
 
-关于此过程的更多信息，请详见 :ref:`sd` 和 :ref:`sd_install` 这两个部分的内容。
+关于此过程的更多信息，请详见文档的 :ref:`sd` 和 :ref:`sd_install` 这两个部分的内容。
 
 ******************
 更新Braiins OS+
@@ -93,11 +93,11 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量更新**
 
-使用BOS+工具箱，您可以轻松地在多个矿机上批量更新Braiins OS+，请参照以下步骤：
+使用BOS+工具箱，您可以轻松地批量更新多台矿机上Braiins OS+，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个文本文件，命名文件名为"listOfMiners"，并将文件后缀从".txt"改为".csv"。在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！然后将文件和BOS+工具箱放在同一路径下（同一文件夹中）。 
-  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
   * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
@@ -118,7 +118,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 此命令将为 *listOfMiners.csv* 矿机列表中的矿机检查更新，如有更新可用则将为列表中的矿机更新固件。
 
-关于此过程的更多信息，请详见 :ref:`bosbox` 和 :ref:`bosbox_update` 这两个部分的内容。  
+关于此过程的更多信息，请详见文档的 :ref:`bosbox` 和 :ref:`bosbox_update` 这两个部分的内容。  
 
 *********************
 卸载Braiins OS+
@@ -126,58 +126,58 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **单台矿机卸载**
 
-You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox**. In order to do so, follow the steps bellow:
+使用BOS+工具箱，您可以轻松地卸载单台矿机上安装的Braiins OS+，请参照以下步骤：
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Once you've downloaded the BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *IP_ADDRESS* placeholder with your miner's IP address (or host name) in the command below and run the appropriate command for your operating system:
-
-    For **Windows** command terminal: ::
+  * 用您矿机的IP地址（或主机名）替换下方命令中的 *IP_ADDRESS*，并根据您的操作系统，运行以下相应的命令：
+  
+    在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe uninstall IP_ADDRESS
 
-    For **Linux** command terminal: ::
+     在 **Linux** 上的Terminal控制终端请用： ::
       
       ./bos-plus-toolbox uninstall IP_ADDRESS
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox 
 
-This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
+此命令会让矿机回滚到没有锁死SSH版本的原厂固件，方便您远程控制矿机。
 
 **批量卸载**
 
-You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps below:
+使用BOS+工具箱，您可以轻松地批量卸载多台矿机上安装的Braiins OS+，请参照以下步骤：
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
   * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
-    For **Windows** command terminal: ::
+    在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe uninstall --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    在 **Linux** 上的Terminal控制终端请用： ::
       
       ./bos-plus-toolbox uninstall --batch listOfMiners.csv
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox 
 
-This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
+此命令会让矿机回滚到没有锁死SSH版本的原厂固件，方便您远程控制矿机。
 
-For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
+关于此过程的更多信息，请详见文档的 :ref:`bosbox` 和 :ref:`bosbox_uninstall` 这两个部分的内容。  
 
 *********************
 配置Braiins OS+
@@ -185,8 +185,8 @@ For more information about this process, and for more options visit the sections
 
 **单台矿机配置**
 
-You can configure Braiins OS+ on single device using the **web interface** of the miner or directly in the configuration file located in **/etc/bosminer.toml** (for more information, visit the :ref:`configuration` section).
+您可以使用矿机的 **网页端后台** 或直接使用矿机上的 **/etc/bosminer.toml** 这个配置文件，对单台矿机上的Braiins OS+进行配置（详情请见文档的 :ref:`configuration` 部分）。
 
 **多台矿机配置**
 
-You can easily configure Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
+使用BOS+工具箱，您可以轻松地批量配置多台矿机上安装的Braiins OS+，请参照文档 :ref:`bosbox_configure`部分的步骤进行配置。
