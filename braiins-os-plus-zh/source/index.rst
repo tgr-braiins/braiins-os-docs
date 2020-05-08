@@ -61,24 +61,24 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 
   * 在所有类型的矿机上
 
-    *【特性】support for reconnect - we have implemented support for `client.reconnect` (stratum V1) and reconnect message for V2
-    *【特性】installation/deinstallation (aka **upgrade2bos** and **restore2factory**) process (transition from factory firmware to Braiins OS or vica versa) has been improved:
-    *【特性】custom pool user (`--pool-user`) can be set on command line
-    *【特性】pool settings from the factory firmware are now automatically being migrated to BOSminer configuration. Migration can be disabled by specifying (`--no-keep-pools`)
-    *【特性】we now provide binary form of **upgrade2bos** (based on pyinstaller) that contains the latest Braiins OS installation image
-    *【特性】similarly, **restore2factory** (based on pyinstaller) is now available in binary form and doesn't require any longer downloading/finding out the correct factory firmware.
-    *【特性】disk space and time consuming backup of the original firmware is now disabled by default (can be enabled by `--backup`)
-    *【特性】keeping host name while performing first time install is now driving by 2 options `--keep-hostname` and `--no-keep-hostname` allowing to force override and automatic hostname generation based on MAC address
-    *【特性】support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
-    *【特性】system now provides **logs** covering **longer timespan** of **BOSminer** operation due to enabling **log rotation** and compression of '/var/log/syslog.old' when it is bigger than 32 KiB
-    *【BUG修复】SD card image now contains slushpool authority public key that was missing
-    *【BUG修复】rejection rate is now correctly being displayed
-    *【BUG修复】unknown stratum V1 messages received from the server are now being logged for diagnostics
+    * 【特性】support for reconnect - we have implemented support for `client.reconnect` (stratum V1) and reconnect message for V2
+    * 【特性】installation/deinstallation (aka **upgrade2bos** and **restore2factory**) process (transition from factory firmware to Braiins OS or vica versa) has been improved:
+    * 【特性】custom pool user (`--pool-user`) can be set on command line
+    * 【特性】pool settings from the factory firmware are now automatically being migrated to BOSminer configuration. Migration can be disabled by specifying (`--no-keep-pools`)
+    * 【特性】we now provide binary form of **upgrade2bos** (based on pyinstaller) that contains the latest Braiins OS installation image
+    * 【特性】similarly, **restore2factory** (based on pyinstaller) is now available in binary form and doesn't require any longer downloading/finding out the correct factory firmware.
+    * 【特性】disk space and time consuming backup of the original firmware is now disabled by default (can be enabled by `--backup`)
+    * 【特性】keeping host name while performing first time install is now driving by 2 options `--keep-hostname` and `--no-keep-hostname` allowing to force override and automatic hostname generation based on MAC address
+    * 【特性】support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
+    * 【特性】system now provides **logs** covering **longer timespan** of **BOSminer** operation due to enabling **log rotation** and compression of '/var/log/syslog.old' when it is bigger than 32 KiB
+    * 【BUG修复】SD card image now contains slushpool authority public key that was missing
+    * 【BUG修复】rejection rate is now correctly being displayed
+    * 【BUG修复】unknown stratum V1 messages received from the server are now being logged for diagnostics
 
   * 在蚂蚁矿机S9上
   
-    *【特性】Tuner status is now shown in the GUI. TUNERSTATUS API command was added.
-    *【BUG修复】some devices were experiencing random I2C controller bus lockups and would fail to communicate with hashboard power controllers connected to the shared I2C bus. We have found out that the cause was the Xilinx I2C controller core that we have integrated into the FPGA bitstream. We have switched to the I2C present in the SoC and the bitstream only routes the signal of the peripheral (IIC0) to corresponding FPGA pins.
+    * 【特性】Tuner status is now shown in the GUI. TUNERSTATUS API command was added.
+    * 【BUG修复】some devices were experiencing random I2C controller bus lockups and would fail to communicate with hashboard power controllers connected to the shared I2C bus. We have found out that the cause was the Xilinx I2C controller core that we have integrated into the FPGA bitstream. We have switched to the I2C present in the SoC and the bitstream only routes the signal of the peripheral (IIC0) to corresponding FPGA pins.
 
 20.03
 ---------------------------
