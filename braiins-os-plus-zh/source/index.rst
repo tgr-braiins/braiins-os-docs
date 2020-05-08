@@ -15,14 +15,6 @@
 简介
 #####
 
-.. note::
-
-   There is new version 20.04 available. We are working on translation of the documentation into
-   different languages. Only documentation in English is currently up-to-date:
-   
-   * `Braiins OS+ <https://docs.braiins-os.com/plus-en/>`_
-   * `Braiins OS <https://docs.braiins-os.com/plus-en/>`_
-
 Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相当可靠的 `Braiins OS <https://zh.braiins-os.com/community-edition>`_ 社区版的基础上，额外提供独有的矿机自动调整算法。当用户能提供最大允许的功耗（瓦数）时，系统将自动优化挖矿过程，让矿机算力最大化。这一过程具有输入普适性，让您能基于经济上的考虑，对矿机进行最大化效率或最高哈希率的优化。内部测试显示，在蚂蚁矿机S9上使用Braiins OS+能让矿机能效比降到70 J/THs，且在低功耗设定下，这一数值还可能降到更低。同时，增加矿机输入功率，也能提升矿机算力20%或更高（与蚂蚁矿机S9原厂固件，在94 J/THs的能耗比下只有13.5TH/秒相比）。
 
 目前Braiins OS+ 支持的设备，有比特大陆的蚂蚁矿机S9，S9i以及S9j。对蚂蚁矿机S17的支持也将很快推出。
@@ -62,14 +54,40 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 更新日志
 *********
 
+20.04
+---------------------------
+
+本次发布的更新解决了大多数用户遇到的一些问题，例如安装/卸载的困难以及S9矿机上I2C控制器的一个主要问题。同时，我们也提供了固件的预先发行版了，现在使用*BOS*工具箱您就能启用它。
+
+  * 在所有类型的矿机上
+
+    *【特性】support for reconnect - we have implemented support for `client.reconnect` (stratum V1) and reconnect message for V2
+    *【特性】installation/deinstallation (aka **upgrade2bos** and **restore2factory**) process (transition from factory firmware to Braiins OS or vica versa) has been improved:
+    *【特性】custom pool user (`--pool-user`) can be set on command line
+    *【特性】pool settings from the factory firmware are now automatically being migrated to BOSminer configuration. Migration can be disabled by specifying (`--no-keep-pools`)
+    *【特性】we now provide binary form of **upgrade2bos** (based on pyinstaller) that contains the latest Braiins OS installation image
+    *【特性】similarly, **restore2factory** (based on pyinstaller) is now available in binary form and doesn't require any longer downloading/finding out the correct factory firmware.
+    *【特性】disk space and time consuming backup of the original firmware is now disabled by default (can be enabled by `--backup`)
+    *【特性】keeping host name while performing first time install is now driving by 2 options `--keep-hostname` and `--no-keep-hostname` allowing to force override and automatic hostname generation based on MAC address
+    *【特性】support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
+    *【特性】system now provides **logs** covering **longer timespan** of **BOSminer** operation due to enabling **log rotation** and compression of '/var/log/syslog.old' when it is bigger than 32 KiB
+    *【BUG修复】SD card image now contains slushpool authority public key that was missing
+    *【BUG修复】rejection rate is now correctly being displayed
+    *【BUG修复】unknown stratum V1 messages received from the server are now being logged for diagnostics
+
+  * 在蚂蚁矿机S9上
+  
+    *【特性】Tuner status is now shown in the GUI. TUNERSTATUS API command was added.
+    *【BUG修复】some devices were experiencing random I2C controller bus lockups and would fail to communicate with hashboard power controllers connected to the shared I2C bus. We have found out that the cause was the Xilinx I2C controller core that we have integrated into the FPGA bitstream. We have switched to the I2C present in the SoC and the bitstream only routes the signal of the peripheral (IIC0) to corresponding FPGA pins.
+
 20.03
 ---------------------------
 
-  * 所有矿机硬件类型
+  * 在所有类型的矿机上
       
     * 【特性】配置文件让用户能设定电源PSU的功率限制，自动调整算法会在设定的限制下，最大化矿机的能耗比每瓦算力。
 
-  * 蚂蚁矿机S9
+  * 在蚂蚁矿机S9上
 
     * 【特性】基于用户设定功率限制的自动调整功能。
 
