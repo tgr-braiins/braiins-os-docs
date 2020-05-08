@@ -64,7 +64,7 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
     * 【特性】对重联的支持——我们在固件中应用了（`client.reconnect`）重联命令（在阶层Stratum V1协议中)，和阶层Stratum V2协议的重联消息
     * 【特性】改进了安装/卸载（**upgrade2bos**和**restore2factory**这两个进程）（从原厂固件过渡到Braiins OS等情况的进程同理）
     * 【特性】通过命令行命令（`--pool-user`）可以自定义矿池用户
-    * 【特性】您原厂矿机固件中之前的矿池设置，现在会自动移植到BOSminer的配置中了。您也可以使用（`--no-keep-pools`）命令停用自动移植。
+    * 【特性】您原厂矿机固件中之前的矿池设置，现在会自动转移到BOSminer的配置中了。您也可以使用（`--no-keep-pools`）命令停用自动转移。
     * 【特性】我们现在提供（基于pyinstaller的）二进制格式的**upgrade2bos**进程，它内置有最新的Braiins OS安装映像文件
     * 【特性】同样提供的也有（基于pyinstaller的）二进制格式的**restore2factory**进程，且现在不需要去下载或找到合适的原厂固件了。 
     * 【特性】默认停用了又占地方又花时间的原厂固件备份，可以通过（`--backup`）命令恢复启用。
