@@ -69,8 +69,7 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
     * 【特性】同样提供的也有（基于pyinstaller的）二进制格式的**restore2factory**进程，且现在不需要去下载或找到合适的原厂固件了。 
     * 【特性】默认停用了又占地方又花时间的原厂固件备份，可以通过（`--backup`）命令恢复启用。
     * 【特性】首次安装中保留主机名（Host name）的功能，可以通过（`--keep-hostname`）和（`--no-keep-hostname`）这两个命令控制，从而能超控根据MAC地址自动生成主机名。 
-    * 【特性】在**BOS**工具箱中（以及旧版**矿机**中），现已集成了对开启/关闭预先发布版的支持
-       support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
+    * 【特性】在网页端后台的**BOS**工具箱中（以及旧版**矿机**中），现已集成了对开启/关闭预先发布版的支持
     * 【特性】由于现在系统开启了**日志轮替**和对超过32KiB的'/var/log/syslog.old'旧系统记录文件进行自动压缩的功能，**BOSminer**将能够提供的**更长时间**的**系统日志**。
     * 【BUG修复】SD卡固件中现已包含之前报错缺失的Slush Pool矿池验证公钥（阶层Stratum V2协议）
     * 【BUG修复】拒绝率现已显示正确值
