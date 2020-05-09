@@ -56,71 +56,71 @@
 BOS+工具箱
 ***************
 
-BOS+ Toolbox is a new tool, that allow the user to easily install, uninstall, update, detect and configure Braiins OS+. It also allows to do it in batch mode, which makes the management of a larger number of devices more easy. This is the recommended way to manage your machines.
+BOS+工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
 
 =====
-Usage
+怎么用
 =====
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
-  * Follow the sections bellow
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 再按下面相应部分的步骤进行操作
 
 =======================================
-Features, PROs and CONs of this method:
+BOS+工具箱的特性及优缺点
 =======================================
 
-  + installs Braiins OS+ remotely
-  + updates Braiins OS+ remotely
-  + uninstalls Braiins OS+ remotely
-  + configures Braiins OS+ remotely
-  + scans the network for machines
-  + migrates the whole configuration by default (can be adjusted) when installing Braiins OS+
-  + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
-  + parameters are available to customize the process
-  + turns on autotuning on default power limit (1420W) when installing Braiins OS+
-  + batch mode available to manage multiple devices at once
-  + easy to use
+  + 远程安装Braiins OS+
+  + 远程升级Braiins OS+
+  + 远程卸载Braiins OS+ 
+  + 远程配置Braiins OS+
+  + 扫描网络中的矿机
+  + 安装Braiins OS+时默认自动转移原厂固件中的设置（也可以设置不转移）
+  + 卸载Braiins OS+时默认自动转移固件设置到原厂固件（也可以设置不转移）
+  + 可自定义进程的参数
+  + 安装Braiins OS+后默认自动开启矿机自动调整功能（默认功率限制1420W）
+  + 批量模式让管理大量矿机也能得心应手
+  + 使用简单，容易上手
   
-  - does not work on miner with locked SSH
+  - 不支持SSH被锁住的矿机
 
 .. _bosbox_install:
 
 ======================================
-Install Braiins OS+ using BOS+ Toolbox
+使用BOS+工具箱安装Braiins OS+
 ======================================
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS+_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
-    For **Windows** command terminal: ::
+    在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
     
-    For **Linux** command terminal: ::
+    在 **Linux** 上的Terminal控制终端请用： ::
       
       ./bos-plus-toolbox install ARGUMENTS HOSTNAME
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following arguments to adjust the process:
+您可以使用下方的参数调整安装进程：
 
-**Important note:** 
-When installing Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When installing Braiins OS+ on **multiple devices**, do **NOT** use the HOSTNAME argument, but use the *--batch BATCH* argument instead.
+**重点：** 
+当您在 **单台矿机** 上安装Braiins OS+时，需要使用 *HOSTNAME* 这个参数 （IP地址）。
+当您在多台矿机上 **批量** 安装Braiins OS+时，请 **不要** 使用HOSTNAME这个参数，而是使用 *--batch BATCH* 这个参数。
 
 ====================================  ============================================================
-Arguments                             Description
+参数                                   描述
 ====================================  ============================================================
--h, --help                            show this help message and exit
+-h, --help                            显示帮助信息并退出
 --batch BATCH                         path to file with list of hosts (IP addresses) to install to
 --backup                              do miner backup before upgrade
 --no-nand-backup                      skip full NAND backup (config is still being backed up)
@@ -150,7 +150,7 @@ This command will install Braiins OS+ on the miners, that are specified in the *
 Update Braiins OS+ using BOS+ Toolbox
 =====================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
   * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
   * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
