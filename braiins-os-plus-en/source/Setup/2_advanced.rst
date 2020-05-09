@@ -111,7 +111,7 @@ Install Braiins OS+ using BOS+ Toolbox
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following arguments to adjust the process:
+You can use the following **arguments** to adjust the process:
 
 **Important note:** 
 When installing Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
@@ -222,7 +222,7 @@ Uninstall Braiins OS+ using BOS+ Toolbox
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following arguments to adjust the process:
+You can use the following **arguments** to adjust the process:
 
 **Important note:** 
 When uninstalling Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
