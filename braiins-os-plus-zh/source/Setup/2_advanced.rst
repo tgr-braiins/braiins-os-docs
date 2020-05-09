@@ -193,7 +193,7 @@ BOS+工具箱的特性及优缺点
 
   bos-toolbox.exe update --batch listOfMiners.csv
 
-解释：上方的命令和参数，会在有新固件更新可用的情况下，对在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上的Braiins OS+进行更新。
+解释：上方的命令和参数，会在有新固件更新可用的情况下，对在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+进行更新。
 
 .. _bosbox_uninstall:
 
@@ -244,7 +244,7 @@ BOS+工具箱的特性及优缺点
 
   bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上的Braiins OS+，并重装原厂固件（Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz）。
+解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件（Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz）。
 
 .. _bosbox_configure:
 
@@ -279,7 +279,7 @@ BOS+工具箱的特性及优缺点
 参数                                   描述
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
--u USER, --user USER                  矿机网页端后台用户名Administration username
+-u USER, --user USER                  矿机网页端后台用户名
 -p PASSWORD, --password PASSWORD      矿机网页端后台密码
 -c, --check                           不写入的试运行检查
 -i, --ignore                          忽略错误
@@ -305,41 +305,40 @@ save_apply                            保存并应用之前从CSV文件复制（
 
   bos-toolbox.exe config --user root load listOfMiners.csv
   
-  #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
+  #把矿机上的配置加载到CSV文件中后，可以通过表格软件编辑配置（如MS Office Excel，LibreOffice Calc等)
   
   bos-toolbox.exe config --user root save_apply listOfMiners.csv
 
-The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
+解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，并应用新配置。
 
 .. _bosbox_scan:
 
 ======================================================
-Scan the network to identify miners using BOS+ Toolbox
+使用BOS+工具箱扫描网络并发现矿机
 ======================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
-
-    For **Windows** command terminal: ::
+    在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe discover ARGUMENTS
 
-    For **Linux** command terminal: ::
+    在 **Linux** 上的Terminal控制终端请用： ::
       
       ./bos-plus-toolbox discover ARGUMENTS
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+您可以使用下方的 **参数** 调整网络扫描和矿机发现进程：
 
 ====================================  ============================================================
 Arguments                             Description
