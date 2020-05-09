@@ -59,7 +59,7 @@ BOS+工具箱
 BOS+工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
 
 =====
-怎么用
+如何使用
 =====
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
@@ -341,39 +341,38 @@ save_apply                            保存并应用之前从CSV文件复制（
 您可以使用下方的 **参数** 调整网络扫描和矿机发现进程：
 
 ====================================  ============================================================
-Arguments                             Description
+参数                                   描述
 ====================================  ============================================================
--h, --help                            show this help message and exit
-====================================  ============================================================
-
-You **have to use one** of the following **arguments** to adjust the process:
-
-====================================  ============================================================
-Arguments                             Description
-====================================  ============================================================
-scan                                  actively scan provided range of address
-listen                                listen for incoming broadcast from devices (when the IP
-                                      report button is pressed)
+-h, --help                            显示帮助信息并退出
 ====================================  ============================================================
 
-**Example:**
+您必须 **至少选择使用** 下方的 **参数** 中的一个来调整网络扫描和矿机发现进程：
+
+====================================  ============================================================
+参数                                   描述
+====================================  ============================================================
+scan                                  主动扫描提供的IP地址范围
+listen                                监听矿机识别广播（当按下IP report键时）
+====================================  ============================================================
+
+**网络扫描和矿机发现命令和参数使用示例如下：**
 
 ::
 
   bos-toolbox.exe discover scan 10.10.10.0/24
 
-This command will scan the network, in the range 10.10.10.0 - 10.10.10.255 and list the found miners, with their IP addresses.
+解释：上方的命令和参数，会扫描从10.10.10.0到10.10.10.255这个范围的IP地址，并列出找到的矿机及其相应的IP地址。
 
 .. _web_package:
 
 ***********
-Web Package
+网页端后台方式安装包
 ***********
 
-The Web package can be used to switch from stock firmware, which was released before 2019. It should also work on other stock-based firmwares. This package cannot be used on stock firmware, released in 2019 and later, because of the signature verification, that was implemented. The signature verification prevents the usage of other than original stock firmwares.
+如果您使用的是2019年前的原厂固件，您从矿机的网页端后台，使用Braiins OS+的网页端后台方式安装包，即可用直接升级Braiins OS+。使用的是其他基于原厂固件的第三方固件的情况下也应该是同理的。由于2019年后发布的原厂固件，对网页端后台升级采取了固件签名认证来防止安装第三方固件，所以Braiins OS+的网页端后台方式安装包就无法用于对2019年后发布的原厂固件的升级。
 
 =====
-Usage
+如何使用
 =====
 
   * Download the **Web Package** from our `website <https://braiins-os.com/>`_.
@@ -411,7 +410,7 @@ SD card image
 If you are running stock firmware, which was released in 2019 and later, the only way to install Braiins OS+ is to insert an SD card with Braiins OS+ flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of other than stock firmware usage.
 
 =====
-Usage
+如何使用
 =====
 
   * Download the **SD card image** from our `website <https://braiins-os.com/>`_.
@@ -503,7 +502,7 @@ Remote (SSH) install package
 With the *Remote (SSH) install package* you can install or uninstall Braiins OS+. This method is not recommended, as it requires a Python setup. Use the BOS+ Toolbox instead.
 
 =====
-Usage
+如何使用
 =====
 
   * Download the **Remote (SSH) install package** from our `website <https://braiins-os.com/>`_.
@@ -725,7 +724,7 @@ Sysupgrade package
 Sysupgrade is used to upgrade the system running on the device. With this method, you can install various versions of Braiins OS or create a backup of the system. Installation of a firmware using *Braiins OS web interface* or using *opkg install firmware* uses this method. It's recommended to use the *Braiins OS web interface* or *opkg install firmware* instead of this method.
 
 =====
-Usage
+如何使用
 =====
 
 In order to use sysupgrade, you need to connect to the miner via SSH. The syntax is the following:
@@ -804,7 +803,7 @@ Features, PROs and CONs of this method:
   - no batch-mode (unless you create your own scripts)
 
 =====
-Usage
+如何使用
 =====
 
 Usage of the Bos2Bos script requires the following setup:
