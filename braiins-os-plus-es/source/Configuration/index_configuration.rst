@@ -1,3 +1,6 @@
+
+.. _configuration:
+
 #############
 Configuración
 #############
@@ -6,9 +9,15 @@ Configuración
   :local:
   :depth: 2
 
-*************************
-Argumentos de Instalación
-*************************
+**********************************************************
+Configurar Braiins OS+ usando la Caja de Herramientas BOS+
+**********************************************************
+
+Puede configurar fácilmente Braiins OS+ en múltiples dispositivos usando la **Caja de herramientas BOS+**. Para hacerlo, siga los pasos en la sección :ref:`bosbox_configure`.
+
+*****************************************************
+Configurar Braiins OS+ usando el Paquete Remoto (SSH)
+*****************************************************
 
 El script de instalación usa dos tipos de argumentos:
 
@@ -19,9 +28,7 @@ La sintaxis del script de instalación es la siguiente:
 
   ::
 
-    uso: upgrade2bos.py [-h] [--no-backup] [--no-nand-backup]
-                      [--no-keep-network] [--keep-hostname] [--no-wait]
-                      hostname
+    uso: upgrade2bos.py [-h] [--no-backup] [--no-nand-backup] [--no-keep-network] [--keep-hostname] [--no-wait] hostname
 
 **Argumentos posicionales:**
 
@@ -35,8 +42,7 @@ La sintaxis del script de instalación es la siguiente:
 
   -h, --help            muestra este mensaje de ayuda y sale
   --no-backup           salta hacer respaldo al minero antes de actualizar
-  --no-nand-backup      salta respaldo completo NAND (la configuración
-                        sigue siendo respaldada)
+  --no-nand-backup      salta respaldo completo NAND (la configuración sigue siendo respaldada)
   --no-keep-network     no conservar la configuración de red del minero
                         (usa DHCP)
   --keep-hostname       mantener nombre host del minero
@@ -48,11 +54,9 @@ La sintaxis del script de instalación es la siguiente:
 Ajustes del Pool
 ****************
 
-Los usuarios pueden especificar múltiples pool. Todos los pool en un grupo usan la estrategia multi-pool con
-respaldo, lo que significa que BOSminer cambiará automáticamente al segundo pool si el primer pool muere.
+Los usuarios pueden especificar múltiples pool. Todos los pool en un grupo usan la estrategia multi-pool con respaldo, lo que significa que BOSminer cambiará automáticamente al segundo pool si el primer pool muere.
 
-La configuración está disponible a través de la web GUI (*Miner -> Configuration*) o en el archivo de configuración
-``/etc/bosminer.toml``.
+La configuración está disponible a través de la web GUI (*Miner -> Configuration*) o en el archivo de configuración``/etc/bosminer.toml``.
 
 La sintaxis es la siguiente:
 
@@ -71,46 +75,26 @@ La sintaxis es la siguiente:
   * *name* - Nombre del grupo de pool (explicado en la sección *Grupos de Pool* abajo)
   * *quota* - Cuota fijada por el usuario para el grupo (explicado en la sección *Grupos de Pool* abajo)
   * *enabled* - Estado inicial del pool luego de la inicializar BOSminer (por defecto=true (verdadero))
-  * *url* - Argumento obligatorio para el URL del servidor especificado en
-    el formato ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. No se necesita
-    especificar un puerto explicito para *Stratum V2* en Slush Pool. La
-    razón es que el protocolo está todavía en desarrollo y nosotros
-    alternamos entre dos puertos por defecto (**3336** y **3337**) a
-    través de actualizaciones al protocolo. Los mineros que no actualicen
-    podrán seguir usando la versión previa del protocolo. Los mineros que
-    actualicen no tendrán que preocuparse en actualizar su URL de minado
-    con un puerto nuevo. Hay un *nuevo* elemento requerido en la ruta del
-    URL que es la llave pública anunciada por el pool que el software de
-    minado usa para verificar la autenticidad del punto final de minado al
-    cual se conecta. Esto previene ataques de intermediarios que intenten
-    robar tasa de hash. Cualquier intento de ello resultará en
-    verificación fallida y el software rechazará usar el pool dado.
+  * *url* - Argumento obligatorio para el URL del servidor especificado en el formato ``scheme://HOSTNAME:PORT/POOL_PUBLIC_KEY``. No se necesita especificar un puerto explicito para *Stratum V2* en Slush Pool. La razón es que el protocolo está todavía en desarrollo y nosotros alternamos entre dos puertos por defecto (**3336** y **3337**) a través de actualizaciones al protocolo. Los mineros que no actualicen podrán seguir usando la versión previa del protocolo. Los mineros que actualicen no tendrán que preocuparse en actualizar su URL de minado con un puerto nuevo. Hay un *nuevo* elemento requerido en la ruta del URL que es la llave pública anunciada por el pool que el software de minado usa para verificar la autenticidad del punto final de minado al cual se conecta. Esto previene ataques de intermediarios que intenten robar tasa de hash. Cualquier intento de ello resultará en verificación fallida y el software rechazará usar el pool dado.
   * *user* - Argumento obligatorio para el nombre de usuario especificado en el formato ``USERNAME.WORKERNAME``
   * *password* - Ajustes opcionales en password
 
 Grupos de Pool
 ==============
 
-  Los usuarios pueden crear distintos grupos de pool múltiples. Todos los pool dentro de un
-  grupo usarán la estrategia de respaldo multi-pool descrita arriba. Cuando se crean grupos de
-  pool múltiples, el trabajo es distribuido para cada grupo con la estrategia de balanceo de
-  carga, bien sea a base de Cuotas o por una Tasa Fija Compartida.
+  Los usuarios pueden crear distintos grupos de pool múltiples. Todos los pool dentro de un grupo usarán la estrategia de respaldo multi-pool descrita arriba. Cuando se crean grupos de pool múltiples, el trabajo es distribuido para cada grupo con la estrategia de balanceo de carga, bien sea a base de Cuotas o por una Tasa Fija Compartida.
 
   Ejemplo:
 
-  Grupo 1 tiene dos pool especificados y una Cuota asignada de "1". Grupo 2 tiene solo un pool
-  especificado y una Cuota asignada de "2".
+  Grupo 1 tiene dos pool especificados y una Cuota asignada de "1". Grupo 2 tiene solo un pool especificado y una Cuota asignada de "2".
 
-  - El trabajo es asignado a los grupos con una tasa 1:2 - Grupo 2 recibirá el doble de cantidad de trabajo asignado que grupo 1.
+  - El trabajo es asignado a los grupos con una tasa 1:2
+  - Grupo 2 recibirá el doble la cantidad de trabajo asignado que grupo 1.
   - Si el primer pool en Grupo 1 muere, BOSminer cambiará al segundo pool en Grupo 1.
 
+  Es posible usar una Tasa Fija Compartida en lugar de una Cuota, lo que dividiría el trabajo en un porcentaje especificado. Una Cuota de 1:1 es equivalente a una Tasa Fija Compartida de 0.5 (50%) - ambos ajustes dividirán el trabajo por la mitad y lo enviarán a los dos grupos.
 
-  Es posible usar una Tasa Fija Compartida en lugar de una Cuota, lo que dividiría el trabajo en
-  un porcentaje especificado. Una Cuota de 1:1 es equivalente a una Tasa Fija Compartida de 0.5
-  (50%) - ambos ajustes dividirán el trabajo por la mitad y lo enviarán a los dos grupos.
-
-  La configuración está disponible a través de la web GUI (*Miner -> Configuration*) o en el
-  archivo de configuración ``/etc/bosminer.toml``.
+  La configuración está disponible a través de la web GUI (*Miner -> Configuration*) o en el archivo de configuración ``/etc/bosminer.toml``.
 
   Ejemplo de dos grupos y pools multiples:
 
@@ -123,12 +107,12 @@ Grupos de Pool
      [[group.pool]]
      enabled = true
      url = 'stratum2+tcp://v2.stratum.slushpool.com/u95GEReVMjK6k5YqiSFNqqTnKU4ypU2Wm8awa6tmbmDmk1bWt'
-     user = 'userA.worker'
+     user = 'usuarioA.minero'
 
      [[group.pool]]
      enabled = true
      url = 'stratum+tcp://stratum.slushpool.com:3333'
-     user = 'userA.worker'
+     user = 'usuarioA.minero'
 
      [[group]]
      name = 'MiGrupo2'
@@ -136,22 +120,15 @@ Grupos de Pool
 
      [[group.pool]]
      url = 'stratum+tcp://stratum.slushpool.com:3333'
-     user = 'userB.worker'
+     user = 'usuarioB.minero'
 
-Con esta disposición, el trabajo será dividido entre los dos grupos, a una tasa 1:2. Por defecto,
-el minero estará minando en el primer pool del grupo "MiGrupo1" y en un pool definido en el grupo
-"MiGrupo2". Si el primer pool en "MiGrupo1" muere, el minero estará minando en el segundo pool
-del grupo "MiGrupo1". Ya que un segundo pool url no está especificado para "MiGrupo2", nada se
-hará si el pool en "MiGrupo2" falla.
+Con esta disposición, el trabajo será dividido entre los dos grupos, a una tasa 1:2. Por defecto, el minero estará minando en el primer pool del grupo "MiGrupo1" y en un pool definido en el grupo "MiGrupo2". Si el primer pool en "MiGrupo1" muere, el minero estará minando en el segundo pool del grupo "MiGrupo1". Ya que un segundo pool url no está especificado para "MiGrupo2", nada se hará si el pool en "MiGrupo2" falla.
 
 *******************
 Ajustes Cadena Hash
 *******************
 
-Configuración opcional para anular los ajustes predeterminados de todas las cadenas hash. Esto
-permite a los usuarios controlar la frecuencia y voltaje de cada cadena hash y les permite activar
-o desactivar AsicBoost. Cuando el autoajuste está activado, estos ajustes son ignorados. Los
-ajustes de cadena hash globales pueden también ser anulados en ajustes por-cadena.
+Configuración opcional para anular los ajustes predeterminados de todas las cadenas hash. Esto permite a los usuarios controlar la frecuencia y voltaje de cada cadena hash y les permite activar o desactivar AsicBoost. Cuando el autoajuste está activado, estos ajustes son ignorados. Los ajustes de cadena hash globales pueden también ser anulados en ajustes por-cadena.
 
 La configuración esta disponible también a través de la web GUI (*Miner -> Configuration*) o en el archivo de configuración ``/etc/bosminer.toml``.
 
@@ -187,27 +164,16 @@ Control de Temperatura y ventilador
 Modo Control de Temperatura
 ===========================
 
-  Braiins OS soporta control automático de temperatura (utilizando el `controlador PID <https://es.wikipedia.org/wiki/Controlador_PID>`__).
+  Braiins OS+ soporta control automático de temperatura (utilizando el `controlador PID <https://es.wikipedia.org/wiki/Controlador_PID>`__).
   El controlador puede operar en uno de tres modos:
 
-  -  **Automatic** - El software del minero intenta regular la velocidad
-     del ventilador para que la temperatura sea aproximadamente la
-     target temperature (que puede ser configurada). El rango de
-     temperatura permitido es 0-200 grados Celsius.
-  -  **Manual** - Los ventiladores se mantienen a una velocidad fija,
-     definida por el usuario, sin importar la temperatura. Esto es útil
-     si se tiene una forma propia de enfriar el minero o si los sensores
-     de temperatura no funcionan. La velocidad permitida es entre
-     0%-100%. La unidad de control monitorea solo temperaturas
-     hot (caliente) y dangerous (peligrosa).
-  -  **Disabled** - **ADVERTENCIA**: ¡esto podría dañar el dispositivo
-     porque no se hace ningún control!
+  -  **Automatic** - El software del minero intenta regular la velocidad del ventilador para que la temperatura sea aproximadamente la target temperature (que puede ser configurada). El rango de temperatura permitido es 0-200 grados Celsius.
+  -  **Manual** - Los ventiladores se mantienen a una velocidad fija, definida por el usuario, sin importar la temperatura. Esto es útil si se tiene una forma propia de enfriar el minero o si los sensores de temperatura no funcionan. La velocidad permitida es entre 0%-100%. La unidad de control monitorea solo temperaturas hot (caliente) y dangerous (peligrosa).
+  -  **Disabled** - **ADVERTENCIA**: ¡esto podría dañar el dispositivo porque no se hace ningún control!
 
   El modo control de temperatura puede cambiarse en la página *Miner -> Configuration* o en el archivo de configuración  ``/etc/bosminer.toml``.
 
-  **Advertencia**: mal ajustar los ventiladores (bien sea por apagar
-  o por usar un nivel muy lento, o colocar una target temperature muy
-  alta) podría **DAÑAR** de forma irreversible su minero.
+  **Advertencia**: mal ajustar los ventiladores (bien sea por apagarlos o por usar un nivel muy lento, o colocar una target temperature muy alta) podría **DAÑAR** de forma irreversible su minero.
 
 Limites de temperatura por defecto
 ==================================
@@ -231,9 +197,9 @@ Configuración de Control de Temperatura y ventilador en ``bosminer.toml``
 
      [temp_control]
      mode = 'auto'
-     target_temp = 85
-     hot_temp = 95
-     dangerous_temp = 105
+     target_temp = 89
+     hot_temp = 100
+     dangerous_temp = 110
 
   * *mode* - Ajusta el modo de control (por defecto='auto')
   * *target_temp* - Ajusta la temperatura en Celsius (por defecto=89.0). ¡Esta opción SOLO se usa cuando 'temp_control.mode' está en 'auto'!
@@ -249,24 +215,16 @@ Configuración de Control de Temperatura y ventilador en ``bosminer.toml``
 
   * *speed* - Ajusta una velocidad de ventilador fija en % (por defecto=70). ¡Esta opción NO se usa cuando *temp_control.mode* está 'auto'!
   * *min_fans* - Ajusta el número mínimo de ventiladores requeridos para que corra BOSminer (por defecto=1).
-  * Para completamente **deshabilitar control de ventilador**, coloque 'speed' y 'min_fans' en 0.
+  * Para **deshabilitar el control del ventilador** completamente, coloque 'speed' y 'min_fans' en 0.
 
 Operación de ventilador
 =======================
 
-  1. Al iniciarse los sensores de temperatura, se activa el control de ventilador.
-     Si los sensores de temperatura no están funcionando o leen una temperatura 0,
-     los ventiladores se ponen automáticamente a máxima velocidad.
-  2. Si el modo actual es "velocidad fija de ventilador", el ventilador se pone a
-     la velocidad dada.
-  3. Si el modo actual es "control de ventilador automático", la velocidad de
-     ventilador es regulada por la temperatura.
-  4. En caso de que la temperatura del minero esté por encima de
-     *HOT temperature*, los ventiladores se ponen a 100% (incluso en el modo de
-     velocidad fija de ventilador).
-  5. En caso de que la temperatura del minero esté por encima de
-     *DANGEROUS temperature*, BOSminer se apagará (incluso en el modo de
-     velocidad fija de ventilador).
+  1. Al iniciarse los sensores de temperatura, se activa el control de ventilador. Si los sensores de temperatura no están funcionando o leen una temperatura 0, los ventiladores se ponen automáticamente a máxima velocidad.
+  2. Si el modo actual es "velocidad fija de ventilador", el ventilador se pone a la velocidad dada.
+  3. Si el modo actual es "control de ventilador automático", la velocidad de ventilador es regulada por la temperatura.
+  4. En caso de que la temperatura del minero esté por encima de *HOT temperature*, los ventiladores se ponen a 100% (incluso en el modo de velocidad fija de ventilador).
+  5. En caso de que la temperatura del minero esté por encima de *DANGEROUS temperature*, BOSminer se apagará (incluso en el modo de velocidad fija de ventilador).
 
 ********************
 Ajustes de Afinación
@@ -274,11 +232,9 @@ Ajustes de Afinación
 
 La afinación se puede configurar tanto vía web GUI o en el archivo de configuración ``/etc/bosminer.toml``.
 
-Para hacer un cambio a la configuración vía web GUI, entre al menú *Miner -> Configuration*
-y edite la sección *Autotuning*.
+Para hacer un cambio a la configuración vía web GUI, entre al menú *Miner -> Configuration* y edite la sección *Autotuning*.
 
-Para hacer un cambio a la configuración en el archivo de configuración, conéctese al minero vía
-SSH y edite el archivo ``/etc/bosminer.toml``. La sintaxis es la siguiente:
+Para hacer un cambio a la configuración en el archivo de configuración, conéctese al minero vía SSH y edite el archivo ``/etc/bosminer.toml``. La sintaxis es la siguiente:
 
   ::
 
@@ -286,16 +242,11 @@ SSH y edite el archivo ``/etc/bosminer.toml``. La sintaxis es la siguiente:
      enabled = true
      psu_power_limit = 1200
 
-La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false*
-(falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min.
-100 y max. 5000), representando el límite de energía (en Vatios) de la PSU (fuente de poder) para
-tres tarjetas hash y la tarjeta controladora.
+La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false* (falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min. 100 y max. 5000), representando el límite de energía (en Vatios) de la PSU (fuente de poder) para tres tarjetas hash y la tarjeta controladora.
 
-Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la
-instalación especificando el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación.
+Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la instalación especificando el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación.
 
-Para cambiar el límite de energía en múltiples dispositivos, puede usar nuestra configuración de
-hoja de cálculo que le va generar comandos para diferentes casos de uso.
+Para cambiar el límite de energía en múltiples dispositivos, puede usar nuestra configuración de hoja de cálculo que le va generar comandos para diferentes casos de uso.
 
 La hoja de cálculo está disponible `aquí <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
 
@@ -303,29 +254,20 @@ La hoja de cálculo está disponible `aquí <https://docs.google.com/spreadsheet
 Password SSH
 ************
 
-Puede poner el password del minero via SSH desde un host remoto al 
-correr el comando de abajo y reemplazar *[passwordnuevo]* con su propio
-password.
+Puede poner el password del minero via SSH desde un host remoto al correr el comando de abajo y reemplazar *[passwordnuevo]* con su propio password.
 
-  * Nota: Braiins OS **no*** mantiene el historial de los comandos ejecutados.
+  * Nota: Braiins OS+ **no*** mantiene el historial de los comandos ejecutados.
 
   .. code:: bash
 
      ssh root@[minero-hostname-o-ip] 'echo -e "[passwordnuevo]\n[passwordnuevo]" | passwd'
 
-Para hacer eso en muchos hosts en paralelo podría usar
-`p-ssh <https://linux.die.net/man/1/pssh>`__.
+Para hacer eso en muchos hosts en paralelo podría usar `p-ssh <https://linux.die.net/man/1/pssh>`__.
 
 ******************
 Dirección MAC e IP
 ******************
 
-Por defecto, la dirección MAC del dispositivo se mantiene igual y es heredada
-del firmware (de serie o Braiins OS) almacenada en el dispositivo (NAND). De
-esta forma, una vez que el dispositivo inicie con Braiins OS, tendrá la misma
-dirección IP que tenía con el firmware de fábrica.
-By default, the device’s MAC address stays the same as it is inherited
+Por defecto, la dirección MAC del dispositivo se mantiene igual y es heredada del firmware (de serie o Braiins OS) almacenada en el dispositivo (NAND). De esta forma, una vez que el dispositivo inicie con Braiins OS+, tendrá la misma dirección IP que tenía con el firmware de fábrica.
 
-Alternativamente, puede especificar una dirección MAC de su selección al
-modificar el parametro ``ethaddr=`` en el archivo ``uEnv.txt`` (ubicado en la
-primera partición FAT de la tarjeta SD).
+Alternativamente, puede especificar una dirección MAC de su selección al modificar el parametro ``ethaddr=`` en el archivo ``uEnv.txt`` (ubicado en la primera partición FAT de la tarjeta SD).
