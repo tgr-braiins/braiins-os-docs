@@ -96,7 +96,7 @@ Alternativamente, puede actualizar la información del repositorio manualmente p
 Actualizar Braiins OS en múltiples dispositivos a la vez puede hacerse fácilmente usando la **Caja de Herramientas BOS**. Para hacerlo, siga los pasos a continuación:
 
   * Descargue la **Caja de Herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/open-source/download/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. ¡Use solo una dirección IP por línea! Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS.
   * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc).
   * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
@@ -155,7 +155,7 @@ Esto le regresará al firmware de serie. Instalará automáticamente una versió
 Puede desinstalar Braiins OS fácilmente en múltiples dispositivos usando la **Caja de Herramientas BOS**. Para hacerlo, siga los pasos a continuación:
 
   * Descargue la **Caja de Herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/open-source/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en donde desea ejecutar los comandos. Cada dirección IP debe separarse con una coma. (Nota puede encontrar la dirección IP en la interfaz web de Braiins OS yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en donde desea ejecutar los comandos. ¡Use solo una dirección IP por línea! (Nota puede encontrar la dirección IP en la interfaz web de Braiins OS yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
   * Una vez descargada la Caja de herramientas BOS y guardado el archivo .csv, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc).
   * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
