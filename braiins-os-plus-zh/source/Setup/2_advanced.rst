@@ -75,14 +75,14 @@ BOS+工具箱的特性及优缺点
   + 远程卸载Braiins OS+ 
   + 远程配置Braiins OS+
   + 扫描网络中的矿机
-  + 安装Braiins OS+时默认自动转移原厂固件中的设置（也可以设置不转移）
-  + 卸载Braiins OS+时默认自动转移固件设置到原厂固件（也可以设置不转移）
+  + 安装Braiins OS+时默认自动转移原厂固件中的配置（也可以设置不转移）
+  + 卸载Braiins OS+时默认自动转移现有配置到原厂固件（也可以设置不转移）
   + 可自定义进程的参数
   + 安装Braiins OS+后默认自动开启矿机自动调整功能（默认功率限制1420W）
   + 批量模式让管理大量矿机也能得心应手
   + 使用简单，容易上手
   
-  - 不支持SSH被锁住的矿机
+  - 不支持SSH功能被锁住的矿机
 
 .. _bosbox_install:
 
@@ -121,22 +121,22 @@ BOS+工具箱的特性及优缺点
 参数                                   描述
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
---batch BATCH                         path to file with list of hosts (IP addresses) to install to
---backup                              do miner backup before upgrade
---no-nand-backup                      skip full NAND backup (config is still being backed up)
---pool-user [POOL_USER]               set username and workername for default pool
---psu-power-limit [PSU_POWER_LIMIT]   set PSU power limit (in watts)
---no-keep-network                     do not keep miner network configuration (use DHCP)
---no-keep-pools                       do not keep miner pool configuration
---no-keep-hostname                    do not keep miner hostname and generate new one based on MAC
---keep-hostname                       force to keep any miner hostname
---no-wait                             do not wait until system is fully upgraded
---dry-run                             do all upgrade steps without actual upgrade
---post-upgrade [POST_UPGRADE]         path to directory with stage3.sh script
---install-password INSTALL_PASSWORD   ssh password for installation
+--batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
+--backup                              在进行升级前备份矿机
+--no-nand-backup                      跳过对矿机内置储存NAND的备份（仍备份矿机配置）
+--pool-user [POOL_USER]               为默认矿池设置用户名（Username）和矿工名（Workername）
+--psu-power-limit [PSU_POWER_LIMIT]   设置（以瓦为单位）的电源功率限制
+--no-keep-network                     不保留（转移）矿机的原网络配置（在使用DHCP自动分配IP的情况下）
+--no-keep-pools                       不保留（转移）矿机的原矿池配置
+--no-keep-hostname                    不保留（转移）矿机的原主机名（Hostname）并根据矿机MAC地址生成一个新的 
+--keep-hostname                       强制保留（转移）矿机的原主机名
+--no-wait                             直到系统完全更新完毕不等待
+--dry-run                             执行所有的更新步骤但不实际进行更新
+--post-upgrade [POST_UPGRADE]         指定stage3.sh脚本文件目录
+--install-password INSTALL_PASSWORD   设置安装的SSH密码
 ====================================  ============================================================
 
-**Example:**
+**示例：**
 
 ::
 
