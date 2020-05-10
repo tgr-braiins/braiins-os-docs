@@ -252,65 +252,65 @@ BOS+ Toolbox - это новый инструмент, который позво
 Configure Braiins OS+ using BOS+ Toolbox
 ===========================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
+  * Создайте новый текстовый файл в своем текстовом редакторе и вставьте IP-адреса, на которых вы хотите выполнить команды. Каждый IP-адрес должен быть разделен запятой. (Обратите внимание, что вы можете найти IP-адрес в веб-интерфейсе Braiins OS+, перейдя в *Status -> Overview*.) Затем сохраните файл в том же каталоге, в котором вы сохранили BOS+ Toolbox, и измените ".txt" окончание на ".csv".
+  * После того, как вы загрузили BOS+ Toolbox и сохранили .csv фаил, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
+  * Замените *FILE_PATH_TO_BOS+_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS+ Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  *Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
 
-    For **Windows** command terminal: ::
+    Для командной строки **Windows**: ::
 
       bos-plus-toolbox.exe config ARGUMENTS ACTION TABLE
 
-    For **Linux** command terminal: ::
+     Для командной строки **Linux**: ::
       
       ./bos-plus-toolbox config ARGUMENTS ACTION TABLE
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Примечание:** *при использовании BOS+ Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+Вы можете использовать следующие **аргументы**, чтобы настроить процесс:
 
 ====================================  ============================================================
-Arguments                             Description
+Аргументы                             Описание
 ====================================  ============================================================
--h, --help                            show this help message and exit
--u USER, --user USER                  Administration username
--p PASSWORD, --password PASSWORD      Administration password or "prompt"
--c, --check                           Dry run sans writes
--i, --ignore                          No halt on errors
-====================================  ============================================================
-
-You **have to use one** of the following **actions** to adjust the process:
-
-====================================  ============================================================
-Arguments                             Description
-====================================  ============================================================
-load                                  load the current configuration of the miners (specified in 
-                                      the CSV file) and insert them to the CSV file
-save                                  save the settings from the CSV file to the miners 
-                                      (this does not apply them)
-apply                                 apply the settings, which were copied from the CSV file to 
-                                      the miners
-save_apply                            save and apply the settings from the CSV file to the miners
+-h, --help                            показать это справочное сообщение и выйти
+-u USER, --user USER                  Имя пользователя администратора
+-p PASSWORD, --password PASSWORD      Пароль администратора или "prompt"
+-c, --check                           пробный прогон sans 
+-i, --ignore                          не останавливаться на ошибках
 ====================================  ============================================================
 
-**Example:**
+Вам **необходимо использовать одно** из следующих **действий** чтобы отрегулировать процесс:
+
+====================================  ============================================================
+Аргументы                             Описание
+====================================  ============================================================
+load                                  загрузить текущую конфигурацию майнеров (указанную в 
+                                      файле CSV) и вставить их в файл CSV
+save                                  сохранить настройки из файла CSV для майнеров 
+                                      (без применения)
+apply                                 применить настройки, которые были скопированы из файла CSV к 
+                                      майнерам
+save_apply                            сохранить и применить настройки из файла CSV к майнерам
+====================================  ============================================================
+
+**Пример:**
 
 ::
 
   bos-toolbox.exe config --user root load listOfMiners.csv
   
-  #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
+  #отредактируйте файл CSV с помощью редактора электронных таблиц (например: Office Excel, LibreOffice Calc, etc.)
   
   bos-toolbox.exe config --user root save_apply listOfMiners.csv
 
-The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
+Первая команда загрузит конфигурацию майнеров, указанную в *listOfMiners.csv* (используя логин *root*) и сохранит ее в CSV-файле. Теперь вы можете открыть файл и редактировать то, что вам нужно. После редактирования файла вторая команда скопирует настройки обратно в майнеры и применит их.
 
 .. _bosbox_scan:
 
