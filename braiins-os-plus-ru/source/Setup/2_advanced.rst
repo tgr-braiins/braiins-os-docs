@@ -180,71 +180,71 @@ BOS+ Toolbox - это новый инструмент, который позво
 ====================================  ============================================================
 Аргументы                             Описание
 ====================================  ============================================================
---h, --help                           show this help message and exit
---batch BATCH                         path to file with list of hosts to install to
--p PASSWORD, --password PASSWORD      administration password
--i, --ignore                          no halt on errors
+--h, --help                           показать это справочное сообщение и выйти
+--batch BATCH                         путь к файлу со списком хостов для установки
+-p PASSWORD, --password PASSWORD      пароль администратора
+-i, --ignore                          не останавливаться на ошибках
 ====================================  ============================================================
 
 
-**Example:**
+**Пример:**
 
 ::
 
   bos-toolbox.exe update --batch listOfMiners.csv
 
-This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
+Эта команда будет искать обновление для майнеров, указанных в *listOfMiners.csv*, и обновлять их, если появится новая версия прошивки.
 
 .. _bosbox_uninstall:
 
-========================================
-Uninstall Braiins OS+ using BOS+ Toolbox
-========================================
+================================================
+Деинсталляция Braiins OS+ используя BOS+ Toolbox
+================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
+  * Создайте новый текстовый файл в своем текстовом редакторе и вставьте IP-адреса, на которых вы хотите выполнить команды. Каждый IP-адрес должен быть разделен запятой. (Обратите внимание, что вы можете найти IP-адрес в веб-интерфейсе Braiins OS+, перейдя в *Status -> Overview*.) Затем сохраните файл в том же каталоге, в котором вы сохранили BOS+ Toolbox, и измените ".txt" окончание на ".csv".
+  * После того, как вы загрузили BOS+ Toolbox и сохранили .csv фаил, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
+  * Замените *FILE_PATH_TO_BOS+_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS+ Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
-    For **Windows** command terminal: ::
+     Для командной строки **Windows**: ::
 
       bos-plus-toolbox.exe uninstall ARGUMENTS HOSTNAME
 
-    For **Linux** command terminal: ::
+    Для командной строки **Linux**: ::
       
       ./bos-plus-toolbox uninstall ARGUMENTS HOSTNAME
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Примечание:** *при использовании BOS+ Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+Вы можете использовать следующие **аргументы**, чтобы настроить процесс:
 
-**Important note:** 
-When uninstalling Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When uninstalling Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+**Важная заметка:** 
+При установке Braiins OS+ на **одно устройство**, используйте аргумент *HOSTNAME* (IP-адрес).
+При установке Braiins OS+ на **несколько устройств**, **НЕ** используйте аргумент HOSTNAME, вместо этого, используйте аргумент *--batch BATCH*.
 
 ====================================  ============================================================
-Arguments                             Description
+Аргументы                             Описание
 ====================================  ============================================================
--h, --help                            show this help message and exit
---batch BATCH                         path to file with list of hosts
---factory-image FACTORY_IMAGE         path/url to original firmware upgrade image (default:
+-h, --help                            показать это справочное сообщение и выйти
+--batch BATCH                         путь к файлу со списком хостов для установки
+--factory-image FACTORY_IMAGE         путь/URL к исходному образу обновления прошивки (дефолт:
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
                                       NF.tar.gz)
 ====================================  ============================================================
 
-**Example:**
+**Пример:**
 
 ::
 
   bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-This command will uninstall Braiins OS+ from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
+Эта команда удалит Braiins OS+ из майнеров, указанных в файле *listOfMiners.csv*, и установит стандартную прошивку по умолчанию. (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
 .. _bosbox_configure:
 
