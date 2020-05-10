@@ -662,184 +662,184 @@ OPKG команды можно использовать после подклю�
 
 .. _opkg_update:
 
-=============================
-Update Braiins OS+ using OPKG
-=============================
+=====================================
+Обновление Braiins OS+ с помощью OPKG
+=====================================
 
-With OPKG you can easily update your current installation of Braiins OS+, by connecting to the miner via SSH and using the following commands:
+С OPKG вы можете легко обновить текущую установку Braiins OS+, подключившись к майнеру через SSH и используя следующие команды:
 
 ::
 
   opkg update
   opkg install firmware
 
-  #you can also connect to the miner and run the commands at the same time
+  #Вы также можете подключиться к майнеру и одновременно запускать команды
   ssh root@IP_ADDRESS "opkg update && opkg install firmware"
 
-This will migrate the configuration and continue to mine without a need to configure anything.
+Это перенесет конфигурацию и продолжит работу без необходимости что-либо настраивать..
 
 .. _opkg_switch_to_braiinsplus:
 
-====================================================
-Switch to Braiins OS+ from other versions using OPKG
-====================================================
+=====================================================
+Переход на Braiins OS+ с другой версии с помощью OPKG
+=====================================================
 
-With OPKG you can easily switch to Braiins OS+, by connecting to the miner via SSH and using the following commands:
+С OPKG вы можете легко переключиться на Braiins OS+, подключившись к майнеру через SSH и используя следующие команды:
 
 ::
 
   opkg update
   opkg install firmware
 
-  #you can also connect to the miner and run the commands at the same time
+  #Вы также можете подключиться к майнеру и одновременно запускать команды
   ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
 
-This will migrate the configuration and continue to mine without a need to configure anything. Default power limit will be set (1420W).
+Это перенесет конфигурацию и продолжит работу без необходимости что-либо настраивать. Предел мощности по умолчанию будет установлен на 1420W.
 
 .. _opkg_factory_reset:
 
-====================================
-Braiins OS+ factory reset using OPKG
-====================================
+=========================================
+Braiins OS+ сброс настроек с помощью OPKG
+=========================================
 
-With OPKG you can easily revert to the initial version of Braiins OS (the version, which was installed for the first time on that device), by connecting to the miner via SSH and using the following commands:
+С помощью OPKG вы можете легко вернуться к первоначальной версии Braiins OS (версии, которая была впервые установлена на этом устройстве), подключившись к майнеру по SSH и используя следующие команды:
 
 ::
 
   opkg update
   opkg remove firmware
 
-  #you can also connect to the miner and run the commands at the same time
+  #Вы также можете подключиться к майнеру и одновременно запускать команды
   ssh root@IP_ADDRESS "opkg update && opkg remove firmware"
 
-This will reset the configuration to the state after the first Braiins OS installation.
+Это вернет конфигурацию в состояние после первой установки Braiins OS.
 
 .. _sysupgrade:
 
 ******************
-Sysupgrade package
+Sysupgrade пакет
 ******************
 
-Sysupgrade is used to upgrade the system running on the device. With this method, you can install various versions of Braiins OS or create a backup of the system. Installation of a firmware using *Braiins OS web interface* or using *opkg install firmware* uses this method. It's recommended to use the *Braiins OS web interface* or *opkg install firmware* instead of this method.
+Sysupgrade используется для обновления системы, работающей на устройстве. С помощью этого метода вы можете установить различные версии Braiins OS или создать резервную копию системы. При установке прошивки с использованием *Braiins OS веб интерфейс* или *opkg install firmware* используется этот метод. Вместо этого метода рекомендуется использовать *Braiins OS веб интерфейс* или *opkg install firmware*.
 
-=====
-Usage
-=====
+===========
+Применение
+===========
 
-In order to use sysupgrade, you need to connect to the miner via SSH. The syntax is the following:
+Чтобы использовать sysupgrade, вам нужно подключиться к майнеру по SSH. Синтаксис следующий:
 
 ::
 
   sysupgrade [parameters] <image file or URL>
 
-The most important parameters are **--help** (to display the help) and **-F** to force the installation. It's not recommended to use this method (besides the way, it is described bellow), unless you really know, what you are doing.
+Наиболее важные параметры: **--help** (вывести справку) и **-F** для запуска установки. Рекомендуется использовать этот метод (кроме того, как описано ниже), только если вы действительно знаете, что делаете.
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
-
-  + installs various version of Braiins OS, while connected to the miner
-  + migrates the configuration
-  + parameters are available to customize the process
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
   
-  - no batch-mode (unless you create your own scripts)
-  - cannot switch to an older version of Braiins OS (released before 2020)
+  + устанавливает различные версии Braiins OS при одновременном подключении к майнеру
+  + переносит конфигурацию
+  + параметры доступны для настройки процесса
+  
+  - нет пакетного режима (для массовой установки), если вы не создаете свои собственные скрипты
+  - не может переключиться на более старую версию Braiins OS (выпущенную ранее 2020)
 
 .. _sysupgrade_switch_braiinsos:
 
-==============================================================================
-Switch to Braiins OS (without autotuning) from other versions using Sysupgrade
-==============================================================================
+================================================================================
+Переход на Braiins OS (без автонастройки) из других версий с помощью Sysupgrade
+================================================================================
 
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+Чтобы обновить более старую версию Braiins OS или перейти с более ранней версии Braiins OS+, используйте следующую команду (замените заполнитель ``IP_ADDRESS`` соответственно):
 
 ::
 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
-This command contains the following commands: 
+Эта команда содержит следующие команды: 
 
-  * **ssh** - to connect to the miner
-  * **wget** - used for downloading files, in this case the firmware package
-  * **sysupgrade** - to actually flash the downloaded firmware package
+  * **ssh** - подключиться к майнеру
+  * **wget** - используется для загрузки файлов, в данном случае пакета прошивки
+  * **sysupgrade** - фактически прошить скачанный пакет прошивки
 
 .. _sysupgrade_switch_braiinsplus:
 
-==========================================================
-Switch to Braiins OS+ from other versions using Sysupgrade
-==========================================================
+============================================================
+Переход на Braiins OS+ из других версий с помощью Sysupgrade
+============================================================
 
-In order to upgrade from older version of Braiins OS, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+Чтобы обновить более старую версию Braiins OS, используйте следующую команду (замените заполнитель ``IP_ADDRESS`` соответственно):
 
 ::
 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
-This command contains the following commands: 
+Эта команда содержит следующие команды: 
 
-  * **ssh** - to connect to the miner
-  * **wget** - used for downloading files, in this case the firmware package
-  * **sysupgrade** - to actually flash the downloaded firmware package
+  * **ssh** - подключиться к майнеру
+  * **wget** - используется для загрузки файлов, в данном случае пакета прошивки
+  * **sysupgrade** - фактически прошить скачанный пакет прошивки
 
-Note: It's recommended to use the *BOS+ Toolbox*, *Braiins OS web interface* or *opkg install bos_plus* instead of this method.
+Примечание: Рекомендуется использовать *BOS+ Toolbox*, *Braiins OS веб интерфейс* или *opkg install bos_plus* вместо этого метода.
 
 .. _bos2bos:
 
 **************
-Bos2Bos script
+Bos2Bos скрипт
 **************
 
-**Bos2Bos script is not recommended to use, unless you experience problems with the installation using the other methods.** This method works, only if Braiins OS is already running on the device.
+**Bos2Bos Скрипт не рекомендуется использовать, если только у вас не возникли проблемы с установкой с использованием других методов.** Этот метод работает, только если на устройстве уже запущена Braiins OS.
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
-
-  + installs any version of Braiins OS remotely
-  + install a clean version of Braiins OS
-  + parameters are available to customize the process
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
   
-  - no batch-mode (unless you create your own scripts)
+  + дистанционная установка любой версии Braiins OS
+  + установка чистой версии Braiins OS
+  + параметры доступны для настройки процесса
+  
+  - нет пакетного режима (для массовой установки), если вы не создаете свои собственные скрипты
 
-=====
-Usage
-=====
+===========
+Применение
+===========
 
-Usage of the Bos2Bos script requires the following setup:
+Использование скрипта Bos2Bos требует следующей настройки:
 
-* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
-* Run the following commands in your command line terminal:
+* *(Только Windows)* Установить *Ubuntu for Windows 10* доступен в Microsoft Store `здесь. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* Выполните следующие команды в терминале командной строки:
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*(Обратите внимание, что команды совместимы с Ubuntu и Ubuntu для Windows 10. Если вы используете другой дистрибутив Linux или другую ОС, пожалуйста, ознакомьтесь с соответствующей документацией и отредактируйте команды при необходимости.)*
 
 ::
   
-  #Update the repositories and install dependencies
+  #Обновите репозитории и установите зависимости
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
-  # clone repository
+  #Клонируйте хранилище
   git clone https://github.com/braiins/braiins-os.git
   
-  #change the directory
+  # Измените каталог
   cd ./braiins-os/braiins-os/
 
-  #Create a virtual environment and activate it
+  #Создайте виртуальную среду и активируйте ее
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
   
-  #Install the required Python packages
+  #Установите необходимые пакеты Python
   python3 -m pip install -r requirements.txt
 
-After you succesfully finish the setup, you can use the following commands:
+После успешного завершения настройки вы можете использовать следующие команды:
 
 ::
 
-  #activate the virtual environment
+  #активировать виртуальную среду
   source .env/bin/activate
 
-  #basic usage is the following
+  #основное использование заключается в следующем
   python3 bos2bos.py FIRMWARE_URL IP_ADDRESS
 
-  #the description of all available parameters can be displayed using the following command
+  #описание всех доступных параметров может быть отображено с помощью следующей команды
   python3 bos2bos.py -h
 
 **********
@@ -849,10 +849,10 @@ Miner tool
 .. _miner_nand_install:
 
 =======================================
-SD to NAND install using the Miner tool
+SD на NAND установка с помощью Miner tool
 =======================================
 
-The SD card can be used to replace the firmware running on NAND with Braiins OS+. This can be done by connecting to the miner via SSH and usage of the following command:
+SD-карту можно использовать для замены встроенного программного обеспечения NAND на Braiins OS+. Это можно сделать, подключившись к майнеру по SSH и используя следующую команду:
 
   ::
 
@@ -861,11 +861,11 @@ The SD card can be used to replace the firmware running on NAND with Braiins OS+
 
 .. _miner_factory_reset:
 
-==============================================
-Braiins OS+ factory reset using the Miner tool
-==============================================
+===============================================
+Braiins OS+ сброс настроек с помощью Miner tool
+===============================================
 
-Factory reset can also be done using the *Miner tool*. Use the following command to do so:
+Сброс к заводским настройкам также можно выполнить с помощью *Miner tool*. Используйте следующую команду, чтобы сделать это:
 
   ::
 
@@ -873,11 +873,11 @@ Factory reset can also be done using the *Miner tool*. Use the following command
 
 .. _miner_detect:
 
-========================================
-Detect device with LEDs using Miner tool
-========================================
+==================================================
+Обнаружение устройств с светодиодами с Miner tool
+==================================================
 
-You can find a device by turning on LED blinking, using the *Miner tool*. Use the following command to do so:
+Вы можете найти устройство, включив мигающий светодиод, используя *Miner tool*. Используйте следующую команду, чтобы сделать это:
 
   ::
 
