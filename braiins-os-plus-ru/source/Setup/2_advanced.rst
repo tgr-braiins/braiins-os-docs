@@ -29,26 +29,26 @@
   
  * Переход на Braiins OS (версия без автонастройки)
  
-  * Using sysupgrade package (:ref:`sysupgrade_switch_braiinsos`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Используя пакет sysupgrade (:ref:`sysupgrade_switch_braiinsos`)
+  * Используя bos2bos скрипт (:ref:`bos2bos`)
   
- * Switching to Braiins OS+ (version with autotuning)
+ * Переход на Braiins OS+ (версия с автонастройкой)
  
-  * Using OPKG (:ref:`opkg_switch_to_braiinsplus`)
-  * Using sysupgrade package (:ref:`sysupgrade_switch_braiinsplus`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Используя OPKG (:ref:`opkg_switch_to_braiinsplus`)
+  * Используя пакет sysupgrade (:ref:`sysupgrade_switch_braiinsplus`)
+  * Используя bos2bos скрипт (:ref:`bos2bos`)
   
- * Reset to initial Braiins OS version (version, which was installed for the first time on device) - factory reset
+ * Сброс к исходной версии Braiins OS (версия, которая была впервые установлена на устройстве) - возврат к заводским настройкам
  
-  * Using OPKG (:ref:`opkg_factory_reset`)
-  * Using SD card (:ref:`sd_factory_reset`)
-  * Using "miner" tool (:ref:`miner_factory_reset`)
-  * Using bos2bos script (:ref:`bos2bos`)
+  * Используя OPKG (:ref:`opkg_factory_reset`)
+  * Используя SD карту (:ref:`sd_factory_reset`)
+  * Используя "miner" tool (:ref:`miner_factory_reset`)
+  * Используя bos2bos скрипт (:ref:`bos2bos`)
   
- * Uninstall Braiins OS+
+ * Деинсталляция Braiins OS+
  
-  * Using BOS+ Toolbox (:ref:`bosbox_uninstall`)
-  * Using SSH scripts (:ref:`ssh_package_uninstall`)
+  * Используя BOS+ Toolbox (:ref:`bosbox_uninstall`)
+  * Используя SSH скриптs (:ref:`ssh_package_uninstall`)
 
 .. _bosbox:
 
@@ -56,129 +56,129 @@
 BOS+ Toolbox
 ***************
 
-BOS+ Toolbox is a new tool, that allow the user to easily install, uninstall, update, detect and configure Braiins OS+. It also allows to do it in batch mode, which makes the management of a larger number of devices more easy. This is the recommended way to manage your machines.
+BOS+ Toolbox - это новый инструмент, который позволяет пользователю легко устанавливать, удалять, обновлять, обнаруживать и настраивать  Braiins OS+. Это также позволяет делать это в пакетном режиме, что упрощает управление большим количеством устройств. Это рекомендуемый способ управления вашими устройствами.
 
-=====
-Usage
-=====
+===========
+Применение
+===========
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
-  * Follow the sections bellow
+  * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/>`_.
+  * Создайте новый текстовый файл, измените ".txt" окончание на ".csv" и вставьте IP-адреса, на которых вы хотите выполнить команды. Поместите этот файл в каталог, где находится BOS+ Toolbox. **Используйте только один IP-адрес в строке!**
+  * Следуйте разделам ниже
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
 
-  + installs Braiins OS+ remotely
-  + updates Braiins OS+ remotely
-  + uninstalls Braiins OS+ remotely
-  + configures Braiins OS+ remotely
-  + scans the network for machines
-  + migrates the whole configuration by default (can be adjusted) when installing Braiins OS+
-  + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
-  + parameters are available to customize the process
-  + turns on autotuning on default power limit (1420W) when installing Braiins OS+
-  + batch mode available to manage multiple devices at once
-  + easy to use
+  + дистанционная установка Braiins OS+
+  + дистанционное обновление Braiins OS+
+  + дистанционное удаление Braiins OS+
+  + дистанционная конфигурация Braiins OS+
+  + сканирование сети на наличие устройств
+  + переносит всю конфигурацию по умолчанию (можно настроить) при установке Braiins OS+
+  + переносит конфигурацию сети по умолчанию (можно настроить) при удалении Braiins OS+
+  + параметры доступны для настройки процесса
+  + настраивает ограничения мощности по умолчанию (1420W) для автонастройки при установке Braiins OS+
+  + пакетный режим доступен для управления несколькими устройствами одновременно
+  + простота использования
   
-  - does not work on miner with locked SSH
+  - не работает на майнере с заблокированным SSH
 
 .. _bosbox_install:
 
-======================================
-Install Braiins OS+ using BOS+ Toolbox
-======================================
+===================================================
+Установка Braiins OS+ с использованием BOS+ Toolbox
+===================================================
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/>`_.
+  * Создайте новый текстовый файл, измените ".txt" окончание на ".csv" и вставьте IP-адреса, на которых вы хотите выполнить команды. Поместите этот файл в каталог, где находится BOS+ Toolbox. Используйте только один IP-адрес в строке!
+  * После того, как вы загрузили BOS+ Toolbox, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
+  * Замените *FILE_PATH_TO_BOS+_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS+ Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
-    For **Windows** command terminal: ::
+    Для командной строки **Windows**: ::
 
       bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
     
-    For **Linux** command terminal: ::
+    Для командной строки **Linux**: ::
       
       ./bos-plus-toolbox install ARGUMENTS HOSTNAME
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Примечание:** *при использовании BOS+ Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+Вы можете использовать следующие **аргументы**, чтобы настроить процесс:
 
-**Important note:** 
-When installing Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When installing Braiins OS+ on **multiple devices**, do **NOT** use the HOSTNAME argument, but use the *--batch BATCH* argument instead.
+**Важная заметка:** 
+При установке Braiins OS+ на **одно устройство**, используйте аргумент *HOSTNAME* (IP-адрес).
+При установке Braiins OS+ на **несколько устройств**, **НЕ** используйте аргумент HOSTNAME, вместо этого, используйте аргумент *--batch BATCH*.
 
-====================================  ============================================================
-Arguments                             Description
-====================================  ============================================================
--h, --help                            show this help message and exit
---batch BATCH                         path to file with list of hosts (IP addresses) to install to
---backup                              do miner backup before upgrade
---no-nand-backup                      skip full NAND backup (config is still being backed up)
---pool-user [POOL_USER]               set username and workername for default pool
---psu-power-limit [PSU_POWER_LIMIT]   set PSU power limit (in watts)
---no-keep-network                     do not keep miner network configuration (use DHCP)
---no-keep-pools                       do not keep miner pool configuration
---no-keep-hostname                    do not keep miner hostname and generate new one based on MAC
---keep-hostname                       force to keep any miner hostname
---no-wait                             do not wait until system is fully upgraded
---dry-run                             do all upgrade steps without actual upgrade
---post-upgrade [POST_UPGRADE]         path to directory with stage3.sh script
---install-password INSTALL_PASSWORD   ssh password for installation
-====================================  ============================================================
+====================================  ===============================================================================
+Аргументы                             Описание
+====================================  ===============================================================================
+-h, --help                            показать это справочное сообщение и выйти
+--batch BATCH                         путь к файлу со списком хостов (IP-адресов) для установки
+--backup                              сделать резервную копию майнера перед обновлением
+--no-nand-backup                      пропустить полное резервное копирование NAND (конфигурация все еще копируется)
+--pool-user [POOL_USER]               установить имя пользователя и воркера для пула по умолчанию
+--psu-power-limit [PSU_POWER_LIMIT]   установить предел мощности блока питания (в ваттах)
+--no-keep-network                     не сохранять конфигурацию сети майнера (использование DHCP)
+--no-keep-pools                       не сохранять конфигурацию пула
+--no-keep-hostname                    не сохраняйте имя хоста и генерировать новое на основе MAC
+--keep-hostname                       заставить оставлять любое имя хоста
+--no-wait                             не ждать, пока система полностью обновится
+--dry-run                             сделать все шаги обновления без фактического обновления
+--post-upgrade [POST_UPGRADE]         путь к каталогу с stage3.sh скриптом
+--install-password INSTALL_PASSWORD   ssh пароль для установки
+====================================  ===============================================================================
 
-**Example:**
+**Пример:**
 
 ::
 
   bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
 
-This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
+Эта команда установит Braiins OS+ на майнеры, указанные в файле *listOfMiners.csv*, и установит ограничение мощности 1200 для всех из них. Команда также автоматически вставит пароль SSH *admin*, когда майнер запросит его.
 
 .. _bosbox_update:
 
-=====================================
-Update Braiins OS+ using BOS+ Toolbox
-=====================================
+==============================================
+Обновление Braiins OS+ используя BOS+ Toolbox
+==============================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located.
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
+  * Создайте новый текстовый файл, измените ".txt" окончание на ".csv" и вставьте IP-адреса, на которых вы хотите выполнить команды. Поместите этот файл в каталог, где находится BOS+ Toolbox.
+  * После того, как вы загрузили BOS+ Toolbox, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
+  * Замените *FILE_PATH_TO_BOS+_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS+ Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
-    For **Windows** command terminal: ::
+    Для командной строки **Windows**: ::
 
       bos-plus-toolbox.exe update ARGUMENTS HOSTNAME
 
-    For **Linux** command terminal: ::
+   Для командной строки **Linux**: ::
       
       ./bos-plus-toolbox update ARGUMENTS HOSTNAME
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+     **Примечание:** *при использовании BOS+ Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+Вы можете использовать следующие **аргументы**, чтобы настроить процесс:
 
-**Important note:** 
-When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+**Важная заметка:** 
+При установке Braiins OS+ на **одно устройство**, используйте аргумент *HOSTNAME* (IP-адрес).
+При установке Braiins OS+ на **несколько устройств**, **НЕ** используйте аргумент HOSTNAME, вместо этого, используйте аргумент *--batch BATCH*.
 
 ====================================  ============================================================
-Arguments                             Description
+Аргументы                             Описание
 ====================================  ============================================================
 --h, --help                           show this help message and exit
 --batch BATCH                         path to file with list of hosts to install to
