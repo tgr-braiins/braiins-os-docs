@@ -587,7 +587,7 @@ Braiins OS+ сброс настроек с помощью SD-карты
 .. _ssh_package_uninstall:
 
 ==============================================
-Lеинсталляция Braiins OS+ с помошью SSH-пакета
+Деинсталляция Braiins OS+ с помошью SSH-пакета
 ==============================================
 
 .. _ssh_package_uninstall_image:
@@ -595,39 +595,36 @@ Lеинсталляция Braiins OS+ с помошью SSH-пакета
 Использование заводского образа прошивки
 =========================================
 
-First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
+Во-первых, вам нужно подготовить среду Python, которая описана в разделе :ref:`ssh_package_environment`.
 
-On an Antminer S9, you can flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
+На Antminer S9, вы можете прошить заводской образ прошивки с сайта производителя, с тем, что``FACTORY_IMAGE`` это bпуть к файлу или URL к ``tar.gz`` (не извлеченному!) файлу. Поддерживаемые изображения с соответствующими хэшами MD5 перечислены в
 `platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__
-file.
+файле.
 
-Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
+Запустите (заменив заполнители ``FACTORY_IMAGE`` и ``IP_ADDRESS`` соответственно):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
-**Note:** *for more information about the arguments that can be used, use the* **--help** *argument.*
+**Примечание:** *для получения дополнительной информации об аргументах, которые можно использовать, используйте* **--help** *аргумент.*
 
 .. _ssh_package_uninstall_backup:
 
-Using previously created backup
-===============================
+Использование ранее созданной резервной копии
+=============================================
 
-First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
+Во-первых, вам нужно подготовить среду Python, которая описана в разделе :ref:`ssh_package_environment`.
 
-If you created a backup of the original firmware during the installation of Braiins OS+, you can restore it by using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
+Если вы создали резервную копию оригинальной прошивки во время установки Braiins OS+, вы можете восстановить ее с помощью следующих команд (замените заполнители ``BACKUP_ID_DATE`` и ``IP_ADDRESS`` соответственно):
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-**Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
+**Примечание: Этот метод не рекомендуется, так как создание резервной копии очень сложно. Резервная копия может быть повреждена, и проверить ее невозможно. Используйте на свой страх и риск и убедитесь, что вы можете получить доступ к майнеру и вставить в него SD-карту, если восстановление не завершится успешно!**
 
 .. _opkg:
 
@@ -635,14 +632,13 @@ If you created a backup of the original firmware during the installation of Brai
 OPKG
 ****
 
-OPKG commands can be used after connecting to the miner via SSH. There are many OPKG commands, but regarding Braiins OS+, you need to use only the following:
+OPKG команды можно использовать после подключения к майнеру через SSH. Существует много команд OPKG, но в отношении Braiins OS+ вам нужно использовать только следующее:
 
-  * *opkg update* - updates the package lists. It's recommended to use this command before other OPKG commands.
-  * *opkg install PACKAGE_NAME* install the defined package. It's recommended to use *opkg update* to update the package lists before installing packages.
+  * *opkg update* - обновляет списки пакетов. Рекомендуется использовать эту команду перед другими командами OPKG.
+  * *opkg install PACKAGE_NAME* установить определенный пакет. Рекомендуется использовать *opkg update* для обновления списков пакетов перед установкой пакетов.
   * *opkg remove PACKAGE_NAME*
 
-Since the firmware change results in a reboot, the following
-output is expected:
+Поскольку смена прошивки приводит к перезагрузке, ожидается следующий вывод:
 
 ::
 
@@ -653,16 +649,16 @@ output is expected:
     Connection to 10.10.10.1 closed by remote host.
     Connection to 10.10.10.1 closed.
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
 
-  + update Braiins OS+ remotely
-  + switch to Braiins OS+ from other versions remotely
-  + revert to the initial version of Braiins OS remotely
-  + migrates the configuration and continue to mine without a need to configure anything (when updating or switching to Braiins OS+)
+  + дистанционное обновление Braiins OS+
+  + дистанционный переход на Braiins OS+ с других версий
+  + дистанционный возврат к первоначальной версии of Braiins OS
+  + перенос конфигурации и продолжение майнинга без необходимости что-либо настраивать (при обновлении или переходе на Braiins OS+ с других версий)
   
-  - no batch-mode (unless you create your own scripts)
+  - нет пакетного режима (для массовой установки), если вы не создаете свои собственные скрипты
 
 .. _opkg_update:
 
