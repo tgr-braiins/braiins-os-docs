@@ -6,9 +6,9 @@
 	:local:
 	:depth: 1
 
-********
-План
-********
+*************
+Разветвление
+*************
 
 Существует множество инструментов, пакетов и скриптов, которые можно использовать для Braiins OS. Для лучшей навигации используйте следующее:
 
@@ -87,7 +87,7 @@ BOS+ Toolbox - это новый инструмент, который позво
 .. _bosbox_install:
 
 ===================================================
-Установка Braiins OS+ с использованием BOS+ Toolbox
+Установка Braiins OS+ с помощью BOS+ Toolbox
 ===================================================
 
   * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/>`_.
@@ -147,7 +147,7 @@ BOS+ Toolbox - это новый инструмент, который позво
 .. _bosbox_update:
 
 ==============================================
-Обновление Braiins OS+ используя BOS+ Toolbox
+Обновление Braiins OS+ с помощью BOS+ Toolbox
 ==============================================
 
   * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
@@ -198,7 +198,7 @@ BOS+ Toolbox - это новый инструмент, который позво
 .. _bosbox_uninstall:
 
 ================================================
-Деинсталляция Braiins OS+ используя BOS+ Toolbox
+Деинсталляция Braiins OS+ с помощью BOS+ Toolbox
 ================================================
 
   * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
@@ -248,9 +248,9 @@ BOS+ Toolbox - это новый инструмент, который позво
 
 .. _bosbox_configure:
 
-===========================================
-Configure Braiins OS+ using BOS+ Toolbox
-===========================================
+==============================================
+Настройка  Braiins OS+ с помощью BOS+ Toolbox
+==============================================
 
   * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
   * Создайте новый текстовый файл в своем текстовом редакторе и вставьте IP-адреса, на которых вы хотите выполнить команды. Каждый IP-адрес должен быть разделен запятой. (Обратите внимание, что вы можете найти IP-адрес в веб-интерфейсе Braiins OS+, перейдя в *Status -> Overview*.) Затем сохраните файл в том же каталоге, в котором вы сохранили BOS+ Toolbox, и измените ".txt" окончание на ".csv".
@@ -314,131 +314,131 @@ save_apply                            сохранить и применить �
 
 .. _bosbox_scan:
 
-======================================================
-Scan the network to identify miners using BOS+ Toolbox
-======================================================
+===============================================================
+Сканирование сети для выявления майнеров с помощью BOS+ Toolbox
+===============================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  *Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
+  * Создайте новый текстовый файл в своем текстовом редакторе и вставьте IP-адреса, на которых вы хотите выполнить команды. Каждый IP-адрес должен быть разделен запятой. (Обратите внимание, что вы можете найти IP-адрес в веб-интерфейсе Braiins OS+, перейдя в *Status -> Overview*.) Затем сохраните файл в том же каталоге, в котором вы сохранили BOS+ Toolbox, и измените ".txt" окончание на ".csv".
+  * После того, как вы загрузили BOS+ Toolbox и сохранили .csv фаил, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
+  * Замените *FILE_PATH_TO_BOS+_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS+ Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
 
-    For **Windows** command terminal: ::
+    Для командной строки **Windows**: ::
 
       bos-plus-toolbox.exe discover ARGUMENTS
 
-    For **Linux** command terminal: ::
+     Для командной строки **Linux**: ::
       
       ./bos-plus-toolbox discover ARGUMENTS
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Примечание:** *при использовании BOS+ Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+Вы можете использовать следующие **аргументы**, чтобы настроить процесс:
 
 ====================================  ============================================================
-Arguments                             Description
+Аргументы                             Описание
 ====================================  ============================================================
--h, --help                            show this help message and exit
-====================================  ============================================================
-
-You **have to use one** of the following **arguments** to adjust the process:
-
-====================================  ============================================================
-Arguments                             Description
-====================================  ============================================================
-scan                                  actively scan provided range of address
-listen                                listen for incoming broadcast from devices (when the IP
-                                      report button is pressed)
+-h, --help                            показать это справочное сообщение и выйти
 ====================================  ============================================================
 
-**Example:**
+Вам **необходимо использовать одно** из следующих **действий** чтобы отрегулировать процесс:
+
+====================================  ============================================================
+Аргументы                             Описание
+====================================  ============================================================
+scan                                  активно сканировать предоставленный диапазон адресов
+listen                                прослушивание входящей трансляции с устройств
+                                      (при нажатии кнопки отчета IP)
+====================================  ============================================================
+
+**Пример:**
 
 ::
 
   bos-toolbox.exe discover scan 10.10.10.0/24
 
-This command will scan the network, in the range 10.10.10.0 - 10.10.10.255 and list the found miners, with their IP addresses.
+Эта команда будет сканировать сеть, в диапазоне 10.10.10.0 - 10.10.10.255 и выведет список найденных майнеров с их IP-адресами.
 
 .. _web_package:
 
 ***********
-Web Package
+Веб-пакет
 ***********
 
-The Web package can be used to switch from stock firmware, which was released before 2019. It should also work on other stock-based firmwares. This package cannot be used on stock firmware, released in 2019 and later, because of the signature verification, that was implemented. The signature verification prevents the usage of other than original stock firmwares.
+Веб-пакет можно использовать для переключения со стоковой прошивки, выпущенной до 2019 года. Он также должен работать на других прошивках, основанных на стоковой версии. Этот пакет нельзя использовать на стоковой прошивке, выпущенной в 2019 году и позже, из-за проверки подписи, которая была реализована. Проверка подписи предотвращает использование иных, чем оригинальные стоковые прошивки.
 
-=====
-Usage
-=====
+==========
+Применение
+==========
 
-  * Download the **Web Package** from our `website <https://braiins-os.com/>`_.
-  * Follow the sections bellow
+  * Скачайте **Веб-пакет** с нашего `веб-сайта <https://braiins-os.com/>`_.
+  * Следуйте разделам ниже
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
 
-  + replaces stock firmware with Braiins OS+ without additional tools
-  + migrates the network configuration
-  + migrates pool URLs, users and passwords
-  + turns on autotuning on default power limit (1420W)
+  + заменяет стоковую прошивку на Braiins OS+ без использования дополнительных инструментов
+  + переносит конфигурацию сети
+  + переносит пул URL, имена пользователей и пароли
+  + настраивает ограничения мощности по умолчанию (1420W) для автонастройки
   
-  - cannot be used on stock firmware released in 2019 and later
-  - cannot configure the installation (e.g. it will always migrate the network settings)
-  - no batch-mode (unless you create your own scripts)
+  - не может использоваться на стоковой прошивке, выпущенной в 2019 году и позже
+  - невозможно настроить установку (например, он всегда будет переносить настройки сети)
+  - нет пакетного режима (для массовой установки), если вы не создаете свои собственные скрипты
 
 .. _web_package_install:
 
-=====================================
-Install Braiins OS+ using Web package
-=====================================
+===========================================
+Установите Braiins OS+ с помощью веб-пакета
+===========================================
 
-  * Download the **Web Package** from our `website <https://braiins-os.com/>`_.
-  * Log-in on your miner and go to the section *System -> Upgrade*.
-  * Upload the downloaded package and flash the image.
+  * Скачайте **Веб-пакет** с нашего `веб-сайта <https://braiins-os.com/>`_.
+  * Войдите на свой майнер и перейдите в раздел *System -> Upgrade*.
+  * Загрузите загруженный пакет и прошейте образ.
 
 .. _sd:
 
-*************
-SD card image
-*************
+***************
+Образ SD карты
+***************
 
-If you are running stock firmware, which was released in 2019 and later, the only way to install Braiins OS+ is to insert an SD card with Braiins OS+ flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of other than stock firmware usage.
+Если вы используете стандартную прошивку, выпущенную в 2019 году и позже, единственный способ установить Braiins OS+ - это вставить SD-карту с прошивкой Braiins OS+. В 2019 году SSH-соединение было заблокировано, и проверка подписи в веб-интерфейсе предотвращает использование других программных прошивок.
 
-=====
-Usage
-=====
+==========
+Применение
+==========
 
-  * Download the **SD card image** from our `website <https://braiins-os.com/>`_.
-  * Follow the sections bellow
+  * Скачайте **Образ SD карты** с нашего `веб-сайта <https://braiins-os.com/>`_.
+  * Следуйте разделам ниже
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
 
-  + replaces SSH locked stock firmware with Braiins OS+
-  + uses the network configuration stored on the NAND (this can be turned off, see the section *Network settings* bellow)
-  + turns on autotuning on default power limit (1420W)
+  + заменяет SSH заблокированную стоковую прошивку на Braiins OS+
+  + использует конфигурацию сети, хранящуюся в NAND (это можно отключить, см. раздел *Настройки сети* ниже)
+  + настраивает ограничения мощности по умолчанию (1420W) для автонастройки
   
-  - does not migrate pool URLs, users and passwords
-  - no batch-mode
+  - не переносит пул URL, имена пользователей и пароли
+  - нет пакетного режима (для массовой установки)
 
 .. _sd_install:
 
-=================================
-Install Braiins OS+ using SD card
-=================================
+========================================
+Установка Braiins OS+ с помощью SD карты
+========================================
 
- * Download the SD card image from our `website <https://braiins-os.com/>`_.
- * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_). *Note: Simple copy to SD card will not work. The SD card has to be flashed!*
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+ * Скачайте Образ SD карты с нашего `веб-сайта `website <https://braiins-os.com/>`_.
+ * Перенесите загруженный образ на SD-карту (например, используя `Etcher <https://etcher.io/>`_). *Примечание. Простое копирование на SD-карту не будет работать. SD-карта должна быть перепрошита!*
+ * Настройте перемычки для загрузки с SD-карты (вместо памяти NAND), как показано ниже.
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%
@@ -450,47 +450,47 @@ Install Braiins OS+ using SD card
 
   |pic1|  |pic2|
 
- * Insert the SD card into the device, then start the device.
- * After a moment, you should be able to access the Braiins OS+ interface through the device’s IP address.
- * *[Optional]:* You can now install Braiins OS+ to the NAND (see the section :ref:`sd_nand_install`)
+ * Вставьте SD-карту в устройство, затем запустите устройство.
+ * Через некоторое время вы сможете получить доступ к интерфейсу Braiins OS+ через IP-адрес устройства.
+ * *[Необязательно]:* Теперь вы можете установить Braiins OS+ на NAND (см. раздел :ref:`sd_nand_install`)
 
 .. _sd_network:
 
 ================
-Network settings
+Настройки сети
 ================
  
- By default, network configuration stored on the NAND is used, while running Braiins OS+ from an SD card. This feature can be turned off, by following the steps bellow:
+ По умолчанию используется конфигурация сети, хранящаяся в NAND, при запуске Braiins OS+ с SD-карты. Эта функция может быть отключена, следуя инструкциям ниже:
 
-  * Mount the first FAT partition of the SD card
-  * Open the file uEnv.txt and insert the following string (make sure there is only one string per line)
+  * Смонтируйте первый раздел FAT на SD-карте
+  * Откройте файл uEnv.txt и вставьте следующий стринг (убедитесь, что в на каждой строке только один стринг)
 
   ::
 
     cfg_override=no
 
-Disabling usage of old network settings is beneficial for the users, that have problems with the miner not being visible in the network (e.g. static IP address used on NAND is out of range of the network). By doing so, DHCP is used.
+Отключение использования старых сетевых настроек полезно для пользователей, у которых есть проблемы с тем, что майнер не виден в сети (например, статический IP-адрес, используемый в NAND, находится вне зоны действия сети). При этом используется DHCP.
 
 .. _sd_nand_install:
 
-============
-NAND install
-============
+===============
+NAND установка
+===============
 
-The SD card can be used to replace the firmware running on NAND with Braiins OS+. This can be done either:
-  * using the web interface - section *System -> Install current system to device (NAND)*
-  * using the *miner* tool, via SSH - follow this section of the guide :ref:`miner_nand_install`
+SD-карту можно использовать для замены встроенного программного обеспечения NAND на Braiins OS+. Это можно сделать либо:
+  * используя веб-интерфейс - раздел *System -> Install current system to device (NAND)*
+  * используя *miner* tool через SSH - следуйте этому разделу руководства :ref:`miner_nand_install`
 
 .. _sd_factory_reset:
 
-=======================================
-Braiins OS+ factory reset using SD card
-=======================================
+=============================================
+Braiins OS+ сброс настроек с помощью SD-карты
+=============================================
 
-You can do a factory reset, by following the steps bellow:
+Вы можете сделать сброс до заводских настроек, следуя инструкциям ниже:
 
-  * Mount the first FAT partition of the SD card
-  * Open the file uEnv.txt and insert the following string (make sure there is only one string per line)
+  * Смонтируйте первый раздел FAT на SD-карте
+  * Откройте файл uEnv.txt и вставьте следующий стринг (убедитесь, что в на каждой строке только один стринг)
 
   ::
 
@@ -498,102 +498,102 @@ You can do a factory reset, by following the steps bellow:
 
 .. _ssh_package:
 
-****************************
-Remote (SSH) install package
-****************************
+********************************
+Пакет удаленной установки (SSH)
+********************************
 
-With the *Remote (SSH) install package* you can install or uninstall Braiins OS+. This method is not recommended, as it requires a Python setup. Use the BOS+ Toolbox instead.
+С помощью *Пакета удаленной установки (SSH)* вы можете установить или удалить Braiins OS+. Этот метод не рекомендуется, так как требует установки Python. Вместо этого используйте BOS+ Toolbox.
 
-=====
-Usage
-=====
+===========
+Применение
+===========
 
-  * Download the **Remote (SSH) install package** from our `website <https://braiins-os.com/>`_.
-  * Follow the sections bellow
+  * Скачайте **Пакет удаленной установки (SSH)** с нашего `веб-сайта <https://braiins-os.com/>`_.
+  * Следуйте разделам ниже
 
-=======================================
-Features, PROs and CONs of this method:
-=======================================
+=========================================
+Особенности, плюсы и минусы этого метода:
+=========================================
 
-  + installs Braiins OS+ remotely
-  + uninstalls Braiins OS+ remotely
-  + migrates the whole configuration by default (can be adjusted) when installing Braiins OS+
-  + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
-  + parameters are available to customize the process
-  + turns on autotuning on default power limit (1420W) when installing Braiins OS+
+  + дистанционная установка Braiins OS+
+  + дистанционное удаление Braiins OS+
+  + переносит всю конфигурацию по умолчанию (можно настроить) при установке Braiins OS+
+  + переносит конфигурацию сети по умолчанию (можно настроить) при удалении Braiins OS+
+  + параметры доступны для настройки процесса
+  + настраивает ограничения мощности по умолчанию (1420W) для автонастройки при установке Braiins OS+
   
-  - no batch-mode (unless you create your own scripts)
-  - requires a long setup
-  - does not work on miner with locked SSH
+  - нет пакетного режима (для массовой установки), если вы не создаете свои собственные скрипты
+  - требует долгой установки
+  - не работает на майнере с заблокированным SSH
 
 .. _ssh_package_environment:
 
-=========================
-Preparing the environment
-=========================
+===========================
+Подготовка окружающей среды
+===========================
 
-First, you need to prepare the Python environment. This consists of the following steps:
+Во-первых, вам нужно подготовить среду Python. Это состоит из следующих шагов:
 
-* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
-* Run the following commands in your command line terminal:
+* *(Только Windows)* Устонавите *Ubuntu for Windows 10* доступный в Microsoft Store `здесь. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* Выполните следующие команды в терминале командной строки:
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*(Обратите внимание, что команды совместимы с Ubuntu и Ubuntu для Windows 10. Если вы используете другой дистрибутив Linux или другую ОС, пожалуйста, ознакомьтесь с соответствующей документацией и отредактируйте команды при необходимости.)*
 
 ::
 
-  #Update the repositories and install dependencies
+  #Обновите репозитории и установите зависимости
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
-  #Download and extract the firmware package
+  #Скачайте и распакуйте пакет прошивки
   wget -c http://feeds.braiins-os.com/20.04/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
   
-  #Change the directory to the unpacked firmware folder
+  #Измените каталог на распакованную папку с прошивкой
   cd ./braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus
   
-  #Create a virtual environment and activate it
+  #Создайте виртуальную среду и активируйте ее
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
   
-  #Install the required Python packages
+  #Установите необходимые пакеты Python
   python3 -m pip install -r requirements.txt
 
 .. _ssh_package_install:
 
-=====================================
-Install Braiins OS+ using SSH package
-=====================================
+==========================================
+Установка Braiins OS+ с помощью SSH-пакета
+==========================================
 
-Installation of Braiins OS+ using the so-called *SSH Method* consists of the following steps:
+Установка Braiins OS+ с использованием так называемого *Метода SSH* состоит из следующих шагов:
 
-* *(Custom Firmware)* Flash stock firmware. This step can be skipped if the device is running on stock firmware or on a previous versions of Braiins OS. *(Note: It is possible, that Braiins OS+ can be installed directly over a custom firmware, but as they differ from the stock version, it might be necessary to flash stock firmware first.)*
-* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
-* Prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
-* Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
+* *(Кастомная прошивка)* Перепрошейте на заводскую прошивкую Этот шаг можно пропустить, если устройство работает на заводской прошивке или на предыдущих версиях Braiins OS. *(Примечание: вполне возможно, что Braiins OS+ может быть установлен непосредственно поверх кастомной прошивки, но, поскольку они отличаются от стоковой версии, может потребоваться сначала прошить стоковую прошивку.)*
+* *(Только Windows)* Установите *Ubuntu for Windows 10* оступный в Microsoft Store `здесь. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* Подготовьте среду Python, которая описана в разделе :ref:`ssh_package_environment`.
+* Выполните следующие команды в терминале командной строки (заменить заполнитель ``IP_ADDRESS`` соответственно) :
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*(Обратите внимание, что команды совместимы с Ubuntu и Ubuntu для Windows 10. Если вы используете другой дистрибутив Linux или другую ОС, пожалуйста, ознакомьтесь с соответствующей документацией и отредактируйте команды при необходимости.)*
 
 ::
 
-    #Change the directory to the unpacked firmware folder (if not already in the firmware folder)
+    #Измените каталог на распакованную папку с прошивкой (если ее еще нет в папке с прошивкой)
   cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
   
-  #Activate the virtual environment (if it is not already activated)
+  #Активировать виртуальную среду (если она еще не активирована)
   source .env/bin/activate
   
-  #Run the script to install Braiins OS+
+  #Запустите скрипт для установки Braiins OS+
   python3 upgrade2bos.py IP_ADDRESS
 
-**Note:** *for more information about the arguments that can be used, use the* **--help** *argument.*
+**Примечание:** *для получения дополнительной информации об аргументах, которые можно использовать, используйте* **--help** *аргумент.*
 
 .. _ssh_package_uninstall:
 
-=======================================
-Uninstall Braiins OS+ using SSH package
-=======================================
+==============================================
+Lеинсталляция Braiins OS+ с помошью SSH-пакета
+==============================================
 
 .. _ssh_package_uninstall_image:
 
-Using factory firmware image
-=============================
+Использование заводского образа прошивки
+=========================================
 
 First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
 
