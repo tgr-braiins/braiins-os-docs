@@ -484,7 +484,7 @@ SD卡方式安装映像
 使用SD卡方式安装映像对Braiins OS+恢复出厂配置
 =======================================
 
-您可以按下方步骤恢复出厂配置：You can do a factory reset, by following the steps bellow:
+您可以按下方步骤恢复出厂配置：
 
   * 加载SD卡上的第一个FAT格式的分区
   * 打开uEnv.txt文件并插入下方的参数 (注意空行，一条参数一行）
@@ -533,7 +533,7 @@ SD卡方式安装映像
 * *（仅在Windows上作这一步）* 从 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 下载安装 *“Ubuntu for Windows 10“* 。
 * 在命令行终端中运行以下命令：
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*（要注意的是以下命令仅适用于Ubuntu或Ubuntu for Windows 10。如您使用的是另外的Linux发行版或其他操作系统，请查阅相应的技术文档并对以下命令作出相应的更改。）* 
 
 ::
 
@@ -555,13 +555,13 @@ SD卡方式安装映像
 .. _ssh_package_install:
 
 =====================================
-Install Braiins OS+ using SSH package
+使用远程（SSH）方式安装包安装Braiins OS+
 =====================================
 
-Installation of Braiins OS+ using the so-called *SSH Method* consists of the following steps:
+请按以下步骤使用所谓的“远程（SSH）方式”安装Braiins OS+：
 
-* *(Custom Firmware)* Flash stock firmware. This step can be skipped if the device is running on stock firmware or on a previous versions of Braiins OS. *(Note: It is possible, that Braiins OS+ can be installed directly over a custom firmware, but as they differ from the stock version, it might be necessary to flash stock firmware first.)*
-* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
+* *（自定义固件）* 刷原厂固件。如果设备已经运行的是原厂固件或旧版本的Braiins OS，则此步可以跳过。 *（请注意：取决于固件版本，Braiins OS+有可能可以直接从自定义固件升级，可能最开始需要刷原厂固件。）*
+* *（仅在Windows上作这一步）* 从 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 下载安装 *“Ubuntu for Windows 10“* 。
 * Prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
 * Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
 
