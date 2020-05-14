@@ -78,7 +78,7 @@ BOS+工具箱的特性及优缺点
   + 安装Braiins OS+时默认自动转移原厂固件中的配置（也可以设置不转移）
   + 卸载Braiins OS+时默认自动转移现有配置到原厂固件（也可以设置不转移）
   + 可自定义进程的参数
-  + 安装Braiins OS+后默认自动开启矿机自动调整功能（默认功率限制1420W）
+  + 安装Braiins OS+后默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   + 批量模式让管理大量矿机也能得心应手
   + 使用简单，容易上手
   
@@ -375,31 +375,31 @@ listen                                监听矿机识别广播（当按下IP rep
 如何使用
 =====
 
-  * Download the **Web Package** from our `website <https://braiins-os.com/>`_.
-  * Follow the sections bellow
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **网页端后台方式安装包** 。
+  * 再按下方步骤进行操作
 
 =======================================
-Features, PROs and CONs of this method:
+此安装方式的特性和优缺点：
 =======================================
 
-  + replaces stock firmware with Braiins OS+ without additional tools
-  + migrates the network configuration
-  + migrates pool URLs, users and passwords
-  + turns on autotuning on default power limit (1420W)
+  + 无需额外工具就能直接用Braiins OS+替换调原厂固件
+  + 自动转移网络配置
+  + 自动转移矿池URL地址，用户名及密码
+  + 自动开启矿机自动调整功能（默认功率限制1420瓦）
   
-  - cannot be used on stock firmware released in 2019 and later
-  - cannot configure the installation (e.g. it will always migrate the network settings)
-  - no batch-mode (unless you create your own scripts)
+  - 不支持升级2019年及之后发布的原厂固件
+  - 不支持配置安装（比如始终会自动转移网络配置）
+  - 不支持批量安装（除非您自己写脚本）
 
 .. _web_package_install:
 
 =====================================
-Install Braiins OS+ using Web package
+使用网页端后台方式安装包安装Braiins OS+
 =====================================
 
-  * Download the **Web Package** from our `website <https://braiins-os.com/>`_.
-  * Log-in on your miner and go to the section *System -> Upgrade*.
-  * Upload the downloaded package and flash the image.
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **网页端后台方式安装包** 。
+  * 登陆您矿机的网页端后台，点击 *System（系统） -> Upgrade（升级）*。
+  * 上传您下载的安装包，并刷入固件映像。
 
 .. _sd:
 
