@@ -495,43 +495,43 @@ SD卡方式安装映像
 .. _ssh_package:
 
 ****************************
-Remote (SSH) install package
+远程（SSH）方式安装包
 ****************************
 
-With the *Remote (SSH) install package* you can install or uninstall Braiins OS+. This method is not recommended, as it requires a Python setup. Use the BOS+ Toolbox instead.
+您可以使用 *远程（SSH）方式安装包* 安装或卸载Braiins OS+。由于此方法需要用到Python设置，我们并不推荐使用此方法。您最好使用BOS+工具箱。
 
 =====
 如何使用
 =====
 
-  * Download the **Remote (SSH) install package** from our `website <https://braiins-os.com/>`_.
-  * Follow the sections bellow
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **远程（SSH）方式安装包** 。
+  * 再按下方步骤进行操作
 
 =======================================
-Features, PROs and CONs of this method:
+此安装方式的特性和优缺点：
 =======================================
 
-  + installs Braiins OS+ remotely
-  + uninstalls Braiins OS+ remotely
-  + migrates the whole configuration by default (can be adjusted) when installing Braiins OS+
-  + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
-  + parameters are available to customize the process
-  + turns on autotuning on default power limit (1420W) when installing Braiins OS+
+  + 远程安装Braiins OS+ 
+  + 远程卸装Braiins OS+
+  + 在安装Braiins OS+时，自动转移原厂固件的完整配置到Braiins OS+上（可自选）
+  + 在卸载Braiins OS+时，自动转移Braiins OS+固件的完整配置到原厂固件上（可自选）
+  + 可自定义安装/卸载过程的参数
+  + 在安装Braiins OS+后，t默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
-  - no batch-mode (unless you create your own scripts)
-  - requires a long setup
-  - does not work on miner with locked SSH
+  - 不支持批量安装/卸载（除非您自己写脚本）
+  - 配置过程耗时
+  - 不支持SSH远程功能被锁住的矿机
 
 .. _ssh_package_environment:
 
 =========================
-Preparing the environment
+准备环境
 =========================
 
-First, you need to prepare the Python environment. This consists of the following steps:
+首先，您需要准备Python环境。请按下方步骤操作：
 
-* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
-* Run the following commands in your command line terminal:
+* *（仅在Windows上作这一步）* 从 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 下载安装 *“Ubuntu for Windows 10“* 。
+* 在命令行终端中运行以下命令：
 
 *(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
 
