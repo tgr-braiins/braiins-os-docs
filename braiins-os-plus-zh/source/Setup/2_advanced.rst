@@ -515,7 +515,7 @@ SD卡方式安装映像
   + 远程卸装Braiins OS+
   + 在安装Braiins OS+时，自动转移原厂固件的完整配置到Braiins OS+上（可自选）
   + 在卸载Braiins OS+时，自动转移Braiins OS+固件的完整配置到原厂固件上（可自选）
-  + 可自定义安装/卸载过程的参数
+  + 可使用参数自定义安装/卸载过程
   + 在安装Braiins OS+后，默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
   - 不支持批量操作（除非您自己写脚本）
@@ -734,7 +734,7 @@ OPKG包管理器
 
   + 当连接到矿机时，在矿机上安装各种版本的Braiins OS
   + 默认自动转移原厂固件的配置
-  + 可用参数自定义过程
+  + 可使用参数自定义过程
   
   - 不支持批量操作（除非您自己写脚本）
   - 不支持切换到较旧版本的Braiins OS（2020年以前发布的）
@@ -763,7 +763,7 @@ OPKG包管理器
 使用系统升级（Sysupgrade）从Braiins OS的其他版本切换到Braiins OS+
 ==========================================================
 
-In order to upgrade from older version of Braiins OS, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+使用下方命令（并根据实际IP地址替换 ``IP_ADDRESS`` ），从旧版本的Braiins OS升级到从Braiins OS+：
 
 ::
 
@@ -771,69 +771,69 @@ In order to upgrade from older version of Braiins OS, use the following command 
 
 This command contains the following commands: 
 
-  * **ssh** - to connect to the miner
-  * **wget** - used for downloading files, in this case the firmware package
-  * **sysupgrade** - to actually flash the downloaded firmware package
+此命令包含以下的命令：
 
-Note: It's recommended to use the *BOS+ Toolbox*, *Braiins OS web interface* or *opkg install bos_plus* instead of this method.
+  * **ssh** - 远程SSH连接到矿机
+  * **wget** - 下载文件，这里具体指下载固件包
+  * **sysupgrade** - 将下载的固件包刷到矿机上
+
+注意：推荐使用 *BOS+工具箱* ， *Braiins OS网页端后台* 或 *opkg install bos_plus命令* 而不是使用此方法升级。 
 
 .. _bos2bos:
 
 **************
-Bos2Bos script
+BOS到BOS（Bos2Bos）脚本 
 **************
-
-**Bos2Bos script is not recommended to use, unless you experience problems with the installation using the other methods.** This method works, only if Braiins OS is already running on the device.
+除非是在您对此方式相当熟悉的情况下，通常不建议使用BOS到BOS（Bos2Bos）脚本这种方式进行固件安装
+**除非是在您在使用其他方法安装遇到问题的情况下，通常不建议使用BOS到BOS（Bos2Bos）脚本。** 只有矿机上已安装有Braiins OS，此方法才会是有效的。
 
 =======================================
-Features, PROs and CONs of this method:
+此方式的特性和优缺点：
 =======================================
 
-  + installs any version of Braiins OS remotely
-  + install a clean version of Braiins OS
-  + parameters are available to customize the process
+  + 远程安装Braiins OS的任意版本
+  + 安装纯净版Braiins OS
+  + 可使用参数自定义过程
   
-  - no batch-mode (unless you create your own scripts)
+  - 不支持批量操作（除非您自己写脚本）
 
 =====
 如何使用
 =====
 
-Usage of the Bos2Bos script requires the following setup:
+使用BOS到BOS（Bos2Bos）脚本需要的环境设置如下：
 
-* *(Only Windows)* Install *Ubuntu for Windows 10* available from the Microsoft Store `here. <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_
-* Run the following commands in your command line terminal:
+* *（仅在Windows上作这一步）* 从 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 下载安装 *“Ubuntu for Windows 10“* 。
+* 在命令行终端中运行以下命令：
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*（请注意，以下命令仅适用于Ubuntu或Ubuntu for Windows 10。如您使用的是另外的Linux发行版或其他操作系统，请查阅相应的技术文档并对以下命令作出相应的更改。）* 
 
 ::
   
-  #Update the repositories and install dependencies
+  #更新库和安装发布环境(Dependencies)
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
-  # clone repository
+  #克隆库
   git clone https://github.com/braiins/braiins-os.git
   
-  #change the directory
+  #更改目录
   cd ./braiins-os/braiins-os/
 
-  #Create a virtual environment and activate it
+  #创建一个虚拟环境并启用
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
   
-  #Install the required Python packages
+  #I安装所需的Python包
   python3 -m pip install -r requirements.txt
 
-After you succesfully finish the setup, you can use the following commands:
+在您完成环境设置后，您可以使用以下命令：
 
-::
-
-  #activate the virtual environment
+  #启用虚拟环境
   source .env/bin/activate
 
-  #basic usage is the following
+  #下方是基本用法
   python3 bos2bos.py FIRMWARE_URL IP_ADDRESS
 
-  #the description of all available parameters can be displayed using the following command
+  #下方是可用于显示所有可用参数的帮助信息的命令
   python3 bos2bos.py -h
 
 **********
