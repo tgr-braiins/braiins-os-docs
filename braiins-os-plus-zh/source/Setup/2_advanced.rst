@@ -822,7 +822,7 @@ BOS到BOS（Bos2Bos）脚本
   #创建一个虚拟环境并启用
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
   
-  #I安装所需的Python包
+  #安装所需的Python包
   python3 -m pip install -r requirements.txt
 
 在您完成环境设置后，您可以使用以下命令：
@@ -837,16 +837,16 @@ BOS到BOS（Bos2Bos）脚本
   python3 bos2bos.py -h
 
 **********
-Miner tool
+矿机工具（Miner tool）
 **********
 
 .. _miner_nand_install:
 
 =======================================
-SD to NAND install using the Miner tool
+使用矿机工具（Miner tool）将SD卡上的固件安装到矿机内置储存NAND上
 =======================================
 
-The SD card can be used to replace the firmware running on NAND with Braiins OS+. This can be done by connecting to the miner via SSH and usage of the following command:
+通过远程SSH方式连接到矿机，并使用以下命令，就能用SD卡上的Braiins OS+固件替换矿机内置储存NAND中的固件：
 
   ::
 
@@ -856,10 +856,10 @@ The SD card can be used to replace the firmware running on NAND with Braiins OS+
 .. _miner_factory_reset:
 
 ==============================================
-Braiins OS+ factory reset using the Miner tool
+使用矿机工具（Miner tool）对Braiins OS+恢复出厂配置
 ==============================================
 
-Factory reset can also be done using the *Miner tool*. Use the following command to do so:
+使用以下命令，同样能通过 *矿机工具（Miner tool）* 对矿机上的Braiins OS+恢复出厂配置：
 
   ::
 
@@ -868,15 +868,15 @@ Factory reset can also be done using the *Miner tool*. Use the following command
 .. _miner_detect:
 
 ========================================
-Detect device with LEDs using Miner tool
+使用矿机工具（Miner tool）通过LED灯找出矿机
 ========================================
 
-You can find a device by turning on LED blinking, using the *Miner tool*. Use the following command to do so:
+使用以下命令，您就可以通过 *矿机工具（Miner tool）* 以让矿机LED闪烁的方式找出矿机：
 
   ::
 
-    #turn on LED blinking
+    #开启LED闪烁
     miner fault_light on
 
-    #turn off LED blinking
+    #关闭LED闪烁
     miner fault_light off
