@@ -533,7 +533,7 @@ SD卡方式安装映像
 * *（仅在Windows上作这一步）* 从 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 下载安装 *“Ubuntu for Windows 10“* 。
 * 在命令行终端中运行以下命令：
 
-*（要注意的是以下命令仅适用于Ubuntu或Ubuntu for Windows 10。如您使用的是另外的Linux发行版或其他操作系统，请查阅相应的技术文档并对以下命令作出相应的更改。）* 
+*（请注意，以下命令仅适用于Ubuntu或Ubuntu for Windows 10。如您使用的是另外的Linux发行版或其他操作系统，请查阅相应的技术文档并对以下命令作出相应的更改。）* 
 
 ::
 
@@ -562,10 +562,10 @@ SD卡方式安装映像
 
 * *（自定义固件）* 刷原厂固件。如果设备已经运行的是原厂固件或旧版本的Braiins OS，则此步可以跳过。 *（请注意：取决于固件版本，Braiins OS+有可能可以直接从自定义固件升级，可能最开始需要刷原厂固件。）*
 * *（仅在Windows上作这一步）* 从 `微软商店 <https://www.microsoft.com/en-us/store/p/ubuntu/9nblggh4msv6>`_ 下载安装 *“Ubuntu for Windows 10“* 。
-* Prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
-* Run the following commands in your command line terminal (replace the placeholder ``IP_ADDRESS`` accordingly) :
+* 准备Python环境，请详见 :ref:`ssh_package_environment` 部分。
+* 在命令行终端中，运行以下命令（按矿机实际IP地址替换命令中的 ``IP_ADDRESS`` ）：
 
-*(Note that the commands are compatible with Ubuntu and Ubuntu for Windows 10. If you are using a different distribution of Linux or a different OS, please check the corresponding documentation and edit the commands as necessary.)*
+*（请注意，以下命令仅适用于Ubuntu或Ubuntu for Windows 10。如您使用的是另外的Linux发行版或其他操作系统，请查阅相应的技术文档并对以下命令作出相应的更改。）* 
 
 ::
 
@@ -578,27 +578,22 @@ SD卡方式安装映像
   #Run the script to install Braiins OS+
   python3 upgrade2bos.py IP_ADDRESS
 
-**Note:** *for more information about the arguments that can be used, use the* **--help** *argument.*
+**注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
 
 .. _ssh_package_uninstall:
 
 =======================================
-Uninstall Braiins OS+ using SSH package
+使用远程（SSH）方式安装包卸载Braiins OS+
 =======================================
 
 .. _ssh_package_uninstall_image:
 
-Using factory firmware image
+用原厂固件映像的情况下
 =============================
 
-First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
+您首先需要准备Python环境，请详见 :ref:`ssh_package_environment` 部分的内容。
 
-On an Antminer S9, you can flash a factory firmware image
-from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
-or URL to the ``tar.gz`` (not extracted!) file. Supported images with
-corresponding MD5 hashes are listed in the
-`platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__
-file.
+在蚂蚁矿机S9上，您可以使用厂家官网上的以 ``tar.gz`` 为格式未解压的原厂固件下载链接，替换下方命令中的 ``FACTORY_IMAGE`` ，并按矿机实际IP地址替换命令中的 ``IP_ADDRESS`` ， 并运行下方命令。 （支持的固件映像及其相应的MD5哈希值在Github上的 `platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__ 文件中已列出。
 
 Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
 
@@ -611,7 +606,7 @@ Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
 
 .. _ssh_package_uninstall_backup:
 
-Using previously created backup
+用之前创建的备份的情况下
 ===============================
 
 First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
