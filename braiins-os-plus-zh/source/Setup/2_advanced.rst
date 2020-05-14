@@ -593,37 +593,37 @@ SD卡方式安装映像
 
 您首先需要准备Python环境，请详见 :ref:`ssh_package_environment` 部分的内容。
 
-在蚂蚁矿机S9上，您可以使用厂家官网上的以 ``tar.gz`` 为格式未解压的原厂固件下载链接，替换下方命令中的 ``FACTORY_IMAGE`` ，并按矿机实际IP地址替换命令中的 ``IP_ADDRESS`` ， 并运行下方命令。 （支持的固件映像及其相应的MD5哈希值在Github上的 `platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__ 文件中已列出。
+在蚂蚁矿机S9上，您可以使用厂家官网上的以 ``tar.gz`` 为格式未解压的原厂固件下载地址URL，替换下方命令中的 ``FACTORY_IMAGE`` ，并按矿机实际IP地址替换命令中的 ``IP_ADDRESS`` ， 并运行下方命令。 
 
-Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
+（支持的固件映像及其相应的MD5哈希值在Github上的 `platform.py <https://github.com/braiins/braiins/blob/master/braiins-os/upgrade/am1/platform.py>`__ 文件中已列出。）
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
-**Note:** *for more information about the arguments that can be used, use the* **--help** *argument.*
+**注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
 
 .. _ssh_package_uninstall_backup:
 
 用之前创建的备份的情况下
 ===============================
 
-First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
+您首先需要准备Python环境，请详见 :ref:`ssh_package_environment` 部分的内容。
 
-If you created a backup of the original firmware during the installation of Braiins OS+, you can restore it by using the following commands (replace the placeholders ``BACKUP_ID_DATE`` and ``IP_ADDRESS`` accordingly):
+如果您在之前安装Braiins OS+时创建了原厂固件的备份，您可以通过下方命令恢复这个备份（按备份ID和日期，和矿机实际IP地址替换命令中 ``BACKUP_ID_DATE`` 和 ``IP_ADDRESS`` ）：
 
 ::
 
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-**Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
+**注： 因为备份创建的要求比较复杂，一般不推荐使用此法卸载Braiins OS+。没有办法能够检查可能已损坏的备份文件。请在使用过程中注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**
 
 .. _opkg:
 
 ****
-OPKG
+OPKG批量安装包
 ****
 
 OPKG commands can be used after connecting to the miner via SSH. There are many OPKG commands, but regarding Braiins OS+, you need to use only the following:
