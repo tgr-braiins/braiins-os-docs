@@ -379,17 +379,17 @@ listen                                监听矿机识别广播（当按下IP rep
   * 再按下方步骤进行操作
 
 =======================================
-此安装方式的特性和优缺点：
+此方式的特性和优缺点：
 =======================================
 
   + 无需额外工具就能直接用Braiins OS+替换调原厂固件
-  + 默认自动转移网络配置
-  + 默认自动转移矿池URL地址，用户名及密码
+  + 默认自动转移原厂固件的网络配置
+  + 默认自动转移原厂固件的矿池URL地址，用户名及密码
   + 默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
   - 不支持升级2019年及之后发布的原厂固件
   - 不支持配置安装（比如始终会自动转移网络配置）
-  - 不支持批量安装（除非您自己写脚本）
+  - 不支持批量操作（除非您自己写脚本）
 
 .. _web_package_install:
 
@@ -417,7 +417,7 @@ SD卡方式安装映像
   * 再按下方步骤进行操作
 
 =======================================
-此安装方式的特性和优缺点：
+此方式的特性和优缺点：
 =======================================
 
   + 用Braiins OS+替换锁定SSH的原厂固件
@@ -425,7 +425,7 @@ SD卡方式安装映像
   + 默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
   - 不支持转移之前的矿池URL，用户名及密码
-  - 不支持批量安装
+  - 不支持批量操作
   
 .. _sd_install:
 
@@ -508,7 +508,7 @@ SD卡方式安装映像
   * 再按下方步骤进行操作
 
 =======================================
-此安装方式的特性和优缺点：
+此方式的特性和优缺点：
 =======================================
 
   + 远程安装Braiins OS+ 
@@ -516,9 +516,9 @@ SD卡方式安装映像
   + 在安装Braiins OS+时，自动转移原厂固件的完整配置到Braiins OS+上（可自选）
   + 在卸载Braiins OS+时，自动转移Braiins OS+固件的完整配置到原厂固件上（可自选）
   + 可自定义安装/卸载过程的参数
-  + 在安装Braiins OS+后，t默认自动开启矿机自动调整功能（默认功率限制1420瓦）
+  + 在安装Braiins OS+后，默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
-  - 不支持批量安装/卸载（除非您自己写脚本）
+  - 不支持批量操作（除非您自己写脚本）
   - 配置过程耗时
   - 不支持SSH远程功能被锁住的矿机
 
@@ -537,19 +537,19 @@ SD卡方式安装映像
 
 ::
 
-  #Update the repositories and install dependencies
+  #更新库和安装发布环境(Dependencies)
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
-  #Download and extract the firmware package
+  #下载和解压固件包
   wget -c http://feeds.braiins-os.com/20.04/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
   
-  #Change the directory to the unpacked firmware folder
+  #更改固件解压文件夹的目录
   cd ./braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus
   
-  #Create a virtual environment and activate it
+  #创建一个虚拟环境并启用
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
   
-  #Install the required Python packages
+  #安装所需的Python包
   python3 -m pip install -r requirements.txt
 
 .. _ssh_package_install:
@@ -569,13 +569,13 @@ SD卡方式安装映像
 
 ::
 
-    #Change the directory to the unpacked firmware folder (if not already in the firmware folder)
+  #更改固件解压文件夹的目录（如已不在固件文件夹中）
   cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
   
-  #Activate the virtual environment (if it is not already activated)
+  #启用虚拟环境（如尚未启用）
   source .env/bin/activate
   
-  #Run the script to install Braiins OS+
+  #运行Braiins OS+安装脚本
   python3 upgrade2bos.py IP_ADDRESS
 
 **注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
@@ -618,22 +618,21 @@ SD卡方式安装映像
   cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
-**注： 因为备份创建的要求比较复杂，一般不推荐使用此法卸载Braiins OS+。没有办法能够检查可能已损坏的备份文件。请在使用过程中注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**
+**注： 因为备份创建的要求比较复杂，也没有办法能够检查可能已损坏的备份文件，一般不推荐使用此法卸载Braiins OS+。请在使用过程中自行注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**
 
 .. _opkg:
 
 ****
-OPKG批量安装包
+OPKG包管理器
 ****
 
-OPKG commands can be used after connecting to the miner via SSH. There are many OPKG commands, but regarding Braiins OS+, you need to use only the following:
+在通过远程SSH连接矿机后，就能使用OPKG包管理器命令。OPKG包管理器命令有很多，对于Braiins OS+，相应的OPKG包管理器命令如下：
 
-  * *opkg update* - updates the package lists. It's recommended to use this command before other OPKG commands.
-  * *opkg install PACKAGE_NAME* install the defined package. It's recommended to use *opkg update* to update the package lists before installing packages.
-  * *opkg remove PACKAGE_NAME*
+  * *opkg update* - 更新包列表。推荐在使用其他OPKG包管理器命令前使用此命令。
+  * *opkg install PACKAGE_NAME* - 安装定义名称的包。推荐在使用此命令安装前使用 *opkg update* 命令更新包列表。i
+  * *opkg remove PACKAGE_NAME* - 移除定义名称的包。
 
-Since the firmware change results in a reboot, the following
-output is expected:
+由于固件的改变会导致重启，以下的输出将会出现：
 
 ::
 
@@ -645,123 +644,123 @@ output is expected:
     Connection to 10.10.10.1 closed.
 
 =======================================
-Features, PROs and CONs of this method:
+此方式的特性和优缺点：
 =======================================
 
-  + update Braiins OS+ remotely
-  + switch to Braiins OS+ from other versions remotely
-  + revert to the initial version of Braiins OS remotely
-  + migrates the configuration and continue to mine without a need to configure anything (when updating or switching to Braiins OS+)
+  + 远程升级Braiins OS+
+  + 远程从Braiins OS的其他版本切换到Braiins OS+
+  + 远程回滚Braiins oS初始版本
+  + 无需进行任何配置，默认自动转移矿机原厂配置并继续挖矿（当升级或切换到Braiins OS+时）
   
-  - no batch-mode (unless you create your own scripts)
+  - 不支持批量操作（除非您自己写脚本）
 
 .. _opkg_update:
 
 =============================
-Update Braiins OS+ using OPKG
+使用OPKG包管理器升级Braiins OS+
 =============================
 
-With OPKG you can easily update your current installation of Braiins OS+, by connecting to the miner via SSH and using the following commands:
+通过远程SSH方式连接到矿机，并使用以下命令，您就能使用OPKG包管理器轻松升级您安装的Braiins OS+：
 
 ::
 
   opkg update
   opkg install firmware
 
-  #you can also connect to the miner and run the commands at the same time
+  #也可以用远程SSH连接您的矿机并运行:
   ssh root@IP_ADDRESS "opkg update && opkg install firmware"
 
-This will migrate the configuration and continue to mine without a need to configure anything.
+命令自动会转移您矿机的配置，您不需要作任何矿机配置上的改动。
 
 .. _opkg_switch_to_braiinsplus:
 
 ====================================================
-Switch to Braiins OS+ from other versions using OPKG
+使用OPKG包管理器从Braiins OS的其他版本切换到Braiins OS+
 ====================================================
 
-With OPKG you can easily switch to Braiins OS+, by connecting to the miner via SSH and using the following commands:
+通过远程SSH方式连接到矿机，并使用以下命令，您就能使用OPKG包管理器轻松切换到Braiins OS+：
 
 ::
 
   opkg update
   opkg install firmware
 
-  #you can also connect to the miner and run the commands at the same time
+  #也可以用远程SSH连接您的矿机并运行:
   ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
 
-This will migrate the configuration and continue to mine without a need to configure anything. Default power limit will be set (1420W).
+命令自动会转移您矿机的配置，您不需要作任何矿机配置上的改动。默认功率将被限制为1420瓦。
 
 .. _opkg_factory_reset:
 
 ====================================
-Braiins OS+ factory reset using OPKG
+使用OPKG包管理器对Braiins OS+恢复出厂配置
 ====================================
 
-With OPKG you can easily revert to the initial version of Braiins OS (the version, which was installed for the first time on that device), by connecting to the miner via SSH and using the following commands:
+通过远程SSH方式连接到矿机，并使用以下命令，您就能使用OPKG包管理器轻松回滚到初始（在矿机上首次安装)的Braiins OS版本:
 
 ::
 
   opkg update
   opkg remove firmware
 
-  #you can also connect to the miner and run the commands at the same time
+  #也可以用远程SSH连接您的矿机并运行:
   ssh root@IP_ADDRESS "opkg update && opkg remove firmware"
 
-This will reset the configuration to the state after the first Braiins OS installation.
+命令会将配置重置到初次安装Braiins OS后的状态。
 
 .. _sysupgrade:
 
 ******************
-Sysupgrade package
+系统升级（Sysupgrade）包 
 ******************
 
-Sysupgrade is used to upgrade the system running on the device. With this method, you can install various versions of Braiins OS or create a backup of the system. Installation of a firmware using *Braiins OS web interface* or using *opkg install firmware* uses this method. It's recommended to use the *Braiins OS web interface* or *opkg install firmware* instead of this method.
+系统升级（Sysupgrade）可以用于矿机上运行的系统。您可以使用此方式安装Braiins OS的各种版本，或创建系统备份。使用 *Braiins OS网页端后台* 或 *opkg安装固件* 安装固件就是使用了系统升级（Sysupgrade）包的方式。建议直接使用 *Braiins OS网页端后台* 或 *opkg安装固件* 而不是此方式进行安装。  
 
 =====
 如何使用
 =====
 
-In order to use sysupgrade, you need to connect to the miner via SSH. The syntax is the following:
+您需要通过远程SSH连接到矿机来使用系统升级（Sysupgrade）。句法如下：
 
 ::
 
   sysupgrade [parameters] <image file or URL>
 
-The most important parameters are **--help** (to display the help) and **-F** to force the installation. It's not recommended to use this method (besides the way, it is described bellow), unless you really know, what you are doing.
+最重要的参数是 **--help** （显示帮助信息）和 **-F** （强制安装）。**除非是在您对此方式相当熟悉的情况下，通常不建议使用这种方式进行固件安装。**
 
 =======================================
-Features, PROs and CONs of this method:
+此方式的特性和优缺点：
 =======================================
 
-  + installs various version of Braiins OS, while connected to the miner
-  + migrates the configuration
-  + parameters are available to customize the process
+  + 当连接到矿机时，在矿机上安装各种版本的Braiins OS
+  + 默认自动转移原厂固件的配置
+  + 可用参数自定义过程
   
-  - no batch-mode (unless you create your own scripts)
-  - cannot switch to an older version of Braiins OS (released before 2020)
+  - 不支持批量操作（除非您自己写脚本）
+  - 不支持切换到较旧版本的Braiins OS（2020年以前发布的）
 
 .. _sysupgrade_switch_braiinsos:
 
 ==============================================================================
-Switch to Braiins OS (without autotuning) from other versions using Sysupgrade
+使用系统升级（Sysupgrade）从Braiins OS的其他版本切换到（不带自动调整功能的）Braiins OS
 ==============================================================================
 
-In order to upgrade from older version of Braiins OS or downgrade from Braiins OS+, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
+请使用下方命令（并根据实际IP地址替换 ``IP_ADDRESS`` ），对旧版本的Braiins OS进行升级，或从Braiins OS+降级到Braiins OS：
 
 ::
 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
-This command contains the following commands: 
+此命令包含以下的命令：
 
-  * **ssh** - to connect to the miner
-  * **wget** - used for downloading files, in this case the firmware package
-  * **sysupgrade** - to actually flash the downloaded firmware package
+  * **ssh** - 远程SSH连接到矿机
+  * **wget** - 下载文件，这里具体指下载固件包
+  * **sysupgrade** - 将下载的固件包刷到矿机上
 
 .. _sysupgrade_switch_braiinsplus:
 
 ==========================================================
-Switch to Braiins OS+ from other versions using Sysupgrade
+使用系统升级（Sysupgrade）从Braiins OS的其他版本切换到Braiins OS+
 ==========================================================
 
 In order to upgrade from older version of Braiins OS, use the following command (replace the placeholder ``IP_ADDRESS`` accordingly):
