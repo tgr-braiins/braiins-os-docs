@@ -383,9 +383,9 @@ listen                                监听矿机识别广播（当按下IP rep
 =======================================
 
   + 无需额外工具就能直接用Braiins OS+替换调原厂固件
-  + 自动转移网络配置
-  + 自动转移矿池URL地址，用户名及密码
-  + 自动开启矿机自动调整功能（默认功率限制1420瓦）
+  + 默认自动转移网络配置
+  + 默认自动转移矿池URL地址，用户名及密码
+  + 默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
   - 不支持升级2019年及之后发布的原厂固件
   - 不支持配置安装（比如始终会自动转移网络配置）
@@ -404,91 +404,90 @@ listen                                监听矿机识别广播（当按下IP rep
 .. _sd:
 
 *************
-SD card image
+SD卡方式安装映像
 *************
 
-If you are running stock firmware, which was released in 2019 and later, the only way to install Braiins OS+ is to insert an SD card with Braiins OS+ flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of other than stock firmware usage.
+如果您的矿机上的原厂固件是2019年或之后的，您只能通过SD卡刷的方法来安装Braiins OS。因为从2019年起的原厂固件为了防止第三方固件的使用，封锁了SSH连接并在网页端后台升级刷固件时要求验证签名。
 
 =====
 如何使用
 =====
 
-  * Download the **SD card image** from our `website <https://braiins-os.com/>`_.
-  * Follow the sections bellow
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **SD卡方式安装映像** 。
+  * 再按下方步骤进行操作
 
 =======================================
-Features, PROs and CONs of this method:
+此安装方式的特性和优缺点：
 =======================================
 
-  + replaces SSH locked stock firmware with Braiins OS+
-  + uses the network configuration stored on the NAND (this can be turned off, see the section *Network settings* bellow)
-  + turns on autotuning on default power limit (1420W)
+  + 用Braiins OS+替换锁定SSH的原厂固件
+  + 默认使用内置储存NAND中的网络配置 (可禁用, 见下方的 *网络设置* 部分)
+  + 默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   
-  - does not migrate pool URLs, users and passwords
-  - no batch-mode
-
+  - 不支持转移之前的矿池URL，用户名及密码
+  - 不支持批量安装
+  
 .. _sd_install:
 
 =================================
-Install Braiins OS+ using SD card
+使用SD卡方式安装映像安装Braiins OS+
 =================================
 
- * Download the SD card image from our `website <https://braiins-os.com/>`_.
- * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_). *Note: Simple copy to SD card will not work. The SD card has to be flashed!*
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+ * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **SD卡方式安装映像** 。
+ * 将下载的映像烧录到SD卡上（例如使用像 `Etcher <https://etcher.io/>`_ 之类的烧录软件）。*请注意：光复制到SD卡上是不够的，必须用软件刷到卡上！*
+ * 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%
-      :alt: S9 Jumpers
+      :alt: S9 跳线
 
   .. |pic2| image:: ../_static/s9-jumpers-board.png
       :width: 45%
-      :alt: S9 Jumpers Board
+      :alt: S9 跳线板
 
   |pic1|  |pic2|
 
- * Insert the SD card into the device, then start the device.
- * After a moment, you should be able to access the Braiins OS+ interface through the device’s IP address.
- * *[Optional]:* You can now install Braiins OS+ to the NAND (see the section :ref:`sd_nand_install`)
+ * 将SD卡插到矿机上，开机。
+ * 过一会，您就应该能通过设备的IP地址进到Braiins OS+界面了。
+ * *[可选操作]：* 您也可以将Braiins OS+从SD卡刷到内置储存（NAND）上。具体请详见 :ref:`sd_nand_install`这一部分的内容。
 
 .. _sd_network:
 
 ================
-Network settings
+网络配置
 ================
  
- By default, network configuration stored on the NAND is used, while running Braiins OS+ from an SD card. This feature can be turned off, by following the steps bellow:
+ 默认情况下，当从SD卡启动Braiins OS+时，将使用内置储存NAND上的网络配置置。此特性可以按照以下步骤禁用：
 
-  * Mount the first FAT partition of the SD card
-  * Open the file uEnv.txt and insert the following string (make sure there is only one string per line)
+  * 加载SD卡上的第一个FAT格式的分区
+  * 打开uEnv.txt文件并插入下方的参数 (注意空行，一条参数一行）
 
   ::
 
     cfg_override=no
 
-Disabling usage of old network settings is beneficial for the users, that have problems with the miner not being visible in the network (e.g. static IP address used on NAND is out of range of the network). By doing so, DHCP is used.
+对在网络中找不到（无法发现）矿机的矿工来说，禁用原始网络配置会很有帮助（比如NAND中原静态IP地址不在局域网地址范围内）。禁用之后，则使用DHCP动态IP地址。
 
 .. _sd_nand_install:
 
 ============
-NAND install
+将固件刷到矿机内置储存NAND上
 ============
 
-The SD card can be used to replace the firmware running on NAND with Braiins OS+. This can be done either:
-  * using the web interface - section *System -> Install current system to device (NAND)*
-  * using the *miner* tool, via SSH - follow this section of the guide :ref:`miner_nand_install`
+您也可以将SD卡上的Braiins OS+刷到矿机内置储存NAND上。有两种方式可选：
+  * 在您矿机的网页端后台中，点击 *System（系统） -> Install current system to device (NAND)（安装当前系统到矿机（NAND）上）*
+  * 或通过SSH，使用 *miner（矿机）* 工具 —— 请按指南中 ref:`miner_nand_install` 的部分进行
 
 .. _sd_factory_reset:
 
 =======================================
-Braiins OS+ factory reset using SD card
+使用SD卡方式安装映像对Braiins OS+恢复出厂配置
 =======================================
 
-You can do a factory reset, by following the steps bellow:
+您可以按下方步骤恢复出厂配置：You can do a factory reset, by following the steps bellow:
 
-  * Mount the first FAT partition of the SD card
-  * Open the file uEnv.txt and insert the following string (make sure there is only one string per line)
-
+  * 加载SD卡上的第一个FAT格式的分区
+  * 打开uEnv.txt文件并插入下方的参数 (注意空行，一条参数一行）
   ::
 
     factory_reset=yes
