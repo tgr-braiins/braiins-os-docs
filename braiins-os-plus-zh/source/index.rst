@@ -42,9 +42,10 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 
 您也可以加入我们的电报群组：
 
-
   * `英文群组 <https://t.me/BraiinsOS>`_
   * `俄语群组 <https://t.me/BraiinsOS_RU>`_
+  * `西班牙语群组 <https://t.me/BraiinsOS_ES>`_
+  * `波斯语群组 <https://t.me/BraiinsOS_SlushPool_FA>`_
   * `中文群组 <https://t.me/BraiinsOS_ZH>`_ （我们的微信群请详询电报群内客服邀请加入）
 
  您也可以向我们的客服团队 `发送VIP请求 <https://slushpool.kayako.com/en-us/conversation/new/11>`_ 。
