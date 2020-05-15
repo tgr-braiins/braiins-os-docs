@@ -26,7 +26,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量安装**
 
-使用BOS+工具箱，您可以轻松地多台矿机上批量安装Braiins OS+，请参照以下步骤：
+使用 **BOS+工具箱** ，您可以轻松地多台矿机上批量安装Braiins OS+，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
@@ -45,7 +45,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-plus-toolbox install --batch listOfMiners.csv		
 
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox  
 
@@ -93,7 +93,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量更新**
 
-使用BOS+工具箱，您可以轻松地批量更新多台矿机上Braiins OS+，请参照以下步骤：
+使用 **BOS+工具箱** ，您可以轻松地批量更新多台矿机上Braiins OS+，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
@@ -112,7 +112,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-plus-toolbox update --batch listOfMiners.csv
 
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -126,7 +126,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **单台矿机卸载**
 
-使用BOS+工具箱，您可以轻松地卸载单台矿机上安装的Braiins OS+，请参照以下步骤：
+使用 **BOS+工具箱** ，您可以轻松地卸载单台矿机上安装的Braiins OS+，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
@@ -144,7 +144,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-plus-toolbox uninstall IP_ADDRESS
       
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -152,7 +152,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量卸载**
 
-使用BOS+工具箱，您可以轻松地批量卸载多台矿机上安装的Braiins OS+，请参照以下步骤：
+使用 **BOS+工具箱** ，您可以轻松地批量卸载多台矿机上安装的Braiins OS+，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
@@ -171,7 +171,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-plus-toolbox uninstall --batch listOfMiners.csv
       
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -189,4 +189,4 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **配置多台矿机**
 
-使用BOS+工具箱，您可以轻松地批量配置多台矿机上安装的Braiins OS+，请参照文档 :ref:`bosbox_configure`部分的步骤进行配置。
+使用 **BOS+工具箱** ，您可以轻松地批量配置多台矿机上安装的Braiins OS+，请参照文档 :ref:`bosbox_configure`部分的步骤进行配置。
