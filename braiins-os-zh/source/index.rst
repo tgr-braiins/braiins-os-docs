@@ -15,14 +15,6 @@
 简介
 #####
 
-.. note::
-
-   There is new version 20.04 available. We are working on translation of the documentation into
-   different languages. Only documentation in English is currently up-to-date:
-   
-   * `Braiins OS+ <https://docs.braiins-os.com/plus-en/>`_
-   * `Braiins OS <https://docs.braiins-os.com/plus-en/>`_
-
 Braiis OS是用于ASIC矿机的完全开源操作系统。在2018年，Braiins OS是首个启用显性AsicBoost的矿机固件。它现在也支持新的挖矿协议——阶层Stratum V2协议的完整应用。此外，Braiins OS与我们新的挖矿软件组件BOSminer配合运作，BOSminer是用Rust语言从头编写，对过时的CGminer的替代品。
 
 目前Braiins OS 支持的设备，有比特大陆的蚂蚁矿机S9，S9i以及S9j。对蚂蚁矿机S17的支持也将很快推出。
@@ -63,6 +55,31 @@ Braiis OS是用于ASIC矿机的完全开源操作系统。在2018年，Braiins O
 *********
 更新日志
 *********
+
+20.04
+---------------------------
+
+本次发布的更新解决了大多数用户遇到的一些问题，例如安装/卸载的困难以及S9矿机上I2C控制器的一个主要问题。同时，我们也提供了固件的预先发行版了，现在使用 **BOS** 工具箱您就能启用它。
+
+  * 在所有类型的矿机上
+
+    * 【特性】对重联的支持——我们在固件中应用了（`client.reconnect`）重联命令（在阶层Stratum V1协议中)，和阶层Stratum V2协议的重联消息
+    * 【特性】改进了安装/卸载（**upgrade2bos**和**restore2factory**这两个进程）（从原厂固件过渡到Braiins OS等情况的进程同理）
+    * 【特性】通过命令行命令（`--pool-user`）可以自定义矿池用户
+    * 【特性】您原厂矿机固件中之前的矿池设置，现在会自动转移到BOSminer的配置中了。您也可以使用（`--no-keep-pools`）命令停用自动转移。
+    * 【特性】我们现在提供（基于pyinstaller的）二进制格式的**upgrade2bos**进程，它内置有最新的Braiins OS安装映像文件
+    * 【特性】同样提供的也有（基于pyinstaller的）二进制格式的**restore2factory**进程，且现在不需要去下载或找到合适的原厂固件了。 
+    * 【特性】默认停用了又占地方又花时间的原厂固件备份，可以通过（`--backup`）命令恢复启用。
+    * 【特性】首次安装中保留主机名（Host name）的功能，可以通过（`--keep-hostname`）和（`--no-keep-hostname`）这两个命令控制，从而能超控根据MAC地址自动生成主机名。 
+    * 【特性】在网页端后台的**BOS**工具箱中（以及旧版**矿机**中），现已集成了对开启/关闭预先发布版的支持
+    * 【特性】由于现在系统开启了 **日志轮替** 和对超过32KiB的'/var/log/syslog.old'旧系统记录文件进行自动压缩的功能， **BOSminer** 将能够提供的 **更长时间** 的 **系统日志** 。
+    * 【BUG修复】SD卡固件中现已包含之前报错缺失的Slush Pool矿池验证公钥（阶层Stratum V2协议）
+    * 【BUG修复】拒绝率现已显示正确值
+    * 【BUG修复】从服务器收到的未知的阶层Stratum V1协议消息将保留日志作诊断用
+    
+  * 在蚂蚁矿机S9上
+  
+    * 【BUG修复】在一些矿机上有时会出现I2C控制器总线锁死的情况，从而导致与I2C控制器共享总线的运算板供电控制器出现不响应的问题。出现问题的原因是我们将赛灵思的I2C控制器核心，整合进了现场可编程逻辑门阵列（FPGA）的位元流。我们已在SoC上切换到了I2C总线，位元流只将外围信号（IIC0）引导到相应的FPGA针脚上。
 
 20.03
 ---------------------------
