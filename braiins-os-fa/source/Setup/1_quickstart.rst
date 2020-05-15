@@ -1,66 +1,67 @@
-###########
-Quick Start
-###########
+##########
+شروع سریع
+##########
 
 .. contents::
   :local:
   :depth: 2
 
 ******************
-Install Braiins OS
+نصب Braiins OS 
 ******************
 
-============================================
-Running stock firmware released before 2019
-============================================
+======================================================
+اجرا روی فریم‌ور اصلی کارخانه که قبل از 2019 منتشرشده
+======================================================
 
-**Single device installation**
+**نصب روی یک دستگاه**
 
-You can easily install Braiins OS via the web interface upgrade process. In order to do so, follow the steps bellow:
+شما به راحتی می توانید Braiins OS را از طریق فرآیند ارتقا رابط وب نصب کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * Download the **Web Package** from our `website <https://braiins-os.com/open-source/download/>`_.
-  * Login on your miner and go to the section *System -> Upgrade*.
-  * Upload the downloaded package and flash the image.
+  * **Web Package** را از `وبسایت <https://braiins-os.com/open-source/download/>`_ دانلود کنید.
+  * وارد ماینر خود شوید و به بخش *System -> Upgrade* بروید.
+  * بسته دانلود شده را آپلود کرده و ایمیج را فلش کنید.
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+Braiins OS بر روی ماینر نصب خواهد شد. تنظیمات شبکه (به عنوان مثال آدرس IP استاتیک) و تنظیمات استخر و کاربر به طور خودکار به سیستم عامل  Braiins OS منتقل می شود.
 
-**Multiple-device installation**
+**نصب روی چندین دستگاه**
 
-Installation of Braiins OS can easily be done using the BOS Toolbox. In order to do so, follow the steps bellow:
+نصب Braiins OS به راحتی با استفاده از BOS Toolbox قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * Download **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * **BOS Toolbox** را از `وبسایت <https://braiins-os.com/open-source/download/>`_.
+  * یک فایل text جدید ایجاد کنید ، انتهای ".txt" را به ".csv" تغییر دهید و آدرس های IP را که می خواهید دستورات را اجرا کنید ، وارد کنید. فایل را در دایرکتوری که BOS Toolbox در آن قرار دارد قرار دهید. فقط از یک آدرس IP در هر سطر استفاده کنید!
+  * پس از دانلود BOS Toolbox ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره)
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آنBOS Toolbox  را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به آن فایل تغییر مسیر دهید: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  *  اکنون *listOfMiners.csv* را با نام فایل خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
-    For **Windows** command terminal: ::
+    برای خط فرمان **Windows**: ::
 
       bos-toolbox.exe install --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    برای خط فرمان **Linux**: ::
       
       ./bos-toolbox install --batch listOfMiners.csv		
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+Braiins OS بر روی ماینر نصب خواهد شد. تنظیمات شبکه (به عنوان مثال آدرس IP استاتیک) و تنظیمات استخر و کاربر به طور خودکار به  Braiins OS منتقل می شود.
 
-For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_install`.
+برای کسب اطلاعات بیشتر در مورد این فرآیند ، و برای گزینه های بیشتر به بخش های :ref:`bosbox` و :ref:`bosbox_install` مراجعه کنید.
 
-==================================================
-Running stock firmware released in 2019 or later
-==================================================
+========================================================
+اجرا روی فریم‌ور اصلی کارخانه که در 2019 یا بعد منتشرشده
+========================================================
 
-If you are running stock firmware that was released in 2019 and later, the only way to install Braiins OS is to insert an SD card with Braiins OS flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares.
+اگر فریم ویر اصلی روی دستگاه را اجرا می کنید که در سال 2019 و بعد از آن منتشر شده، تنها راه نصب Braiins OS وارد کردن کارت SD با Braiins OS است که روی آن فلش شده است. در سال 2019 ، اتصال SSH مسدود شد و تأیید امضا در رابط کاربری وب مانع استفاده از بنگاه های شخص ثالث می شود.
 
-In order to install Braiins OS via the SD card method, follow the steps bellow:
+برای نصب Braiins OS از طریق روش کارت SD ، مراحل زیر را دنبال کنید:
 
- * Download the SD card image from our `website <https://braiins-os.com/open-source/download/>`_.
- * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_). *Note: Simple copy to SD card will not work. The SD card has to be flashed!*
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+ * ایمیج SD card را از `وبسایت <https://braiins-os.com/open-source/download/>`_ دانلود کنید.
+ * ایمیج دانلود شده را روی کارت SD فلش کنید (به عنوان مثال با استفاده از `Etcher <https://etcher.io/>`_ . *توجه: کپی ساده به کارت SD کار نمی کند. کارت SD باید فلش شود!*
 
+ * جامپر ها را برای بوت کردن از روی کارت SD تنظیم کنید (به جای حافظه NAND) ، مانند تصویر زیر.
+ 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%
       :alt: S9 Jumpers
@@ -71,101 +72,96 @@ In order to install Braiins OS via the SD card method, follow the steps bellow:
 
   |pic1|  |pic2|
 
- * Insert the SD card into the device, then start the device.
- * After a moment, you should be able to access the Braiins OS interface through the device’s IP address.
- * *[Optional]:* You can now install Braiins OS to the internal memory (NAND) following the section :ref:`sd_nand_install`.
+ * کارت SD را وارد دستگاه کنید و آن را روشن کنید.
+ * پس از چند لحظه ، باید از طریق آدرس IP دستگاه به رابط کاربری Braiins OS دسترسی پیدا کنید.
+* *[اختیاری]:* اکنون می توانید Braiins OS را بر روی بخش داخلی حافظه داخلی (NAND) نصب کنید :ref:`sd_nand_install`.
+برای کسب اطلاعات بیشتر در مورد این فرآیند ، و برای گزینه های بیشتر به بخش های :ref:`sd` and :ref:`sd_install` مراجعه کنید.
 
-For more information about this process, and for more options visit the sections :ref:`sd` and :ref:`sd_install`.
+**********************
+بروز رسانی Braiins OS 
+**********************
 
-*****************
-Update Braiins OS
-*****************
+**بروز رسانی یک دستگاه**
 
-**Single device update**
+فریم‌ور بطور دوره ای وجود نسخه جدید را بررسی می کند. که در
+در صورت وجود نسخه جدید دکمه آبی **Upgrade** در رابط کاربری وب در سمت راست نوار بالا ظاهر می شود. روی دکمه کلیک کنید و تأیید کنید تا ارتقا شروع شود.
 
-The firmware periodically checks for availability of a new version. In
-case of a new version being available a blue **Upgrade** button appears in the web interface, on
-the right side of the top bar. Proceed to click on the button and
-confirm to start the upgrade.
+از طرف دیگر ، می توانید اطلاعات منبع را به صورت دستی با کلیک بر روی دکمه *Update lists* در منوی System > Software به روز رسانی کنید. در صورت عدم وجود دکمه، سعی کنید صفحه را رفرش کنید. برای شروع فرآیند ارتقاء ، ``firmware`` را در *Download and install
+package* تایپ کنید و *OK* را فشار دهید.
 
-Alternatively, you can update the repository information manually by
-clicking the *Update lists* button in the System > Software menu. In
-case the button is missing, try to refresh the page. To trigger the
-upgrade process, type ``firmware`` into the *Download and install
-package* field and press *OK*.
+**بروز رسانی چندین دستگاه**
 
-**Multiple device update**
+به روزرسانی Braiins OS در چندین دستگاه به طور همزمان با استفاده از **BOS Toolbox** به راحتی قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-Updating Braiins OS on multiple devices at once can easily be done using the **BOS Toolbox**. In order to do so, follow the steps bellow:
-
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * **BOS Toolbox**  را از `وبسایت <https://braiins-os.com/open-source/download/>`_ دانلود کنید.
+  * یک فایل text جدید ایجاد کنید ، انتهای ".txt" را به ".csv" تغییر دهید و آدرس های IP را که می خواهید دستورات را اجرا کنید، وارد کنید. فایل را در دایرکتوری که BOS Toolbox در آن قرار دارد قرار دهید.
+  * س از دانلود BOS Toolbox ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره)
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن BOS Toolbox  را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به آن مسیر فایل تغییر دهید: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * اکنون *listOfMiners.csv* را با نام فایل خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
-    For **Windows** command terminal: ::
+    برای خط فرمان **Windows**: ::
 
       bos-toolbox.exe update --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    برای خط فرمان **Linux**: ::
       
       ./bos-toolbox update --batch listOfMiners.csv
       
-This command will look for an update for the miners that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
+این دستور برای ماینرهایی که در *listOfMiners.csv* مشخص شده اند، وجود بروز رسانی را بررسی میکند و در صورت وجود نسخه جدید فریم‌ور ، آنها را به روز می کند.
 
-For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_update`.   
+برای اطلاعات بیشتر درباره این فرآیند، و برای گرینه های بیشتر از این بخش ها بازدید کنید :ref:`bosbox` و :ref:`bosbox_update`.
 
 ********************
-Uninstall Braiins OS
+حذف نصب Braiins OS
 ********************
 
-**Single device uninstallation**
+**حذف نصب از یک دستگاه**
 
-You can easily uninstall Braiins OS on a single device using the **BOS Toolbox**. In order to do so, follow the steps bellow:
+با استفاده از **BOS Toolbox** می توانید به راحتی Braiins OS را از یک دستگاه حذف کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
-  * Once you've downloaded the BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * **BOS Toolbox** را از `وبسایت <https://braiins-os.com/open-source/download/>`_. دانلود کنید.
+  * پس از دانلود BOS Toolbox، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ،Terminal برای اوبونتو و غیره)
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن  BOS Toolbox را ذخیره کرده اید جایگزین کنید. سپس با اجرای این دستور به همان مسیر فایل تغییر دهید: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
-  * Now replace the *IP_ADDRESS* placeholder with your miner's IP address (or host name) in the command below and run the appropriate command for your operating system:
+  * اکنون *IP_ADDRESS* را با آدرس IP ماینر (یا نام میزبان) خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
     For **Windows** command terminal: ::
 
       bos-toolbox.exe uninstall IP_ADDRESS
 
-    For **Linux** command terminal: ::
+    برای خط فرمان **Linux**: ::
       
       ./bos-toolbox uninstall IP_ADDRESS
       
-This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
+با این کار به فریم‌ور اصلی کارخانه برگردانده می‌شوید. این نسخه به صورت خودکار نسخه ای قدیمی را که در آن SSH مسدود نشده است نصب می کند، بنابراین می توانید از راه دور به ماینر خود دسترسی پیدا کنید.
 
-**Multiple device uninstallation**
+**حذف نصب از روی چندین دستگاه**
 
-You can easily uninstall Braiins OS on multiple devices using the **BOS Toolbox**. In order to do so, follow the steps below:
+با استفاده از **BOS Toolbox** می توانید به راحتی Braiins OS را از چندین دستگاه حذف کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS web interface by going to *Status -> Overview*.)Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * **BOS Toolbox** را از `وبسایت <https://braiins-os.com/open-source/download/>`_. دانلود کنید.
+  * یک فایل text جدید را در ویرایشگر متن خود ایجاد کنید و آدرس های IP را که می خواهید دستورات را روی آنها اجرا کنید، وارد کنید. هر آدرس IP باید با کاما از هم جدا شود. (توجه داشته باشید که می توانید با رفتن به *Status -> Overview*
+میتوانید آدرس IP را در رابط کاربری وب Braiins OS پیدا کنید) سپس فایل را در همان دایرکتوری ذخیره کنید که BOS Toolbox را ذخیره کرده اید و پسوند ".txt" را به ".csv ". تغییر دهید.
+  * س از دانلود BOS Toolbox و ذخیره فایل .csv ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره).
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن BOS Toolbox را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به همان مسیر فایل تغییر دهید: ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * اکنون *listOfMiners.csv* را با نام فایل خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
-    For **Windows** command terminal: ::
+    برای خط فرمان **Windows**: ::
 
       bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    برای خط فرمان **Linux**: ::
       
       ./bos-toolbox uninstall --batch listOfMiners.csv
       
-This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
+با این کار به فریم‌ور اصلی کارخانه برگردانده می‌شوید. این نسخه به صورت خودکار نسخه ای قدیمی را که در آن SSH مسدود نشده است نصب می کند، بنابراین می توانید از راه دور به ماینر خود دسترسی پیدا کنید.
 
-For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
+برای اطلاعات بیشتر درباره این فرآیند، و برای گزینه های بیشتر از این بخش ها بازدید کنید :ref:`bosbox` و :ref:`bosbox_uninstall`.
