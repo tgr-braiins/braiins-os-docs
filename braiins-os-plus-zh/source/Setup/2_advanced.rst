@@ -649,7 +649,7 @@ OPKG包管理器
 
   + 远程升级Braiins OS+
   + 远程从Braiins OS的其他版本切换到Braiins OS+
-  + 远程回滚Braiins oS初始版本
+  + 远程回滚Braiins OS初始版本
   + 无需进行任何配置，默认自动转移矿机原厂配置并继续挖矿（当升级或切换到Braiins OS+时）
   
   - 不支持批量操作（除非您自己写脚本）
