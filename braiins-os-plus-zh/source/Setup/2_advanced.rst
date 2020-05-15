@@ -628,6 +628,7 @@ OPKG包管理器
 
 在通过远程SSH连接矿机后，就能使用OPKG包管理器命令。OPKG包管理器命令有很多，对于Braiins OS+，相应的OPKG包管理器命令如下：
 
+::
   * *opkg update* - 更新包列表。推荐在使用其他OPKG包管理器命令前使用此命令。
   * *opkg install PACKAGE_NAME* - 安装定义名称的包。推荐在使用此命令安装前使用 *opkg update* 命令更新包列表。i
   * *opkg remove PACKAGE_NAME* - 移除定义名称的包。
