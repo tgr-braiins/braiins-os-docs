@@ -103,7 +103,7 @@ BOS+工具箱的特性及优缺点
 
       bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
     
-    在 **Linux** 上的Terminal控制终端请用： ::
+    在 **Linux** 上的Terminal控制终端请用： :: 
       
       ./bos-plus-toolbox install ARGUMENTS HOSTNAME
 
@@ -376,7 +376,7 @@ listen                                监听矿机识别广播（当按下IP rep
 =====
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **网页端后台方式安装包** 。
-  * 再按下方步骤进行操作
+  * 再按下方步骤进行操作。
 
 =======================================
 此方式的特性和优缺点：
@@ -414,7 +414,7 @@ SD卡方式安装映像
 =====
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **SD卡方式安装映像** 。
-  * 再按下方步骤进行操作
+  * 再按下方步骤进行操作。
 
 =======================================
 此方式的特性和优缺点：
@@ -505,7 +505,7 @@ SD卡方式安装映像
 =====
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **远程（SSH）方式安装包** 。
-  * 再按下方步骤进行操作
+  * 再按下方步骤进行操作。
 
 =======================================
 此方式的特性和优缺点：
@@ -628,6 +628,7 @@ OPKG包管理器
 
 在通过远程SSH连接矿机后，就能使用OPKG包管理器命令。OPKG包管理器命令有很多，对于Braiins OS+，相应的OPKG包管理器命令如下：
 
+::
   * *opkg update* - 更新包列表。推荐在使用其他OPKG包管理器命令前使用此命令。
   * *opkg install PACKAGE_NAME* - 安装定义名称的包。推荐在使用此命令安装前使用 *opkg update* 命令更新包列表。i
   * *opkg remove PACKAGE_NAME* - 移除定义名称的包。
@@ -649,7 +650,7 @@ OPKG包管理器
 
   + 远程升级Braiins OS+
   + 远程从Braiins OS的其他版本切换到Braiins OS+
-  + 远程回滚Braiins oS初始版本
+  + 远程回滚Braiins OS初始版本
   + 无需进行任何配置，默认自动转移矿机原厂配置并继续挖矿（当升级或切换到Braiins OS+时）
   
   - 不支持批量操作（除非您自己写脚本）
@@ -827,6 +828,7 @@ BOS到BOS（Bos2Bos）脚本
 
 在您完成环境设置后，您可以使用以下命令：
 
+::
   #启用虚拟环境
   source .env/bin/activate
 
