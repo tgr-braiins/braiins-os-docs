@@ -97,11 +97,11 @@ Install Braiins OS using BOS Toolbox
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
-    For **Windows** command terminal: ::
+    For **Windows** command terminal: :: 
 
       bos-toolbox.exe install ARGUMENTS HOSTNAME
 
-    For **Linux** command terminal: ::
+    For **Linux** command terminal: :: 
       
       ./bos-toolbox install ARGUMENTS HOSTNAME
 
