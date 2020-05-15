@@ -140,7 +140,7 @@ BOS+工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
+  bos-plus-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
 
 解释：上方的命令和参数，会将Braiins OS+安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上，并设置列表中所有矿机的输入功率限制为1200瓦。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
 
@@ -191,7 +191,7 @@ BOS+工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe update --batch listOfMiners.csv
+  bos-plus-toolbox.exe update --batch listOfMiners.csv
 
 解释：上方的命令和参数，会在有新固件更新可用的情况下，对在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+进行更新。
 
@@ -242,7 +242,7 @@ BOS+工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-plus-toolbox.exe uninstall --batch listOfMiners.csv
 
 解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件（Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz）。
 
@@ -303,11 +303,11 @@ save_apply                            保存并应用之前从CSV文件复制（
 
 ::
 
-  bos-toolbox.exe config --user root load listOfMiners.csv
+  bos-plus-toolbox.exe config --user root load listOfMiners.csv
   
   #把矿机上的配置加载到CSV文件中后，可以通过表格软件编辑配置（如MS Office Excel，LibreOffice Calc等)
   
-  bos-toolbox.exe config --user root save_apply listOfMiners.csv
+  bos-plus-toolbox.exe config --user root save_apply listOfMiners.csv
 
 解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，并应用新配置。
 
@@ -359,7 +359,7 @@ listen                                监听矿机识别广播（当按下IP rep
 
 ::
 
-  bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-plus-toolbox.exe discover scan 10.10.10.0/24
 
 解释：上方的命令和参数，会扫描从10.10.10.0到10.10.10.255这个范围的IP地址，并列出找到的矿机及其相应的IP地址。
 
@@ -880,3 +880,4 @@ BOS到BOS（Bos2Bos）脚本
 
     #关闭LED闪烁
     miner fault_light off
+    
