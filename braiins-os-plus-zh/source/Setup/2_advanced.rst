@@ -103,7 +103,7 @@ BOS+工具箱的特性及优缺点
 
       bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
     
-    在 **Linux** 上的Terminal控制终端请用： ::
+    在 **Linux** 上的Terminal控制终端请用： :: 
       
       ./bos-plus-toolbox install ARGUMENTS HOSTNAME
 
