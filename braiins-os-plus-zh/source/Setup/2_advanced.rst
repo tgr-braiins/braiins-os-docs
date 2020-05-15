@@ -827,6 +827,7 @@ BOS到BOS（Bos2Bos）脚本
 
 在您完成环境设置后，您可以使用以下命令：
 
+::
   #启用虚拟环境
   source .env/bin/activate
 
