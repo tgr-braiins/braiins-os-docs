@@ -1,16 +1,16 @@
-##############
-Advanced Guide
-##############
+################
+راهنمای پیشرفته
+################
 
 .. contents::
 	:local:
 	:depth: 1
 
 ********
-Road map
+نقشه راه
 ********
 
-There are many tools, packages and scripts, that can be used to manage Braiins OS. For better navigation, use the following tree:
+ابزارها ، بسته ها و اسکریپت های زیادی وجود دارد که می تواند برای مدیریت Braiins OS استفاده شود. برای پیمایش بهتر ، از منوی زیر استفاده کنید:
 
  * Install Braiins OS
  
