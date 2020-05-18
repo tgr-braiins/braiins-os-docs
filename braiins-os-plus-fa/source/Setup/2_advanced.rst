@@ -100,7 +100,7 @@ Install Braiins OS+ using BOS+ Toolbox
   cd PATH_TO_BOS+_TOOLBOX
 
   #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe install ARGUMENTS HOSTNAME
+  ./bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
 
 You can use the following arguments to adjust the process:
 
@@ -131,7 +131,7 @@ Arguments                             Description
 
 ::
 
-  ./bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
+  ./bos-plus-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
 
 This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
 
@@ -151,7 +151,7 @@ Update Braiins OS+ using BOS+ Toolbox
   cd PATH_TO_BOS+_TOOLBOX
 
   #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe update ARGUMENTS HOSTNAME
+  ./bos-plus-toolbox.exe update ARGUMENTS HOSTNAME
 
 You can use the following **arguments** to adjust the process:
 
@@ -173,7 +173,7 @@ Arguments                             Description
 
 ::
 
-  ./bos-toolbox.exe update --batch listOfMiners.csv
+  ./bos-plus-toolbox.exe update --batch listOfMiners.csv
 
 This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
@@ -193,7 +193,7 @@ Uninstall Braiins OS+ using BOS+ Toolbox
   cd PATH_TO_BOS+_TOOLBOX
 
   #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+  ./bos-plus-toolbox.exe uninstall ARGUMENTS HOSTNAME
 
 You can use the following arguments to adjust the process:
 
@@ -211,7 +211,7 @@ Arguments                             Description
 
 ::
 
-  ./bos-toolbox.exe uninstall --batch listOfMiners.csv
+  ./bos-plus-toolbox.exe uninstall --batch listOfMiners.csv
 
 This command will uninstall Braiins OS+ from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
@@ -231,7 +231,7 @@ Configure Braiins OS+ using BOS+ Toolbox
   cd PATH_TO_BOS+_TOOLBOX
 
   #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe multiconfiger ARGUMENTS ACTION TABLE
+  ./bos-plus-toolbox.exe multiconfiger ARGUMENTS ACTION TABLE
 
 You can use the following **arguments** to adjust the process:
 
@@ -263,11 +263,11 @@ save_apply                            save and apply the settings from the CSV f
 
 ::
 
-  ./bos-toolbox.exe multiconfiger --user root load listOfMiners.csv
+  ./bos-plus-toolbox.exe multiconfiger --user root load listOfMiners.csv
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  ./bos-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
+  ./bos-plus-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
 
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
 
@@ -286,7 +286,7 @@ Scan the network to identify miners using BOS+ Toolbox
   cd PATH_TO_BOS+_TOOLBOX
 
   #run the downloaded tool (for Linux version, delete the ".exe")
-  ./bos-toolbox.exe discover ARGUMENTS
+  ./bos-plus-toolbox.exe discover ARGUMENTS
 
 You can use the following **arguments** to adjust the process:
 
@@ -310,7 +310,7 @@ listen                                listen for incoming broadcast from devices
 
 ::
 
-  ./bos-toolbox.exe discover scan 10.10.10.0/24
+  ./bos-plus-toolbox.exe discover scan 10.10.10.0/24
 
 This command will scan the network, in the range 10.10.10.0 - 10.10.10.255 and list the found miners, with their IP addresses.
 
