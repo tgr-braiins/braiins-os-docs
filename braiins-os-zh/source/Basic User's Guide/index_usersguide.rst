@@ -137,7 +137,7 @@ LED灯闪烁（LED blinking）
     # clone repository
     git clone https://github.com/braiins/braiins-os.git
     
-    cd braiins-os
+    cd braiins-os/braiins-os/
     virtualenv --python=/usr/bin/python3 .env
     source .env/bin/activate
     python3 -m pip install -r requirements.txt
