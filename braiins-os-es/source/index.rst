@@ -79,7 +79,6 @@ Este lanzamiento mas que todo cubre asuntos encontrados por los usuarios, dificu
 
   * Antminer S9
 
-    * [característica] ahora se muestra el estado del ajuste en la GUI. Se añadió el comando API TUNERSTATUS.
     * [fallo] algunos dispositivos estaban experimentando bloqueos aleatorios de bus con el controlador I2C y fallaban en comunicarse a los controladores de energía conectados al bus I2C compartido. Hemos encontrado que la causa era el núcleo del controlador Xilinx I2C que integramos al flujo de bits de la FPGA. De momento hemos cambiado al I2C presente en el SoC y el flujo de bits solo envía la señal del periférico (IIC0) a los pines FPGA correspondientes.
 
 20.03
