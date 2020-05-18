@@ -11,14 +11,6 @@
 
 ---------------
 
-.. note::
-
-   Existe una nueva versión 20.04 disponible. Estamos trabajando en la traducción de la documentación 
-   a distintos idiomas. Solo la documentación en inglés se encuentra actualizada:
-   
-   * `Braiins OS+ <https://docs.braiins-os.com/plus-en/>`_
-   * `Braiins OS <https://docs.braiins-os.com/open-source-en/>`_
-
 ############
 Introducción
 ############
