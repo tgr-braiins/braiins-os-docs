@@ -140,7 +140,7 @@ Arguments                             Description
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
+  bos-plus-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
 
 This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
 
