@@ -56,31 +56,28 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Changelog
 *********
 
-20.03
+20.04
 ---------------------------
 
-Ver WHATSNEW.MD (Será publicado el 3/31 en github)
+Este lanzamiento mas que todo cubre asuntos encontrados por los usuarios, dificultades en la instalación/des-instalación y un problema mayor con el controlador I2C en las S9's. También tenemos versiones nightly que son fáciles de activar mediante la herramienta **bos**
 
-*******************
-Problemas Conocidos
-*******************
+  * Todos los tipos de hardware de minado
 
-A continuación se listan problemas que se sabe existen en la versión liberada.
+    * [característica] soporte a re-conexión - hemos implementado soporte a `client.reconnect` (stratum V1) y mensaje de re-conexión para V2
+    * [característica] proceso de instalación/des-instalación (o **upgrade2bos** y **restore2factory**) (transición desde firmware de fábrica a Braiins OS o viceversa mejorado
+    * [característica] un usuario de pool personalizado (`--pool-user`) se puede poner en la línea de comandos
+    * [característica] los ajustes de pool ahora se migran automáticamente desde firmware de fábrica a la configuración de BOSminer. Puede desactivar la migración especificando (`--no-keep-pools`)
+    * [característica] ahora proveemos una forma binaria de **upgrade2bos** (basada en pyinstaller) que contiene la última imagen de instalación Braiins OS
+    * [característica] similarmente, **restore2factory** (basado en pyinstaller) está ahora disponible en forma binaria y ya no requiere descargar/encontrar el firmware correcto de fábrica.
+    * [característica] el respaldo del firmware original que consume tiempo y espacio en disco ahora está deshabilitado por defecto (se puede activar con `--backup`)
+    * [característica] mantener el nombre de host al hacer la instalación por primera vez ahora se maneja con 2 opciones `--keep-hostname` y `--no-keep-hostname` permitiendo la generación del nombre de host basado en una dirección MAC
+    * [característica] soporte para activar/desactivar versiones nightly a sido integrado en la utilidad **bos** (y su contraparte **miner** heredada).
+    * [característica] el sistema ahora provee **registros** (logs) cubriendo **un mayor tiempo** de operación de **BOSminer** por la activación de **rotación de registro** y compresión de '/var/log/syslog.old' cuando es mayor a 32 KiB
+    * [fallo] la imagen de la tarjeta SD ahora contiene la autoridad de la llave pública que faltaba
+    * [fallo] la tasa de rechazo ahora se muestra correctamente
+    * [fallo] los mensajes stratum V1 desconocidos recibidos desde el servidor quedan ahora registrados para su diagnóstico
 
-20.03 (Actualizado 3/30/2020)
------------------------------
+  * Antminer S9
 
-  * GUI
-
-   * La linea de referencia en el gráfico tasa de hash tiene un valor incorrecto para el
-     promedio de tasa hash nominal. El problema solo aparece cuando hay menos de 3 cadenas
-     hash funcionando.
-   * La tasa de rechazo está multiplicada por 100. Por ejemplo cuando la tasa de rechazo es
-     0.1%, muestra entonces 10%.
-
-  * Configuración
-
-    * La instalación por tarjeta SD reportará una llave de autenticación Stratum V2 faltante en la
-      sección Miner/Configuration (Error: missing upstream authority key for securing stratum2+tcp
-      connection in pool"). El usuario puede configurar la conexión (incluyendo la llave) en la
-      configuración, o directamente en el archivo ``/etc/bosminer.toml``.
+    * [característica] ahora se muestra el estado del ajuste en la GUI. Se añadió el comando API TUNERSTATUS.
+    * [fallo] algunos dispositivos estaban experimentando bloqueos aleatorios de bus con el controlador I2C y fallaban en comunicarse a los controladores de energía conectados al bus I2C compartido. Hemos encontrado que la causa era el núcleo del controlador Xilinx I2C que integramos al flujo de bits de la FPGA. De momento hemos cambiado al I2C presente en el SoC y el flujo de bits solo envía la señal del periférico (IIC0) a los pines FPGA correspondientes.
