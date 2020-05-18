@@ -685,7 +685,7 @@ Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía S
   #también se puede conectar al minero y correr los comandos al mismo tiempo
   ssh root@DIRECCIÓN_IP "opkg update && opkg install bos_plus"
 
-Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a (1420W).
+Esto migrará la configuración y continuará minando sin necesidad de configurar nada.
 
 .. _opkg_factory_reset:
 
