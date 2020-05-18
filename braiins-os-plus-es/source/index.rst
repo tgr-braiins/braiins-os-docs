@@ -81,3 +81,41 @@ Este lanzamiento mas que todo cubre asuntos encontrados por los usuarios, dificu
 
     * [característica] ahora se muestra el estado del ajuste en la GUI. Se añadió el comando API TUNERSTATUS.
     * [fallo] algunos dispositivos estaban experimentando bloqueos aleatorios de bus con el controlador I2C y fallaban en comunicarse a los controladores de energía conectados al bus I2C compartido. Hemos encontrado que la causa era el núcleo del controlador Xilinx I2C que integramos al flujo de bits de la FPGA. De momento hemos cambiado al I2C presente en el SoC y el flujo de bits solo envía la señal del periférico (IIC0) a los pines FPGA correspondientes.
+
+20.03
+---------------------------
+
+  * Todos los tipos de hardware de minado
+
+    * [característica] el archivo de configuración permite especificar un límite de energía para la PSU en
+      el algoritmo de autoajuste que tomará en cuenta para maximizar los TH/W producidos por el dispositivo
+      de minado.
+
+  * Antminer S9
+
+    * [característica] Autoajuste basado en limite de energía especificado por el usuario
+
+*******************
+Problemas Conocidos
+*******************
+
+A continuación se listan problemas que se sabe existen en la versión liberada.
+
+20.03 (Actualizado 3/30/2020)
+-----------------------------
+
+  * GUI
+
+   * La linea de referencia en el gráfico tasa de hash tiene un valor incorrecto para el
+     promedio de tasa hash nominal. El problema solo aparece cuando hay menos de 3 cadenas
+     hash funcionando.
+   * La tasa de rechazo está multiplicada por 100. Por ejemplo cuando la tasa de rechazo es
+     0.1%, muestra entonces 10%.
+
+  * Configuración
+
+    * La instalación por tarjeta SD reportará una llave de autenticación Stratum V2 faltante en la
+      sección Miner/Configuration (Error: missing upstream authority key for securing stratum2+tcp
+      connection in pool"). El usuario puede configurar la conexión (incluyendo la llave) en la
+      configuración, o directamente en el archivo ``/etc/bosminer.toml``.
+      
