@@ -15,14 +15,6 @@
 Introducción
 ############
 
-.. note::
-
-   Existe una nueva versión 20.04 disponible. Estamos trabajando en la traducción de la documentación 
-   a distintos idiomas. Solo la documentación en inglés se encuentra actualizada:
-   
-   * `Braiins OS+ <https://docs.braiins-os.com/plus-en/>`_
-   * `Braiins OS <https://docs.braiins-os.com/open-source-en/>`_
-
 Braiins OS+ es un sistema operativo para mineros ASIC. Está basado en el producto `Braiins OS <https://braiins-os.com/community-edition>`_ y provee algoritmos adicionales propietarios para el autoajuste de
 mineros. Cuando un usuario provee el consumo máximo de energía permitido en Vatios, el sistema optimizará automáticamente el proceso de minado para maximisar la tasa de hash. Este proceso funciona a través de un amplio espectro de entradas, permitiendole optimizar la mejor eficiencia posible o la tasa de hash máxima basada en consideraciones económicas. Pruebas internas muestran que para el Antminer S9, es posible alcanzar una eficiencia de 70J/THs o incluso mejor para el ajuste de pocos Vatios. Para consumo alto de energía, la tasa de hash puede mejorar 20% (comparado al Antminer S9, de serie a 13.5 TH/s ~ 94J/TH).
 
