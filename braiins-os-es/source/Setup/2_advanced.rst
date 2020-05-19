@@ -680,7 +680,7 @@ Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía S
 ::
 
   opkg update
-  opkg install firmware
+  opkg install bos_plus
 
   #también se puede conectar al minero y correr los comandos al mismo tiempo
   ssh root@DIRECCIÓN_IP "opkg update && opkg install bos_plus"
