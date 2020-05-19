@@ -26,7 +26,7 @@ Braiins OS یک سیستم عامل کاملا متن باز برای ماینر
 
  * سیستم عامل متن باز
  * اجرای Stratum V2 با بازده اطلاعاتی بهبود یافته و جلوگیری از دزدی هش ریت
- * جایگزینی سی جی ماینر (ماینر BOS) که به زبان Rust از پایه نوشته شده
+ * جایگزینی CGminer (BOSminer) که به زبان Rust از پایه نوشته شده
  * آماده به کار شدن سریع سیستم ( ۵ تا ۷ ثانیه) 
  * بدون خرابی ناگهانی به دلایل نامعلوم
  * نصب جمعی و گروهی
@@ -56,27 +56,27 @@ Braiins OS یک سیستم عامل کاملا متن باز برای ماینر
 20.04
 ---------------------------
 
-This release covers mostly user facing issues, installation/deinstalation difficulties and 1 major problem with I2C controller on S9's. Also, we now have nightly builds that are easy to enable via **bos** tool.
+این نسخه انتشار بیشتر مشکلات کاربران را پوشش میدهد، سختی‌های نصب/حذف نصب و یک خطای اساسی مربوط به I2C Controller روی دستگاه‌های S9. همچنین اکنون نسخه‌های توسعه nightly به راحتی قابل فعالسازی از طریق ابزار **bos** هست.
 
-  * All mining hardware types
+  * مربوط به تمام نوع سخت افزارها
 
     * [feature] support for reconnect - we have implemented support for `client.reconnect` (stratum V1) and reconnect message for V2
-    * [feature] installation/deinstallation (aka **upgrade2bos** and **restore2factory**) process (transition from factory firmware to Braiins OS or vica versa) has been improved:
-    * [feature] custom pool user (`--pool-user`) can be set on command line
-    * [feature] pool settings from the factory firmware are now automatically being migrated to BOSminer configuration. Migration can be disabled by specifying (`--no-keep-pools`)
-    * [feature] we now provide binary form of **upgrade2bos** (based on pyinstaller) that contains the latest Braiins OS installation image
-    * [feature] similarly, **restore2factory** (based on pyinstaller) is now available in binary form and doesn't require any longer downloading/finding out the correct factory firmware.
-    * [feature] disk space and time consuming backup of the original firmware is now disabled by default (can be enabled by `--backup`)
-    * [feature] keeping host name while performing first time install is now driving by 2 options `--keep-hostname` and `--no-keep-hostname` allowing to force override and automatic hostname generation based on MAC address
-    * [feature] support for enabling/disabling nightly builds has been integrated into **bos** utility (and its legacy **miner** counterpart).
-    * [feature] system now provides **logs** covering **longer timespan** of **BOSminer** operation due to enabling **log rotation** and compression of '/var/log/syslog.old' when it is bigger than 32 KiB
-    * [bug] SD card image now contains slushpool authority public key that was missing
-    * [bug] rejection rate is now correctly being displayed
-    * [bug] unknown stratum V1 messages received from the server are now being logged for diagnostics
+    * [feature] روند نصب/حذف نصب (موسوم به **upgrade2bos** و **restore2factory** ) (انتقال از سیستم عامل کارخانه به سیستم عامل Braiins OS یا بالعکس) بهینه شده است:
+    * [feature] نام کاربری استخر سفارشی (`--pool-user`) میتواند از طریق خط فرمان تنظیم شود 
+    * [feature] اکنون تنظیمات استخر از سیستم عامل کارخانه به طور خودکار به پیکربندی BOSminer منتقل می شود. انتقال را با مشخص کردن می توان غیرفعال کرد (`--no-keep-pools`)
+    * [feature] ما اکنون فرم باینری از **upgrade2bos** را تامین کرده ایم (based on pyinstaller) که شامل آخرین ایمیج نصب Braiins OS است.
+    * [feature] به همین ترتیب، **restore2factory** در فرم باینری در دسترس است . دیگر نیازی دانلود/جستجوی نسخه صحیح فریم‌ور کارخانه نیست.
+    * [feature] فضای دیسک و زمان تهیه نسخه پشتیبان از فریم‌ور اصلی اکنون به طور پیش فرض غیرفعال است (میتوان با `--backup` فعال کرد )
+    * [feature] نگهداری host name همزمان با اجرای نصب برای اولین بار با دو گزینه انتخاب `--keep-hostname` و `--no-keep-hostname` اجازه رونویسی یا ایجاد hostname خودکار بر اساس آدرس MAC
+    * [feature] پشتیبانی از فعال/غیرفعال سازی نسخه‌های nightly در داخل **bos** ادغام شده است (and its legacy **miner** counterpart)
+    * [feature] سیستم اکنون **گزارشات** را در **مدت زمان طولانی تر** از عملکرد *BOSminer* را به دلیل **چرخش گزارشات** پوشش می دهد و عملیات فشرده سازی '/var/log/syslog.old' را وقتی بزرگتر از 32 کیلوبایت باشد انجام میدهد
+    * [bug] کارت حافظه SD اکتون شاکل کلید عمومی Slushpool است که وجود نداشت
+    * [bug] اکنون نرخ رد به درستی نمایش داده می شود
+    * [bug] پیام های ناشناخته V1 stratum دریافت شده از سرور اکنون برای تشخیص لاگ شده‌اند
 
   * Antminer S9
   
-    * [bug] some devices were experiencing random I2C controller bus lockups and would fail to communicate with hashboard power controllers connected to the shared I2C bus. We have found out that the cause was the Xilinx I2C controller core that we have integrated into the FPGA bitstream. We have switched to the I2C present in the SoC and the bitstream only routes the signal of the peripheral (IIC0) to corresponding FPGA pins.
+    * [bug] برخی از دستگاه ها در حال تجربه قفل شدن I2C controller bus به صورت تصادفی بودند و در برقراری ارتباط با پاور کنترل کننده های هشبورد متصل به I2C bus مشترک قادر به برقراری ارتباط نبودند. ما فهمیدیم که علت اصلی هسته کنترل کننده Xilinx I2C بود که ما در bitstream FPGA ادغام کرده‌ایم. ما به I2C موجود در SoC تغییر داده ایم و فقط جریان سیگنال محیطی (IIC0) را به پین های مربوط به FPGA هدایت می کند.
 
 
 20.03
