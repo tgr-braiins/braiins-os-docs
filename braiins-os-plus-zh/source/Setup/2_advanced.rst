@@ -684,7 +684,7 @@ OPKG包管理器
 ::
 
   opkg update
-  opkg install firmware
+  opkg install bos_plus
 
   #也可以用远程SSH连接您的矿机并运行:
   ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
