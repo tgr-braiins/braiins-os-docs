@@ -688,10 +688,10 @@ OPKG
 ::
 
   opkg update
-  opkg install firmware
+  opkg install bos_plus
 
   #همچنین میتوانید دستورات را همزمان با وصل شدن به ماینر اجرا کنید
-  ssh root@IP_ADDRESS "opkg update && opkg install firmware"
+  ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
 
 این امر تنظیمات را منتقل می کند و بدون نیاز به تنظیم چیزی ، به ماینینگ خود ادامه می دهد.
 
