@@ -699,7 +699,7 @@ OPKG
 ::
 
   opkg update
-  opkg install firmware
+  opkg install bos_plus
 
   #همچنین می توانید به Miner وصل شوید و همزمان دستورات را اجرا کنید
   ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
