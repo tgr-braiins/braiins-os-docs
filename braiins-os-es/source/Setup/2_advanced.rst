@@ -138,7 +138,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe install --batch listaDeMineros.csv --install-password clave
+  bos-toolbox.exe install --batch listaDeMineros.csv --install-password clave
 
 Este comando instalará Braiins OS en los mineros, que estén especificados en el archivo *listaDeMineros.csv*. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -189,7 +189,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe update --batch listaDeMineros.csv
+  bos-toolbox.exe update --batch listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -239,7 +239,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe uninstall --batch listaDeMineros.csv
+  bos-toolbox.exe uninstall --batch listaDeMineros.csv
 
 Este comando desinstalará Braiins OS de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
@@ -300,11 +300,11 @@ save_apply                            guardar y aplicar la configuración del ar
 
 ::
 
-  ./bos-toolbox.exe config --user root load listaDeMineros.csv
+  bos-toolbox.exe config --user root load listaDeMineros.csv
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  ./bos-toolbox.exe config --user root save_apply listaDeMineros.csv
+  bos-toolbox.exe config --user root save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros y la aplicará.
 
@@ -357,7 +357,7 @@ listen                                escuchar transmisión entrande desde los d
 
 ::
 
-  ./bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.exe discover scan 10.10.10.0/24
 
 Este comando va explorar la red, en el rango 10.10.10.0 - 10.10.10.255 y mostrará los mineros que encuentre con sus direcciones IP.
 
