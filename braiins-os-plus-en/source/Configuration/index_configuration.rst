@@ -274,10 +274,12 @@ Fan operation
 Tuning Adjustments
 ******************
 
-Tuning can be configured either via web GUI or in the configuration file ``/etc/bosminer.toml``.
+Tuning can be configured either via web GUI, using BOS+ Toolbox or in the configuration file ``/etc/bosminer.toml``.
 
 To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
 the *Autotuning* section.
+
+To make a configuration change on multiple devices using the **BOS+ Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
 
 To make a configuration change in the configuration file, connect to the miner via SSH and edit
 the file ``/etc/bosminer.toml``. The syntax is the following:
@@ -295,10 +297,51 @@ limit (in Watts) for three hashboards and the control board.
 Alternatively, it's possible to turn on autotuning automatically after the installation finishes
 specifying the ``--power-limit POWER_LIMIT``   argument in the installation command.
 
-In order to change power limit on multiple devices, you can use
-our configuration spreadsheet that will will generate commands for different use cases.
+*********************
+Dynamic Power Scaling
+*********************
 
-The spreadsheet is available `here <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+Dynamic Power Scaling automatically lowers the power limit of the miner by a user-set amount if the device reaches the *Hot Temperature*. Upon reaching the user-set minimal power limit, the miner shuts down in order to cool down. The miner starts to work on the original power limit again after a user-set period of time.
+
+Dynamic Power Scaling can be configured either via web GUI, using BOS+ Toolbox or in the configuration file ``/etc/bosminer.toml``.
+
+To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
+the *Dynamic Power Scaling* section.
+
+To make a configuration change on multiple devices using the **BOS+ Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
+
+To make a configuration change in the configuration file, connect to the miner via SSH and edit
+the file ``/etc/bosminer.toml``. The syntax is the following:
+
+  ::
+
+     [power_scaling]
+     enabled = false
+     power_step = 100
+     min_psu_power_limit = 800
+     shutdown_enabled = true
+     shutdown_duration = 3.0
+
+The *enabled* line can hold values *true* for enabled Dynamic Power Scaling, or *false* for disabled Dynamic Power Scaling.
+The *power_step* can hold numeric values (min. 100 and max. 1000), representing the power limit step-down (in Watts), which happens each time miner hits *HOT* temperature.
+The *min_psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the minimal PSU power limit for the Dynamyc Power Scaling. If *psu_power_limit* is at *min_psu_power_limit* level and miner is still *HOT* and *shutdown_enabled* is true, then miner is shut down for a period of time, defined in the *shutdown_duration* value (in hours). After that, miner is started but with the initial value of *psu_power_limit* (*PSU power limit* in the *Autotuning* section).
+
+************
+Auto-upgrade
+************
+
+When auto-upgrade is turned on, the machine will periodically check for a new version of Braiins OS+ and upgrade to it automatically when found. This feature is turned on by default after switching from stock firmware, but it has to be turned on manually if the user upgraded from an older version of Braiins OS or Braiins OS+.
+
+Auto-upgrade can be configured either via web GUI or using BOS+ Toolbox.
+
+To make a configuration change via web GUI, enter the *System -> Upgrade* menu and edit
+the *System Upgrade* section.
+
+To make a configuration change on multiple devices using the **BOS+ Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
+
+Alternatively, it's possible to turn **off** auto-upgrade during the installation by specifying the ``--no-auto-upgrade``   argument in the installation command.
+
+**Note:** The auto-upgrade feature has a time-randomization implemented in order to prevent high bandwidth load on farms. That means that the devices won't all upgrade at the same time. Auto-upgrade checks for new version three times a day.
 
 ************
 SSH password

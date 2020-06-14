@@ -50,6 +50,14 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
   * Usando la Caja de herramientas BOS+ (:ref:`bosbox_uninstall`)
   * Usando scripts SSH (:ref:`ssh_package_uninstall`)
 
+ * Encender/apagar alimentaciones nocturnas
+
+  * Usando la herramienta "miner" (:ref:`miner_nightly`)
+
+ * Encender/apagar auto-actualizar
+
+  * Usando la herramienta "miner" (:ref:`miner_autoupgrade`)
+
 .. _bosbox:
 
 *************************
@@ -140,7 +148,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-plus-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
+  ./bos-plus-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -191,7 +199,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-plus-toolbox.exe update --batch listaDeMineros.csv
+  ./bos-plus-toolbox.exe update --batch listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -241,7 +249,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-plus-toolbox.exe uninstall --batch listaDeMineros.csv
+  ./bos-plus-toolbox.exe uninstall --batch listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
@@ -302,11 +310,11 @@ save_apply                            guardar y aplicar la configuración del ar
 
 ::
 
-  bos-plus-toolbox.exe config --user root load listaDeMineros.csv
+  ./bos-plus-toolbox.exe config --user root load listaDeMineros.csv
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  bos-plus-toolbox.exe config --user root save_apply listaDeMineros.csv
+  ./bos-plus-toolbox.exe config --user root save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros y la aplicará.
 
@@ -359,7 +367,7 @@ listen                                escuchar transmisión entrande desde los d
 
 ::
 
-  bos-plus-toolbox.exe discover scan 10.10.10.0/24
+  ./bos-plus-toolbox.exe discover scan 10.10.10.0/24
 
 Este comando va explorar la red, en el rango 10.10.10.0 - 10.10.10.255 y mostrará los mineros que encuentre con sus direcciones IP.
 
@@ -680,7 +688,7 @@ Esto migrará la configuración y continuará minando sin necesidad de configura
 Cambiar a Braiins OS+ desde otras versiones usando OPKG
 =======================================================
 
-Con OPKG puede facilmente cambiar a Braiins OS+, conectándose al minero vía SSH y usando los siguientes comandos:
+Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía SSH y usando los siguientes comandos:
 
 ::
 
@@ -882,3 +890,35 @@ Puede conseguir un dispositivo encendiendo el parpadeo LED, usando la *herramien
 
     #apagar parpadeo LED
     miner fault_light off
+
+.. _miner_nightly:
+
+====================================================================
+Encender/apagar alimentaciones nocturnas usando la herramienta Miner
+====================================================================
+
+Puede encender las alimentaciones Nocturnas para poder actualizar a las últimas versiones nocturnas. Estas versiones son para arreglar problemas cruciales tan rápido como sea posible y por ello, no se hacen pruebas a fondo en estas versiones. Use estas versiones con precaución y solo si resuelve sus problemas. Para poder encender/apagar las alimentaciones nocturnas, use el siguiente comando:
+
+  ::
+
+    #encender alimentaciones nocturnas
+    miner nightly_feeds on
+
+    #apagar alimentaciones nocturnas
+    miner nightly_feeds off
+
+.. _miner_autoupgrade:
+
+===========================================================
+Encender/apagar auto-actualizar usando la herramienta Miner
+===========================================================
+
+Puede encender la característica de auto-actualizar, que actualizará el sistema automáticamente a la última versión. Esta característica está **encendida** por defecto, en transición desde un firmware **de serie** y **apagada** al actualizar desde versiones anteriores de **Braiins OS** o **Braiins OS+**. Para poder encender/apagar auto-actualizar, use el siguiente comando:
+
+  ::
+
+    #encender auto-actualizar
+    miner auto_upgrade on
+
+    #apagar auto-actualizar
+    miner auto_upgrade off

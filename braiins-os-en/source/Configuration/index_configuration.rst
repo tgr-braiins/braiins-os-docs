@@ -270,6 +270,21 @@ Fan operation
      shuts down (even in “fixed fan speed” mode).
 
 ************
+Auto-upgrade
+************
+
+When auto-upgrade is turned on, the machine will periodically check for a new version of Braiins OS and upgrade to it automatically when found. This feature is turned on by default after switching from stock firmware, but it has to be turned on manually if the user upgraded from an older version of Braiins OS or Braiins OS+.
+
+Auto-upgrade can be configured either via web GUI or using BOS Toolbox.
+
+To make a configuration change via web GUI, enter the *System -> Upgrade* menu and edit
+the *System Upgrade* section.
+
+To make a configuration change on multiple devices using the **BOS Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
+
+**Note:** The auto-upgrade feature has a time-randomization implemented in order to prevent high bandwidth load on farms. That means that the devices won't all upgrade at the same time. Auto-upgrade checks for new version three times a day.
+
+************
 SSH password
 ************
 

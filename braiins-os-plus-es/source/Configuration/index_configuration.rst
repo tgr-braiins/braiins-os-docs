@@ -230,9 +230,11 @@ Operación de ventilador
 Ajustes de Afinación
 ********************
 
-La afinación se puede configurar tanto vía web GUI o en el archivo de configuración ``/etc/bosminer.toml``.
+La afinación se puede configurar tanto vía web GUI, usando la Caja de Herramientas BOS+ o en el archivo de configuración ``/etc/bosminer.toml``.
 
 Para hacer un cambio a la configuración vía web GUI, entre al menú *Miner -> Configuration* y edite la sección *Autotuning*.
+
+Para hacer un cambio de configuración en múltiples dispositivos usando la **Caja de Herramientas BOS+**, siga los pasos en la sección :ref:`bosbox_configure`.
 
 Para hacer un cambio a la configuración en el archivo de configuración, conéctese al minero vía SSH y edite el archivo ``/etc/bosminer.toml``. La sintaxis es la siguiente:
 
@@ -246,9 +248,46 @@ La línea *enabled* puede contener los valores *true* (verdad) para activar el a
 
 Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la instalación especificando el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación.
 
-Para cambiar el límite de energía en múltiples dispositivos, puede usar nuestra configuración de hoja de cálculo que le va generar comandos para diferentes casos de uso.
+********************************
+Escalamiento de Energía Dinámico
+********************************
 
-La hoja de cálculo está disponible `aquí <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_
+El Escalamiento de Energía Dinámico baja el limite de energía (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite de energía mínimo, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de energía original luego de un período de tiempo definido por el usuario.
+
+El Escalamiento de Energía Dinámico puede configurarse vía web GUI, usando la Caja de Herramientas BOS+ o en el archivo de configuración ``/etc/bosminer.toml``.
+
+Para hacer un cambio a la configuración vía web GUI, entre en el menú *Miner -> Configuration* y edite la sección *Dynamic Power Scaling*.
+
+Para hacer un cambio a la configuración en múltiples dispositivos usando la **Caja de Herramientas BOS+**, siga los pasos en la sección :ref:`bosbox_configure`.
+
+Para hacer un cambio en el archivo de configuración, conéctese el aminero vía SSH y edite el archivo ``/etc/bosminer.toml``. La sintaxis es la siguiente:
+
+  ::
+
+     [power_scaling]
+     enabled = false
+     power_step = 100
+     min_psu_power_limit = 800
+     shutdown_enabled = true
+     shutdown_duration = 3.0
+
+La línea *enabled* puede tener los valores *true* para activar el Escalamiento de Energía Dinámico, o *false* para desactivar el Escalamiento de Energía Dinámico.
+El *power_step* puede tener valores numéricos (min. 100 y max. 1000), representando el escalón para bajar el límite de energía (powerlimit) en vatios (Watts), que ocurre cada vez que el minero alcance la *HOT* temperature (temperatura caliente).
+El *min_psu_power_limit* puede tener valores numéricos (min. 100 y max. 5000), representando el límite mínimo de la fuente para el Escalamiento de Energía Dinámico. Si *psu_power_limit* está en el nivel *min_psu_power_limit* y el minero sigue *HOT* (caliente) y *shutdown_enabled* es true (verdadero), entonces el minero se apaga por un período de tiempo, definido en el valor *shutdown_duration* (duración de apagado) (en horas). Luego de eso, el minero es iniciado pero con el valor inicial de *psu_power_limit* (*PSU power limit* en la sección *Autotuning*) (autoajuste).
+
+***************
+Auto-actualizar
+***************
+
+Mientras auto-actualizar esté encendido, La máquina revisará periódicamente si hay una nueva versión de Braiins OS+ y actualizará a ella automáticamente cuando la encuentre. Esta característica se enciende por defecto al cambiar desde el firmware de fábrica, pero debe ser encendida manualmente al actualizar desde versiones anteriores de Braiins OS o Braiins OS+.
+
+Auto-actualizar puede configurarse tanto vía web GUI o usando la Caja de Herramientas BOS+.
+
+Para hacer un cambio a la configuración vía web GUI, entre en el menú *System -> Upgrade* y edite la sección *System Upgrade*.
+
+Para hacer un cambio ala configuración en múltiples dispositivos  usando la **Caja de Herramientas BOS+**, siga los pasos en la sección :ref:`bosbox_configure`.
+
+Alternativamente, es posible **apagar** auto-actualizar durante la instalación especificando el argumento ``--no-auto-upgrade`` en el comando de instalación.
 
 ************
 Password SSH

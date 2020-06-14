@@ -36,6 +36,7 @@ Features
  * Automatic updates with the standard opkg system
  * Fully customizable fan control (enables immersion cooling)
  * Advanced monitoring to prevent overheating and other issues
+ * Auto-upgrade mechanism
 
 *******************
 Support and Contact
@@ -55,6 +56,27 @@ Join our Telegram group:
 *********
 Changelog
 *********
+
+20.06
+---------------------------
+
+This release aims to improve the usability of Braiins OS and BOS Toolbox by implementing new features and fixing the most critical issues.
+
+  * All mining hardware types
+
+    * [workaround] Support for yiimp based pools (e.g. prohashing) that incorrectly send a version rolling mask starting with '0x', which doesn't comply with the BIP-310 specification
+    * [feature] Support stratum V1 passwords since they are used by some pools for algorithm switching and other hacks
+    * [feature] Implementation of auto-upgrade mechanism. The machine will periodically check for a new version of Braiins OS and upgrade to it automatically when found. This feature is turned on by default when switching from stock firmware, but it has to be turned on manually when upgrading from an older version of Braiins OS
+    * [feature] Improved system logging with the implementation of logrotate. System logs are now automatically compressed and saved on the NAND of the device which allows longer logs to be stored
+    * [feature] Updated BOS Toolbox, which can now run custom commands in batch
+    * [bug] NAND install from an SD card now properly migrates the configuration from the SD card, instead of from the old system on the NAND
+    * [bug] Fixed the issue with *bosminer.toml* being empty when the miner is turned off before the system flushes the buffer
+    * [bug] IP report button now works correctly
+
+  * Antminer S9
+
+    * [feature] We have switched back to Xilinx I2C IP core for communication with voltage controllers and extended it with glitch filtering for noisy environments
+    * [feature] UART Rx line for communicating with hashing chips has been extended with glitch filtering
 
 20.04
 ---------------------------
