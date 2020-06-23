@@ -49,6 +49,18 @@
  
   * 使用BOS+工具箱 （:ref:`bosbox_uninstall`）
   * 使用SSH脚本 （:ref:`ssh_package_uninstall`）
+  
+ * 开启/关闭预先发行版（Nightly Version）推送
+
+  * 使用矿机工具（Miner tool） (:ref:`miner_nightly`)
+
+ * 开启/关闭自动更新
+
+  * 使用矿机工具（Miner tool） (:ref:`miner_autoupgrade`)
+
+ * 在矿机上运行自定义Shell命令
+
+  * 使用BOS+工具箱 (:ref:`bosbox_command`)
 
 .. _bosbox:
 
@@ -56,7 +68,7 @@
 BOS+工具箱
 ***************
 
-BOS+工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
+BOS+工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+，并在矿机上运行自定义命令。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
 
 =====
 如何使用
@@ -74,6 +86,7 @@ BOS+工具箱的特性及优缺点
   + 远程升级Braiins OS+
   + 远程卸载Braiins OS+ 
   + 远程配置Braiins OS+
+  + 在矿机上运行自定义命令
   + 扫描网络中的矿机
   + 安装Braiins OS+时默认自动转移原厂固件中的配置（也可以设置不转移）
   + 卸载Braiins OS+时默认自动转移现有配置到原厂固件（也可以设置不转移）
@@ -123,6 +136,7 @@ BOS+工具箱的特性及优缺点
 -h, --help                            显示帮助信息并退出
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 --backup                              在进行升级前备份矿机
+--no-auto-upgrade                     关闭固件自动更新
 --no-nand-backup                      跳过对矿机内置储存NAND的备份（仍备份矿机配置）
 --pool-user [POOL_USER]               为默认矿池设置用户名（Username）和矿工名（Workername）
 --psu-power-limit [PSU_POWER_LIMIT]   设置（以瓦为单位）的电源功率限制
@@ -233,6 +247,7 @@ BOS+工具箱的特性及优缺点
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
+--install-password INSTALL_PASSWORD   用于安装的SSH密码
 --factory-image FACTORY_IMAGE         指定原厂更新固件文件路径或URL地址（默认是：
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
                                       NF.tar.gz）
@@ -260,6 +275,7 @@ BOS+工具箱的特性及优缺点
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
+
 
     在 **Windows** 上的命令提示行请用： ::
 
@@ -326,6 +342,7 @@ save_apply                            保存并应用之前从CSV文件复制（
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
+
     在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe discover ARGUMENTS
@@ -353,15 +370,83 @@ save_apply                            保存并应用之前从CSV文件复制（
 ====================================  ============================================================
 scan                                  主动扫描提供的IP地址范围
 listen                                监听矿机识别广播（当按下IP report键时）
+
 ====================================  ============================================================
 
 **网络扫描和矿机发现命令和参数使用示例如下：**
 
 ::
 
+   #scan the network, in the range 10.10.10.0 - 10.10.10.255
   bos-plus-toolbox.exe discover scan 10.10.10.0/24
 
-解释：上方的命令和参数，会扫描从10.10.10.0到10.10.10.255这个范围的IP地址，并列出找到的矿机及其相应的IP地址。
+  #scan the network, in the range 10.10.0.0 - 10.10.255.255
+  bos-plus-toolbox.exe discover scan 10.10.0.0/16
+
+  #scan the network, in the range 10.0.0.0 - 10.255.255.255
+  bos-plus-toolbox.exe discover scan 10.0.0.0/8
+
+.. _bosbox_command:
+
+================================================
+Run custom commands on miners using BOS+ Toolbox
+================================================
+
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. **Use only one IP address per line!** (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
+  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+
+      cd FILE_PATH_TO_BOS+_TOOLBOX
+
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+
+
+    For **Windows** command terminal: ::
+
+      bos-plus-toolbox.exe command ARGUMENTS TABLE COMMAND
+
+    For **Linux** command terminal: ::
+      
+      ./bos-plus-toolbox command ARGUMENTS TABLE COMMAND
+      
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox
+
+You can use the following **arguments** to adjust the process:
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+-a, --auto                            Use ssh if rpc is not available
+-l, --legacy                          Use ssh
+-L, --no-legacy                       Use rpc
+-o, --output                          Capture and print remote output
+-O, --output-hostname                 Capture and print remote output
+-p PASSWORD, --password PASSWORD      Administration password
+-j JOBS, --jobs JOBS                  number of concurrent jobs
+====================================  ============================================================
+
+You **have to use one** of the following **command** to adjust the process:
+
+====================================  ============================================================
+Commands                              Description
+====================================  ============================================================
+start                                 Start BOSminer
+stop                                  Stop BOSminer
+*custom_shell_command*                Replace *custom_shell_command* with your own shell command 
+                                      (e.g. *cat /etc/bosminer.toml* to show the content 
+                                      of the *bosminer.toml* configuration file)
+====================================  ============================================================
+
+**Example:**
+
+::
+
+  #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
+  bos-plus-toolbox.exe command -o list.csv stop
 
 .. _web_package:
 
@@ -865,7 +950,7 @@ BOS到BOS（Bos2Bos）脚本
 
   ::
 
-    miner nand_install
+    miner factory_reset
 
 .. _miner_detect:
 
@@ -882,4 +967,37 @@ BOS到BOS（Bos2Bos）脚本
 
     #关闭LED闪烁
     miner fault_light off
+    
+.. _miner_nightly:
+
+==============================================
+Turn on/off Nightly feeds using the Miner tool
+==============================================
+
+You can turn on Nightly feeds to get updated to the latest nightly builds. These builds aim to fix crucial issues as fast as possible and, because of that, they are not tested as thoroughly as major releases before being published. Use these builds with caution and only if it solves your issues. In order to turn on/off the nightly feeds, use the following command:
+
+  ::
+
+    #turn on nightly feeds
+    miner nightly_feeds on
+
+    #turn off nightly feeds
+    miner nightly_feeds off
+
+.. _miner_autoupgrade:
+
+=============================================
+Turn on/off auto-upgrade using the Miner tool
+=============================================
+
+You can turn on the auto-upgrade feature, which will automatically upgrade the system to the latest version. This feature is **turned on** by default after transitioning from a **stock** firmware and **turned off** by default after upgrading from older versions of **Braiins OS** or **Braiins OS+**. In order to manually turn on/off auto-upgrade, use the following command:
+
+  ::
+
+    #turn on auto-upgrade
+    miner auto_upgrade on
+
+    #turn off auto-upgrade
+    miner auto_upgrade off
+
     
