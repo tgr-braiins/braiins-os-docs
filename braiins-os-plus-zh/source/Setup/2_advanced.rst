@@ -336,7 +336,7 @@ save_apply                            保存并应用之前从CSV文件复制（
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
@@ -377,75 +377,75 @@ listen                                监听矿机识别广播（当按下IP rep
 
 ::
 
-   #scan the network, in the range 10.10.10.0 - 10.10.10.255
+  #扫描从10.10.10.0到10.10.10.255的网络范围
   bos-plus-toolbox.exe discover scan 10.10.10.0/24
 
-  #scan the network, in the range 10.10.0.0 - 10.10.255.255
+  #扫描从10.10.0.0到10.10.255.255的网络范围
   bos-plus-toolbox.exe discover scan 10.10.0.0/16
 
-  #scan the network, in the range 10.0.0.0 - 10.255.255.255
+  #扫描从10.10.0.0到10.255.255.255的网络范围
   bos-plus-toolbox.exe discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
 ================================================
-Run custom commands on miners using BOS+ Toolbox
+使用BOS+工具箱在矿机上运行自定义命令
 ================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. **Use only one IP address per line!** (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
 
-    For **Windows** command terminal: ::
+    在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe command ARGUMENTS TABLE COMMAND
 
-    For **Linux** command terminal: ::
+    在 **Linux** 上的Terminal控制终端请用： ::
       
       ./bos-plus-toolbox command ARGUMENTS TABLE COMMAND
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+您可以使用下方的 **参数** 调整矿机运行自定义命令的进程：
 
 ====================================  ============================================================
-Arguments                             Description
+参数                                   描述
 ====================================  ============================================================
--h, --help                            show this help message and exit
--a, --auto                            Use ssh if rpc is not available
--l, --legacy                          Use ssh
--L, --no-legacy                       Use rpc
--o, --output                          Capture and print remote output
--O, --output-hostname                 Capture and print remote output
--p PASSWORD, --password PASSWORD      Administration password
--j JOBS, --jobs JOBS                  number of concurrent jobs
-====================================  ============================================================
-
-You **have to use one** of the following **command** to adjust the process:
-
-====================================  ============================================================
-Commands                              Description
-====================================  ============================================================
-start                                 Start BOSminer
-stop                                  Stop BOSminer
-*custom_shell_command*                Replace *custom_shell_command* with your own shell command 
-                                      (e.g. *cat /etc/bosminer.toml* to show the content 
-                                      of the *bosminer.toml* configuration file)
+-h, --help                            显示帮助信息并退出
+-a, --auto                            若RPC不可用的话则使用SSH
+-l, --legacy                          使用SSH
+-L, --no-legacy                       使用RPC
+-o, --output                          捕获并打印远程输出
+-O, --output-hostname                 捕获并打印远程输出某个Hostname
+-p PASSWORD, --password PASSWORD      密码管理
+-j JOBS, --jobs JOBS                  当前工作数量
 ====================================  ============================================================
 
-**Example:**
+您必须 **至少选择使用** 下方的 **命令** 中的一个来调整矿机运行自定义命令的进程：
+
+====================================  ============================================================
+命令                                   描述
+====================================  ============================================================
+start                                 启动BOSminer
+stop                                  关闭BOSminer
+*custom_shell_command*                使用您自己的Shell命令，替换 *custom_shell_command*
+                                      （例如用 *cat /etc/bosminer.toml* 命令
+                                      显示 *bosminer.toml* 配置文件的内容）
+====================================  ============================================================
+
+**矿机运行自定义命令的命令和参数使用示例如下：**
 
 ::
 
-  #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
+  #关闭BOSminer, 有效地停止挖矿并将电能消耗降到最低
   bos-plus-toolbox.exe command -o list.csv stop
 
 .. _web_package:
@@ -974,30 +974,30 @@ BOS到BOS（Bos2Bos）脚本
 使用矿机工具（Miner tool）开启/关闭预先发行版（Nightly Version）推送
 ==============================================
 
-You can turn on Nightly feeds to get updated to the latest nightly builds. These builds aim to fix crucial issues as fast as possible and, because of that, they are not tested as thoroughly as major releases before being published. Use these builds with caution and only if it solves your issues. In order to turn on/off the nightly feeds, use the following command:
+预先发行版旨在最快能修复固件的一些关键问题，因此它在发布前不会像正式版那样经过全面测试。使用以下命令，您就可以通过 *矿机工具（Miner tool）* 开启或关闭最新的预先发行版更新推送：
 
   ::
 
-    #turn on nightly feeds
+    #开启预先发行版推送
     miner nightly_feeds on
 
-    #turn off nightly feeds
+    #关闭预先发行版推送
     miner nightly_feeds off
 
 .. _miner_autoupgrade:
 
 =============================================
-使用矿机工具（Miner tool）开启/关闭固件自动更新
+使用矿机工具（Miner tool）开启/关闭自动更新
 =============================================
 
-You can turn on the auto-upgrade feature, which will automatically upgrade the system to the latest version. This feature is **turned on** by default after transitioning from a **stock** firmware and **turned off** by default after upgrading from older versions of **Braiins OS** or **Braiins OS+**. In order to manually turn on/off auto-upgrade, use the following command:
+您可以通过开启自动更新这一特性，让矿机固件自动升级到最新的系统版本。这一特性在从 **原厂** 固件切换到Braiins OS+时是默认 **开启** 的，从 **Braiins OS** 或 **Braiins OS+** 的旧版本升级的情况下是默认 **关闭** 的。使用以下命令，您就可以通过 *矿机工具（Miner tool）* 开启/关闭固件自动更新：
 
   ::
 
-    #turn on auto-upgrade
+    #开启自动更新
     miner auto_upgrade on
 
-    #turn off auto-upgrade
+    #关闭自动更新
     miner auto_upgrade off
 
     
