@@ -72,7 +72,7 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
     * 【BUG修复】使用SD卡方式安装映像刷矿机内置储存NAND时，现已能正确地从SD卡上迁移配置，而不是从内置储存NAND上的旧系统。
     * 【BUG修复】修复了在系统刷新缓冲区前关闭矿机时 *bosminer.toml* 文件为空的问题
     * 【BUG修复】IP Report按钮能正常使用了
-    * 【特性】自动调整子系统现已可以保存性能配置文件到/etc/bosminer-autotune.json中。性能配置文件在每个功率等级及Board Index都会进行记录。 The performance profiles are recorded for each power level and board index
+    * 【特性】自动调整子系统现已可以保存性能配置文件到/etc/bosminer-autotune.json文件中。性能配置文件在每个功率等级，对每个编号的算力板都会进行记录
     * 【特性】动态功率调节现能在矿机达到用户设定的 *过热温度（Hot Tempreture）* 的情况下，自动降低矿机的功率限值。一旦达到最小功率限值，矿机将关机冷却。矿机将在用户设定的一段时间后，自动重启并恢复到原工作功率限值挖矿。
 
   * 在蚂蚁矿机S9上
