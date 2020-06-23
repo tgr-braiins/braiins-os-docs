@@ -971,7 +971,7 @@ BOS到BOS（Bos2Bos）脚本
 .. _miner_nightly:
 
 ==============================================
-Turn on/off Nightly feeds using the Miner tool
+使用矿机工具（Miner tool）开启/关闭预先发行版（Nightly Version）推送
 ==============================================
 
 You can turn on Nightly feeds to get updated to the latest nightly builds. These builds aim to fix crucial issues as fast as possible and, because of that, they are not tested as thoroughly as major releases before being published. Use these builds with caution and only if it solves your issues. In order to turn on/off the nightly feeds, use the following command:
@@ -987,7 +987,7 @@ You can turn on Nightly feeds to get updated to the latest nightly builds. These
 .. _miner_autoupgrade:
 
 =============================================
-Turn on/off auto-upgrade using the Miner tool
+使用矿机工具（Miner tool）开启/关闭固件自动更新
 =============================================
 
 You can turn on the auto-upgrade feature, which will automatically upgrade the system to the latest version. This feature is **turned on** by default after transitioning from a **stock** firmware and **turned off** by default after upgrading from older versions of **Braiins OS** or **Braiins OS+**. In order to manually turn on/off auto-upgrade, use the following command:
