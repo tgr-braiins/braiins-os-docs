@@ -49,6 +49,18 @@
  
   * 使用BOS工具箱 （:ref:`bosbox_uninstall`）
   * 使用SSH脚本 （:ref:`ssh_package_uninstall`）
+  
+ * 开启/关闭预先发行版（Nightly Version）推送
+
+  * 使用矿机工具（Miner tool） (:ref:`miner_nightly`)
+
+ * 开启/关闭自动更新
+
+  * 使用矿机工具（Miner tool） (:ref:`miner_autoupgrade`)
+
+ * 在矿机上运行自定义Shell命令
+
+  * 使用BOS+工具箱 (:ref:`bosbox_command`)
 
 .. _bosbox:
 
@@ -56,7 +68,7 @@
 BOS工具箱
 ***************
 
-BOS工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
+BOS工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+，并在矿机上运行自定义命令。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。  
 
 =====
 如何使用
@@ -74,6 +86,7 @@ BOS工具箱的特性及优缺点
   + 远程升级Braiins OS
   + 远程卸载Braiins OS 
   + 远程配置Braiins OS
+  + 在矿机上运行自定义命令
   + 扫描网络中的矿机
   + 安装Braiins OS时默认自动转移原厂固件中的配置（也可以设置不转移）
   + 卸载Braiins OS时默认自动转移现有配置到原厂固件（也可以设置不转移）
@@ -122,6 +135,7 @@ BOS工具箱的特性及优缺点
 -h, --help                            显示帮助信息并退出
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 --backup                              在进行升级前备份矿机
+--no-auto-upgrade                     关闭固件自动更新
 --no-nand-backup                      跳过对矿机内置储存NAND的备份（仍备份矿机配置）
 --pool-user [POOL_USER]               为默认矿池设置用户名（Username）和矿工名（Workername）
 --no-keep-network                     不保留（转移）矿机的原网络配置（在使用DHCP自动分配IP的情况下）
@@ -231,6 +245,7 @@ BOS工具箱的特性及优缺点
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
+--install-password INSTALL_PASSWORD   用于安装的SSH密码
 --factory-image FACTORY_IMAGE         指定原厂更新固件文件路径或URL地址（默认是：
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
                                       NF.tar.gz）
@@ -357,9 +372,76 @@ listen                                监听矿机识别广播（当按下IP rep
 
 ::
 
+  #扫描从10.10.10.0到10.10.10.255的网络范围
   bos-toolbox.exe discover scan 10.10.10.0/24
 
-解释：上方的命令和参数，会扫描从10.10.10.0到10.10.10.255这个范围的IP地址，并列出找到的矿机及其相应的IP地址。
+  #扫描从10.10.0.0到10.10.255.255的网络范围
+  bos-toolbox.exe discover scan 10.10.0.0/16
+
+  #扫描从10.10.0.0到10.255.255.255的网络范围
+  bos-toolbox.exe discover scan 10.0.0.0/8
+  
+  .. _bosbox_command:
+
+================================================
+使用BOS工具箱在矿机上运行自定义命令
+================================================
+
+  * 在我们 `官网 <https://zh.braiins-os.com/open-source/download>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+
+      cd FILE_PATH_TO_BOS_TOOLBOX
+
+  * 然后根据您的操作系统，运行以下相应的命令：
+
+
+    在 **Windows** 上的命令提示行请用： ::
+
+      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
+
+    在 **Linux** 上的Terminal控制终端请用： ::
+      
+      ./bos-toolbox command ARGUMENTS TABLE COMMAND
+      
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
+  
+      chmod u+x ./bos-toolbox
+
+您可以使用下方的 **参数** 调整矿机运行自定义命令的进程：
+
+====================================  ============================================================
+参数                                   描述
+====================================  ============================================================
+-h, --help                            显示帮助信息并退出
+-a, --auto                            若RPC不可用的话则使用SSH
+-l, --legacy                          使用SSH
+-L, --no-legacy                       使用RPC
+-o, --output                          捕获并打印远程输出
+-O, --output-hostname                 捕获并打印远程输出某个Hostname
+-p PASSWORD, --password PASSWORD      密码管理
+-j JOBS, --jobs JOBS                  当前工作数量
+====================================  ============================================================
+
+您必须 **至少选择使用** 下方的 **命令** 中的一个来调整矿机运行自定义命令的进程：
+
+====================================  ============================================================
+命令                                   描述
+====================================  ============================================================
+start                                 启动BOSminer
+stop                                  关闭BOSminer
+*custom_shell_command*                使用您自己的Shell命令，替换 *custom_shell_command*
+                                      （例如用 *cat /etc/bosminer.toml* 命令
+                                      显示 *bosminer.toml* 配置文件的内容）
+====================================  ============================================================
+
+**矿机运行自定义命令的命令和参数使用示例如下：**
+
+::
+
+  #关闭BOSminer, 有效地停止挖矿并将电能消耗降到最低
+  bos-toolbox.exe command -o list.csv stop
 
 .. _web_package:
 
@@ -877,3 +959,35 @@ BOS到BOS（Bos2Bos）脚本
 
     #关闭LED闪烁
     miner fault_light off
+    
+    .. _miner_nightly:
+
+==============================================
+使用矿机工具（Miner tool）开启/关闭预先发行版（Nightly Version）推送
+==============================================
+
+预先发行版旨在最快能修复固件的一些关键问题，因此它在发布前不会像正式版那样经过全面测试。使用以下命令，您就可以通过 *矿机工具（Miner tool）* 开启或关闭最新的预先发行版更新推送：
+
+  ::
+
+    #开启预先发行版推送
+    miner nightly_feeds on
+
+    #关闭预先发行版推送
+    miner nightly_feeds off
+
+.. _miner_autoupgrade:
+
+=============================================
+使用矿机工具（Miner tool）开启/关闭自动升级
+=============================================
+
+您可以通过开启自动升级这一特性，让矿机固件自动升级到最新的系统版本。这一特性在从 **原厂** 固件切换到Braiins OS+时是默认 **开启** 的，从 **Braiins OS** 或 **Braiins OS+** 的旧版本升级的情况下是默认 **关闭** 的。使用以下命令，您就可以通过 *矿机工具（Miner tool）* 开启/关闭固件自动升级：
+
+  ::
+
+    #开启自动升级
+    miner auto_upgrade on
+
+    #关闭自动升级
+    miner auto_upgrade off
