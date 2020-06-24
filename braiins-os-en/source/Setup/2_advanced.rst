@@ -385,30 +385,30 @@ listen                                listen for incoming broadcast from devices
 .. _bosbox_command:
 
 ================================================
-Run custom commands on miners using BOS+ Toolbox
+Run custom commands on miners using BOS Toolbox
 ================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox command ARGUMENTS TABLE COMMAND
+      ./bos-toolbox command ARGUMENTS TABLE COMMAND
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -442,7 +442,7 @@ stop                                  Stop BOSminer
 ::
 
   #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
-  bos-plus-toolbox.exe command -o list.csv stop
+  bos-toolbox.exe command -o list.csv stop
 
 .. _web_package:
 
