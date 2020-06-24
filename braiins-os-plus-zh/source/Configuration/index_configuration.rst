@@ -1,3 +1,6 @@
+
+.. _configuration:
+
 ####################
 配置（Configuration）
 ####################
@@ -244,9 +247,11 @@
 调节自动调整（Tuning Adjustments）
 ********************************
 
-自动调整功能可以通过矿机网页界面或 ``/etc/bosminer.toml`` 配置文档进行配置。
+自动调整功能可以通过矿机网页界面，BOS+工具箱或 ``/etc/bosminer.toml`` 配置文档进行配置。
 
 调节自动调整功能，可以在矿机网页界面目录 *Miner（矿机） -> Configuration（配置）* 页面中的Autotuning （自动调整功能）部分进行。
+
+批量调节多个设备，可以使用 **BOS+工具箱** ，请参见 :ref:`bosbox_configure` 部分的操作。
 
 使用SSH远程连接矿机，也可以用更改配置文件的办法，对 ``/etc/bosminer.toml`` 文件进行编辑。句法示例如下：
 
@@ -261,9 +266,48 @@
 
 此外，在固件安装完成后，在安装命令行使用 ``--power-limit POWER_LIMIT`` 参数，指定自动调整功能自动运行也是可行的。
 
-如需同时调整多台矿机上的电源功率限值，您可以使用下面这个配置表格，生成不同情况下会用到的不同命令。
+*********************
+动态功率调节（Dynamic Power Scaling)
+*********************
 
-点 `这里 <https://docs.google.com/spreadsheets/d/1H3Zn1zSm6-6atWTzcU0aO63zvFzANgc8mcOFtRaw42E>`_ 前往表格。
+动态功率调节功能能在矿机达到用户设定的 *过热温度（Hot Tempreture）* 的情况下，自动降低矿机的功率限值。一旦达到最小功率限值，矿机将关机冷却。矿机将在用户设定的一段时间后，自动重启并恢复到原工作功率限值挖矿。
+
+动态功率调节功能可以通过矿机网页界面GUI、使用BOS+工具箱或在 ``/etc/bosminer.toml`` 配置文件中进行配置。
+
+在矿机网页界面GUI中，请在目录 *矿机（Miner） -> 配置（Configuration）* 页面中编辑 *动态功率调节（Dynamic Power Scaling）* 部分的内容。
+
+使用 **BOS+工具箱** ，请参见 :ref:`bosbox_configure` 部分的操作。
+
+修改 ``/etc/bosminer.toml`` 配置文件，请通过SSH远程连接矿机并进行修改，句法示例如下：
+
+  ::
+
+     [power_scaling]
+     enabled = false
+     power_step = 100
+     min_psu_power_limit = 800
+     shutdown_enabled = true
+     shutdown_duration = 3.0
+
+*enabled*（启用）这一行的值可以是 *true* （启用动态调节），或 *false* （禁用动态调节）。
+*power_step* （功率阶梯）可以是100-1000范围的一个数值（以瓦为单位），表示当矿机达到 *过热温度（Hot Tempreture）* 的情况下，会如何阶梯地降低功率。
+*min_psu_power_limit* (最小电源功率限值）可以是100-5000范围的一个数值（以瓦为单位），表示矿机电源在动态功率调节的情况下的最小功率限值。如果 *psu_power_limit* （电源限值）已经达到这个最小值，矿机仍处于 *过热温度（Hot Tempreture）* 的状态，且 *shutdown_enabled* （启用关机）的值为true（启用），矿机则会自动关机一段时间，时间的长短由 *shutdown_duration* （关机时长）的值进行定义（以小时为单位）。在此之后，矿机将自动重启并以自动调整配置的 *psu_power_limit* （电源限值）的初始功率值开始工作。
+
+************
+自动升级（Auto-upgrade）
+************
+
+若启用自动升级，矿机将定期检查可用更新，并在发现有升级可用后自动升级Braiins OS+的新版本。在从原厂固件切换到Braiins OS时，这一功能将默认启用。但是在从Braiins OS或Braiins OS+的旧版本升级的情况下，必须手动启动这一功能。
+
+自动升级功能可以通过矿机网页界面GUI或使用BOS+工具箱进行配置。
+
+在矿机网页界面GUI中，请在目录 *系统（System） -> 升级（Upgrade）* 页面中编辑 *系统升级（System Upgrade）* 部分的内容。
+
+使用 **BOS+工具箱** 批量升级多台矿机 ，请参见 :ref:`bosbox_configure` 部分的操作。
+
+或者，您也可以最开始在安装时，使用 ``--no-auto-upgrade`` 参数命令 **关闭** 自动升级功能。
+
+**请注意：** 为保护矿场带宽不被升级占用，自动升级具有时间随机性从而让所有的矿机不会同时进行升级。自动升级会每天检查三次是否有可用的新版本。
 
 *************************
 SSH远程密码（SSH password）
