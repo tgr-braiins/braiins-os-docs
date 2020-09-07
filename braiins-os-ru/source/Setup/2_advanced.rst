@@ -621,10 +621,10 @@ Braiins OS сброс настроек с помощью SD-карты
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #Скачайте и распакуйте пакет прошивки
-  wget -c https://feeds.braiins-os.org/20.04/braiins-os_am1-s9_ssh_2020-04-30-0-259943b5.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.org/20.06/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06.tar.gz -O - | tar -xz
   
   #Change the directory to the unpacked firmware folder
-  cd ./braiins-os_am1-s9_ssh_2020-04-30-0-259943b5
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06/
   
   #Создайте виртуальную среду и активируйте ее
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -650,7 +650,7 @@ Braiins OS сброс настроек с помощью SD-карты
 ::
 
   #Измените каталог на распакованную папку с прошивкой (если ее еще нет в папке с прошивкой)
-  cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06
   
   #Активируйте виртуальную среду (если она еще не активирована)
   source .env/bin/activate
@@ -679,7 +679,7 @@ file.
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 .. _ssh_package_uninstall_backup:
@@ -693,7 +693,7 @@ file.
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Примечание: Этот метод не рекомендуется, так как создание резервной копии очень сложно. Резервная копия может быть повреждена, и проверить ее невозможно. Используйте на свой страх и риск и убедитесь, что вы можете получить доступ к майнеру и вставить в него SD-карту, если восстановление не завершится успешно!**
@@ -827,7 +827,7 @@ Sysupgrade используется для обновления системы, 
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Эта команда содержит следующие команды: 
 
@@ -845,7 +845,7 @@ Sysupgrade используется для обновления системы, 
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Эта команда содержит следующие команды: 
 

@@ -184,7 +184,7 @@ The syntax for per-chain settings is the following:
 
   * *[hash_chain.6]* - Override the global settings for hash chain '6'
   * *frequency* - Override the global chip frequency in MHz for hash chain '6' (default='hash_chain_global.frequency')
-  * *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
+  * **(Antminer S9 only)** *voltage* - Override the global voltage in V for hash chain '6' (default='hash_chain_global.voltage')
 
 ***************************
 Temperature and Fan Control

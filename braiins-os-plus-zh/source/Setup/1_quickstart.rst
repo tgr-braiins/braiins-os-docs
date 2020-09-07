@@ -16,6 +16,10 @@
 
 **单台矿机安装**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 您从矿机的网页端后台就能轻松升级，请参照以下步骤：
 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **网页后台方式安装包**。
@@ -25,6 +29,10 @@
 Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地址）和矿池以及用户配置，将会自动转移到新安装的Braiins OS+上，矿机自动调整功能也将自动开启。 
 
 **批量安装**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 使用 **BOS+工具箱** ，您可以轻松地多台矿机上批量安装Braiins OS+，请参照以下步骤：
 
@@ -185,8 +193,16 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **配置单台矿机**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 您可以使用矿机的 **网页端后台** 或直接使用矿机上的 **/etc/bosminer.toml** 这个配置文件，对单台矿机上的Braiins OS+进行配置（详情请见文档的 :ref:`configuration` 部分）。
 
 **配置多台矿机**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 使用 **BOS+工具箱** ，您可以轻松地批量配置多台矿机上安装的Braiins OS+，请参照文档 :ref:`bosbox_configure`部分的步骤进行配置。

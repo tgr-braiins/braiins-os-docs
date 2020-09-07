@@ -626,10 +626,10 @@ SD卡方式安装映像
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #下载和解压固件包
-  wget -c http://feeds.braiins-os.com/20.04/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.06/braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus.tar.gz -O - | tar -xz
   
   #更改固件解压文件夹的目录
-  cd ./braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus/
   
   #创建一个虚拟环境并启用
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -655,7 +655,7 @@ SD卡方式安装映像
 ::
 
   #更改固件解压文件夹的目录（如已不在固件文件夹中）
-  cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus/
   
   #启用虚拟环境（如尚未启用）
   source .env/bin/activate
@@ -684,7 +684,7 @@ SD卡方式安装映像
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
@@ -700,7 +700,7 @@ SD卡方式安装映像
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **注： 因为备份创建的要求比较复杂，也没有办法能够检查可能已损坏的备份文件，一般不推荐使用此法卸载Braiins OS+。请在使用过程中自行注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**
@@ -835,7 +835,7 @@ OPKG包管理器
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 此命令包含以下的命令：
 
@@ -853,7 +853,7 @@ OPKG包管理器
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 

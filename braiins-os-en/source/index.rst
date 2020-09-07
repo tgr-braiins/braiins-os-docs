@@ -8,6 +8,7 @@
    Setup/index*
    Configuration/index*
    Basic User's Guide/index*
+   Development/index*
 
 ---------------
 
@@ -20,8 +21,7 @@ overt AsicBoost in 2018, and it now features an implementation of the new mining
 Additionally, Braiins OS works in tandem with our new software component, BOSminer, which we've written
 from scratch in Rust language as a replacement for the outdated CGminer.
 
-Currently supported devices are Bitmain’s Antminer S9, S9i, and S9j. Antminer S17 support is planned
-for the near future.
+Currently supported devices are Bitmain’s Antminer S9, s9i, S9j, S17 and S17 Pro. Antminer S17+, T17 and T17+ support is planned for the near future.
 
 ********
 Features

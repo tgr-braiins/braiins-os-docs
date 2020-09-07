@@ -16,6 +16,10 @@
 
 **Установка на одного устройство**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Вы можете легко установить Braiins OS+ через веб-интерфейс. Для этого выполните следующие действия:
 
   * Скачайте **ВЕБ-ПАКЕТ** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
@@ -25,6 +29,10 @@
 Braiins OS+ будет установлен на майнер. Конфигурация сети (например, статический IP-адрес), а также пул и пользовательские настройки будут автоматически перенесены в Braiins OS+, и автонастройка будет включена.
 
 **Установка на несколько устройств**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Установка Braiins OS+ может быть легко выполнена с помощью BOS+ Toolbox. Для этого выполните следующие действия:
 
@@ -186,8 +194,16 @@ Braiins OS+ будет установлен на майнер. Конфигур�
 
 **Конфигурация одного устройства**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Вы можете настроить Braiins OS+ на одном устройстве с помощью **веб-интерфейса** майнера или непосредственно в файле конфигурации, расположенном в **/etc/bosminer.toml** (для получения дополнительной информации посетитеe секцию :ref:`configuration`).
 
 **Конфигурация нескольких устройств**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Вы можете легко настроить Braiins OS+ на нескольких устройствах, используя **BOS+ Toolbox**. Для этого следуйте инструкциям в разделе :ref:`bosbox_configure`.

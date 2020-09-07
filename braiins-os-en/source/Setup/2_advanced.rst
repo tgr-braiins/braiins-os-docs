@@ -514,7 +514,7 @@ Install Braiins OS using SD card
 
  * Download the SD card image from our `website <https://braiins-os.com/>`_.
  * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_). *Note: Simple copy to SD card will not work. The SD card has to be flashed!*
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+ * **(Antminer S9 only)** Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%
@@ -620,10 +620,10 @@ First, you need to prepare the Python environment. This consists of the followin
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #Download and extract the firmware package
-  wget -c https://feeds.braiins-os.org/20.04/braiins-os_am1-s9_ssh_2020-04-30-0-259943b5.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.org/20.06/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06.tar.gz -O - | tar -xz
   
   #Change the directory to the unpacked firmware folder
-  cd ./braiins-os_am1-s9_ssh_2020-04-30-0-259943b5
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06/
   
   #Create a virtual environment and activate it
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -649,7 +649,7 @@ Installation of Braiins OS using the so-called *SSH Method* consists of the foll
 ::
 
     #Change the directory to the unpacked firmware folder (if not already in the firmware folder)
-  cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06
   
   #Activate the virtual environment (if it is not already activated)
   source .env/bin/activate
@@ -681,7 +681,7 @@ Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 .. _ssh_package_uninstall_backup:
@@ -695,7 +695,7 @@ If you created a backup of the original firmware during the installation of Brai
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
@@ -830,7 +830,7 @@ In order to upgrade from older version of Braiins OS or downgrade from Braiins O
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 
@@ -848,7 +848,7 @@ In order to upgrade from older version of Braiins OS, use the following command 
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 

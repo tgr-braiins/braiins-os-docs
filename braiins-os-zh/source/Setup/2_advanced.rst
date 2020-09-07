@@ -1,14 +1,14 @@
-##############
+####
 高级指南
-##############
+####
 
 .. contents::
 	:local:
 	:depth: 1
 
-********
+*********
 工具及使用场景一览
-********
+*********
 
 有很多工具、安装包以及脚本都可以用于管理Braiins OS。请使用下方的树状列表查找最适合您的情况：
 
@@ -64,9 +64,9 @@
 
 .. _bosbox:
 
-***************
+******
 BOS工具箱
-***************
+******
 
 BOS工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+，并在矿机上运行自定义命令。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。  
 
@@ -618,10 +618,10 @@ SD卡方式安装映像
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #下载和解压固件包
-  wget -c http://feeds.braiins-os.com/20.04/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.org/20.06/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06.tar.gz -O - | tar -xz
   
   #更改固件解压文件夹的目录
-  cd ./braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06/
   
   #创建一个虚拟环境并启用
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -647,7 +647,7 @@ SD卡方式安装映像
 ::
 
   #更改固件解压文件夹的目录（如已不在固件文件夹中）
-  cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06
   
   #启用虚拟环境（如尚未启用）
   source .env/bin/activate
@@ -676,7 +676,7 @@ SD卡方式安装映像
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
@@ -692,7 +692,7 @@ SD卡方式安装映像
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **注： 因为备份创建的要求比较复杂，也没有办法能够检查可能已损坏的备份文件，一般不推荐使用此法卸载Braiins OS。请在使用过程中自行注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**
@@ -826,7 +826,7 @@ OPKG包管理器
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 此命令包含以下的命令：
 
@@ -844,7 +844,7 @@ OPKG包管理器
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 

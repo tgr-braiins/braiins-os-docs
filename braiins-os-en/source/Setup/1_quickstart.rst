@@ -16,6 +16,10 @@ Running stock firmware released before 2019
 
 **Single device installation**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 You can easily install Braiins OS via the web interface upgrade process. In order to do so, follow the steps bellow:
 
   * Download the **Web Package** from our `website <https://braiins-os.com/open-source/download/>`_.
@@ -25,6 +29,10 @@ You can easily install Braiins OS via the web interface upgrade process. In orde
 Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
 
 **Multiple-device installation**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Installation of Braiins OS can easily be done using the BOS Toolbox. In order to do so, follow the steps bellow:
 
@@ -63,7 +71,7 @@ In order to install Braiins OS via the SD card method, follow the steps bellow:
 
  * Download the SD card image from our `website <https://braiins-os.com/open-source/download/>`_.
  * Flash the downloaded image on an SD card (e.g. using `Etcher <https://etcher.io/>`_). *Note: Simple copy to SD card will not work. The SD card has to be flashed!*
- * Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
+ * **(Antminer S9 only)** Adjust the jumpers to boot from SD card (instead of NAND memory), as shown below.
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%
@@ -192,8 +200,16 @@ Configure Braiins OS
 
 **Single device configuration**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 You can configure Braiins OS+ on single device using the **web interface** of the miner or directly in the configuration file located in **/etc/bosminer.toml** (for more information, visit the :ref:`configuration` section).
 
 **Multiple device configuration**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 You can easily configure Braiins OS on multiple devices using the **BOS Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.

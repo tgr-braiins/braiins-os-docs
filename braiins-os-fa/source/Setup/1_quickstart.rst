@@ -16,6 +16,10 @@
 
 **نصب روی یک دستگاه**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 شما به راحتی می توانید Braiins OS را از طریق فرآیند ارتقا رابط وب نصب کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
   * **Web Package** را از `وبسایت <https://braiins-os.com/open-source/download/>`_ دانلود کنید.
@@ -25,6 +29,10 @@
 Braiins OS بر روی ماینر نصب خواهد شد. تنظیمات شبکه (به عنوان مثال آدرس IP استاتیک) و تنظیمات استخر و کاربر به طور خودکار به سیستم عامل  Braiins OS منتقل می شود.
 
 **نصب روی چندین دستگاه**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 نصب Braiins OS به راحتی با استفاده از BOS Toolbox قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
@@ -188,8 +196,16 @@ package* تایپ کنید و *OK* را فشار دهید.
 
 **تنظمات یک دستگاه**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 شما می‌توانید Braiins OS روی یک دستگاه را از طریق **رابط کاربری وب** ماینر و یا از طریق ویرایش فایل تنظیمات به صورت مستقیم که در مسیر**/etc/bosminer.toml** است، تنظیم کنید (برای اطلاعات بیشتر به بخش :ref:`configuration`  مراجعه کنید).
 
 **تنظیمات چندین دستگاه**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 شما به راحتی می‌توانید Braiins OS را روی چندین دستگاه با استفاده از **BOS Toolbox** تنظیم کنید. برای انجام این کار، مراحل را در این بخش دنبال کنید :ref:`bosbox_configure`

@@ -16,6 +16,10 @@ Corriendo firmware de serie liberado antes de 2019
 
 **Instalar un solo dispositivo**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Puede instalar fácilmente Braiins OS mediante el proceso de actualización en la interfaz web. Para hacerlo, siga los pasos a continuación:
 
   * Descargue el **Paquete Web** desde nuestro `sitio web <https://braiins-os.com/open-source/download/>`_.
@@ -25,6 +29,10 @@ Puede instalar fácilmente Braiins OS mediante el proceso de actualización en l
 Braiins OS se instalará en el minero. La configuración de red (ej: Dirección IP estática) y la configuración del pool y usuario será migrada automáticamente a Braiins OS.
 
 **Instalar en múltiples-dispositivos**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 La instalación de Braiins OS puede hacerse fácilmente usando la caja de herramientas BOS+. Para hacerlo, siga los pasos a continuación:
 
@@ -185,8 +193,16 @@ Configurar Braiins OS
 
 **Configurar un solo dispositivo**
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/PjCZIVkTuLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Puede configurar Braiins OS en un solo dispositivo usando la **interfaz web** del minero o directamente en el archivo de configuración ubicado en **/etc/bosminer.toml** (para mas información, visite la sección :ref:`configuration`).
 
 **Configurar múltiples-dispositivos**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Puede configurar fácilmente Braiins OS+ en múltiples dispositivos usando la **Caja de herramientas BOS**. Para hacerlo, siga los pasos en la sección :ref:`bosbox_configure`.

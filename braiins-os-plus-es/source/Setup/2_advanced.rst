@@ -623,10 +623,10 @@ Primero, necesita preparar el ambiente Python. Esto consiste en los siguientes p
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
 
   #Descargar y extraer el paquete de firmware
-  wget -c http://feeds.braiins-os.com/20.04/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.06/braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus.tar.gz -O - | tar -xz
 
   #Cambiar el directorio a la carpeta donde desempacó el firmware
-  cd ./braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus
+  cd ./braiins-os_am1-s9_ssh_2020-06-16-1-36c56a93-20.06-plus/
 
   #Crear un ambiente virtual y activarlo
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -832,7 +832,7 @@ Para actualizar desde una versión anterior de Braiins OS o desactualizar desde 
 
 ::
 
-  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-04-30-0-259943b5_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Este comando contiene los siguientes comandos:
 
@@ -850,7 +850,7 @@ Para actualizar desde una versión anterior de Braiins OS, use el siguiente coma
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar http://feeds.braiins-os.com/am1-s9/firmware_2020-04-30-1-cbf99510-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Este comando contiene los siguientes comandos:
 
@@ -1539,7 +1539,7 @@ La instalación de Braiins OS+ usando el asi-llamado *Método SSH* consiste en l
 ::
 
   #Cambiar al directorio de la carpeta con el firmware desempacado (si no está ya en la carpeta del firmware)
-  cd ./braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46
+  cd ./braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus
 
   #Activar el ambiente virtual (si no está ya activado)
   source .env/bin/activate
@@ -1569,7 +1569,7 @@ Corra (reemplace los marcadores ``IMAGEN_DE_FÁBRICA`` y ``DIRECCIÓN_IP`` como 
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
 
 **Nota:** *para mas información acerca de los argumentos que pueden usarse, use el argumento* **--help**.
@@ -1585,7 +1585,7 @@ Si creo un respaldo del firmware original durante la instalación de Braiins OS+
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2019-02-21-0-572dd48c_2020-03-29-1-6b4a0f46 && source .env/bin/activate
+  cd ~/braiins-os_am1-s9_ssh_2020-04-30-1-cbf99510-plus && source .env/bin/activate
   python3 restore2factory.py backup/ID_RESPALDO_FECHA/ DIRECCIÓN_IP
 
 **Nota: Este método no es recomendado ya que la creación del respaldo es muy quisquillosa. El respaldo puede corromperse y no hay manera de comprobarlo. ¡Use a su propio riesgo y asegúrese, de tener acceso al minero e insertar una tarjeta SD al mismo en caso de que la restauración no finalice exitosamente!**
