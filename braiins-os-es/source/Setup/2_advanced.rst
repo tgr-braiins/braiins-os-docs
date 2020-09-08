@@ -618,10 +618,18 @@ Primero, necesita preparar el ambiente Python. Esto consiste en los siguientes p
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
 
   #Descargar y extraer el paquete de firmware
-  wget -c https://feeds.braiins-os.org/20.06/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06.tar.gz -O - | tar -xz
+  #Antminer S9
+  wget -c https://feeds.braiins-os.org/20.09/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09.tar.gz -O - | tar -xz
+  
+  #Antminer S17
+  wget -c https://feeds.braiins-os.org/20.09/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09.tar.gz -O - | tar -xz
 
   #Cambiar el directorio a la carpeta donde desempacó el firmware
-  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06/
+  #Antminer S9
+  cd ./braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09
+  
+  #Antminer S17
+  cd ./braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09
 
   #Crear un ambiente virtual y activarlo
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -647,8 +655,12 @@ La instalación de Braiins OS usando el asi-llamado *Método SSH* consiste en lo
 ::
 
   #Cambiar al directorio de la carpeta con el firmware desempacado (si no está ya en la carpeta del firmware)
-  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06
-
+  #Antminer S9
+  cd ./braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09
+  
+  #Antminer S17
+  cd ./braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09
+  
   #Activar el ambiente virtual (si no está ya activado)
   source .env/bin/activate
 
@@ -677,8 +689,13 @@ Corra (reemplace los marcadores ``IMAGEN_DE_FÁBRICA`` y ``DIRECCIÓN_IP`` como 
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
-  python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
+  #Antminer S9
+  cd ~/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
+  python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
+  
+  #Antminer S17
+  cd ~/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
+  python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **Nota:** *para mas información acerca de los argumentos que pueden usarse, use el argumento* **--help**.
 
@@ -693,8 +710,13 @@ Si creo un respaldo del firmware original durante la instalación de Braiins OS,
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
-  python3 restore2factory.py backup/ID_RESPALDO_FECHA/ DIRECCIÓN_IP
+  #Antminer S9
+  cd ~/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
+  python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
+  
+  #Antminer S17
+  cd ~/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
+  python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Nota: Este método no es recomendado ya que la creación del respaldo es muy quisquillosa. El respaldo puede corromperse y no hay manera de comprobarlo. ¡Use a su propio riesgo y asegúrese, de tener acceso al minero e insertar una tarjeta SD al mismo en caso de que la restauración no finalice exitosamente!**
 
@@ -827,7 +849,11 @@ Para actualizar desde una versión anterior de Braiins OS o desactualizar desde 
 
 ::
 
-  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  #Antminer S9
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-09-07-0-e50f2a1b-20.09_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  
+  #Antminer S17
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am2-s17/firmware_2020-09-07-0-e50f2a1b-20.09_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Este comando contiene los siguientes comandos:
 
@@ -845,7 +871,11 @@ Para actualizar desde una versión anterior de Braiins OS, use el siguiente coma
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  #Antminer S9
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  
+  #Antminer S17
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-09-07-1-1f02b3bd-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Este comando contiene los siguientes comandos:
 

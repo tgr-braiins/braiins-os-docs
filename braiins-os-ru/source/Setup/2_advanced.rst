@@ -621,11 +621,19 @@ Braiins OS сброс настроек с помощью SD-карты
   sudo apt update && sudo apt install python3 python3-virtualenv virtualenv
   
   #Скачайте и распакуйте пакет прошивки
-  wget -c https://feeds.braiins-os.org/20.06/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06.tar.gz -O - | tar -xz
+  #Antminer S9
+  wget -c https://feeds.braiins-os.org/20.09/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09.tar.gz -O - | tar -xz
   
+  #Antminer S17
+  wget -c https://feeds.braiins-os.org/20.09/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09.tar.gz -O - | tar -xz
+
   #Change the directory to the unpacked firmware folder
-  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06/
+  #Antminer S9
+  cd ./braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09
   
+  #Antminer S17
+  cd ./braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09
+
   #Создайте виртуальную среду и активируйте ее
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
   
@@ -650,8 +658,12 @@ Braiins OS сброс настроек с помощью SD-карты
 ::
 
   #Измените каталог на распакованную папку с прошивкой (если ее еще нет в папке с прошивкой)
-  cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06
+  #Antminer S9
+  cd ./braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09
   
+  #Antminer S17
+  cd ./braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09
+    
   #Активируйте виртуальную среду (если она еще не активирована)
   source .env/bin/activate
   
@@ -679,7 +691,12 @@ file.
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
+  #Antminer S9
+  cd ~/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
+  python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
+  
+  #Antminer S17
+  cd ~/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 .. _ssh_package_uninstall_backup:
@@ -693,7 +710,12 @@ file.
 
 ::
 
-  cd ~/braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06 && source .env/bin/activate
+  #Antminer S9
+  cd ~/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
+  python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
+  
+  #Antminer S17
+  cd ~/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Примечание: Этот метод не рекомендуется, так как создание резервной копии очень сложно. Резервная копия может быть повреждена, и проверить ее невозможно. Используйте на свой страх и риск и убедитесь, что вы можете получить доступ к майнеру и вставить в него SD-карту, если восстановление не завершится успешно!**
@@ -827,7 +849,11 @@ Sysupgrade используется для обновления системы, 
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-06-30-0-06d8105f-20.06.1_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  #Antminer S9
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am1-s9/firmware_2020-09-07-0-e50f2a1b-20.09_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  
+  #Antminer S17
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.org/am2-s17/firmware_2020-09-07-0-e50f2a1b-20.09_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Эта команда содержит следующие команды: 
 
@@ -845,7 +871,11 @@ Sysupgrade используется для обновления системы, 
 
 ::
 
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-06-30-1-ea64aec8-20.06.1-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  #Antminer S9
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  
+  #Antminer S17
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-09-07-1-1f02b3bd-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 Эта команда содержит следующие команды: 
 

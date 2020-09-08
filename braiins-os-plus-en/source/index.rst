@@ -69,7 +69,6 @@ This release brings support for Antminer S17 and S17 Pro and includes a maintena
 * Known issues
 
   * [issue] displayed power consumption for S17 and S17 Pro is lower than the actual power consumption, this will be improved in the next releases.
-  * [issue] BOSminer stops running on Antminer S17 and S17 Pro when it detects a dead hashboard
   * [issue] BOSminer is slow at reconnecting to the pool when the internet provider changes the IP address for the user
 
 20.06

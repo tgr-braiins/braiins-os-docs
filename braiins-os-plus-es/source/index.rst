@@ -70,7 +70,6 @@ Esta liberación trae soporte para la Antminer S17 y S17 Pro e incluye una versi
 
 * Problemas Conocidos
   * [problema] el consumo de energía mostrado para la S17 y S17 Pro es menor al consumo actual de energía, esto será mejorado en las próximas actualizaciones.
-  * [problema] BOSminer deja de correr en una Antminer S17 y S17 Pro si detecta una tarjeta de hash muerta
   * [problema] BOSminer es lento para re-conectarse al pool cuando el proveedor de internet cambia la dirección IP del usuario
 
 20.06
