@@ -8,6 +8,7 @@
    Setup/index*
    Configuration/index*
    Basic User's Guide/index*
+   Development/index*
 
 ---------------
 
@@ -17,7 +18,7 @@ Introducción
 
 Braiins OS+ es un sistema operativo para mineros ASIC. Está basado en el producto `Braiins OS <https://braiins-os.com/community-edition>`_ y provee algoritmos adicionales propietarios para el autoajuste de mineros. Cuando un usuario provee el consumo máximo de energía permitido en Vatios, el sistema optimizará automáticamente el proceso de minado para maximizar la tasa de hash. Este proceso funciona a través de un amplio espectro de entradas, permitiéndole optimizar la mejor eficiencia posible o la tasa de hash máxima basada en consideraciones económicas. Pruebas internas muestran que para el Antminer S9, es posible alcanzar una eficiencia de 70J/THs o incluso mejor para el ajuste de pocos Vatios. Para consumo alto de energía, la tasa de hash puede mejorar 20% (comparado al Antminer S9, de serie a 13.5 TH/s ~ 94J/TH).
 
-Los dispositivos actualmente soportados son Antminer S9, S9i y S9j de Bitmain. Soporte para Antminer S17 está planificado en el futuro próximo.
+Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17 y S17 Pro de Bitmain.  El soporte de Antminer S17 +, T17 y T17 + está previsto para un futuro próximo.
 
 ***************
 Características
@@ -57,6 +58,20 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 *********
 Changelog
 *********
+
+20.09
+---------------------------
+
+Esta liberación trae soporte para la Antminer S17 y S17 Pro e incluye una versión de mantenimiento para la familia Antminer S9.
+
+* Todos los tipos de hardware de minado
+  
+  * [característica] implementado programa de referidos - los vendedores de Braiins OS+ ahora pueden adquirir un programa paquete de referidos (con ID de referido y archivo de configuración) que al aplicarse enviará una porción de la comisión de desarrollo recogida a sus referentes.
+
+* Problemas Conocidos
+  * [problema] el consumo de energía mostrado para la S17 y S17 Pro es menor al consumo actual de energía, esto será mejorado en las próximas actualizaciones.
+  * [problema] BOSminer deja de correr en una Antminer S17 y S17 Pro si detecta una tarjeta de hash muerta
+  * [problema] BOSminer es lento para re-conectarse al pool cuando el proveedor de internet cambia la dirección IP del usuario
 
 20.06
 ---------------------------

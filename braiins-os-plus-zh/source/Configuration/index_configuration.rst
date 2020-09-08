@@ -169,7 +169,7 @@
 
   * *[hash_chain.6]* - 超控'6'号运算板的全局设置
   * *frequency* - 超控'6'号运算板以兆赫兹Mhz为单位的全局芯片频率设置（默认值='hash_chain_global.frequency'）
-  * *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
+  * **(只有蚂蚁矿机S9)** *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
 
 *******************************************
 温度和风扇控制（Temperature and Fan Control）

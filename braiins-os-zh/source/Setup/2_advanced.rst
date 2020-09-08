@@ -513,7 +513,7 @@ SD卡方式安装映像
 
  * 在我们 `官网 <https://zh.braiins-os.com/open-source/download>`_ 上下载 **SD卡方式安装映像** 。
  * 将下载的映像烧录到SD卡上（例如使用像 `Etcher <https://etcher.io/>`_ 之类的烧录软件）。*请注意：光复制到SD卡上是不够的，必须用软件刷到卡上！*
- * 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
+ * **(只有蚂蚁矿机S9)** 调整跳线，让矿机从SD卡启动（而不是从NAND内存），如下所示。
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%

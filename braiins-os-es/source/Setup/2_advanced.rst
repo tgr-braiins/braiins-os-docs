@@ -512,7 +512,7 @@ Instalar Braiins OS usando la tarjeta SD card
 
  * Descargue la **Imagen para tarjeta SD** desde nuestro `sitio web <https://braiins-os.com/>`_.
  * Escriba la imagen descargada a una tarjeta SD (ej: usando `Etcher <https://etcher.io/>`_). *Nota: Una simple copia no funcionará. ¡La tarjeta SD debe ser escrita!*
- * Ajuste los jumpers para arrancar desde la tarjeta SD (en lugar de la memoria NAND), como se muestra abajo.
+ * **(Solo Antminer S9)** Ajuste los jumpers para arrancar desde la tarjeta SD (en lugar de la memoria NAND), como se muestra abajo.
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%

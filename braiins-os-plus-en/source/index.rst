@@ -8,6 +8,7 @@
    Setup/index*
    Configuration/index*
    Basic User's Guide/index*
+   Development/index*
 
 ---------------
 
@@ -55,6 +56,21 @@ Join our Telegram group:
 *********
 Changelog
 *********
+
+20.09
+---------------------------
+
+This release brings support for Antminer S17 and S17 Pro and includes a maintenance release for the Antminer S9 family.
+
+* All mining hardware types
+
+  * [feature] implemented referral program - sellers of Braiins OS+ can now acquire a referral package (with a referral ID and configuration file) which will send them a portion of the devfee collected when applied by the referees.
+
+* Known issues
+
+  * [issue] displayed power consumption for S17 and S17 Pro is lower than the actual power consumption, this will be improved in the next releases.
+  * [issue] BOSminer stops running on Antminer S17 and S17 Pro when it detects a dead hashboard
+  * [issue] BOSminer is slow at reconnecting to the pool when the internet provider changes the IP address for the user
 
 20.06
 ---------------------------

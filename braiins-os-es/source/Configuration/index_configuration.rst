@@ -155,7 +155,7 @@ La sintaxis de ajuste por-cadena es la siguiente:
 
   * *[hash_chain.6]* - Anula los ajustes globales para la cadena hash '6'
   * *frequency* - Anula la frecuencia de chip global en MHz para la cadena hash '6' (por defecto='hash_chain_global.frequency')
-  * *voltage* - Anula el voltaje global en V para la cadena hash '6' (por defecto='hash_chain_global.voltage')
+  * **(Solo Antminer S9)** *voltage* - Anula el voltaje global en V para la cadena hash '6' (por defecto='hash_chain_global.voltage')
 
 ***********************************
 Control de Temperatura y ventilador

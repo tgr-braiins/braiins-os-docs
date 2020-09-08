@@ -34,7 +34,7 @@ Pools
    * **URL**                   - Dirección URL del pool de minado
    * **USER**                  - Nombre de usuario y nombre de worker, según especificó el usuario
    * **STATUS**                - Estado del pool - "Alive" cuando el pool está disponible para el minero, "Dead" cuando el pool no está disponible en ese URL
-   * **ACTIVE**                - Estado activo: "Yes" - los trabajos se envían al pool; "No" - no se usa el pool
+   * **ACTIVE**                - Estado activo: "Yes" - se está usando el pool para servir trabajos de minado; "No" - el pool no se está usando
    * **ACCEPTED**              - Número de shares enviados que fueron aceptados por el pool
    * **REJECTED**              - Número de shares enviados que fueron rechazados por el pool
    * **STALE**                 - Número de shares enviados para un trabajo que ya no es válido

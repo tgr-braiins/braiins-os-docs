@@ -91,7 +91,7 @@ Features, PROs and CONs of this method:
   + migrates the whole configuration by default (can be adjusted) when installing Braiins OS+
   + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
   + parameters are available to customize the process
-  + turns on autotuning on default power limit (1420W) when installing Braiins OS+
+  + turns on autotuning on default power limit when installing Braiins OS+
   + batch mode available to manage multiple devices at once
   + easy to use
   
@@ -470,7 +470,7 @@ Features, PROs and CONs of this method:
   + replaces stock firmware with Braiins OS+ without additional tools
   + migrates the network configuration
   + migrates pool URLs, users and passwords
-  + turns on autotuning on default power limit (1420W)
+  + turns on autotuning on default power limit
   
   - cannot be used on stock firmware released in 2019 and later
   - cannot configure the installation (e.g. it will always migrate the network settings)
@@ -507,7 +507,7 @@ Features, PROs and CONs of this method:
 
   + replaces SSH locked stock firmware with Braiins OS+
   + uses the network configuration stored on the NAND (this can be turned off, see the section *Network settings* bellow)
-  + turns on autotuning on default power limit (1420W)
+  + turns on autotuning on default power limit
   
   - does not migrate pool URLs, users and passwords
   - no batch-mode
@@ -602,7 +602,7 @@ Features, PROs and CONs of this method:
   + migrates the whole configuration by default (can be adjusted) when installing Braiins OS+
   + migrates the network configuration by default (can be adjusted) when uninstalling Braiins OS+
   + parameters are available to customize the process
-  + turns on autotuning on default power limit (1420W) when installing Braiins OS+
+  + turns on autotuning on default power limit when installing Braiins OS+
   
   - no batch-mode (unless you create your own scripts)
   - requires a long setup
@@ -679,7 +679,7 @@ Using factory firmware image
 
 First, you need to prepare the Python environment, which is described in the section :ref:`ssh_package_environment`.
 
-On an Antminer S9, you can flash a factory firmware image
+On an Antminer  you can flash a factory firmware image
 from the manufacturer’s website, with ``FACTORY_IMAGE`` being file path
 or URL to the ``tar.gz`` (not extracted!) file. Supported images with
 corresponding MD5 hashes are listed in the
@@ -780,7 +780,7 @@ With OPKG you can easily switch to Braiins OS+, by connecting to the miner via S
   #you can also connect to the miner and run the commands at the same time
   ssh root@IP_ADDRESS "opkg update && opkg install bos_plus"
 
-This will migrate the configuration and continue to mine without a need to configure anything. Default power limit will be set (1420W).
+This will migrate the configuration and continue to mine without a need to configure anything. Default power limit will be set.
 
 .. _opkg_factory_reset:
 

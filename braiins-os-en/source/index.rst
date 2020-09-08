@@ -57,6 +57,22 @@ Join our Telegram group:
 Changelog
 *********
 
+20.09
+---------------------------
+
+This release brings support for Antminer S17 and S17 Pro and includes a maintenance release for the Antminer S9 family.
+
+* All mining hardware types
+
+  * [feature] chip temperature is approximated from the board temperature in cause of faulty temperature sensor
+  * [feature] integrated DNSmasq for local DNS cache to reduce the number if requests to domain names
+  * [bug] fixed the issue with Fixed Share Ratio and Quota, where the hashrate was not split correctly
+  * [feature] we have improved the backoff algorithm for unstable pools where the pool is considered stable only if it runs without errors for one hour
+
+* Antminer S17
+
+  * [note] Braiins OS for Antminer S17 does not differentiate between a "classic" S17 and the Pro version as both hardware types are almost identical
+
 20.06
 ---------------------------
 

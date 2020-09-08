@@ -149,7 +149,7 @@
 
   * *[hash_chain.6]* -  بازنویسی تنظیمات کلی برای زنجیره‌هش '6'
   * *frequency* - بازنویسی فرکانس کلی چیپ در مقیاس مگاهرتز برای زنجیره‌هش '6' (default='hash_chain_global.frequency')
-  * *voltage* - ولتاژ کلی را در V برای زنجیره‌هش '6' بازنویسی کنید. (default='hash_chain_global.voltage')
+  * **(فقط Antminer S9)** *voltage* - ولتاژ کلی را در V برای زنجیره‌هش '6' بازنویسی کنید. (default='hash_chain_global.voltage')
 
 ***************************
 دما و کنترل فن

@@ -34,7 +34,7 @@ Pools
    * **URL**                   - Mining pool URL address
    * **USER**                  - Username and worker name, as specified by the user
    * **STATUS**                - Status of the pool - "Alive" when the pool is reachable by the miner, "Dead" when the pool is not reachable on that URL
-   * **ACTIVE**                - Active status: "Yes" - jobs are submited to the pool; "No" - pool is not used
+   * **ACTIVE**                - Active status: "Yes" - pool is being used to serve mining jobs; "No" - pool is not used
    * **ACCEPTED**              - Number of submited shares that were accepted by the pool
    * **REJECTED**              - Number of submited shares that were rejected by the pool
    * **STALE**                 - Number of submited shares for a job that is no longer valid

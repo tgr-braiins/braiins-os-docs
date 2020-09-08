@@ -8,6 +8,7 @@
    Setup/index*
    Configuration/index*
    Basic User's Guide/index*
+   Development/index*
 
 ---------------
 
@@ -17,7 +18,7 @@ Introducción
 
 Braiins OS es un sistema operativo completamente código abierto para mineros ASIC. Fue el primer firmware en implementar overt AsicBoost en 2018, y ahora caracteriza la implementación de un nuevo protocolo de minado, Stratum V2. Adicionalmente, BraiinsOS trabaja en conjunto con nuestro nuevo componente de software, BOSminer, el cual hemos escrito desde cero en lenguaje Rust como reemplazo del desactualizado CGminer.
 
-Los dispositivos actualmente soportados son Antminer S9, S9i y S9j de Bitmain. Soporte para Antminer S17 está planificado en el futuro próximo.
+Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17 y S17 Pro de Bitmain.  El soporte de Antminer S17 +, T17 y T17 + está previsto para un futuro próximo.
 
 ***************
 Características
@@ -52,6 +53,22 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 *********
 Changelog
 *********
+
+20.09
+---------------------------
+
+Esta liberación trae soporte para la Antminer S17 y S17 Pro e incluye una versión de mantenimiento para la familia Antminer S9.
+
+* Todos los tipos de hardware de minado
+
+  * [característica] la temperatura de chip es derivada de la temperatura de la tarjeta en caso de sensor fallido
+  * [característica] DNSmasq integrado para cache DNS local para reducir el número de peticiones a nombres de dominio
+  * [fallo] arreglado el problema con la Tasa Fija Compartida y la Cuota, donde la tasa de hash no era dividida correctamente
+  * [característica] hemos mejorado el algoritmo de retroceso para pools inestables donde el pool se considera estable solo si corre sin errores por una hora
+
+* Antminer S17
+
+  * [nota] Braiins OS para Antminer S17 no diferencia entre una versión de S17 "clásico" y el Pro ya que ambos tipos de hardware son casi idénticos
 
 20.06
 ---------------------------

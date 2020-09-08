@@ -143,7 +143,7 @@ La sintaxis es la siguiente:
 
   * *asic_boost* - Activa o desactiva soporte AsicBoost (por defecto=true (verdad))
   * *frequency* - Fija la frecuencia por defecto del chip en MHz para todas las cadenas hash (por defecto=650.0)
-  * *voltage* - Fija el voltaje por defecto en V para todas las cadenas hash (por defecto=8.8)
+  * **(Solo Antminer S9)** *voltage* - Fija el voltaje por defecto en V para todas las cadenas hash (por defecto=8.8)
 
 La sintaxis de ajuste por-cadena es la siguiente:
 

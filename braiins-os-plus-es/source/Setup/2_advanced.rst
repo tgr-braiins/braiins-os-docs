@@ -91,7 +91,7 @@ Características, PROs y CONs de este método:
   + por defecto migra toda la configuración (puede ajustarse) al instalar Braiins OS+
   + por defecto migra la configuración de red (puede ajustarse) al desinstalar Braiins OS+
   + hay parámetros disponibles para personalizar el proceso
-  + activa el autoajuste al límite de energía por defecto (1420W) al instalar Braiins OS+
+  + activa el autoajuste al límite de energía por defecto al instalar Braiins OS+
   + modo-por-lotes disponible para gestionar múltiples dispositivos a la vez
   + fácil de usar
 
@@ -466,7 +466,7 @@ Características, PROs y CONs de este método:
   + reemplaza el firmware de serie con Braiins OS+ sin herramientas adicionales
   + migra la configuración de red
   + migra las direcciones (URL) de los pool, usuarios y claves
-  + activa el autoajuste al límite de energía por defecto (1420W)
+  + activa el autoajuste al límite de energía por defecto
 
   - no puede usarse con firmware de serie liberado en 2019 o luego
   - no puede configurar la instalación (ej: siempre migrará la configuración de red)
@@ -503,7 +503,7 @@ Características, PROs y CONs de este método:
 
   + reemplaza el firmware de serie con SSH bloqueado con Braiins OS+
   + usa la configuración de red almacenada en la NAND (esto puede apagarse, vea la sección *Network settings* abajo)
-  + activa el autoajuste al límite de energía por defecto (1420W)
+  + activa el autoajuste al límite de energía por defecto
 
   - no migra direcciones (URL) de pool, usuarios o claves
   - no hay modo-por-lotes
@@ -516,7 +516,7 @@ Instalar Braiins OS+ usando la tarjeta SD card
 
  * Descargue la **Imagen para tarjeta SD** desde nuestro `sitio web <https://braiins-os.com/>`_.
  * Escriba la imagen descargada a una tarjeta SD (ej: usando `Etcher <https://etcher.io/>`_). *Nota: Una simple copia no funcionará. ¡La tarjeta SD debe ser escrita!*
- * Ajuste los jumpers para arrancar desde la tarjeta SD (en lugar de la memoria NAND), como se muestra abajo.
+ * **(Solo Antminer S9)** Ajuste los jumpers para arrancar desde la tarjeta SD (en lugar de la memoria NAND), como se muestra abajo.
 
   .. |pic1| image:: ../_static/s9-jumpers.png
       :width: 45%
@@ -598,7 +598,7 @@ Características, PROs y CONs de este método:
   + migra toda la configuración por defecto (puede ajustarse) al instalar Braiins OS+
   + migra la configuración de red por defecto (puede ajustarse) al desinstalar Braiins OS+
   + parámetros disponibles para personalizar el proceso
-  + enciende el autoajuste a un límite de energía por defecto (1420W) al instalar Braiins OS+
+  + enciende el autoajuste a un límite de energía por defecto al instalar Braiins OS+
 
   - no hay modo-por-lotes (a menos que cree sus propios scripts)
   - requiere una larga instalación
@@ -771,7 +771,7 @@ Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía S
   #también se puede conectar al minero y correr los comandos al mismo tiempo
   ssh root@DIRECCIÓN_IP "opkg update && opkg install bos_plus"
 
-Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a (1420W).
+Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a.
 
 .. _opkg_factory_reset:
 
@@ -1046,7 +1046,7 @@ Características, PROs y CONs de este método:
   + por defecto migra toda la configuración (puede ajustarse) al instalar Braiins OS+
   + por defecto migra la configuración de red (puede ajustarse) al desinstalar Braiins OS+
   + hay parámetros disponibles para personalizar el proceso
-  + activa el autoajuste al límite de energía por defecto (1420W) al instalar Braiins OS+
+  + activa el autoajuste al límite de energía por defecto al instalar Braiins OS+
   + modo-por-lotes disponible para gestionar múltiples dispositivos a la vez
   + fácil de usar
 
@@ -1353,7 +1353,7 @@ Características, PROs y CONs de este método:
   + reemplaza el firmware de serie con Braiins OS+ sin herramientas adicionales
   + migra la configuración de red
   + migra las direcciones (URL) de los pool, usuarios y claves
-  + activa el autoajuste al límite de energía por defecto (1420W)
+  + activa el autoajuste al límite de energía por defecto
 
   - no puede usarse con firmware de serie liberado en 2019 o luego
   - no puede configurar la instalación (ej: siempre migrará la configuración de red)
@@ -1390,7 +1390,7 @@ Características, PROs y CONs de este método:
 
   + reemplaza el firmware de serie con SSH bloqueado con Braiins OS+
   + usa la configuración de red almacenada en la NAND (esto puede apagarse, vea la sección *Network settings* abajo)
-  + activa el autoajuste al límite de energía por defecto (1420W)
+  + activa el autoajuste al límite de energía por defecto
 
   - no migra direcciones (URL) de pool, usuarios o claves
   - no hay modo-por-lotes
@@ -1485,7 +1485,7 @@ Características, PROs y CONs de este método:
   + migra toda la configuración por defecto (puede ajustarse) al instalar Braiins OS+
   + migra la configuración de red por defecto (puede ajustarse) al desinstalar Braiins OS+
   + parámetros disponibles para personalizar el proceso
-  + enciende el autoajuste a un límite de energía por defecto (1420W) al instalar Braiins OS+
+  + enciende el autoajuste a un límite de energía por defecto al instalar Braiins OS+
 
   - no hay modo-por-lotes (a menos que cree sus propios scripts)
   - requiere una larga instalación
@@ -1658,7 +1658,7 @@ Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía S
   #también se puede conectar al minero y correr los comandos al mismo tiempo
   ssh root@DIRECCIÓN_IP "opkg update && opkg install bos_plus"
 
-Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a (1420W).
+Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a.
 
 .. _opkg_factory_reset:
 
