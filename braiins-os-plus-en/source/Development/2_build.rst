@@ -141,10 +141,10 @@ call the *bb.py* script with the *build* command.
 .. code:: bash
 
     # build firmware image with default configuration
-    python 3.5 ./bb.py build
+    python3.5 ./bb.py build
 
     # build firmware image with user configuration
-    python 3.5 ./bb.py --config configs/user.yml build
+    python3.5 ./bb.py --config configs/user.yml build
 
 All repositories are stored in the **build**/*<target>* directory where
 *target* is specified in a *YAML* configuration file under a
@@ -157,7 +157,6 @@ Platform Selection
 The build system supports multiple platforms with the same base
 configuration. Currently the following platforms are supported:
 
--  *zynq-am2-s17* (Antminer S17)
 -  *zynq-am1-s9* (Antminer S9)
 -  *zynq-dm1-g9* (DragonMint v1 with G9 Control Board)
 -  *zynq-dm1-g19* (DragonMint v1 with G19 Control Board)
@@ -169,10 +168,10 @@ parameter:
 .. code:: bash
 
     # build firmware image with default configuration for DragonMint G9
-    python 3.5 ./bb.py --platform zynq-dm1-g9 build
+    python3.5 ./bb.py --platform zynq-dm1-g9 build
 
     # build firmware image with user configuration for DragonMint G19
-    python 3.5 ./bb.py --config configs/user.yml --platform zynq-dm1-g19 build
+    python3.5 ./bb.py --config configs/user.yml --platform zynq-dm1-g19 build
 
 ================
 Firmware Release
@@ -200,10 +199,10 @@ to use a *key* parameter of the *build* command:
 .. code:: bash
 
     # use secret key for signing (the public key is '/path/secret.pub')
-    python 3.5 ./bb.py build --key /path/secret
+    python3.5 ./bb.py build --key /path/secret
 
     # secret and public key can be specified in one parameter
-    python 3.5 ./bb.py build --key /path/secret:/path/public
+    python3.5 ./bb.py build --key /path/secret:/path/public
 
 ***********
 Development
@@ -221,7 +220,7 @@ with remote is needed.
 .. code:: bash
 
     # force fetching from remote repositories
-    python 3.5 ./bb.py prepare --fetch
+    python3.5 ./bb.py prepare --fetch
 
 ========
 Cleaning
@@ -241,10 +240,10 @@ untracked files and must be called with caution!
 .. code:: bash
 
     # clean repositories with the OpenWrt make clean
-    python 3.5 ./bb.py clean
+    python3.5 ./bb.py clean
 
     # reset repositories with git clean
-    python 3.5 ./bb.py clean --purge
+    python3.5 ./bb.py clean --purge
 
 ======
 Status
@@ -259,7 +258,7 @@ repositories.
 .. code:: bash
 
     # get status of all repositories
-    python 3.5 ./bb.py status
+    python3.5 ./bb.py status
 
 =================
 Out-of-Tree Build
@@ -481,7 +480,7 @@ file under *build.config* attribute.
 .. code:: bash
 
     # configure image packages
-    python 3.5 ./bb.py config
+    python3.5 ./bb.py config
 
 Multiple firmware images are being built at once (NAND, NAND Recovery,
 SD, ...). We must be specify which image will contain a particular
@@ -534,7 +533,7 @@ standard behavior of the OpenWrt.
 .. code:: bash
 
     # configure kernel (Linux) for selected target
-    python 3.5 ./bb.py config --kernel
+    python3.5 ./bb.py config --kernel
 
 **********
 Deployment
@@ -591,10 +590,10 @@ command can be used for deployment of SD or NAND image to this machine:
 .. code:: bash
 
     # mount mmc0 partition 1 and copy all images and 'uEnv.txt' to it
-    python 3.5 ./bb.py deploy sd
+    python3.5 ./bb.py deploy sd
 
     # write U-Boot, recovery image and configuration to NAND and do factory reset
-    python 3.5 ./bb.py deploy nand
+    python3.5 ./bb.py deploy nand
 
 When more than one device needs to be managed, several arguments can be
 used to specify remote machine. It can be done only by machine's MAC
@@ -616,11 +615,11 @@ machine generates its name based on current MAC in a form of
 .. code:: bash
 
     # upgrade remote device with the hostname 'miner-ffff01'
-    python 3.5 ./bb.py deploy nand --mac 00:0A:35:FF:FF:01
+    python3.5 ./bb.py deploy nand --mac 00:0A:35:FF:FF:01
     # upgrade remote device on address '192.168.0.1' and change its MAC to '00:0A:35:FF:FF:FF'
-    python 3.5 ./bb.py deploy nand --hostname 192.168.0.1
+    python3.5 ./bb.py deploy nand --hostname 192.168.0.1
     # upgrade previous device and set its MAC to original value
-    python 3.5 ./bb.py deploy nand --mac 00:0A:35:FF:FF:01 --hostname miner-ffffff
+    python3.5 ./bb.py deploy nand --mac 00:0A:35:FF:FF:01 --hostname miner-ffffff
 
 There are also special configuration sub-targets which modify only bOS
 configuration and do not touch other parts of the NAND or SD partition:
@@ -682,17 +681,17 @@ Below are a few typical examples of *deploy* command for local targets:
 
     # create SD card with default MAC address without SD boot parameter
     # a hardware jumper on control board have to be connected to boot from this SD card
-    python 3.5 ./bb.py deploy local_sd:/mnt/mmc0
+    python3.5 ./bb.py deploy local_sd:/mnt/mmc0
 
     # create SD card with MAC address '00:0A:35:FF:FF:01' and with SD boot enabled
     # it can boot from SD card without connecting a hardware jumper if compatible U-Boot is used
-    python 3.5 ./bb.py deploy local_sd:/mnt/mmc0 --mac 00:0A:35:FF:FF:01 --uenv sd_boot
+    python3.5 ./bb.py deploy local_sd:/mnt/mmc0 --mac 00:0A:35:FF:FF:01 --uenv sd_boot
 
     # create recovery SD card which boots from SD and performs NAND factory reset using images stored on this SD 
-    python 3.5 ./bb.py deploy local_sd_recovery:/mnt/mmc0 --mac 00:0A:35:FF:FF:01 --uenv sd_boot factory_reset sd_images
+    python3.5 ./bb.py deploy local_sd_recovery:/mnt/mmc0 --mac 00:0A:35:FF:FF:01 --uenv sd_boot factory_reset sd_images
 
     # create special SD card only with 'uEnv.txt' which performs factory reset when it is inserted in a device
-    python 3.5 ./bb.py deploy local_sd_config:/mnt/mmc0 --uenv factory_reset
+    python3.5 ./bb.py deploy local_sd_config:/mnt/mmc0 --uenv factory_reset
 
 ====
 uEnv
@@ -793,10 +792,10 @@ supported by the firmware:
 .. code:: bash
 
     # create git tag and push it to the remote repository
-    python 3.5 ./bb.py release
+    python3.5 ./bb.py release
 
     # do the same but also include 'COMMAND' script and new FPGA bitstream
-    python 3.5 ./bb.py release --include command fpga
+    python3.5 ./bb.py release --include command fpga
 
 ====================
 Building and Signing
@@ -810,7 +809,7 @@ following command:
 .. code:: bash
 
     # generate key pair and store it to the fortified keyring
-    python 3.5 ./bb.py key ~/keyring/secret
+    python3.5 ./bb.py key ~/keyring/secret
 
 This command generates private and public key into the specified path.
 Where the private key is to be securely stored is beyond the scope of
@@ -825,7 +824,7 @@ built and signed with the following command:
     # switch braiins build system to specific firmware version
     git checkout firmware_2018-05-27-0-16a21b55
     # build this version and sign it with a secret key
-    python 3.5 ./bb.py build --key ~/keyring/secret
+    python3.5 ./bb.py build --key ~/keyring/secret
 
 If everything goes well, all images are prepared for final publishing to
 the feeds server. This process can be reproduced anytime in the future.
@@ -843,10 +842,10 @@ target:
 .. code:: bash
 
     # initial feeds server is created by deploy command with 'local_feeds' target
-    python 3.5 ./bb.py deploy local_feeds:~/server/initial_feeds
+    python3.5 ./bb.py deploy local_feeds:~/server/initial_feeds
 
     # the other deployments should be created with the previous contents
-    python 3.5 ./bb.py deploy local_feeds:~/server/new_feeds --feeds-base file://~/server/initial_feeds/Packages
+    python3.5 ./bb.py deploy local_feeds:~/server/new_feeds --feeds-base file://~/server/initial_feeds/Packages
 
 The output directory should be empty before calling deploy command to
 ensure that the directory would not contain any temporary files. If
@@ -879,7 +878,7 @@ firmware to braiins OS firmware:
 .. code:: bash
 
     # create upgrade tarballs for DragonMint control board
-    python 3.5 ./bb.py deploy local_upgrade:~/upgrade
+    python3.5 ./bb.py deploy local_upgrade:~/upgrade
 
     # extract upgrade tarball for new DragonMint with G19 control board
     cd ~/upgrade
