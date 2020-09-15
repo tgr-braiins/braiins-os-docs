@@ -54,6 +54,23 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Changelog
 *********
 
+20.09.1
+---------------------------
+
+Esta es una versión de corrección de fallos.
+
+* Todos los tipos de hardware
+
+  * [característica] hemos deshabilitado la protección rebind en DNSmasq para recuperar el comportamiento original en la resolución de nombres. Lo que esto significa es que el servidor DNS de una granja de minado podrá servir respuestas que apunten a rangos de IP (locales). Esto mejora la experiencia de usuario si la granja tiene un proxy stratum local disponible por nombre..
+  * [característica] soporte para minería opcional. Los mensajes stratum {ping/pong} que algunos pool utilizan para comprobar que el minero está vivo
+  * [fallo] solución alternativa para otra-implementación-rota de stratum V1 ha sido desplegada. El problema es que algunas implementaciones de  stratum V1 no marcan el resultado 'nulo' como una respuesta que lleva error sinó que coloca varias cosas en ella (ej: falso). El cliente stratum aborta la conexión en ese caso. Hemos colocado esto como mensaje de advertencia en el registro y el cliente ignora semejantes anomalías y puede extraer la carga útil de ella
+  * [fallo] versión de formato bosminer.toml es ahora correctamente migrada
+
+* Antminer S17
+
+  * [característica] limite de temperatura caliente ha sido reducido a 100 C
+  * [característica de diagnóstico] el último error de una máquina ahora por defecto es enviado a nuestro servidor de registro. Esto es para simplificar cualquier problema de diagnostico en la S17. Si esta característica temporal no es deseable, puede deshabilitarse en /etc/init.d/bosminer reemplazando "PROG=/usr/bin/bosminer-panic-wrapper" con "PROG=/usr/bin/bosminer"
+
 20.09
 ---------------------------
 
