@@ -163,18 +163,3 @@ A continuación se listan problemas que se sabe existen en la versión liberada.
   * Configuración
 
     * La instalación por tarjeta SD reportará una llave de autenticación Stratum V2 faltante en la sección Miner/Configuration (Error: missing upstream authority key for securing stratum2+tcp connection in pool"). El usuario puede configurar la conexión (incluyendo la llave) en la configuración, o directamente en el archivo ``/etc/bosminer.toml``.
-
-******************
-Contacto y Soporte
-******************
-
-¿Tiene preguntas?
-Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
-
-Únase a nuestro grupo en Telegram:
-
-  * `EN group <https://t.me/BraiinsOS>`_
-  * `ES group <https://t.me/BraiinsOS_ES>`_
-  * `FA group <https://t.me/BraiinsOS_SlushPool_FA>`_
-  * `RU group <https://t.me/BraiinsOS_RU>`_
-  * `ZH group <https://t.me/BraiinsOS_ZH>`_
