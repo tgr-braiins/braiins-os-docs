@@ -174,20 +174,3 @@ A continuación se listan problemas que se sabe existen en la versión liberada.
  * Monitoreo avanzado para prevenir el sobrecalentamiento y otros problemas
  * Mecanismo de Auto-actualización
  * Escalado Dinámico de Energía, lo cual baja el límite de energía en caso de altas temperaturas, para minado continuo
-
-******************
-Contacto y Soporte
-******************
-
-¿Tiene preguntas?
-Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
-
-Únase a nuestro grupo en Telegram:
-
-  * `EN group <https://t.me/BraiinsOS>`_
-  * `ES group <https://t.me/BraiinsOS_ES>`_
-  * `FA group <https://t.me/BraiinsOS_SlushPool_FA>`_
-  * `RU group <https://t.me/BraiinsOS_RU>`_
-  * `ZH group <https://t.me/BraiinsOS_ZH>`_
-
-  También puede `enviar petición VIP <https://slushpool.kayako.com/en-us/conversation/new/11>`_ a nuestro equipo de soporte.
