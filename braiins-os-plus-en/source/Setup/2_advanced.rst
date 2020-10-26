@@ -628,17 +628,17 @@ First, you need to prepare the Python environment. This consists of the followin
   
   #Download and extract the firmware package
   #Antminer S9
-  wget -c https://feeds.braiins-os.com/20.09/braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.09/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
 
   #Change the directory to the unpacked firmware folder
   #Antminer S9
-  cd ./braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #Create a virtual environment and activate it
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -665,10 +665,10 @@ Installation of Braiins OS+ using the so-called *SSH Method* consists of the fol
 
     #Change the directory to the unpacked firmware folder (if not already in the firmware folder)
   #Antminer S9
-  cd ./braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #Activate the virtual environment (if it is not already activated)
   source .env/bin/activate
@@ -889,7 +889,7 @@ In order to upgrade from older version of Braiins OS, use the following command 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-09-07-1-1f02b3bd-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
 This command contains the following commands: 
 

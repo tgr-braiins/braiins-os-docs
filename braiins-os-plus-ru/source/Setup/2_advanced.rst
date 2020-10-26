@@ -626,17 +626,17 @@ Braiins OS+ сброс настроек с помощью SD-карты
   
   #Скачайте и распакуйте пакет прошивки
   #Antminer S9
-  wget -c https://feeds.braiins-os.com/20.09/braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.09/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
 
   #Измените каталог на распакованную папку с прошивкой
   #Antminer S9
-  cd ./braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #Создайте виртуальную среду и активируйте ее
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -663,10 +663,10 @@ Braiins OS+ сброс настроек с помощью SD-карты
 
   #Измените каталог на распакованную папку с прошивкой (если ее еще нет в папке с прошивкой)
   #Antminer S9
-  cd ./braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #Активируйте виртуальную среду (если она еще не активирована)
   source .env/bin/activate
@@ -883,7 +883,7 @@ Sysupgrade используется для обновления системы, 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-09-07-1-1f02b3bd-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
 Эта команда содержит следующие команды: 
 
