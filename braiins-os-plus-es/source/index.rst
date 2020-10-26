@@ -59,6 +59,33 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Changelog
 *********
 
+20.10
+---------------------------
+
+Esta es una versión importante que agrega soporte beta para Antminer S17 +
+
+* Todos los tipos de hardware de minería
+
+  * [feature] procd ahora espera hasta 20 segundos para permitir el apagado adecuado de BOSminer
+  * [función] El monitor BOSminer ahora solo hace girar los ventiladores cuando BOSminer se ha detenido para enfriar la máquina
+  * [error] el cliente Stratum ya no se queja de 'Stratum: solución aceptada inesperada # 0'
+  * [error] error de estado incorrecto del cliente de stratum se ha corregido (es decir, ya no debería ver "ERRO BUG: 'finish_shutdown_or_recover': estado inesperado 'Iniciando'")
+  * [función] La compatibilidad con el programa de referencia se ha hecho más sólida para admitir varios tipos de hardware en una única configuración de referencia
+  * [característica] El protocolo de administración BOS ahora se transmite entre las conexiones devfee stratum V2 en caso de conmutación por error a una conexión de respaldo
+
+* Antminer S9
+
+  * no hubo cambios específicos de hardware
+
+* Antminer S17
+
+  * [función] Se ha añadido compatibilidad para S17 +
+  * [característica] Los límites de temperatura predeterminados se han reducido aún más a la temperatura objetivo: 72 C, temperatura caliente: 85 C, temperatura peligrosa: 92 C ya que la familia S17 es muy sensible al sobrecalentamiento debido a la calidad del material de soldadura utilizado en el tablero PCB
+  * [característica] Hemos agregado la detección automática de la variante de la placa de control (C49 vs C52) para manejar los ventiladores correctamente
+  * [característica] Braiins OS se negaría a instalar en máquinas X17 que tengan el flash NAND 'Macronix'. Actualmente, solo se admite el flash NAND 'Micron'
+  * [función] Se ha implementado la detección automática de S17, S17Pro, S17 + y hay una sola imagen para todos estos tipos de máquinas
+  * [función] Los límites de potencia ahora se calculan dinámicamente en función de la máquina detectada
+
 20.09.1
 ---------------------------
 
