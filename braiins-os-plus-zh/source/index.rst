@@ -89,19 +89,19 @@ This is a major release that adds beta support for Antminer S17+.
 20.09.1
 ---------------------------
 
-This is a bug fix release.
+本次发布旨在修复部分Bug。
 
-* All mining hardware types
+* 在所有类型的矿机上
 
-  * [feature] we have disabled rebind protection in DNSmasq to recover original name resolution behavior. What it means is that mining farm DNS server can serve responses that point to private (local) IP ranges. This improves user experience should a farm have a local stratum proxy accessible by name.
-  * [feature] support for optional mining.{ping/pong} stratum messages that some pools use for checking miner liveness
-  * [bug] workaround for a yet-another-broken stratum V1 implementation has been deployed. The problem is that some stratum V1 implementation don't mark result as 'null' in response that carries an error but put various things into it (e.g. false). The stratum client would abort a connection in such case. We have made this into a warning log message and the client ignores such anomalies and can extract the useful payload out of it
-  * [bug] bosminer.toml format version is now correctly being migrated
+  * 【特性】 为恢复原域名解析行为，我们禁用了DNSmasq中的重绑定保护（Rebind Protection）功能。这就意味着矿场的DNS服务器可以对指向本地IP段的请求做出响应了。这将改善在本地运行阶层Stratum协议翻译代理服务器的矿场的用户体验
+  * 【特性】 新增对可选挖矿的支持。支持某些矿池用阶层Stratum协议的消息类型 {ping/pong} 检查矿机活跃度 
+  * 【BUG修复】 对另一个阶层Stratum V1老协议已知问题的迂回解决方案。某些V1协议不会在发生错误时，将结果标记为'null'（空），而是乱添油加醋（比如错误结果）。协议客户端在发生这种情况时将终止连接。我们对此在矿机后台记录中新增了一种警告记录信息（Warning log message），而协议客户端也会忽视这种异常，并能从异常中抽出全部的负载用于正常计算
+  * 【BUG修复】 bosminer.toml 版本的格式现可被移植 
 
-* Antminer S17
+* 在蚂蚁矿机S17上
 
-  * [feature] hot temperature limit has been lowered to 100 C
-  * [debug feature] last error of a machine is now by default being shipped to our logging server. This is to simplify debugging any S17 issues. If this temporary feature is not desired, it can be disabled in /etc/init.d/bosminer by replacing "PROG=/usr/bin/bosminer-panic-wrapper" with "PROG=/usr/bin/bosminer"
+  * 【特性】 过热温度（Hot Temperature）限值降低到 100 摄氏度
+  * 【排障特性】 矿机上最近发生的故障将会被发送到我们的记录服务器，以简化S17矿机排障的过程。如您不想开启此特性，您可以在 /etc/init.d/bosminer 中替换 "PROG=/usr/bin/bosminer-panic-wrapper" 为 "PROG=/usr/bin/bosminer" 关闭它
 
 20.09
 ---------------------------
