@@ -62,29 +62,29 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 20.10
 ---------------------------
 
-This is a major release that adds beta support for Antminer S17+.
+本次发布是为蚂蚁矿机S17+新增Beta版支持的重要更新。
 
-* All mining hardware types
+* 在所有类型的矿机上
 
-  * [feature] procd now waits up to 20s to allow proper shutdown of BOSminer
-  * [feature] BOSminer monitor now only spins the fans for when BOSminer has been stopped in order to cool down the machine
-  * [bug] stratum client no longer complains about 'Stratum: unexpected accepted solution #0'
-  * [bug] stratum client incorrect state bug has been fixed (i.e. you should not see "ERRO BUG: 'finish_shutdown_or_recover': unexpected state 'Starting'" anymore)
-  * [feature] referral program support has been made more robust to support multiple hardware types in a single referral configuration
-  * [feature] BOS management protocol is now relayed between devfee stratum V2 connections in case of fail over to a backup connection
+  * 【特性】 现在 procd 要等最多20秒，以便BOSminer正常关闭
+  * 【特性】 BOSminer监控只会在当BOSminer停止运行时让风扇运转，给矿机降温
+  * 【BUG修复】 解决了阶层Stratum客户端显示 'Stratum: unexpected accepted solution #0' 的问题
+  * 【BUG修复】 解决了阶层Stratum客户端状态不正常的BUG（例如显示诸如像 "ERRO BUG: 'finish_shutdown_or_recover' 或 unexpected state 'Starting'" 这样的问题）
+  * 【特性】 推荐计划现更好地支持同时支持推广多种不同的矿机类型。
+  * 【特性】 当BOS管理协议发生故障，从阶层Stratum V2协议连接切换到备用连接时，抽水也将同时被中继过去。
 
-* Antminer S9
+* 在蚂蚁矿机S9上
 
-  * there were no hardware specific changes
+  * 未对S9做特别改动
 
-* Antminer S17
+* 在蚂蚁矿机S17上
 
-  * [feature] support for S17+ has been added
-  * [feature] default temperature limits have been lowered even further to target temp: 72 C, hot temp: 85 C, dangerous temp: 92 C as the S17 family is very sensitive to overheating due to quality of the solder material used on the hashboard PCB's
-  * [feature] we have added automatic detection of control board variant (C49 vs C52) to drive fans properly
-  * [feature] Braiins OS would refuse to install on X17 machines that have the 'Macronix' NAND flash. Currently, only the 'Micron' NAND flash is supported
-  * [feature] autodetection of S17, S17Pro, S17+ has been implemented and there is a single image for all of these machine types
-  * [feature] power limits are now dynamically calculated based on the detected machine
+  * 【特性】 新增对S17+的支持support for S17+ has been added
+  * 【特性】 由于S17系列的算力板上的焊接材料质量不好，对过热特别敏感，默认温度限值进一步降低到：目标温度：72 度，过热温度：85 度，危险温度：92 度
+  * 【特性】 为让风扇正常运转，我们新增了对两种控制板（C49和C52）的自动区别。
+  * 【特性】 在使用 'Macronix' 闪存的17系列矿机上，Braiins OS将拒绝安装。目前我们只支持使用 'Micron' 闪存的矿机
+  * 【特性】 自动检测矿机型号（S17、S17 Pro和S17+），三机固件合一
+  * 【特性】 基于检测到的矿机型号，对功率限值将进行动态计算调整
 
 20.09.1
 ---------------------------
@@ -95,13 +95,13 @@ This is a major release that adds beta support for Antminer S17+.
 
   * 【特性】 为恢复原域名解析行为，我们禁用了DNSmasq中的重绑定保护（Rebind Protection）功能。这就意味着矿场的DNS服务器可以对指向本地IP段的请求做出响应了。这将改善在本地运行阶层Stratum协议翻译代理服务器的矿场的用户体验
   * 【特性】 新增对可选挖矿的支持。支持某些矿池用阶层Stratum协议的消息类型 {ping/pong} 检查矿机活跃度 
-  * 【BUG修复】 对另一个阶层Stratum V1老协议已知问题的迂回解决方案。某些V1协议不会在发生错误时，将结果标记为'null'（空），而是乱添油加醋（比如错误结果）。协议客户端在发生这种情况时将终止连接。我们对此在矿机后台记录中新增了一种警告记录信息（Warning log message），而协议客户端也会忽视这种异常，并能从异常中抽出全部的负载用于正常计算
+  * 【BUG修复】 对另一个阶层Stratum V1老协议已知问题的迂回解决方案。有时V1协议不会在发生错误时，将结果标记为'null'（空），而是乱添油加醋（比如错误结果）。协议客户端在发生这种情况时将终止连接。我们对此在矿机后台记录中新增了一种警告记录信息（Warning log message），而协议客户端也会忽视这种异常，并能从异常中抽出全部的负载用于正常计算
   * 【BUG修复】 bosminer.toml 版本的格式现可被移植 
 
 * 在蚂蚁矿机S17上
 
-  * 【特性】 过热温度（Hot Temperature）限值降低到 100 摄氏度
-  * 【排障特性】 矿机上最近发生的故障将会被发送到我们的记录服务器，以简化S17矿机排障的过程。如您不想开启此特性，您可以在 /etc/init.d/bosminer 中替换 "PROG=/usr/bin/bosminer-panic-wrapper" 为 "PROG=/usr/bin/bosminer" 关闭它
+  * 【特性】 过热温度（Hot Temperature）限值降低到 100 度
+  * 【排障特性】 矿机上最近发生的故障将会被发送到我们的记录服务器，以简化S17矿机排障的过程。如您不想开启此特性，您可以在 /etc/init.d/bosminer 中替换 "PROG=/usr/bin/bosminer-panic-wrapper" 为 "PROG=/usr/bin/bosminer" ，从而关闭它
 
 20.09
 ---------------------------
