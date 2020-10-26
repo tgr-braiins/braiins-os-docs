@@ -41,7 +41,8 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 技术支持与联系方式
 *******************
 
-您有任何疑问吗？我们的开发和客服团队非常乐意解答您的疑惑。
+您有任何疑问吗？
+我们的开发和客服团队非常乐意解答您的疑惑。
 
 您也可以加入我们的电报群组：
 
@@ -57,6 +58,50 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 *********
 更新日志
 *********
+
+20.10
+---------------------------
+
+This is a major release that adds beta support for Antminer S17+.
+
+* All mining hardware types
+
+  * [feature] procd now waits up to 20s to allow proper shutdown of BOSminer
+  * [feature] BOSminer monitor now only spins the fans for when BOSminer has been stopped in order to cool down the machine
+  * [bug] stratum client no longer complains about 'Stratum: unexpected accepted solution #0'
+  * [bug] stratum client incorrect state bug has been fixed (i.e. you should not see "ERRO BUG: 'finish_shutdown_or_recover': unexpected state 'Starting'" anymore)
+  * [feature] referral program support has been made more robust to support multiple hardware types in a single referral configuration
+  * [feature] BOS management protocol is now relayed between devfee stratum V2 connections in case of fail over to a backup connection
+
+* Antminer S9
+
+  * there were no hardware specific changes
+
+* Antminer S17
+
+  * [feature] support for S17+ has been added
+  * [feature] default temperature limits have been lowered even further to target temp: 72 C, hot temp: 85 C, dangerous temp: 92 C as the S17 family is very sensitive to overheating due to quality of the solder material used on the hashboard PCB's
+  * [feature] we have added automatic detection of control board variant (C49 vs C52) to drive fans properly
+  * [feature] Braiins OS would refuse to install on X17 machines that have the 'Macronix' NAND flash. Currently, only the 'Micron' NAND flash is supported
+  * [feature] autodetection of S17, S17Pro, S17+ has been implemented and there is a single image for all of these machine types
+  * [feature] power limits are now dynamically calculated based on the detected machine
+
+20.09.1
+---------------------------
+
+This is a bug fix release.
+
+* All mining hardware types
+
+  * [feature] we have disabled rebind protection in DNSmasq to recover original name resolution behavior. What it means is that mining farm DNS server can serve responses that point to private (local) IP ranges. This improves user experience should a farm have a local stratum proxy accessible by name.
+  * [feature] support for optional mining.{ping/pong} stratum messages that some pools use for checking miner liveness
+  * [bug] workaround for a yet-another-broken stratum V1 implementation has been deployed. The problem is that some stratum V1 implementation don't mark result as 'null' in response that carries an error but put various things into it (e.g. false). The stratum client would abort a connection in such case. We have made this into a warning log message and the client ignores such anomalies and can extract the useful payload out of it
+  * [bug] bosminer.toml format version is now correctly being migrated
+
+* Antminer S17
+
+  * [feature] hot temperature limit has been lowered to 100 C
+  * [debug feature] last error of a machine is now by default being shipped to our logging server. This is to simplify debugging any S17 issues. If this temporary feature is not desired, it can be disabled in /etc/init.d/bosminer by replacing "PROG=/usr/bin/bosminer-panic-wrapper" with "PROG=/usr/bin/bosminer"
 
 20.09
 ---------------------------
