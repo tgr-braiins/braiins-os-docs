@@ -20,9 +20,9 @@
   * با استفاده از کارت حافظه SD و ابزار ماینر (:ref:`miner_nand_install`)
   * با استفاده از اسکریپت SSH (:ref:`ssh_package_install`)
 
- * Unlock SSH on Antminer S9
+ * باز کردن قفل SSH در دستگاه Antminer S9
  
-  * Using BOS+ Toolbox (:ref:`bosbox_unlock`) 
+  * با استفاده از BOS+ Toolbox (:ref:`bosbox_unlock`)
   
  * بروز رسانی Braiins OS
  
@@ -464,56 +464,57 @@ stop                                  متوقف کردن BOSminer
 
 .. _bosbox_unlock:
 
-============================================
-Unlock SSH on Antminer S9 using BOS+ Toolbox
-============================================
+===================================================================
+باز کردن قفل SSH در دستگاه Antminer S9 با استفاده از BOS+ Toolbox
+===================================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * **BOS+ Toolbox** را از وبسایت ما `دانلود کنید <https://braiins-os.com/plus/download/>`_.
+  * یک فایل متنی جدید ایجاد کنید، پسوند فایل را از ".txt" به ".csv" تغییر دهید و آی پی دستگاه هایی که میخواهید دستور در آنها اجرا شود را وارد نمایید. فایل را به پوشه‌ای که BOS+ Toolbox قرار دارد انتقال دهید. **هر آی پی را در یک سطر بنویسید!**
+  *‌ زمانی که BOS+ Toolbox را دانلود کردید،‌ خط فرمان خود را اجرا کنید. (برای مثال: CMD برای Windows, Terminal برای Ubuntu)
+  * در دستورات زیر *FILE_PATH_TO_BOS+_TOOLBOX* را با مسیر پوشه ای که BOS+ Toolbox را ذخیره کرده‌اید تغییر دهید. سپس مسیر را از طریق اجرای دستور زیر تغییر دهید:
+  ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * حالا فایل *listOfMiners.csv* را با نام فایلی که شما برای لیست آی پی های دستگاه‌ها ایجاد کرد‌ه‌اید در دستور زیر تغییر دهید و متناسب با سیستم عامل خود دستور را اجرا کنید:
 
-    For **Windows** command terminal: ::
+    برای **Windows** دستور خط فرمان: ::
 
       bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
 
-    For **Linux** command terminal: ::
+    برای **Linux** دستور خط فرمان: ::
       
       ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **توجه:** *زمان استفاده از BOS+ Toolbox در لینوکس، شما باید فایل را طبق دستور زیر به حالت اجرایی تبدیل کنید (این برای یکبار است):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+شما میتوانید از آرگومان‌های **arguments** زیر استفاده کنید:
 
-**Important note:** 
-When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+**نکته مهم:** 
+زمانیکه برای بروز رسانی Braiins OS+ روی **یک دستگاه** اقدام می‌کنید، از آرگومان *HOSTNAME* استفاده کنید (آدرس IP).
+زمانیکه برای بروز رسانی Braiins OS+ روی **چندین دستگاه** اقدام می‌کنید، از آرگومان *HOSTNAME* استفاده **نکنید**، اما میتوانید از آرگومان *--batch BATCH* به جای آن استفاده نمایید.
 
 ====================================  ============================================================
-Arguments                             Description
+Arguments  آرگومان‌ها                  Description توضیحات
 ====================================  ============================================================
---h, --help                           show this help message and exit
---batch BATCH                         path to file with list of hosts to install to
--u USERNAME, --username USERNAME             Username for webinterface
--p PASSWORD, --password PASSWORD      Password for webinterface
---port PORT                           Port of antminer webinterface
---ssl                                 Whether to use SSL
+--h, --help                           نمایش راهنما
+--batch BATCH                         مسیر به فایلی که آدرس آی پی دستگاه‌های برای نصب درج شده است
+-u USERNAME, --username USERNAME      نام کاربری رابط وب
+-p PASSWORD, --password PASSWORD      رمز عبور رابط وب
+--port PORT                           شماره پورت برای رابط وب Antminer
+--ssl                                 آیا SSL استفاده بشود یا خیر
 ====================================  ============================================================
 
 
-**Example:**
+**مثال:**
 
 ::
 
   bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
 
-This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
+این دستور قفل SSH ماینرهایی که در فایل *listOfMiners.csv* لیست شده اند را باز خواهد کرد.
 
 .. _web_package:
 

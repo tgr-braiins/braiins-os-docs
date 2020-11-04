@@ -20,9 +20,9 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
   * Usando la tarjeta SD y la herramienta miner (:ref:`miner_nand_install`)
   * Usando scripts SSH (:ref:`ssh_package_install`)
 
- * Unlock SSH on Antminer S9
- 
-  * Using BOS+ Toolbox (:ref:`bosbox_unlock`) 
+ * Desbloquear SSH en Antminer S9
+
+  * Usando la Caja de Herramientas BOS+ (:ref:`bosbox_unlock`)
 
  * Actualizar Braiins OS
 
@@ -448,56 +448,56 @@ stop                                  Detener BOSminer
 
 .. _bosbox_unlock:
 
-============================================
-Unlock SSH on Antminer S9 using BOS+ Toolbox
-============================================
+===============================================================
+Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS+
+===============================================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Descargue la **Caja de Herramientas BOS+** de nuestro `sitio web <https://es.braiins.com/os/plus/download>`_.
+  * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS+. **¡Use solo una dirección IP por línea!**
+  * Una vez descargada la Caja de Herramientas BOS+, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS+ Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Ahora reemplace el marcador *listaDeMineros.csv* con el nombre de archivo en el comando de abajo y corra el comando apropiado para su sistema operativo:
 
-    For **Windows** command terminal: ::
+    Terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-plus-toolbox.exe unlock ARGUMENTOS NOMBREHOST
 
-    For **Linux** command terminal: ::
-      
-      ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
+    Terminal de comandos en **Linux**: ::
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
+      ./bos-plus-toolbox unlock ARGUMENTOS NOMBREHOST
+
+    **Nota:** *al usar la caja de herramientas BOS+ para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
+
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+Puede usar los siguientes **argumentos** para ajustar el proceso:
 
-**Important note:** 
-When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+**Nota importante:**
+Al actualizar Braiins OS+ en **un solo dispositvo**, use el argumento *NOMBREHOST* (dirección IP).
+Al actualizar Braiins OS+ en **múltiples dispositivos**, **NO** use el argumento *NOMBREHOST*, use el argumento *--batch LOTE* en su lugar.
 
-====================================  ============================================================
-Arguments                             Description
-====================================  ============================================================
---h, --help                           show this help message and exit
---batch BATCH                         path to file with list of hosts to install to
--u USERNAME, --username USERNAME             Username for webinterface
--p PASSWORD, --password PASSWORD      Password for webinterface
---port PORT                           Port of antminer webinterface
---ssl                                 Whether to use SSL
-====================================  ============================================================
+==========================================  ==========================================================
+Argumentos                                  Descripción
+==========================================  ==========================================================
+--h, --help                                 muestra este mensaje de ayuda y sale
+--batch LOTE                                ruta al archivo con la lista de hosts donde se va instalar
+-u NOMBREUSUARIO, --username NOMBREUSUARIO  Nombre de usuario para la interfaz web
+-p CONTRASEÑA, --password CONTRASEÑA        Contraseña para la interfaz web
+--port PUERTO                               Puerto de la interfaz web
+--ssl                                       Si va usar SSL
+==========================================  ==========================================================
 
 
-**Example:**
+**Ejemplo:**
 
 ::
 
-  bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-plus-toolbox.exe unlock --batch listaDeMineros.csv -p admin
 
-This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
+Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
 .. _web_package:
 

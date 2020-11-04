@@ -65,42 +65,43 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
 矿机原厂固件是2019年之后的版本
 ==================================================
 
-**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+**（仅适用于蚂蚁矿机S9）使用BOS+工具箱解锁固件远程SSH锁**
 
-In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
+官方固件在2019年封锁了SSH远程连接，并在矿机网页后台升级固件时加入了固件签名验证，从而不让矿工装第三方固件。如您的矿机上有固件锁，请按以下步骤解锁并安装Braiins OS+：
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS+_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
-    For **Windows** command terminal: ::
+    在 **Windows** 上的命令提示行请用： ::
 
-      #unlock SSH on the machines
+      #解锁矿机上的远程SSH锁
       bos-plus-toolbox.exe unlock --batch listOfMiners.csv
 
-      #install Braiins OS in the machines
+      #在矿机上安装Braiins OS+
       bos-plus-toolbox.exe install --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    在 **Linux** 上的Terminal控制终端请用： ::
       
-      #unlock SSH on the machines
+      #解锁矿机上的远程SSH锁
       ./bos-plus-toolbox unlock --batch listOfMiners.csv
 
-      #install Braiins OS in the machines
+      #在矿机上安装Braiins OS+
       ./bos-plus-toolbox install --batch listOfMiners.csv    
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地址）和矿池以及用户配置，将会自动转移到新安装的Braiins OS+上，矿机自动调整功能也将自动开启。 
 
-**SD method**
+**SD卡 卡刷解锁**
+
 如果您的矿机上的原厂固件是2019年或之后的，您只能通过SD卡刷的方法来安装Braiins OS。因为从2019年起的原厂固件为了防止第三方固件的使用，封锁了SSH连接并在网页端后台升级刷固件时要求验证签名。
 
 通过SD卡刷方式安装Braiins OS，请参照以下步骤：

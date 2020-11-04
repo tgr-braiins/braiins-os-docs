@@ -20,9 +20,9 @@
   * 使用SD卡刷和矿机工具（Miner tool） （:ref:`miner_nand_install`）
   * 使用SSH脚本（:ref:`ssh_package_install`）
 
- * Unlock SSH on Antminer S9
+ * 蚂蚁矿机S9固件远程SSH锁解锁
  
-  * Using BOS+ Toolbox (:ref:`bosbox_unlock`)  
+  * 使用BOS+ Toolbox (:ref:`bosbox_unlock`)  
   
  * 升级Braiins OS+
  
@@ -453,55 +453,55 @@ stop                                  关闭BOSminer
 .. _bosbox_unlock:
 
 ============================================
-Unlock SSH on Antminer S9 using BOS+ Toolbox
+使用BOS+ Toolbox解锁蚂蚁矿机S9上的固件远程SSH锁
 ============================================
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS+_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * 然后根据您的操作系统，运行以下相应的命令：
 
-    For **Windows** command terminal: ::
+    在 **Windows** 上的命令提示行请用： ::
 
       bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
 
-    For **Linux** command terminal: ::
+    在 **Linux** 上的Terminal控制终端请用： ::
       
       ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-plus-toolbox
 
-You can use the following **arguments** to adjust the process:
+您可以使用下方的 **参数** 调整解锁进程：
 
-**Important note:** 
-When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+**重点：** 
+当您在 **单台矿机** 上安装Braiins OS+时，需要使用 *HOSTNAME* 这个参数 （IP地址）。
+当您在多台矿机上 **批量** 安装Braiins OS+时，请 **不要** 使用HOSTNAME这个参数，而是使用 *--batch BATCH* 这个参数。
 
 ====================================  ============================================================
-Arguments                             Description
+参数                                   描述
 ====================================  ============================================================
---h, --help                           show this help message and exit
---batch BATCH                         path to file with list of hosts to install to
--u USERNAME, --username USERNAME             Username for webinterface
--p PASSWORD, --password PASSWORD      Password for webinterface
---port PORT                           Port of antminer webinterface
---ssl                                 Whether to use SSL
+--h, --help                           显示帮助信息并退出
+--batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
+-u USERNAME, --username USERNAME      矿机登录名
+-p PASSWORD, --password PASSWORD      矿机密码
+--port PORT                           矿机端口
+--ssl                                 是否使用SSL
 ====================================  ============================================================
 
 
-**Example:**
+**安装命令和参数使用示例如下：**
 
 ::
 
   bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
 
-This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
+解释：上方的命令和参数，会解锁在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上的固件远程SSH锁。
 
 .. _web_package:
 

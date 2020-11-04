@@ -64,42 +64,43 @@ Braiins OS будет установлен на майнер. Конфигура
 Стоковая прошивка, выпущенная в 2019 или позже
 ==================================================
 
-**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+**(Только для Antminer S9) Разблокировка SSH и установка с помощью BOS+ Toolbox**
 
-In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
+В 2019, SSH соединение было заблокировано, а проверка подписи в веб-интерфейсе предотвращает использование сторонних прошивок. Чтобы установить Braiins OS+ на машинах с заблокированным SSH, выполните следующие действия:
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Скачайте **BOS+ Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
+  * Создайте новый текстовый файл, измените ".txt" окончание на ".csv" и вставьте IP-адреса, на которых вы хотите выполнить команды. Поместите этот файл в каталог, где находится BOS+ Toolbox. Используйте только один IP-адрес в строке!
+  * После того, как вы загрузили BOS+ Toolbox, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
+  * Замените *FILE_PATH_TO_BOS+_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
-      cd FILE_PATH_TO_BOS_TOOLBOX
+      cd FILE_PATH_TO_BOS+_TOOLBOX
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
-    For **Windows** command terminal: ::
+    Для командной строки **Windows**: ::
 
-      #unlock SSH on the machines
+      #разблокировать SSH на машинах
       bos-plus-toolbox.exe unlock --batch listOfMiners.csv
 
-      #install Braiins OS in the machines
+      #установить Braiins OS+ на машины
       bos-plus-toolbox.exe install --batch listOfMiners.csv
 
-    For **Linux** command terminal: ::
+    Для командной строки **Linux**: ::
       
-      #unlock SSH on the machines
+      #разблокировать SSH на машинах
       ./bos-plus-toolbox unlock --batch listOfMiners.csv
 
-      #install Braiins OS in the machines
+      #установить Braiins OS+ на машины
       ./bos-plus-toolbox install --batch listOfMiners.csv    
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Примечание:** *при использовании BOS+ Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
       chmod u+x ./bos-plus-toolbox
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+На майнер будет установлена Braiins OS+. Конфигурация сети (например, статический IP-адрес), пул и пользовательские настройки будут автоматически перенесены в Braiins OS+.
 
 **SD method**
+
 Если вы используете стоковую прошивку, выпущенную в 2019 году или позже, единственный способ установить Braiins OS - это вставить SD-карту с прошивкой Braiins OS. В 2019 году SSH-соединение было заблокировано, и проверка подписи в веб-интерфейсе не позволяет использовать микропрограммы сторонних производителей.
 
 Чтобы установить Braiins OS с помощью SD-карты, выполните следующие действия:

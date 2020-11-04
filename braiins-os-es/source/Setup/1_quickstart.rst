@@ -65,42 +65,43 @@ Para mayor información acerca de este proceso, y para mas opciones visite las s
 Corriendo firmware de serie liberado en 2019 o luego
 ====================================================
 
-**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+**(Solo Antminer S9) Desbloquear SSH e instalar usando la Caja de Herramientas BOS+**
 
-In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
+En 2019, la conexión SSH fue bloqueada y una verificación de firma en la interfaz web previene el uso de firmware de terceros. Para instalar Braiins OS+ en máquinas con SSH bloqueado, siga los pasos siguientes:
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Descargue la **Caja de Herramientas BOS+** de nuestro `sitioweb <https://es.braiins.com/os/plus/download>`_.
+  * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS+. **¡Use solo una dirección IP por línea!**
+  * Una vez descargada la Caja de Herramientas BOS+, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS+ Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
 
-      cd FILE_PATH_TO_BOS_TOOLBOX
+      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+
 
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+  * Ahora reemplace el marcador *listaDeMineros.csv* con el nombre de archivo en el comando de abajo y corra el comando apropiado para su sistema operativo:
 
-    For **Windows** command terminal: ::
+    Terminal de comandos en **Windows**: ::
 
-      #unlock SSH on the machines
-      bos-plus-toolbox.exe unlock --batch listOfMiners.csv
+      #desbloquear SSH en las máquinas
+      bos-plus-toolbox.exe unlock --batch listaDeMineros.csv
 
-      #install Braiins OS in the machines
-      bos-plus-toolbox.exe install --batch listOfMiners.csv
+      #instalar Braiins OS en las máquinas
+      bos-plus-toolbox.exe install --batch listaDeMineros.csv
 
-    For **Linux** command terminal: ::
-      
-      #unlock SSH on the machines
-      ./bos-plus-toolbox unlock --batch listOfMiners.csv
+    Terminal de comandos en **Linux**: ::
 
-      #install Braiins OS in the machines
-      ./bos-plus-toolbox install --batch listOfMiners.csv    
+      #desbloquear SSH en las máquinas
+      ./bos-plus-toolbox unlock --batch listaDeMineros.csv
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
+      #instalar Braiins OS en las máquinas
+      ./bos-plus-toolbox install --batch listaDeMineros.csv
+
+    **Nota:** *al usar la caja de herramientas BOS+ para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
+
       chmod u+x ./bos-plus-toolbox
 
-Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+Braiins OS se instalará en el minero. La configuración de red (ej. Dirección IP estática) y la configuración de usuario y pool será migrada automáticamente a Braiins OS.
 
-**SD method**
+**método SD**
+
 Si está corriendo firmware de serie liberado en 2019 o luego, la única forma de instalar Braiins OS es insertando la tarjeta SD con Braiins OS escrito en ella. En 2019, la conexión SSH fue bloqueada y la verificación de firma en la interfaz web previene el uso de firmwares de terceros.
 
 Para instalar Braiins OS por el método de tarjeta SD, siga los pasos a continuación:
