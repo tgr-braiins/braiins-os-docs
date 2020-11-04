@@ -65,6 +65,43 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 矿机原厂固件是2019年之后的版本
 ==================================================
 
+**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+
+In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
+
+  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+
+      cd FILE_PATH_TO_BOS_TOOLBOX
+
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+
+    For **Windows** command terminal: ::
+
+      #unlock SSH on the machines
+      bos-plus-toolbox.exe unlock --batch listOfMiners.csv
+
+      #install Braiins OS in the machines
+      bos-plus-toolbox.exe install --batch listOfMiners.csv
+
+    For **Linux** command terminal: ::
+      
+      #unlock SSH on the machines
+      ./bos-plus-toolbox unlock --batch listOfMiners.csv
+
+      #install Braiins OS in the machines
+      ./bos-plus-toolbox install --batch listOfMiners.csv    
+
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox
+
+Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+
+**SD method**
+
 如果您的矿机上的原厂固件是2019年或之后的，您只能通过SD卡刷的方法来安装Braiins OS。因为从2019年起的原厂固件为了防止第三方固件的使用，封锁了SSH连接并在网页端后台升级刷固件时要求验证签名。
 
 通过SD卡刷方式安装Braiins OS+，请参照以下步骤：

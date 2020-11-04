@@ -19,6 +19,10 @@
   * با استفاده از کارت حافظه SD (:ref:`sd_install`)
   * با استفاده از کارت حافظه SD و ابزار ماینر (:ref:`miner_nand_install`)
   * با استفاده از اسکریپت SSH (:ref:`ssh_package_install`)
+
+ * Unlock SSH on Antminer S9
+ 
+  * Using BOS+ Toolbox (:ref:`bosbox_unlock`)  
   
  * بروز رسانی Braiins OS+
  
@@ -94,8 +98,6 @@ BOS+ Toolbox ابزاری جدید است که به کاربر اجازه می �
   + روشن شدن اتوتیونینگ با پاور حد پیشفرض (1420وات) زمانی که Braiins OS+ را نصب میکنید
   + حالت دسته ای برای مدیریت چندین دستگاه به طور همزمان
   + استفاده آسان
-  
-  - بر روی ماینری که SSH آن مسدود شده است، کار نمیکند
 
 .. _bosbox_install:
 
@@ -457,6 +459,59 @@ stop                                  متوقف کردن BOSminer
 
   #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
   bos-plus-toolbox.exe command -o list.csv stop
+
+.. _bosbox_unlock:
+
+============================================
+Unlock SSH on Antminer S9 using BOS+ Toolbox
+============================================
+
+  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
+  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+
+      cd FILE_PATH_TO_BOS+_TOOLBOX
+
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+
+    For **Windows** command terminal: ::
+
+      bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
+
+    For **Linux** command terminal: ::
+      
+      ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
+
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox
+
+You can use the following **arguments** to adjust the process:
+
+**Important note:** 
+When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
+When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+
+====================================  ============================================================
+Arguments                             Description
+====================================  ============================================================
+--h, --help                           show this help message and exit
+--batch BATCH                         path to file with list of hosts to install to
+-u USERNAME, --username USERNAME             Username for webinterface
+-p PASSWORD, --password PASSWORD      Password for webinterface
+--port PORT                           Port of antminer webinterface
+--ssl                                 Whether to use SSL
+====================================  ============================================================
+
+
+**Example:**
+
+::
+
+  bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
+
+This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
 
 .. _web_package:
 

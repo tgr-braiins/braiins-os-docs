@@ -64,9 +64,9 @@ There are many tools, packages, and scripts that can be used to manage Braiins O
 
 .. _bosbox:
 
-***************
+***********
 BOS Toolbox
-***************
+***********
 
 BOS Toolbox is a new tool that allows users to easily install, uninstall, update, detect, configure Braiins OS and run custom commands on the device. It also enables commands to be executed in batch mode, which makes the management of a larger number of devices easier. This is the recommended way to manage your machines.
 

@@ -65,6 +65,43 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
 اجرا روی فریم‌ور اصلی کارخانه که در 2019 یا بعد منتشرشده
 ========================================================
 
+**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+
+In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
+
+  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+
+      cd FILE_PATH_TO_BOS_TOOLBOX
+
+  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
+
+    For **Windows** command terminal: ::
+
+      #unlock SSH on the machines
+      bos-plus-toolbox.exe unlock --batch listOfMiners.csv
+
+      #install Braiins OS in the machines
+      bos-plus-toolbox.exe install --batch listOfMiners.csv
+
+    For **Linux** command terminal: ::
+      
+      #unlock SSH on the machines
+      ./bos-plus-toolbox unlock --batch listOfMiners.csv
+
+      #install Braiins OS in the machines
+      ./bos-plus-toolbox install --batch listOfMiners.csv    
+
+    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+  
+      chmod u+x ./bos-plus-toolbox
+
+Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
+
+**SD method**
+
 اگر فریم ویر اصلی روی دستگاه را اجرا می کنید که در سال 2019 و بعد از آن منتشر شده، تنها راه نصب Braiins OS+ وارد کردن کارت SD با Braiins OS+ است که روی آن فلش شده است. در سال 2019 ، اتصال SSH مسدود شد و تأیید امضا در رابط کاربری وب مانع استفاده از بنگاه های شخص ثالث می شود.
 
 برای نصب Braiins OS+ از طریق روش کارت SD ، مراحل زیر را دنبال کنید:

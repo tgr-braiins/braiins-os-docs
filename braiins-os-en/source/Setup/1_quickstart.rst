@@ -61,9 +61,9 @@ Braiins OS will be installed on the miner. The network configuration (e.g. Stati
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_install`.
 
-==================================================
+================================================
 Running stock firmware released in 2019 or later
-==================================================
+================================================
 
 If you are running stock firmware that was released in 2019 and later, the only way to install Braiins OS is to insert an SD card with Braiins OS flashed on it. In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares.
 
