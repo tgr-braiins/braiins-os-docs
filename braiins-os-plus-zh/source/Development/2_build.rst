@@ -24,7 +24,7 @@ Getting Started
 These instructions will guide you through the process of setting up a
 copy of the project and getting it running on your local machine for
 development and testing purposes. See the
-`Deployment <https://gitlab.ii.zone/x/braiins/blob/bos-devel/braiins-os/README.md#deployment>`__
+:ref:`deployment`
 section for notes on how to deploy the project on a live system.
 
 =============
@@ -534,6 +534,8 @@ standard behavior of the OpenWrt.
 
     # configure kernel (Linux) for selected target
     python3.5 ./bb.py config --kernel
+
+.. _deployment:
 
 **********
 Deployment
