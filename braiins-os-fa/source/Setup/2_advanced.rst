@@ -73,7 +73,7 @@
 ابزار BOS Toolbox
 ******************
 
-BOS Toolbox ابزاری جدید است که به کاربر اجازه می دهد تا به راحتی Braiins OS را نصب ، حذف ، بروزرسانی  و تنظیم کند. همچنین امکان انجام این کار در حالت دسته ای نیز فراهم شده است و این امر باعث می شود مدیریت تعداد بیشتر دستگاه ها آسان تر شود. این روش پیشنهادی برای مدیریت دستگاه های شما است.
+BOS Toolbox ابزاری جدید است که به کاربر اجازه می دهد تا به راحتی Braiins OS را نصب ، حذف ، بروزرسانی  و تنظیم کند. همچنین امکان انجام این کار در حالت دسته ای نیز فراهم شده است و این امر باعث می شود مدیریت تعداد بیشتر دستگاه ها آسان تر شود. همچنین BOS Toolbox آخرین نسخه فریم‌ور را به صورت خودکار دانلود خواهد کرد. این روش پیشنهادی برای مدیریت دستگاه های شما است.
 
 ==========
 روش کاربرد
@@ -87,7 +87,7 @@ BOS Toolbox ابزاری جدید است که به کاربر اجازه می د
 ویژگی ها، مزایا و معایب این روش:
 =======================================
 
-  + Braiins OS را از راه دور نصب می کند
+  + Braiins OS را از راه دور نصب می کند به صورت خودکار قفل SSH را بر روی Antminer S9 هنگام نصب باز میکند
   + Braiins OS را از راه دور بروزرسانی می کند
   + Braiins OS را از راه دور پاک می کند
   + Braiins OS را از راه دور تنظیم می کند
@@ -99,7 +99,7 @@ BOS Toolbox ابزاری جدید است که به کاربر اجازه می د
   + حالت دسته ای برای مدیریت چندین دستگاه به طور همزمان
   + استفاده آسان
   
-  - بر روی ماینری که SSH آن مسدود شده است، کار نمیکند
+  - بر روی دستگاه‌های X17 که SSH قفل شده دارند کارایی ندارد
 
 .. _bosbox_install:
 
@@ -140,6 +140,10 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 ====================================  ============================================================
 -h, --help                            پیغام help نشان داده شود و سپس خارج می‌شود
 --batch BATCH                         مسیر به فایل دارای لیست میزبانها (آدرس های IP) برای نصب
+--open-source                         برای نصب نسخه متن باز مورد استفاده قرار می‌گیرد (اختصاصی با **nightly** و **feed-url**)
+--nightly                             برای نصب نسخه شبانه مورد استفاده قرار می‌گیرد (اختصاصی با **open-source** و **feed-url**)
+--feeds-url [FEEDS_URL]               بازنویسی آدرس‌های فید سرورهای پیشفرض (اختصاصی با **open-source** و **nightly**)
+--fw-version                          انتخاب نسخه خاص فریم‌ور
 --backup                              قبل از ارتقا از ماینر بک آپ می‌گیرد
 --no-auto-upgrade                     خاموش کردن امکان بروز رسانی خودکار فریم‌ور نصب شده
 --no-nand-backup                      بک آپ کامل حافظه NAND را رد می‌کند( تنظیمات بک‌ آپ گرفته میشوند)
@@ -151,16 +155,18 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 --no-wait                             نیازی نیست تا زمانی که سیستم به طور کامل ارتقا یافته صبر می‌کند.
 --dry-run                             تمام مراحل ارتقا را بدون انجام واقعی ارتقا انجام می‌دهد
 --post-upgrade [POST_UPGRADE]         مسیر به دایرکتوری با اسکریپت stage3.sh
---install-password INSTALL_PASSWORD   رمز عبور SSH برای نصب
+--bos-mgmt-id [BOS_MGMT_ID]	          تنظیم شناسه BOS management
+--ssh-password SSH_PASSWORD	          کلمه عبور ssh برای نصب
+--web-password WEB_PASSWORD	          پسورد web برای آنلاک
 ====================================  ============================================================
 
 **مثال:**
 
 ::
 
-  ./bos-toolbox.exe install --batch listOfMiners.csv --install-password admin
+    bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --web-password root --ssh-password admin
 
-این دستور Braiins OS را روی ماینرهایی نصب می کند که در فایل *listOfMiners.csv* مشخص شده اند. این فرمان همچنین به طور خودکار رمزعبور SSH را وقتی درخواست میکند *admin* وارد می کند.
+این دستور Braiins OS را روی ماینرهایی نصب می کند که در فایل *listOfMiners.csv* مشخص شده اند. این فرمان همچنین به طور خودکار دستگاههای Antminer S9 را آنلاک و رمزعبور SSH را وقتی درخواست میکند *admin* وارد می کند.
 
 .. _bosbox_update:
 
@@ -256,9 +262,8 @@ Arguments                             Description
 -h, --help                            پیغام help نشان داده شود و سپس خارج می‌شود
 --batch BATCH                          مسیر به فایل دارای لیست میزبان‌ها
 --install-password INSTALL_PASSWORD   کلمه عبور ssh برای عملیات نصب
---factory-image FACTORY_IMAGE          مسیر یا آدرس path/url فایل اصلی کارخانه (پیشفرض:
-                                      Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
-                                      NF.tar.gz)
+--feeds-url [FEEDS_URL]		             بازنویسی آدرس فید سرورهای پیشفرض
+--nand-restore
 ====================================  ============================================================
 
 **مثال:**
@@ -267,7 +272,7 @@ Arguments                             Description
 
   ./bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
+This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
 
 .. _bosbox_configure:
 
@@ -307,6 +312,7 @@ Arguments                             Description
 -h, --help                             پیغام help نشان داده شود و سپس خارج می‌شود
 -u USER, --user USER                  نام کاربری مدیریتی
 -p PASSWORD, --password PASSWORD      کلمه عبور مدیریتی یا اینکه پرسیده میشود
+-P, --change-password                 اجازه تغییر کلمه عبور را می‌دهد (به آنهایی که در *listOfMiners.csv* لیست شده اند)
 -c, --check                           Dry run sans writes
 -i, --ignore                          در مواجه با خطا چشم‌پوشی کند
 ====================================  ============================================================
@@ -329,11 +335,11 @@ save_apply                            ذخیره و اعمال تنظیمات ا
 
 ::
 
-  ./bos-toolbox.exe multiconfiger --user root load listOfMiners.csv
+  bos-toolbox.exe config --user root load listOfMiners.csv
   
   #فایل CSV را ویرایش کنید (برای مثال با نرم افزارهای Office Excel, LibreOffice Calc و غیره)
   
-  ./bos-toolbox.exe multiconfiger --user root save_apply listOfMiners.csv
+  bos-plus-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
 
 اولین دستور تنظیمات را از ماینرهایی که در فایل *listOfMiners.csv* لیست شده است بارگیری خواهد کرد. (با استفاده از نام کاربری *root* و در فایل CSV ذخیره خواهد کرد.) شما اکنون میتوانید فایل را باز و ویرایش‌های دلخواه خود را انجام دهید. بعد از ویرایش، دستور دوم تنظیمات را به ماینرها بازخواهد گرداند و در آنها اعمال خواهد کرد. 
 
