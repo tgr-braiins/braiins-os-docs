@@ -72,7 +72,7 @@ There are many tools, packages, and scripts that can be used to manage Braiins O
 BOS Toolbox
 ***********
 
-BOS Toolbox is a new tool that allows users to easily install, uninstall, update, detect, configure Braiins OS and run custom commands on the device. It also enables commands to be executed in batch mode, which makes the management of a larger number of devices easier. This is the recommended way to manage your machines.
+BOS Toolbox is a new tool that allows users to easily install, uninstall, update, detect, configure Braiins OS and run custom commands on the device. It also enables commands to be executed in batch mode, which makes the management of a larger number of devices easier. BOS Toolbox also automatically download the latest firmware. This is the recommended way to manage your machines.
 
 =====
 Usage
@@ -86,7 +86,7 @@ Usage
 Features, PROs and CONs of this method:
 =======================================
 
-  + installs Braiins OS remotely
+  + installs Braiins OS remotely and automatically unlocks SSH on Antminer S9 during the installation
   + updates Braiins OS remotely
   + uninstalls Braiins OS remotely
   + configures Braiins OS remotely
@@ -98,7 +98,7 @@ Features, PROs and CONs of this method:
   + batch mode available to manage multiple devices at once
   + easy to use
   
-  - does not work on miner with locked SSH
+  - does not work on X17 devices with locked SSH
 
 .. _bosbox_install:
 
@@ -137,6 +137,10 @@ Arguments                             Description
 ====================================  ============================================================
 -h, --help                            show this help message and exit
 --batch BATCH                         path to file with list of hosts (IP addresses) to install to
+--open-source         		      use for installation open source version (exclusive with **nightly** and **feed-url**)
+--nightly             		      use for installation nightly version (exclusive with **open-source** and **feed-url**)
+--feeds-url [FEEDS_URL]		      override default feeds server URL (exclusive with **open-source** and **nightly**)
+--fw-version [FW_VERSION]	      select specific firmware version
 --backup                              do miner backup before upgrade
 --no-auto-upgrade                     turn off auto-upgrade of installed firmware
 --no-nand-backup                      skip full NAND backup (config is still being backed up)
@@ -148,16 +152,18 @@ Arguments                             Description
 --no-wait                             do not wait until system is fully upgraded
 --dry-run                             do all upgrade steps without actual upgrade
 --post-upgrade [POST_UPGRADE]         path to directory with stage3.sh script
---install-password INSTALL_PASSWORD   ssh password for installation
+--bos-mgmt-id [BOS_MGMT_ID]	      set BOS management identifier
+--ssh-password SSH_PASSWORD	      ssh password for installation
+--web-password WEB_PASSWORD	      web password for unlock
 ====================================  ============================================================
 
 **Example:**
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --install-password admin
+  bos-toolbox.exe install --batch listOfMiners.csv --web-password root --ssh-password admin
 
-This command will install Braiins OS on the miners, that are specified in the *listOfMiners.csv* file. The command will also automatically insert the SSH password *admin*, when the miner asks for it.
+This command will install Braiins OS on the miners, that are specified in the *listOfMiners.csv* file. The command will also automatically unlock the Antminer S9 and insert the SSH password *admin*, when the miner asks for it.
 
 .. _bosbox_update:
 
@@ -249,9 +255,8 @@ Arguments                             Description
 -h, --help                            show this help message and exit
 --batch BATCH                         path to file with list of hosts
 --install-password INSTALL_PASSWORD   ssh password for installation
---factory-image FACTORY_IMAGE         path/url to original firmware upgrade image (default:
-                                      Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
-                                      NF.tar.gz)
+--feeds-url [FEEDS_URL]		      override default feeds server URL
+--nand-restore			      use full NAND restore from previous backup
 ====================================  ============================================================
 
 **Example:**
@@ -260,7 +265,7 @@ Arguments                             Description
 
   bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
+This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
 
 .. _bosbox_configure:
 
@@ -297,6 +302,7 @@ Arguments                             Description
 -h, --help                            show this help message and exit
 -u USER, --user USER                  Administration username
 -p PASSWORD, --password PASSWORD      Administration password or "prompt"
+-P, --change-password		      Allow changing password (to one stated in the *listOfMiners.csv*)
 -c, --check                           Dry run sans writes
 -i, --ignore                          No halt on errors
 ====================================  ============================================================
@@ -323,9 +329,9 @@ save_apply                            save and apply the settings from the CSV f
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  bos-toolbox.exe config --user root save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
 
-The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners and apply them.
+The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners, apply them and change the password to one in the password column.
 
 .. _bosbox_scan:
 
@@ -453,6 +459,8 @@ stop                                  Stop BOSminer
 ============================================
 Unlock SSH on Antminer S9 using BOS+ Toolbox
 ============================================
+
+**Note:** The unlock functionality is a part of the installation process and is done automatically.
 
   * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
