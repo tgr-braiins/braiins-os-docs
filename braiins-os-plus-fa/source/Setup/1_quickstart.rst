@@ -34,28 +34,28 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-نصب Braiins OS+ به راحتی با استفاده از BOS+ Toolbox قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
+نصب Braiins OS+ به راحتی با استفاده از BOS Toolbox قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * **BOS+ Toolbox** را از `وبسایت <https://braiins-os.com/plus/download/>`_.
-  * یک فایل text جدید ایجاد کنید ، انتهای ".txt" را به ".csv" تغییر دهید و آدرس های IP را که می خواهید دستورات را اجرا کنید ، وارد کنید. فایل را در دایرکتوری که BOS+ Toolbox در آن قرار دارد قرار دهید. فقط از یک آدرس IP در هر سطر استفاده کنید!
-  * پس از دانلود BOS+ Toolbox ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره)
-  * *FILE_PATH_TO_BOS+_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آنBOS+ Toolbox  را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به آن فایل تغییر مسیر دهید: ::
+  * **BOS Toolbox** را از `وبسایت <https://braiins-os.com/plus/download/>`_.
+  * یک فایل text جدید ایجاد کنید ، انتهای ".txt" را به ".csv" تغییر دهید و آدرس های IP را که می خواهید دستورات را اجرا کنید ، وارد کنید. فایل را در دایرکتوری که BOS Toolbox در آن قرار دارد قرار دهید. فقط از یک آدرس IP در هر سطر استفاده کنید!
+  * پس از دانلود BOS Toolbox ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره)
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آنBOS Toolbox  را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به آن فایل تغییر مسیر دهید: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   *  اکنون *listOfMiners.csv* را با نام فایل خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
     برای خط فرمان **Windows**: ::
 
-      bos-plus-toolbox.exe install --batch listOfMiners.csv
+      bos-toolbox.exe install --batch listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-plus-toolbox install --batch listOfMiners.csv	
+      ./bos-toolbox install --batch listOfMiners.csv	
 
-  **توجه** *زمانی که از BOS+ Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
+  **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 
-      chmod u+x ./bos-plus-toolbox	
+      chmod u+x ./bos-toolbox	
 
 Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبکه (به عنوان مثال آدرس IP استاتیک) و تنظیمات استخر و کاربر به طور خودکار به  Braiins OS+ منتقل می شود.
 
@@ -65,15 +65,15 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
 اجرا روی فریم‌ور اصلی کارخانه که در 2019 یا بعد منتشرشده
 ========================================================
 
-**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
-**(تنها برای Antminer S9) باز کردن قفل SSH و نصب با استفاده از BOS+ Toolbox **
+**(Antminer S9 only) Unlock SSH and install using BOS Toolbox**
+**(تنها برای Antminer S9) باز کردن قفل SSH و نصب با استفاده از BOS Toolbox **
 
 در سال ۲۰۱۹،‌ ارتباط SSH قفل شد و تصدیق امضا از طریق رابط کاربری وب باعث جلوگیری استفاده از فریم‌ور های 3rd party شد. برای نصب Braiins OS+ روی دستگاه های دارای قفل SSH مراحل زیر را انجام دهید:
 
-  * **BOS+ Toolbox** را از وبسایت ما `دانلود کنید <https://braiins-os.com/plus/download/>`_.
-  * یک فایل متنی جدید ایجاد کنید، پسوند فایل را از ".txt" به ".csv" تغییر دهید و آی پی دستگاه هایی که میخواهید دستور در آنها اجرا شود را وارد نمایید. فایل را به پوشه‌ای که BOS+ Toolbox قرار دارد انتقال دهید. **هر آی پی را در یک سطر بنویسید!**
-  *‌ زمانی که BOS+ Toolbox را دانلود کردید،‌ خط فرمان خود را اجرا کنید. (برای مثال: CMD برای Windows, Terminal برای Ubuntu)
-  * در دستورات زیر *FILE_PATH_TO_BOS+_TOOLBOX* را با مسیر پوشه ای که BOS+ Toolbox را ذخیره کرده‌اید تغییر دهید. سپس مسیر را از طریق اجرای دستور زیر تغییر دهید:
+  * **BOS Toolbox** را از وبسایت ما `دانلود کنید <https://braiins-os.com/plus/download/>`_.
+  * یک فایل متنی جدید ایجاد کنید، پسوند فایل را از ".txt" به ".csv" تغییر دهید و آی پی دستگاه هایی که میخواهید دستور در آنها اجرا شود را وارد نمایید. فایل را به پوشه‌ای که BOS Toolbox قرار دارد انتقال دهید. **هر آی پی را در یک سطر بنویسید!**
+  *‌ زمانی که BOS Toolbox را دانلود کردید،‌ خط فرمان خود را اجرا کنید. (برای مثال: CMD برای Windows, Terminal برای Ubuntu)
+  * در دستورات زیر *FILE_PATH_TO_BOS_TOOLBOX* را با مسیر پوشه ای که BOS Toolbox را ذخیره کرده‌اید تغییر دهید. سپس مسیر را از طریق اجرای دستور زیر تغییر دهید:
   ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
@@ -82,23 +82,17 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
 
     برای **Windows** خط فرمان: ::
 
-      #باز کردن قفل SSH رو دستگاه‌ها
-      bos-plus-toolbox.exe unlock --batch listOfMiners.csv
-
-      #نصب Braiins OS روی دستگاه‌ها
-      bos-plus-toolbox.exe install --batch listOfMiners.csv
+      #باز کردن قفل و نصب Braiins OS+ روی دستگاه‌ها
+      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
 
     برای **Linux** خط فرمان: ::
       
-      #باز کردن قفل SSH رو دستگاه‌ها
-      ./bos-plus-toolbox unlock --batch listOfMiners.csv
+      #باز کردن قفل و نصب Braiins OS+ روی دستگاه‌ها
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
 
-      #نصب Braiins OS روی دستگاه‌ها
-      ./bos-plus-toolbox install --batch listOfMiners.csv    
-
-    **توجه:** *زمان استفاده از BOS+ Toolbox در لینوکس، شما باید فایل را طبق دستور زیر به حالت اجرایی تبدیل کنید (این برای یکبار است):* ::
+    **توجه:** *زمان استفاده از BOS Toolbox در لینوکس، شما باید فایل را طبق دستور زیر به حالت اجرایی تبدیل کنید (این برای یکبار است):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Braiins OS  بر روی ماینرها نصب خواهد شد. تنظیمات شبکه (برای مثال: آی پی استاتیک) و تنظیمات استخر و تنظیمات کاربری به صورت اتوماتیک به Braiins OS انتقال خواهند یافت.
 
@@ -142,28 +136,28 @@ package* تایپ کنید و *OK* را فشار دهید.
 
 **بروز رسانی چندین دستگاه**
 
-به روزرسانی Braiins OS+ در چندین دستگاه به طور همزمان با استفاده از **BOS+ Toolbox** به راحتی قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
+به روزرسانی Braiins OS+ در چندین دستگاه به طور همزمان با استفاده از **BOS Toolbox** به راحتی قابل انجام است. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * **BOS+ Toolbox**  را از `وبسایت <https://braiins-os.com/plus/download/>`_ دانلود کنید.
-  * یک فایل text جدید ایجاد کنید ، انتهای ".txt" را به ".csv" تغییر دهید و آدرس های IP را که می خواهید دستورات را اجرا کنید، وارد کنید. فایل را در دایرکتوری که BOS+ Toolbox در آن قرار دارد قرار دهید.
-  * س از دانلود BOS+ Toolbox ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره)
-  * *FILE_PATH_TO_BOS+_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن BOS+ Toolbox  را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به آن مسیر فایل تغییر دهید: ::
+  * **BOS Toolbox**  را از `وبسایت <https://braiins-os.com/plus/download/>`_ دانلود کنید.
+  * یک فایل text جدید ایجاد کنید ، انتهای ".txt" را به ".csv" تغییر دهید و آدرس های IP را که می خواهید دستورات را اجرا کنید، وارد کنید. فایل را در دایرکتوری که BOS Toolbox در آن قرار دارد قرار دهید.
+  * س از دانلود BOS Toolbox ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره)
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن BOS Toolbox  را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به آن مسیر فایل تغییر دهید: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * اکنون *listOfMiners.csv* را با نام فایل خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
     برای خط فرمان **Windows**: ::
 
-      bos-plus-toolbox.exe update --batch listOfMiners.csv
+      bos-toolbox.exe update --batch listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-plus-toolbox update --batch listOfMiners.csv
+      ./bos-toolbox update --batch listOfMiners.csv
 
-    **توجه** *زمانی که از BOS+ Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
+    **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 
-      chmod u+x ./bos-plus-toolbox	
+      chmod u+x ./bos-toolbox	
       
 این دستور برای ماینرهایی که در *listOfMiners.csv* مشخص شده اند، وجود بروز رسانی را بررسی میکند و در صورت وجود نسخه جدید فریم‌ور ، آنها را به روز می کند.
 
@@ -175,55 +169,55 @@ package* تایپ کنید و *OK* را فشار دهید.
 
 **حذف نصب از یک دستگاه**
 
-با استفاده از **BOS+ Toolbox** می توانید به راحتی Braiins OS+ را از یک دستگاه حذف کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
+با استفاده از **BOS Toolbox** می توانید به راحتی Braiins OS+ را از یک دستگاه حذف کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * **BOS+ Toolbox** را از `وبسایت <https://braiins-os.com/plus/download/>`_. دانلود کنید.
-  * پس از دانلود BOS+ Toolbox، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ،Terminal برای اوبونتو و غیره)
-  * *FILE_PATH_TO_BOS+_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن  BOS+ Toolbox را ذخیره کرده اید جایگزین کنید. سپس با اجرای این دستور به همان مسیر فایل تغییر دهید: ::
+  * **BOS Toolbox** را از `وبسایت <https://braiins-os.com/plus/download/>`_. دانلود کنید.
+  * پس از دانلود BOS Toolbox، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ،Terminal برای اوبونتو و غیره)
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن  BOS Toolbox را ذخیره کرده اید جایگزین کنید. سپس با اجرای این دستور به همان مسیر فایل تغییر دهید: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * اکنون *IP_ADDRESS* را با آدرس IP ماینر (یا نام میزبان) خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe uninstall IP_ADDRESS
+      bos-toolbox.exe uninstall IP_ADDRESS
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-plus-toolbox uninstall IP_ADDRESS
+      ./bos-toolbox uninstall IP_ADDRESS
       
-      **توجه** *زمانی که از BOS+ Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
+      **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 
-      chmod u+x ./bos-plus-toolbox	
+      chmod u+x ./bos-toolbox	
 
 با این کار به فریم‌ور اصلی کارخانه برگردانده می‌شوید. این نسخه به صورت خودکار نسخه ای قدیمی را که در آن SSH مسدود نشده است نصب می کند، بنابراین می توانید از راه دور به ماینر خود دسترسی پیدا کنید.
 
 **حذف نصب از روی چندین دستگاه**
 
-با استفاده از **BOS+ Toolbox** می توانید به راحتی Braiins OS+ را از چندین دستگاه حذف کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
+با استفاده از **BOS Toolbox** می توانید به راحتی Braiins OS+ را از چندین دستگاه حذف کنید. برای انجام این کار ، مراحل زیر را دنبال کنید:
 
-  * **BOS+ Toolbox** را از `وبسایت <https://braiins-os.com/plus/download/>`_. دانلود کنید.
+  * **BOS Toolbox** را از `وبسایت <https://braiins-os.com/plus/download/>`_. دانلود کنید.
   * یک فایل text جدید را در ویرایشگر متن خود ایجاد کنید و آدرس های IP را که می خواهید دستورات را روی آنها اجرا کنید، وارد کنید. هر آدرس IP باید با کاما از هم جدا شود. (توجه داشته باشید که می توانید با رفتن به *Status -> Overview*
-میتوانید آدرس IP را در رابط کاربری وب Braiins OS+ پیدا کنید) سپس فایل را در همان دایرکتوری ذخیره کنید که BOS+ Toolbox را ذخیره کرده اید و پسوند ".txt" را به ".csv ". تغییر دهید.
-  * س از دانلود BOS+ Toolbox و ذخیره فایل .csv ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره).
-  * *FILE_PATH_TO_BOS+_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن BOS+ Toolbox را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به همان مسیر فایل تغییر دهید: ::
+میتوانید آدرس IP را در رابط کاربری وب Braiins OS+ پیدا کنید) سپس فایل را در همان دایرکتوری ذخیره کنید که BOS Toolbox را ذخیره کرده اید و پسوند ".txt" را به ".csv ". تغییر دهید.
+  * س از دانلود BOS Toolbox و ذخیره فایل .csv ، مترجم خط فرمان خود را باز کنید (مانند CMD برای ویندوز ، Terminal برای اوبونتو و غیره).
+  * *FILE_PATH_TO_BOS_TOOLBOX* را در دستور زیر با مسیر فایل واقعی که در آن BOS Toolbox را ذخیره کرده اید جایگزین کنید. سپس با اجرای دستور به همان مسیر فایل تغییر دهید: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * اکنون *listOfMiners.csv* را با نام فایل خود در دستور زیر جایگزین کنید و دستور مناسب را برای سیستم عامل خود اجرا کنید:
 
     برای خط فرمان **Windows**: ::
 
-      bos-plus-toolbox.exe uninstall --batch listOfMiners.csv
+      bos-toolbox.exe uninstall --batch listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-plus-toolbox uninstall --batch listOfMiners.csv
+      ./bos-toolbox uninstall --batch listOfMiners.csv
 
-    **توجه** *زمانی که از BOS+ Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
+    **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 
-      chmod u+x ./bos-plus-toolbox	
+      chmod u+x ./bos-toolbox	
       
 با این کار به فریم‌ور اصلی کارخانه برگردانده می‌شوید. این نسخه به صورت خودکار نسخه ای قدیمی را که در آن SSH مسدود نشده است نصب می کند، بنابراین می توانید از راه دور به ماینر خود دسترسی پیدا کنید.
 
@@ -247,4 +241,4 @@ package* تایپ کنید و *OK* را فشار دهید.
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-شما به راحتی می‌توانید Braiins OS+ را روی چندین دستگاه با استفاده از **BOS+ Toolbox** تنظیم کنید. برای انجام این کار، مراحل را در این بخش دنبال کنید :ref:`bosbox_configure`
+شما به راحتی می‌توانید Braiins OS+ را روی چندین دستگاه با استفاده از **BOS Toolbox** تنظیم کنید. برای انجام این کار، مراحل را در این بخش دنبال کنید :ref:`bosbox_configure`
