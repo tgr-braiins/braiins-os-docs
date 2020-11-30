@@ -81,16 +81,16 @@ In 2019, the SSH connection was locked and the signature verification in the web
     For **Windows** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      bos-plus-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
+      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
 
     For **Linux** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      ./bos-plus-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
 
     **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
 
