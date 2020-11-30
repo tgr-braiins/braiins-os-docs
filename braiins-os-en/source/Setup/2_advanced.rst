@@ -473,15 +473,15 @@ Unlock SSH on Antminer S9 using BOS+ Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
+      ./bos-toolbox unlock ARGUMENTS HOSTNAME
 
     **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -505,7 +505,7 @@ Arguments                             Description
 
 ::
 
-  bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-toolbox.exe unlock --batch listOfMiners.csv -p admin
 
 This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
 
