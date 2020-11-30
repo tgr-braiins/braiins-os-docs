@@ -22,7 +22,7 @@ There are many tools, packages, and scripts that can be used to manage Braiins O
 
  * Unlock SSH on Antminer S9
  
-  * Using BOS+ Toolbox (:ref:`bosbox_unlock`) 
+  * Using BOS Toolbox (:ref:`bosbox_unlock`) 
 
  * Update Braiins OS
  
@@ -64,7 +64,7 @@ There are many tools, packages, and scripts that can be used to manage Braiins O
 
  * Run custom shell commands on the miner
 
-  * Using BOS+ Toolbox (:ref:`bosbox_command`)
+  * Using BOS Toolbox (:ref:`bosbox_command`)
 
 .. _bosbox:
 
@@ -399,7 +399,7 @@ Run custom commands on miners using BOS Toolbox
 ================================================
 
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/open-source/download>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Each IP address should be separated by a comma. (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
   * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
@@ -457,15 +457,15 @@ stop                                  Stop BOSminer
 .. _bosbox_unlock:
 
 ============================================
-Unlock SSH on Antminer S9 using BOS+ Toolbox
+Unlock SSH on Antminer S9 using BOS Toolbox
 ============================================
 
 **Note:** The unlock functionality is a part of the installation process and is done automatically.
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. **Use only one IP address per line!**
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. **Use only one IP address per line!**
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
@@ -479,7 +479,7 @@ Unlock SSH on Antminer S9 using BOS+ Toolbox
       
       ./bos-toolbox unlock ARGUMENTS HOSTNAME
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-toolbox
 
