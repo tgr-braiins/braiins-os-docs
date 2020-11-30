@@ -65,11 +65,11 @@ For more information about this process, and for more options visit the sections
 Running stock firmware released in 2019 or later
 ================================================
 
-**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+**(Antminer S9 only) Unlock SSH and install using BOS Toolbox**
 
 In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
   * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
@@ -80,23 +80,17 @@ In 2019, the SSH connection was locked and the signature verification in the web
 
     For **Windows** command terminal: ::
 
-      #unlock SSH on the machines
-      bos-plus-toolbox.exe unlock --batch listOfMiners.csv
-
-      #install Braiins OS in the machines
-      bos-plus-toolbox.exe install --batch listOfMiners.csv
+      #unlock and install Braiins OS in the machines
+      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
 
     For **Linux** command terminal: ::
-      
-      #unlock SSH on the machines
-      ./bos-plus-toolbox unlock --batch listOfMiners.csv
 
-      #install Braiins OS in the machines
-      ./bos-plus-toolbox install --batch listOfMiners.csv    
+      #unlock and install Braiins OS in the machines
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
 
