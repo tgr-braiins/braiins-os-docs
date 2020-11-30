@@ -34,12 +34,12 @@ Braiins OS+ will be installed on the miner. The network configuration (e.g. Stat
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order to do so, follow the steps bellow:
+Installation of Braiins OS+ can easily be done using the BOS Toolbox. In order to do so, follow the steps bellow:
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS+ Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
@@ -53,7 +53,7 @@ Installation of Braiins OS+ can easily be done using the BOS+ Toolbox. In order 
       
       ./bos-plus-toolbox install --batch listOfMiners.csv		
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox  
 
@@ -65,11 +65,11 @@ For more information about this process, and for more options visit the sections
 Running stock firmware released in 2019 or later
 ==================================================
 
-**(Antminer S9 only) Unlock SSH and install using BOS+ Toolbox**
+**(Antminer S9 only) Unlock SSH and install using BOS Toolbox**
 
 In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
 
-  * Download **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
   * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
@@ -88,7 +88,7 @@ In 2019, the SSH connection was locked and the signature verification in the web
       #unlock and install Braiins OS in the machines
       ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-toolbox
 
@@ -139,12 +139,12 @@ package* field and press *OK*.
 
 **Multiple device update**
 
-Updating Braiins OS+ on multiple devices at once can easily be done using the **BOS+ Toolbox**. In order to do so, follow the steps bellow:
+Updating Braiins OS+ on multiple devices at once can easily be done using the **BOS Toolbox**. In order to do so, follow the steps bellow:
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Use only one IP address per line! Put that file in the directory where the BOS+ Toolbox is located.
-  * Once you have downloaded BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Use only one IP address per line! Put that file in the directory where the BOS Toolbox is located.
+  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
@@ -158,7 +158,7 @@ Updating Braiins OS+ on multiple devices at once can easily be done using the **
       
       ./bos-plus-toolbox update --batch listOfMiners.csv
 
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -172,11 +172,11 @@ Uninstall Braiins OS+
 
 **Single device uninstallation**
 
-You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox**. In order to do so, follow the steps bellow:
+You can easily uninstall Braiins OS+ on a single device using the **BOS Toolbox**. In order to do so, follow the steps bellow:
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Once you've downloaded the BOS+ Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Once you've downloaded the BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
@@ -190,7 +190,7 @@ You can easily uninstall Braiins OS+ on a single device using the **BOS+ Toolbox
       
       ./bos-plus-toolbox uninstall IP_ADDRESS
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -198,12 +198,12 @@ This will revert back to stock firmware. It will automatically install an older 
 
 **Multiple device uninstallation**
 
-You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps below:
+You can easily uninstall Braiins OS+ on multiple devices using the **BOS Toolbox**. In order to do so, follow the steps below:
 
-  * Download the **BOS+ Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Use only one IP address per line! (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS+ Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS+ Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS+ Toolbox. Then switch to that file path by running the command: ::
+  * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
+  * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Use only one IP address per line! (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
+  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
+  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
       cd FILE_PATH_TO_BOS+_TOOLBOX
 
@@ -217,7 +217,7 @@ You can easily uninstall Braiins OS+ on multiple devices using the **BOS+ Toolbo
       
       ./bos-plus-toolbox uninstall --batch listOfMiners.csv
       
-    **Note:** *when using BOS+ Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
+    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
       chmod u+x ./bos-plus-toolbox 
 
@@ -243,4 +243,4 @@ You can configure Braiins OS+ on single device using the **web interface** of th
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-You can easily configure Braiins OS+ on multiple devices using the **BOS+ Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
+You can easily configure Braiins OS+ on multiple devices using the **BOS Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
