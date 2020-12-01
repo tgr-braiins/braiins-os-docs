@@ -141,6 +141,7 @@ BOS工具箱的特性及优缺点
 --open-source         		      安装开源社区版Braiins OS（不可和 **预先发行版** 及 **自定义固件下载链接** 参数同时使用)
 --nightly             		      安装预先发行版（不可和 **社区开源版** 及 **自定义固件下载链接** 参数同时使用)
 --feeds-url [FEEDS_URL]		      自定义固件下载URL链接（不可和 **社区开源版** 及 **预先发行版** 参数同时使用) 
+--fw-version [FW_VERSION]	      选择固件的某个特定版本
 --backup                              在进行升级前备份矿机
 --no-auto-upgrade                     关闭固件自动更新
 --no-nand-backup                      跳过对矿机内置储存NAND的备份（仍备份矿机配置）
