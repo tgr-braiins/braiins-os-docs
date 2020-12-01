@@ -155,27 +155,28 @@ BOS工具箱的特性及优缺点
 --dry-run                             执行所有的更新步骤但不实际进行更新
 --post-upgrade [POST_UPGRADE]         指定stage3.sh脚本文件目录
 --bos-mgmt-id [BOS_MGMT_ID]	      设置BOS工具箱管理识别标签
---ssh-password SSH_PASSWORD	      安装时需用到的原固件SSH远程密码
+--ssh-password SSH_PASSWORD	      安装时需用到的矿机上的官固SSH远程密码
+--web-password WEB_PASSWORD	      破解时需用到的矿机上的官固网页后台密码
 ====================================  ============================================================
 
 **安装命令和参数使用示例如下：**
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
+  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --web-password root --ssh-password admin
 
-解释：上方的命令和参数，会将Braiins OS+安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上，并设置列表中所有矿机的输入功率限制为1200瓦。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
+解释：上方的命令和参数，会自动破解官固固件锁并将Braiins OS+安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上，并设置列表中所有矿机的输入功率限制为1200瓦。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
 
 .. _bosbox_update:
 
 =====================================
-使用BOS+工具箱升级Braiins OS+
+使用BOS工具箱升级Braiins OS+
 =====================================
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -189,7 +190,7 @@ BOS工具箱的特性及优缺点
       
       ./bos-toolbox update ARGUMENTS HOSTNAME
 
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -220,13 +221,13 @@ BOS工具箱的特性及优缺点
 .. _bosbox_uninstall:
 
 ========================================
-使用BOS+工具箱卸载Braiins OS+
+使用BOS工具箱卸载Braiins OS+
 ========================================
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
   
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -240,7 +241,7 @@ BOS工具箱的特性及优缺点
       
       ./bos-toolbox uninstall ARGUMENTS HOSTNAME
       
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
