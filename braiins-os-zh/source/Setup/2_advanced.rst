@@ -164,7 +164,7 @@ BOS工具箱的特性及优缺点
 
   bos-toolbox.exe install --batch listaDeMineros.csv -web-password root --ssh-password admin --open-source
 
-解释：上方的命令和参数，会将Braiins OS安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
+解释：上方的命令和参数，会自动破解官固固件锁并将Braiins OS安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
 
 .. _bosbox_update:
 
@@ -256,9 +256,7 @@ BOS工具箱的特性及优缺点
 -h, --help                            显示帮助信息并退出
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 --install-password INSTALL_PASSWORD   用于安装的SSH密码
---factory-image FACTORY_IMAGE         指定原厂更新固件文件路径或URL地址（默认是：
-                                      Antminer-S9-all-201812051512-autofreq-user-Update2UBI-
-                                      NF.tar.gz）
+--feeds-url [FEEDS_URL]		      自定义固件下载URL链接地址
 ====================================  ============================================================
 
 **卸载命令和参数使用示例如下：**
