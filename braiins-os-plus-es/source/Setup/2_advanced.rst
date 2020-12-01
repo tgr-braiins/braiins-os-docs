@@ -14,7 +14,7 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
  * Instalar Braiins OS+
 
-  * Usando la Caja de herramientas BOS+ (:ref:`bosbox_install`)
+  * Usando la Caja de herramientas BOS (:ref:`bosbox_install`)
   * Usando el paquete web (:ref:`web_package_install`)
   * Usando la tarjeta SD (:ref:`sd_install`)
   * Usando la tarjeta SD y la herramienta miner (:ref:`miner_nand_install`)
@@ -22,11 +22,11 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
  * Desbloquear SSH en Antminer S9
 
-  * Usando la Caja de Herramientas BOS+ (:ref:`bosbox_unlock`) 
+  * Usando la Caja de Herramientas BOS (:ref:`bosbox_unlock`)
 
  * Actualizar Braiins OS+
 
-  * Usando la Caja de herramientas BOS+ (:ref:`bosbox_update`)
+  * Usando la Caja de herramientas BOS (:ref:`bosbox_update`)
   * Usando OPKG (:ref:`opkg_update`)
   * Usando el paquete sysupgrade (:ref:`sysupgrade_switch_braiinsplus`)
   * Usando el script bos2bos (:ref:`bos2bos`)
@@ -51,7 +51,7 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
  * Desinstalar Braiins OS+
 
-  * Usando la Caja de herramientas BOS+ (:ref:`bosbox_uninstall`)
+  * Usando la Caja de herramientas BOS (:ref:`bosbox_uninstall`)
   * Usando scripts SSH (:ref:`ssh_package_uninstall`)
 
  * Encender/apagar alimentaciones nocturnas
@@ -64,29 +64,29 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
  * Correr comandos personalizados de consola en el minero
 
-  * Usando la Caja de Herramientas BOS+ (:ref:`bosbox_command`)
+  * Usando la Caja de Herramientas BOS (:ref:`bosbox_command`)
 
 .. _bosbox:
 
 *************************
-Caja de herramientas BOS+
+Caja de herramientas BOS
 *************************
 
-La Caja de herramientas BOS+ es una nueva herramienta que permite a los usuarios instalar, desinstalar, actualizar, detectar, configurar Braiins OS+ y correr comandos personalizados fácilmente. También permite que los comandos sean ejecutados en modo por lotes, lo que hace mas fácil la gestión de un gran número de dispositivos. Esta es la manera recomendada de gestionar sus máquinas.
+La Caja de herramientas BOS es una nueva herramienta que permite a los usuarios instalar, desinstalar, actualizar, detectar, configurar Braiins OS+ y correr comandos personalizados fácilmente. También permite que los comandos sean ejecutados en modo por lotes, lo que hace mas fácil la gestión de un gran número de dispositivos. La caja de herramientas BOS también descarga automáticamente el último firmware. Esta es la manera recomendada de gestionar sus máquinas.
 
 ===
 Uso
 ===
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS+. **¡Use solo una dirección IP por línea!**
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/>`_.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. **¡Use solo una dirección IP por línea!**
   * Siga las instrucciones abajo
 
 ============================================
 Características, PROs y CONs de este método:
 ============================================
 
-  + instala Braiins OS+ remotamente
+  + instala Braiins OS+ remotamente y automáticamente desbloquea SSH en Antminer S9 durante la instalación
   + actualiza Braiins OS+ remotamente
   + desinstala Braiins OS+ remotamente
   + configura Braiins OS+ remotamente
@@ -99,32 +99,34 @@ Características, PROs y CONs de este método:
   + modo-por-lotes disponible para gestionar múltiples dispositivos a la vez
   + fácil de usar
 
+  - no funciona en dispositivos X17 con SSH bloqueado
+
 .. _bosbox_install:
 
 =====================================================
-Instalar Braiins OS+ con la Caja de herramientas BOS+
+Instalar Braiins OS+ con la Caja de herramientas BOS
 =====================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS+. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. **¡Use solo una dirección IP por línea!**
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe install ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe install ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox install ARGUMENTOS NOMBREHOST
+      ./bos-toolbox install ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -137,6 +139,10 @@ Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
 --batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
+--open-source         		         use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
+--nightly             		         use para instalar la versión nightly (excluyente con **open-source** y **feed-url**)
+--feeds-url [URL_FEEDS]		         saltar URL del servidor predeterminado de feeds (excluyente con **open-source** y **nightly**)
+--fw-version [VERSION_FW]	         seleccionar versión específica de firmware
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-auto-upgrade                     apagar auto-actualizar del firmware instalado
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
@@ -149,43 +155,45 @@ Argumentos                            Descripción
 --no-wait                             no esperar a que el sistema esté completamente actualizado
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
---install-password CLAVE_INSTALACIÓN  palabra clave ssh para la instalación
+--bos-mgmt-id [ID_GESTOR_BOS]         fijar identificador para el gestor BOS
+--ssh-password CONTRASEÑA_SSH         contraseña ssh para la instalación
+--web-password CONTRASEÑA_WEB         contraseña web para desbloquear
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  bos-plus-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
+  bos-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 -web-password root --ssh-password admin
 
-Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
+Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9 e insertará la contraseña SSH *admin*, cuando el minero la pida.
 
 .. _bosbox_update:
 
 =======================================================
-Actualizar Braiins OS+ con la Caja de herramientas BOS+
+Actualizar Braiins OS+ con la Caja de herramientas BOS
 =======================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS+. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. **¡Use solo una dirección IP por línea!**
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe update ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe update ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox update ARGUMENTOS NOMBREHOST
+      ./bos-toolbox update ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -207,36 +215,36 @@ Argumentos                            Descripción
 
 ::
 
-  bos-plus-toolbox.exe update --batch listaDeMineros.csv
+  bos-toolbox.exe update --batch listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
 .. _bosbox_uninstall:
 
 ========================================================
-Desinstalar Braiins OS+ con la Caja de herramientas BOS+
+Desinstalar Braiins OS+ con la Caja de herramientas BOS
 ========================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox uninstall ARGUMENTOS NOMBREHOST
+      ./bos-toolbox uninstall ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -250,44 +258,44 @@ Argumentos                            Descripción
 -h, --help                            muestra este mensaje de ayuda y sale
 --batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --install-password CLAVE_INSTALACIÓN  palabra clave ssh para la (des)instalación
---factory-image IMAGEN_DE_FÁBRICA     ruta/url a imagen de actualización de firmware original (defecto:
-                                      Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz)
+--feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
+--nand-restore                        usar restauración completa NAND desde un respaldo previo
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  bos-plus-toolbox.exe uninstall --batch listaDeMineros.csv
+  bos-toolbox.exe uninstall --batch listaDeMineros.csv
 
-Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
+Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie.
 
 .. _bosbox_configure:
 
 =======================================================
-Configurar Braiins OS+ con la Caja de herramientas BOS+
+Configurar Braiins OS+ con la Caja de herramientas BOS
 =======================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe config ARGUMENTOS ACCIÓN TABLA
+      bos-toolbox.exe config ARGUMENTOS ACCIÓN TABLA
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox config ARGUMENTOS ACCIÓN TABLA
+      ./bos-toolbox config ARGUMENTOS ACCIÓN TABLA
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -296,7 +304,8 @@ Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
 -u USER, --user USER                  nombre administrativo
--p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntarla"
+-p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntar"
+-P, --change-password                 Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
 -c, --check                           ensayo sin escrituras
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -319,40 +328,40 @@ save_apply                            guardar y aplicar la configuración del ar
 
 ::
 
-  bos-plus-toolbox.exe config --user root load listaDeMineros.csv
+  bos-toolbox.exe config --user root load listaDeMineros.csv
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  bos-plus-toolbox.exe config --user root save_apply listaDeMineros.csv
+  bos-toolbox.exe config --user root -p admin -P save_apply listaDeMineros.csv
 
-El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros y la aplicará.
+El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros, la aplicará y cambiará la contraseña a la colocada en la columna contraseña.
 
 .. _bosbox_scan:
 
 ============================================================================
-Explorar la red para identificar mineros usando la Caja de herramientas BOS+
+Explorar la red para identificar mineros usando la Caja de herramientas BOS
 ============================================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe scan ARGUMENTOS
+      bos-toolbox.exe scan ARGUMENTOS
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox scan ARGUMENTOS
+      ./bos-toolbox scan ARGUMENTOS
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -377,40 +386,40 @@ listen                                escuchar transmisión entrante desde los d
 ::
 
   #explorar la red, en el rango 10.10.10.0 - 10.10.10.255
-  bos-plus-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.exe discover scan 10.10.10.0/24
 
   #explorar la red, en el rango 10.10.0.0 - 10.10.255.255
-  bos-plus-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.exe discover scan 10.10.0.0/16
 
   #explorar la red, en el rango 10.0.0.0 - 10.255.255.255
-  bos-plus-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.exe discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
 =============================================================================
-Correr comandos personalizados en mineros usando la Caja de Herramientas BOS+
+Correr comandos personalizados en mineros usando la Caja de Herramientas BOS
 =============================================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe command ARGUMENTOS
+      bos-toolbox.exe command ARGUMENTOS
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox command ARGUMENTOS
+      ./bos-toolbox command ARGUMENTOS
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -444,34 +453,34 @@ stop                                  Detener BOSminer
 ::
 
   #detiene BOSminer, deteniendo efectivamente el minado y reduciendo el consumo de energía al mínimo
-  bos-plus-toolbox.exe command -o list.csv stop
+  bos-toolbox.exe command -o list.csv stop
 
 .. _bosbox_unlock:
 
 ===============================================================
-Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS+
+Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 ===============================================================
 
-  * Descargue la **Caja de Herramientas BOS+** de nuestro `sitio web <https://es.braiins.com/os/plus/download>`_.
-  * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS+. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de Herramientas BOS+, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS+ Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
+  * Descargue la **Caja de Herramientas BOS** de nuestro `sitio web <https://es.braiins.com/os/plus/download>`_.
+  * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS. **¡Use solo una dirección IP por línea!**
+  * Una vez descargada la Caja de Herramientas BOS, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
 
-      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con el nombre de archivo en el comando de abajo y corra el comando apropiado para su sistema operativo:
 
     Terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe unlock ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe unlock ARGUMENTOS NOMBREHOST
 
     Terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox unlock ARGUMENTOS NOMBREHOST
+      ./bos-toolbox unlock ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la caja de herramientas BOS+ para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
+    **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los siguientes **argumentos** para ajustar el proceso:
 
@@ -495,7 +504,7 @@ Argumentos                                  Descripción
 
 ::
 
-  bos-plus-toolbox.exe unlock --batch listaDeMineros.csv -p admin
+  bos-toolbox.exe unlock --batch listaDeMineros.csv -p admin
 
 Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
@@ -635,7 +644,7 @@ Puede hacer un restablecimiento de fábrica, siguiendo los pasos abajo:
 Paquete de instalación remota (SSH)
 ***********************************
 
-Con el *paquete de instalación remota (SSH)* puede instalar o desinstalar Braiins OS+. Este método no es recomendado, ya que requiere una instalación Python. Use la caja de herramientas BOS+ en su lugar.
+Con el *paquete de instalación remota (SSH)* puede instalar o desinstalar Braiins OS+. Este método no es recomendado, ya que requiere una instalación Python. Use la caja de herramientas BOS en su lugar.
 
 ===
 Uso
@@ -943,7 +952,7 @@ Este comando contiene los siguientes comandos:
   * **wget** - usado para descargar archivos, en este caso el paquete firmware
   * **sysupgrade** - para propiamente escribir el paquete de firmware descargado
 
-Nota: Se recomienda usar la *Caja de herramientas BOS+*, *Interfaz web Braiins OS* u *opkg install bos_plus* en lugar de este método.
+Nota: Se recomienda usar la *Caja de herramientas BOS*, *Interfaz web Braiins OS* u *opkg install bos_plus* en lugar de este método.
 
 .. _bos2bos:
 
@@ -1092,7 +1101,7 @@ Puede encender la característica de auto-actualizar, que actualizará el sistem
 
  * Desinstalar Braiins OS+
 
-  * Usando la Caja de herramientas BOS+ (:ref:`bosbox_uninstall`)
+  * Usando la Caja de herramientas BOS (:ref:`bosbox_uninstall`)
   * Usando scripts SSH (:ref:`ssh_package_uninstall`)
 
  * Encender/apagar alimentaciones nocturnas
@@ -1106,17 +1115,17 @@ Puede encender la característica de auto-actualizar, que actualizará el sistem
 .. _bosbox:
 
 *************************
-Caja de herramientas BOS+
+Caja de herramientas BOS
 *************************
 
-La Caja de herramientas BOS+ es una nueva herramienta, que permite al usuario instalar, desinstalar, actualizar, detectar y configurar fácilmente Braiins OS+. También permite hacerlo en modo por lotes, lo que hace la gestión de un gran número de dispositivos mas fácil. Esta es la manera recomendada de gestionar sus máquinas.
+La Caja de herramientas BOS es una nueva herramienta, que permite al usuario instalar, desinstalar, actualizar, detectar y configurar fácilmente Braiins OS+. También permite hacerlo en modo por lotes, lo que hace la gestión de un gran número de dispositivos mas fácil. Esta es la manera recomendada de gestionar sus máquinas.
 
 ===
 Uso
 ===
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS+. **¡Use solo una dirección IP por línea!**
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/>`_.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. **¡Use solo una dirección IP por línea!**
   * Siga las instrucciones abajo
 
 ============================================
@@ -1140,29 +1149,29 @@ Características, PROs y CONs de este método:
 .. _bosbox_install:
 
 =====================================================
-Instalar Braiins OS+ con la Caja de herramientas BOS+
+Instalar Braiins OS+ con la Caja de herramientas BOS
 =====================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS+. ¡Use solo una dirección IP por línea!
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. ¡Use solo una dirección IP por línea!
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe install ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe install ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox install ARGUMENTOS NOMBREHOST
+      ./bos-toolbox install ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -1193,36 +1202,36 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-plus-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
+  ./bos-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
 .. _bosbox_update:
 
 =======================================================
-Actualizar Braiins OS+ con la Caja de herramientas BOS+
+Actualizar Braiins OS+ con la Caja de herramientas BOS
 =======================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS+.
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS.
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe update ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe update ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox update ARGUMENTOS NOMBREHOST
+      ./bos-toolbox update ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -1244,36 +1253,36 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-plus-toolbox.exe update --batch listaDeMineros.csv
+  ./bos-toolbox.exe update --batch listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
 .. _bosbox_uninstall:
 
 ========================================================
-Desinstalar Braiins OS+ con la Caja de herramientas BOS+
+Desinstalar Braiins OS+ con la Caja de herramientas BOS
 ========================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. Cada dirección IP debe ser separada por una coma. (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. Cada dirección IP debe ser separada por una coma. (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox uninstall ARGUMENTOS NOMBREHOST
+      ./bos-toolbox uninstall ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -1294,36 +1303,36 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-plus-toolbox.exe uninstall --batch listaDeMineros.csv
+  ./bos-toolbox.exe uninstall --batch listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
 .. _bosbox_configure:
 
 =======================================================
-Configurar Braiins OS+ con la Caja de herramientas BOS+
+Configurar Braiins OS+ con la Caja de herramientas BOS
 =======================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. Cada dirección IP debe ser separada por una coma. (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. Cada dirección IP debe ser separada por una coma. (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe config ARGUMENTOS ACCIÓN TABLA
+      bos-toolbox.exe config ARGUMENTOS ACCIÓN TABLA
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox config ARGUMENTOS ACCIÓN TABLA
+      ./bos-toolbox config ARGUMENTOS ACCIÓN TABLA
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -1355,40 +1364,40 @@ save_apply                            guardar y aplicar la configuración del ar
 
 ::
 
-  ./bos-plus-toolbox.exe config --user root load listaDeMineros.csv
+  ./bos-toolbox.exe config --user root load listaDeMineros.csv
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  ./bos-plus-toolbox.exe config --user root save_apply listaDeMineros.csv
+  ./bos-toolbox.exe config --user root save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros y la aplicará.
 
 .. _bosbox_scan:
 
 ============================================================================
-Explorar la red para identificar mineros usando la Caja de herramientas BOS+
+Explorar la red para identificar mineros usando la Caja de herramientas BOS
 ============================================================================
 
-  * Descargue la **Caja de herramientas BOS+** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. Cada dirección IP debe ser separada por una coma. (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS+ y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS+, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS+. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. Cada dirección IP debe ser separada por una coma. (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe scan ARGUMENTOS
+      bos-toolbox.exe scan ARGUMENTOS
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox scan ARGUMENTOS
+      ./bos-toolbox scan ARGUMENTOS
 
-    **Nota:** *al usar la la Caja de herramientas BOS+ en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
+    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
@@ -1412,7 +1421,7 @@ listen                                escuchar transmisión entrande desde los d
 
 ::
 
-  ./bos-plus-toolbox.exe discover scan 10.10.10.0/24
+  ./bos-toolbox.exe discover scan 10.10.10.0/24
 
 Este comando va explorar la red, en el rango 10.10.10.0 - 10.10.10.255 y mostrará los mineros que encuentre con sus direcciones IP.
 
@@ -1552,7 +1561,7 @@ Puede hacer un restablecimiento de fábrica, siguiendo los pasos abajo:
 Paquete de instalación remota (SSH)
 ***********************************
 
-Con el *paquete de instalación remota (SSH)* puede instalar o desinstalar Braiins OS+. Este método no es recomendado, ya que requiere una instalación Python. Use la caja de herramientas BOS+ en su lugar.
+Con el *paquete de instalación remota (SSH)* puede instalar o desinstalar Braiins OS+. Este método no es recomendado, ya que requiere una instalación Python. Use la caja de herramientas BOS en su lugar.
 
 ===
 Uso
@@ -1830,7 +1839,7 @@ Este comando contiene los siguientes comandos:
   * **wget** - usado para descargar archivos, en este caso el paquete firmware
   * **sysupgrade** - para propiamente escribir el paquete de firmware descargado
 
-Nota: Se recomienda usar la *Caja de herramientas BOS+*, *Interfaz web Braiins OS* u *opkg install bos_plus* en lugar de este método.
+Nota: Se recomienda usar la *Caja de herramientas BOS*, *Interfaz web Braiins OS* u *opkg install bos_plus* en lugar de este método.
 
 .. _bos2bos:
 
