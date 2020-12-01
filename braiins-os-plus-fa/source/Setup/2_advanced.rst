@@ -711,14 +711,14 @@ NAND نصب در
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #مسیر دایرکتوری را به مسیر بسته غیرفشرده شده تغییر دهید
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-x17_ssh_VERSION
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #یک virtual environment ایجاد و آن را فعال سازی کنید
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -750,7 +750,7 @@ NAND نصب در
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-x17_ssh_VERSION
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #فعال سازی virtual environment (درصورتیکه فعال نیست)
   source .env/bin/activate
@@ -784,7 +784,7 @@ NAND نصب در
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **توجه:** *برای اطلاع از آرگومانهایی که میتوانید استفاده نمایید از* **--help** *بهره ببرید*
@@ -807,7 +807,7 @@ NAND نصب در
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 ** توجه: این روش توصیه نمی شود زیرا ایجاد نسخه پشتیبان بسیار دقیق است. نسخه پشتیبان تهیه شده ممکن است خراب باشد و راهی برای بررسی آن وجود ندارد. می توانید به ریسک خودتان استفاده کنید و مطمئن شوید که در صورت عدم موفقیت بازگشت ، می توانید به ماینر دسترسی پیدا کرده و کارت SD را در آن وارد کنید.**

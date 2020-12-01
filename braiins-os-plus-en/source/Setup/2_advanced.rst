@@ -696,14 +696,14 @@ First, you need to prepare the Python environment. This consists of the followin
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #Change the directory to the unpacked firmware folder
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-x17_ssh_VERSION
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #Create a virtual environment and activate it
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -733,7 +733,7 @@ Installation of Braiins OS+ using the so-called *SSH Method* consists of the fol
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-x17_ssh_VERSION
+  cd ./braiins-os_am2-s17_ssh_VERSION
 
   #Activate the virtual environment (if it is not already activated)
   source .env/bin/activate
@@ -772,7 +772,7 @@ Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **Note:** *for more information about the arguments that can be used, use the* **--help** *argument.*
@@ -793,7 +793,7 @@ If you created a backup of the original firmware during the installation of Brai
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
