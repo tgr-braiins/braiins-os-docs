@@ -69,23 +69,23 @@ Braiins OS будет установлен на майнер. Конфигура
 В 2019, SSH соединение было заблокировано, а проверка подписи в веб-интерфейсе предотвращает использование сторонних прошивок. Чтобы установить Braiins OS+ на машинах с заблокированным SSH, выполните следующие действия:
 
   * Скачайте **BOS Toolbox** с нашего `веб-сайта <https://braiins-os.com/plus/download/>`_.
-  * Создайте новый текстовый файл, измените ".txt" окончание на ".csv" и вставьте IP-адреса, на которых вы хотите выполнить команды. Поместите этот файл в каталог, где находится BOS+ Toolbox. Используйте только один IP-адрес в строке!
+  * Создайте новый текстовый файл, измените ".txt" окончание на ".csv" и вставьте IP-адреса, на которых вы хотите выполнить команды. Поместите этот файл в каталог, где находится BOS Toolbox. Используйте только один IP-адрес в строке!
   * После того, как вы загрузили BOS Toolbox, откройте командную строку (например, CMD для Windows, Terminal для Ubuntu и т.д.)
   * Замените *FILE_PATH_TO_BOS_TOOLBOX* заполнитель в приведенной ниже команде с фактическим путем к файлу, в котором вы сохранили BOS Toolbox. Затем переключитесь на путь к файлу, выполнив команду: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Теперь замените *listOfMiners.csv* заполнитель с вашим именем файла в команде ниже и выполните соответствующую команду для вашей операционной системы:
 
     Для командной строки **Windows**: ::
 
       #разблокировать и установить Braiins OS на машины
-      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
+      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
 
     Для командной строки **Linux**: ::
 
       #разблокировать и установить Braiins OS на машины
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv   
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
 
     **Примечание:** *при использовании BOS Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   

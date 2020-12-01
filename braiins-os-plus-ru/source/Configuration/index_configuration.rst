@@ -7,10 +7,10 @@
   :depth: 2
 
 ************************************************
-Конфигурация Braiins OS+ с помощью BOS+ Toolbox
+Конфигурация Braiins OS+ с помощью BOS Toolbox
 ************************************************
 
-Вы можете легко настроить Braiins OS+ на нескольких устройствах, используя **BOS+ Toolbox**. Для этого следуйте инструкциям в разделе :ref:`bosbox_configure`.
+Вы можете легко настроить Braiins OS+ на нескольких устройствах, используя **BOS Toolbox**. Для этого следуйте инструкциям в разделе :ref:`bosbox_configure`.
 
 **************************************************************
 Конфигурация Braiins OS+ с помощью Дистанционного пакета (SSH)
@@ -244,11 +244,11 @@ Braiins OS+ поддерживает автоматический контрол
 Настройки тюнинга
 *****************
 
-Тюнинг может быть настроен либо через web GUI, с помощью BOS+ Toolbox, либо в файле конфигурации ``/etc/bosminer.toml``.
+Тюнинг может быть настроен либо через web GUI, с помощью BOS Toolbox, либо в файле конфигурации ``/etc/bosminer.toml``.
 
 Чтобы изменить конфигурацию через web GUI, зайдите в *Miner -> Configuration* меню и редактируйте *Autotuning* секцию.
 
-Чтобы изменить конфигурацию на нескольких устройствах с помощью **BOS+ Toolbox**, выполните действия, описанные в разделе :ref:`bosbox_configure`.
+Чтобы изменить конфигурацию на нескольких устройствах с помощью **BOS Toolbox**, выполните действия, описанные в разделе :ref:`bosbox_configure`.
 
 Чтобы внести изменения в файл конфигурации, подключитесь к майнеру через SSH и отредактируйте файл ``/etc/bosminer.toml``. 
 Синтаксис следующий:
@@ -270,12 +270,12 @@ Dynamic Power Scaling
 
 Dynamic Power Scaling automatically lowers the power limit of the miner by a user-set amount if the device reaches the *Hot Temperature*. Upon reaching the user-set minimal power limit, the miner shuts down in order to cool down. The miner starts to work on the original power limit again after a user-set period of time.
 
-Dynamic Power Scaling can be configured either via web GUI, using BOS+ Toolbox or in the configuration file ``/etc/bosminer.toml``.
+Dynamic Power Scaling can be configured either via web GUI, using BOS Toolbox or in the configuration file ``/etc/bosminer.toml``.
 
 To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
 the *Dynamic Power Scaling* section.
 
-To make a configuration change on multiple devices using the **BOS+ Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
+To make a configuration change on multiple devices using the **BOS Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
 
 To make a configuration change in the configuration file, connect to the miner via SSH and edit
 the file ``/etc/bosminer.toml``. The syntax is the following:
@@ -299,11 +299,11 @@ The *min_psu_power_limit* can hold numeric values (min. 100 and max. 5000), repr
 
 Когда автоматическое обновление включено, устройство будет периодически проверять наличие новой версии Braiins OS и обновляться до нее автоматически при обнаружении. Эта функция включается по умолчанию после переключения со стандартной прошивки, но ее необходимо включить вручную, если пользователь обновил более старую версию Braiins OS или Braiins OS+.
 
-Автообновление можно настроить либо через веб-интерфейс, либо с помощью BOS+ Toolbox.
+Автообновление можно настроить либо через веб-интерфейс, либо с помощью BOS Toolbox.
 
 Чтобы изменить конфигурацию через веб-интерфейс, войдите в меню *System -> Upgrade* и отредактируйте раздел *System Upgrade*.
 
-Чтобы изменить конфигурацию на нескольких устройствах с помощью **BOS+ Toolbox**, выполните действия, описанные в разделе :ref:`bosbox_configure`.
+Чтобы изменить конфигурацию на нескольких устройствах с помощью **BOS Toolbox**, выполните действия, описанные в разделе :ref:`bosbox_configure`.
 
 В качестве альтернативы можно отключить **автоматическое обновление** во время установки, указав аргумент ``--no-auto-upgrade`` в команде установки.
 

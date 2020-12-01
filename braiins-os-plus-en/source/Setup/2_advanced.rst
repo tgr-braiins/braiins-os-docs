@@ -110,23 +110,23 @@ Install Braiins OS+ using BOS Toolbox
   * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. **Use only one IP address per line!**
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.exe install ARGUMENTS HOSTNAME
     
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox install ARGUMENTS HOSTNAME
+      ./bos-toolbox install ARGUMENTS HOSTNAME
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -164,7 +164,7 @@ Arguments                             Description
 
 ::
 
-  bos-plus-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --web-password root --ssh-password admin
+  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --web-password root --ssh-password admin
 
 This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically unlock the Antminer S9 and insert the SSH password *admin*, when the miner asks for it.
 
@@ -177,23 +177,23 @@ Update Braiins OS+ using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. **Use only one IP address per line!**
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe update ARGUMENTS HOSTNAME
+      bos-toolbox.exe update ARGUMENTS HOSTNAME
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox update ARGUMENTS HOSTNAME
+      ./bos-toolbox update ARGUMENTS HOSTNAME
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -215,7 +215,7 @@ Arguments                             Description
 
 ::
 
-  bos-plus-toolbox.exe update --batch listOfMiners.csv
+  bos-toolbox.exe update --batch listOfMiners.csv
 
 This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
@@ -228,23 +228,23 @@ Uninstall Braiins OS+ using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. **Use only one IP address per line!** (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe uninstall ARGUMENTS HOSTNAME
+      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox uninstall ARGUMENTS HOSTNAME
+      ./bos-toolbox uninstall ARGUMENTS HOSTNAME
       
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -266,7 +266,7 @@ Arguments                             Description
 
 ::
 
-  bos-plus-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-toolbox.exe uninstall --batch listOfMiners.csv
 
 This command will uninstall Braiins OS+ from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
 
@@ -279,24 +279,24 @@ Configure Braiins OS+ using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. **Use only one IP address per line!** (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe config ARGUMENTS ACTION TABLE
+      bos-toolbox.exe config ARGUMENTS ACTION TABLE
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox config ARGUMENTS ACTION TABLE
+      ./bos-toolbox config ARGUMENTS ACTION TABLE
       
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -329,11 +329,11 @@ save_apply                            save and apply the settings from the CSV f
 
 ::
 
-  bos-plus-toolbox.exe config --user root load listOfMiners.csv
+  bos-toolbox.exe config --user root load listOfMiners.csv
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  bos-plus-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
 
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners, apply them and change the password to one in the password column.
 
@@ -346,24 +346,24 @@ Scan the network to identify miners using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. **Use only one IP address per line!** (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe discover ARGUMENTS
+      bos-toolbox.exe discover ARGUMENTS
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox discover ARGUMENTS
+      ./bos-toolbox discover ARGUMENTS
       
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -388,13 +388,13 @@ listen                                listen for incoming broadcast from devices
 ::
 
   #scan the network, in the range 10.10.10.0 - 10.10.10.255
-  bos-plus-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.exe discover scan 10.10.10.0/24
 
   #scan the network, in the range 10.10.0.0 - 10.10.255.255
-  bos-plus-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.exe discover scan 10.10.0.0/16
 
   #scan the network, in the range 10.0.0.0 - 10.255.255.255
-  bos-plus-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.exe discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -405,24 +405,24 @@ Run custom commands on miners using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. **Use only one IP address per line!** (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
   * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox command ARGUMENTS TABLE COMMAND
+      ./bos-toolbox command ARGUMENTS TABLE COMMAND
       
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -456,7 +456,7 @@ stop                                  Stop BOSminer
 ::
 
   #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
-  bos-plus-toolbox.exe command -o list.csv stop
+  bos-toolbox.exe command -o list.csv stop
 
 .. _bosbox_unlock:
 
@@ -469,23 +469,23 @@ Unlock SSH on Antminer S9 using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. **Use only one IP address per line!**
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
     For **Windows** command terminal: ::
 
-      bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
 
     For **Linux** command terminal: ::
       
-      ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
+      ./bos-toolbox unlock ARGUMENTS HOSTNAME
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 You can use the following **arguments** to adjust the process:
 
@@ -509,7 +509,7 @@ Arguments                             Description
 
 ::
 
-  bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-toolbox.exe unlock --batch listOfMiners.csv -p admin
 
 This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
 
@@ -696,7 +696,7 @@ First, you need to prepare the Python environment. This consists of the followin
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #Change the directory to the unpacked firmware folder
   #Antminer S9
@@ -772,7 +772,7 @@ Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **Note:** *for more information about the arguments that can be used, use the* **--help** *argument.*
@@ -793,7 +793,7 @@ If you created a backup of the original firmware during the installation of Brai
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
@@ -954,7 +954,7 @@ In order to upgrade from older version of Braiins OS, use the following command 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-11-27-0-5eb922d4-20.11-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
 This command contains the following commands: 
 

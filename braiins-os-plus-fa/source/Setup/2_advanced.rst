@@ -338,7 +338,7 @@ save_apply                            ذخیره و اعمال تنظیمات ا
   
    #فایل CSV را ویرایش کنید (برای مثال با نرم افزارهای Office Excel, LibreOffice Calc و غیره)
   
-  bos-plus-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
 
 
 اولین دستور تنظیمات را از ماینرهایی که در فایل *listOfMiners.csv* لیست شده است بارگیری خواهد کرد. (با استفاده از نام کاربری *root* و در فایل CSV ذخیره خواهد کرد.) شما اکنون میتوانید فایل را باز و ویرایش‌های دلخواه خود را انجام دهید. بعد از ویرایش، دستور دوم تنظیمات را به ماینرها بازخواهد گرداند، در آنها اعمال خواهد کرد و به پسوردی که در ستون پسورد است تغییر خواهد داد. 
@@ -711,7 +711,7 @@ NAND نصب در
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #مسیر دایرکتوری را به مسیر بسته غیرفشرده شده تغییر دهید
   #Antminer S9
@@ -784,7 +784,7 @@ NAND نصب در
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **توجه:** *برای اطلاع از آرگومانهایی که میتوانید استفاده نمایید از* **--help** *بهره ببرید*
@@ -807,7 +807,7 @@ NAND نصب در
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 ** توجه: این روش توصیه نمی شود زیرا ایجاد نسخه پشتیبان بسیار دقیق است. نسخه پشتیبان تهیه شده ممکن است خراب باشد و راهی برای بررسی آن وجود ندارد. می توانید به ریسک خودتان استفاده کنید و مطمئن شوید که در صورت عدم موفقیت بازگشت ، می توانید به ماینر دسترسی پیدا کرده و کارت SD را در آن وارد کنید.**
@@ -968,7 +968,7 @@ Sysupgrade بسته
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-11-27-0-5eb922d4-20.11-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
 این دستور شامل دستورات زیر میباشد: 
 

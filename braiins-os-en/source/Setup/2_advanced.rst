@@ -161,7 +161,7 @@ Arguments                             Description
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --web-password root --ssh-password admin
+  bos-toolbox.exe install --batch listOfMiners.csv --web-password root --ssh-password admin --open-source
 
 This command will install Braiins OS on the miners, that are specified in the *listOfMiners.csv* file. The command will also automatically unlock the Antminer S9 and insert the SSH password *admin*, when the miner asks for it.
 
@@ -465,9 +465,9 @@ Unlock SSH on Antminer S9 using BOS Toolbox
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. **Use only one IP address per line!**
   * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS+_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
 
@@ -687,9 +687,7 @@ First, you need to prepare the Python environment. This consists of the followin
   #Download and extract the firmware package
   #Antminer S9
   wget -c https://feeds.braiins-os.org/20.09/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09.tar.gz -O - | tar -xz
-  
-  #Antminer S17
-  wget -c https://feeds.braiins-os.org/20.09/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09.tar.gz -O - | tar -xz
+
 
   #Change the directory to the unpacked firmware folder
   cd ./braiins-os_am1-s9_ssh_2020-06-16-0-d3608188-20.06/
@@ -720,9 +718,7 @@ Installation of Braiins OS using the so-called *SSH Method* consists of the foll
   #Change the directory to the unpacked firmware folder (if not already in the firmware folder)
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09
-  
-  #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09
+
 
   #Activate the virtual environment (if it is not already activated)
   source .env/bin/activate
@@ -757,10 +753,7 @@ Run (replace the placeholders ``FACTORY_IMAGE`` and ``IP_ADDRESS`` accordingly):
   #Antminer S9
   cd ~/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
-  
-  #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
-  python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
+
 
 .. _ssh_package_uninstall_backup:
 
@@ -776,10 +769,7 @@ If you created a backup of the original firmware during the installation of Brai
   #Antminer S9
   cd ~/braiins-os_am1-s9_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
-  
-  #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-0-e50f2a1b-20.09 && source .env/bin/activate
-  python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
+
 
 **Note: This method is not recommended as the backup creation is very finicky. The backup can be corrupted and there is no way to check it. Use at your own risk and make sure, you can access the miner and insert an SD card to it in case the restoration does not finish successfully!**
 
@@ -939,7 +929,7 @@ In order to upgrade from older version of Braiins OS, use the following command 
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-11-27-0-5eb922d4-20.11-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
 
 This command contains the following commands: 
 

@@ -81,12 +81,12 @@ In 2019, the SSH connection was locked and the signature verification in the web
     For **Windows** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
+      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
 
     For **Linux** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   

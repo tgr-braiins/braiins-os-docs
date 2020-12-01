@@ -22,7 +22,7 @@
 
  * 蚂蚁矿机S9固件远程SSH锁解锁
  
-  * 使用BOS+ Toolbox (:ref:`bosbox_unlock`)  
+  * 使用BOS Toolbox (:ref:`bosbox_unlock`)  
   
  * 升级Braiins OS+
  
@@ -108,23 +108,23 @@ BOS+工具箱的特性及优缺点
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS+_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.exe install ARGUMENTS HOSTNAME
     
     在 **Linux** 上的Terminal控制终端请用： :: 
       
-      ./bos-plus-toolbox install ARGUMENTS HOSTNAME
+      ./bos-toolbox install ARGUMENTS HOSTNAME
 
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整安装进程：
 
@@ -156,7 +156,7 @@ BOS+工具箱的特性及优缺点
 
 ::
 
-  bos-plus-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
+  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --install-password admin
 
 解释：上方的命令和参数，会将Braiins OS+安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上，并设置列表中所有矿机的输入功率限制为1200瓦。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
 
@@ -169,23 +169,23 @@ BOS+工具箱的特性及优缺点
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS+_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe update ARGUMENTS HOSTNAME
+      bos-toolbox.exe update ARGUMENTS HOSTNAME
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-plus-toolbox update ARGUMENTS HOSTNAME
+      ./bos-toolbox update ARGUMENTS HOSTNAME
 
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整更新进程：
 
@@ -207,7 +207,7 @@ BOS+工具箱的特性及优缺点
 
 ::
 
-  bos-plus-toolbox.exe update --batch listOfMiners.csv
+  bos-toolbox.exe update --batch listOfMiners.csv
 
 解释：上方的命令和参数，会在有新固件更新可用的情况下，对在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+进行更新。
 
@@ -220,23 +220,23 @@ BOS+工具箱的特性及优缺点
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
   
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe uninstall ARGUMENTS HOSTNAME
+      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
 
      在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-plus-toolbox uninstall ARGUMENTS HOSTNAME
+      ./bos-toolbox uninstall ARGUMENTS HOSTNAME
       
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整卸载进程：
 
@@ -259,7 +259,7 @@ BOS+工具箱的特性及优缺点
 
 ::
 
-  bos-plus-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-toolbox.exe uninstall --batch listOfMiners.csv
 
 解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件（Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz）。
 
@@ -272,24 +272,24 @@ BOS+工具箱的特性及优缺点
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe config ARGUMENTS ACTION TABLE
+      bos-toolbox.exe config ARGUMENTS ACTION TABLE
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-plus-toolbox config ARGUMENTS ACTION TABLE
+      ./bos-toolbox config ARGUMENTS ACTION TABLE
       
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整配置进程：
 
@@ -321,11 +321,11 @@ save_apply                            保存并应用之前从CSV文件复制（
 
 ::
 
-  bos-plus-toolbox.exe config --user root load listOfMiners.csv
+  bos-toolbox.exe config --user root load listOfMiners.csv
   
   #把矿机上的配置加载到CSV文件中后，可以通过表格软件编辑配置（如MS Office Excel，LibreOffice Calc等)
   
-  bos-plus-toolbox.exe config --user root save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root save_apply listOfMiners.csv
 
 解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，并应用新配置。
 
@@ -338,24 +338,24 @@ save_apply                            保存并应用之前从CSV文件复制（
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe discover ARGUMENTS
+      bos-toolbox.exe discover ARGUMENTS
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-plus-toolbox discover ARGUMENTS
+      ./bos-toolbox discover ARGUMENTS
       
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整网络扫描和矿机发现进程：
 
@@ -380,13 +380,13 @@ listen                                监听矿机识别广播（当按下IP rep
 ::
 
   #扫描从10.10.10.0到10.10.10.255的网络范围
-  bos-plus-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.exe discover scan 10.10.10.0/24
 
   #扫描从10.10.0.0到10.10.255.255的网络范围
-  bos-plus-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.exe discover scan 10.10.0.0/16
 
   #扫描从10.10.0.0到10.255.255.255的网络范围
-  bos-plus-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.exe discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -397,24 +397,24 @@ listen                                监听矿机识别广播（当按下IP rep
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS+_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-plus-toolbox command ARGUMENTS TABLE COMMAND
+      ./bos-toolbox command ARGUMENTS TABLE COMMAND
       
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整矿机运行自定义命令的进程：
 
@@ -448,34 +448,34 @@ stop                                  关闭BOSminer
 ::
 
   #关闭BOSminer, 有效地停止挖矿并将电能消耗降到最低
-  bos-plus-toolbox.exe command -o list.csv stop
+  bos-toolbox.exe command -o list.csv stop
 
 .. _bosbox_unlock:
 
 ============================================
-使用BOS+ Toolbox解锁蚂蚁矿机S9上的固件远程SSH锁
+使用BOS Toolbox解锁蚂蚁矿机S9上的固件远程SSH锁
 ============================================
 
   * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS+工具箱** 。
   * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS+_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
-      cd FILE_PATH_TO_BOS+_TOOLBOX
+      cd FILE_PATH_TO_BOS_TOOLBOX
 
   * 然后根据您的操作系统，运行以下相应的命令：
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-plus-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-plus-toolbox unlock ARGUMENTS HOSTNAME
+      ./bos-toolbox unlock ARGUMENTS HOSTNAME
 
     **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
   
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 您可以使用下方的 **参数** 调整解锁进程：
 
@@ -499,7 +499,7 @@ stop                                  关闭BOSminer
 
 ::
 
-  bos-plus-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-toolbox.exe unlock --batch listOfMiners.csv -p admin
 
 解释：上方的命令和参数，会解锁在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上的固件远程SSH锁。
 
@@ -685,7 +685,7 @@ SD卡方式安装映像
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #更改固件解压文件夹的目录
   #Antminer S9
@@ -756,7 +756,7 @@ SD卡方式安装映像
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
@@ -777,7 +777,7 @@ SD卡方式安装映像
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **注： 因为备份创建的要求比较复杂，也没有办法能够检查可能已损坏的备份文件，一般不推荐使用此法卸载Braiins OS+。请在使用过程中自行注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**
@@ -938,7 +938,7 @@ OPKG包管理器
   ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@IP_ADDRESS 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-11-27-0-5eb922d4-20.11-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
 This command contains the following commands: 
 

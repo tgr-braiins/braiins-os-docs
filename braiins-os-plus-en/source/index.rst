@@ -57,6 +57,28 @@ Join our Telegram group:
 Changelog
 *********
 
+20.11
+---------------------------
+
+This is a major release that improves performance of X17 family tuning and overall operation.
+
+* All mining hardware types
+
+  * [feature] - there is now a single BOS Toolbox download which can be used for all hardware types. It also allows for mixing S9 and X17 models in one list.csv file, so users can do everything in batch (install, configure, uninstall, etc.) even with multiple hardware types.
+
+* Antminer X17
+
+  * [feature] frequency of the entire family limitted to 750 MHz
+  * [feature] improved tuning of the whole family
+  * [feature] implemented workarounds for failing hashboards
+  * [feature] support for T17, T17+
+  * [bug] improved performance of S17+ hardware
+  * [bug] API lockup when tuner is running has been fixed, the charts in web interfaces no longer get stuck for couple seconds between tuner restarts
+
+* Antminer S9
+
+  * [feature] - the BOS Toolbox is the same for Braiins OS and Braiins OS+ now with Braiins OS+ being the default. Users who want to install the open-source version can do so with the parameter --open-source
+
 20.10
 ---------------------------
 
@@ -118,7 +140,7 @@ This release brings support for Antminer S17 and S17 Pro and includes a maintena
 20.06
 ---------------------------
 
-This release aims to improve the usability of Braiins OS+ and BOS+ Toolbox by implementing new features and fixing the most critical issues.
+This release aims to improve the usability of Braiins OS+ and BOS Toolbox by implementing new features and fixing the most critical issues.
 
   * All mining hardware types
 

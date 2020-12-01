@@ -59,6 +59,28 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Changelog
 *********
 
+20.11
+---------------------------
+
+Este es una publicación importante que mejora el rendimiento del ajuste a la familia X17 y su operatividad general.
+
+* Todos los tipos de hardware
+
+  * [característica] - ahora hay una sola descarga para la Caja de herramientas BOS que puede ser utilizada en todos los tipos de hardware. También permite mezclar modelos S9 y X17 en un archivo lista.csv, para que los usuarios puedan hacer todo por lotes (instalar, configurar, desinstalar, etc.) incluso con múltiples tipos de hardware.
+
+* Antminer X17
+
+  * [característica] limitada la frecuencia para toda la familia a 750 MHz
+  * [característica] mejorado el ajuste para toda la familia
+  * [característica] implementada soluciones alternas para tarjetas hash con fallas
+  * [característica] soporte para la T17, T17+
+  * [fallo] mejorado el rendimiento para el hardware S17+
+  * [fallo] el bloqueo del API cuando el ajuste está corriendo ha sido resuelto, las gráficas en la interfaz web no se siguen pegando un par de segundos durante el reinicio del ajuste
+
+* Antminer S9
+
+  * [característica] - la Caja de Herramientas BOS es la misma para Braiins OS y Braiins OS+ ahora con Braiins OS+ por defecto. Los usuarios que deseen instalar la versión de código abierto pueden hacerlo con el parámetro --open-source
+
 20.10
 ---------------------------
 
