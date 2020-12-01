@@ -65,14 +65,14 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
 矿机原厂固件是2019年之后的版本
 ==================================================
 
-**（仅适用于蚂蚁矿机S9）使用BOS+工具箱解锁固件远程SSH锁**
+**（仅适用于蚂蚁矿机S9）使用BOS工具箱解锁固件远程SSH锁**
 
-官方固件在2019年封锁了SSH远程连接，并在矿机网页后台升级固件时加入了固件签名验证，从而不让矿工装第三方固件。如您的矿机上有固件锁，请按以下步骤解锁并安装Braiins OS+：
+官方固件在2019年封锁了SSH远程连接，并在矿机网页后台升级固件时加入了固件签名验证，从而不让矿工装第三方固件。如您的矿机上有固件锁，请按以下步骤解锁并安装Braiins OS：
 
-  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -80,25 +80,19 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      #解锁矿机上的远程SSH锁
-      bos-toolbox.exe unlock --batch listOfMiners.csv
-
-      #在矿机上安装Braiins OS+
+      #破解官固并在矿机上安装Braiins OS
       bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      #解锁矿机上的远程SSH锁
-      ./bos-toolbox unlock --batch listOfMiners.csv
+      #破解官固并在矿机上安装Braiins OS
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source    
 
-      #在矿机上安装Braiins OS+
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
-
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
-Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地址）和矿池以及用户配置，将会自动转移到新安装的Braiins OS+上，矿机自动调整功能也将自动开启。 
+Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地址）和矿池以及用户配置，将会自动转移到新安装的Braiins OS上，矿机自动调整功能也将自动开启。 
 
 **SD卡 卡刷解锁**
 
