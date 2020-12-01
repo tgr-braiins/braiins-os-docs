@@ -258,6 +258,7 @@ BOS工具箱的特性及优缺点
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 --install-password INSTALL_PASSWORD   用于安装的SSH密码
 --feeds-url [FEEDS_URL]		      自定义固件下载URL链接地址
+--nand-restore			      使用上一次从矿机NAND储存备份的矿机固件
 ====================================  ============================================================
 
 **卸载命令和参数使用示例如下：**
@@ -266,18 +267,18 @@ BOS工具箱的特性及优缺点
 
   bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件（Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz）。
+解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件。
 
 .. _bosbox_configure:
 
 ===========================================
-使用BOS+工具箱配置Braiins OS+
+使用BOS工具箱配置Braiins OS+
 ===========================================
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -292,7 +293,7 @@ BOS工具箱的特性及优缺点
       
       ./bos-toolbox config ARGUMENTS ACTION TABLE
       
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -304,6 +305,7 @@ BOS工具箱的特性及优缺点
 -h, --help                            显示帮助信息并退出
 -u USER, --user USER                  矿机网页端后台用户名
 -p PASSWORD, --password PASSWORD      矿机网页端后台密码
+-P, --change-password		      允许更改（*listOfMiners.csv*文件中列出矿机）的密码
 -c, --check                           不写入的试运行检查
 -i, --ignore                          忽略错误
 ====================================  ============================================================
@@ -330,20 +332,20 @@ save_apply                            保存并应用之前从CSV文件复制（
   
   #把矿机上的配置加载到CSV文件中后，可以通过表格软件编辑配置（如MS Office Excel，LibreOffice Calc等)
   
-  bos-toolbox.exe config --user root save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root root -p admin -P save_apply listOfMiners.csv
 
-解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，并应用新配置。
+解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，更改密码为新设置的密码，并应用新配置。
 
 .. _bosbox_scan:
 
 ======================================================
-使用BOS+工具箱扫描网络并发现矿机
+使用BOS工具箱扫描网络并发现矿机
 ======================================================
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -358,7 +360,7 @@ save_apply                            保存并应用之前从CSV文件复制（
       
       ./bos-toolbox discover ARGUMENTS
       
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -396,13 +398,13 @@ listen                                监听矿机识别广播（当按下IP rep
 .. _bosbox_command:
 
 ================================================
-使用BOS+工具箱在矿机上运行自定义命令
+使用BOS工具箱在矿机上运行自定义命令
 ================================================
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具箱的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -417,7 +419,7 @@ listen                                监听矿机识别广播（当按下IP rep
       
       ./bos-toolbox command ARGUMENTS TABLE COMMAND
       
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -458,13 +460,13 @@ stop                                  关闭BOSminer
 .. _bosbox_unlock:
 
 ============================================
-使用BOS Toolbox解锁蚂蚁矿机S9上的固件远程SSH锁
+使用BOS工具箱解锁蚂蚁矿机S9上的固件远程SSH锁
 ============================================
 
-  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -478,7 +480,7 @@ stop                                  关闭BOSminer
       
       ./bos-toolbox unlock ARGUMENTS HOSTNAME
 
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -643,7 +645,7 @@ SD卡方式安装映像
 远程（SSH）方式安装包
 ****************************
 
-您可以使用 *远程（SSH）方式安装包* 安装或卸载Braiins OS+。由于此方法需要用到Python设置，我们并不推荐使用此方法。您最好使用BOS+工具箱。
+您可以使用 *远程（SSH）方式安装包* 安装或卸载Braiins OS+。由于此方法需要用到Python设置，我们并不推荐使用此方法。您最好使用BOS工具箱。
 
 =====
 如何使用
@@ -953,7 +955,7 @@ This command contains the following commands:
   * **wget** - 下载文件，这里具体指下载固件包
   * **sysupgrade** - 将下载的固件包刷到矿机上
 
-注意：推荐使用 *BOS+工具箱* ， *Braiins OS网页端后台* 或 *opkg install bos_plus命令* 而不是使用此方法升级。 
+注意：推荐使用 *BOS工具箱* ， *Braiins OS网页端后台* 或 *opkg install bos_plus命令* 而不是使用此方法升级。 
 
 .. _bos2bos:
 
