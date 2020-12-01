@@ -22,7 +22,7 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
  * Desbloquear SSH en Antminer S9
 
-  * Usando la Caja de Herramientas BOS+ (:ref:`bosbox_unlock`)
+  * Usando la Caja de Herramientas BOS (:ref:`bosbox_unlock`)
 
  * Actualizar Braiins OS
 
@@ -72,7 +72,7 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 Caja de herramientas BOS
 ************************
 
-La Caja de herramientas BOS es una nueva herramienta que permite a los usuarios instalar, desinstalar, actualizar, detectar, configurar Braiins OS y correr comandos personalizados fácilmente. También permite que los comandos sean ejecutados en modo por lotes, lo que hace mas fácil la gestión de un gran número de dispositivos. Esta es la manera recomendada de gestionar sus máquinas.
+La Caja de herramientas BOS es una nueva herramienta que permite a los usuarios instalar, desinstalar, actualizar, detectar, configurar Braiins OS y correr comandos personalizados fácilmente. También permite que los comandos sean ejecutados en modo por lotes, lo que hace mas fácil la gestión de un gran número de dispositivos. La caja de herramientas BOS también descarga automáticamente el último firmware. Esta es la manera recomendada de gestionar sus máquinas.
 
 ===
 Uso
@@ -86,7 +86,7 @@ Uso
 Características, PROs y CONs de este método:
 ============================================
 
-  + instala Braiins OS remotamente
+  + instala Braiins OS remotamente y automáticamente desbloquea SSH en Antminer S9 durante la instalación
   + actualiza Braiins OS remotamente
   + desinstala Braiins OS remotamente
   + configura Braiins OS remotamente
@@ -98,7 +98,7 @@ Características, PROs y CONs de este método:
   + modo-por-lotes disponible para gestionar múltiples dispositivos a la vez
   + fácil de usar
 
-  - no funciona en un minero con SSH bloqueado
+  - no funciona en dispositivos X17 con SSH bloqueado
 
 .. _bosbox_install:
 
@@ -138,6 +138,10 @@ Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
 --batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
+--open-source         		         use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
+--nightly             		         use para instalar la versión nightly (excluyente con **open-source** y **feed-url**)
+--feeds-url [URL_FEEDS]		         saltar URL del servidor predeterminado de feeds (excluyente con **open-source** y **nightly**)
+--fw-version [VERSION_FW]	         seleccionar versión específica de firmware
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-auto-upgrade                     apagar auto-actualizar del firmware instalado
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
@@ -149,16 +153,18 @@ Argumentos                            Descripción
 --no-wait                             no esperar a que el sistema esté completamente actualizado
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
---install-password CLAVE_INSTALACIÓN  palabra clave ssh para la instalación
+--bos-mgmt-id [ID_GESTOR_BOS]         fijar identificador para el gestor BOS
+--ssh-password CONTRASEÑA_SSH         contraseña ssh para la instalación
+--web-password CONTRASEÑA_WEB         contraseña web para desbloquear
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  bos-toolbox.exe install --batch listaDeMineros.csv --install-password clave
+  bos-toolbox.exe install --batch listaDeMineros.csv -web-password root --ssh-password admin
 
-Este comando instalará Braiins OS en los mineros, que estén especificados en el archivo *listaDeMineros.csv*. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
+Este comando instalará Braiins OS en los mineros, que estén especificados en el archivo *listaDeMineros.csv*. El comando también desbloqueará automáticamente la Antminer S9 e insertará la contraseña SSH *admin*, cuando el minero la pida.
 
 .. _bosbox_update:
 
@@ -250,8 +256,8 @@ Argumentos                            Descripción
 -h, --help                            muestra este mensaje de ayuda y sale
 --batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --install-password CLAVE_INSTALACIÓN  palabra clave ssh para la (des)instalación
---factory-image IMAGEN_DE_FÁBRICA     ruta/url a imagen de actualización de firmware original (defecto:
-                                      Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz)
+--feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
+--nand-restore                        usar restauración completa NAND desde un respaldo previo
 ====================================  ==================================================================
 
 **Ejemplo:**
@@ -260,7 +266,7 @@ Argumentos                            Descripción
 
   bos-toolbox.exe uninstall --batch listaDeMineros.csv
 
-Este comando desinstalará Braiins OS de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
+Este comando desinstalará Braiins OS de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie.
 
 .. _bosbox_configure:
 
@@ -296,7 +302,8 @@ Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
 -u USER, --user USER                  nombre administrativo
--p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntarla"
+-p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntar"
+-P, --change-password                 Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
 -c, --check                           ensayo sin escrituras
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -323,9 +330,9 @@ save_apply                            guardar y aplicar la configuración del ar
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  bos-toolbox.exe config --user root save_apply listaDeMineros.csv
+  bos-toolbox.exe config --user root -p admin -P save_apply listaDeMineros.csv
 
-El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros y la aplicará.
+El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros, la aplicará y cambiará la contraseña a la colocada en la columna contraseña.
 
 .. _bosbox_scan:
 
@@ -377,13 +384,13 @@ listen                                escuchar transmisión entrante desde los d
 ::
 
   #explorar la red, en el rango 10.10.10.0 - 10.10.10.255
-  bos-plus-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.exe discover scan 10.10.10.0/24
 
   #explorar la red, en el rango 10.10.0.0 - 10.10.255.255
-  bos-plus-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.exe discover scan 10.10.0.0/16
 
   #explorar la red, en el rango 10.0.0.0 - 10.255.255.255
-  bos-plus-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.exe discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -444,34 +451,34 @@ stop                                  Detener BOSminer
 ::
 
   #detiene BOSminer, deteniendo efectivamente el minado y reduciendo el consumo de energía al mínimo
-  bos-plus-toolbox.exe command -o list.csv stop
+  bos-toolbox.exe command -o list.csv stop
 
 .. _bosbox_unlock:
 
 ===============================================================
-Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS+
+Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 ===============================================================
 
-  * Descargue la **Caja de Herramientas BOS+** de nuestro `sitio web <https://es.braiins.com/os/plus/download>`_.
-  * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS+. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de Herramientas BOS+, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS+ Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
+  * Descargue la **Caja de Herramientas BOS** de nuestro `sitio web <https://es.braiins.com/os/plus/download>`_.
+  * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS. **¡Use solo una dirección IP por línea!**
+  * Una vez descargada la Caja de Herramientas BOS, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
+  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
 
-      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS+
+      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS
 
   * Ahora reemplace el marcador *listaDeMineros.csv* con el nombre de archivo en el comando de abajo y corra el comando apropiado para su sistema operativo:
 
     Terminal de comandos en **Windows**: ::
 
-      bos-plus-toolbox.exe unlock ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe unlock ARGUMENTOS NOMBREHOST
 
     Terminal de comandos en **Linux**: ::
 
-      ./bos-plus-toolbox unlock ARGUMENTOS NOMBREHOST
+      ./bos-toolbox unlock ARGUMENTOS NOMBREHOST
 
-    **Nota:** *al usar la caja de herramientas BOS+ para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
+    **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
 
-      chmod u+x ./bos-plus-toolbox
+      chmod u+x ./bos-toolbox
 
 Puede usar los siguientes **argumentos** para ajustar el proceso:
 
@@ -495,7 +502,7 @@ Argumentos                                  Descripción
 
 ::
 
-  bos-plus-toolbox.exe unlock --batch listaDeMineros.csv -p admin
+  bos-toolbox.exe unlock --batch listaDeMineros.csv -p admin
 
 Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
