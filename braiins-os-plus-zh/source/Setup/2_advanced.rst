@@ -14,7 +14,7 @@
 
  * 安装Braiins OS+
  
-  * 使用BOS+工具箱 （:ref:`bosbox_install`）
+  * 使用BOS工具箱 （:ref:`bosbox_install`）
   * 使用网页端后台方式安装包 （:ref:`web_package_install`）
   * 使用SD卡刷 （:ref:`sd_install`）
   * 使用SD卡刷和矿机工具（Miner tool） （:ref:`miner_nand_install`）
@@ -22,11 +22,11 @@
 
  * 蚂蚁矿机S9固件远程SSH锁解锁
  
-  * 使用BOS Toolbox (:ref:`bosbox_unlock`)  
+  * 使用BOS工具箱 (:ref:`bosbox_unlock`)  
   
  * 升级Braiins OS+
  
-  * 使用BOS+工具箱 （:ref:`bosbox_update`）
+  * 使用BOS工具箱 （:ref:`bosbox_update`）
   * 使用OPKG批量包 （:ref:`opkg_update`）
   * 使用SYSUPGRADE（系统升级）包 （:ref:`sysupgrade_switch_braiinsplus`）
   * 使用BOS2BOS（从Braiins OS升级到Braiins OS其他版本的）脚本 （:ref:`bos2bos`）
@@ -51,7 +51,7 @@
   
  * 卸载Braiins OS+
  
-  * 使用BOS+工具箱 （:ref:`bosbox_uninstall`）
+  * 使用BOS工具箱 （:ref:`bosbox_uninstall`）
   * 使用SSH脚本 （:ref:`ssh_package_uninstall`）
   
  * 开启/关闭预先发行版（Nightly Version）推送
@@ -64,29 +64,29 @@
 
  * 在矿机上运行自定义Shell命令
 
-  * 使用BOS+工具箱 (:ref:`bosbox_command`)
+  * 使用BOS工具箱 (:ref:`bosbox_command`)
 
 .. _bosbox:
 
 ***************
-BOS+工具箱
+BOS工具箱
 ***************
 
-BOS+工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+，并在矿机上运行自定义命令。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
+BOS工具箱能让用户轻松安装，卸载，升级，检测以及配置Braiins OS+，并在矿机上运行自定义命令。它还有批量模式，让您对矿场的管理更得心应手。我们推荐您使用批量模式管理矿机。 
 
 =====
 如何使用
 =====
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 再按下面相应部分的步骤进行操作
 
 =======================================
-BOS+工具箱的特性及优缺点
+BOS工具箱的特性及优缺点
 =======================================
 
-  + 远程安装Braiins OS+
+  + 远程安装Braiins OS+，在安装过程中自动破解S9矿机上的官固锁
   + 远程升级Braiins OS+
   + 远程卸载Braiins OS+ 
   + 远程配置Braiins OS+
@@ -98,17 +98,18 @@ BOS+工具箱的特性及优缺点
   + 安装Braiins OS+后默认自动开启矿机自动调整功能（默认功率限制1420瓦）
   + 批量模式让管理大量矿机也能得心应手
   + 使用简单，容易上手
+  - 尚不支持破解SSH远程功能有官固锁的X17系列矿机
 
 .. _bosbox_install:
 
 ======================================
-使用BOS+工具箱安装Braiins OS+
+使用BOS工具箱安装Braiins OS+
 ======================================
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -122,7 +123,7 @@ BOS+工具箱的特性及优缺点
       
       ./bos-toolbox install ARGUMENTS HOSTNAME
 
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -137,6 +138,7 @@ BOS+工具箱的特性及优缺点
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
+--open-source         		      安装开源社区版Braiins OS（仅限 **预先发行版** 和 **固件更新服务器URL连接**)
 --backup                              在进行升级前备份矿机
 --no-auto-upgrade                     关闭固件自动更新
 --no-nand-backup                      跳过对矿机内置储存NAND的备份（仍备份矿机配置）
@@ -149,7 +151,7 @@ BOS+工具箱的特性及优缺点
 --no-wait                             直到系统完全更新完毕不等待
 --dry-run                             执行所有的更新步骤但不实际进行更新
 --post-upgrade [POST_UPGRADE]         指定stage3.sh脚本文件目录
---install-password INSTALL_PASSWORD   设置安装的SSH密码
+--bos-mgmt-id [BOS_MGMT_ID]	      设置BOS工具箱管理识别标签
 ====================================  ============================================================
 
 **安装命令和参数使用示例如下：**
