@@ -257,6 +257,7 @@ BOS工具箱的特性及优缺点
 --batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 --install-password INSTALL_PASSWORD   用于安装的SSH密码
 --feeds-url [FEEDS_URL]		      自定义固件下载URL链接地址
+--nand-restore			      使用上一次从矿机NAND储存备份的矿机固件
 ====================================  ============================================================
 
 **卸载命令和参数使用示例如下：**
@@ -265,7 +266,7 @@ BOS工具箱的特性及优缺点
 
   bos-toolbox.exe uninstall --batch listOfMiners.csv
 
-解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS，并重装原厂固件（Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz）。
+解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS，并重装原厂固件。
 
 .. _bosbox_configure:
 
@@ -302,6 +303,7 @@ BOS工具箱的特性及优缺点
 -h, --help                            显示帮助信息并退出
 -u USER, --user USER                  矿机网页端后台用户名
 -p PASSWORD, --password PASSWORD      矿机网页端后台密码
+-P, --change-password		      允许更改（*listOfMiners.csv*文件中列出矿机）的密码
 -c, --check                           不写入的试运行检查
 -i, --ignore                          忽略错误
 ====================================  ============================================================
@@ -328,9 +330,9 @@ save_apply                            保存并应用之前从CSV文件复制（
   
   #把矿机上的配置加载到CSV文件中后，可以通过表格软件编辑配置（如MS Office Excel，LibreOffice Calc等)
   
-  bos-toolbox.exe config --user root save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
 
-解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，并应用新配置。
+解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，更改密码为新设置的密码，并应用新配置。
 
 .. _bosbox_scan:
 
@@ -454,7 +456,7 @@ stop                                  关闭BOSminer
 .. _bosbox_unlock:
 
 ============================================
-使用BOS Toolbox解锁蚂蚁矿机S9上的固件远程SSH锁
+使用BOS工具箱解锁蚂蚁矿机S9上的固件远程SSH锁
 ============================================
 
   * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS工具箱** 。
@@ -474,7 +476,7 @@ stop                                  关闭BOSminer
       
       ./bos-toolbox unlock ARGUMENTS HOSTNAME
 
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
