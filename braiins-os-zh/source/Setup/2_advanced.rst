@@ -153,7 +153,7 @@ BOS工具箱的特性及优缺点
 --no-wait                             直到系统完全更新完毕不等待
 --dry-run                             执行所有的更新步骤但不实际进行更新
 --post-upgrade [POST_UPGRADE]         指定stage3.sh脚本文件目录
---install-password INSTALL_PASSWORD   设置安装的SSH密码
+--bos-mgmt-id [BOS_MGMT_ID]	      设置BOS工具箱管理识别标签
 ====================================  ============================================================
 
 **安装命令和参数使用示例如下：**
