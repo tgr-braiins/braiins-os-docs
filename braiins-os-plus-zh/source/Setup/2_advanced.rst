@@ -685,14 +685,14 @@ SD卡方式安装映像
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #更改固件解压文件夹的目录
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_VERSION
+  cd ./braiins-os_am2-x17_ssh_VERSION
 
   #创建一个虚拟环境并启用
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -722,7 +722,7 @@ SD卡方式安装映像
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_VERSION
+  cd ./braiins-os_am2-x17_ssh_VERSION
 
   #启用虚拟环境（如尚未启用）
   source .env/bin/activate
@@ -756,7 +756,7 @@ SD卡方式安装映像
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **注：** *更多关于可用参数的信息说明，可用参数* **--help** *查看。*
@@ -777,7 +777,7 @@ SD卡方式安装映像
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **注： 因为备份创建的要求比较复杂，也没有办法能够检查可能已损坏的备份文件，一般不推荐使用此法卸载Braiins OS+。请在使用过程中自行注意风险，如备份恢复失败，您还可以选择使用通过SD卡方式恢复矿机固件!**

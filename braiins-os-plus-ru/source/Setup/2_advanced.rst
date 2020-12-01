@@ -693,14 +693,14 @@ Braiins OS+ сброс настроек с помощью SD-карты
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #Измените каталог на распакованную папку с прошивкой
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_VERSION
+  cd ./braiins-os_am2-x17_ssh_VERSION
 
   #Создайте виртуальную среду и активируйте ее
   virtualenv --python=/usr/bin/python3 .env && source .env/bin/activate
@@ -730,7 +730,7 @@ Braiins OS+ сброс настроек с помощью SD-карты
   cd ./braiins-os_am1-s9_ssh_VERSION
   
   #Antminer S17
-  cd ./braiins-os_am2-s17_ssh_VERSION
+  cd ./braiins-os_am2-x17_ssh_VERSION
 
   #Активируйте виртуальную среду (если она еще не активирована)
   source .env/bin/activate
@@ -766,7 +766,7 @@ Braiins OS+ сброс настроек с помощью SD-карты
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image FACTORY_IMAGE IP_ADDRESS
 
 **Примечание:** *для получения дополнительной информации об аргументах, которые можно использовать, используйте* **--help** *аргумент.*
@@ -787,7 +787,7 @@ Braiins OS+ сброс настроек с помощью SD-карты
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-x17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/BACKUP_ID_DATE/ IP_ADDRESS
 
 **Примечание: Этот метод не рекомендуется, так как создание резервной копии очень сложно. Резервная копия может быть повреждена, и проверить ее невозможно. Используйте на свой страх и риск и убедитесь, что вы можете получить доступ к майнеру и вставить в него SD-карту, если восстановление не завершится успешно!**
