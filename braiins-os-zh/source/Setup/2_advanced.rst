@@ -155,6 +155,7 @@ BOS工具箱的特性及优缺点
 --post-upgrade [POST_UPGRADE]         指定stage3.sh脚本文件目录
 --bos-mgmt-id [BOS_MGMT_ID]	      设置BOS工具箱管理识别标签
 --ssh-password SSH_PASSWORD	      安装时需用到的矿机上的官固SSH远程密码
+--web-password WEB_PASSWORD	      破解时需用到的矿机上的官固网页后台密码
 ====================================  ============================================================
 
 **安装命令和参数使用示例如下：**
