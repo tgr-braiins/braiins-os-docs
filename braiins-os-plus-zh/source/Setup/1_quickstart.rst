@@ -34,12 +34,12 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/0RTKiqwJ4to" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-使用 **BOS+工具箱** ，您可以轻松地多台矿机上批量安装Braiins OS+，请参照以下步骤：
+使用 **BOS工具箱** ，您可以轻松地多台矿机上批量安装Braiins OS+，请参照以下步骤：
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具箱的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具箱的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -53,7 +53,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-toolbox install --batch listOfMiners.csv		
 
-    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox  
 
@@ -65,14 +65,14 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 矿机原厂固件是2019年之后的版本
 ==================================================
 
-**（仅适用于蚂蚁矿机S9）使用BOS+工具箱解锁固件远程SSH锁**
+**（仅适用于蚂蚁矿机S9）使用BOS工具箱解锁固件远程SSH锁**
 
 官方固件在2019年封锁了SSH远程连接，并在矿机网页后台升级固件时加入了固件签名验证，从而不让矿工装第三方固件。如您的矿机上有固件锁，请按以下步骤解锁并安装Braiins OS+：
 
-  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins.com/os/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址， **一个IP地址一行** ！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的 *FILE_PATH_TO_BOS_TOOLBOX* 。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -80,21 +80,15 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      #解锁矿机上的远程SSH锁
-      bos-toolbox.exe unlock --batch listOfMiners.csv
-
-      #在矿机上安装Braiins OS+
-      bos-toolbox.exe install --batch listOfMiners.csv
+      #破解官固并在矿机上安装Braiins OS+
+      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      #解锁矿机上的远程SSH锁
-      ./bos-toolbox unlock --batch listOfMiners.csv
+      #破解官固并在矿机上安装Braiins OS+
+      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
 
-      #在矿机上安装Braiins OS+
-      ./bos-toolbox install --batch listOfMiners.csv    
-
-    **请注意：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox
 
@@ -138,12 +132,12 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量更新**
 
-使用 **BOS+工具箱** ，您可以轻松地批量更新多台矿机上Braiins OS+，请参照以下步骤：
+使用 **BOS工具箱** ，您可以轻松地批量更新多台矿机上Braiins OS+，请参照以下步骤：
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！保存文本文件后，再将文件后缀从".txt"改为".csv"。并确定此文件和BO工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -157,7 +151,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-toolbox update --batch listOfMiners.csv
 
-    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox 
 
@@ -171,11 +165,11 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **单台矿机卸载**
 
-使用 **BOS+工具箱** ，您可以轻松地卸载单台矿机上安装的Braiins OS+，请参照以下步骤：
+使用 **BOS工具箱** ，您可以轻松地卸载单台矿机上安装的Braiins OS+，请参照以下步骤：
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
 
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -189,7 +183,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-toolbox uninstall IP_ADDRESS
       
-    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox 
 
@@ -197,12 +191,12 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
 **批量卸载**
 
-使用 **BOS+工具箱** ，您可以轻松地批量卸载多台矿机上安装的Braiins OS+，请参照以下步骤：
+使用 **BOS工具箱** ，您可以轻松地批量卸载多台矿机上安装的Braiins OS+，请参照以下步骤：
 
-  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS+工具箱** 。
-  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS+工具箱都放在同一路径下（同一文件夹中）。 
+  * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
+  * 创建一个txt文本文件，并将文件命名为"listOfMiners"，然后在文件内输入您想执行操作的矿机的IP地址，一个IP地址一行！（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）中可以进行查询）。保存文本文件后，再将文件后缀从".txt"改为".csv"。确定此文件和BOS工具箱都放在同一路径下（同一文件夹中）。 
   * 使用命令行（Windows操作系统的CMD，Ubuntu的Terminal终端等）。
-  * 用放置矿机地址文件和BOS+工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
+  * 用放置矿机地址文件和BOS工具性的实际路径（文件夹地址），替换下方命令中的*FILE_PATH_TO_BOS_TOOLBOX*。执行命令，切换到路径。 ::
   
       cd FILE_PATH_TO_BOS_TOOLBOX
 
@@ -216,7 +210,7 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
       
       ./bos-toolbox uninstall --batch listOfMiners.csv
       
-    **注：** *当在Linux系统中使用BOS+工具箱时，您需要先使用以下命令让BOS+工具箱变得可执行（一次就够）：* ::
+    **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
       chmod u+x ./bos-toolbox 
 
@@ -242,4 +236,4 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/4jQCu6yuXUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-使用 **BOS+工具箱** ，您可以轻松地批量配置多台矿机上安装的Braiins OS+，请参照文档 :ref:`bosbox_configure`部分的步骤进行配置。
+使用 **BOS工具箱** ，您可以轻松地批量配置多台矿机上安装的Braiins OS+，请参照文档 :ref:`bosbox_configure`部分的步骤进行配置。
