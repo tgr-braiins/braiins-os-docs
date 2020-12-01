@@ -10,10 +10,10 @@
   :depth: 2
 
 ****************************************
-使用BOS+工具箱配置Braiins OS+
+使用BOS工具箱配置Braiins OS+
 ****************************************
 
-使用**BOS+工具箱**，您可以轻松地在多个矿机上配置Braiins OS+。具体请详见 :ref:`bosbox_configure` 部分的步骤。
+使用**BOS工具箱**，您可以轻松地在多个矿机上配置Braiins OS+。具体请详见 :ref:`bosbox_configure` 部分的步骤。
 
 ************************************************
 使用远程（SSH）包配置Braiins OS+
@@ -247,11 +247,11 @@
 调节自动调整（Tuning Adjustments）
 ********************************
 
-自动调整功能可以通过矿机网页界面，BOS+工具箱或 ``/etc/bosminer.toml`` 配置文档进行配置。
+自动调整功能可以通过矿机网页界面，BOS工具箱或 ``/etc/bosminer.toml`` 配置文档进行配置。
 
 调节自动调整功能，可以在矿机网页界面目录 *Miner（矿机） -> Configuration（配置）* 页面中的Autotuning （自动调整功能）部分进行。
 
-批量调节多个设备，可以使用 **BOS+工具箱** ，请参见 :ref:`bosbox_configure` 部分的操作。
+批量调节多个设备，可以使用 **BOS工具箱** ，请参见 :ref:`bosbox_configure` 部分的操作。
 
 使用SSH远程连接矿机，也可以用更改配置文件的办法，对 ``/etc/bosminer.toml`` 文件进行编辑。句法示例如下：
 
@@ -272,11 +272,11 @@
 
 动态功率调节功能能在矿机达到用户设定的 *过热温度（Hot Tempreture）* 的情况下，自动降低矿机的功率限值。一旦达到最小功率限值，矿机将关机冷却。矿机将在用户设定的一段时间后，自动重启并恢复到原工作功率限值挖矿。
 
-动态功率调节功能可以通过矿机网页界面GUI、使用BOS+工具箱或在 ``/etc/bosminer.toml`` 配置文件中进行配置。
+动态功率调节功能可以通过矿机网页界面GUI、使用BOS工具箱或在 ``/etc/bosminer.toml`` 配置文件中进行配置。
 
 在矿机网页界面GUI中，请在目录 *矿机（Miner） -> 配置（Configuration）* 页面中编辑 *动态功率调节（Dynamic Power Scaling）* 部分的内容。
 
-使用 **BOS+工具箱** ，请参见 :ref:`bosbox_configure` 部分的操作。
+使用 **BOS工具箱** ，请参见 :ref:`bosbox_configure` 部分的操作。
 
 修改 ``/etc/bosminer.toml`` 配置文件，请通过SSH远程连接矿机并进行修改，句法示例如下：
 
@@ -299,11 +299,11 @@
 
 若启用自动升级，矿机将定期检查可用更新，并在发现有升级可用后自动升级Braiins OS+的新版本。在从原厂固件切换到Braiins OS时，这一功能将默认启用。但是在从Braiins OS或Braiins OS+的旧版本升级的情况下，必须手动启动这一功能。
 
-自动升级功能可以通过矿机网页界面GUI或使用BOS+工具箱进行配置。
+自动升级功能可以通过矿机网页界面GUI或使用BOS工具箱进行配置。
 
 在矿机网页界面GUI中，请在目录 *系统（System） -> 升级（Upgrade）* 页面中编辑 *系统升级（System Upgrade）* 部分的内容。
 
-使用 **BOS+工具箱** 批量升级多台矿机 ，请参见 :ref:`bosbox_configure` 部分的操作。
+使用 **BOS工具箱** 批量升级多台矿机 ，请参见 :ref:`bosbox_configure` 部分的操作。
 
 或者，您也可以最开始在安装时，使用 ``--no-auto-upgrade`` 参数命令 **关闭** 自动升级功能。
 
