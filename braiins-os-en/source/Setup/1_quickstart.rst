@@ -47,11 +47,11 @@ Installation of Braiins OS can easily be done using the BOS Toolbox. In order to
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe install --batch listOfMiners.csv
+      bos-toolbox.exe install listOfMiners.csv
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox install --batch listOfMiners.csv		
+      ./bos-toolbox install listOfMiners.csv		
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -81,12 +81,12 @@ In 2019, the SSH connection was locked and the signature verification in the web
     For **Windows** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
+      bos-toolbox.exe install -p root --open-source listOfMiners.csv
 
     For **Linux** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
+      ./bos-toolbox install -p root --open-source listOfMiners.csv 
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -151,11 +151,11 @@ Updating Braiins OS on multiple devices at once can easily be done using the **B
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe update --batch listOfMiners.csv
+      bos-toolbox.exe update listOfMiners.csv
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox update --batch listOfMiners.csv
+      ./bos-toolbox update listOfMiners.csv
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -210,11 +210,11 @@ You can easily uninstall Braiins OS on multiple devices using the **BOS Toolbox*
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe uninstall --batch listOfMiners.csv
+      bos-toolbox.exe uninstall listOfMiners.csv
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox uninstall --batch listOfMiners.csv
+      ./bos-toolbox uninstall listOfMiners.csv
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
