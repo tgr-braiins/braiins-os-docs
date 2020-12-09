@@ -266,7 +266,7 @@ BACKUP_PATH                           path to directory or tgz file with data fo
 
 ::
 
-  bos-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-toolbox.exe uninstall listOfMiners.csv
 
 This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
 
