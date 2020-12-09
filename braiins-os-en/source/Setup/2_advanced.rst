@@ -116,11 +116,11 @@ Install Braiins OS using BOS Toolbox
 
     For **Windows** command terminal: :: 
 
-      bos-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.exe install ARGUMENTS HOSTS
 
     For **Linux** command terminal: :: 
       
-      ./bos-toolbox install ARGUMENTS HOSTNAME
+      ./bos-toolbox install ARGUMENTS HOSTS
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -129,14 +129,13 @@ Install Braiins OS using BOS Toolbox
 You can use the following arguments to adjust the process:
 
 **Important note:** 
-When installing Braiins OS on a **single device**, use the *HOSTNAME* argument (IP address).
-When installing Braiins OS on **multiple devices**, do **NOT** use the HOSTNAME argument, but use the *--batch BATCH* argument instead.
+When installing Braiins OS on a **single device**, replace the *HOSTS* argument with an IP address.
+When installing Braiins OS on **multiple devices**, replace the *HOSTS* argument with the path to the file containing the IP addresses.
 
 ====================================  ============================================================
 Arguments                             Description
 ====================================  ============================================================
 -h, --help                            show this help message and exit
---batch BATCH                         path to file with list of hosts (IP addresses) to install to
 --open-source         		      use for installation open source version (exclusive with **nightly** and **feed-url**)
 --nightly             		      use for installation nightly version (exclusive with **open-source** and **feed-url**)
 --feeds-url [FEEDS_URL]		      override default feeds server URL (exclusive with **open-source** and **nightly**)
@@ -145,6 +144,7 @@ Arguments                             Description
 --no-auto-upgrade                     turn off auto-upgrade of installed firmware
 --no-nand-backup                      skip full NAND backup (config is still being backed up)
 --pool-user [POOL_USER]               set username and workername for default pool
+--psu-power-limit		      set PSU power limit (in watts, Braiins OS+ only)
 --no-keep-network                     do not keep miner network configuration (use DHCP)
 --no-keep-pools                       do not keep miner pool configuration
 --no-keep-hostname                    do not keep miner hostname and generate new one based on MAC
@@ -153,17 +153,16 @@ Arguments                             Description
 --dry-run                             do all upgrade steps without actual upgrade
 --post-upgrade [POST_UPGRADE]         path to directory with stage3.sh script
 --bos-mgmt-id [BOS_MGMT_ID]	      set BOS management identifier
---ssh-password SSH_PASSWORD	      ssh password for installation
---web-password WEB_PASSWORD	      web password for unlock
+-p PASSWORD, --password PASSWORD      administration password
 ====================================  ============================================================
 
 **Example:**
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --web-password root --ssh-password admin --open-source
+  bos-toolbox.exe install --password root --open-source listOfMiners.csv
 
-This command will install Braiins OS on the miners, that are specified in the *listOfMiners.csv* file. The command will also automatically unlock the Antminer S9 and insert the SSH password *admin*, when the miner asks for it.
+This command will install Braiins OS on the miners, that are specified in the *listOfMiners.csv* file. The command will also automatically unlock the Antminer S9.
 
 .. _bosbox_update:
 
@@ -182,11 +181,11 @@ Update Braiins OS using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe update ARGUMENTS HOSTNAME
+      bos-toolbox.exe update ARGUMENTS HOSTS PACKAGE
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox update ARGUMENTS HOSTNAME
+      ./bos-toolbox update ARGUMENTS HOSTS PACKAGE
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -195,8 +194,9 @@ Update Braiins OS using BOS Toolbox
 You can use the following **arguments** to adjust the process:
 
 **Important note:** 
-When updating Braiins OS on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+When updating Braiins OS on a **single device**, replace the *HOSTS* argument with an IP address.
+When updating Braiins OS on **multiple devices**, replace the *HOSTS* argument with the path to the file containing the IP addresses.
+*PACKAGE* is optional. Use only for updating a different package than *firmware*.
 
 ====================================  ============================================================
 Arguments                             Description
@@ -205,6 +205,7 @@ Arguments                             Description
 --batch BATCH                         path to file with list of hosts to install to
 -p PASSWORD, --password PASSWORD      administration password
 -i, --ignore                          no halt on errors
+PACKAGE				      package name for update
 ====================================  ============================================================
 
 
@@ -212,7 +213,7 @@ Arguments                             Description
 
 ::
 
-  bos-toolbox.exe update --batch listOfMiners.csv
+  bos-toolbox.exe update listOfMiners.csv
 
 This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
@@ -233,11 +234,11 @@ Uninstall Braiins OS using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+      bos-toolbox.exe uninstall ARGUMENTS HOSTS BACKUP_PATH
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox uninstall ARGUMENTS HOSTNAME
+      ./bos-toolbox uninstall ARGUMENTS HOSTS BACKUP_PATH
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -246,8 +247,9 @@ Uninstall Braiins OS using BOS Toolbox
 You can use the following arguments to adjust the process:
 
 **Important note:** 
-When updating Braiins OS on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+When updating Braiins OS on a **single device**, replace the *HOSTS* argument with an IP address.
+When updating Braiins OS on **multiple devices**, replace the *HOSTS* argument with the path to the file containing the IP addresses.
+*BACKUP_PATH* is optional. Use only in conjuction with *--nand-restore* argument.
 
 ====================================  ============================================================
 Arguments                             Description
@@ -257,6 +259,7 @@ Arguments                             Description
 --install-password INSTALL_PASSWORD   ssh password for installation
 --feeds-url [FEEDS_URL]		      override default feeds server URL
 --nand-restore			      use full NAND restore from previous backup
+BACKUP_PATH                           path to directory or tgz file with data for miner restore
 ====================================  ============================================================
 
 **Example:**
@@ -302,7 +305,7 @@ Arguments                             Description
 -h, --help                            show this help message and exit
 -u USER, --user USER                  Administration username
 -p PASSWORD, --password PASSWORD      Administration password or "prompt"
--P, --change-password		      Allow changing password (to one stated in the *listOfMiners.csv*)
+--change-password		      Allow changing password (to one stated in the *listOfMiners.csv*)
 -c, --check                           Dry run sans writes
 -i, --ignore                          No halt on errors
 ====================================  ============================================================
@@ -329,7 +332,7 @@ save_apply                            save and apply the settings from the CSV f
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root -p admin --change-password save_apply listOfMiners.csv
 
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners, apply them and change the password to one in the password column.
 
@@ -473,11 +476,11 @@ Unlock SSH on Antminer S9 using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.exe unlock ARGUMENTS HOSTS
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox unlock ARGUMENTS HOSTNAME
+      ./bos-toolbox unlock ARGUMENTS HOSTS
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -486,18 +489,18 @@ Unlock SSH on Antminer S9 using BOS Toolbox
 You can use the following **arguments** to adjust the process:
 
 **Important note:** 
-When updating Braiins OS+ on a **single device**, use the *HOSTNAME* argument (IP address).
-When updating Braiins OS+ on **multiple devices**, do **NOT** use the *HOSTNAME* argument, but use the *--batch BATCH* argument instead.
+When updating Braiins OS+ on a **single device**, replace the *HOSTS* argument with an IP address.
+When updating Braiins OS+ on **multiple devices**, replace the *HOSTS* argument with the path to the file containing the IP addresses.
 
 ====================================  ============================================================
 Arguments                             Description
 ====================================  ============================================================
 --h, --help                           show this help message and exit
 --batch BATCH                         path to file with list of hosts to install to
--u USERNAME, --username USERNAME             Username for webinterface
--p PASSWORD, --password PASSWORD      Password for webinterface
---port PORT                           Port of antminer webinterface
---ssl                                 Whether to use SSL
+-u USERNAME, --username USERNAME      username for webinterface
+-p PASSWORD, --password PASSWORD      password for webinterface
+--port PORT                           port of antminer webinterface
+--ssl                                 whether to use SSL
 ====================================  ============================================================
 
 
@@ -505,7 +508,7 @@ Arguments                             Description
 
 ::
 
-  bos-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-toolbox.exe unlock -u root -p root listOfMiners.csv
 
 This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
 
