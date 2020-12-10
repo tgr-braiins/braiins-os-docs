@@ -47,11 +47,11 @@ Braiins OS بر روی ماینر نصب خواهد شد. تنظیمات شبک�
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe install --batch listOfMiners.csv
+      bos-toolbox.exe install listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-toolbox install --batch listOfMiners.csv	
+      ./bos-toolbox install listOfMiners.csv	
 
   **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 
@@ -82,12 +82,12 @@ Braiins OS بر روی ماینر نصب خواهد شد. تنظیمات شبک�
     برای **Windows** خط فرمان: ::
 
       #باز کردن قفل و نصب Braiins OS+ روی دستگاه‌ها
-      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
+      bos-toolbox.exe install -p root --open-source listOfMiners.csv
 
     برای **Linux** خط فرمان: ::
       
       #باز کردن قفل و نصب Braiins OS+ روی دستگاه‌ها
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
+      ./bos-toolbox install -p root --open-source listOfMiners.csv 
 
     **توجه:** *زمان استفاده از BOS Toolbox در لینوکس، شما باید فایل را طبق دستور زیر به حالت اجرایی تبدیل کنید (این برای یکبار است):* ::
   
@@ -148,11 +148,11 @@ package* تایپ کنید و *OK* را فشار دهید.
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe update --batch listOfMiners.csv
+      bos-toolbox.exe update listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-toolbox update --batch listOfMiners.csv
+      ./bos-toolbox update listOfMiners.csv
 
     **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 
@@ -208,11 +208,11 @@ package* تایپ کنید و *OK* را فشار دهید.
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe uninstall --batch listOfMiners.csv
+      bos-toolbox.exe uninstall listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-toolbox uninstall --batch listOfMiners.csv
+      ./bos-toolbox uninstall listOfMiners.csv
 
     **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
 

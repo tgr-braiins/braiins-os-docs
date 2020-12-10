@@ -119,11 +119,11 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.exe install ARGUMENTS HOSTS
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-toolbox install ARGUMENTS HOSTNAME
+      ./bos-toolbox install ARGUMENTS HOSTS
 
     **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
   
@@ -132,8 +132,8 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 برای تنظیم فرآیند می توانید از **ARGUMENTS** زیر استفاده کنید:
 
 **نکته مهم:** 
-هنگام نصب Braiins OS در **یک دستگاه** ، از آرگومان *HOSTNAME* (آدرس IP) استفاده کنید.
-هنگام نصب Braiins OS روی **چندین دستگاه** ، از HOSTNAME استفاده **نکنید**، بلکه از آرگومان *--batch BATCH* استفاده کنید.
+هنگاه نصب Braiins OS در **یک دستگاه** به جای آرگومان *HOSTS* آی پی دستگاه مورد نظر را درج نمایید.
+هنگام نصب Braiins OS روی **چندین دستگاه** ، به جای *HOSTS* مسیر فایلی که لیست آی پی دستگاه‌ها در آن درج شده استفاده نمایید. 
 
 ====================================  ============================================================
 آرگومان‌ها                             توضیحات
@@ -148,6 +148,7 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 --no-auto-upgrade                     خاموش کردن امکان بروز رسانی خودکار فریم‌ور نصب شده
 --no-nand-backup                      بک آپ کامل حافظه NAND را رد می‌کند( تنظیمات بک‌ آپ گرفته میشوند)
 --pool-user [POOL_USER]               نام کاربری و نام worker برای استخر پیش فرض تنظیم می‌کند
+--psu-power-limit		                  تنظم حد پاور (در واحد وات, Braiins OS+ فقط)
 --no-keep-network                     تنظیمات شبکه ماینر را ذخیره نمی‌کند(از DHCP استفاده کنید)
 --no-keep-pools                       تنظیمات استخر ماینر را ذخیره نمی‌کند
 --no-keep-hostname                    نام میزبان ماینر را ذخیره نمی‌کند و نام جدید بر اساس MAC  بسازید
@@ -156,17 +157,16 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 --dry-run                             تمام مراحل ارتقا را بدون انجام واقعی ارتقا انجام می‌دهد
 --post-upgrade [POST_UPGRADE]         مسیر به دایرکتوری با اسکریپت stage3.sh
 --bos-mgmt-id [BOS_MGMT_ID]	          تنظیم شناسه BOS management
---ssh-password SSH_PASSWORD	          کلمه عبور ssh برای نصب
---web-password WEB_PASSWORD	          پسورد web برای آنلاک
+-p PASSWORD, --password PASSWORD      کلمه عبور مدیریت
 ====================================  ============================================================
 
 **مثال:**
 
 ::
 
-  bos-toolbox.exe install --batch listaDeMineros.csv -web-password root --ssh-password admin --open-source
+  bos-toolbox.exe install --password root --open-source listOfMiners.csv
 
-این دستور Braiins OS را روی ماینرهایی نصب می کند که در فایل *listOfMiners.csv* مشخص شده اند. این فرمان همچنین به طور خودکار دستگاههای Antminer S9 را آنلاک و رمزعبور SSH را وقتی درخواست میکند *admin* وارد می کند.
+این دستور Braiins OS را روی ماینرهایی نصب می کند که در فایل *listOfMiners.csv* مشخص شده اند. این فرمان همچنین به طور خودکار دستگاههای Antminer S9 را آنلاک می کند.
 
 .. _bosbox_update:
 
@@ -186,11 +186,11 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTS HOSTNAME
+      bos-toolbox.exe update ARGUMENTS HOSTS PACKAGE
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-toolbox update ARGUMENTS HOSTNAME
+      ./bos-toolbox update ARGUMENTS HOSTS PACKAGE
 
     **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
   
@@ -199,8 +199,9 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 برای تنظیم فرآیند می توانید از **ARGUMENTS** زیر استفاده کنید:
 
 **نکته مهم:** 
-هنگام نصب Braiins OS در **یک دستگاه** ، از آرگومان *HOSTNAME* (آدرس IP) استفاده کنید.
-هنگام نصب Braiins OS روی **چندین دستگاه** ، از HOSTNAME استفاده **نکنید**، بلکه از آرگومان *--batch BATCH* استفاده کنید.
+هنگاه نصب Braiins OS در **یک دستگاه** به جای آرگومان *HOSTS* آی پی دستگاه مورد نظر را درج نمایید.
+هنگام نصب Braiins OS روی **چندین دستگاه** ، به جای *HOSTS* مسیر فایلی که لیست آی پی دستگاه‌ها در آن درج شده استفاده نمایید. 
+*PACKAGE* اختیاری است، زمانی استفاده کنید که به نسخه ای غیر از *firmware* بروز رسانی میکنید. 
 
 ====================================  ============================================================
 Arguments                             Description
@@ -209,14 +210,20 @@ Arguments                             Description
 --batch BATCH                         مسیر به فایل دارای لیست میزبان‌ها برای نصب
 -p PASSWORD, --password PASSWORD      رمزعبور مدیریتی
 -i, --ignore                          چشم‌پوشی هنگام خطا
+PACKAGE				                        نام package بروز رسانی
 ====================================  ============================================================
 
 
 **مثال:**
 
 ::
+    برای خط فرمان **Windows**: ::
 
-  ./bos-toolbox.exe update --batch listOfMiners.csv
+   bos-toolbox.exe update listOfMiners.csv
+
+    برای خط فرمان **Linux**: ::
+
+  ./bos-toolbox update listOfMiners.csv
 
 این دستور برای ماینرهایی که در *listOfMiners.csv* مشخص شده اند ،  بروزرسانی را جستجو‌میکند و در صورت وجود نسخه جدیدی از فریم‌ور، آنها را به روز می کند.
 
@@ -240,11 +247,11 @@ Arguments                             Description
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+      bos-toolbox.exe uninstall HOSTS BACKUP_PATH
 
     برای خط فرمان **Linux**: ::
       
-      ./bos-toolbox uninstall ARGUMENTS HOSTNAME
+      ./bos-toolbox uninstall HOSTS BACKUP_PATH
 
     **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
   
@@ -253,8 +260,9 @@ Arguments                             Description
 برای تنظیم فرآیند می توانید از **ARGUMENTS** زیر استفاده کنید:
 
 **نکته مهم:** 
-هنگام نصب Braiins OS در **یک دستگاه** ، از آرگومان *HOSTNAME* (آدرس IP) استفاده کنید.
-هنگام نصب Braiins OS روی **چندین دستگاه** ، از *HOSTNAME* استفاده **نکنید**، بلکه از آرگومان *--batch BATCH* استفاده کنید.
+هنگاه نصب Braiins OS در **یک دستگاه** به جای آرگومان *HOSTS* آی پی دستگاه مورد نظر را درج نمایید.
+هنگام نصب Braiins OS روی **چندین دستگاه** ، به جای *HOSTS* مسیر فایلی که لیست آی پی دستگاه‌ها در آن درج شده استفاده نمایید. 
+*BACKUP_PATH* اختیاری است، فقط در ترکیب با آرگومان *--nand-restore* استفاده نمایید.
 
 ====================================  ============================================================
 Arguments                             Description
@@ -263,16 +271,23 @@ Arguments                             Description
 --batch BATCH                          مسیر به فایل دارای لیست میزبان‌ها
 --install-password INSTALL_PASSWORD   کلمه عبور ssh برای عملیات نصب
 --feeds-url [FEEDS_URL]		             بازنویسی آدرس فید سرورهای پیشفرض
---nand-restore
+--nand-restore                         بازگردانی به نسخه قدیمی از روی نسخه پشتیبان
+--BACKUP_PATH                         مسیر به فولدر یا فایل tgz با داده‌های مرتبط با ماینر
 ====================================  ============================================================
 
 **مثال:**
 
 ::
+    برای خط فرمان **Windows**: ::
 
-  ./bos-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-toolbox.exe uninstall listOfMiners.csv
 
-This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
+    برای خط فرمان **Linux**: ::
+
+  ./bos-toolbox uninstall listOfMiners.csv
+
+
+این دستور Braiins OS را دستگاه‌هایی که در *listOfMiners.csv* لیست شده اند حذف خواهد کرد و نسخه پیشفرض کارخانه را روی آنها نصب خواهد کرد.
 
 .. _bosbox_configure:
 
@@ -312,7 +327,7 @@ Arguments                             Description
 -h, --help                             پیغام help نشان داده شود و سپس خارج می‌شود
 -u USER, --user USER                  نام کاربری مدیریتی
 -p PASSWORD, --password PASSWORD      کلمه عبور مدیریتی یا اینکه پرسیده میشود
--P, --change-password                 اجازه تغییر کلمه عبور را می‌دهد (به آنهایی که در *listOfMiners.csv* لیست شده اند)
+--change-password                     اجازه تغییر کلمه عبور را می‌دهد (به آنهایی که در *listOfMiners.csv* لیست شده اند)
 -c, --check                           Dry run sans writes
 -i, --ignore                          در مواجه با خطا چشم‌پوشی کند
 ====================================  ============================================================
@@ -339,7 +354,7 @@ save_apply                            ذخیره و اعمال تنظیمات ا
   
   #فایل CSV را ویرایش کنید (برای مثال با نرم افزارهای Office Excel, LibreOffice Calc و غیره)
   
-  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
+  bos-toolbox.exe config --user root -p admin --change-password save_apply listOfMiners.csv
 
 اولین دستور تنظیمات را از ماینرهایی که در فایل *listOfMiners.csv* لیست شده است بارگیری خواهد کرد. (با استفاده از نام کاربری *root* و در فایل CSV ذخیره خواهد کرد.) شما اکنون میتوانید فایل را باز و ویرایش‌های دلخواه خود را انجام دهید. بعد از ویرایش، دستور دوم تنظیمات را به ماینرها بازخواهد گرداند و در آنها اعمال خواهد کرد. 
 
@@ -486,11 +501,11 @@ stop                                  متوقف کردن BOSminer
 
     برای **Windows** دستور خط فرمان: ::
 
-      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.exe unlock ARGUMENTS HOSTS
 
     برای **Linux** دستور خط فرمان: ::
       
-      ./bos-toolbox unlock ARGUMENTS HOSTNAME
+      ./bos-toolbox unlock ARGUMENTS HOSTS
 
     **توجه:** *زمان استفاده از BOS Toolbox در لینوکس، شما باید فایل را طبق دستور زیر به حالت اجرایی تبدیل کنید (این برای یکبار است):* ::
   
@@ -499,8 +514,8 @@ stop                                  متوقف کردن BOSminer
 شما میتوانید از آرگومان‌های **arguments** زیر استفاده کنید:
 
 **نکته مهم:** 
-زمانیکه برای بروز رسانی Braiins OS+ روی **یک دستگاه** اقدام می‌کنید، از آرگومان *HOSTNAME* استفاده کنید (آدرس IP).
-زمانیکه برای بروز رسانی Braiins OS+ روی **چندین دستگاه** اقدام می‌کنید، از آرگومان *HOSTNAME* استفاده **نکنید**، اما میتوانید از آرگومان *--batch BATCH* به جای آن استفاده نمایید.
+هنگاه بروز رسانی به Braiins OS+ در **یک دستگاه** به جای آرگومان *HOSTS* آی پی دستگاه مورد نظر را درج نمایید.
+هنگام بروز رسانه به Braiins OS+ روی **چندین دستگاه** ، به جای *HOSTS* مسیر فایلی که لیست آی پی دستگاه‌ها در آن درج شده استفاده نمایید. 
 
 ====================================  ============================================================
 Arguments  آرگومان‌ها                  Description توضیحات
@@ -518,7 +533,7 @@ Arguments  آرگومان‌ها                  Description توضیحات
 
 ::
 
-  bos-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-toolbox.exe unlock -u root -p root listOfMiners.csv
 
 این دستور قفل SSH ماینرهایی که در فایل *listOfMiners.csv* لیست شده اند را باز خواهد کرد.
 
