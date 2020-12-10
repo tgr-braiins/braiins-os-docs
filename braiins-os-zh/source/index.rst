@@ -18,7 +18,7 @@
 
 Braiis OS是用于ASIC矿机的完全开源操作系统。在2018年，Braiins OS是首个启用显性AsicBoost的矿机固件。它现在也支持新的挖矿协议——阶层Stratum V2协议的完整应用。此外，Braiins OS与我们新的挖矿软件组件BOSminer配合运作，BOSminer是用Rust语言从头编写，对过时的CGminer的替代品。
 
-目前支持的设备有比特大陆蚂蚁矿机S9, S9i, S9j, S17和S17 Pro。在不久的将来计划发布对蚂蚁矿机S17+, T17 和 T17+ 的支持。
+目前支持的设备有比特大陆蚂蚁矿机S9, S9i, S9j, S17, S17 Pro, S17+, T17 和 T17+。在不久的将来计划发布对蚂蚁矿机S17e, T17e 和 Whatsminer M20S 的支持。
 
 ********
 特性

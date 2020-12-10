@@ -47,11 +47,11 @@ La instalación de Braiins OS+ puede hacerse fácilmente usando la caja de herra
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install --batch listaDeMineros.csv
+      bos-toolbox.exe install listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox install --batch listaDeMineros.csv
+      ./bos-toolbox install listaDeMineros.csv
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -81,12 +81,12 @@ En 2019, la conexión SSH fue bloqueada y una verificación de firma en la inter
     Terminal de comandos en **Windows**: ::
 
       #desbloquear e instalar Braiins OS en las máquinas
-      bos-toolbox.exe --web-password root --ssh-password admin --batch listaDeMineros.csv
+      bos-toolbox.exe --password root listaDeMineros.csv
 
     Terminal de comandos en **Linux**: ::
 
       #desbloquear e instalar Braiins OS en las máquinas
-      ./bos-toolbox --web-password root --ssh-password admin --batch listaDeMineros.csv
+      ./bos-toolbox --password root listaDeMineros.csv
 
     **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
 
@@ -145,11 +145,11 @@ Actualizar Braiins OS+ en múltiples dispositivos a la vez puede hacerse fácilm
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe update --batch listaDeMineros.csv
+      bos-toolbox.exe update listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox update --batch listaDeMineros.csv
+      ./bos-toolbox update listaDeMineros.csv
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -204,11 +204,11 @@ Puede desinstalar Braiins OS+ fácilmente en múltiples dispositivos usando la *
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall --batch listaDeMineros.csv
+      bos-toolbox.exe uninstall listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox uninstall --batch listaDeMineros.csv
+      ./bos-toolbox uninstall listaDeMineros.csv
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 

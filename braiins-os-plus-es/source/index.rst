@@ -18,7 +18,7 @@ Introducción
 
 Braiins OS+ es un sistema operativo para mineros ASIC. Está basado en el producto `Braiins OS <https://braiins-os.com/community-edition>`_ y provee algoritmos adicionales propietarios para el autoajuste de mineros. Cuando un usuario provee el consumo máximo de energía permitido en Vatios, el sistema optimizará automáticamente el proceso de minado para maximizar la tasa de hash. Este proceso funciona a través de un amplio espectro de entradas, permitiéndole optimizar la mejor eficiencia posible o la tasa de hash máxima basada en consideraciones económicas. Pruebas internas muestran que para el Antminer S9, es posible alcanzar una eficiencia de 70J/THs o incluso mejor para el ajuste de pocos Vatios. Para consumo alto de energía, la tasa de hash puede mejorar 20% (comparado al Antminer S9, de serie a 13.5 TH/s ~ 94J/TH).
 
-Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17 y S17 Pro de Bitmain.  El soporte de Antminer S17 +, T17 y T17 + está previsto para un futuro próximo.
+Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17, S17 Pro, S17+, T17 y T17+ de Bitmain.  El soporte de Antminer S17e, T17e y Whatsminer M20S está previsto para un futuro próximo.
 
 ***************
 Características

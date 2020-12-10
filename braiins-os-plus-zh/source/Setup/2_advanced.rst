@@ -137,11 +137,10 @@ BOS工具箱的特性及优缺点
 参数                                   描述
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
---batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
---open-source         		      安装开源社区版Braiins OS（不可和 **预先发行版** 及 **自定义固件下载链接** 参数同时使用)
---nightly             		      安装预先发行版（不可和 **社区开源版** 及 **自定义固件下载链接** 参数同时使用)
---feeds-url [FEEDS_URL]		      自定义固件下载URL链接地址（不可和 **社区开源版** 及 **预先发行版** 参数同时使用) 
---fw-version [FW_VERSION]	      选择固件的某个特定版本
+--open-source         		            安装开源社区版Braiins OS（不可和 **预先发行版** 及 **自定义固件下载链接** 参数同时使用)
+--nightly             		            安装预先发行版（不可和 **社区开源版** 及 **自定义固件下载链接** 参数同时使用)
+--feeds-url [FEEDS_URL]		            自定义固件下载URL链接地址（不可和 **社区开源版** 及 **预先发行版** 参数同时使用) 
+--fw-version [FW_VERSION]	            选择固件的某个特定版本
 --backup                              在进行升级前备份矿机
 --no-auto-upgrade                     关闭固件自动更新
 --no-nand-backup                      跳过对矿机内置储存NAND的备份（仍备份矿机配置）
@@ -154,16 +153,15 @@ BOS工具箱的特性及优缺点
 --no-wait                             直到系统完全更新完毕不等待
 --dry-run                             执行所有的更新步骤但不实际进行更新
 --post-upgrade [POST_UPGRADE]         指定stage3.sh脚本文件目录
---bos-mgmt-id [BOS_MGMT_ID]	      设置BOS工具箱管理识别标签
---ssh-password SSH_PASSWORD	      安装时需用到的矿机上的官固SSH远程密码
---web-password WEB_PASSWORD	      破解时需用到的矿机上的官固网页后台密码
+--bos-mgmt-id [BOS_MGMT_ID]	          设置BOS工具箱管理识别标签
+-p PASSWORD, --password PASSWORD      矿机密码
 ====================================  ============================================================
 
 **安装命令和参数使用示例如下：**
 
 ::
 
-  bos-toolbox.exe install --batch listOfMiners.csv --psu-power-limit 1200 --web-password root --ssh-password admin
+  bos-toolbox.exe install --psu-power-limit 1200 --password root listOfMiners.csv
 
 解释：上方的命令和参数，会自动破解官固固件锁并将Braiins OS+安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上，并设置列表中所有矿机的输入功率限制为1200瓦。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
 
@@ -204,7 +202,6 @@ BOS工具箱的特性及优缺点
 参数                                   描述
 ====================================  ============================================================
 --h, --help                           显示帮助信息并退出
---batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 -p PASSWORD, --password PASSWORD      矿机密码
 -i, --ignore                          忽略错误
 ====================================  ============================================================
@@ -214,7 +211,7 @@ BOS工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe update --batch listOfMiners.csv
+  bos-toolbox.exe update listOfMiners.csv
 
 解释：上方的命令和参数，会在有新固件更新可用的情况下，对在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+进行更新。
 
@@ -255,17 +252,16 @@ BOS工具箱的特性及优缺点
 参数                                   描述
 ====================================  ============================================================
 -h, --help                            显示帮助信息并退出
---batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
---install-password INSTALL_PASSWORD   用于安装的SSH密码
---feeds-url [FEEDS_URL]		      自定义固件下载URL链接地址
---nand-restore			      使用上一次从矿机NAND储存备份的矿机固件
+-p PASSWORD, --password PASSWORD      矿机密码
+--feeds-url [FEEDS_URL]		            自定义固件下载URL链接地址
+--nand-restore			                  使用上一次从矿机NAND储存备份的矿机固件
 ====================================  ============================================================
 
 **卸载命令和参数使用示例如下：**
 
 ::
 
-  bos-toolbox.exe uninstall --batch listOfMiners.csv
+  bos-toolbox.exe uninstall listOfMiners.csv
 
 解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件。
 
@@ -494,7 +490,6 @@ stop                                  关闭BOSminer
 参数                                   描述
 ====================================  ============================================================
 --h, --help                           显示帮助信息并退出
---batch BATCH                         指定"listOfMiners.csv"（矿机主机IP地址列表）文件
 -u USERNAME, --username USERNAME      矿机登录名
 -p PASSWORD, --password PASSWORD      矿机密码
 --port PORT                           矿机端口
@@ -506,7 +501,7 @@ stop                                  关闭BOSminer
 
 ::
 
-  bos-toolbox.exe unlock --batch listOfMiners.csv -p admin
+  bos-toolbox.exe unlock -p root listOfMiners.csv
 
 解释：上方的命令和参数，会解锁在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上的固件远程SSH锁。
 

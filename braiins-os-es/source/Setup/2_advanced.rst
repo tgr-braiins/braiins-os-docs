@@ -137,7 +137,6 @@ Al instalar Braiins OS en **varios dispositivos**, reemplace el argumento * HOST
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --open-source         		         use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
 --nightly             		         use para instalar la versión nightly (excluyente con **open-source** y **feed-url**)
 --feeds-url [URL_FEEDS]		         saltar URL del servidor predeterminado de feeds (excluyente con **open-source** y **nightly**)
@@ -204,7 +203,6 @@ Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
 PACKAGE				      nombre del paquete para actualizar
@@ -258,7 +256,6 @@ Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --install-password CLAVE_INSTALACIÓN  palabra clave ssh para la (des)instalación
 --feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
 --nand-restore                        usar restauración completa NAND desde un respaldo previo
@@ -495,7 +492,6 @@ Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HO
 Argumentos                                  Descripción
 ==========================================  ==========================================================
 --h, --help                                 muestra este mensaje de ayuda y sale
---batch LOTE                                ruta al archivo con la lista de hosts donde se va instalar
 -u NOMBREUSUARIO, --username NOMBREUSUARIO  nombre de usuario para la interfaz web
 -p CONTRASEÑA, --password CONTRASEÑA        contraseña para la interfaz web
 --port PUERTO                               puerto de la interfaz web
@@ -1162,7 +1158,6 @@ Al instalar Braiins OS en **varios dispositivos**, **NO** use el argumento NOMBR
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
 --pool-user [USUARIO_POOL]            fijar nombre de usuario y minero al pool por defecto
@@ -1221,7 +1216,6 @@ Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -1231,7 +1225,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe update --batch listaDeMineros.csv
+  bos-toolbox.exe update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -1272,7 +1266,6 @@ Al desinstalar Braiins OS en **varios dispositivos**, **NO** use el argumento NO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --factory-image IMAGEN_DE_FÁBRICA     ruta/url a imagen de actualización de firmware original (defecto:
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz)
 ====================================  ==================================================================
@@ -1281,7 +1274,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe uninstall --batch listaDeMineros.csv
+  bos-toolbox.exe uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 

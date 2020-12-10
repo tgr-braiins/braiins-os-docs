@@ -47,11 +47,11 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe install --batch listOfMiners.csv
+      bos-toolbox.exe install listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-toolbox install --batch listOfMiners.csv		
+      ./bos-toolbox install listOfMiners.csv		
 
     **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
@@ -81,12 +81,12 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
     在 **Windows** 上的命令提示行请用： ::
 
       #破解官固并在矿机上安装Braiins OS+
-      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv
+      bos-toolbox.exe install --password root listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
       #破解官固并在矿机上安装Braiins OS+
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv    
+      ./bos-toolbox install --password root listOfMiners.csv    
 
     **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
@@ -145,11 +145,11 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe update --batch listOfMiners.csv
+      bos-toolbox.exe update listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-toolbox update --batch listOfMiners.csv
+      ./bos-toolbox update listOfMiners.csv
 
     **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
@@ -204,11 +204,11 @@ Braiins OS+将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe uninstall --batch listOfMiners.csv
+      bos-toolbox.exe uninstall listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-toolbox uninstall --batch listOfMiners.csv
+      ./bos-toolbox uninstall listOfMiners.csv
       
     **注：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   

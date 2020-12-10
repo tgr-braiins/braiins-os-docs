@@ -204,7 +204,6 @@ When updating Braiins OS+ on **multiple devices**, replace the *HOSTS* argument 
 Arguments                             Description
 ====================================  ============================================================
 --h, --help                           show this help message and exit
---batch BATCH                         path to file with list of hosts to install to
 -p PASSWORD, --password PASSWORD      administration password
 -i, --ignore                          no halt on errors
 PACKAGE				      package name for update
@@ -257,10 +256,9 @@ When uninstalling Braiins OS+ on **multiple devices**, replace the *HOSTS* argum
 Arguments                             Description
 ====================================  ============================================================
 -h, --help                            show this help message and exit
---batch BATCH                         path to file with list of hosts
---install-password INSTALL_PASSWORD   ssh password for installation
---feeds-url [FEEDS_URL]		      override default feeds server URL
---nand-restore			      use full NAND restore from previous backup
+-p PASSWORD, --password PASSWORD      ssh password for installation
+--feeds-url [FEEDS_URL]		            override default feeds server URL
+--nand-restore			                  use full NAND restore from previous backup
 BACKUP_PATH                           path to directory or tgz file with data for miner restore
 ====================================  ============================================================
 
@@ -499,7 +497,6 @@ When updating Braiins OS+ on **multiple devices**, replace the *HOSTS* argument 
 Arguments                             Description
 ====================================  ============================================================
 --h, --help                           show this help message and exit
---batch BATCH                         path to file with list of hosts to install to
 -u USERNAME, --username USERNAME      username for webinterface
 -p PASSWORD, --password PASSWORD      password for webinterface
 --port PORT                           port of antminer webinterface

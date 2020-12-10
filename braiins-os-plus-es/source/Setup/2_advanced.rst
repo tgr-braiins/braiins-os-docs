@@ -138,7 +138,6 @@ Al instalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NOMB
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --open-source         		         use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
 --nightly             		         use para instalar la versión nightly (excluyente con **open-source** y **feed-url**)
 --feeds-url [URL_FEEDS]		         saltar URL del servidor predeterminado de feeds (excluyente con **open-source** y **nightly**)
@@ -164,7 +163,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 -web-password root --ssh-password admin
+  bos-toolbox.exe install --psu-power-limit 1200 --password root listaDeMineros.csv
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9 e insertará la contraseña SSH *admin*, cuando el minero la pida.
 
@@ -205,7 +204,6 @@ Al actualizar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -215,7 +213,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe update --batch listaDeMineros.csv
+  bos-toolbox.exe update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -256,8 +254,7 @@ Al desinstalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento N
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
---install-password CLAVE_INSTALACIÓN  palabra clave ssh para la (des)instalación
+-p PASSWORD, --password PASSWORD      palabra clave ssh para la (des)instalación
 --feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
 --nand-restore                        usar restauración completa NAND desde un respaldo previo
 ====================================  ==================================================================
@@ -266,7 +263,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe uninstall --batch listaDeMineros.csv
+  bos-toolbox.exe uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie.
 
@@ -492,7 +489,6 @@ Al actualizar Braiins OS+ en **múltiples dispositivos**, **NO** use el argument
 Argumentos                                  Descripción
 ==========================================  ==========================================================
 --h, --help                                 muestra este mensaje de ayuda y sale
---batch LOTE                                ruta al archivo con la lista de hosts donde se va instalar
 -u NOMBREUSUARIO, --username NOMBREUSUARIO  Nombre de usuario para la interfaz web
 -p CONTRASEÑA, --password CONTRASEÑA        Contraseña para la interfaz web
 --port PUERTO                               Puerto de la interfaz web
@@ -504,7 +500,7 @@ Argumentos                                  Descripción
 
 ::
 
-  bos-toolbox.exe unlock --batch listaDeMineros.csv -p admin
+  bos-toolbox.exe unlock -p root listaDeMineros.csv
 
 Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
@@ -1183,7 +1179,6 @@ Al instalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NOMB
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
 --pool-user [USUARIO_POOL]            fijar nombre de usuario y minero al pool por defecto
@@ -1195,14 +1190,14 @@ Argumentos                            Descripción
 --no-wait                             no esperar a que el sistema esté completamente actualizado
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
---install-password CLAVE_INSTALACIÓN  palabra clave ssh para la instalación
+-p, --password CLAVE_INSTALACIÓN      palabra clave ssh para la instalación
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  ./bos-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
+  ./bos-toolbox.exe install --psu-power-limit 1200 --password clave listaDeMineros.csv
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -1243,7 +1238,6 @@ Al actualizar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -1253,7 +1247,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe update --batch listaDeMineros.csv
+  ./bos-toolbox.exe update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -1294,7 +1288,6 @@ Al desinstalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento N
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --factory-image IMAGEN_DE_FÁBRICA     ruta/url a imagen de actualización de firmware original (defecto:
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz)
 ====================================  ==================================================================
@@ -1303,7 +1296,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe uninstall --batch listaDeMineros.csv
+  ./bos-toolbox.exe uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 

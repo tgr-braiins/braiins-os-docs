@@ -46,11 +46,11 @@ Braiins OS будет установлен на майнер. Конфигура
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe install --batch listOfMiners.csv
+      bos-toolbox.exe install listOfMiners.csv
 
     Для командной строки **Linux**: ::
       
-      ./bos-toolbox install --batch listOfMiners.csv		
+      ./bos-toolbox install listOfMiners.csv		
 
      **Примечание:** *при использовании BOS Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
@@ -80,12 +80,12 @@ Braiins OS будет установлен на майнер. Конфигура
     Для командной строки **Windows**: ::
 
       #разблокировать и установить Braiins OS на машины
-      bos-toolbox.exe install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
+      bos-toolbox.exe install --password root --open-source listOfMiners.csv
 
     Для командной строки **Linux**: ::
 
       #разблокировать и установить Braiins OS на машины
-      ./bos-toolbox install --web-password root --ssh-password admin --batch listOfMiners.csv --open-source
+      ./bos-toolbox install --password root --open-source listOfMiners.csv
 
     **Примечание:** *при использовании BOS Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
@@ -141,11 +141,11 @@ Braiins OS будет установлен на майнер. Конфигура
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe update --batch listOfMiners.csv
+      bos-toolbox.exe update listOfMiners.csv
 
      Для командной строки **Linux**: ::
       
-      ./bos-toolbox update --batch listOfMiners.csv
+      ./bos-toolbox update listOfMiners.csv
 
     **Примечание:** *при использовании BOS Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
@@ -203,11 +203,11 @@ Braiins OS будет установлен на майнер. Конфигура
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe uninstall --batch listOfMiners.csv
+      bos-toolbox.exe uninstall listOfMiners.csv
 
     Для командной строки **Linux**: ::
       
-      ./bos-toolbox uninstall --batch listOfMiners.csv
+      ./bos-toolbox uninstall listOfMiners.csv
 
     **Примечание:** *при использовании BOS Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   

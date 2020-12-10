@@ -18,7 +18,7 @@ Introducción
 
 Braiins OS es un sistema operativo completamente código abierto para mineros ASIC. Fue el primer firmware en implementar overt AsicBoost en 2018, y ahora caracteriza la implementación de un nuevo protocolo de minado, Stratum V2. Adicionalmente, BraiinsOS trabaja en conjunto con nuestro nuevo componente de software, BOSminer, el cual hemos escrito desde cero en lenguaje Rust como reemplazo del desactualizado CGminer.
 
-Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17 y S17 Pro de Bitmain.  El soporte de Antminer S17 +, T17 y T17 + está previsto para un futuro próximo.
+Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17, S17 Pro, S17+, T17 y T17+ de Bitmain.  El soporte de Antminer S17e, T17e y Whatsminer M20S está previsto para un futuro próximo.
 
 ***************
 Características
