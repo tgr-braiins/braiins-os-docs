@@ -117,11 +117,11 @@ Instalar Braiins OS con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install --batch listaDeMineros.csv
+      bos-toolbox.exe install listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox install --batch listaDeMineros.csv
+      ./bos-toolbox install listaDeMineros.csv
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -130,8 +130,8 @@ Instalar Braiins OS con la Caja de herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 **Nota importante:**
-Al instalar Braiins OS en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al instalar Braiins OS en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
+Al instalar Braiins OS en **un solo dispositivo**, reemplace *HOST* con la dirección IP.
+Al instalar Braiins OS en **varios dispositivos**, reemplace el argumento * HOSTS * con la ruta al archivo que contiene las direcciones IP.
 
 ====================================  ==================================================================
 Argumentos                            Descripción
@@ -146,6 +146,7 @@ Argumentos                            Descripción
 --no-auto-upgrade                     apagar auto-actualizar del firmware instalado
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
 --pool-user [USUARIO_POOL]            fijar nombre de usuario y minero al pool por defecto
+--psu-power-limit		      establece el límite de potencia de la PSU (en vatios, solo Braiins OS +)
 --no-keep-network                     no mantener la configuración de red (usar DHCP)
 --no-keep-pools                       no mantener la configuración del pool del minero
 --no-keep-hostname                    no mantener el nombre de host y generar uno nuevo basado en MAC
@@ -154,17 +155,16 @@ Argumentos                            Descripción
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
 --bos-mgmt-id [ID_GESTOR_BOS]         fijar identificador para el gestor BOS
---ssh-password CONTRASEÑA_SSH         contraseña ssh para la instalación
---web-password CONTRASEÑA_WEB         contraseña web para desbloquear
+-p PASSWORD, --password PASSWORD      contraseña de administración
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  bos-toolbox.exe install --batch listaDeMineros.csv -web-password root --ssh-password admin --open-source
+  bos-toolbox.exe install --password root --open-source listaDeMineros.csv
 
-Este comando instalará Braiins OS en los mineros, que estén especificados en el archivo *listaDeMineros.csv*. El comando también desbloqueará automáticamente la Antminer S9 e insertará la contraseña SSH *admin*, cuando el minero la pida.
+Este comando instalará Braiins OS en los mineros, que estén especificados en el archivo *listaDeMineros.csv*. El comando también desbloqueará automáticamente la Antminer S9
 
 .. _bosbox_update:
 
@@ -183,11 +183,11 @@ Actualizar Braiins OS con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe update ARGUMENTOS PAQUETE DE HOSTS
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox update ARGUMENTOS NOMBREHOST
+      ./bos-toolbox update ARGUMENTOS PAQUETE DE HOSTS
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -196,8 +196,9 @@ Actualizar Braiins OS con la Caja de herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 **Nota importante:**
-Al actualizar Braiins OS en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al actualizar Braiins OS en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
+Al actualizar Braiins OS en **un solo dispositivo**, reemplace el argumento * HOSTS * con una dirección IP.
+Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HOSTS * con la ruta al archivo que contiene las direcciones IP.
+*PAQUETE* es opcional. Úselo solo para actualizar un paquete diferente al *firmware*.
 
 ====================================  ==================================================================
 Argumentos                            Descripción
@@ -206,6 +207,7 @@ Argumentos                            Descripción
 --batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
+PACKAGE				      nombre del paquete para actualizar
 ====================================  ==================================================================
 
 
@@ -213,7 +215,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe update --batch listaDeMineros.csv
+  bos-toolbox.exe update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -234,11 +236,11 @@ Desinstalar Braiins OS con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe uninstall ARGUMENTOS HOSTS BACKUP_PATH
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox uninstall ARGUMENTOS NOMBREHOST
+      ./bos-toolbox uninstall ARGUMENTOS HOSTS BACKUP_PATH
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -247,8 +249,10 @@ Desinstalar Braiins OS con la Caja de herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 **Nota importante:**
-Al desinstalar Braiins OS en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al desinstalar Braiins OS en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
+Al actualizar Braiins OS en **un solo dispositivo**, reemplace el argumento * HOSTS * con una dirección IP.
+Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HOSTS * con la ruta al archivo que contiene las direcciones IP.
+*BACKUP_PATH* es opcional. Úselo solo junto con el argumento *--nand-restore*.
+
 
 ====================================  ==================================================================
 Argumentos                            Descripción
@@ -258,13 +262,14 @@ Argumentos                            Descripción
 --install-password CLAVE_INSTALACIÓN  palabra clave ssh para la (des)instalación
 --feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
 --nand-restore                        usar restauración completa NAND desde un respaldo previo
+BACKUP_PATH                           ruta al directorio o archivo tgz con datos para la restauración del minero
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  bos-toolbox.exe uninstall --batch listaDeMineros.csv
+  bos-toolbox.exe uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie.
 
@@ -303,7 +308,7 @@ Argumentos                            Descripción
 -h, --help                            muestra este mensaje de ayuda y sale
 -u USER, --user USER                  nombre administrativo
 -p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntar"
--P, --change-password                 Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
+--change-password                     Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
 -c, --check                           ensayo sin escrituras
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -330,7 +335,7 @@ save_apply                            guardar y aplicar la configuración del ar
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  bos-toolbox.exe config --user root -p admin -P save_apply listaDeMineros.csv
+  bos-toolbox.exe config --user root -p admin --change-password save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros, la aplicará y cambiará la contraseña a la colocada en la columna contraseña.
 
@@ -470,11 +475,11 @@ Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 
     Terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe unlock ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe unlock ARGUMENTOS HOST
 
     Terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox unlock ARGUMENTOS NOMBREHOST
+      ./bos-toolbox unlock ARGUMENTOS HOST
 
     **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
 
@@ -483,18 +488,18 @@ Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 Puede usar los siguientes **argumentos** para ajustar el proceso:
 
 **Nota importante:**
-Al actualizar Braiins OS+ en **un solo dispositvo**, use el argumento *NOMBREHOST* (dirección IP).
-Al actualizar Braiins OS+ en **múltiples dispositivos**, **NO** use el argumento *NOMBREHOST*, use el argumento *--batch LOTE* en su lugar.
+Al actualizar Braiins OS en **un solo dispositivo**, reemplace el argumento * HOSTS * con una dirección IP.
+Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HOSTS * con la ruta al archivo que contiene las direcciones IP.
 
 ==========================================  ==========================================================
 Argumentos                                  Descripción
 ==========================================  ==========================================================
 --h, --help                                 muestra este mensaje de ayuda y sale
 --batch LOTE                                ruta al archivo con la lista de hosts donde se va instalar
--u NOMBREUSUARIO, --username NOMBREUSUARIO  Nombre de usuario para la interfaz web
--p CONTRASEÑA, --password CONTRASEÑA        Contraseña para la interfaz web
---port PUERTO                               Puerto de la interfaz web
---ssl                                       Si va usar SSL
+-u NOMBREUSUARIO, --username NOMBREUSUARIO  nombre de usuario para la interfaz web
+-p CONTRASEÑA, --password CONTRASEÑA        contraseña para la interfaz web
+--port PUERTO                               puerto de la interfaz web
+--ssl                                       si va usar SSL
 ==========================================  ==========================================================
 
 
@@ -502,7 +507,7 @@ Argumentos                                  Descripción
 
 ::
 
-  bos-toolbox.exe unlock --batch listaDeMineros.csv -p admin
+  bos-toolbox.exe unlock -u root -p root listaDeMineros.csv
 
 Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
@@ -1137,11 +1142,11 @@ Instalar Braiins OS con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install --batch listaDeMineros.csv
+      bos-toolbox.exe install listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox install --batch listaDeMineros.csv
+      ./bos-toolbox install listaDeMineros.csv
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -1175,7 +1180,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe install --batch listaDeMineros.csv --install-password clave
+  bos-toolbox.exe install listaDeMineros.csv --install-password clave
 
 Este comando instalará Braiins OS en los mineros, que estén especificados en el archivo *listaDeMineros.csv*. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -1209,8 +1214,8 @@ Actualizar Braiins OS con la Caja de herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 **Nota importante:**
-Al actualizar Braiins OS en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al actualizar Braiins OS en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
+Al actualizar Braiins OS en **un solo dispositivo**, reemplace el argumento * HOSTS * con una dirección IP.
+Al actualizar Braiins OS en **varios dispositivos**, reemplace el argumento * HOSTS * con la ruta al archivo que contiene las direcciones IP.
 
 ====================================  ==================================================================
 Argumentos                            Descripción
