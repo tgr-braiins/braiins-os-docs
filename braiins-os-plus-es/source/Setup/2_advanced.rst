@@ -68,9 +68,9 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
 .. _bosbox:
 
-*************************
+************************
 Caja de herramientas BOS
-*************************
+************************
 
 La Caja de herramientas BOS es una nueva herramienta que permite a los usuarios instalar, desinstalar, actualizar, detectar, configurar Braiins OS+ y correr comandos personalizados fácilmente. También permite que los comandos sean ejecutados en modo por lotes, lo que hace mas fácil la gestión de un gran número de dispositivos. La caja de herramientas BOS también descarga automáticamente el último firmware. Esta es la manera recomendada de gestionar sus máquinas.
 
@@ -118,11 +118,11 @@ Instalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe install ARGUMENTOS HOSTS
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox install ARGUMENTOS NOMBREHOST
+      ./bos-toolbox install ARGUMENTOS HOSTS
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -131,8 +131,8 @@ Instalar Braiins OS+ con la Caja de herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 **Nota importante:**
-Al instalar Braiins OS+ en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al instalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
+Al instalar Braiins OS+ en **un solo dispositivo**, reemplace el argumento *HOSTS* con una dirección IP.
+Al instalar Braiins OS+ en **varios dispositivos**, reemplace el argumento *HOSTS* con la ruta al archivo que contiene las direcciones ip.
 
 ====================================  ==================================================================
 Argumentos                            Descripción
@@ -145,7 +145,7 @@ Argumentos                            Descripción
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-auto-upgrade                     apagar auto-actualizar del firmware instalado
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
---pool-user [USUARIO_POOL]            fijar nombre de usuario y minero al pool por defecto
+--pool-user [USUARIO_POOL]            establecer nombre de usuario y equipo al pool predeterminado
 --psu-power-limit [LÍMITE_ENERGÍA]    fijar límite de energía (en vatios) para la fuente de poder
 --no-keep-network                     no mantener la configuración de red (usar DHCP)
 --no-keep-pools                       no mantener la configuración del pool del minero
@@ -155,8 +155,7 @@ Argumentos                            Descripción
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
 --bos-mgmt-id [ID_GESTOR_BOS]         fijar identificador para el gestor BOS
---ssh-password CONTRASEÑA_SSH         contraseña ssh para la instalación
---web-password CONTRASEÑA_WEB         contraseña web para desbloquear
+-p CONTRASEÑA --password CONTRASEÑA   contraseña administrativa
 ====================================  ==================================================================
 
 **Ejemplo:**
@@ -165,7 +164,7 @@ Argumentos                            Descripción
 
   bos-toolbox.exe install --psu-power-limit 1200 --password root listaDeMineros.csv
 
-Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9 e insertará la contraseña SSH *admin*, cuando el minero la pida.
+Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9.
 
 .. _bosbox_update:
 
@@ -184,11 +183,11 @@ Actualizar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe update ARGUMENTOS HOSTS PAQUETE
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox update ARGUMENTOS NOMBREHOST
+      ./bos-toolbox update ARGUMENTOS HOSTS PAQUETE
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -206,6 +205,7 @@ Argumentos                            Descripción
 -h, --help                            muestra este mensaje de ayuda y sale
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
+PAQUETE                               nombre del paquete para actualizar
 ====================================  ==================================================================
 
 
@@ -234,11 +234,11 @@ Desinstalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe uninstall ARGUMENTOS HOSTS RUTA_DE_RESPALDO
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox uninstall ARGUMENTOS NOMBREHOST
+      ./bos-toolbox uninstall ARGUMENTOS RUTA_DE_RESPALDO
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -247,17 +247,19 @@ Desinstalar Braiins OS+ con la Caja de herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 **Nota importante:**
-Al desinstalar Braiins OS+ en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al desinstalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
+Al desinstalar Braiins OS+ en **un solo dispositivo**, reemplace el argumento *HOSTS* con una dirección IP.
+Al desinstalar Braiins OS+ en **varios dispositivos**, reemplace el argumento *HOSTS* con la ruta al archivo que contiene las direcciones IP.
+*RUTA_DE_RESPALDO* es opcional. Use solo en conjunto con el argumento *--nand-restore*.
 
-====================================  ==================================================================
+====================================  ===================================================================
 Argumentos                            Descripción
-====================================  ==================================================================
+====================================  ===================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
--p PASSWORD, --password PASSWORD      palabra clave ssh para la (des)instalación
+-p PASSWORD, --password PASSWORD      palabra clave administrativa
 --feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
 --nand-restore                        usar restauración completa NAND desde un respaldo previo
-====================================  ==================================================================
+RUTA_DE_RESPALDO                      ruta al directorio o archivo tgz con datos para restaurar el minero
+====================================  ===================================================================
 
 **Ejemplo:**
 
@@ -302,7 +304,7 @@ Argumentos                            Descripción
 -h, --help                            muestra este mensaje de ayuda y sale
 -u USER, --user USER                  nombre administrativo
 -p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntar"
--P, --change-password                 Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
+--change-password                     Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
 -c, --check                           ensayo sin escrituras
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -329,7 +331,7 @@ save_apply                            guardar y aplicar la configuración del ar
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  bos-toolbox.exe config --user root -p admin -P save_apply listaDeMineros.csv
+  bos-toolbox.exe config --user root -p admin --change-password save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros, la aplicará y cambiará la contraseña a la colocada en la columna contraseña.
 
@@ -469,11 +471,11 @@ Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 
     Terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe unlock ARGUMENTOS NOMBREHOST
+      bos-toolbox.exe unlock ARGUMENTOS HOSTS
 
     Terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox unlock ARGUMENTOS NOMBREHOST
+      ./bos-toolbox unlock ARGUMENTOS HOSTS
 
     **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
 
@@ -482,17 +484,17 @@ Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 Puede usar los siguientes **argumentos** para ajustar el proceso:
 
 **Nota importante:**
-Al actualizar Braiins OS+ en **un solo dispositvo**, use el argumento *NOMBREHOST* (dirección IP).
-Al actualizar Braiins OS+ en **múltiples dispositivos**, **NO** use el argumento *NOMBREHOST*, use el argumento *--batch LOTE* en su lugar.
+Al desinstalar Braiins OS+ en **un solo dispositivo**, reemplace el argumento *HOSTS* con una dirección IP.
+Al desinstalar Braiins OS+ en **varios dispositivos**, reemplace el argumento *HOSTS* con la ruta al archivo que contiene las direcciones IP.
 
 ==========================================  ==========================================================
 Argumentos                                  Descripción
 ==========================================  ==========================================================
 --h, --help                                 muestra este mensaje de ayuda y sale
--u NOMBREUSUARIO, --username NOMBREUSUARIO  Nombre de usuario para la interfaz web
--p CONTRASEÑA, --password CONTRASEÑA        Contraseña para la interfaz web
---port PUERTO                               Puerto de la interfaz web
---ssl                                       Si va usar SSL
+-u NOMBREUSUARIO, --username NOMBREUSUARIO  nombre de usuario para la interfaz web
+-p CONTRASEÑA, --password CONTRASEÑA        contraseña para la interfaz web
+--port PUERTO                               puerto de la interfaz web
+--ssl                                       si va usar SSL
 ==========================================  ==========================================================
 
 
@@ -500,7 +502,7 @@ Argumentos                                  Descripción
 
 ::
 
-  bos-toolbox.exe unlock -p root listaDeMineros.csv
+  bos-toolbox.exe unlock -u root -p root listaDeMineros.csv
 
 Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
@@ -687,7 +689,7 @@ Primero, necesita preparar el ambiente Python. Esto consiste en los siguientes p
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
   
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
 
   #Cambiar el directorio a la carpeta donde desempacó el firmware
   #Antminer S9
@@ -759,7 +761,7 @@ Corra (reemplace los marcadores ``IMAGEN_DE_FÁBRICA`` y ``DIRECCIÓN_IP`` como 
   python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
 
 **Nota:** *para mas información acerca de los argumentos que pueden usarse, use el argumento* **--help**.
@@ -780,7 +782,7 @@ Si creo un respaldo del firmware original durante la instalación de Braiins OS+
   python3 restore2factory.py backup/ID_RESPALDO_FECHA/ DIRECCIÓN_IP
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
   python3 restore2factory.py backup/ID_RESPALDO_FECHA/ DIRECCIÓN_IP
 
 **Nota: Este método no es recomendado ya que la creación del respaldo es muy quisquillosa. El respaldo puede corromperse y no hay manera de comprobarlo. ¡Use a su propio riesgo y asegúrese, de tener acceso al minero e insertar una tarjeta SD al mismo en caso de que la restauración no finalice exitosamente!**
@@ -940,7 +942,7 @@ Para actualizar desde una versión anterior de Braiins OS, use el siguiente coma
   ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
   #Antminer S17
-  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-11-27-0-5eb922d4-20.11-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
   
 Este comando contiene los siguientes comandos:
 
@@ -1179,6 +1181,7 @@ Al instalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NOMB
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
+--batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
 --pool-user [USUARIO_POOL]            fijar nombre de usuario y minero al pool por defecto
@@ -1190,14 +1193,14 @@ Argumentos                            Descripción
 --no-wait                             no esperar a que el sistema esté completamente actualizado
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
--p, --password CLAVE_INSTALACIÓN      palabra clave ssh para la instalación
+--install-password CLAVE_INSTALACIÓN  palabra clave ssh para la instalación
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  ./bos-toolbox.exe install --psu-power-limit 1200 --password clave listaDeMineros.csv
+  ./bos-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -1238,6 +1241,7 @@ Al actualizar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
+--batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -1247,7 +1251,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe update listaDeMineros.csv
+  ./bos-toolbox.exe update --batch listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -1288,6 +1292,7 @@ Al desinstalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento N
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
+--batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --factory-image IMAGEN_DE_FÁBRICA     ruta/url a imagen de actualización de firmware original (defecto:
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz)
 ====================================  ==================================================================
@@ -1296,7 +1301,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe uninstall listaDeMineros.csv
+  ./bos-toolbox.exe uninstall --batch listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
