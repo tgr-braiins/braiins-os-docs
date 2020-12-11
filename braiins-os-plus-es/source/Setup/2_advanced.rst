@@ -118,11 +118,11 @@ Instalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install ARGUMENTOS HOSTS
+      bos-toolbox.exe install listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox install ARGUMENTOS HOSTS
+      ./bos-toolbox install listaDeMineros.csv
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -238,7 +238,7 @@ Desinstalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Linux**: ::
 
-      ./bos-toolbox uninstall ARGUMENTOS RUTA_DE_RESPALDO
+      ./bos-toolbox uninstall ARGUMENTOS HOSTS RUTA_DE_RESPALDO
 
     **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
 
@@ -687,14 +687,14 @@ Primero, necesita preparar el ambiente Python. Esto consiste en los siguientes p
   #Descargar y extraer el paquete de firmware
   #Antminer S9
   wget -c https://feeds.braiins-os.com/20.10/braiins-os_am1-s9_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
-  
+
   #Antminer S17
-  wget -c https://feeds.braiins-os.com/20.10/braiins-os_am2-s17_ssh_2020-10-25-0-908ca41d-20.10-plus.tar.gz -O - | tar -xz
+  wget -c https://feeds.braiins-os.com/20.11/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus.tar.gz -O - | tar -xz
 
   #Cambiar el directorio a la carpeta donde desempacó el firmware
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_VERSION
-  
+
   #Antminer S17
   cd ./braiins-os_am2-s17_ssh_VERSION
 
@@ -724,7 +724,7 @@ La instalación de Braiins OS+ usando el asi-llamado *Método SSH* consiste en l
   #Cambiar al directorio de la carpeta con el firmware desempacado (si no está ya en la carpeta del firmware)
   #Antminer S9
   cd ./braiins-os_am1-s9_ssh_VERSION
-  
+
   #Antminer S17
   cd ./braiins-os_am2-s17_ssh_VERSION
 
@@ -759,9 +759,9 @@ Corra (reemplace los marcadores ``IMAGEN_DE_FÁBRICA`` y ``DIRECCIÓN_IP`` como 
   #Antminer S9
   cd ~/braiins-os_am1-s9_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
-  
+
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py --factory-image IMAGEN_DE_FÁBRICA DIRECCIÓN_IP
 
 **Nota:** *para mas información acerca de los argumentos que pueden usarse, use el argumento* **--help**.
@@ -782,7 +782,7 @@ Si creo un respaldo del firmware original durante la instalación de Braiins OS+
   python3 restore2factory.py backup/ID_RESPALDO_FECHA/ DIRECCIÓN_IP
   
   #Antminer S17
-  cd ~/braiins-os_am2-s17_ssh_2020-09-07-1-463cb8d0-20.09-plus && source .env/bin/activate
+  cd ~/braiins-os_am2-s17_ssh_2020-11-27-0-5eb922d4-20.11-plus && source .env/bin/activate
   python3 restore2factory.py backup/ID_RESPALDO_FECHA/ DIRECCIÓN_IP
 
 **Nota: Este método no es recomendado ya que la creación del respaldo es muy quisquillosa. El respaldo puede corromperse y no hay manera de comprobarlo. ¡Use a su propio riesgo y asegúrese, de tener acceso al minero e insertar una tarjeta SD al mismo en caso de que la restauración no finalice exitosamente!**
@@ -940,10 +940,10 @@ Para actualizar desde una versión anterior de Braiins OS, use el siguiente coma
 
   #Antminer S9
   ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-09-07-1-463cb8d0-20.09-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
-  
+
   #Antminer S17
-  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-10-25-0-908ca41d-20.10-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
-  
+  ssh root@DIRECCIÓN_IP 'wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am2-s17/firmware_2020-11-27-0-5eb922d4-20.11-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar'
+
 Este comando contiene los siguientes comandos:
 
   * **ssh** - para conectarse al minero
@@ -1193,14 +1193,14 @@ Argumentos                            Descripción
 --no-wait                             no esperar a que el sistema esté completamente actualizado
 --dry-run                             hacer todos los pasos de actualización sin realmente actualizar
 --post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
---install-password CLAVE_INSTALACIÓN  palabra clave ssh para la instalación
+-p, --password CLAVE_INSTALACIÓN      palabra clave ssh para la instalación
 ====================================  ==================================================================
 
 **Ejemplo:**
 
 ::
 
-  ./bos-toolbox.exe install --batch listaDeMineros.csv --psu-power-limit 1200 --install-password clave
+  ./bos-toolbox.exe install --psu-power-limit 1200 --password clave listaDeMineros.csv
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -1241,7 +1241,6 @@ Al actualizar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NO
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 -p PASSWORD, --password PASSWORD      palabra clave administrativa
 -i, --ignore                          no detener en errores
 ====================================  ==================================================================
@@ -1251,7 +1250,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe update --batch listaDeMineros.csv
+  ./bos-toolbox.exe update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -1292,7 +1291,6 @@ Al desinstalar Braiins OS+ en **varios dispositivos**, **NO** use el argumento N
 Argumentos                            Descripción
 ====================================  ==================================================================
 -h, --help                            muestra este mensaje de ayuda y sale
---batch LOTE                          ruta al archivo con la lista de hosts (direcciones IPs) a instalar
 --factory-image IMAGEN_DE_FÁBRICA     ruta/url a imagen de actualización de firmware original (defecto:
                                       Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz)
 ====================================  ==================================================================
@@ -1301,7 +1299,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe uninstall --batch listaDeMineros.csv
+  ./bos-toolbox.exe uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
