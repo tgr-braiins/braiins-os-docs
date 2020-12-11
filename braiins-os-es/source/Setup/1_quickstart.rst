@@ -81,12 +81,12 @@ En 2019, la conexión SSH fue bloqueada y una verificación de firma en la inter
     Terminal de comandos en **Windows**: ::
 
       #desbloquear e instalar Braiins OS en las máquinas
-      bos-toolbox.exe install --password root listaDeMineros.csv
+      bos-toolbox.exe install -p root -open source listaDeMineros.csv
 
     Terminal de comandos en **Linux**: ::
 
       #desbloquear e instalar Braiins OS en las máquinas
-      ./bos-toolbox install --password root listaDeMineros.csv
+      ./bos-toolbox install -p root -open source listaDeMineros.csv
 
     **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
 
