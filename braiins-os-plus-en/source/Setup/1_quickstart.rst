@@ -114,6 +114,7 @@ In order to install Braiins OS+ via the SD card method, follow the steps bellow:
 
   |pic1|  |pic2|
 
+ * *[Optional]:* Add ``nand_install=yes`` to the ``uEnv.txt`` file for automatic NAND installation.
  * Insert the SD card into the device, then start the device.
  * After a moment, you should be able to access the Braiins OS+ interface through the device’s IP address.
  * *[Optional]:* You can now install Braiins OS+ to the internal memory (NAND) following the section :ref:`sd_nand_install`.

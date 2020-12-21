@@ -586,3 +586,22 @@ Dirección MAC e IP
 Por defecto, la dirección MAC del dispositivo se mantiene igual y es heredada del firmware (de serie o Braiins OS) almacenada en el dispositivo (NAND). De esta forma, una vez que el dispositivo inicie con Braiins OS+, tendrá la misma dirección IP que tenía con el firmware de fábrica.
 
 Alternativamente, puede especificar una dirección MAC de su selección al modificar el parametro ``ethaddr=`` en el archivo ``uEnv.txt`` (ubicado en la primera partición FAT de la tarjeta SD).
+
+*******************
+Detección de Modelo
+*******************
+
+Esta opción de configuración permite saltar el resultado de la auto-detección de hardware y honrar el tipo preseleccionado en la configuración. Esto es para cubrir la situación en donde las 3 tarjetas de hash tienen EEPROM corrompido. Si es activado, el modelo se toma de la opción **[format] - model**.
+
+Para activar esta funcionalidad, añada las siguientes líneas al archivo ``/etc/bosminer.toml``.
+
+  ::
+
+     [model_detection]
+     use_config_fallback = true
+
+Aleternativamente, añada las líneas usando el comando siguiente:
+
+  .. code:: bash
+
+     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'

@@ -57,6 +57,23 @@ Join our Telegram group:
 Changelog
 *********
 
+20.12
+---------------------------
+
+* All mining hardware types
+
+  * [bug] nightly builds from now on will point to nightly feeds as expected
+  * [bug] DHCP server on the network interface has been disabled. Apologies, for this typo
+
+
+* Antminer X17
+
+  * [feature] for miners with locked machine, we now provide a mechanism to configure the SD image so that it would install BOS+ into NAND fully automatically
+  * [feature] all X17 models with Macronix NAND flash memory are now supported
+  * [feature] new configuration section [model_detection] has been added that allows overriding result of hardware autodetection and honor the preset hardware type in the configuration. This is to cover the situation where all 3 hashboards have corrupted EEPROM's. See use_config_fallback configuration option
+  * [feature] new FPGA allows overclocking upto 950 MHz (NOTE: this frequencies are realistic only for immersion super cooling setups!)
+  * [feature] voltage setting has been made more robust to support machines that had problems with voltage setting within a specified timeout
+
 20.11
 ---------------------------
 

@@ -626,6 +626,7 @@ NAND install
 The SD card can be used to replace the firmware running on NAND with Braiins OS+. This can be done either:
   * using the web interface - section *System -> Install current system to device (NAND)*
   * using the *miner* tool, via SSH - follow this section of the guide :ref:`miner_nand_install`
+  * Add ``nand_install=yes`` to the ``uEnv.txt`` file for automatic NAND installation.
 
 .. _sd_factory_reset:
 

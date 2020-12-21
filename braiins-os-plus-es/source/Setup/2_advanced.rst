@@ -618,6 +618,7 @@ Instalar a NAND
 ===============
 
 La tarjeta SD puede usarse para reemplazar el firmware corriendo en la NAND con Braiins OS+. Eso se hace:
+  * Añada ``nand_install=yes`` al archivo ``uEnv.txt`` para la instalación automática a NAND.
   * usando la interfaz web - sección *System -> Install current system to device (NAND)*
   * usando la herramienta *miner*, via SSH - siga esta sección de la guía :ref:`miner_nand_install`
 

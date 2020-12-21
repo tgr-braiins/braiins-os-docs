@@ -331,3 +331,22 @@ MAC地址和IP地址（MAC & IP address）
 同理，新安装Braiins OS+的矿机开机后的IP地址和之前应该也是一样的。
 
 此外，您也可以通过修改（位于SD卡第一个FAT分区中）的 ``uEnv.txt`` 文件中的 ``ethaddr=`` 参数，指定一个具体的MAC地址。
+
+***********************
+矿机型号检测（Model Detection）
+***********************
+
+本配置能允许对固件矿机型号自动检测的超控。从而能手动解决由于运算板上存储运算版信息的EEPROM内存损坏，造成的读不出板的情况。如果开启本配置，矿机型号是由 **[format] - model** 定义的。
+
+要想开启本功能，请在矿机上的 ``/etc/bosminer.toml`` 文件中加入以下几行的内容。
+
+  ::
+
+     [model_detection]
+     use_config_fallback = true
+
+也可以用下方命令，批量管理本功能：
+
+  .. code:: bash
+
+     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'

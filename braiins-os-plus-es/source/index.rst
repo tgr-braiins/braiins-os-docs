@@ -59,6 +59,23 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Changelog
 *********
 
+20.12
+---------------------------
+
+* Todos los tipos de hardware de minado
+
+  * [fallo] las versiones nocturnas a partir de ahora apuntarán a la fuente nocturna como se esperaba
+  * [fallo] El servidor DHCP en la interfaz de red ha sido deshabilitado. Pedimos disculpas por esta equivocación
+
+
+* Antminer X17
+
+  * [característica] para mineros con la máquina bloqueada, ahora proveemos un mecanismo para configurar la imagen SD para que instale BOS+ en la NAND de forma completamente automática
+  * [característica] todos los modelos X17 con la memoria flash NAND Macronix ahora están soportados
+  * [característica] nueva sección de configuración [model_detection] se añadió para permitir ignorar el resultado de la auto-detección de hardware y honrar el tipo preseleccionado en la configuración. Esto es para cubrir la situación donde todas las 3 tarjetas tienen EEPROM corrompido. Vea la opción de configuración use_config_fallback
+  * [característica] nueva FPGA permite overclocking hasta 950 MHz (NOTA: ¡estas frecuencias son realistas solo para instalaciones con super enfriamiento por inmersión!)
+  * [característica] la configuración de voltaje se ha hecho mas robusta para soportar máquinas que han tenido problemas de fijación de voltaje dentro de un tiempo límite especificado
+
 20.11
 ---------------------------
 

@@ -371,3 +371,22 @@ had with the factory firmware.
 Alternatively, you can specify a MAC address of your choice by modifying
 the ``ethaddr=`` parameter in the ``uEnv.txt`` file (found in the first
 FAT partition of the SD card).
+
+***************
+Model Detection
+***************
+
+This configuration option allows overriding the result of hardware autodetection and honor the preset hardware type in the configuration. This is to cover the situation where all 3 hashboards have corrupted EEPROM's. If enabled, the model will be taken from the **[format] - model** option.
+
+In order to enable this functionality, add the following lines to the ``/etc/bosminer.toml`` file.
+
+  ::
+
+     [model_detection]
+     use_config_fallback = true
+
+Alternatively, add the lines using the following command:
+
+  .. code:: bash
+
+     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'
