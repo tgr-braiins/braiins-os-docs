@@ -269,6 +269,8 @@ RUTA_DE_RESPALDO                      ruta al directorio o archivo tgz con datos
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie.
 
+**¡Advertencia!** El firmware de serie que se instala al desinstalar Braiins OS+ ¡no es adecuado para minar! Actualice a una versión mas nueva del firmware de serie para su modelo de hardware específico antes de comenzar a minar.
+
 .. _bosbox_configure:
 
 =======================================================
