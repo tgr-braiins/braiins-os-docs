@@ -268,6 +268,8 @@ BACKUP_PATH                           path to directory or tgz file with data fo
 
 This command will uninstall Braiins OS from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
 
+**Warning:** The stock firmware that's installed when you uninstall Braiins OS+ is not suitable for mining! Upgrade to a newer version of stock firmware for your specific hardware model before you start mining.
+
 .. _bosbox_configure:
 
 ===========================================

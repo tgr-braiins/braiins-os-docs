@@ -222,6 +222,8 @@ You can easily uninstall Braiins OS on multiple devices using the **BOS Toolbox*
 
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
+**Warning:** The stock firmware that's installed when you uninstall Braiins OS+ is not suitable for mining! Upgrade to a newer version of stock firmware for your specific hardware model before you start mining.
+
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_uninstall`.
 
 ********************
