@@ -190,6 +190,8 @@ Puede desinstalar fácilmente Braiins OS+ de un solo dispositivo usando la **Caj
 
 Esto le regresará al firmware de serie. Instalará automáticamente una versión mas vieja donde SSH no está bloqueado, para que pueda acceder a su minero remotamente.
 
+**¡Advertencia!** El firmware de serie que se instala al desinstalar Braiins OS+ ¡no es adecuado para minar! Actualice a una versión mas nueva del firmware de serie para su modelo de hardware específico antes de comenzar a minar.
+
 **Desinstalar en múltiples-dispositivos**
 
 Puede desinstalar Braiins OS+ fácilmente en múltiples dispositivos usando la **Caja de Herramientas BOS**. Para hacerlo, siga los pasos a continuación:
