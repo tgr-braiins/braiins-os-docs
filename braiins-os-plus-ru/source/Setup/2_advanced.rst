@@ -118,7 +118,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.bat install ARGUMENTS HOSTNAME
     
     Для командной строки **Linux**: ::
       
@@ -163,7 +163,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
 ::
 
-  bos-toolbox.exe install --password root listOfMiners.csv
+  bos-toolbox.bat install --password root listOfMiners.csv
 
 Эта команда установит Braiins OS+ на майнеры, указанные в файле *listOfMiners.csv*, и установит ограничение мощности 1200 для всех из них. Команда также автоматически разблокирует Antminer S9 и вставит пароль SSH *admin*, когда майнер запросит его.
 
@@ -184,7 +184,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTS HOSTNAME
+      bos-toolbox.bat update ARGUMENTS HOSTNAME
 
     Для командной строки **Linux**: ::
       
@@ -213,7 +213,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
 ::
 
-  bos-toolbox.exe update listOfMiners.csv
+  bos-toolbox.bat update listOfMiners.csv
 
 Эта команда будет искать обновление для майнеров, указанных в *listOfMiners.csv*, и обновлять их, если появится новая версия прошивки.
 
@@ -234,7 +234,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
      Для командной строки **Windows**: ::
 
-      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+      bos-toolbox.bat uninstall ARGUMENTS HOSTNAME
 
      Для командной строки **Linux**: ::
       
@@ -263,7 +263,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
 ::
 
-  bos-toolbox.exe uninstall listOfMiners.csv
+  bos-toolbox.bat uninstall listOfMiners.csv
 
 Эта команда удалит Braiins OS+ из майнеров, указанных в файле *listOfMiners.csv*, и установит стандартную прошивку по умолчанию.
 
@@ -286,7 +286,7 @@ BOS Toolbox - это новый инструмент, который позво�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe config ARGUMENTS ACTION TABLE
+      bos-toolbox.bat config ARGUMENTS ACTION TABLE
 
      Для командной строки **Linux**: ::
       
@@ -327,11 +327,11 @@ save_apply                            сохранить и применить �
 
 ::
 
-  bos-toolbox.exe config --user root load listOfMiners.csv
+  bos-toolbox.bat config --user root load listOfMiners.csv
   
   #отредактируйте файл CSV с помощью редактора электронных таблиц (например: Office Excel, LibreOffice Calc, etc.)
   
-  bos-toolbox.exe config --user root -p admin -P save_apply listOfMiners.csv
+  bos-toolbox.bat config --user root -p admin -P save_apply listOfMiners.csv
 
 Первая команда загрузит конфигурацию майнеров, указанную в *listOfMiners.csv* (используя логин *root*) и сохранит ее в CSV-файле. Теперь вы можете открыть файл и редактировать то, что вам нужно. После редактирования файла вторая команда скопирует настройки обратно в майнеры, применит их и изменит пароль на пароль в столбце пароля.
 
@@ -353,7 +353,7 @@ save_apply                            сохранить и применить �
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe discover ARGUMENTS
+      bos-toolbox.bat discover ARGUMENTS
 
      Для командной строки **Linux**: ::
       
@@ -386,13 +386,13 @@ listen                                прослушивание входяще�
 ::
 
   #scan the network, in the range 10.10.10.0 - 10.10.10.255
-  bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.bat discover scan 10.10.10.0/24
 
   #scan the network, in the range 10.10.0.0 - 10.10.255.255
-  bos-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.bat discover scan 10.10.0.0/16
 
   #scan the network, in the range 10.0.0.0 - 10.255.255.255
-  bos-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.bat discover scan 10.0.0.0/8
   
 .. _bosbox_command:
 
@@ -411,7 +411,7 @@ listen                                прослушивание входяще�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.bat command ARGUMENTS TABLE COMMAND
 
     Для командной строки **Linux**: ::
     
@@ -453,7 +453,7 @@ stop                                  Остановка BOSminer
 ::
 
   #остановить BOSminer, эффективно останавливая майнинг и уменьшая потребляемую мощность до минимума
-  bos-toolbox.exe command -o list.csv stop 
+  bos-toolbox.bat command -o list.csv stop 
 
 .. _bosbox_unlock:
 
@@ -472,7 +472,7 @@ stop                                  Остановка BOSminer
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.bat unlock ARGUMENTS HOSTNAME
 
     Для командной строки **Linux**: ::
       
@@ -503,7 +503,7 @@ stop                                  Остановка BOSminer
 
 ::
 
-  bos-toolbox.exe unlock -p root listOfMiners.csv
+  bos-toolbox.bat unlock -p root listOfMiners.csv
 
 Эта команда разблокирует SSH на майнерах, указанных в *listOfMiners.csv*.
 

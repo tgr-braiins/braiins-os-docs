@@ -47,7 +47,7 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe install listOfMiners.csv
+      bos-toolbox.bat install listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
@@ -82,7 +82,7 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
     برای **Windows** خط فرمان: ::
 
       #باز کردن قفل و نصب Braiins OS+ روی دستگاه‌ها
-      bos-toolbox.exe install -p root --open-source listOfMiners.csv
+      bos-toolbox.bat install -p root --open-source listOfMiners.csv
 
     برای **Linux** خط فرمان: ::
       
@@ -149,7 +149,7 @@ package* تایپ کنید و *OK* را فشار دهید.
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe update listOfMiners.csv
+      bos-toolbox.bat update listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       
@@ -181,7 +181,7 @@ package* تایپ کنید و *OK* را فشار دهید.
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe uninstall IP_ADDRESS
+      bos-toolbox.bat uninstall IP_ADDRESS
 
     برای خط فرمان **Linux**: ::
       
@@ -211,7 +211,7 @@ package* تایپ کنید و *OK* را فشار دهید.
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe uninstall listOfMiners.csv
+      bos-toolbox.bat uninstall listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
       

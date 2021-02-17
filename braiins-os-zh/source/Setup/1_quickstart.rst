@@ -47,7 +47,7 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe install listOfMiners.csv
+      bos-toolbox.bat install listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -81,7 +81,7 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
     在 **Windows** 上的命令提示行请用： ::
 
       #破解官固并在矿机上安装Braiins OS
-      bos-toolbox.exe install --password root --open-source listOfMiners.csv
+      bos-toolbox.bat install --password root --open-source listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -145,7 +145,7 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe update listOfMiners.csv
+      bos-toolbox.bat update listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -177,7 +177,7 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
   
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe uninstall IP_ADDRESS
+      bos-toolbox.bat uninstall IP_ADDRESS
 
      在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -206,7 +206,7 @@ Braiins OS将会被安装到您的矿机上。网络配置（例如静态IP地�
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe uninstall listOfMiners.csv
+      bos-toolbox.bat uninstall listOfMiners.csv
 
     在 **Linux** 上的Terminal控制终端请用： ::
       

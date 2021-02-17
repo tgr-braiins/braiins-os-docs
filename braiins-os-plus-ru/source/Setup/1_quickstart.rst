@@ -47,7 +47,7 @@ Braiins OS+ будет установлен на майнер. Конфигур�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe install listOfMiners.csv
+      bos-toolbox.bat install listOfMiners.csv
 
     Для командной строки **Linux**: ::
       
@@ -81,15 +81,15 @@ Braiins OS+ будет установлен на майнер. Конфигур�
     Для командной строки **Windows**: ::
 
       #разблокировать SSH на машинах
-      bos-toolbox.exe unlock listOfMiners.csv
+      bos-toolbox.bat unlock listOfMiners.csv
 
       #установить Braiins OS+ на машины
-      bos-toolbox.exe install listOfMiners.csv
+      bos-toolbox.bat install listOfMiners.csv
 
     Для командной строки **Linux**: ::
 
       #разблокировать и установить Braiins OS на машины
-      bos-toolbox.exe install --password root listOfMiners.csv
+      bos-toolbox.bat install --password root listOfMiners.csv
 
     **Примечание:** *при использовании BOS Toolbox для Linux вам нужно сделать его исполняемым с помощью следующей команды (это нужно сделать только один раз):* ::
   
@@ -149,7 +149,7 @@ Braiins OS+ будет установлен на майнер. Конфигур�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe update listOfMiners.csv
+      bos-toolbox.bat update listOfMiners.csv
 
     Для командной строки **Linux**: ::
       
@@ -182,7 +182,7 @@ Braiins OS+ будет установлен на майнер. Конфигур�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe uninstall IP_ADDRESS
+      bos-toolbox.bat uninstall IP_ADDRESS
 
     Для командной строки **Linux**: ::
       
@@ -211,7 +211,7 @@ Braiins OS+ будет установлен на майнер. Конфигур�
 
     Для командной строки **Windows**: ::
 
-      bos-toolbox.exe uninstall listOfMiners.csv
+      bos-toolbox.bat uninstall listOfMiners.csv
 
     Для командной строки **Linux**: ::
       

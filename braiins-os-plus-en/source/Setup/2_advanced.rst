@@ -118,7 +118,7 @@ Install Braiins OS+ using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe install ARGUMENTS HOSTS
+      bos-toolbox.bat install ARGUMENTS HOSTS
     
     For **Linux** command terminal: ::
       
@@ -162,7 +162,7 @@ Arguments                             Description
 
 ::
 
-  bos-toolbox.exe install --psu-power-limit 1200 --password root listOfMiners.csv
+  bos-toolbox.bat install --psu-power-limit 1200 --password root listOfMiners.csv
 
 This command will install Braiins OS+ on the miners, that are specified in the *listOfMiners.csv* file and set the power limit to 1200 on all of them. The command will also automatically unlock the Antminer S9.
 
@@ -183,7 +183,7 @@ Update Braiins OS+ using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe update ARGUMENTS HOSTS PACKAGE
+      bos-toolbox.bat update ARGUMENTS HOSTS PACKAGE
 
     For **Linux** command terminal: ::
       
@@ -214,7 +214,7 @@ PACKAGE				      package name for update
 
 ::
 
-  bos-toolbox.exe update listOfMiners.csv
+  bos-toolbox.bat update listOfMiners.csv
 
 This command will look for an update for the miners, that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
 
@@ -235,7 +235,7 @@ Uninstall Braiins OS+ using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe uninstall ARGUMENTS HOSTS BACKUP_PATH
+      bos-toolbox.bat uninstall ARGUMENTS HOSTS BACKUP_PATH
 
     For **Linux** command terminal: ::
       
@@ -266,7 +266,7 @@ BACKUP_PATH                           path to directory or tgz file with data fo
 
 ::
 
-  bos-toolbox.exe uninstall listOfMiners.csv
+  bos-toolbox.bat uninstall listOfMiners.csv
 
 This command will uninstall Braiins OS+ from the miners, that are specified in the *listOfMiners.csv* file and install a default stock firmware.
 
@@ -290,7 +290,7 @@ Configure Braiins OS+ using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe config ARGUMENTS ACTION TABLE
+      bos-toolbox.bat config ARGUMENTS ACTION TABLE
 
     For **Linux** command terminal: ::
       
@@ -331,11 +331,11 @@ save_apply                            save and apply the settings from the CSV f
 
 ::
 
-  bos-toolbox.exe config --user root load listOfMiners.csv
+  bos-toolbox.bat config --user root load listOfMiners.csv
   
   #edit the CSV file using a spreadsheet editor (e.g. Office Excel, LibreOffice Calc, etc.)
   
-  bos-toolbox.exe config --user root -p admin --change-password save_apply listOfMiners.csv
+  bos-toolbox.bat config --user root -p admin --change-password save_apply listOfMiners.csv
 
 The first command will load the configuration of the miners, that are specified in the *listOfMiners.csv* (using the login username *root*) and save it to the CSV file. You can now open the file and edit what you need. After the file was edited, the second command will copy the settings back to the miners, apply them and change the password to one in the password column.
 
@@ -357,7 +357,7 @@ Scan the network to identify miners using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe discover ARGUMENTS
+      bos-toolbox.bat discover ARGUMENTS
 
     For **Linux** command terminal: ::
       
@@ -390,13 +390,13 @@ listen                                listen for incoming broadcast from devices
 ::
 
   #scan the network, in the range 10.10.10.0 - 10.10.10.255
-  bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.bat discover scan 10.10.10.0/24
 
   #scan the network, in the range 10.10.0.0 - 10.10.255.255
-  bos-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.bat discover scan 10.10.0.0/16
 
   #scan the network, in the range 10.0.0.0 - 10.255.255.255
-  bos-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.bat discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -416,7 +416,7 @@ Run custom commands on miners using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.bat command ARGUMENTS TABLE COMMAND
 
     For **Linux** command terminal: ::
       
@@ -458,7 +458,7 @@ stop                                  Stop BOSminer
 ::
 
   #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
-  bos-toolbox.exe command -o list.csv stop
+  bos-toolbox.bat command -o list.csv stop
 
 .. _bosbox_unlock:
 
@@ -479,7 +479,7 @@ Unlock SSH on Antminer S9 using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe unlock ARGUMENTS HOSTS
+      bos-toolbox.bat unlock ARGUMENTS HOSTS
 
     For **Linux** command terminal: ::
       
@@ -510,7 +510,7 @@ Arguments                             Description
 
 ::
 
-  bos-toolbox.exe unlock -u root -p root listOfMiners.csv
+  bos-toolbox.bat unlock -u root -p root listOfMiners.csv
 
 This command will unlock SSH on the miners, that are specified in the *listOfMiners.csv*.
 

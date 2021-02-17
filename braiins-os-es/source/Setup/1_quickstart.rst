@@ -47,7 +47,7 @@ La instalación de Braiins OS puede hacerse fácilmente usando la caja de herram
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install listaDeMineros.csv
+      bos-toolbox.bat install listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
@@ -81,7 +81,7 @@ En 2019, la conexión SSH fue bloqueada y una verificación de firma en la inter
     Terminal de comandos en **Windows**: ::
 
       #desbloquear e instalar Braiins OS en las máquinas
-      bos-toolbox.exe install -p root -open source listaDeMineros.csv
+      bos-toolbox.bat install -p root -open source listaDeMineros.csv
 
     Terminal de comandos en **Linux**: ::
 
@@ -145,7 +145,7 @@ Actualizar Braiins OS en múltiples dispositivos a la vez puede hacerse fácilme
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe update listaDeMineros.csv
+      bos-toolbox.bat update listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
@@ -177,7 +177,7 @@ Puede desinstalar fácilmente Braiins OS de un solo dispositivo usando la **Caja
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall DIRECCIÓN_IP
+      bos-toolbox.bat uninstall DIRECCIÓN_IP
 
     Para terminal de comandos en **Linux**: ::
 
@@ -206,7 +206,7 @@ Puede desinstalar Braiins OS fácilmente en múltiples dispositivos usando la **
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall listaDeMineros.csv
+      bos-toolbox.bat uninstall listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 

@@ -117,7 +117,7 @@ BOS工具箱的特性及优缺点
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe install ARGUMENTS HOSTNAME
+      bos-toolbox.bat install ARGUMENTS HOSTNAME
     
     在 **Linux** 上的Terminal控制终端请用： :: 
       
@@ -161,7 +161,7 @@ BOS工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe install --psu-power-limit 1200 --password root listOfMiners.csv
+  bos-toolbox.bat install --psu-power-limit 1200 --password root listOfMiners.csv
 
 解释：上方的命令和参数，会自动破解官固固件锁并将Braiins OS+安装到在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上，并设置列表中所有矿机的输入功率限制为1200瓦。当矿机要求输入SSH密码时，命令将自动输入 *admin* 这个密码。
 
@@ -182,7 +182,7 @@ BOS工具箱的特性及优缺点
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe update ARGUMENTS HOSTNAME
+      bos-toolbox.bat update ARGUMENTS HOSTNAME
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -211,7 +211,7 @@ BOS工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe update listOfMiners.csv
+  bos-toolbox.bat update listOfMiners.csv
 
 解释：上方的命令和参数，会在有新固件更新可用的情况下，对在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+进行更新。
 
@@ -232,7 +232,7 @@ BOS工具箱的特性及优缺点
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe uninstall ARGUMENTS HOSTNAME
+      bos-toolbox.bat uninstall ARGUMENTS HOSTNAME
 
      在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -261,7 +261,7 @@ BOS工具箱的特性及优缺点
 
 ::
 
-  bos-toolbox.exe uninstall listOfMiners.csv
+  bos-toolbox.bat uninstall listOfMiners.csv
 
 解释：上方的命令和参数，会卸载在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机上的Braiins OS+，并重装原厂固件。
 
@@ -285,7 +285,7 @@ BOS工具箱的特性及优缺点
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe config ARGUMENTS ACTION TABLE
+      bos-toolbox.bat config ARGUMENTS ACTION TABLE
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -326,11 +326,11 @@ save_apply                            保存并应用之前从CSV文件复制（
 
 ::
 
-  bos-toolbox.exe config --user root load listOfMiners.csv
+  bos-toolbox.bat config --user root load listOfMiners.csv
   
   #把矿机上的配置加载到CSV文件中后，可以通过表格软件编辑配置（如MS Office Excel，LibreOffice Calc等)
   
-  bos-toolbox.exe config --user root root -p admin -P save_apply listOfMiners.csv
+  bos-toolbox.bat config --user root root -p admin -P save_apply listOfMiners.csv
 
 解释：上方的第一个命令和参数，会（使用*root*这个后台用户名）提取在 *listOfMiners.csv* （矿机IP地址列表）中列出矿机的配置，并将这些配置保存到一个CSV文件中。然后您可以打开并编辑这个CSV文件，调整矿机的配置。您改动好之后，就可以用上方的第二个命令和参数，将配置复制（保存）到矿机上，更改密码为新设置的密码，并应用新配置。
 
@@ -352,7 +352,7 @@ save_apply                            保存并应用之前从CSV文件复制（
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe discover ARGUMENTS
+      bos-toolbox.bat discover ARGUMENTS
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -385,13 +385,13 @@ listen                                监听矿机识别广播（当按下IP rep
 ::
 
   #扫描从10.10.10.0到10.10.10.255的网络范围
-  bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.bat discover scan 10.10.10.0/24
 
   #扫描从10.10.0.0到10.10.255.255的网络范围
-  bos-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.bat discover scan 10.10.0.0/16
 
   #扫描从10.10.0.0到10.255.255.255的网络范围
-  bos-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.bat discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -411,7 +411,7 @@ listen                                监听矿机识别广播（当按下IP rep
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.bat command ARGUMENTS TABLE COMMAND
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -453,7 +453,7 @@ stop                                  关闭BOSminer
 ::
 
   #关闭BOSminer, 有效地停止挖矿并将电能消耗降到最低
-  bos-toolbox.exe command -o list.csv stop
+  bos-toolbox.bat command -o list.csv stop
 
 .. _bosbox_unlock:
 
@@ -472,7 +472,7 @@ stop                                  关闭BOSminer
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.exe unlock ARGUMENTS HOSTNAME
+      bos-toolbox.bat unlock ARGUMENTS HOSTNAME
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
@@ -503,7 +503,7 @@ stop                                  关闭BOSminer
 
 ::
 
-  bos-toolbox.exe unlock -p root listOfMiners.csv
+  bos-toolbox.bat unlock -p root listOfMiners.csv
 
 解释：上方的命令和参数，会解锁在 *listOfMiners.csv* （矿机IP地址列表）中列出的矿机上的固件远程SSH锁。
 

@@ -47,7 +47,7 @@ Installation of Braiins OS can easily be done using the BOS Toolbox. In order to
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe install listOfMiners.csv
+      bos-toolbox.bat install listOfMiners.csv
 
     For **Linux** command terminal: ::
       
@@ -81,7 +81,7 @@ In 2019, the SSH connection was locked and the signature verification in the web
     For **Windows** command terminal: ::
 
       #unlock and install Braiins OS in the machines
-      bos-toolbox.exe install -p root --open-source listOfMiners.csv
+      bos-toolbox.bat install -p root --open-source listOfMiners.csv
 
     For **Linux** command terminal: ::
 
@@ -151,7 +151,7 @@ Updating Braiins OS on multiple devices at once can easily be done using the **B
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe update listOfMiners.csv
+      bos-toolbox.bat update listOfMiners.csv
 
     For **Linux** command terminal: ::
       
@@ -183,7 +183,7 @@ You can easily uninstall Braiins OS on a single device using the **BOS Toolbox**
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe uninstall IP_ADDRESS
+      bos-toolbox.bat uninstall IP_ADDRESS
 
     For **Linux** command terminal: ::
       
@@ -212,7 +212,7 @@ You can easily uninstall Braiins OS on multiple devices using the **BOS Toolbox*
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.exe uninstall listOfMiners.csv
+      bos-toolbox.bat uninstall listOfMiners.csv
 
     For **Linux** command terminal: ::
       

@@ -119,7 +119,7 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe install ARGUMENTS HOSTS
+      bos-toolbox.bat install ARGUMENTS HOSTS
 
     برای خط فرمان **Linux**: ::
       
@@ -163,7 +163,7 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 
 ::
 
-  bos-toolbox.exe install --password root --open-source listOfMiners.csv
+  bos-toolbox.bat install --password root --open-source listOfMiners.csv
 
 این دستور Braiins OS را روی ماینرهایی نصب می کند که در فایل *listOfMiners.csv* مشخص شده اند. این فرمان همچنین به طور خودکار دستگاههای Antminer S9 را آنلاک می کند.
 
@@ -185,7 +185,7 @@ Braiins OS را با استفاده از BOS Toolbox نصب کنید
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTS HOSTS PACKAGE
+      bos-toolbox.bat update ARGUMENTS HOSTS PACKAGE
 
     برای خط فرمان **Linux**: ::
       
@@ -217,7 +217,7 @@ PACKAGE				                        نام package بروز رسانی
 ::
     برای خط فرمان **Windows**: ::
 
-   bos-toolbox.exe update listOfMiners.csv
+   bos-toolbox.bat update listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
 
@@ -245,7 +245,7 @@ PACKAGE				                        نام package بروز رسانی
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe uninstall HOSTS BACKUP_PATH
+      bos-toolbox.bat uninstall HOSTS BACKUP_PATH
 
     برای خط فرمان **Linux**: ::
       
@@ -277,7 +277,7 @@ Arguments                             Description
 ::
     برای خط فرمان **Windows**: ::
 
-  bos-toolbox.exe uninstall listOfMiners.csv
+  bos-toolbox.bat uninstall listOfMiners.csv
 
     برای خط فرمان **Linux**: ::
 
@@ -308,7 +308,7 @@ Arguments                             Description
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe config ARGUMENTS ACTION TABLE
+      bos-toolbox.bat config ARGUMENTS ACTION TABLE
 
     برای خط فرمان **Linux**: ::
       
@@ -349,11 +349,11 @@ save_apply                            ذخیره و اعمال تنظیمات ا
 
 ::
 
-  bos-toolbox.exe config --user root load listOfMiners.csv
+  bos-toolbox.bat config --user root load listOfMiners.csv
   
   #فایل CSV را ویرایش کنید (برای مثال با نرم افزارهای Office Excel, LibreOffice Calc و غیره)
   
-  bos-toolbox.exe config --user root -p admin --change-password save_apply listOfMiners.csv
+  bos-toolbox.bat config --user root -p admin --change-password save_apply listOfMiners.csv
 
 اولین دستور تنظیمات را از ماینرهایی که در فایل *listOfMiners.csv* لیست شده است بارگیری خواهد کرد. (با استفاده از نام کاربری *root* و در فایل CSV ذخیره خواهد کرد.) شما اکنون میتوانید فایل را باز و ویرایش‌های دلخواه خود را انجام دهید. بعد از ویرایش، دستور دوم تنظیمات را به ماینرها بازخواهد گرداند و در آنها اعمال خواهد کرد. 
 
@@ -377,7 +377,7 @@ save_apply                            ذخیره و اعمال تنظیمات ا
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe discover ARGUMENTS
+      bos-toolbox.bat discover ARGUMENTS
 
     برای خط فرمان **Linux**: ::
       
@@ -410,13 +410,13 @@ listen                                گوش فرا دادن به پخش‌ها�
 ::
 
  #اسکن شبکه در محدوده رنج آی پی 10.10.10.0 - 10.10.10.255
-  bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.bat discover scan 10.10.10.0/24
 
   #اسکن شبکه در محدوده رنج آی پی 10.10.0.0 - 10.10.255.255
-  bos-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.bat discover scan 10.10.0.0/16
 
   #اسکن شبکه در محدوده رنج آی پی 10.0.0.0 - 10.255.255.255
-  bos-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.bat discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -437,7 +437,7 @@ listen                                گوش فرا دادن به پخش‌ها�
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.exe command ARGUMENTS TABLE COMMAND
+      bos-toolbox.bat command ARGUMENTS TABLE COMMAND
 
     برای خط فرمان **Linux**: ::
       
@@ -480,7 +480,7 @@ stop                                  متوقف کردن BOSminer
 ::
 
   #stop BOSminer, effectively stopping mining and decreasing the power draw to minimum
-  bos-toolbox.exe command -o list.csv stop
+  bos-toolbox.bat command -o list.csv stop
 
 .. _bosbox_unlock:
 
@@ -500,7 +500,7 @@ stop                                  متوقف کردن BOSminer
 
     برای **Windows** دستور خط فرمان: ::
 
-      bos-toolbox.exe unlock ARGUMENTS HOSTS
+      bos-toolbox.bat unlock ARGUMENTS HOSTS
 
     برای **Linux** دستور خط فرمان: ::
       
@@ -531,7 +531,7 @@ Arguments  آرگومان‌ها                  Description توضیحات
 
 ::
 
-  bos-toolbox.exe unlock -u root -p root listOfMiners.csv
+  bos-toolbox.bat unlock -u root -p root listOfMiners.csv
 
 این دستور قفل SSH ماینرهایی که در فایل *listOfMiners.csv* لیست شده اند را باز خواهد کرد.
 

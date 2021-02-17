@@ -118,7 +118,7 @@ Instalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install listaDeMineros.csv
+      bos-toolbox.bat install listaDeMineros.csv
 
     Para terminal de comandos en **Linux**: ::
 
@@ -162,7 +162,7 @@ Argumentos                            Descripción
 
 ::
 
-  bos-toolbox.exe install --psu-power-limit 1200 --password root listaDeMineros.csv
+  bos-toolbox.bat install --psu-power-limit 1200 --password root listaDeMineros.csv
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9.
 
@@ -183,7 +183,7 @@ Actualizar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTOS HOSTS PAQUETE
+      bos-toolbox.bat update ARGUMENTOS HOSTS PAQUETE
 
     Para terminal de comandos en **Linux**: ::
 
@@ -213,7 +213,7 @@ PAQUETE                               nombre del paquete para actualizar
 
 ::
 
-  bos-toolbox.exe update listaDeMineros.csv
+  bos-toolbox.bat update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -234,7 +234,7 @@ Desinstalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall ARGUMENTOS HOSTS RUTA_DE_RESPALDO
+      bos-toolbox.bat uninstall ARGUMENTOS HOSTS RUTA_DE_RESPALDO
 
     Para terminal de comandos en **Linux**: ::
 
@@ -265,7 +265,7 @@ RUTA_DE_RESPALDO                      ruta al directorio o archivo tgz con datos
 
 ::
 
-  bos-toolbox.exe uninstall listaDeMineros.csv
+  bos-toolbox.bat uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie.
 
@@ -288,7 +288,7 @@ Configurar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe config ARGUMENTOS ACCIÓN TABLA
+      bos-toolbox.bat config ARGUMENTOS ACCIÓN TABLA
 
     Para terminal de comandos en **Linux**: ::
 
@@ -329,11 +329,11 @@ save_apply                            guardar y aplicar la configuración del ar
 
 ::
 
-  bos-toolbox.exe config --user root load listaDeMineros.csv
+  bos-toolbox.bat config --user root load listaDeMineros.csv
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  bos-toolbox.exe config --user root -p admin --change-password save_apply listaDeMineros.csv
+  bos-toolbox.bat config --user root -p admin --change-password save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros, la aplicará y cambiará la contraseña a la colocada en la columna contraseña.
 
@@ -354,7 +354,7 @@ Explorar la red para identificar mineros usando la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe scan ARGUMENTOS
+      bos-toolbox.bat scan ARGUMENTOS
 
     Para terminal de comandos en **Linux**: ::
 
@@ -387,13 +387,13 @@ listen                                escuchar transmisión entrante desde los d
 ::
 
   #explorar la red, en el rango 10.10.10.0 - 10.10.10.255
-  bos-toolbox.exe discover scan 10.10.10.0/24
+  bos-toolbox.bat discover scan 10.10.10.0/24
 
   #explorar la red, en el rango 10.10.0.0 - 10.10.255.255
-  bos-toolbox.exe discover scan 10.10.0.0/16
+  bos-toolbox.bat discover scan 10.10.0.0/16
 
   #explorar la red, en el rango 10.0.0.0 - 10.255.255.255
-  bos-toolbox.exe discover scan 10.0.0.0/8
+  bos-toolbox.bat discover scan 10.0.0.0/8
 
 .. _bosbox_command:
 
@@ -412,7 +412,7 @@ Correr comandos personalizados en mineros usando la Caja de Herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe command ARGUMENTOS
+      bos-toolbox.bat command ARGUMENTOS
 
     Para terminal de comandos en **Linux**: ::
 
@@ -454,7 +454,7 @@ stop                                  Detener BOSminer
 ::
 
   #detiene BOSminer, deteniendo efectivamente el minado y reduciendo el consumo de energía al mínimo
-  bos-toolbox.exe command -o list.csv stop
+  bos-toolbox.bat command -o list.csv stop
 
 .. _bosbox_unlock:
 
@@ -473,7 +473,7 @@ Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 
     Terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe unlock ARGUMENTOS HOSTS
+      bos-toolbox.bat unlock ARGUMENTOS HOSTS
 
     Terminal de comandos en **Linux**: ::
 
@@ -504,7 +504,7 @@ Argumentos                                  Descripción
 
 ::
 
-  bos-toolbox.exe unlock -u root -p root listaDeMineros.csv
+  bos-toolbox.bat unlock -u root -p root listaDeMineros.csv
 
 Este comando va desbloquear SSH en los mineros, que están especificados en la *listaDeMineros.csv*.
 
@@ -1164,7 +1164,7 @@ Instalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe install ARGUMENTOS NOMBREHOST
+      bos-toolbox.bat install ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
@@ -1203,7 +1203,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe install --psu-power-limit 1200 --password clave listaDeMineros.csv
+  ./bos-toolbox.bat install --psu-power-limit 1200 --password clave listaDeMineros.csv
 
 Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
@@ -1224,7 +1224,7 @@ Actualizar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe update ARGUMENTOS NOMBREHOST
+      bos-toolbox.bat update ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
@@ -1253,7 +1253,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe update listaDeMineros.csv
+  ./bos-toolbox.bat update listaDeMineros.csv
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -1274,7 +1274,7 @@ Desinstalar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe uninstall ARGUMENTOS NOMBREHOST
+      bos-toolbox.bat uninstall ARGUMENTOS NOMBREHOST
 
     Para terminal de comandos en **Linux**: ::
 
@@ -1302,7 +1302,7 @@ Argumentos                            Descripción
 
 ::
 
-  ./bos-toolbox.exe uninstall listaDeMineros.csv
+  ./bos-toolbox.bat uninstall listaDeMineros.csv
 
 Este comando desinstalará Braiins OS+ de los mineros, que están especificados en el archivo *listaDeMineros.csv* e instala un firmware de serie (Antminer-S9-all-201812051512-autofreq-user-Update2UBI-NF.tar.gz).
 
@@ -1323,7 +1323,7 @@ Configurar Braiins OS+ con la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe config ARGUMENTOS ACCIÓN TABLA
+      bos-toolbox.bat config ARGUMENTOS ACCIÓN TABLA
 
     Para terminal de comandos en **Linux**: ::
 
@@ -1363,11 +1363,11 @@ save_apply                            guardar y aplicar la configuración del ar
 
 ::
 
-  ./bos-toolbox.exe config --user root load listaDeMineros.csv
+  ./bos-toolbox.bat config --user root load listaDeMineros.csv
 
   #edite el archivo CSV con un editor de hojas de cálculo (ej: Office Excel, LibreOffice Calc, etc.)
 
-  ./bos-toolbox.exe config --user root save_apply listaDeMineros.csv
+  ./bos-toolbox.bat config --user root save_apply listaDeMineros.csv
 
 El primer comando va a cargar la configuración de los mineros, que estén especificados en la *listaDeMineros.csv* (usando el usuario *root*) y la guardará en ese archivo CSV. Ahora puede abrir el archivo y editar lo que necesite. Luego de que el archivo esté editado, el segundo comando copiará la configuración de vuelta a los mineros y la aplicará.
 
@@ -1388,7 +1388,7 @@ Explorar la red para identificar mineros usando la Caja de herramientas BOS
 
     Para terminal de comandos en **Windows**: ::
 
-      bos-toolbox.exe scan ARGUMENTOS
+      bos-toolbox.bat scan ARGUMENTOS
 
     Para terminal de comandos en **Linux**: ::
 
@@ -1420,7 +1420,7 @@ listen                                escuchar transmisión entrande desde los d
 
 ::
 
-  ./bos-toolbox.exe discover scan 10.10.10.0/24
+  ./bos-toolbox.bat discover scan 10.10.10.0/24
 
 Este comando va explorar la red, en el rango 10.10.10.0 - 10.10.10.255 y mostrará los mineros que encuentre con sus direcciones IP.
 

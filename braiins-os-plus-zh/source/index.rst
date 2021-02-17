@@ -59,6 +59,21 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 更新日志
 *********
 
+21.02
+---------------------------
+
+* All mining hardware types
+
+  * [feature] the web interface now has a Support Tool that can generate archive with logs that can be sent to us
+  * [feature] new GUI dashboard provides better overview of miner health and performance in one condensed page
+  * [feature] toolbox improvements include listing miners from discover script and single IP command
+  * [feature] image for SD card has auto-install feature to NAND that eliminates the need for using a desktop machine to trigger installation from SD completely
+
+
+* Antminer X17
+
+  * [feature] mining on X17 family can be quickly paused/resumed which is suitable for farms participating in grid programs. E.g. "pause" command looks like this: `echo '{"command":"pause"}' | nc IP_ADDRESS 4028`
+
 20.12
 ---------------------------
 
