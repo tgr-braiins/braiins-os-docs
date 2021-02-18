@@ -385,6 +385,25 @@ listen                                listen for incoming broadcast from devices
                                       report button is pressed)
 ====================================  ============================================================
 
+====================================  ============================================================
+Optional Arguments - scan             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+--passwords PASSWORDS                 path to file with list of possible passwords for connection
+-o OUTPUT, --output OUTPUT            save list of found IP addresses to file
+-j JOBS, --jobs JOBS                  number of concurrent jobs to scan network
+-v, --verbose                         Report networking errors
+====================================  ============================================================
+
+====================================  ============================================================
+Optional Arguments - listen             Description
+====================================  ============================================================
+-h, --help                            show this help message and exit
+-o OUTPUT, --output OUTPUT            save list of found IP addresses to file
+--format FORMAT                       change default formatting string for device information; the
+                                      tags '{IP}' and '{MAC}' will be replaced with actual data
+====================================  ============================================================
+
 **Example:**
 
 ::
