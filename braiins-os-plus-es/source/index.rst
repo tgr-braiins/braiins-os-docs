@@ -55,9 +55,9 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
   También puede `enviar petición VIP <https://slushpool.kayako.com/en-us/conversation/new/11>`_ a nuestro equipo de soporte.
 
 
-*********
-Changelog
-*********
+*******************
+Registro de Cambios
+*******************
 
 21.02
 ---------------------------
