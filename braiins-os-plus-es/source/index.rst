@@ -62,13 +62,17 @@ Changelog
 21.02
 ---------------------------
 
-* All mining hardware types
+* Todos los tipos de hardware de minado
 
-  * [feature] the web interface now has a Support Tool that can generate archive with logs that can be sent to us
-  * [feature] new GUI dashboard provides better overview of miner health and performance in one condensed page
-  * [feature] toolbox improvements include listing miners from discover script and single IP command
-  * [feature] image for SD card has auto-install feature to NAND that eliminates the need for using a desktop machine to trigger installation from SD completely
+  * [característica] la interfaz web ahora tiene una Herramienta de Soporte que puede generar el archivo con los registros que pueden ser enviados a nosotros
+  * [característica] el nuevo tablero GUI permite una mejor vista general de la salud del minero y su rendimiento en una sola página condensada
+  * [característica] mejoras en la caja de herramientas incluye listar los mineros desde el script discover y command para un solo IP
+  * [característica] la imagen para tarjeta sd tiene una característica de auto-instalación a NAND que elimina completamente la necesidad de usar una máquina de escritorio para iniciar la instalación desde SD
 
+
+* Antminer X17
+
+  * [característica] minar en la familia X17 se puede pausar/seguir rápidamente lo cual es útil para granjas que participan en programas de la red eléctrica. Ej: el comando "pause" sería así: `echo '{"command":"pause"}' | nc IP_ADDRESS 4028`
 
 * Antminer X17
 
