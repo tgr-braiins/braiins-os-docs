@@ -594,7 +594,6 @@ Instalar Braiins OS+ usando la tarjeta SD card
 
  * Inserte la tarjeta SD card en el dispositivo, luego inicie el dispositivo.
  * Tras un momento, debe poder acceder la interfaz de Braiins OS+ a través de la dirección IP del dispositivo.
- * *[Opcional]:* Ahora puede instalar Braiins OS+ a la NAND (ver la sección :ref:`sd_nand_install`)
 
 .. _sd_network:
 
