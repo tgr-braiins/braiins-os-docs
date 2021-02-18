@@ -74,10 +74,6 @@ Registro de Cambios
 
   * [característica] minar en la familia X17 se puede pausar/seguir rápidamente lo cual es útil para granjas que participan en programas de la red eléctrica. Ej: el comando "pause" sería así: `echo '{"command":"pause"}' | nc IP_ADDRESS 4028`
 
-* Antminer X17
-
-  * [feature] mining on X17 family can be quickly paused/resumed which is suitable for farms participating in grid programs. E.g. "pause" command looks like this: `echo '{"command":"pause"}' | nc IP_ADDRESS 4028`
-
 20.12
 ---------------------------
 
