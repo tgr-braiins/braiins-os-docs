@@ -15,6 +15,25 @@ Configure Braiins OS+ using BOS Toolbox
 
 You can easily configure Braiins OS+ on multiple devices using the **BOS Toolbox**. In order to do so, follow the steps in the section :ref:`bosbox_configure`.
 
+*****************
+BTC Tools Support
+*****************
+
+  * Braiins OS+ is supported by BTC Tools - batch management tool for miners. New versions of Braiins OS+ are supported - upgrade via Toolbox if you are using versions before 20.11. S9 and as well as x17 miners with Braiins OS+ are supported. BTC Tools for Windows/Linux can be downloaded here `here <https://btccom.zendesk.com/hc/en-us/articles/360020105012>`_. On the same page, documenation on how to use BTC Tools is available.
+
+  * With exception of the below, Braiins OS+ supports all features of BTC Tools.
+
+  * Limitations of BTC Tools when using with Braiins OS+:
+
+    * Settings in Overclock/Underclock section does not affect Braiins OS+
+    * LPM checkbox works for S9 only and enables/disables asicboost. However, pools that support mining.configure and version rolling are still required.
+    * Enhanced LPM will turn autotuning on and set miner's power limit to 2/3 of the default power limit for the miner
+    * Disabling Enhanced LPM keeps autotuning on its last state and sets miner's power limit to the default power limit for the miner (hardware specific)
+    * Note: both LPM and Enhanced LPM options are used only when "Power Control" is checked. Otherwise, machine specific settings is kept.
+    * Autotuning cannot be currently turned off with BTC Tools and power limit cannot be set to specific value
+    * Hardware attribute is not populated
+    * In case when there are multiple groups configured on the miner, only pools associated with the first one are shown in the tool
+
 ************************************************
 Configure Braiins OS+ using Remote (SSH) Package
 ************************************************

@@ -36,6 +36,22 @@ Características
  * Monitoreo avanzado para prevenir el sobrecalentamiento y otros problemas
  * Mecanismo de Auto-actualización
  * Escalado Dinámico de Energía, lo cual baja el límite de energía en caso de altas temperaturas, para minado continuo
+ * **Soporte a BTC Tools**
+
+  * Braiins OS+ tiene soporte en BTC Tools - la herramienta para mineros de gestión por lotes. Soporta las nuevas versiones de Braiins OS+ actualice con la caja de herramientas si utiliza versiones anteriores a 20.11. Los mineros S9 y también x17 con Braiins OS+ tienen soporte. BTC Tools para Windows/Linux puede descargarse `aquí <https://btccom.zendesk.com/hc/en-us/articles/360020105012>`_. En la misma página, documentación sobre como usar BTC Tools está disponible.
+
+  * Con excepción de lo de abajo, Braiins OS+ soporta todas las características de BTC Tools.
+
+  * Limitaciones de BTC Tools al usarlo con Braiins OS+:
+
+    * La configuración en la sección Overclock/Underclock no afecta a Braiins OS+
+    * El recuadro LPM funciona solo en la S9 y activa/desactiva asicboost. Sin embargo, esto aun requiere que el pool soporte mining.configure y version rolling.
+    * Enhanced LPM enciende autotuning y fija el power limit del minero a 2/3 del power limit predeterminado para ese minero.
+    * Deshabilitar Enhanced LPM mantiene el último estado del autotuning y fija el power limit al valor predeterminado del minero (según hardware)
+    * Nota: tanto LPM como Enhanced LPM son opciones que solo se usan si se marca la casilla de "Power Control". De lo contrario, se mantiene la configuración específica según la máquina.
+    * Actualmente no se puede desactivar Autotuning con BTC Tools y power limit no puede establecerse a un valor específico.
+    * Hardware attribute no está rellenado.
+    * En caso de tener varios grupos configurados en el minero, solo los pools asociados con el primero se mostrarán en la herramienta.
 
 ******************
 Contacto y Soporte
@@ -52,7 +68,7 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
   * `RU group <https://t.me/BraiinsOS_RU>`_
   * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
-  También puede `enviar petición VIP <https://slushpool.kayako.com/en-us/conversation/new/11>`_ a nuestro equipo de soporte.
+  También puede `enviar petición VIP <https://help.slushpool.com/en/support/tickets/new>`_ a nuestro equipo de soporte.
 
 
 *******************

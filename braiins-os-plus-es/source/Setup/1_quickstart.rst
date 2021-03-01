@@ -61,6 +61,8 @@ Braiins OS+ será instalado en los mineros. La configuración de red (ej: Direcc
 
 Para mayor información acerca de este proceso, y para mas opciones visite las secciones :ref:`bosbox` y :ref:`bosbox_install`.
 
+Braiins OS+ tiene soporte en BTC Tools - la herramienta para mineros de gestión por lotes. BTC Tools para Windows/Linux puede descargarse `aquí <https://btccom.zendesk.com/hc/en-us/articles/360020105012>`_. En la misma página, documentación sobre como usar BTC Tools está disponible.
+
 ====================================================
 Corriendo firmware de serie liberado en 2019 o luego
 ====================================================

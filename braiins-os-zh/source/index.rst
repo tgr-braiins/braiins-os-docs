@@ -51,7 +51,7 @@ Braiis OS是用于ASIC矿机的完全开源操作系统。在2018年，Braiins O
   * `中文群组 <https://t.me/BraiinsOS_ZH>`_ （我们的微信群请详询电报群内客服邀请加入）
   
 
- 您也可以向我们的客服团队 `发送VIP请求 <https://slushpool.kayako.com/en-us/conversation/new/11>`_ 。
+ 您也可以向我们的客服团队 `发送VIP请求 <https://help.slushpool.com/en/support/tickets/new>`_ 。
 
 
 *********

@@ -51,7 +51,7 @@ Braiins OS - это полностью открытая операционная
   * `RU группа <https://t.me/BraiinsOS_RU>`_
   * `ZH группа <https://t.me/BraiinsOS_ZH>`_
   
-  Вы также можете `отправить VIP-запрос <https://slushpool.kayako.com/en-us/conversation/new/11>`_ в нашу службу поддержки.
+  Вы также можете `отправить VIP-запрос <https://help.slushpool.com/en/support/tickets/new>`_ в нашу службу поддержки.
 
 ****************
 Журнал изменений
