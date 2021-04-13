@@ -48,7 +48,7 @@ In order to connect a device to your Braiins OS+ Manager Farm, you need to:
   - set the Farm ID (bos_mgmt_id) on the selected devices.
 
 Those steps can be done using BOS Toolbox with the following steps.
-*Note: Download the latest version of BOS Toolbox `from here <https://braiins-os.com/plus/download/>`_, before using the commands bellow.*
+**Important note:** Download the latest version of BOS Toolbox `from here <https://manager.braiins.com/#/register>`_, before using the commands bellow.
 
 .. raw:: html
 
