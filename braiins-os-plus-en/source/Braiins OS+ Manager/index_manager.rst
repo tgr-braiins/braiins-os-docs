@@ -21,6 +21,8 @@ Every Farm has its configuration that is being pushed to the devices immediately
 Getting Started
 ***************
 
+In order to start using Braiins OS+ Manager, TODO
+
 =======
 Sign Up
 =======
@@ -53,71 +55,44 @@ In order to connect a device to your Braiins OS+ Manager Farm, you need to:
 
 Those steps can be done using BOS Toolbox.
 
-===============================================
-Setting Farm ID during Braiins OS+ installation
-===============================================
+.. raw:: html
+
+   <details>
+   <summary><a>Setting Farm ID during Braiins OS+ installation</a></summary>
 
 If your devices don’t run Braiins OS+ yet, you can install the Braiins OS+ and set the Farm ID in one simple step by using BOS Toolbox’s install command with `--bos-mgmt-id` argument.
-
 Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
-
-For **Windows** command terminal: ::
-
+   
+::
+  #Windows
   bos-toolbox.bat install --bos-mgmt-id FARM_ID HOSTS
 
-
-For **Linux** command terminal: ::
-      
+  #Linux
   ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
 
-========================================================
-Update existing Braiins OS+ installation and set Farm ID
-========================================================
+.. raw:: html
+
+   <p></p>
+   </details>
+
+.. raw:: html
+
+   <details>
+   <summary><a>Update existing Braiins OS+ installation and set Farm ID</a></summary>
 
 If your devices are already running Braiins OS+, proceed with the following steps:
 
-**Update the devices to Braiins OS+ 21.04**
+::
+  #Windows
+  bos-toolbox.bat update --bos-mgmt-id FARM_ID HOSTS
 
-The newest 21.04 version is not included in the “update list” and it won’t be installed automatically. The reason is, that the newest update doesn’t include any significant updates other than the Braiins OS+ Manager capability. Therefore, you have to install the firmware update manually using the following command.
+  #Linux
+  ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
 
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation).
+.. raw:: html
 
-For **Windows** command terminal: ::
-
-  bos-toolbox.bat command -o HOSTS "wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-12-17-0-27e4d572-20.12-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar"
-
-
-For **Linux** command terminal: ::
-      
-  ./bos-toolbox command -o HOSTS "wget -O /tmp/firmware.tar https://feeds.braiins-os.com/am1-s9/firmware_2020-12-17-0-27e4d572-20.12-plus_arm_cortex-a9_neon.tar && sysupgrade /tmp/firmware.tar"
-
-**Add Farm ID to existing Braiins OS+ installation**
-
-Once the devices have been updated, you can add Farm ID and restart BOSMiners for the change to take effect using the following command.
-
-Replace the “HOSTS” placeholder with an IP address or with a text file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
-
-For **Windows** command terminal: ::
-
-  bos-toolbox.bat command -o HOSTS "echo FARM_ID > /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
-
-For **Linux** command terminal: ::
-      
-  ./bos-toolbox command -o HOSTS "echo FARM_ID > /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
-
-********************************
-Disconnecting device from a Farm
-********************************
-
-If you, for whatever reason, wish to disconnect devices from a farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
-
-For **Windows** command terminal: ::
-
-  bos-toolbox.bat command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
-
-For **Linux** command terminal: ::
-      
-  ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
+   <p></p>
+   </details>
 
 ******************
 Configuring a Farm
@@ -148,3 +123,17 @@ Once you click on the Save button, the new configuration is propagated to the de
 **Can I change the config locally?**
 
 Once your device is connected to the Manager, it has. You can technically change the config locally, however, it will be overwritten by the config in the Manager very shortly. Therefore, if you wish to take individual control of the device, disconnect it from the Farm first.
+
+********************************
+Disconnecting device from a Farm
+********************************
+
+If you, for whatever reason, wish to disconnect devices from a farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
+
+For **Windows** command terminal: ::
+
+  bos-toolbox.bat command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
+
+For **Linux** command terminal: ::
+      
+  ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
