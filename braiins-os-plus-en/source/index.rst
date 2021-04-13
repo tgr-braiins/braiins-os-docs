@@ -7,6 +7,7 @@
    self
    Setup/index*
    Configuration/index*
+   Braiins OS+ Manager/index*
    Basic User's Guide/index*
    Development/index*
 
