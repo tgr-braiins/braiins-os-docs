@@ -15,7 +15,7 @@ The data are being sent over the Stratum V2 protocol and using the same channel 
 
 The main object in the Braiins OS+ Manager is a group of devices called Farm. Every Farm has its Farm ID. It is a string you have to set on your Braiins OS+ devices if you wish to connect them to the Farm. Once connected, the devices send their performance data to the Braiins OS+ Manager every 120 seconds.
 
-Every Farm has its configuration that is being pushed to the devices immediately after each save. Since the same config is applied to all devices in a Farm, **we strongly recommend that you create a separate farm for each device type** or simply a group of devices (even of the same type) you wish to configure differently.
+Every Farm has its configuration. When you update and save new configuration, it will be propagated to a device once the Manager receives next performance data payload from the device. Since the same config is applied to all devices in a Farm, **we strongly recommend that you create a separate farm for each device type** or simply a group of devices (even of the same type) you wish to configure differently.
 
 *******
 Sign Up
@@ -31,15 +31,15 @@ Create a Farm
 
 Once you are logged, start with creating a Farm:
 
-  - Open the Farm creation dialogue by clicking on the '+' symbol.
-  - Choose a name you wish to use for your farm. You can change the name later.
-  - Enter mining credentials. You will be able to change the credentials later as well as add other pools.
-  - The Farm ID for your farm has been created.
+1. Open the Farm creation dialogue by clicking on the '+' symbol.
+2. Choose a name you wish to use for your farm. You can change the name later.
+3. Enter mining credentials. You will be able to change the credentials later as well as add other pools.
+4. The Farm ID for your farm has been created.
 
 The Farm ID is a string you have to set on your Braiins OS+ devices you wish to connect to the Farm. 
 
 *******************
-Connect to the Farm
+Connect Devices to a Farm
 *******************
 
 In order to connect a device to your Braiins OS+ Manager Farm, you need to:
@@ -78,7 +78,7 @@ Replace the “HOSTS” placeholder with an IP address or with a text-file conta
    <summary><a>Update existing Braiins OS+ installation and set Farm ID</a></summary>
    <p></p>
 
-If your devices are already running Braiins OS+, proceed with the following steps:
+If your devices are already running Braiins OS+, use the following command to update them to the latest Braiins OS+ version and set Farm ID on them:
 
 ::
 
@@ -86,7 +86,7 @@ If your devices are already running Braiins OS+, proceed with the following step
     bos-toolbox.bat update --bos-mgmt-id FARM_ID HOSTS
 
     #Linux
-    ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
+    ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
 
 .. raw:: html
 
@@ -104,6 +104,7 @@ There are three different options on how the devices included in a Farm can iden
 
   - Per Device (FARMNAME_IP4) - default - workername consists of the name of the Farm and fourth segment of IP address of a device
   - Per Device (FARMNAME_IP3_IP4) - in addition, the third segment of the IP address is also included
+  - Per Device (FARMNAME_IP2_IP3_IP4) - in addition, the second segment of the IP address is also included
   - Single (FARMNAME) - All devices use the same workername (name of the Farm). This means that the hash rate is aggregated to one worker on the pool side.
 
 The workername mode may be changed anytime.
@@ -116,12 +117,12 @@ The configuration requires you to input credentials for at least one pool (which
 
 Once you click on the Save button, the new configuration is propagated to the devices included in the Farm almost immediately - typically within one second.
 
-**Local changes**
+**Local Changes**
 
 Local changes (on the miner) are always overwritten by the the Manager. If you wish to take control of the device, disconnect it from the Farm first.
 
 ************************
-Disconnect from the Farm
+Disconnect Devices from a Farm
 ************************
 
 If you wish to disconnect the devices from the Farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
@@ -133,3 +134,7 @@ If you wish to disconnect the devices from the Farm and configure them individua
     
     #Linux
     ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
+
+************************
+Troubleshooting
+************************
