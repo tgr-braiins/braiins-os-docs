@@ -138,3 +138,41 @@ If you wish to disconnect the devices from the Farm and configure them individua
 ************************
 Troubleshooting
 ************************
+
+**1. Check if the device runs Braiins OS+ 21.04 or later**
+
+  - Using GUI: the version is displayed in the footer
+  - Using CLI: the version is displayed on the SSH welcome screen
+
+**Fix:** if your run older Braiins OS+ version, update your devices first
+
+**2. Check if the Farm ID has been correctly configured**
+
+Using GUI:
+
+  - go to Status -> Overview -> Miner
+  - Check if the correct Farm ID is present in the *BOS Management ID* field.
+  - If the field is not present at all, no Farm ID is configured on the device.
+
+Using CLI:
+
+  - `cat /etc/bos_mgmt_id`
+  - the command should return the Farm ID
+
+**Fix**: if the ID is not present or is incorrect, try to set it again
+
+**3. Reboot your device**
+
+Still doesn’t work? Reboot your device.
+
+  - Using GUI: System -> Reboot -> Perform Reboot
+  - Using CLI: `reboot`
+
+**4. Contact the support team**
+
+If nothing mentioned above has helped, [submit a support ticket](https://help.slushpool.com/en/support/tickets/new>). 
+
+For effective troubleshooting, include the following information:
+
+  - **Hardware ID** (Status -> Overview)
+  - **System Log** (Status -> System Log)
