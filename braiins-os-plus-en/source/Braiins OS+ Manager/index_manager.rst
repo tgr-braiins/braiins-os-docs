@@ -38,9 +38,9 @@ Once you are logged, start with creating a Farm:
 
 The Farm ID is a string you have to set on your Braiins OS+ devices you wish to connect to the Farm. 
 
-*******************
+*************************
 Connect Devices to a Farm
-*******************
+*************************
 
 In order to connect a device to your Braiins OS+ Manager Farm, you need to:
 
@@ -50,11 +50,7 @@ In order to connect a device to your Braiins OS+ Manager Farm, you need to:
 Those steps can be done using BOS Toolbox with the following steps.
 **Important note:** Download the latest version of BOS Toolbox `from here <https://manager.braiins.com/#/register>`_, before using the commands bellow.
 
-.. raw:: html
-
-   <details>
-   <summary><a>Setting Farm ID during Braiins OS+ installation</a></summary>
-   <p></p>
+**Setting Farm ID during Braiins OS+ installation**
 
 If your devices don’t run Braiins OS+ yet, you can install the Braiins OS+ and set the Farm ID in one simple step by using BOS Toolbox’s install command with `--bos-mgmt-id` argument.
 Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
@@ -67,16 +63,7 @@ Replace the “HOSTS” placeholder with an IP address or with a text-file conta
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
 
-.. raw:: html
-
-   <p></p>
-   </details>
-
-.. raw:: html
-
-   <details>
-   <summary><a>Update existing Braiins OS+ installation and set Farm ID</a></summary>
-   <p></p>
+**Update existing Braiins OS+ installation and set Farm ID**
 
 If your devices are already running Braiins OS+, use the following command to update them to the latest Braiins OS+ version and set Farm ID on them:
 
@@ -87,12 +74,6 @@ If your devices are already running Braiins OS+, use the following command to up
 
     #Linux
     ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
-
-.. raw:: html
-
-   <p></p>
-   </details>
-   <p></p>
 
 ******************
 Configure the Farm
@@ -121,9 +102,9 @@ Once you click on the Save button, the new configuration is propagated to the de
 
 Local changes (on the miner) are always overwritten by the the Manager. If you wish to take control of the device, disconnect it from the Farm first.
 
-************************
+******************************
 Disconnect Devices from a Farm
-************************
+******************************
 
 If you wish to disconnect the devices from the Farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
 
@@ -135,9 +116,9 @@ If you wish to disconnect the devices from the Farm and configure them individua
     #Linux
     ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
 
-************************
+***************
 Troubleshooting
-************************
+***************
 
 **1. Check if the device runs Braiins OS+ 21.04 or later**
 
@@ -170,7 +151,7 @@ Still doesn’t work? Reboot your device.
 
 **4. Contact the support team**
 
-If nothing mentioned above has helped, [submit a support ticket](https://help.slushpool.com/en/support/tickets/new>). 
+If nothing mentioned above has helped, `submit a support ticket <https://help.slushpool.com/en/support/tickets/new>`_. 
 
 For effective troubleshooting, include the following information:
 
