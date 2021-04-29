@@ -38,22 +38,22 @@ Cuando haya ingresado, empiece creando una Granja:
 
 La Farm ID es una frase que debe poner en sus dispositivos Braiins OS+ que desee conectar a la Granja.
 
-*************************
-Connect Devices to a Farm
-*************************
+**********************************
+Connectar Dispositivos a la Granja
+**********************************
 
-In order to connect a device to your Braiins OS+ Manager Farm, you need to:
+Para conectar un dispositivo a su Granja Braiins OS+ Manager, debe:
 
-  - run Braiins OS+ 21.04 or later running on the selected devices, 
-  - set the Farm ID (bos_mgmt_id) on the selected devices.
+  - correr Braiins OS+ 21.04 o posterior en los dispositivos seleccionados, 
+  - poner la Farm ID (bos_mgmt_id) en los dispositivos seleccionados.
 
-Those steps can be done using BOS Toolbox with the following steps.
-**Important note:** Download the latest version of BOS Toolbox `from here <https://braiins.com/os/plus/download>`_, before using the commands bellow.
+Esos pasos pueden realizarse usando la BOS Toolbox (Caja de Herramientas) siguendo los pasos a continuación.
+**Nota importante:** Descargue la última versión de la BOS Toolbox `desde aquí <https://braiins.com/os/plus/download>`_, antes de usar los comandos abajo.
 
-**Setting Farm ID during Braiins OS+ installation**
+**Colocar Farm ID durante la instalación Braiins OS+**
 
-If your devices don’t run Braiins OS+ yet, you can install the Braiins OS+ and set the Farm ID in one simple step by using BOS Toolbox’s install command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+Si sus dispositivos no están corriendo Braiins OS+ aun, puede instalar Braiins OS+ y colocarles el Farm ID en un paso simple usando el conmando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
+Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que contenga IPs múltiples (uno por línea para instalación por lote). Reemplace “FARM_ID” con su Farm ID.
    
 ::
 
