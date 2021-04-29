@@ -154,7 +154,7 @@ There are three different options on how the devices included in a Farm can iden
 
 **4. با تیم پشتیبانی تماس بگیرید**
 
-اگر هیچکدام از روش‌های بالا کارساز نبود،‌`یک تیکت پشتیبانی ثبت کنید <https://help.slushpool.com/en/support/tickets/new>`_. 
+اگر هیچکدام از روش‌های بالا کارساز نبود،‌`یک تیکت پشتیبانی ثبت کنید <https://help.slushpool.com/ar/support/tickets/new>`_. 
 
 برای ایرادیابی بهتر و رفع سریعتر آن اطلاعات زیر را در تیکت ثبت کنید:
 
