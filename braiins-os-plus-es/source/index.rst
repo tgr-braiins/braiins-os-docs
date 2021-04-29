@@ -78,14 +78,14 @@ Registro de Cambios
 21.04
 ---------------------------
 
-This is a major release for Antminer S9 that adds support for Braiins OS+ Manager - a cloud solution for miners management and monitoring.
+Este es un lanzamiento mayor para Antminer S9 que añade soporte a Braiins OS+ Manager - una solución en la nube para la administración y vigilancia de mineros.
 
-* All mining hardware types
+* Todos los tipos de hardware de minado
 
-  * [feature] support for Braiins OS+ Manager - a cloud solution for miner management and monitoring, created in collaboration with FarmGod
-  * [feature] BOSminer has now reduced additional network traffic to absolute minimum when probing for alive stratum servers
-  * [bug] autotuning is now being enabled automatically when using the SD boot method
-  * [bug] BOSminer will run even when the configuration is incorrect to avoid connection loss due to BOSminer being stopped
+  * [característica] soporte a Braiins OS+ Manager - una solución en la nube para la administración y vigilancia de mineros, creada en colaboración con FarmGod
+  * [característica] BOSminer ha reducido el tráfico adicional de red al mínimo absoluto al sondear los servidores stratum vivos
+  * [fallo] el autoajuste ahora está activado automáticamente al usar el método de arranque SD
+  * [fallo] BOSminer correrá incluso cuando la configuración sea incorrecta para evitar la pérdida de conexión por estár BOSminer detenido
 
 21.02
 ---------------------------
