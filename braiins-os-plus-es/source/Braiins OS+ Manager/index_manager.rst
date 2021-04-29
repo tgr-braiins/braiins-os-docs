@@ -9,34 +9,34 @@ Braiins OS+ Manager
   :local:
   :depth: 1
 
-Braiins OS+ Manager is a cloud-based platform that allows you to remotely configure your mining devices running the Braiins OS+ firmware as well as continuously receive data about their performance.
+Braiins OS+ Manager es una plataforma basada en la nube que le permite configurar sus dispositivos de minería corriendo el firmware Braiins OS+ de forma remota y también recibe continuamente datos sobre su rendimiento.
 
-The data are being sent over the Stratum V2 protocol and using the same channel that is used for collecting the dev fee, thus not burdening your network with another connection.
+Los datos se están enviando a través del protocolo Stratum V2 y usan el mismo canal utilizado para recaudar la comisión de desarrollo, para no agobiar su red con otra conexión.
 
-The main object in the Braiins OS+ Manager is a group of devices called Farm. Every Farm has its Farm ID. It is a string you have to set on your Braiins OS+ devices if you wish to connect them to the Farm. Once connected, the devices send their performance data to the Braiins OS+ Manager every 120 seconds.
+El principal objeto dentro de Braiins OS+ Manager es un grupo de dispositivos denominado Farm (Granja). Cada Granja tiene su Farm ID. Esta es una frase que debe colocar a sus dispositivos Braiins OS+ si desea conectarlos a la Granja. Una vez conectados, los dispositivos enviarán sus datos de rendimiento al Braiins OS+ Manager cada 120 segundos.
 
-Every Farm has its configuration. When you update and save new configuration, it will be propagated to a device once the Manager receives next performance data payload from the device. Since the same config is applied to all devices in a Farm, **we strongly recommend that you create a separate farm for each device type** or simply a group of devices (even of the same type) you wish to configure differently.
+Cada Granja tiene su configuración. Cuando actualiza y guarda la nueva configuración, esta será propagada al dispositivo en lo que Manager reciba la siguiente carga con los datos de rendimiento desde el dispositivo. Ya que la misma configuración es aplicada a todos los dispositivos dentro de una Granja, **recomendamos encarecidamente que cree granjas separadas por tipo de dispositivo** o simplemente agrupar los dispositivos (incluso del mismo tipo) si desea configurarlos de manera diferente.
 
-*******
-Sign Up
-*******
+***********
+Inscribirse
+***********
 
-To use Braiins OS+ Manager, simply `signup here <https://manager.braiins.com/#/register>`_.
+Para usar Braiins OS+ Manager, simplemente `inscríbase aquí <https://manager.braiins.com/#/register>`_.
 
-After you enter your email address, we will send you confirmation email. After following the link in the email, you will be prompted to choose your password and setup two-factor authentication.
+Luego de introducir su dirección de correo, le estaremos enviando un correo de confirmación. Después de seguir el enlace del correo, se le pedirá que escoja una contraseña y configurar su autenticación de dos pasos (2FA).
 
-*************
-Create a Farm
-*************
+****************
+Crear una Granja
+****************
 
-Once you are logged, start with creating a Farm:
+Cuando haya ingresado, empiece creando una Granja:
 
-1. Open the Farm creation dialogue by clicking on the '+' symbol.
-2. Choose a name you wish to use for your farm. You can change the name later.
-3. Enter mining credentials. You will be able to change the credentials later as well as add other pools.
-4. The Farm ID for your farm has been created.
+1. Abra el diálogo de creación de Granja haciendo clic al símbolo '+'.
+2. Escoja un nobre que desee usar para su granja. Puede cambiar luego el nombre.
+3. Ingrese las credenciales de minería. Podrá cambiar luego las credenciales y tambien añadir otros pools.
+4. La Farm ID para su granja ha sido creada.
 
-The Farm ID is a string you have to set on your Braiins OS+ devices you wish to connect to the Farm. 
+La Farm ID es una frase que debe poner en sus dispositivos Braiins OS+ que desee conectar a la Granja.
 
 *************************
 Connect Devices to a Farm
