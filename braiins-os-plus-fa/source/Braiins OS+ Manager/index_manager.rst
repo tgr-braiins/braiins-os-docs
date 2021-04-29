@@ -48,7 +48,7 @@ Braiins OS+ Manager یک پلت فرم ابری است که به شما امکا
   - شناسه Farm ID (bos_mgmt_id) را در بخش تنظیمات BOSminer دستگاه‌های مورد نظر تنظیم کنید.
 
 تمامی این مراحل با BOS Toolbox قابل انجام هستند.
-**نکته مهم:** آخرین نسخه BOS Toolbox را ‍‍‍‍`از اینجا <https://manager.braiins.com/#/register>`_ قبل از اجرای دستورات زیر دانلود کنید.
+**نکته مهم:** آخرین نسخه BOS Toolbox را ‍‍‍‍`از اینجا <https://braiins.com/os/plus/download>`_ قبل از اجرای دستورات زیر دانلود کنید.
 
 **تنظیم Farm ID همزمان با نصب Braiin OS+**
 
