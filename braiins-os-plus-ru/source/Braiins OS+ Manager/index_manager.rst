@@ -9,51 +9,53 @@ Braiins OS+ Manager
   :local:
   :depth: 1
 
-Braiins OS+ Manager is a cloud-based platform that allows you to remotely configure your mining devices running the Braiins OS+ firmware as well as continuously receive data about their performance.
+Braiins OS+ Manager - это cloud платформа, которая позволяет удаленно настраивать устройства для майнинга с прошивкой Braiins OS+, а также постоянно получать данные об их производительности.
 
-The data are being sent over the Stratum V2 protocol and using the same channel that is used for collecting the dev fee, thus not burdening your network with another connection.
+Данные отправляются по протоколу Stratum V2 и с использованием того же канала, который используется для сбора платы за разработку (devfee), таким образом, не обременяя вашу сеть другим подключением.
 
-The main object in the Braiins OS+ Manager is a group of devices called Farm. Every Farm has its Farm ID. It is a string you have to set on your Braiins OS+ devices if you wish to connect them to the Farm. Once connected, the devices send their performance data to the Braiins OS+ Manager every 120 seconds.
+Основным объектом Braiins OS+ Manager является группа устройств под названием Farm (ферма). У каждой фермы есть свой идентификатор - Farm ID. Это строка, которую вы должны прописать на своих устройствах Braiins OS+, если вы хотите подключить их к ферме. После подключения устройства каждые 120 секунд отправляют данные о своей производительности в Braiins OS+ Manager.
 
-Every Farm has its configuration. When you update and save new configuration, it will be propagated to a device once the Manager receives next performance data payload from the device. Since the same config is applied to all devices in a Farm, **we strongly recommend that you create a separate farm for each device type** or simply a group of devices (even of the same type) you wish to configure differently.
+У каждой фермы есть своя конфигурация. Когда вы обновляете и сохраняете новую конфигурацию, она будет перенесена на устройство после того, как Manager получит полезные данные о производительности от устройства. Поскольку одна и та же конфигурация применяется ко всем устройствам в ферме, **мы настоятельно рекомендуем вам создать отдельную ферму для каждого типа устройств** или просто отдельные группы устройств (даже одного типа), которые вы хотите настроить по-разному.
 
-*******
-Sign Up
-*******
+**************
+Регистрация
+**************
 
-To use Braiins OS+ Manager, simply `signup here <https://manager.braiins.com/#/register>`_.
+Чтобы использовать Braiins OS+ Manager, просто `зарегестрируйтесь здесь <https://manager.braiins.com/#/register>`_.
 
-After you enter your email address, we will send you confirmation email. After following the link in the email, you will be prompted to choose your password and setup two-factor authentication.
+После того, как вы введете свой адрес электронной почты, мы отправим вам письмо с подтверждением. После перехода по ссылке в письме вам будет предложено выбрать пароль и настроить двухфакторную аутентификацию.
 
-*************
-Create a Farm
-*************
+***************
+Создание фермы
+***************
 
-Once you are logged, start with creating a Farm:
+Как только вы войдете в систему, начните с создания фермы:
 
-1. Open the Farm creation dialogue by clicking on the '+' symbol.
-2. Choose a name you wish to use for your farm. You can change the name later.
-3. Enter mining credentials. You will be able to change the credentials later as well as add other pools.
-4. The Farm ID for your farm has been created.
+1. Откройте диалог создания фермы, щелкнув символ «+».
+2. Выберите имя, которое вы хотите использовать для своей фермы. Вы можете изменить имя позже.
+3. Введите учетные данные для майнинга. Позже вы сможете изменить учетные данные, а также добавить другие пулы.
+4. Farm ID для вашей фермы создан.
 
-The Farm ID is a string you have to set on your Braiins OS+ devices you wish to connect to the Farm. 
+Farm ID - это строка, которую необходимо установить на устройствах Braiins OS+, которые вы хотите подключить к ферме.
 
-*************************
-Connect Devices to a Farm
-*************************
+*****************************
+Подключите устройства к ферме
+*****************************
 
-In order to connect a device to your Braiins OS+ Manager Farm, you need to:
+Чтобы подключить устройство к ферме Braiins OS+ Manager, вам необходимо:
 
-  - run Braiins OS+ 21.04 or later running on the selected devices, 
-  - set the Farm ID (bos_mgmt_id) on the selected devices.
+  - чтобы на устройстве стояла Braiins OS+ 21.04 или более новая версия прошивки, 
+  - прописанный Farm ID (bos_mgmt_id) на выбранных устройствах.
 
-Those steps can be done using BOS Toolbox with the following steps.
-**Important note:** Download the latest version of BOS Toolbox `from here <https://manager.braiins.com/#/register>`_, before using the commands bellow.
+Эти шаги можно выполнить с помощью BOS Toolbox, выполнив следующие.
 
-**Setting Farm ID during Braiins OS+ installation**
+**Важная заметка:** Загрузите последнюю версию BOS Toolbox `отсюда <https://manager.braiins.com/#/register>`_, перед использованием команд ниже.
 
-If your devices don’t run Braiins OS+ yet, you can install the Braiins OS+ and set the Farm ID in one simple step by using BOS Toolbox’s install command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+**Настройка Farm ID при установке Braiins OS+**
+
+Если ваши устройства еще не работают на Braiins OS+, вы можете установить Braiins OS+ и задать Farm ID за один простой шаг, используя команду установки BOS Toolbox с аргументом `--bos-mgmt-id`.
+
+Замените заполнитель «HOSTS» IP-адресом или текстовым файлом, содержащим несколько IP-адресов (по одному на строку, для пакетной установки). Замените «FARM_ID» на свой идентификатор фермы.
    
 ::
 
@@ -63,9 +65,9 @@ Replace the “HOSTS” placeholder with an IP address or with a text-file conta
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
 
-**Update existing Braiins OS+ installation and set Farm ID**
+**Обновление существующей установки Braiins OS+ и настройка Farm ID**
 
-If your devices are already running Braiins OS+, use the following command to update them to the latest Braiins OS+ version and set Farm ID on them:
+Если ваши устройства уже работают на Braiins OS+, используйте следующую команду, чтобы обновить их до последней версии Braiins OS+ и установить для них Farm ID.:
 
 ::
 
@@ -76,37 +78,36 @@ If your devices are already running Braiins OS+, use the following command to up
     ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
 
 ******************
-Configure the Farm
+Настройка фермы
 ******************
 
-**Workername Setup**
+**Настройка воркеров**
 
-There are three different options on how the devices included in a Farm can identify themselves in the Manager device list and on the pool side:
+Существует три различных варианта того, как устройства, включенные в ферму, могут идентифицировать себя в списке устройств от Braiins OS+ Manager и соответственно на стороне пула:
 
-  - Per Device (FARMNAME_IP4) - default - workername consists of the name of the Farm and fourth segment of IP address of a device
-  - Per Device (FARMNAME_IP3_IP4) - in addition, the third segment of the IP address is also included
-  - Per Device (FARMNAME_IP2_IP3_IP4) - in addition, the second segment of the IP address is also included
-  - Single (FARMNAME) - All devices use the same workername (name of the Farm). This means that the hash rate is aggregated to one worker on the pool side.
+  - На устройство (FARMNAME_IP4) - по умолчанию - workername состоит из названия фермы и четвертого сегмента IP-адреса устройства
+  - На устройство (FARMNAME_IP3_IP4) - также включен третий сегмент IP-адреса
+  - На устройство (FARMNAME_IP2_IP3_IP4) - также включается второй сегмент IP-адреса
+  - Одиночный (FARMNAME) - Все устройства используют одно и то же workername (название фермы). Это означает, что хешрейт агрегируется для одного воркера на стороне пула.
 
-The workername mode may be changed anytime.
+Схема создания workername может быть изменена в любое время.
 
-**Mining Configuration**
+**Настройка майнинга**
 
-The mining configuration available in the “Configuration” tab includes a sub-set of `general Braiins OS\+ configuration <https://docs.braiins.com/os/plus-en/Configuration/index_configuration.html>`_ available on individual devices. For example, options for individual hash chains are not available here since it only makes sense from an individual device perspective. Other than that, all the important options to configure tuning, target temperatures or dynamic power scaling are present.
+Конфигурация майнинга, доступная на вкладке «Configuration», включает подмножество `конфигурации Braiins OS\+ <https://docs.braiins.com/os/plus-en/Configuration/index_configuration.html>`_, которая доступна на отдельных устройствах. Например, здесь недоступны параметры для отдельных hash chains, поскольку это имеет смысл только с точки зрения отдельного устройства. Помимо этого, присутствуют все важные параметры для настройки тюнинга, целевых температур или динамического масштабирования мощности.
+Конфигурация требует, чтобы вы ввели данные как минимум для одного пула (что выполняется в процессе создания фермы). Остальные поля конфигурации необязательны. Если вы не укажете значение, каждое устройство в ферме будет просто использовать значение по умолчанию. Это поведение эквивалентно оставлению конфигурации одного устройства в Braiins OS+ пустой.
 
-The configuration requires you to input credentials for at least one pool (which is done during the farm creation process). Other configuration fields are optional. If you don't provide any value, each Device in a Farm will simply use its default. It is behavior equivalent to leaving the config of a single Braiins OS+ device empty.
+После того, как вы нажмете кнопку «Сохранить», новая конфигурация будет распространена на устройства, включенные в ферму, практически сразу - обычно в течение одной секунды.
 
-Once you click on the Save button, the new configuration is propagated to the devices included in the Farm almost immediately - typically within one second.
+**Локальные настройки**
 
-**Local Changes**
-
-Local changes (on the miner) are always overwritten by the the Manager. If you wish to take control of the device, disconnect it from the Farm first.
+Локальные изменения (на майнере) всегда перезаписываются настройками в Braiins OS+ Manager. Если вы хотите получить управление устройством, сначала отключите его от фермы.
 
 ******************************
-Disconnect Devices from a Farm
+Отключение устройств от фермы
 ******************************
 
-If you wish to disconnect the devices from the Farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
+Если вы хотите отключить устройства от фермы и настроить их индивидуально, вы можете сделать это, просто удалив файл bos_mgmt_id с выбранных устройств. Для нескольких устройств это можно сделать с помощью BOS Toolbox следующим образом:
 
 ::
 
@@ -116,44 +117,44 @@ If you wish to disconnect the devices from the Farm and configure them individua
     #Linux
     ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
 
-***************
-Troubleshooting
-***************
+****************
+Решение проблем
+****************
 
-**1. Check if the device runs Braiins OS+ 21.04 or later**
+**1. Проверьте, стоит ли на устройстве Braiins OS+ версии 21.04 или новее**
 
-  - Using GUI: the version is displayed in the footer
-  - Using CLI: the version is displayed on the SSH welcome screen
+  - Через GUI: версия отображается в нижнем колонтитуле
+  - Через CLI: версия отображается на экране с SSH приветствием 
 
-**Fix:** if your run older Braiins OS+ version, update your devices first
+**Исправление:** если вы используете более старую версию Braiins OS+, сначала обновите свои устройства
 
-**2. Check if the Farm ID has been correctly configured**
+**2. Проверьте, правильно ли настроен Farm ID**
 
-Using GUI:
+Через GUI:
 
-  - go to Status -> Overview -> Miner
-  - Check if the correct Farm ID is present in the *BOS Management ID* field.
-  - If the field is not present at all, no Farm ID is configured on the device.
+  - перейдите в Status -> Overview -> Miner
+  - Проверьте, указан ли правильный идентификатор фермы в строке *BOS Management ID*
+  - Если поле отсутствует, на устройстве не настроен Farm ID.
 
-Using CLI:
+Через CLI:
 
   - `cat /etc/bos_mgmt_id`
-  - the command should return the Farm ID
+  - эта команда должна вернуть Farm ID
 
-**Fix**: if the ID is not present or is incorrect, try to set it again
+**Исправление**: если ID отсутствует или неверен, попробуйте установить его снова
 
-**3. Reboot your device**
+**3. Перезагрузите ваше устройство**
 
-Still doesn’t work? Reboot your device.
+Все еще не работает? Перезагрузите ваше устройство.
 
-  - Using GUI: System -> Reboot -> Perform Reboot
-  - Using CLI: `reboot`
+  - Через GUI: System -> Reboot -> Perform Reboot
+  - Через CLI: `reboot`
 
-**4. Contact the support team**
+**4. Свяжитесь с нашей службой поддержки**
 
-If nothing mentioned above has helped, `submit a support ticket <https://help.slushpool.com/en/support/tickets/new>`_. 
+Если ничего из вышеперечисленного не помогло, `напишите запрос <https://help.slushpool.com/en/support/tickets/new>`_. 
 
-For effective troubleshooting, include the following information:
+Для эффективного устранения неполадок включите следующую информацию:
 
   - **Hardware ID** (Status -> Overview)
   - **System Log** (Status -> System Log)
