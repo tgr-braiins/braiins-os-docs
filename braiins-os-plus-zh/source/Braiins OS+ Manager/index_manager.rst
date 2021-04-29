@@ -2,55 +2,55 @@
 .. _manager:
 
 ###################
-Braiins OS+ Manager
+Braiins OS+国家
 ###################
 
 .. contents::
   :local:
   :depth: 1
 
-Braiins OS+ Manager is a cloud-based platform that allows you to remotely configure your mining devices running the Braiins OS+ firmware as well as continuously receive data about their performance.
+Braiins OS+国家是基于云端的管理平台让您远程设置您运行Braiins OS+固件的矿机，以及不断地受到有关其性能的数据。
 
-The data are being sent over the Stratum V2 protocol and using the same channel that is used for collecting the dev fee, thus not burdening your network with another connection.
+数据是通过阶层Stratum V2协议发送的，并使用与用于收开发费同样的信道，从而不会增加网络上的负载。
 
-The main object in the Braiins OS+ Manager is a group of devices called Farm. Every Farm has its Farm ID. It is a string you have to set on your Braiins OS+ devices if you wish to connect them to the Farm. Once connected, the devices send their performance data to the Braiins OS+ Manager every 120 seconds.
+Braiins OS+管家的重要单位是一群矿机叫做矿场。每个矿场有自己的ID。ID由您在想连接的Braiins OS+设备上所定的参数组成.一旦连接，设备每个120秒钟向Braiins OS+管家发送其性能数据。
 
-Every Farm has its configuration. When you update and save new configuration, it will be propagated to a device once the Manager receives next performance data payload from the device. Since the same config is applied to all devices in a Farm, **we strongly recommend that you create a separate farm for each device type** or simply a group of devices (even of the same type) you wish to configure differently.
+每个矿场有其配置。当您更新并保存到新配置时，一旦管家从设备收到下一次性能数据负载，配置将被传播到设备。由于一个配置用于矿场所有设备上，**我们强烈推荐您为每种矿机创建一个单独的矿场**或者为希望以不同配置的一组设备（甚至都是同一类型）创建一个单独的矿场。
 
 *******
-Sign Up
+注册 
 *******
 
-To use Braiins OS+ Manager, simply `signup here <https://manager.braiins.com/#/register>`_.
+为使用Braiins OS+国家，`点击此处注册 <https://manager.braiins.com/#/register>`_.
 
-After you enter your email address, we will send you confirmation email. After following the link in the email, you will be prompted to choose your password and setup two-factor authentication.
+输入电子邮件地址后，我们将给您发送确认电子邮件。 单击电子邮件中的链接后，系统将提示您选择密码并设置两布验证。
 
 *************
-Create a Farm
+创建矿场
 *************
 
-Once you are logged, start with creating a Farm:
+登录后，首先创建矿场：
 
-1. Open the Farm creation dialogue by clicking on the '+' symbol.
-2. Choose a name you wish to use for your farm. You can change the name later.
-3. Enter mining credentials. You will be able to change the credentials later as well as add other pools.
-4. The Farm ID for your farm has been created.
+1. 点击'+'符号打开矿场创建对话框。
+2. 选择您想使用的矿场名字。以后可以改变它。
+3. 输入挖矿登录消息。您以后可以更改登录消息以及添加其他矿池。
+4. 您矿场的ID已创建。
 
-The Farm ID is a string you have to set on your Braiins OS+ devices you wish to connect to the Farm. 
+矿场ID由您想在连接到矿场的Braiins OS+设备要设置的参数组成。
 
 *************************
-Connect Devices to a Farm
+将设备连接到矿场
 *************************
 
-In order to connect a device to your Braiins OS+ Manager Farm, you need to:
+为将设备连接到您的Braiins OS+矿机矿场，您需要：
 
-  - run Braiins OS+ 21.04 or later running on the selected devices, 
-  - set the Farm ID (bos_mgmt_id) on the selected devices.
+  - 在所选的设备上运行Braiins OS+股价21.04或者更新的版本  
+  - 在所选的设备上设置矿场ID（bos_mgmt_id）
 
-Those steps can be done using BOS Toolbox with the following steps.
-**Important note:** Download the latest version of BOS Toolbox `from here <https://braiins.com/os/plus/download>`_, before using the commands bellow.
+按照以下的步骤可以用BOS工具箱来执行则和谐操作。T
+**重要提醒:** 在使用以下的命令之前，`从这里<https://manager.braiins.com/#/register>`_下载BOS工具箱的最新版本。
 
-**Setting Farm ID during Braiins OS+ installation**
+**在Braiins OS+安装中设置矿场ID**
 
 If your devices don’t run Braiins OS+ yet, you can install the Braiins OS+ and set the Farm ID in one simple step by using BOS Toolbox’s install command with `--bos-mgmt-id` argument.
 Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
