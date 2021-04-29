@@ -78,14 +78,14 @@ Braiins OS+ سیستم عاملی برای ماینرهای ASIC است که ب�
 21.04
 ---------------------------
 
-This is a major release for Antminer S9 that adds support for Braiins OS+ Manager - a cloud solution for miners management and monitoring.
+این یک نسخه اصلی برای دستگاه‌های Antminer S9 است که قابلیت پشتیبانی از Braiins OS+ Manager - یک راهکار ابری برای مدیریت و مانیتورینگ دستگاه‌های ماینر را فراهم می‌کند.
 
-* All mining hardware types
+* همه سخت‌افزارهای استخراج
 
-  * [feature] support for Braiins OS+ Manager - a cloud solution for miner management and monitoring, created in collaboration with FarmGod
-  * [feature] BOSminer has now reduced additional network traffic to absolute minimum when probing for alive stratum servers
-  * [bug] autotuning is now being enabled automatically when using the SD boot method
-  * [bug] BOSminer will run even when the configuration is incorrect to avoid connection loss due to BOSminer being stopped
+  * [feature] پشتیبانی از Braiins OS+ Manager - راهکار ابری برای مدیریت و مانیتورینگ دستگاه‌های ماینر با همکاری FarmGod
+  * [feature] BOSminer حالا هنگام بررسی سرورهای در دسترس Stratum ترافیک شبکه را به حداقل ممکن کاهش داده است.
+  * [bug] در صورت استفاده از روش راه اندازی SD اکنون امکان اتوتونینگ بصورت خودکار فعال می شود
+  * [bug] BOSminer حتی در صورت وجود اشتباه در تنظیمات شروع به کار خواهد کرد تا از قطع ارتباط به دلیل متوقف شدن BOSminer جلوگیری کند.
 
 21.02
 ---------------------------
