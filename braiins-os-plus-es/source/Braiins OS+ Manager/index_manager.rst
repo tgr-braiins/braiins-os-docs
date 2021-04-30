@@ -9,7 +9,7 @@ Braiins OS+ Manager
   :local:
   :depth: 1
 
-Braiins OS+ Manager es una plataforma basada en la nube que le permite configurar sus dispositivos de minería corriendo el firmware Braiins OS+ de forma remota y también recibe continuamente datos sobre su rendimiento.
+Braiins OS+ Manager (Gestor Braiins OS+) es una plataforma basada en la nube que le permite configurar sus dispositivos de minería corriendo el firmware Braiins OS+ de forma remota y también recibe continuamente datos sobre su rendimiento.
 
 Los datos se están enviando a través del protocolo Stratum V2 y usan el mismo canal utilizado para recaudar la comisión de desarrollo, para no agobiar su red con otra conexión.
 
@@ -47,12 +47,12 @@ Para conectar un dispositivo a su Granja Braiins OS+ Manager, debe:
   - correr Braiins OS+ 21.04 o posterior en los dispositivos seleccionados, 
   - poner la Farm ID (bos_mgmt_id) en los dispositivos seleccionados.
 
-Esos pasos pueden realizarse usando la BOS Toolbox (Caja de Herramientas) siguendo los pasos a continuación.
+Esto puede realizarse usando la BOS Toolbox (Caja de Herramientas) siguiendo los pasos a continuación.
 **Nota importante:** Descargue la última versión de la BOS Toolbox `desde aquí <https://braiins.com/os/plus/download>`_, antes de usar los comandos abajo.
 
-**Colocar Farm ID durante la instalación Braiins OS+**
+**Poner Farm ID durante la instalación Braiins OS+**
 
-Si sus dispositivos no están corriendo Braiins OS+ aun, puede instalar Braiins OS+ y colocarles el Farm ID en un paso simple usando el conmando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
+Si sus dispositivos no están corriendo Braiins OS+ aun, puede instalar Braiins OS+ y poner el Farm ID en un paso simple usando el conmando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
 Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que contenga IPs múltiples (uno por línea para instalación por lote). Reemplace “FARM_ID” con su Farm ID.
    
 ::
@@ -63,9 +63,9 @@ Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
 
-**Update existing Braiins OS+ installation and set Farm ID**
+**Actualizar una instalación existente de Braiins OS+ y ponerle el Farm ID**
 
-If your devices are already running Braiins OS+, use the following command to update them to the latest Braiins OS+ version and set Farm ID on them:
+Si sus dispositivos ya están corriendo Braiins OS+, use el siguiente comando para atualizarlos a la última versión de Braiins OS+ y ponrles el Farm ID:
 
 ::
 
@@ -75,38 +75,38 @@ If your devices are already running Braiins OS+, use the following command to up
     #Linux
     ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
 
-******************
-Configure the Farm
-******************
+********************
+Configurar la Granja
+********************
 
-**Workername Setup**
+**Configuración del Nombre de Equipo**
 
-There are three different options on how the devices included in a Farm can identify themselves in the Manager device list and on the pool side:
+Hay tres opciones diferentes en como los dispositivos incluidos en una Granja pueden identificarse a si mismos en la lista de dispositvos del Gestor y del lado del pool:
 
-  - Per Device (FARMNAME_IP4) - default - workername consists of the name of the Farm and fourth segment of IP address of a device
-  - Per Device (FARMNAME_IP3_IP4) - in addition, the third segment of the IP address is also included
-  - Per Device (FARMNAME_IP2_IP3_IP4) - in addition, the second segment of the IP address is also included
-  - Single (FARMNAME) - All devices use the same workername (name of the Farm). This means that the hash rate is aggregated to one worker on the pool side.
+  - Por Dispositivo (NOMBREGRANJA_IP4) - predeterminado - el nombre de equipo consiste en el nombre de la Granja y el cuarto segmento de la dirección IP de un dispositivo
+  - Por Dispositivo (NOMBREGRANJA_IP3_IP4) - además, el tercer segmento de la dirección IP también se incluye
+  - Por Dispositivo (NOMBREGRANJA_IP2_IP3_IP4) - además, el segundo segmento de la dirección IP también se incluye
+  - Único (NOMBREGRANJA) - Todos los dispositivos usan el mismo nombre de equipo (nombre de la Granja). Esto significa que la tasa de hash se agregará a un solo equipo del lado del pool..
 
-The workername mode may be changed anytime.
+El nombre de equipo también puede cambiarse en cualquier momento.
 
-**Mining Configuration**
+**Configuración de Minería**
 
-The mining configuration available in the “Configuration” tab includes a sub-set of `general Braiins OS\+ configuration <https://docs.braiins.com/os/plus-en/Configuration/index_configuration.html>`_ available on individual devices. For example, options for individual hash chains are not available here since it only makes sense from an individual device perspective. Other than that, all the important options to configure tuning, target temperatures or dynamic power scaling are present.
+La configuración de minería disponible en la pestaña "Configuración" incluye un sub conjunto de la `configuración general de Braiins OS\+ <https://docs.braiins.com/os/plus-es/Configuration/index_configuration.html>`_ disponible en los dispositivos individualmente. Por ejemplo, las opciones de las cadenas individuales de hash no están disponibles aquí ya que solo tiene sentido desde una perspectiva individual. Aparte de eso, todas las opciones importantes para configurar ajuste, target temperature, o escalamiento de energía dinámico están presentes.
 
-The configuration requires you to input credentials for at least one pool (which is done during the farm creation process). Other configuration fields are optional. If you don't provide any value, each Device in a Farm will simply use its default. It is behavior equivalent to leaving the config of a single Braiins OS+ device empty.
+La configuración requiere que introduzca credenciales para al menos un pool (se hace durante el proceso de creación de la granja). Los otros campos de configuración son opcional. Si no provee ningún valor, cada Dispositivo en una Granja simplemente usará su predeterminado. Su comportamiento equivale a dejar la configuración de un solo dispositivo Braiins OS+ vacío.
 
-Once you click on the Save button, the new configuration is propagated to the devices included in the Farm almost immediately - typically within one second.
+Al hacer clic en el botón de Guardar, la nueva configuración  es propagada a los dispositivos incluidos en la Granja casi inmediátamente - típicamente dentro de un segundo.
 
-**Local Changes**
+**Cambios Locales**
 
-Local changes (on the miner) are always overwritten by the the Manager. If you wish to take control of the device, disconnect it from the Farm first.
+Los cambios locales (en el minero) son siempre sobreescritos por el Gestor. Si desea tomar control del dispositivo, desconéctelo de la granja primero.
 
-******************************
-Disconnect Devices from a Farm
-******************************
+**************************************
+Desconectar Dispositivos de una Granja
+**************************************
 
-If you wish to disconnect the devices from the Farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
+Si desea desconectar los dispositivos de la Granja y configurarlos individualmente, puede hacerlo simplemente eliminando el archivo bos_mgmt_id de los dispositivos elegidos. Para múltiples dispositivos, esto puede hacerse con la BOS Toolbox (Caja de Herramientas BOS) de la siguiente forma:
 
 ::
 
@@ -116,44 +116,44 @@ If you wish to disconnect the devices from the Farm and configure them individua
     #Linux
     ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
 
-***************
-Troubleshooting
-***************
+*********************
+Solución de problemas
+*********************
 
-**1. Check if the device runs Braiins OS+ 21.04 or later**
+**1. Revise si el dispositivo corre Braiins OS+ 21.04 o posterior**
 
-  - Using GUI: the version is displayed in the footer
-  - Using CLI: the version is displayed on the SSH welcome screen
+  - Por GUI: la versión se muestra al pie de página
+  - Por CLI: la versión se muestra en la pantalla de bienvenida de SSH
 
-**Fix:** if your run older Braiins OS+ version, update your devices first
+**Arreglo**: si sus dispositivos corren una versión anterior de Braiins OS+ version, actualice primero sus dispositivos
 
-**2. Check if the Farm ID has been correctly configured**
+**2. Revise si la Farm ID ha sido correctamente configurada**
 
-Using GUI:
+Por GUI:
 
-  - go to Status -> Overview -> Miner
-  - Check if the correct Farm ID is present in the *BOS Management ID* field.
-  - If the field is not present at all, no Farm ID is configured on the device.
+  - vaya a Status -> Overview -> Miner
+  - Revise si está la Farm ID correcta, en el campo *BOS Management ID*.
+  - Si el campo no aparece, no hay configurado Farm ID en el dispositivo.
 
-Using CLI:
+Por CLI:
 
   - `cat /etc/bos_mgmt_id`
-  - the command should return the Farm ID
+  - el comando debe devolver la Farm ID
 
-**Fix**: if the ID is not present or is incorrect, try to set it again
+**Arreglo**: si la ID no está o es incorrecta, intente ponerla de nuevo
 
-**3. Reboot your device**
+**3. Reinicie su dispositivo**
 
-Still doesn’t work? Reboot your device.
+¿Aun no funciona? Reinicie su dispositivo.
 
-  - Using GUI: System -> Reboot -> Perform Reboot
-  - Using CLI: `reboot`
+  - Por GUI: System -> Reboot -> Perform Reboot
+  - Por CLI: `reboot`
 
-**4. Contact the support team**
+**4. Contacte al equipo de soporte**
 
-If nothing mentioned above has helped, `submit a support ticket <https://help.slushpool.com/en/support/tickets/new>`_. 
+Si nada de lo mencionado arriba ayuda, `envíe un ticket de soporte <https://help.slushpool.com/es/support/tickets/new>`_. 
 
-For effective troubleshooting, include the following information:
+Para una solución efectiva de problemas, incluya la siguiente información:
 
   - **Hardware ID** (Status -> Overview)
   - **System Log** (Status -> System Log)
