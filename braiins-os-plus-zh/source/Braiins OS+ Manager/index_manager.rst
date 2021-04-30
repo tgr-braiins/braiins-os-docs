@@ -117,43 +117,43 @@ If you wish to disconnect the devices from the Farm and configure them individua
     ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
 
 ***************
-Troubleshooting
+疑难解答
 ***************
 
-**1. Check if the device runs Braiins OS+ 21.04 or later**
+**1. 检查设备上是否运行Braiins OS+固件21.04或更新的版本**
 
-  - Using GUI: the version is displayed in the footer
-  - Using CLI: the version is displayed on the SSH welcome screen
+  - 使用GUI: 版本在页脚显示
+  - 使用CLI: 版本在SSH欢迎屏幕上显示
 
-**Fix:** if your run older Braiins OS+ version, update your devices first
+**修理:** 如果运行Braiins OS+旧版本，先更新您设备
 
-**2. Check if the Farm ID has been correctly configured**
+**2. 检查矿场ID是否已正确配置**
 
-Using GUI:
+使用GUI:
 
-  - go to Status -> Overview -> Miner
-  - Check if the correct Farm ID is present in the *BOS Management ID* field.
-  - If the field is not present at all, no Farm ID is configured on the device.
+  - 访问状态 -> 总览 -> 矿机。
+  - 检查*BOS Management ID*项中是否有正确的矿场ID。
+  - 如果该项完全不存在，设备上没配置任何矿场。
 
-Using CLI:
+使用CLI:
 
   - `cat /etc/bos_mgmt_id`
-  - the command should return the Farm ID
+  - 该命令应该回到矿场ID
 
-**Fix**: if the ID is not present or is incorrect, try to set it again
+**修理**: 如果ID不存在或有错误，重新设置它
 
-**3. Reboot your device**
+**3. 重启您的设备**
 
-Still doesn’t work? Reboot your device.
+仍然不运作？重启您的设备。
 
-  - Using GUI: System -> Reboot -> Perform Reboot
-  - Using CLI: `reboot`
+  - 使用GUI: 系统 -> 重启 -> 进行重启
+  - 使用CLI: `reboot`
 
-**4. Contact the support team**
+**4. 联系客服团队**
 
-If nothing mentioned above has helped, `submit a support ticket <https://help.slushpool.com/en/support/tickets/new>`_. 
+如果以上的办法都没用 `创建一份客服工单(<https://help.slushpool.com/en/support/tickets/new>`_. 
 
-For effective troubleshooting, include the following information:
+为有效的疑难解答，请包含以下的消息：
 
-  - **Hardware ID** (Status -> Overview)
-  - **System Log** (Status -> System Log)
+  - **硬件ID** (状态 -> 总览)
+  - **系统日志** (状态 -> 系统日志)
