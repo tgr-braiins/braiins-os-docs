@@ -52,8 +52,8 @@ Braiins OS+管家的重要单位是一群矿机叫做矿场。每个矿场有自
 
 **在Braiins OS+安装中设置矿场ID**
 
-If your devices don’t run Braiins OS+ yet, you can install the Braiins OS+ and set the Farm ID in one simple step by using BOS Toolbox’s install command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+如果您的设备尚未使用Braiins OS+，您可以安装Braiins OS+并在一个简单的步骤设置矿场ID使用BOS工具箱的安装命令跟`--bos-mgmt-id`参数。
+用IP地址或者包含多个IP地址的文本文件（一个IP一行，为批量安装）替换“HOSTS”。用您矿场ID替换“FARM_ID”。
    
 ::
 
@@ -63,9 +63,9 @@ Replace the “HOSTS” placeholder with an IP address or with a text-file conta
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
 
-**Update existing Braiins OS+ installation and set Farm ID**
+**更新已存在的Braiins OS+安装并设置矿场**
 
-If your devices are already running Braiins OS+, use the following command to update them to the latest Braiins OS+ version and set Farm ID on them:
+如果您设备上已经运行Braiins OS+，使用以下的命令将它们更新到Braiins OS+最版本并其上设置矿场ID：
 
 ::
 
@@ -76,10 +76,10 @@ If your devices are already running Braiins OS+, use the following command to up
     ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
 
 ******************
-Configure the Farm
+配置矿场
 ******************
 
-**Workername Setup**
+**矿工名设置**
 
 There are three different options on how the devices included in a Farm can identify themselves in the Manager device list and on the pool side:
 
