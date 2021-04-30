@@ -81,16 +81,16 @@ Braiins OS+管家的重要单位是一群矿机叫做矿场。每个矿场有自
 
 **矿工名设置**
 
-There are three different options on how the devices included in a Farm can identify themselves in the Manager device list and on the pool side:
+有关矿场中包含的设备如何在管家设备聊表和矿池端中表示自己，有三种不同的选项：
 
-  - Per Device (FARMNAME_IP4) - default - workername consists of the name of the Farm and fourth segment of IP address of a device
-  - Per Device (FARMNAME_IP3_IP4) - in addition, the third segment of the IP address is also included
-  - Per Device (FARMNAME_IP2_IP3_IP4) - in addition, the second segment of the IP address is also included
-  - Single (FARMNAME) - All devices use the same workername (name of the Farm). This means that the hash rate is aggregated to one worker on the pool side.
+  - Per Device (FARMNAME_IP4) - 默认 - 矿工名由矿场名字和设备IP地址第四个部分组成 
+  - Per Device (FARMNAME_IP3_IP4) - 此外，也添加了IP地址的第三部分
+  - Per Device (FARMNAME_IP2_IP3_IP4) - 此外，也添加了IP地址的第二部分
+  - Single (FARMNAME) - 所有设备都使用同样矿工名（矿场的名字）。这意味着所有算力汇聚到矿池端的一个矿工。
 
-The workername mode may be changed anytime.
+矿工名可以随时改变
 
-**Mining Configuration**
+**挖矿配置**
 
 The mining configuration available in the “Configuration” tab includes a sub-set of `general Braiins OS\+ configuration <https://docs.braiins.com/os/plus-en/Configuration/index_configuration.html>`_ available on individual devices. For example, options for individual hash chains are not available here since it only makes sense from an individual device perspective. Other than that, all the important options to configure tuning, target temperatures or dynamic power scaling are present.
 
