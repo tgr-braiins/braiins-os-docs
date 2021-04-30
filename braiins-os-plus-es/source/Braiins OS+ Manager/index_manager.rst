@@ -32,8 +32,8 @@ Crear una Granja
 Cuando haya ingresado, empiece creando una Granja:
 
 1. Abra el diálogo de creación de Granja haciendo clic al símbolo '+'.
-2. Escoja un nobre que desee usar para su granja. Puede cambiar luego el nombre.
-3. Ingrese las credenciales de minería. Podrá cambiar luego las credenciales y tambien añadir otros pools.
+2. Escoja un nombre que desee usar para su granja. Puede cambiar luego el nombre.
+3. Ingrese las credenciales de minería. Podrá cambiar luego las credenciales y también añadir otros pools.
 4. La Farm ID para su granja ha sido creada.
 
 La Farm ID es una frase que debe poner en sus dispositivos Braiins OS+ que desee conectar a la Granja.
@@ -52,9 +52,9 @@ Esto puede realizarse usando la BOS Toolbox (Caja de Herramientas) siguiendo los
 
 **Poner Farm ID durante la instalación Braiins OS+**
 
-Si sus dispositivos no están corriendo Braiins OS+ aun, puede instalar Braiins OS+ y poner el Farm ID en un paso simple usando el conmando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
+Si sus dispositivos no están corriendo Braiins OS+ aun, puede instalar Braiins OS+ y poner el Farm ID en un paso simple usando el comando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
 Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que contenga IPs múltiples (uno por línea para instalación por lote). Reemplace “FARM_ID” con su Farm ID.
-   
+
 ::
 
     #Windows
@@ -65,7 +65,7 @@ Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que
 
 **Actualizar una instalación existente de Braiins OS+ y ponerle el Farm ID**
 
-Si sus dispositivos ya están corriendo Braiins OS+, use el siguiente comando para atualizarlos a la última versión de Braiins OS+ y ponrles el Farm ID:
+Si sus dispositivos ya están corriendo Braiins OS+, use el siguiente comando para actualizarlos a la última versión de Braiins OS+ y ponerles el Farm ID:
 
 ::
 
@@ -81,7 +81,7 @@ Configurar la Granja
 
 **Configuración del Nombre de Equipo**
 
-Hay tres opciones diferentes en como los dispositivos incluidos en una Granja pueden identificarse a si mismos en la lista de dispositvos del Gestor y del lado del pool:
+Hay tres opciones diferentes en como los dispositivos incluidos en una Granja pueden identificarse a si mismos en la lista de dispositivos del Gestor y del lado del pool:
 
   - Por Dispositivo (NOMBREGRANJA_IP4) - predeterminado - el nombre de equipo consiste en el nombre de la Granja y el cuarto segmento de la dirección IP de un dispositivo
   - Por Dispositivo (NOMBREGRANJA_IP3_IP4) - además, el tercer segmento de la dirección IP también se incluye
@@ -96,23 +96,23 @@ La configuración de minería disponible en la pestaña "Configuración" incluye
 
 La configuración requiere que introduzca credenciales para al menos un pool (se hace durante el proceso de creación de la granja). Los otros campos de configuración son opcional. Si no provee ningún valor, cada Dispositivo en una Granja simplemente usará su predeterminado. Su comportamiento equivale a dejar la configuración de un solo dispositivo Braiins OS+ vacío.
 
-Al hacer clic en el botón de Guardar, la nueva configuración  es propagada a los dispositivos incluidos en la Granja casi inmediátamente - típicamente dentro de un segundo.
+Al hacer clic en el botón de Guardar, la nueva configuración  es propagada a los dispositivos incluidos en la Granja casi inmediatamente - típicamente dentro de un segundo.
 
 **Cambios Locales**
 
-Los cambios locales (en el minero) son siempre sobreescritos por el Gestor. Si desea tomar control del dispositivo, desconéctelo de la granja primero.
+Los cambios locales (en el minero) son siempre sobre-escritos por el Gestor. Si desea tomar control del dispositivo, des-conéctelo de la granja primero.
 
 **************************************
 Desconectar Dispositivos de una Granja
 **************************************
 
-Si desea desconectar los dispositivos de la Granja y configurarlos individualmente, puede hacerlo simplemente eliminando el archivo bos_mgmt_id de los dispositivos elegidos. Para múltiples dispositivos, esto puede hacerse con la BOS Toolbox (Caja de Herramientas BOS) de la siguiente forma:
+Si desea desconectar los dispositivos de la Granja y configurar individualmente, puede hacerlo simplemente eliminando el archivo bos_mgmt_id de los dispositivos elegidos. Para múltiples dispositivos, esto puede hacerse con la BOS Toolbox (Caja de Herramientas BOS) de la siguiente forma:
 
 ::
 
     #Windows
     bos-toolbox.bat command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
-    
+
     #Linux
     ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
 
@@ -122,20 +122,20 @@ Solución de problemas
 
 **1. Revise si el dispositivo corre Braiins OS+ 21.04 o posterior**
 
-  - Por GUI: la versión se muestra al pie de página
-  - Por CLI: la versión se muestra en la pantalla de bienvenida de SSH
+  - Usando GUI: la versión se muestra al pie de página
+  - Usando CLI: la versión se muestra en la pantalla de bienvenida de SSH
 
-**Arreglo**: si sus dispositivos corren una versión anterior de Braiins OS+ version, actualice primero sus dispositivos
+**Arreglo**: si sus dispositivos corren una versión anterior de Braiins OS+, actualice primero sus dispositivos
 
 **2. Revise si la Farm ID ha sido correctamente configurada**
 
-Por GUI:
+Usando GUI:
 
   - vaya a Status -> Overview -> Miner
   - Revise si está la Farm ID correcta, en el campo *BOS Management ID*.
   - Si el campo no aparece, no hay configurado Farm ID en el dispositivo.
 
-Por CLI:
+Usando CLI:
 
   - `cat /etc/bos_mgmt_id`
   - el comando debe devolver la Farm ID
@@ -146,8 +146,8 @@ Por CLI:
 
 ¿Aun no funciona? Reinicie su dispositivo.
 
-  - Por GUI: System -> Reboot -> Perform Reboot
-  - Por CLI: `reboot`
+  - Usando GUI: System -> Reboot -> Perform Reboot
+  - Usando CLI: `reboot`
 
 **4. Contacte al equipo de soporte**
 
