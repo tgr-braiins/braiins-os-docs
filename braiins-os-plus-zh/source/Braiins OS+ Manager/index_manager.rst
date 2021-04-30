@@ -94,27 +94,26 @@ Braiins OS+管家的重要单位是一群矿机叫做矿场。每个矿场有自
 
 The mining configuration available in the “Configuration” tab includes a sub-set of `general Braiins OS\+ configuration <https://docs.braiins.com/os/plus-en/Configuration/index_configuration.html>`_ available on individual devices. For example, options for individual hash chains are not available here since it only makes sense from an individual device perspective. Other than that, all the important options to configure tuning, target temperatures or dynamic power scaling are present.
 
-The configuration requires you to input credentials for at least one pool (which is done during the farm creation process). Other configuration fields are optional. If you don't provide any value, each Device in a Farm will simply use its default. It is behavior equivalent to leaving the config of a single Braiins OS+ device empty.
+配置需要您输入至少一个矿池的登陆消息（创建矿场时做的）。其他配置项都是可选的。如果您不提供任何值，每个矿场上的设备使用其默认配置。像一个Braiins OS+设备上没填写配置那样。
 
-Once you click on the Save button, the new configuration is propagated to the devices included in the Farm almost immediately - typically within one second.
+当您点击保存按钮，新配置项矿场上的设备宣布，一般在几个秒钟内。
 
-**Local Changes**
+**本地更改**
 
-Local changes (on the miner) are always overwritten by the the Manager. If you wish to take control of the device, disconnect it from the Farm first.
+管家总是会覆盖矿机上的本地更改。如果想控制该设备，先它与矿场的连接。
 
 ******************************
-Disconnect Devices from a Farm
+将设备连接从矿场断开
 ******************************
 
-If you wish to disconnect the devices from the Farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
-
+如果想断开设备与矿场的连接并分别进行配置，则可以通过从选定设备中删除bos_mgmt_id文件。 对于多个设备，可以使用BOS工具箱，如下所示：
 ::
 
     #Windows
-    bos-toolbox.bat command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
+    bos-toolbox.bat 命令 -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
     
     #Linux
-    ./bos-toolbox command -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
+    ./bos-toolbox 命令 -o HOSTS "rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart"
 
 ***************
 疑难解答
