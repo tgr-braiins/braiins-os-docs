@@ -86,6 +86,8 @@ Este es un lanzamiento mayor para Antminer S9 que añade soporte a Braiins OS+ M
   * [característica] BOSminer ha reducido el tráfico adicional de red al mínimo absoluto al sondear los servidores stratum vivos
   * [fallo] el autoajuste ahora está activado automáticamente al usar el método de arranque SD
   * [fallo] BOSminer correrá incluso cuando la configuración sea incorrecta para evitar la pérdida de conexión por estár BOSminer detenido
+  * [fallo] se ha solucionado un problema de reconexión prolongada a los pools cuando se cambia la IP pública
+  
 
 21.02
 ---------------------------
