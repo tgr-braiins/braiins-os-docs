@@ -52,14 +52,20 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 ---------------------------
 
 This is a major release for Antminer S9 that adds support for Braiins OS+ Manager - a cloud solution for miners management and monitoring.
+本次发布是为蚂蚁矿机S9新增Braiins OS+管家支持的重要更新。Braiins OS+管家是矿机管理和监控云端平台。
 
-* All mining hardware types
+* 在所有类型的矿机上
 
   * [feature] support for Braiins OS+ Manager - a cloud solution for miner management and monitoring, created in collaboration with FarmGod
+  * 【特性】新增对Braiins OS+管家的支持。Braiins OS+管家是矿机管理和监控云端平台,与FarmGod公司合作创建。
   * [feature] BOSminer has now reduced additional network traffic to absolute minimum when probing for alive stratum servers
+  * 【特性】在探测激活阶层服务器时，BOSminer的额外网络流量已减少到最绝对最小
   * [bug] autotuning is now being enabled automatically when using the SD boot method
+  * 【BUG修复】使用SD卡启动方式时，自动调整功能已自动启用
   * [bug] BOSminer will run even when the configuration is incorrect to avoid connection loss due to BOSminer being stopped
+  * 【BUG修复】即使配置不正确，BOSminer扔运行，以免BOSminer停止时的连接丢失
   * [bug] fixed an issue with long reconnect to pools when the public IP was changed
+  * 【BUG修复】修复了更改公共IP时长时间重连到池的问题
 
 21.02
 ---------------------------
