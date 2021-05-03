@@ -151,7 +151,7 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
 
 **4. 联系客服**
 
-如以上办法都没用，您可以 `创建一份客服工单(<https://help.slushpool.com/zh-CN/support/tickets/new>`_ 。
+如以上办法都没用，您可以 `创建一份客服工单 <https://help.slushpool.com/zh-CN/support/tickets/new>`_ 。
 
 为方便了解问题，请在工单中包含以下信息：
 
