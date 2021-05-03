@@ -21,7 +21,7 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
 注册 
 *******
 
-使用Braiins OS+管家，请先`点此注册 <https://manager.braiins.com/#/register>`_.
+使用Braiins OS+管家，请先 `点此注册 <https://manager.braiins.com/#/register>`_ 。
 
 输入您的邮箱地址后，我们将向您发送确认邮件。点击邮件中的链接确认，选择密码并设置两步验证。
 
@@ -48,7 +48,7 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
   - 将矿场ID（bos_mgmt_id）与矿机绑定
 
 按照以下步骤可以用BOS工具箱执行绑定操作。
-**重要提醒：** 在使用以下的命令前，请`在此<https://zh.braiins.com/os/plus/download>`_下载最新版BOS工具箱。
+**重要提醒：** 在使用以下的命令前，请 `在此<https://zh.braiins.com/os/plus/download>`_ 下载最新版BOS工具箱。
 
 **在安装Braiins OS+固件时绑定矿场ID**
 
@@ -92,7 +92,7 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
 
 **挖矿配置**
 
-挖矿配置可以参考`Braiins OS+固件技术文档中的“配置”（Configuration）部分 <https://docs.braiins.com/os/plus-zh/Configuration/index_configuration.html>`_ 某些情况例如某台矿机缺板运行需要单独配置，建议本地单独配置缺板的矿机而不是用Braiins OS+管家在云端批量配置。除此之外像自动调整、矿机温控系统目标温度或者动态降功耗等这些设置，都是可以批量配置的。
+挖矿配置可以参考 `Braiins OS+固件技术文档中的“配置”（Configuration）部分 <https://docs.braiins.com/os/plus-zh/Configuration/index_configuration.html>`_ 某些情况例如某台矿机缺板运行需要单独配置，建议本地单独配置缺板的矿机而不是用Braiins OS+管家在云端批量配置。除此之外像自动调整、矿机温控系统目标温度或者动态降功耗等这些设置，都是可以批量配置的。
 
 默认情况下，矿机使用各项设置的默认值和创建矿场时的矿池，一般不需要改动各项设置。
 
