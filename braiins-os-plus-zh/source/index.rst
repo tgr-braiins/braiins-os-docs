@@ -59,6 +59,7 @@ This is a major release for Antminer S9 that adds support for Braiins OS+ Manage
   * [feature] BOSminer has now reduced additional network traffic to absolute minimum when probing for alive stratum servers
   * [bug] autotuning is now being enabled automatically when using the SD boot method
   * [bug] BOSminer will run even when the configuration is incorrect to avoid connection loss due to BOSminer being stopped
+  * [bug] fixed an issue with long reconnect to pools when the public IP was changed
 
 21.02
 ---------------------------
