@@ -48,7 +48,7 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
   - 将矿场ID（bos_mgmt_id）与矿机绑定
 
 按照以下步骤可以用BOS工具箱执行绑定操作。
-**重要提醒：** 在使用以下的命令前，请 `在此<https://zh.braiins.com/os/plus/download>`_ 下载最新版BOS工具箱。
+**重要提醒：** 在使用以下的命令前，请 `在此 <https://zh.braiins.com/os/plus/download>`_ 下载最新版BOS工具箱 。
 
 **在安装Braiins OS+固件时绑定矿场ID**
 
