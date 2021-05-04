@@ -73,8 +73,8 @@ Braiins OS+ Manager یک پلت فرم ابری است که به شما امکا
 There are three different options on how the devices included in a Farm can identify themselves in the Manager device list and on the pool side:
 سه روش مختلف 
 
-  - به ازای هر دستگاه (FARMNAME_IP4) - پیشفرض - نام ورکر متشکل از نام فارم و بخش چهارم آی پی دستگاه
-  - به ازای هر دستگاه (FARMNAME_IP3_IP4) - در این حالت بخش سوم آپی دستگاه نیز موجود است.
+  - به ازای هر دستگاه (FARMNAME_IP4) - نام ورکر متشکل از نام فارم و بخش چهارم آی پی دستگاه
+  - به ازای هر دستگاه (FARMNAME_IP3_IP4) - پیشفرض - در این حالت بخش سوم آپی دستگاه نیز موجود است.
   - به ازای هر دستگاه (FARMNAME_IP2_IP3_IP4) - در این حالت بخش سوم آی پی دستگاه نیز موجود است.
   - Single (FARMNAME) - All devices use the same workername (name of the Farm). This means that the hash rate is aggregated to one worker on the pool side.
   - تکی (FARMNAME) - تمامی دستگاه‌ها از یک نام ورکر (که همان نام فارم است) استفاده می کنند. این بدین معنی است که تمامی هش‌ریت شما در یک ورکر در استخر جمع میگردد و نمایش داده میشود.

@@ -71,8 +71,8 @@ Configure the Farm
 
 There are three different options on how the devices included in a Farm can identify themselves in the Manager device list and on the pool side:
 
-  - Per Device (FARMNAME_IP4) - default - workername consists of the name of the Farm and fourth segment of IP address of a device
-  - Per Device (FARMNAME_IP3_IP4) - in addition, the third segment of the IP address is also included
+  - Per Device (FARMNAME_IP4) - workername consists of the name of the Farm and fourth segment of IP address of a device
+  - Per Device (FARMNAME_IP3_IP4) - default - in addition, the third segment of the IP address is also included
   - Per Device (FARMNAME_IP2_IP3_IP4) - in addition, the second segment of the IP address is also included
   - Single (FARMNAME) - All devices use the same workername (name of the Farm). This means that the hash rate is aggregated to one worker on the pool side.
 

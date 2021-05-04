@@ -71,8 +71,8 @@ Configurar la Granja
 
 Hay tres opciones diferentes en como los dispositivos incluidos en una Granja pueden identificarse a si mismos en la lista de dispositivos del Gestor y del lado del pool:
 
-  - Por Dispositivo (NOMBREGRANJA_IP4) - predeterminado - el nombre de equipo consiste en el nombre de la Granja y el cuarto segmento de la dirección IP de un dispositivo
-  - Por Dispositivo (NOMBREGRANJA_IP3_IP4) - además, el tercer segmento de la dirección IP también se incluye
+  - Por Dispositivo (NOMBREGRANJA_IP4) - el nombre de equipo consiste en el nombre de la Granja y el cuarto segmento de la dirección IP de un dispositivo
+  - Por Dispositivo (NOMBREGRANJA_IP3_IP4) - predeterminado - además, el tercer segmento de la dirección IP también se incluye
   - Por Dispositivo (NOMBREGRANJA_IP2_IP3_IP4) - además, el segundo segmento de la dirección IP también se incluye
   - Único (NOMBREGRANJA) - Todos los dispositivos usan el mismo nombre de equipo (nombre de la Granja). Esto significa que la tasa de hash se agregará a un solo equipo del lado del pool..
 
