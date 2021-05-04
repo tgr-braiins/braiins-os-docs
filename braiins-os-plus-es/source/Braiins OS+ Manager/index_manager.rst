@@ -50,9 +50,9 @@ Para conectar un dispositivo a su Granja Braiins OS+ Manager, debe:
 Esto puede realizarse usando la BOS Toolbox (Caja de Herramientas) siguiendo los pasos a continuación.
 **Nota importante:** Descargue la última versión de la BOS Toolbox `desde aquí <https://braiins.com/os/plus/download>`_, antes de usar los comandos abajo.
 
-**Poner Farm ID durante la instalación Braiins OS+**
+**Instalar/Actualizar Braiins OS+ y poner el Farm ID**
 
-Si sus dispositivos no están corriendo Braiins OS+ aun, puede instalar Braiins OS+ y poner el Farm ID en un paso simple usando el comando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
+Si sus dispositivos no están corriendo Braiins OS+ 21.04 (o mayor) aun, puede instalar el último Braiins OS+ y poner el Farm ID en un paso simple usando el comando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
 Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que contenga IPs múltiples (uno por línea para instalación por lote). Reemplace “FARM_ID” con su Farm ID.
 
 ::
@@ -62,18 +62,6 @@ Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que
 
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
-
-**Actualizar una instalación existente de Braiins OS+ y ponerle el Farm ID**
-
-Si sus dispositivos ya están corriendo Braiins OS+, use el siguiente comando para actualizarlos a la última versión de Braiins OS+ y ponerles el Farm ID:
-
-::
-
-    #Windows
-    bos-toolbox.bat update --bos-mgmt-id FARM_ID HOSTS
-
-    #Linux
-    ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
 
 ********************
 Configurar la Granja
