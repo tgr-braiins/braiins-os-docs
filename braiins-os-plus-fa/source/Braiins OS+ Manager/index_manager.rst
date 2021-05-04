@@ -50,9 +50,9 @@ Braiins OS+ Manager یک پلت فرم ابری است که به شما امکا
 تمامی این مراحل با BOS Toolbox قابل انجام هستند.
 **نکته مهم:** آخرین نسخه BOS Toolbox را ‍‍‍‍`از اینجا <https://braiins.com/os/plus/download>`_ قبل از اجرای دستورات زیر دانلود کنید.
 
-**تنظیم Farm ID همزمان با نصب Braiin OS+**
+**نصب/بروز رسانی Braiin OS+ و تنظم شناسه Farm ID**
 
-اگر دستگاه‌های شما هنوز از فریم‌ور Braiins OS+ بهره نمی‌برند، شما می‌توانید نصب فریم‌ور Braiins OS+ و تنظیم شناسه Farm ID را در یک گام ساده با استفاده از BOS Toolbox و دستور install به همراه پارامتر `--bos-mgmt-id` انجام دهید.
+اگر دستگاه‌های شما هنوز از فریم‌ور Braiins OS+ نسخه ۲۱/۰۴ یا بالاتر بهره نمی‌برند، شما می‌توانید نصب آخرین نسخه فریم‌ور Braiins OS+ و تنظیم شناسه Farm ID را در یک گام ساده با استفاده از BOS Toolbox و دستور install به همراه پارامتر `--bos-mgmt-id` انجام دهید.
 
 عبارت “HOSTS” را با آدرس آی پی دستگاه خود یا با فایل متنی شامل تمامی آی پی های مورد نظر خود(هر کدام در یک سطر برای نصب دسته‌ای) جایگزین کنید. همچنین “FARM_ID” را به شناسه Farm ID خود تغییر دهید.
 
@@ -63,18 +63,6 @@ Braiins OS+ Manager یک پلت فرم ابری است که به شما امکا
 
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
-
-**بروزرسانی فریم‌ورهای فعلی Braiins OS+ و تنظیم شناسه Farm ID**
-
-اگر دستگاه‌های شما در حال حاضر فریم‌ور Braiins OS+ را اجرا می‌کنند، مراحل زیر را پیگیری نمایید:
-
-::
-
-    #Windows
-    bos-toolbox.bat update --bos-mgmt-id FARM_ID HOSTS
-
-    #Linux
-    ./bos-toolbox update --bos-mgmt-id FARM_ID HOSTS
 
 ******************
 نحوه تنظیم یک فارم
