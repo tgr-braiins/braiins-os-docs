@@ -63,11 +63,11 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
     
-**Set Farm ID on existing Braiins OS+ installation**
+**在存在的Braiins OS+安装上绑定矿场ID**
 
-If your devices are already running Braiins OS+ 21.04 (or higher), you can set the Farm ID in one simple step by using the BOS Toolbox’s update command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
-
+如果矿机上运行的Braiins OS+固件版本为21.04或更新, ，您在安装Braiins OS+时在安装命令后添加参数 --bos-mgmt-id 同时绑定矿场ID。
+用IP地址或者包含多个IP地址的文本文件（批量安装一个IP一行）替换下方命令中的“HOSTS”。用您矿场ID替换下方命令中“FARM_ID”。
+ 
 ::
 
     #Windows
