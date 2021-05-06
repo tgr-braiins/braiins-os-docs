@@ -64,10 +64,10 @@ Braiins OS+ Manager یک پلت فرم ابری است که به شما امکا
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
     
-**Set Farm ID on existing Braiins OS+ installation**
+**تنظیم شناسه‌ Farm ID روی Braiins OS+ موجود**
 
-If your devices are already running Braiins OS+ 21.04 (or higher), you can set the Farm ID in one simple step by using the BOS Toolbox’s update command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+اگر دستگاه شما در حال حاضر از نسخه ۲۱/۰۴ (یا بالاتر) Braiins OS+ استفاده می‌کند، شما میتوانید با یک دستور ساده شناسه Farm ID را از طریق BOS Toolbox با دستور update و پارامتر `--bos-mgmt-id` تنظیم نمایید.
+عبارت “HOSTS” را با آدرس آی پی دستگاه خود یا با فایل متنی شامل تمامی آی پی های مورد نظر خود(هر کدام در یک سطر برای نصب دسته‌ای) جایگزین کنید. همچنین “FARM_ID” را به شناسه Farm ID خود تغییر دهید.
 
 ::
 
