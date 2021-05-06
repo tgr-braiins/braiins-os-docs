@@ -89,7 +89,8 @@ Hay tres opciones diferentes en como los dispositivos incluidos en una Granja pu
   - Por Dispositivo (NOMBREGRANJAxIP3xIP4) - predeterminado - además, el tercer segmento de la dirección IP también se incluye
   - Por Dispositivo (NOMBREGRANJAxIP2xIP3xIP4) - además, el segundo segmento de la dirección IP también se incluye
   - Por Dispositivo (ID-DISPOSITIVO / INVALIDACIÓN MANUAL) - Puede escojer su nombre de equipo deseado para cada dispositivo haciendo clic en la rueda dentada a su lado. Por defecto, la ID de Dispositivo se usa como nombre de equipo en este modo.
-  También puede cambiar el delimitador y usar `_` en lugar de `x`. Sin embargo, tenga en cuenta que algunos pool no aceptan subrayas en el nombre de equipo, y escojer `_` como un delimitador podría ocasionar problemas para conectarse con dicho pool.
+
+También puede cambiar el delimitador y usar `_` en lugar de `x`. Sin embargo, tenga en cuenta que algunos pool no aceptan subrayas en el nombre de equipo, y escojer `_` como un delimitador podría ocasionar problemas para conectarse con dicho pool.
 
 El nombre de equipo también puede cambiarse en cualquier momento.
 
