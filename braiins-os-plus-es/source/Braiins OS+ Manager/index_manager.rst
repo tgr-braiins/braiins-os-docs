@@ -52,7 +52,7 @@ Esto puede realizarse usando la BOS Toolbox (Caja de Herramientas) siguiendo los
 
 **Instalar/Actualizar Braiins OS+ y poner el Farm ID**
 
-Si sus dispositivos no están corriendo Braiins OS+ 21.04 (o mayor) aun, puede instalar el último Braiins OS+ y poner el Farm ID en un paso simple usando el comando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
+Si sus dispositivos no están corriendo Braiins OS+ 21.04 (o mayor) aun, puede instalar el último Braiins OS+ y poner el Farm ID en un solo paso usando el comando de instalación de la BOS Toolbox con el argumento `--bos-mgmt-id`.
 Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que contenga IPs múltiples (uno por línea para instalación por lote). Reemplace “FARM_ID” con su Farm ID.
 
 ::
@@ -63,10 +63,10 @@ Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
     
-**Set Farm ID on existing Braiins OS+ installation**
+**Actualizar una instalación existente de Braiins OS+ y ponerle el Farm ID**
 
-If your devices are already running Braiins OS+ 21.04 (or higher), you can set the Farm ID in one simple step by using the BOS Toolbox’s update command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+Si sus dispositivos ya están corriendo Braiins OS+ 21.04 (o mayor), puede poner el Farm ID en un solo paso usando el comando de actualización de la BOS Toolbox con el argumento `--bos-mgmt-id`.
+Reemplace el marcador “HOSTS” con la dirección IP o un archivo de texto que contenga IPs múltiples (uno por línea para instalación por lote). Reemplace “FARM_ID” con su Farm ID.
 
 ::
 
