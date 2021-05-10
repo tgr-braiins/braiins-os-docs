@@ -67,8 +67,8 @@ Farm ID - это строка, которую необходимо устано�
     
 **Set Farm ID on existing Braiins OS+ installation**
 
-If your devices are already running Braiins OS+ 21.04 (or higher), you can set the Farm ID in one simple step by using the BOS Toolbox’s update command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+Если на ваших устройствах уже установлена прошивка Braiins OS+ 21.04 (или выше), вы можете установить Farm ID за один простой шаг, используя команду обновления BOS Toolbox с аргументом --bos-mgmt-id.
+Замените заполнитель «HOSTS» IP-адресом или текстовым файлом, содержащим несколько IP-адресов (по одному на строку, для пакетной установки). Замените «FARM_ID» на свой идентификатор фермы.
 
 ::
 
