@@ -37,25 +37,9 @@ Braiins OS+ se instalará en el minero. La configuración de red (ej: Dirección
 La instalación de Braiins OS+ puede hacerse fácilmente usando la caja de herramientas BOS. Para hacerlo, siga los pasos a continuación:
 
   * Descargue la **Caja de Herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. ¡Use solo una dirección IP por línea!
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc).
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat install listaDeMineros.csv
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox install listaDeMineros.csv
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. ¡Use solo una dirección IP por línea!
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Install** (Instalar), llene la opción **Minero(s)** seleccionando el archivo de texto creado y presionando **Empezar**.
 
 Braiins OS+ será instalado en los mineros. La configuración de red (ej: Dirección IP estática) y la configuración del pool y usuario será migrada automáticamente a Braiins OS+ y el autoajuste será activado.
 
@@ -73,26 +57,8 @@ En 2019, la conexión SSH fue bloqueada y una verificación de firma en la inter
 
   * Descargue la **Caja de Herramientas BOS** de nuestro `sitioweb <https://es.braiins.com/os/plus/download>`_.
   * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de Herramientas BOS, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
-
-      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con el nombre de archivo en el comando de abajo y corra el comando apropiado para su sistema operativo:
-
-    Terminal de comandos en **Windows**: ::
-
-      #desbloquear e instalar Braiins OS en las máquinas
-      bos-toolbox.bat install --password root listaDeMineros.csv
-
-    Terminal de comandos en **Linux**: ::
-
-      #desbloquear e instalar Braiins OS en las máquinas
-      ./bos-toolbox install --password root listaDeMineros.csv
-
-    **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Install** (Instalar), llene la opción **Minero(s)** seleccionando el archivo de texto creado, llene el campo **Contraseña** con su clave y presione **Empezar**.
 
 Braiins OS se instalará en el minero. La configuración de red (ej. Dirección IP estática) y la configuración de usuario y pool será migrada automáticamente a Braiins OS.
 
@@ -138,26 +104,10 @@ Actualizar Braiins OS+ en múltiples dispositivos a la vez puede hacerse fácilm
 
   * Descargue la **Caja de Herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. ¡Use solo una dirección IP por línea! Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS.
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc).
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Update** (Actualizar), llene la opción **Minero(s)** seleccionando el archivo de texto creado y presione **Empezar**.
 
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat update listaDeMineros.csv
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox update listaDeMineros.csv
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
-
-Este comando buscará una actualización para los mineros especificados en *listaDeMineros.csv* y los actualizará si hay una nueva versión de firmware.
+Este comando buscará una actualización para los mineros especificados en el archivo de texto creado y los actualizará si hay una nueva versión de firmware.
 
 Para mas información acerca de este proceso, y para mas opciones visite las secciones :ref:`bosbox` y :ref:`bosbox_update`.
 
@@ -170,24 +120,8 @@ Desinstalar Braiins OS+
 Puede desinstalar fácilmente Braiins OS+ de un solo dispositivo usando la **Caja de Herramientas BOS**. Para hacerlo, siga los pasos a continuación:
 
   * Descargue la **Caja de Herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc).
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *DIRECCIÓN_IP* con la dirección IP (o nombre anfitrión) de su minero en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat uninstall DIRECCIÓN_IP
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox uninstall DIRECCIÓN_IP
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Uninstall** (Desinstalar), llene la opción **Minero(s)** con la dirección IP del minero y presione **Empezar**.
 
 Esto le regresará al firmware de serie. Instalará automáticamente una versión mas vieja donde SSH no está bloqueado, para que pueda acceder a su minero remotamente.
 
@@ -199,24 +133,8 @@ Puede desinstalar Braiins OS+ fácilmente en múltiples dispositivos usando la *
 
   * Descargue la **Caja de Herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en donde desea ejecutar los comandos. ¡Use solo una dirección IP por línea! (Nota puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS y guardado el archivo .csv, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc).
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat uninstall listaDeMineros.csv
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox uninstall listaDeMineros.csv
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Uninstall** (Desinstalar), llene la opción **Minero(s)** seleccionando el archivo de texto creado y presione **Empezar**.
 
 Esto le regresará al firmware de serie. Instalará automáticamente una versión mas vieja donde SSH no está bloqueado, para que pueda acceder a su minero remotamente.
 
