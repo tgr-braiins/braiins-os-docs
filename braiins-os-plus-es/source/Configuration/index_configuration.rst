@@ -265,7 +265,7 @@ Para hacer un cambio a la configuración en el archivo de configuración, conéc
 
 La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false* (falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min. 100 y max. 5000), representando el límite de energía (en Vatios) de la PSU (fuente de poder) para tres tarjetas hash y la tarjeta controladora.
 
-Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la instalación especificando el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación.
+Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la instalación con la opción ``Set Power Limit`` (o con el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación).
 
 ********************************
 Escalamiento de Energía Dinámico
@@ -306,7 +306,7 @@ Para hacer un cambio a la configuración vía web GUI, entre en el menú *System
 
 Para hacer un cambio a la configuración en múltiples dispositivos usando la **Caja de Herramientas BOS+**, siga los pasos en la sección :ref:`bosbox_configure`.
 
-Alternativamente, es posible **apagar** auto-actualizar durante la instalación especificando el argumento ``--no-auto-upgrade`` en el comando de instalación.
+Alternativamente, es posible **apagar** auto-actualizar durante la instalación seleccionando la opción``No Auto-Upgrade`` (el argumento ``--no-auto-upgrade`` en el comando de instalación).
 
 ************
 Password SSH
