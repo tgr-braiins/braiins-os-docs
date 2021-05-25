@@ -52,8 +52,9 @@ Those steps can be done using BOS Toolbox with the following steps.
 
 **Install/Update Braiins OS+ and set Farm ID**
 
-If your devices don’t run Braiins OS+ 21.04 (or higher) yet, you can install the latest Braiins OS+ and set the Farm ID in one simple step by using the BOS Toolbox’s install command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+If your devices don’t run Braiins OS+ 21.04 (or higher) yet, you can install the latest Braiins OS+ and set the Farm ID in one simple step by using the BOS Toolbox’s install command with the Farm-ID option (``--bos-mgmt-id`` argument).
+   
+If the GUI version of the toolbox is used, fill the **Farm-ID** option in the **Install** section and proceed with the installation. If the command line version of the toolbox is used, use the following command to set the Farm ID during the installation. Replace the **HOSTS** placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace **FARM_ID** with your Farm ID.
    
 ::
 
@@ -63,10 +64,13 @@ Replace the “HOSTS” placeholder with an IP address or with a text-file conta
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
     
+
 **Set Farm ID on existing Braiins OS+ installation**
 
-If your devices are already running Braiins OS+ 21.04 (or higher), you can set the Farm ID in one simple step by using the BOS Toolbox’s update command with `--bos-mgmt-id` argument.
-Replace the “HOSTS” placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace “FARM_ID” with your Farm ID.
+If your devices are already running Braiins OS+ 21.04 (or higher), you can set the Farm ID in one simple step by using the BOS Toolbox’s update command with the Farm-ID option (``--bos-mgmt-id`` argument).
+
+If the GUI version of the toolbox is used, fill the **Farm-ID** option in the **Update** section. If the command line version of the toolbox is used, use the following command to set the Farm ID.
+Replace the **HOSTS** placeholder with an IP address or with a text-file containing multiple IPs (one per line, for batch installation). Replace **FARM_ID** with your Farm ID.
 
 ::
 
@@ -111,6 +115,14 @@ Disconnect Devices from a Farm
 ******************************
 
 If you wish to disconnect the devices from the Farm and configure them individually, you can do it by simply removing the bos_mgmt_id file from selected devices. For multiple devices, this can be done using BOS Toolbox as follows:
+
+If the GUI version of the toolbox is used, fill the **Command** option in the **Command** section with the following:
+
+::
+
+    rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart
+
+If the command line version of the toolbox is used, use the following command:
 
 ::
 

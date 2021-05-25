@@ -37,25 +37,9 @@ Braiins OS+ will be installed on the miner. The network configuration (e.g. Stat
 Installation of Braiins OS+ can easily be done using the BOS Toolbox. In order to do so, follow the steps bellow:
 
   * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
-
-      cd FILE_PATH_TO_BOS_TOOLBOX
-
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
-
-    For **Windows** command terminal: ::
-
-      bos-toolbox.bat install listOfMiners.csv
-
-    For **Linux** command terminal: ::
-      
-      ./bos-toolbox install listOfMiners.csv		
-
-    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
-      chmod u+x ./bos-toolbox  
+  * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Use only one IP address per line!
+  * Once you have downloaded BOS Toolbox, run it by double-clicking (Windows) or by running ``./bos-toolbox`` in command-line interpreter (Linux).
+  * In the **Install** section, fill the **Miner(s)** option by selecting the created text file and press **Start**.
 
 Braiins OS+ will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS+ and autotuning will be turned on.
 
@@ -73,26 +57,8 @@ In 2019, the SSH connection was locked and the signature verification in the web
 
   * Download **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Put that file in the directory where the BOS Toolbox is located. Use only one IP address per line!
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
-
-      cd FILE_PATH_TO_BOS_TOOLBOX
-
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
-
-    For **Windows** command terminal: ::
-
-      #unlock and install Braiins OS in the machines
-      bos-toolbox.bat install --password root listOfMiners.csv
-
-    For **Linux** command terminal: ::
-      
-      #unlock and install Braiins OS in the machines
-      ./bos-toolbox install --password root listOfMiners.csv    
-
-    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
-      chmod u+x ./bos-toolbox
+  * Once you have downloaded BOS Toolbox, run it by double-clicking (Windows) or by running ``./bos-toolbox`` in command-line interpreter (Linux).
+  * In the **Install** section, fill the **Miner(s)** option by selecting the created text file, fill the **Password** field with your password and press **Start**.
 
 Braiins OS will be installed on the miner. The network configuration (e.g. Static IP address) and the pool and user settings will be automatically migrated to Braiins OS.
 
@@ -145,26 +111,10 @@ Updating Braiins OS+ on multiple devices at once can easily be done using the **
 
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file, change the ".txt" ending to ".csv" and insert the IP addresses on which you want execute the commands. Use only one IP address per line! Put that file in the directory where the BOS Toolbox is located.
-  * Once you have downloaded BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.) 
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
+  * Once you have downloaded BOS Toolbox, run it by double-clicking (Windows) or by running ``./bos-toolbox`` in command-line interpreter (Linux).
+  * In the **Update** section, fill the **Miner(s)** option by selecting the created text file and press **Start**.
 
-      cd FILE_PATH_TO_BOS_TOOLBOX
-
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
-
-    For **Windows** command terminal: ::
-
-      bos-toolbox.bat update listOfMiners.csv
-
-    For **Linux** command terminal: ::
-      
-      ./bos-toolbox update listOfMiners.csv
-
-    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
-      chmod u+x ./bos-toolbox 
-
-This command will look for an update for the miners that are specified in the *listOfMiners.csv* and update them if there is a new version of firmware.
+This command will look for an update for the miners that are specified in the created text file and update them if there is a new version of firmware.
 
 For more information about this process, and for more options visit the sections :ref:`bosbox` and :ref:`bosbox_update`.   
 
@@ -177,24 +127,8 @@ Uninstall Braiins OS+
 You can easily uninstall Braiins OS+ on a single device using the **BOS Toolbox**. In order to do so, follow the steps bellow:
 
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
-  * Once you've downloaded the BOS Toolbox, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.)
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
-
-      cd FILE_PATH_TO_BOS_TOOLBOX
-
-  * Now replace the *IP_ADDRESS* placeholder with your miner's IP address (or host name) in the command below and run the appropriate command for your operating system:
-
-    For **Windows** command terminal: ::
-
-      bos-toolbox.bat uninstall IP_ADDRESS
-
-    For **Linux** command terminal: ::
-      
-      ./bos-toolbox uninstall IP_ADDRESS
-      
-    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
-      chmod u+x ./bos-toolbox 
+  * Once you have downloaded BOS Toolbox, run it by double-clicking (Windows) or by running ``./bos-toolbox`` in command-line interpreter (Linux).
+  * In the **Uninstall** section, fill the **Miner(s)** option with the IP address of the miner and press **Start**.
 
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 
@@ -206,24 +140,8 @@ You can easily uninstall Braiins OS+ on multiple devices using the **BOS Toolbox
 
   * Download the **BOS Toolbox** from our `website <https://braiins-os.com/plus/download/>`_.
   * Create a new text file in your text editor and insert the IP addresses on which you want execute the commands. Use only one IP address per line! (Note that you can find the IP address in the Braiins OS+ web interface by going to *Status -> Overview*.) Then save the file in the same directory as you saved the BOS Toolbox and change the ".txt" ending to ".csv". 
-  * Once you have downloaded BOS Toolbox and saved the .csv file, open your command-line interpreter (e.g. CMD for Windows, Terminal for Ubuntu, etc.).
-  * Replace the *FILE_PATH_TO_BOS_TOOLBOX* placeholder in the command below with the actual file path where you saved the BOS Toolbox. Then switch to that file path by running the command: ::
-
-      cd FILE_PATH_TO_BOS_TOOLBOX
-
-  * Now replace the *listOfMiners.csv* placeholder with your file name in the command below and run the appropriate command for your operating system:
-
-    For **Windows** command terminal: ::
-
-      bos-toolbox.bat uninstall listOfMiners.csv
-
-    For **Linux** command terminal: ::
-      
-      ./bos-toolbox uninstall listOfMiners.csv
-      
-    **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
-  
-      chmod u+x ./bos-toolbox 
+  * Once you have downloaded BOS Toolbox, run it by double-clicking (Windows) or by running ``./bos-toolbox`` in command-line interpreter (Linux).
+  * In the **Uninstall** section, fill the **Miner(s)** option by selecting the created text file and press **Start**.
 
 This will revert back to stock firmware. It will automatically install an older version where the SSH was not locked, so you can access your miner remotely.
 

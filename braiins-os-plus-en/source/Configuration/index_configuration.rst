@@ -313,8 +313,7 @@ The *enabled* line can hold values *true* for enabled autotuning, or *false* for
 The *psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the PSU power
 limit (in Watts) for three hashboards and the control board.
 
-Alternatively, it's possible to turn on autotuning automatically after the installation finishes
-specifying the ``--power-limit POWER_LIMIT``   argument in the installation command.
+Alternatively, it's possible to turn on autotuning automatically after the installation finishes with the ``Set Power Limit`` option (or with the ``--power-limit POWER_LIMIT``   argument in the installation command).
 
 *********************
 Dynamic Power Scaling
@@ -358,7 +357,7 @@ the *System Upgrade* section.
 
 To make a configuration change on multiple devices using the **BOS Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
 
-Alternatively, it's possible to turn **off** auto-upgrade during the installation by specifying the ``--no-auto-upgrade``   argument in the installation command.
+Alternatively, it's possible to turn **off** auto-upgrade during the installation by selecting the ``No Auto-Upgrade`` option (``--no-auto-upgrade`` argument in the installation command).
 
 **Note:** The auto-upgrade feature has a time-randomization implemented in order to prevent high bandwidth load on farms. That means that the devices won't all upgrade at the same time. Auto-upgrade checks for new version three times a day.
 
