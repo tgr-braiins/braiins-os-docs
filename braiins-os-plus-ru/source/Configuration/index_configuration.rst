@@ -281,23 +281,22 @@ Braiins OS+ поддерживает автоматический контрол
 Строка *enabled* может содержать значения *true* для включения автонастройки или *false* для ее отключения.
 Строка *psu_power_limit* может содержать цифирные значения (min. 100 and max. 5000), представляющий предел мощности блока питания (в Watt) для трех хэшбордов и платы управления.
 
-Кроме того, можно автоматически включить автонастройку после завершения установки, указав ``--power-limit POWER_LIMIT`` аргумент в команде установки.
+Кроме того, можно включить автотюн после завершения установки с помощью параметра ``Установить Предел мощности`` (``Set Power Limit``) (или с помощью аргумента ``--power-limit POWER_LIMIT`` в команде установки).
 
-*********************
-Dynamic Power Scaling
-*********************
+*************************************
+Динамическое масштабирование мощности
+*************************************
 
-Dynamic Power Scaling automatically lowers the power limit of the miner by a user-set amount if the device reaches the *Hot Temperature*. Upon reaching the user-set minimal power limit, the miner shuts down in order to cool down. The miner starts to work on the original power limit again after a user-set period of time.
+Динамическое масштабирование мощности автоматически снижает ограничение мощности майнера на заданную пользователем величину, если устройство достигает *горячей температуры*. При достижении установленного пользователем минимального предела мощности майнер отключается, чтобы остыть. Майнер снова начинает работать с исходным пределом мощности по истечении заданного пользователем периода времени.
 
-Dynamic Power Scaling can be configured either via web GUI, using BOS Toolbox or in the configuration file ``/etc/bosminer.toml``.
+Динамическое масштабирование мощности можно настроить либо через веб-интерфейс, с помощью BOS Toolbox, либо в файле конфигурации ``/etc/bosminer.toml``.
 
-To make a configuration change via web GUI, enter the *Miner -> Configuration* menu and edit
-the *Dynamic Power Scaling* section.
+Чтобы изменить конфигурацию через веб-интерфейс зайдите в *Miner -> Configuration* меню и измените секцию *Dynamic Power Scaling*.
 
-To make a configuration change on multiple devices using the **BOS Toolbox**, follow the steps in the section :ref:`bosbox_configure`.
+Чтобы изменить конфигурацию на нескольких устройствах с помощью **BOS Toolbox**, выполните действия, описанные в разделе :ref:`bosbox_configure`.
 
-To make a configuration change in the configuration file, connect to the miner via SSH and edit
-the file ``/etc/bosminer.toml``. The syntax is the following:
+Чтобы внести изменения в конфигурационный файл, подключитесь к майнеру через SSH и отредактируйте
+файл ``/etc/bosminer.toml``. Синтаксис следующий:
 
   ::
 
@@ -308,9 +307,9 @@ the file ``/etc/bosminer.toml``. The syntax is the following:
      shutdown_enabled = true
      shutdown_duration = 3.0
 
-The *enabled* line can hold values *true* for enabled Dynamic Power Scaling, or *false* for disabled Dynamic Power Scaling.
-The *power_step* can hold numeric values (min. 100 and max. 1000), representing the power limit step-down (in Watts), which happens each time miner hits *HOT* temperature.
-The *min_psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the minimal PSU power limit for the Dynamyc Power Scaling. If *psu_power_limit* is at *min_psu_power_limit* level and miner is still *HOT* and *shutdown_enabled* is true, then miner is shut down for a period of time, defined in the *shutdown_duration* value (in hours). After that, miner is started but with the initial value of *psu_power_limit* (*PSU power limit* in the *Autotuning* section).
+Строка *enabled* может содержать значения *true* для включенного динамического масштабирования мощности или *false* для отключенного динамического масштабирования мощности.
+*Power_step* может содержать числовые значения (мин. 100 и макс. 1000), представляющие снижение предела мощности (в ваттах), которое происходит каждый раз, когда майнер достигает температуры *HOT*.
+*Min_psu_power_limit* может содержать числовые значения (мин. 100 и макс. 5000), представляющие минимальный предел мощности блока питания для динамического масштабирования мощности. Если *psu_power_limit* находится на уровне *min_psu_power_limit*, а майнер по-прежнему *HOT* и *shutdown_enabled* настроен на true, то майнер выключается на период времени, определенный в значении *shutdown_duration* (в часах). После этого майнер запускается, но с начальным значением *psu_power_limit* (*PSU power limit* в разделе *Autotuning*).
 
 **************************
 Автоматическое обновление
@@ -324,7 +323,7 @@ The *min_psu_power_limit* can hold numeric values (min. 100 and max. 5000), repr
 
 Чтобы изменить конфигурацию на нескольких устройствах с помощью **BOS Toolbox**, выполните действия, описанные в разделе :ref:`bosbox_configure`.
 
-В качестве альтернативы можно отключить **автоматическое обновление** во время установки, указав аргумент ``--no-auto-upgrade`` в команде установки.
+В качестве альтернативы можно отключить **автоматическое обновление** во время установки, выбрав опцию ``Без авто-обновления`` (или указав аргумент ``--no-auto-upgrade`` в команде установки).
 
 **********
 SSH пароль
