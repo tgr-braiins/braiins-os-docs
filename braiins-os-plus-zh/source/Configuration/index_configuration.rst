@@ -282,7 +282,8 @@
   * *enabled（启用）* 的值可以是开启自动调整功能 *true* ， 或关闭自动调整功能 *false* 。
   * *psu_power_limit（电源功率限制）* 的值可以是一个（最小100最大5000）的数值，代表（以瓦为单位）包括控制板以及三块运算板在内的矿机电源输入功率限制。
 
-此外，在固件安装完成后，在安装命令行使用 ``--power-limit POWER_LIMIT`` 参数，指定自动调整功能自动运行也是可行的。
+Alternatively, it's possible to turn on autotuning automatically after the installation finishes with the ``Set Power Limit`` option (or with the ``--power-limit POWER_LIMIT``   argument in the installation command).
+此外，在固件安装完成后，可以通过``Set Power Limit`` 选项指定自动调整功能的自动运行（或者在安装命令使用``--power-limit POWER_LIMIT``参数） 
 
 *********************
 动态功率调节（Dynamic Power Scaling)
@@ -323,7 +324,8 @@
 
 使用 **BOS工具箱** 批量升级多台矿机 ，请参见 :ref:`bosbox_configure` 部分的操作。
 
-或者，您也可以最开始在安装时，使用 ``--no-auto-upgrade`` 参数命令 **关闭** 自动升级功能。
+或者，您也可以最开始在安装时，通过选择``No Auto-Upgrade``选项（安装命令的 ``--no-auto-upgrade`` 参数） **关闭** 自动升级功能。
+
 
 **请注意：** 为保护矿场带宽不被升级占用，自动升级具有时间随机性从而让所有的矿机不会同时进行升级。自动升级会每天检查三次是否有可用的新版本。
 
