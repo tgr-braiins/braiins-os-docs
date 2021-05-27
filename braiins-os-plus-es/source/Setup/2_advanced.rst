@@ -66,6 +66,14 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
   * Usando la Caja de Herramientas BOS (:ref:`bosbox_command`)
 
+ * Escanear la red para idenficar mineros usando la caja de herramientas BOS
+
+  * Using BOS Toolbox (:ref:`bosbox_scan`)
+
+ * Escuchar transmisiones recibidas desde dispositivos usando la caja de herramientas BOS
+
+  * Using BOS Toolbox (:ref:`bosbox_listen`)
+
 .. _bosbox:
 
 ************************
@@ -109,56 +117,38 @@ Instalar Braiins OS+ con la Caja de herramientas BOS
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat install listaDeMineros.csv
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox install listaDeMineros.csv
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Install** (Instalar), llene la opción **Minero(s)** seleccionando el archivo de texto creado, llene el campo **Contraseña** con su clave y presione **Empezar**.
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
-**Nota importante:**
-Al instalar Braiins OS+ en **un solo dispositivo**, reemplace el argumento *HOSTS* con una dirección IP.
-Al instalar Braiins OS+ en **varios dispositivos**, reemplace el argumento *HOSTS* con la ruta al archivo que contiene las direcciones ip.
+====================================  ====================================  ============================================================
+Opciones GUI                          Argumentos línea de comandos          Descripción
+====================================  ====================================  ============================================================
+Password                              -p CONTRASEÑA --password CONTRASEÑA   Contraseña administrativa
+Farm-ID                               --bos-mgmt-id [ID_BOS_MGMT]	          Pone el identificador para Braiins OS+ Manager
+Set Power limit                       --psu-power-limit [LÍMITE_ENERGÍA]    Pone límite de energía (en Vatios) para la fuente
+Set Pool user                         --pool-user [USUARIO_POOL]            Pone el nombre de usuario y de equipo para Slush Pool
+Latest Stable release                 *N/A* - Opción Predeterminada         Elección predeterminada, opción recomendada
+Open-Source version                   --open-source         		            Use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
+Nightly version                       --nightly             		            Use para instalar la versión nightly (excluyente con **open-source** y **feed-url**)
+Custom Feeds-URL                      --feeds-url [URL_FEEDS]		            Saltar URL del servidor predeterminado de feeds (excluyente con **open-source** y **nightly**)
+Firmware version                      --fw-version [VERSION_FW]	            Elegir una versión específica de firmware
+No Auto-Upgrade                       --no-auto-upgrade                     Desactiva Auto-Actualizar (no recomendado)
+Don't migrate pool settings           --no-keep-pools                       No mantiene la configuración del pool
+Migrate network settings              *N/A* - Opción Predeterminada         Mantiene configuración de red, elección predeterminada (recomendado)
+Don't migrate network settings        --no-keep-network                     No mantiene la configuración de red (usa DHCP)
+Don't keep hostname                   --no-keep-hostname                    No mantiene nombre host del minero y genera el nuevo basado en MAC
+Keep hostname                         --keep-hostname                       Mantiene nombre host del minero
+Post-upgrade                          --post-upgrade [POST_ACTUALIZADO]     Ruta al directorio con el script stage3.sh
+*N/A* - Not implemented               -h, --help                            muestra este mensaje de ayuda y sale
+*N/A* - Not implemented               --backup                              Respalda el minero antes de instalar (NAND y configuración)
+*N/A* - Not implemented               --no-nand-backup                      Omite respaldo completo de NAND (aun respalda la configuración)
+*N/A* - Not implemented               --no-wait                             No espera hasta que el sistema esté completamente actualizado y reiniciado
+*N/A* - Not implemented               --dry-run                             Hace todos los pasos de actualización sin hacer la propia actualización
+====================================  ====================================  ============================================================
 
-====================================  ==================================================================
-Argumentos                            Descripción
-====================================  ==================================================================
--h, --help                            muestra este mensaje de ayuda y sale
---open-source         		         use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
---nightly             		         use para instalar la versión nightly (excluyente con **open-source** y **feed-url**)
---feeds-url [URL_FEEDS]		         saltar URL del servidor predeterminado de feeds (excluyente con **open-source** y **nightly**)
---fw-version [VERSION_FW]	         seleccionar versión específica de firmware
---backup                              hacer el respaldo al minero antes de actualizar
---no-auto-upgrade                     apagar auto-actualizar del firmware instalado
---no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
---pool-user [USUARIO_POOL]            establecer nombre de usuario y equipo al pool predeterminado
---psu-power-limit [LÍMITE_ENERGÍA]    fijar límite de energía (en vatios) para la fuente de poder
---no-keep-network                     no mantener la configuración de red (usar DHCP)
---no-keep-pools                       no mantener la configuración del pool del minero
---no-keep-hostname                    no mantener el nombre de host y generar uno nuevo basado en MAC
---keep-hostname                       forzar mantener cualquier nombre host del minero
---no-wait                             no esperar a que el sistema esté completamente actualizado
---dry-run                             hacer todos los pasos de actualización sin realmente actualizar
---post-upgrade [POST_ACTUALIZADO]     ruta al directorio con el script stage3.sh
---bos-mgmt-id [ID_GESTOR_BOS]         fijar identificador para el gestor BOS
--p CONTRASEÑA --password CONTRASEÑA   contraseña administrativa
-====================================  ==================================================================
-
-**Ejemplo:**
+**Comando de ejemplo:**
 
 ::
 
@@ -174,46 +164,27 @@ Actualizar Braiins OS+ con la Caja de herramientas BOS
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto, cambie la extensión ".txt" a ".csv" e inserte las direcciones IP en las que desea ejecutar los comandos. Coloque el archivo en el directorio donde se encuentra la Caja de herramientas BOS. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat update ARGUMENTOS HOSTS PAQUETE
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox update ARGUMENTOS HOSTS PAQUETE
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Update** (Actualizar), llene la opción **Minero(s)** seleccionando el archivo de texto creado y presione **Empezar**.
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
-**Nota importante:**
-Al actualizar Braiins OS+ en **un solo dispositivo**, use el argumento *NOMBREHOST* (dirección IP).
-Al actualizar Braiins OS+ en **varios dispositivos**, **NO** use el argumento NOMBREHOST, sino el argumento *--batch LOTE* en su lugar.
-
-====================================  ==================================================================
-Argumentos                            Descripción
-====================================  ==================================================================
--h, --help                            muestra este mensaje de ayuda y sale
--p PASSWORD, --password PASSWORD      palabra clave administrativa
--i, --ignore                          no detener en errores
-PAQUETE                               nombre del paquete para actualizar
-====================================  ==================================================================
+====================================  ====================================  ============================================================
+Opciones GUI                          Argumentos                            Descripción
+====================================  ====================================  ============================================================
+Package                 				      PACKAGE_NAME                          Nombre del paquete para la actualización (elija 'firmware' para actualizar el firmware)
+Password                              -p PASSWORD, --password PASSWORD      Contraseña administrativa
+Farm-ID                               --bos-mgmt-id [ID_BOS_MGMT]           Poner identificador Braiins OS+ Manager
+Ignore non-responsive miners          -i, --ignore                          no detener en errores
+*N/A* - Not implemented               --h, --help                           muestra este mensaje de ayuda y sale
+====================================  ====================================  ============================================================
 
 
-**Ejemplo:**
+**Comando de ejemplo:**
 
 ::
 
-  bos-toolbox.bat update listaDeMineros.csv
+  bos-toolbox.bat update listaDeMineros.csv firmware
 
 Este comando buscará actualizaciones para los mineros, que están especificados en la *listaDeMineros.csv* y los actualizará si hay una nueva versión del firmware.
 
@@ -225,43 +196,23 @@ Desinstalar Braiins OS+ con la Caja de herramientas BOS
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat uninstall ARGUMENTOS HOSTS RUTA_DE_RESPALDO
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox uninstall ARGUMENTOS HOSTS RUTA_DE_RESPALDO
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Uninstall** (Desinstalar), llene la opción **Minero(s)** con la dirección IP del minero y presione **Empezar**.
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
-**Nota importante:**
-Al desinstalar Braiins OS+ en **un solo dispositivo**, reemplace el argumento *HOSTS* con una dirección IP.
-Al desinstalar Braiins OS+ en **varios dispositivos**, reemplace el argumento *HOSTS* con la ruta al archivo que contiene las direcciones IP.
-*RUTA_DE_RESPALDO* es opcional. Use solo en conjunto con el argumento *--nand-restore*.
+====================================  ====================================  ============================================================
+Opciones GUI                          Argumentos                            Descripción
+====================================  ====================================  ============================================================
+Contraseña                            -p PASSWORD, --password CONTRASEÑA    Contraseña administrativa
+Firmware de serie predeterminado      *N/A* - Opción Predeterminada         Elección predeterminada
+Custom Feeds-URL                      --feeds-url [URL_FEEDS]		               Invalidar URL predeterminada del servidor fuente
+*N/A* - Not implemented               --nand-restore			                         Usar toda la restauración NAND del respaldo previo
+*N/A* - Not implemented               RUTA_DE_RESPALDO                      Ruta directorio o archivo datos tgz para restaurar el minero
+*N/A* - Not implemented               --h, --help                           Muestra este mensaje de ayuda y sale
+====================================  ====================================  ============================================================
 
-====================================  ===================================================================
-Argumentos                            Descripción
-====================================  ===================================================================
--h, --help                            muestra este mensaje de ayuda y sale
--p PASSWORD, --password PASSWORD      palabra clave administrativa
---feeds-url [URL_FEEDS]               saltar URL del servidor predeterminado de feeds
---nand-restore                        usar restauración completa NAND desde un respaldo previo
-RUTA_DE_RESPALDO                      ruta al directorio o archivo tgz con datos para restaurar el minero
-====================================  ===================================================================
-
-**Ejemplo:**
+**Comando de ejemplo:**
 
 ::
 
@@ -271,6 +222,9 @@ Este comando desinstalará Braiins OS+ de los mineros, que están especificados 
 
 **¡Advertencia!** El firmware de serie que se instala al desinstalar Braiins OS+ ¡no es adecuado para minar! Actualice a una versión mas nueva del firmware de serie para su modelo de hardware específico antes de comenzar a minar.
 
+**Nota importante:**
+*RUTA_DE_RESPALDO* es opcional. Use solo en conjunto con el argumento *--nand-restore*. **No se recomienda** restaurar firmware desde un respaldo.
+
 .. _bosbox_configure:
 
 =======================================================
@@ -279,37 +233,8 @@ Configurar Braiins OS+ con la Caja de herramientas BOS
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat config ARGUMENTOS ACCIÓN TABLA
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox config ARGUMENTOS ACCIÓN TABLA
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
-
-Puede usar los **argumentos** siguientes para ajustar el proceso:
-
-====================================  ==================================================================
-Argumentos                            Descripción
-====================================  ==================================================================
--h, --help                            muestra este mensaje de ayuda y sale
--u USER, --user USER                  nombre administrativo
--p PASSWORD, --password PASSWORD      palabra clave administrativa o "preguntar"
---change-password                     Permite cambiar contraseña (a una puesta en *listaDeMineros.csv*)
--c, --check                           ensayo sin escrituras
--i, --ignore                          no detener en errores
-====================================  ==================================================================
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Config** (Configurar), llene la opción **Lista de mineros** eligiendo el archivo de texto creado, elija la acción y presione **Empezar**.
 
 **Debe usar una** de las siguientes **acciones** para ajustar el proceso:
 
@@ -325,7 +250,20 @@ apply                                 aplicar la configuración, que fue copiada
 save_apply                            guardar y aplicar la configuración del archivo CSV a los mineros
 ====================================  ==================================================================
 
-**Ejemplo:**
+Puede usar los **argumentos** siguientes para ajustar el proceso:
+
+====================================  ====================================  ============================================================
+Opciones GUI                          Argumentos                            Descripción
+====================================  ====================================  ============================================================
+Username                              -u USER, --user USUARIO               Usuario administrativo
+Password                              -p PASSWORD, --password CONTRASEÑA    Contraseña administrativa
+Change Password                       --change-password		                  Permite cambiar contraseña (a una declarada en la *listaDeMineros.csv*)
+Ignore                                -i, --ignore                          no detener en los errores
+*N/A* - Not implemented               -h, --help                            muestra este mensaje de ayuda y sale
+*N/A* - Not implemented               -c, --check                           ensayo sin escrituras
+====================================  ====================================  ============================================================
+
+**Comando de ejemplo:**
 
 ::
 
@@ -340,79 +278,62 @@ El primer comando va a cargar la configuración de los mineros, que estén espec
 .. _bosbox_scan:
 
 ============================================================================
-Explorar la red para identificar mineros usando la Caja de herramientas BOS
+Escanear la red para identificar mineros usando la Caja de herramientas BOS
 ============================================================================
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat scan ARGUMENTOS
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox scan ARGUMENTOS
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Scan** (Escanear), llene la opción **Lista de mineros** eligiendo el archivo de texto creado, elija la acción y presione **Empezar**.
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
-====================================  ==================================================================
-Argumentos                            Descripción
-====================================  ==================================================================
--h, --help                            muestra este mensaje de ayuda y sale
-====================================  ==================================================================
+====================================  ====================================  ============================================================
+Opciones GUI                          Argumentos                            Descripción
+====================================  ====================================  ============================================================
+Password                              -p PASSWORD, --password CONTRASEÑA    Contraseña administrativa
+Save output                           -o OUTPUT, --output SALIDA            Guarda lista de direcciones IP encontradas a un archivo
+Verbose                               -v, --verbose                         Reportar errores de red
+*N/A* - Not implemented               -h, --help                            Muestra este mensaje de ayuda y sale
+*N/A* - Not implemented               -j JOBS, --jobs JOBS                  Número de trabajos concurrentes para escanear la red
+====================================  ====================================  ============================================================
 
-**Debe usar una** de las siguientes **acciones** para ajustar el proceso:
-
-====================================  ==================================================================
-Acciones                              Descripción
-====================================  ==================================================================
-scan                                  explorar activamente el rango provisto de direcciones
-listen                                escuchar transmisión entrante desde los dispositivos (al presionar
-                                      el botón IP report)
-====================================  ==================================================================
-
-====================================  ============================================================
-Optional Arguments - scan             Description
-====================================  ============================================================
--h, --help                            show this help message and exit
---passwords PASSWORDS                 path to file with list of possible passwords for connection
--o OUTPUT, --output OUTPUT            save list of found IP addresses to file
--j JOBS, --jobs JOBS                  number of concurrent jobs to scan network
--v, --verbose                         Report networking errors
-====================================  ============================================================
-
-====================================  ============================================================
-Optional Arguments - listen             Description
-====================================  ============================================================
--h, --help                            show this help message and exit
--o OUTPUT, --output OUTPUT            save list of found IP addresses to file
---format FORMAT                       change default formatting string for device information; the
-                                      tags '{IP}' and '{MAC}' will be replaced with actual data
-====================================  ============================================================
-
-**Ejemplo:**
+**Comando de ejemplo:**
 
 ::
 
-  #explorar la red, en el rango 10.10.10.0 - 10.10.10.255
+  #escanear la red, en el rango 10.10.10.0 - 10.10.10.255
   bos-toolbox.bat discover scan 10.10.10.0/24
 
-  #explorar la red, en el rango 10.10.0.0 - 10.10.255.255
+  #escanear la red, en el rango 10.10.0.0 - 10.10.255.255
   bos-toolbox.bat discover scan 10.10.0.0/16
 
-  #explorar la red, en el rango 10.0.0.0 - 10.255.255.255
+  #escanear la red, en el rango 10.0.0.0 - 10.255.255.255
   bos-toolbox.bat discover scan 10.0.0.0/8
+
+.. _bosbox_listen:
+
+============================================================
+￼Listen for incoming broadcast from devices using BOS Toolbox
+￼============================================================
+￼
+
+  * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
+  * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Scan** (Escanear), llene la opción **Lista de mineros** eligiendo el archivo de texto creado, elija la acción y presione **Empezar**.
+
+Puede usar los **argumentos** siguientes para ajustar el proceso:
+
+====================================  ====================================  ============================================================
+Opciones GUI                          Argumentos                            Descripción
+￼====================================  ====================================  ============================================================
+￼Save output                           -o OUTPUT, --output SALIDA            Guardar salida de direcciones IP encontradas al archivo
+￼Format                                --format FORMATO                      Cambiar frase de formateo predeterminada para la información
+                                                                            de dispositivo; las etiquetas '{IP}' y '{MAC}' serán
+                                                                            reemplazadas con los datos actuales
+￼*N/A* - Not implemented               -h, --help                                                                  Muestra este mensaje de ayuda y sale
+￼====================================  ====================================  ============================================================
 
 .. _bosbox_command:
 
@@ -422,53 +343,26 @@ Correr comandos personalizados en mineros usando la Caja de Herramientas BOS
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
-  * Una vez descargada la Caja de herramientas BOS, abra su interprete de línea de comandos (ej: CMD en windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS* del comando siguiente con la verdadera ruta de archivo donde guardó la Caja de Herramientas BOS. Luego cámbiese a esa ruta ejecutando el comando: ::
-
-      cd RUTA_A_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con su nombre de archivo en el comando siguiente y ejecute el comando apropiado para su sistema operativo:
-
-    Para terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat command ARGUMENTOS
-
-    Para terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox command ARGUMENTOS
-
-    **Nota:** *al usar la la Caja de herramientas BOS en Linux, necesitará hacerla ejecutable mediante el comando siguiente (esto solo debe hacerse una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Command** (Comando), llene la opción **Minero(s)** eligiendo el archivo de texto creado, el comando a ejecutar y presione **Empezar**.
 
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
-====================================  ==================================================================
-Acciones                              Descripción
-====================================  ==================================================================
--h, --help                            muestra este mensaje de ayuda y sale
--a, --auto                            Usar ssh si rpc no está disponible
--l, --legacy                          Usar ssh
--L, --no-legacy                       Usar rpc
--o, --output                          Capturar e imprimir la salida remota
--O, --output-hostname                 Capturar e imprimir la salida remota
--p PASSWORD, --password PASSWORD      palabra clave administrativa
--j JOBS, --jobs JOBS                  número de trabajos concurrentes
-====================================  ==================================================================
+====================================  ====================================  ============================================================
+￼GUI Options                           Arguments                             Description
+￼====================================  ====================================  ============================================================
+￼Show remote output                    -o, --output                          Captura e imprime salida remota
+￼Show hostname output                  -O, --output-hostname                 Captura e imprime salida remota del host
+￼Password                              -p CONTRASEÑA, --password CONTRASEÑA  Contraseña administrativa
+￼*N/A* - Not implemented               -h, --help                            muestra este mensaje de ayuda y sale
+￼*N/A* - Not implemented               -j TRABAJOS, --jobs TRABAJOS          número de trabajos concurrentes
+￼*N/A* - Not implemented               -a, --auto                            Usa SSH si RPC no está disponible
+￼*N/A* - Not implemented               -l, --legacy                          Usa ssh
+￼*N/A* - Not implemented               -L, --no-legacy                       Usa rpc
+￼====================================  ====================================  ============================================================
+￼
 
-**Debe usar una** de las siguientes **acciones** para ajustar el proceso:
-
-====================================  ==================================================================
-Acciones                              Descripción
-====================================  ==================================================================
-start                                 Iniciar BOSminer
-stop                                  Detener BOSminer
-*comando_personalizado*               Reemplace *comando_personalizado* con su propio comando de consola
-                                      (ej: *cat /etc/bosminer.toml* para mostrar el contenido del
-                                      archivo de configuración *bosminer.toml*)
-====================================  ==================================================================
-
-**Ejemplo:**
+**Comando de ejemplo:**
 
 ::
 
@@ -483,43 +377,22 @@ Desbloquear SSH en Antminer S9 usando Caja de Herramientas BOS
 
   * Descargue la **Caja de Herramientas BOS** de nuestro `sitio web <https://es.braiins.com/os/plus/download>`_.
   * Cree un nuevo archivo de texto, cambie la terminación ".txt" a ".csv" e inserte las direcciones IP en donde quiere ejecutar los comandos. Coloque ese archivo en la carpeta donde se encuentra la Caja de Herramientas BOS. **¡Use solo una dirección IP por línea!**
-  * Una vez descargada la Caja de Herramientas BOS, abra su interprete de linea-de-comandos (ej. CMD en Windows, Terminal en Ubuntu, etc.)
-  * Reemplace el marcador *RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS* en el comando de abajo por la ruta actual al archivo donde guardó la Caja de Herramientas BOS Toolbox. Luego cambie a esa ruta de archivo corriendo el comando: ::
-
-      cd RUTA_HACIA_LA_CAJA_DE_HERRAMIENTAS_BOS
-
-  * Ahora reemplace el marcador *listaDeMineros.csv* con el nombre de archivo en el comando de abajo y corra el comando apropiado para su sistema operativo:
-
-    Terminal de comandos en **Windows**: ::
-
-      bos-toolbox.bat unlock ARGUMENTOS HOSTS
-
-    Terminal de comandos en **Linux**: ::
-
-      ./bos-toolbox unlock ARGUMENTOS HOSTS
-
-    **Nota:** *al usar la caja de herramientas BOS para Linux, debe hacerla ejecutable con el siguiente comando (solo necesita hacerlo una vez):* ::
-
-      chmod u+x ./bos-toolbox
+  * Una vez descargada la Caja de herramientas BOS, ejecute haciendo doble clic (Windows) o corriendo ``./bos-toolbox`` en el intérprete de línea de comandos (Linux).
+  * En la sección **Unlock** (Desbloquear), llene la opción **Minero(s)** eligiendo el archivo de texto creado y presione **Empezar**.
 
 Puede usar los siguientes **argumentos** para ajustar el proceso:
 
-**Nota importante:**
-Al desinstalar Braiins OS+ en **un solo dispositivo**, reemplace el argumento *HOSTS* con una dirección IP.
-Al desinstalar Braiins OS+ en **varios dispositivos**, reemplace el argumento *HOSTS* con la ruta al archivo que contiene las direcciones IP.
+====================================  ====================================  ============================================================
+GUI Options                           Arguments                             Description
+====================================  ====================================  ============================================================
+Username                              -u USERNAME, --username USUARIO       usuario para la interfaz web
+Password                              -p PASSWORD, --password CONTRASEÑA    contraseña para la interfaz web
+*N/A* - Not implemented               --h, --help                           muestra este mensaje de ayuda y sale
+*N/A* - Not implemented               --port PUERTO                         puerto de la interfaz web del minero
+*N/A* - Not implemented               --ssl                                 si usar SSL
+====================================  ====================================  ============================================================
 
-==========================================  ==========================================================
-Argumentos                                  Descripción
-==========================================  ==========================================================
---h, --help                                 muestra este mensaje de ayuda y sale
--u NOMBREUSUARIO, --username NOMBREUSUARIO  nombre de usuario para la interfaz web
--p CONTRASEÑA, --password CONTRASEÑA        contraseña para la interfaz web
---port PUERTO                               puerto de la interfaz web
---ssl                                       si va usar SSL
-==========================================  ==========================================================
-
-
-**Ejemplo:**
+**Comando de ejemplo:**
 
 ::
 
