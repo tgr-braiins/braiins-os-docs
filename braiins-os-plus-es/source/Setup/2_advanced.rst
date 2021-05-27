@@ -314,9 +314,9 @@ Verbose                               -v, --verbose                         Repo
 .. _bosbox_listen:
 
 ============================================================
-￼Listen for incoming broadcast from devices using BOS Toolbox
-￼============================================================
-￼
+Listen for incoming broadcast from devices using BOS Toolbox
+============================================================
+
 
   * Descargue la **Caja de herramientas BOS** desde nuestro `sitio web <https://braiins-os.com/plus/download/>`_.
   * Cree un nuevo archivo de texto en su editor de texto e inserte las direcciones IP en las cuales desea ejecutar los comandos. **¡Use una sola dirección IP por línea!** (Note que puede encontrar la dirección IP en la interfaz web de Braiins OS+ yendo a *Status -> Overview*.) Luego guarde el archivo en el mismo directorio donde guardó la Caja de herramientas BOS y cambie la extensión ".txt" a ".csv".
@@ -327,13 +327,13 @@ Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 ====================================  ====================================  ============================================================
 Opciones GUI                          Argumentos                            Descripción
-￼====================================  ====================================  ============================================================
-￼Save output                           -o OUTPUT, --output SALIDA            Guardar salida de direcciones IP encontradas al archivo
-￼Format                                --format FORMATO                      Cambiar frase de formateo predeterminada para la información
+====================================  ====================================  ============================================================
+Save output                           -o OUTPUT, --output SALIDA            Guardar salida de direcciones IP encontradas al archivo
+Format                                --format FORMATO                      Cambiar frase de formateo predeterminada para la información
                                                                             de dispositivo; las etiquetas '{IP}' y '{MAC}' serán
                                                                             reemplazadas con los datos actuales
-￼*N/A* - Not implemented               -h, --help                                                                  Muestra este mensaje de ayuda y sale
-￼====================================  ====================================  ============================================================
+*N/A* - Not implemented               -h, --help                                                                  Muestra este mensaje de ayuda y sale
+====================================  ====================================  ============================================================
 
 .. _bosbox_command:
 
@@ -349,18 +349,18 @@ Correr comandos personalizados en mineros usando la Caja de Herramientas BOS
 Puede usar los **argumentos** siguientes para ajustar el proceso:
 
 ====================================  ====================================  ============================================================
-￼GUI Options                           Arguments                             Description
-￼====================================  ====================================  ============================================================
-￼Show remote output                    -o, --output                          Captura e imprime salida remota
-￼Show hostname output                  -O, --output-hostname                 Captura e imprime salida remota del host
-￼Password                              -p CONTRASEÑA, --password CONTRASEÑA  Contraseña administrativa
-￼*N/A* - Not implemented               -h, --help                            muestra este mensaje de ayuda y sale
-￼*N/A* - Not implemented               -j TRABAJOS, --jobs TRABAJOS          número de trabajos concurrentes
-￼*N/A* - Not implemented               -a, --auto                            Usa SSH si RPC no está disponible
-￼*N/A* - Not implemented               -l, --legacy                          Usa ssh
-￼*N/A* - Not implemented               -L, --no-legacy                       Usa rpc
-￼====================================  ====================================  ============================================================
-￼
+GUI Options                           Arguments                             Description
+====================================  ====================================  ============================================================
+Show remote output                    -o, --output                          Captura e imprime salida remota
+Show hostname output                  -O, --output-hostname                 Captura e imprime salida remota del host
+Password                              -p CONTRASEÑA, --password CONTRASEÑA  Contraseña administrativa
+*N/A* - Not implemented               -h, --help                            muestra este mensaje de ayuda y sale
+*N/A* - Not implemented               -j TRABAJOS, --jobs TRABAJOS          número de trabajos concurrentes
+*N/A* - Not implemented               -a, --auto                            Usa SSH si RPC no está disponible
+*N/A* - Not implemented               -l, --legacy                          Usa ssh
+*N/A* - Not implemented               -L, --no-legacy                       Usa rpc
+====================================  ====================================  ============================================================
+
 
 **Comando de ejemplo:**
 
