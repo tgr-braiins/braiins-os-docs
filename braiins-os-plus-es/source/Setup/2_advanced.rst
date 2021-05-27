@@ -68,11 +68,11 @@ Hay muchas herramientas, paquetes y scripts que pueden usarse para gestionar Bra
 
  * Escanear la red para idenficar mineros usando la caja de herramientas BOS
 
-  * Using BOS Toolbox (:ref:`bosbox_scan`)
+  * Usando la Caja de Herramientas BOS (:ref:`bosbox_scan`)
 
  * Escuchar transmisiones recibidas desde dispositivos usando la caja de herramientas BOS
 
-  * Using BOS Toolbox (:ref:`bosbox_listen`)
+  * Usando la Caja de Herramientas BOS (:ref:`bosbox_listen`)
 
 .. _bosbox:
 
