@@ -14,6 +14,12 @@
 اجرا روی فریم‌ور اصلی کارخانه که قبل از 2019 منتشرشده
 ======================================================
 
+**GUI BOS+ Toolbox installation**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ya171-K_s4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 **نصب روی یک دستگاه**
 
 .. raw:: html
@@ -53,6 +59,10 @@ Braiins OS+ بر روی ماینر نصب خواهد شد. تنظیمات شبک
 ========================================================
 
 **(تنها برای Antminer S9) باز کردن قفل SSH و نصب با استفاده از BOS Toolbox **
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ya171-K_s4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 در سال ۲۰۱۹،‌ ارتباط SSH قفل شد و تصدیق امضا از طریق رابط کاربری وب باعث جلوگیری استفاده از فریم‌ور های 3rd party شد. برای نصب Braiins OS+ روی دستگاه های دارای قفل SSH مراحل زیر را انجام دهید:
 

@@ -14,6 +14,12 @@ Install Braiins OS+
 Running stock firmware released before 2019
 ============================================
 
+**GUI BOS+ Toolbox installation**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ya171-K_s4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 **Single device installation**
 
 .. raw:: html
@@ -52,6 +58,10 @@ Running stock firmware released in 2019 or later
 ==================================================
 
 **(Antminer S9 only) Unlock SSH and install using BOS Toolbox**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ya171-K_s4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In 2019, the SSH connection was locked and the signature verification in the web interface prevents the usage of 3rd party firmwares. In order to install Braiins OS+ on machines with locked SSH, follow the steps bellow:
 

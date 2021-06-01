@@ -14,6 +14,12 @@
 矿机原厂固件是2019年之前的版本
 ============================================
 
+**GUI BOS+ Toolbox installation**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ya171-K_s4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 **单台矿机安装**
 
 .. raw:: html
@@ -52,6 +58,10 @@ BTC Tools批量运维软件现已新增对我们Braiins OS+固件20.11版本及�
 ==================================================
 
 **（仅适用于蚂蚁矿机S9）使用BOS工具箱解锁固件远程SSH锁**
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ya171-K_s4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 官方固件在2019年封锁了SSH远程连接，并在矿机网页后台升级固件时加入了固件签名验证，从而不让矿工装第三方固件。如您的矿机上有固件锁，请按以下步骤解锁并安装Braiins OS+：
 
