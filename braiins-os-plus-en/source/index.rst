@@ -85,6 +85,7 @@ This is a major release that provides improved support for the Antminer X17(incl
   * [feature] support for S17e and T17e
   * [feature] improved support for T17, T17+, S17, S17+
   * [feature] Braiins OS+ Manager support enabled for the entire x17 family
+  * [feature] improved DPS, Dynamic Power Scaling now also automatically upscales the power limit, when the miner's temperature is at least 5 degrees bellow the HOT limit and the fans are running bellow 80%.
   * [feature] BOSminer will run and ignore incorrect configurations only when Braiins OS+ Manager is used so that the configuration can be fixed. If Braiins OS+ Manager is not used, BOSminer will power off when there is an incorrect configuration.
 
 

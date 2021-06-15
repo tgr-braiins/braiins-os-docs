@@ -87,6 +87,7 @@ Esta es una versión mayor que provee soporte mejorado para la familia Antminer 
   * [característica] soporte para S17e y T17e
   * [característica] mejorado soporte para T17, T17+, S17, S17+
   * [característica] soporte Braiins OS+ Manager activado para toda la familia x17
+  * [característica] mejorado EED, el Escalamiento de Energía Dinámico ahora también sube la escala del límite de energía, cuando la temperatura del minero esté al menos 5 grados debajo de la temperatura HOT (caliente) y los ventiladores estén por debajo de 80%.
   * [característica] BOSminer va correr e ignorar configuraciones incorrectas solo cuando sea usado Braiins OS+ Manager de manera que la configuración pueda ser arreglada. Si Braiins OS+ Manager no es usado, BOSminer se apagará cuando exista una configuración incorrecta.
 
 21.04
