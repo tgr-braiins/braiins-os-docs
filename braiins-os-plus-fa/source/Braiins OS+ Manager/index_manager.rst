@@ -63,7 +63,6 @@ Braiins OS+ Manager یک پلت فرم ابری است که به شما امکا
 
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
-    
 
 **تنظیم شناسه‌ Farm ID روی Braiins OS+ موجود**
 
@@ -121,7 +120,7 @@ There are three different options on how the devices included in a Farm can iden
 ::
 
     rm /etc/bos_mgmt_id && /etc/init.d/bosminer restart
-    
+
 اگر از نسخه خط فرمان تولباکس استفاده میکنید از دستور زیر استفاده نمایید:
 
 ::

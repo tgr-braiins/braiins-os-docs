@@ -76,6 +76,19 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+21.06
+---------------------------
+
+Esta es una versión mayor que provee soporte mejorado para la familia Antminer X17(incluyendo e).
+
+* Antminer X17
+
+  * [característica] ajuste mejorado asegura rendimiento óptimo del minero en los niveles de energía configurados por el usuario
+  * [característica] soporte para S17e y T17e
+  * [característica] mejorado soporte para T17, T17+, S17, S17+
+  * [característica] soporte Braiins OS+ Manager activado para toda la familia x17
+  * [característica] BOSminer va correr e ignorar configuraciones incorrectas solo cuando sea usado Braiins OS+ Manager de manera que la configuración pueda ser arreglada. Si Braiins OS+ Manager no es usado, BOSminer se apagará cuando exista una configuración incorrecta.
+
 21.04
 ---------------------------
 

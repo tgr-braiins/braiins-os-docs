@@ -74,6 +74,20 @@ Join our Telegram group:
 Changelog
 *********
 
+21.06
+---------------------------
+
+This is a major release that provides improved support for the Antminer X17(including e) family.
+
+* Antminer X17
+
+  * [feature] improved tuner ensures optimum miner performance at user configured power levels
+  * [feature] support for S17e and T17e
+  * [feature] improved support for T17, T17+, S17, S17+
+  * [feature] Braiins OS+ Manager support enabled for the entire x17 family
+  * [feature] BOSminer will run and ignore incorrect configurations only when Braiins OS+ Manager is used so that the configuration can be fixed. If Braiins OS+ Manager is not used, BOSminer will power off when there is an incorrect configuration.
+
+
 21.04
 ---------------------------
 

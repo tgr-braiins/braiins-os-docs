@@ -63,7 +63,6 @@ If the GUI version of the toolbox is used, fill the **Farm-ID** option in the **
 
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
-    
 
 **Set Farm ID on existing Braiins OS+ installation**
 

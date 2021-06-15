@@ -62,7 +62,7 @@ Braiins OS+管家中能设置运维管理单位“矿场”（以下通称矿场
 
     #Linux
     ./bos-toolbox install --bos-mgmt-id FARM_ID HOSTS
-    
+
 **在存在的Braiins OS+安装上绑定矿场ID**
 
 如果矿机上运行的Braiins OS+固件版本为21.04或更新，您在安装Braiins OS+时在安装命令后添加矿场ID选项（--bos-mgmt-id参数） 同时绑定矿场ID。
