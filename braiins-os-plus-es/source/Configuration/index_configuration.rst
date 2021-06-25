@@ -274,17 +274,17 @@ Para hacer un cambio a la configuración en el archivo de configuración, conéc
      enabled = true
      psu_power_limit = 1200
 
-La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false* (falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min. 100 y max. 5000), representando el límite de energía (en Vatios) de la PSU (fuente de poder) para tres tarjetas hash y la tarjeta controladora.
+La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false* (falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min. 100 y max. 5000), representando el límite de potencia (en Vatios) de la PSU (fuente de poder) para tres tarjetas hash y la tarjeta controladora.
 
 Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la instalación con la opción ``Set Power Limit`` (o con el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación).
 
-********************************
-Escalamiento de Energía Dinámico
-********************************
+*****************************
+Escalado de Potencia Dinámico
+*****************************
 
-El Escalamiento de Energía Dinámico baja el limite de energía (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite de energía mínimo, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de energía original luego de un período de tiempo definido por el usuario.
+El Escalamiento de Potencia Dinámico baja el limite de potencia (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite de potencia mínimo, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de potencia original luego de un período de tiempo definido por el usuario.
 
-El Escalamiento de Energía Dinámico puede configurarse vía web GUI, usando la Caja de Herramientas BOS+ o en el archivo de configuración ``/etc/bosminer.toml``.
+El Escalado de Potencia Dinámico puede configurarse vía web GUI, usando la Caja de Herramientas BOS+ o en el archivo de configuración ``/etc/bosminer.toml``.
 
 Para hacer un cambio a la configuración vía web GUI, entre en el menú *Miner -> Configuration* y edite la sección *Dynamic Power Scaling*.
 
@@ -301,9 +301,9 @@ Para hacer un cambio en el archivo de configuración, conéctese el aminero vía
      shutdown_enabled = true
      shutdown_duration = 3.0
 
-La línea *enabled* puede tener los valores *true* para activar el Escalamiento de Energía Dinámico, o *false* para desactivar el Escalamiento de Energía Dinámico.
-El *power_step* puede tener valores numéricos (min. 100 y max. 1000), representando el escalón para bajar el límite de energía (powerlimit) en vatios (Watts), que ocurre cada vez que el minero alcance la *HOT* temperature (temperatura caliente).
-El *min_psu_power_limit* puede tener valores numéricos (min. 100 y max. 5000), representando el límite mínimo de la fuente para el Escalamiento de Energía Dinámico. Si *psu_power_limit* está en el nivel *min_psu_power_limit* y el minero sigue *HOT* (caliente) y *shutdown_enabled* es true (verdadero), entonces el minero se apaga por un período de tiempo, definido en el valor *shutdown_duration* (duración de apagado) (en horas). Luego de eso, el minero es iniciado pero con el valor inicial de *psu_power_limit* (*PSU power limit* en la sección *Autotuning*) (autoajuste).
+La línea *enabled* puede tener los valores *true* para activar el Escalado de Potencia Dinámico, o *false* para desactivar el Escalado de Potencia Dinámico.
+El *power_step* puede tener valores numéricos (min. 100 y max. 1000), representando el escalón para bajar el límite de potencia (powerlimit) en vatios (Watts), que ocurre cada vez que el minero alcance la *HOT* temperature (temperatura caliente).
+El *min_psu_power_limit* puede tener valores numéricos (min. 100 y max. 5000), representando el límite mínimo de la fuente para el Escalado de Potencia Dinámico. Si *psu_power_limit* está en el nivel *min_psu_power_limit* y el minero sigue *HOT* (caliente) y *shutdown_enabled* es true (verdadero), entonces el minero se apaga por un período de tiempo, definido en el valor *shutdown_duration* (duración de apagado) (en horas). Luego de eso, el minero es iniciado pero con el valor inicial de *psu_power_limit* (*PSU power limit* en la sección *Autotuning*) (autoajuste).
 
 ***************
 Auto-actualizar
@@ -550,17 +550,17 @@ Para hacer un cambio a la configuración en el archivo de configuración, conéc
      enabled = true
      psu_power_limit = 1200
 
-La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false* (falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min. 100 y max. 5000), representando el límite de energía (en Vatios) de la PSU (fuente de poder) para tres tarjetas hash y la tarjeta controladora.
+La línea *enabled* puede contener los valores *true* (verdad) para activar el autoajuste, o *false* (falso) para desactivar el autoajuste. El *psu_power_limit* puede contener valores numéricos (min. 100 y max. 5000), representando el límite de potencia (en Vatios) de la PSU (fuente de poder) para tres tarjetas hash y la tarjeta controladora.
 
 Alternativamente, es posible encender el autoajuste automáticamente luego de que termine la instalación especificando el argumento ``--power-limit POWER_LIMIT`` en el comando de instalación.
 
-********************************
-Escalamiento de Energía Dinámico
-********************************
+*****************************
+Escalado de Potencia Dinámico
+*****************************
 
-El Escalamiento de Energía Dinámico baja el limite de energía (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite de energía mínimo, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de energía original luego de un período de tiempo definido por el usuario.
+El Escalado de Potencia Dinámico baja el limite de potencia (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite de potencia mínimo, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de potencia original luego de un período de tiempo definido por el usuario.
 
-El Escalamiento de Energía Dinámico puede configurarse vía web GUI, usando la Caja de Herramientas BOS+ o en el archivo de configuración ``/etc/bosminer.toml``.
+El Escalamiento de Potencia Dinámico puede configurarse vía web GUI, usando la Caja de Herramientas BOS+ o en el archivo de configuración ``/etc/bosminer.toml``.
 
 Para hacer un cambio a la configuración vía web GUI, entre en el menú *Miner -> Configuration* y edite la sección *Dynamic Power Scaling*.
 
@@ -577,9 +577,9 @@ Para hacer un cambio en el archivo de configuración, conéctese el aminero vía
      shutdown_enabled = true
      shutdown_duration = 3.0
 
-La línea *enabled* puede tener los valores *true* para activar el Escalamiento de Energía Dinámico, o *false* para desactivar el Escalamiento de Energía Dinámico.
-El *power_step* puede tener valores numéricos (min. 100 y max. 1000), representando el escalón para bajar el límite de energía (powerlimit) en vatios (Watts), que ocurre cada vez que el minero alcance la *HOT* temperature (temperatura caliente).
-El *min_psu_power_limit* puede tener valores numéricos (min. 100 y max. 5000), representando el límite mínimo de la fuente para el Escalamiento de Energía Dinámico. Si *psu_power_limit* está en el nivel *min_psu_power_limit* y el minero sigue *HOT* (caliente) y *shutdown_enabled* es true (verdadero), entonces el minero se apaga por un período de tiempo, definido en el valor *shutdown_duration* (duración de apagado) (en horas). Luego de eso, el minero es iniciado pero con el valor inicial de *psu_power_limit* (*PSU power limit* en la sección *Autotuning*) (autoajuste).
+La línea *enabled* puede tener los valores *true* para activar el Escalado de Potencia Dinámico, o *false* para desactivar el Escalado de Potencia Dinámico.
+El *power_step* puede tener valores numéricos (min. 100 y max. 1000), representando el escalón para bajar el límite de potencia (powerlimit) en vatios (Watts), que ocurre cada vez que el minero alcance la *HOT* temperature (temperatura caliente).
+El *min_psu_power_limit* puede tener valores numéricos (min. 100 y max. 5000), representando el límite mínimo de la fuente para el Escalado de Potencia Dinámico. Si *psu_power_limit* está en el nivel *min_psu_power_limit* y el minero sigue *HOT* (caliente) y *shutdown_enabled* es true (verdadero), entonces el minero se apaga por un período de tiempo, definido en el valor *shutdown_duration* (duración de apagado) (en horas). Luego de eso, el minero es iniciado pero con el valor inicial de *psu_power_limit* (*PSU power limit* en la sección *Autotuning*) (autoajuste).
 
 ***************
 Auto-actualizar
