@@ -114,7 +114,7 @@ Características, PROs y CONs de este método:
   + por defecto migra toda la configuración (puede ajustarse) al instalar Braiins OS+
   + por defecto migra la configuración de red (puede ajustarse) al desinstalar Braiins OS+
   + hay parámetros disponibles para personalizar el proceso
-  + activa el autoajuste al límite de energía por defecto al instalar Braiins OS+
+  + activa el autoajuste al límite de potencia por defecto al instalar Braiins OS+
   + modo-por-lotes disponible para gestionar múltiples dispositivos a la vez
   + fácil de usar
 
@@ -138,7 +138,7 @@ Opciones GUI                          Argumentos línea de comandos          Des
 ====================================  ====================================  ============================================================
 Password                              -p CONTRASEÑA --password CONTRASEÑA   Contraseña administrativa
 Farm-ID                               --bos-mgmt-id [ID_BOS_MGMT]	          Pone el identificador para Braiins OS+ Manager
-Set Power limit                       --psu-power-limit [LÍMITE_ENERGÍA]    Pone límite de energía (en Vatios) para la fuente
+Set Power limit                       --psu-power-limit [LÍMITE_POTENCIA    Pone límite de potencia (en Vatios) para la fuente
 Set Pool user                         --pool-user [USUARIO_POOL]            Pone el nombre de usuario y de equipo para Slush Pool
 Latest Stable release                 *N/A* - Opción Predeterminada         Elección predeterminada, opción recomendada
 Open-Source version                   --open-source         		            Use para instalar la versión de código abierto (excluyente con **nightly** y **feed-url**)
@@ -165,7 +165,7 @@ Post-upgrade                          --post-upgrade [POST_ACTUALIZADO]     Ruta
 
   bos-toolbox.bat install --psu-power-limit 1200 --password root listaDeMineros.csv
 
-Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9.
+Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de potencia a 1200 en todos ellos. El comando también desbloqueará automáticamente la Antminer S9.
 
 .. _bosbox_update:
 
@@ -433,7 +433,7 @@ Características, PROs y CONs de este método:
   + reemplaza el firmware de serie con Braiins OS+ sin herramientas adicionales
   + migra la configuración de red
   + migra las direcciones (URL) de los pool, usuarios y claves
-  + activa el autoajuste al límite de energía por defecto
+  + activa el autoajuste al límite de potencia por defecto
 
   - no puede usarse con firmware de serie liberado en 2019 o luego
   - no puede configurar la instalación (ej: siempre migrará la configuración de red)
@@ -470,7 +470,7 @@ Características, PROs y CONs de este método:
 
   + reemplaza el firmware de serie con SSH bloqueado con Braiins OS+
   + usa la configuración de red almacenada en la NAND (esto puede apagarse, vea la sección *Network settings* abajo)
-  + activa el autoajuste al límite de energía por defecto
+  + activa el autoajuste al límite de potencia por defecto
 
   - no migra direcciones (URL) de pool, usuarios o claves
   - no hay modo-por-lotes
@@ -566,7 +566,7 @@ Características, PROs y CONs de este método:
   + migra toda la configuración por defecto (puede ajustarse) al instalar Braiins OS+
   + migra la configuración de red por defecto (puede ajustarse) al desinstalar Braiins OS+
   + parámetros disponibles para personalizar el proceso
-  + enciende el autoajuste a un límite de energía por defecto al instalar Braiins OS+
+  + activa el autoajuste a un límite de potencia por defecto al instalar Braiins OS+
 
   - no hay modo-por-lotes (a menos que cree sus propios scripts)
   - requiere una larga instalación
@@ -761,7 +761,7 @@ Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía S
   #también se puede conectar al minero y correr los comandos al mismo tiempo
   ssh root@DIRECCIÓN_IP "opkg update && opkg install bos_plus"
 
-Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a.
+Esto migrará la configuración y continuará minando sin necesidad de configurar nada. Se pondrá el límite de potencia por defecto.
 
 .. _opkg_factory_reset:
 
@@ -1044,7 +1044,7 @@ Características, PROs y CONs de este método:
   + por defecto migra toda la configuración (puede ajustarse) al instalar Braiins OS+
   + por defecto migra la configuración de red (puede ajustarse) al desinstalar Braiins OS+
   + hay parámetros disponibles para personalizar el proceso
-  + activa el autoajuste al límite de energía por defecto al instalar Braiins OS+
+  + activa el autoajuste al límite de potencia por defecto al instalar Braiins OS+
   + modo-por-lotes disponible para gestionar múltiples dispositivos a la vez
   + fácil de usar
 
@@ -1091,7 +1091,7 @@ Argumentos                            Descripción
 --backup                              hacer el respaldo al minero antes de actualizar
 --no-nand-backup                      saltar respaldo completo NAND (la configuración aun se respalda)
 --pool-user [USUARIO_POOL]            fijar nombre de usuario y minero al pool por defecto
---psu-power-limit [LÍMITE_ENERGÍA]    fijar límite de energía (en vatios) para la fuente de poder
+--psu-power-limit [LÍMITE_POTENCIA    fijar límite de potencia (en vatios) para la fuente de poder
 --no-keep-network                     no mantener la configuración de red (usar DHCP)
 --no-keep-pools                       no mantener la configuración del pool del minero
 --no-keep-hostname                    no mantener el nombre de host y generar uno nuevo basado en MAC
@@ -1108,7 +1108,7 @@ Argumentos                            Descripción
 
   ./bos-toolbox.bat install --psu-power-limit 1200 --password clave listaDeMineros.csv
 
-Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de energía a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
+Este comando instalará Braiins OS+ en los mineros, que estén especificados en el archivo *listaDeMineros.csv* y fija el límite de potencia a 1200 en todos ellos. El comando también usará automáticamente la palabra clave SSH *clave*, cuando el minero la pida.
 
 .. _bosbox_update:
 
@@ -1349,7 +1349,7 @@ Características, PROs y CONs de este método:
   + reemplaza el firmware de serie con Braiins OS+ sin herramientas adicionales
   + migra la configuración de red
   + migra las direcciones (URL) de los pool, usuarios y claves
-  + activa el autoajuste al límite de energía por defecto
+  + activa el autoajuste al límite de potencia por defecto
 
   - no puede usarse con firmware de serie liberado en 2019 o luego
   - no puede configurar la instalación (ej: siempre migrará la configuración de red)
@@ -1386,7 +1386,7 @@ Características, PROs y CONs de este método:
 
   + reemplaza el firmware de serie con SSH bloqueado con Braiins OS+
   + usa la configuración de red almacenada en la NAND (esto puede apagarse, vea la sección *Network settings* abajo)
-  + activa el autoajuste al límite de energía por defecto
+  + activa el autoajuste al límite de potencia por defecto
 
   - no migra direcciones (URL) de pool, usuarios o claves
   - no hay modo-por-lotes
@@ -1481,7 +1481,7 @@ Características, PROs y CONs de este método:
   + migra toda la configuración por defecto (puede ajustarse) al instalar Braiins OS+
   + migra la configuración de red por defecto (puede ajustarse) al desinstalar Braiins OS+
   + parámetros disponibles para personalizar el proceso
-  + enciende el autoajuste a un límite de energía por defecto al instalar Braiins OS+
+  + activa el autoajuste a un límite de potencia por defecto al instalar Braiins OS+
 
   - no hay modo-por-lotes (a menos que cree sus propios scripts)
   - requiere una larga instalación
@@ -1654,7 +1654,7 @@ Con OPKG puede fácilmente cambiar a Braiins OS+, conectándose al minero vía S
   #también se puede conectar al minero y correr los comandos al mismo tiempo
   ssh root@DIRECCIÓN_IP "opkg update && opkg install bos_plus"
 
-Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de energía por defecto se pone a.
+Esto migrará la configuración y continuará minando sin necesidad de configurar nada. El límite de potencia por defecto se pone a.
 
 .. _opkg_factory_reset:
 
