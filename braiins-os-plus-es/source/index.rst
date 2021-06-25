@@ -28,7 +28,7 @@
 Introducción
 ############
 
-Braiins OS+ es un sistema operativo para mineros ASIC. Está basado en el producto `Braiins OS <https://braiins-os.com/community-edition>`_ y provee algoritmos adicionales propietarios para el autoajuste de mineros. Cuando un usuario provee el consumo máximo de energía permitido en Vatios, el sistema optimizará automáticamente el proceso de minado para maximizar la tasa de hash. Este proceso funciona a través de un amplio espectro de entradas, permitiéndole optimizar la mejor eficiencia posible o la tasa de hash máxima basada en consideraciones económicas. Pruebas internas muestran que para el Antminer S9, es posible alcanzar una eficiencia de 70J/THs o incluso mejor para el ajuste de pocos Vatios. Para consumo alto de energía, la tasa de hash puede mejorar 20% (comparado al Antminer S9, de serie a 13.5 TH/s ~ 94J/TH).
+Braiins OS+ es un sistema operativo para mineros ASIC. Está basado en el producto `Braiins OS <https://braiins-os.com/community-edition>`_ y provee algoritmos adicionales propietarios para el autoajuste de mineros. Cuando un usuario provee el consumo máximo de potencia permitido en Vatios, el sistema optimizará automáticamente el proceso de minado para maximizar la tasa de hash. Este proceso funciona a través de un amplio espectro de entradas, permitiéndole optimizar la mejor eficiencia posible o la tasa de hash máxima basada en consideraciones económicas. Pruebas internas muestran que para el Antminer S9, es posible alcanzar una eficiencia de 70J/THs o incluso mejor para el ajuste de pocos Vatios. Para potencia de alto consumo, la tasa de hash puede mejorar 20% (comparado al Antminer S9, de serie a 13.5 TH/s ~ 94J/TH).
 
 Los dispositivos actualmente compatibles son Antminer S9, s9i, S9j, S17, S17 Pro, S17+, T17, T17+, S17e y T17e de Bitmain. El soporte de Antminer x19 y Whatsminer M20S está previsto para un futuro próximo.
 
@@ -47,7 +47,7 @@ Características
  * Control de ventilador completamente personalizable (permite el enfriamiento por inmersión)
  * Monitoreo avanzado para prevenir el sobrecalentamiento y otros problemas
  * Mecanismo de Auto-actualización
- * Escalado Dinámico de Energía, lo cual baja el límite de energía en caso de altas temperaturas, para minado continuo
+ * Escalado de Potencia Dinámico, lo cual baja el límite de potencia en caso de altas temperaturas, para minado continuo
  * **Soporte a BTC Tools**
 
   * Braiins OS+ tiene soporte en BTC Tools - la herramienta para mineros de gestión por lotes. Soporta las nuevas versiones de Braiins OS+ actualice con la caja de herramientas si utiliza versiones anteriores a 20.11. Los mineros S9 y también x17 con Braiins OS+ tienen soporte. BTC Tools para Windows/Linux puede descargarse `aquí <https://btccom.zendesk.com/hc/en-us/articles/360020105012>`_. En la misma página, documentación sobre como usar BTC Tools está disponible.
@@ -94,11 +94,11 @@ Esta es una versión mayor que provee soporte mejorado para la familia Antminer 
 
 * Antminer X17
 
-  * [característica] ajuste mejorado asegura rendimiento óptimo del minero en los niveles de energía configurados por el usuario
+  * [característica] ajuste mejorado asegura rendimiento óptimo del minero en los niveles de potencia configurados por el usuario
   * [característica] soporte para S17e y T17e
   * [característica] mejorado soporte para T17, T17+, S17, S17+
   * [característica] soporte Braiins OS+ Manager activado para toda la familia x17
-  * [característica] mejorado EED, el Escalamiento de Energía Dinámico ahora también sube la escala del límite de energía, cuando la temperatura del minero esté al menos 5 grados debajo de la temperatura HOT (caliente) y los ventiladores estén por debajo de 80%.
+  * [característica] mejorado EPD, el Escalado de Potencia Dinámico ahora también sube la escala del límite de potencia, cuando la temperatura del minero esté al menos 5 grados debajo de la temperatura HOT (caliente) y los ventiladores estén por debajo de 80%.
   * [característica] BOSminer va correr e ignorar configuraciones incorrectas solo cuando sea usado Braiins OS+ Manager de manera que la configuración pueda ser arreglada. Si Braiins OS+ Manager no es usado, BOSminer se apagará cuando exista una configuración incorrecta.
 
 21.04
@@ -223,7 +223,7 @@ Esta liberación trae soporte para la Antminer S17 y S17 Pro e incluye una versi
   * [característica] implementado programa de referidos - los vendedores de Braiins OS+ ahora pueden adquirir un programa paquete de referidos (con ID de referido y archivo de configuración) que al aplicarse enviará una porción de la comisión de desarrollo recogida a sus referentes.
 
 * Problemas Conocidos
-  * [problema] el consumo de energía mostrado para la S17 y S17 Pro es menor al consumo actual de energía, esto será mejorado en las próximas actualizaciones.
+  * [problema] el consumo de potencia mostrado para la S17 y S17 Pro es menor al consumo actual de potencia, esto será mejorado en las próximas actualizaciones.
   * [problema] BOSminer es lento para re-conectarse al pool cuando el proveedor de internet cambia la dirección IP del usuario
 
 20.06
@@ -241,8 +241,8 @@ Esta liberación apunta a mejorar la usabilidad de Braiins OS+ y la caja de herr
     * [fallo] La instalación NAND desde una tarjeta SD ahora migra propiamente la configuración de la tarjeta SD, en lugar de la del viejo sistema en la NAND
     * [fallo] Arreglado el problema con *bosminer.toml* al estar vacío cuando se apaga el minero antes de que el sistema limpie el búfer
     * [fallo] El botón IP report ahora funciona correctamente
-    * [característica] El sub-sistema de autoajuste ahora almacena perfiles de rendimiento en /etc/bosminer-autotune.json. Los perfiles de rendimiento se graban para cada nivel de energía e índice de tarjeta
-    * [característica] Escalamiento de Energía Dinámico ahora baja el limite de energía (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite de energía mínimo, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de energía original luego de un período de tiempo definido por el usuario
+    * [característica] El sub-sistema de autoajuste ahora almacena perfiles de rendimiento en /etc/bosminer-autotune.json. Los perfiles de rendimiento se graban para cada nivel de potencia e índice de tarjeta
+    * [característica] Escalado de Potencia Dinámico ahora baja el limite de potencia (powerlimit) de un minero una cantidad definida por el usuario si el dispositivo alcanza la *Hot Temperature* (temperatura caliente). Al alcanzar el límite mínimo de potencia, el minero se apaga para enfriarse. El minero vuelve a trabajar al limite de potencia original luego de un período de tiempo definido por el usuario
 
   * Antminer S9
 
@@ -274,18 +274,18 @@ Esta liberación cubre mayoritariamente asuntos encontrados por los usuarios, di
   * Antminer S9
 
     * [característica] Se muestra el estado del Ajuste en la GUI. Añadido comando API TUNERSTATUS API.
-    * [fallo] algunos dispositivos estaban experimentando bloqueos aleatorios en el bus del controlador I2C y fallaban en comunicarse con los controladores de energía en la tarjeta de hash conectada al bus I2C compartido. Encontramos que la causa era el núcleo del controlador Xilinx I2C que hemos integrado al flujo de bits en la FPGA. Hemos cambiado al I2C presente en el SoC y el flujo de bits solo enruta la señal del periférico (IIC9) a los pins FPGA correspondientes.
+    * [fallo] algunos dispositivos estaban experimentando bloqueos aleatorios en el bus del controlador I2C y fallaban en comunicarse con los controladores de potencia en la tarjeta de hash conectada al bus I2C compartido. Encontramos que la causa era el núcleo del controlador Xilinx I2C que hemos integrado al flujo de bits en la FPGA. Hemos cambiado al I2C presente en el SoC y el flujo de bits solo enruta la señal del periférico (IIC9) a los pins FPGA correspondientes.
 
 20.03
 ---------------------------
 
   * Todos los tipos de hardware de minado
 
-    * [característica] el archivo de configuración permite especificar un límite de energía para la PSU en el algoritmo de autoajuste que tomará en cuenta para maximizar los TH/W producidos por el dispositivo de minado.
+    * [característica] el archivo de configuración permite especificar un límite de potencia para la PSU en el algoritmo de autoajuste que tomará en cuenta para maximizar los TH/W producidos por el dispositivo de minado.
 
   * Antminer S9
 
-    * [característica] Autoajuste basado en limite de energía especificado por el usuario
+    * [característica] Autoajuste basado en limite de potencia especificado por el usuario
 
 *******************
 Problemas Conocidos
@@ -310,4 +310,4 @@ A continuación se listan problemas que se sabe existen en la versión liberada.
  * Control de ventilador completamente personalizable (permite el enfriamiento por inmersión)
  * Monitoreo avanzado para prevenir el sobrecalentamiento y otros problemas
  * Mecanismo de Auto-actualización
- * Escalado Dinámico de Energía, lo cual baja el límite de energía en caso de altas temperaturas, para minado continuo
+ * Escalado de Potencia Dinámico, lo cual baja el límite de potencia en caso de altas temperaturas, para minado continuo
