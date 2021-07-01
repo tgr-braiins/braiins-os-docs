@@ -84,6 +84,15 @@ Join our Telegram group:
 Changelog
 *********
 
+21.06.1
+---------------------------
+
+This is a minor bug fix release that improves Antminer T17e support.
+
+* Antminer X17
+
+  * [bug] use proper chip initialization voltage for T17e
+
 21.06
 ---------------------------
 

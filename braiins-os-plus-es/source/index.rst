@@ -87,6 +87,15 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+21.06.1
+---------------------------
+
+Esta es una versión de arreglo a fallo menor que mejora el soporte Antminer T17e.
+
+* Antminer X17
+
+  * [fallo] usa el voltaje de chip apropiado para inicialización de T17e
+
 21.06
 ---------------------------
 
