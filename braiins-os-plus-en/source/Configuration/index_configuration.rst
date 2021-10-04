@@ -405,17 +405,38 @@ FAT partition of the SD card).
 Model Detection
 ***************
 
-This configuration option allows overriding the result of hardware autodetection and honor the preset hardware type in the configuration. This is to cover the situation where all 3 hashboards have corrupted EEPROM's. If enabled, the model will be taken from the **[format] - model** option.
+This configuration option allows overriding the result of hardware auto-detection and honor the preset hardware type in the configuration. This is to cover the situation where all 3 hashboards have corrupted EEPROM's. If enabled, the model will be taken from the **[format] - model** option.
 
-In order to enable this functionality, add the following lines to the ``/etc/bosminer.toml`` file.
+In order to enable this functionality, add the following lines to the ``/etc/bosminer.toml`` file. This way, the model will be taken from the **model** field.
 
   ::
 
      [model_detection]
      use_config_fallback = true
 
-Alternatively, add the lines using the following command:
+**Example:** the miner is ``Antminer S17``, but the EEPROMs contain false information, that it's ``Antminer T17e``. In order to override the model detection and set it to a correct model, ``Antminer S17``, correct the ``model`` field and add the lines from above.
 
-  .. code:: bash
+Content of ``/etc/bosminer.toml`` - **Wrong model**
 
-     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer T17e'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+     ...
+
+Content of ``/etc/bosminer.toml`` - **Correct model, after editing**
+
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer S17'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+     
+     [model_detection]
+     use_config_fallback = true
+     ...

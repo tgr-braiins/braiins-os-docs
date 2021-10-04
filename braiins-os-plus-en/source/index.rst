@@ -84,6 +84,21 @@ Join our Telegram group:
 Changelog
 *********
 
+21.09
+---------------------------
+
+This is a major release that presents full web interface overhaul and an improved SD card installation method.
+
+* All Mining Hardware
+
+  * [feature] system running from SD card now supports upgrade and auto-upgrade like in case of system running from internal memory (NAND)
+  * [feature] BOSminer will now automatically pause mining, if there is no pool alive, reducing the power consumption to minimum
+  * [feature] new web interface, with dark mode and translation support (previously available in nightly builds)
+
+* Antminer X17
+
+  * [feature] improved manual model override, to cover the situation where all 3 hashboards have valid EEPROM's but the content is for hashboards from a different model. Typical scenario: you have a second hand S17 machine and the previous owner has rewritten the hashboard EEPROM's with T17e profiles. 
+
 21.06.1
 ---------------------------
 
