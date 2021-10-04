@@ -348,15 +348,37 @@ Pool Settings
 
 این گزینه پیکربندی اجازه می دهد تا نتیجه بررسی خودکار سخت افزار را نادیده بگیریم و نوع سخت افزار از پیش تعیین شده را در پیکربندی در الویت قرار دهیم. این برای پوشش وضعیتی است که هر 3 هش بورد دارای EEPROM خراب شده باشند. اگر این امکان فعال شود، مدل دستگاه از **[format] - model** دریافت خواهد شد.
 
-برای فعال سازی این عملکرد، کافی است خط زیر را در فایل ``/etc/bosminer.toml`` اضافه نمایید.
+برای فعال سازی این عملکرد، کافی است خط زیر را در فایل ``/etc/bosminer.toml`` اضافه نمایید. با این روش،‌مدل دستگاه از فیلد **model** پیروی خواهد کرد.
 
   ::
 
      [model_detection]
      use_config_fallback = true
 
-راهکار جایگزین، برای ویرایش فایل استفاده از دستور زیر است:
+**مثال:** در یک دستگاه ماینر که ```` است، اما EEPROM دارای اطلاعات اشتباهی است که مدل ```` تشخصیص داده می شود. برای اینکه مدل دستگاه را بازنویسی کنید و مدل واقعی دستگاه را که ؛؛ را در فیلد model بنویسید و دو خط اشاره شده در بالا را نیز اضافه کنید.
 
-  .. code:: bash
+محتوای فایل ``/etc/bosminer.toml`` - **مدل اشتباه**
 
-     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer T17e'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+     ...
+
+
+محتوای فایل ``/etc/bosminer.toml`` - **مدل صحیح، پس از ویرایش**
+
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer S17'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+     
+     [model_detection]
+     use_config_fallback = true
+     ...
