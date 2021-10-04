@@ -367,28 +367,38 @@ MAC地址和IP地址（MAC & IP address）
 矿机型号检测（Model Detection）
 ***********************
 
-本配置能允许对固件矿机型号自动检测的超控。从而能手动解决由于运算板上存储运算版信息的EEPROM内存损坏，造成的读不出板的情况。如果开启本配置，矿机型号是由 **[format] - model** 定义的。
+本配置能超控对矿机型号的自动读取，手动配置矿机型号。从而解决当3张算力板上储存型号数据的EEPROM储存器都损坏时，造成读不出板的情况。如开启本配置，矿机型号可以设置为 **[format] - model** 。
 
-要想开启本功能，请在矿机上的 ``/etc/bosminer.toml`` 文件中加入以下几行的内容。这样，型号将从**model**项提取。
+如需开启本功能，请在矿机上的 ``/etc/bosminer.toml`` 文件中加入以下几行的内容。让固件从 **model** 项中读取矿机型号。
 
   ::
 
      [model_detection]
      use_config_fallback = true
 
-**例子:** 矿机是``Antminer S17``但EEPROM包含错误的消息，即它是``Antminer T17e``。为了超控型号检查并设置zheng却得型号，``Antminer S17``, 请纠正``model``项兵添加上面的行。
+**示例：** 有 ``蚂蚁矿机S17`` 一台，但其EEPROM中型号消息错误，导致其显示为 ``蚂蚁矿机T17e``。要更正此错误，需要超控矿机型号检测，为矿机设置正确的型号，这里需要修改的是代码中 ``model`` 的项，并复制粘贴上方代码，新增到配置文件中。
 
-  ``/etc/bosminer.toml`` - **Wrong model**的内容
+``/etc/bosminer.toml`` 配置文件的内容 - **矿机型号错误**
 
   ::
 
-     [格式]
-     版本 = '1.2+'
-     型号 = 'Antminer T17e'
+     [format]
+     version = '1.2+'
+     model = 'Antminer T17e'
      generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
-     时间戳 = 1629888291
+     timestamp = 1629888291
      ...
 
-``/etc/bosminer.toml`` - **Correct model, after editing**的内容
+``/etc/bosminer.toml`` 配置文件的内容 - **矿机型号纠正后**
 
-     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer S17'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+     
+     [model_detection]
+     use_config_fallback = true
+     ...
