@@ -623,15 +623,36 @@ Detección de Modelo
 
 Esta opción de configuración permite saltar el resultado de la auto-detección de hardware y honrar el tipo preseleccionado en la configuración. Esto es para cubrir la situación en donde las 3 tarjetas de hash tienen EEPROM corrompido. Si es activado, el modelo se toma de la opción **[format] - model**.
 
-Para activar esta funcionalidad, añada las siguientes líneas al archivo ``/etc/bosminer.toml``.
+Para activar esta funcionalidad, añada las siguientes líneas al archivo ``/etc/bosminer.toml``. Así, el modelo se tomará desde el campo **model**
 
   ::
 
      [model_detection]
      use_config_fallback = true
 
-Aleternativamente, añada las líneas usando el comando siguiente:
+**Ejemplo:** el minero es ``Antminer S17``, pero los EEPROMs contienen información falsa, que es un ``Antminer T17e``. Para invalidar la detección del modelo y ponerlo al modelo correcto, ``Antminer S17``, corrija el campo ``model`` y añada las líneas de arriba.
 
-  .. code:: bash
+Contenido de ``/etc/bosminer.toml`` - **Modelo incorrecto**
 
-     ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer T17e'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+     ...
+
+Contenido de ``/etc/bosminer.toml`` - **Modelo correcto, tras editar**
+
+  ::
+
+     [format]
+     version = '1.2+'
+     model = 'Antminer S17'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     timestamp = 1629888291
+
+     [model_detection]
+     use_config_fallback = true
+     ...
