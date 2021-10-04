@@ -87,10 +87,25 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+21.09
+---------------------------
+
+Este es un lanzamiento mayor que presenta una revisión total de la interfaz web y un método de instalación por tarjeta SD mejorado.
+
+* Todo el Hardware de minería
+
+  * [característica] sistema corriendo desde tarjeta SD ahora soporta actualizar y auto-actualizar como el caso de un sistema corriendo desde la memoria interna (NAND)
+  * [característica] BOSminer ahora pausa automáticamente la minería, si no hay ningún pool vivo, reduciendo consumo de potencia al mínimo
+  * [característica] nueva interfaz web, con modo oscuro y soporte a traducciones (disponible previamente en versión nightly)
+
+* Antminer X17
+
+  * [característica] mejorada invalidación de modelo, para cubrir la situación donde las 3 hashboards tienen EEPROM válido pero el contenido pertenece a hashboards para un modelo diferente. Escenario típico: Tiene una máquina S17 de segunda mano y el dueño anterior reescribió las EEPROM con perfiles T17e.
+
 21.06.1
 ---------------------------
 
-Esta es una versión de arreglo a fallo menor que mejora el soporte Antminer T17e.
+Este es un lanzamiento con arreglo a fallo menor que mejora el soporte Antminer T17e.
 
 * Antminer X17
 
@@ -99,7 +114,7 @@ Esta es una versión de arreglo a fallo menor que mejora el soporte Antminer T17
 21.06
 ---------------------------
 
-Esta es una versión mayor que provee soporte mejorado para la familia Antminer X17(incluyendo e).
+Este es un lanzamiento mayor que provee soporte mejorado para la familia Antminer X17(incluyendo e).
 
 * Antminer X17
 
