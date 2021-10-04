@@ -198,7 +198,7 @@
 
   * *[hash_chain.6]* - 超控'6'号运算板的全局设置
   * *frequency* - 超控'6'号运算板以兆赫兹Mhz为单位的全局芯片频率设置（默认值='hash_chain_global.frequency'）
-  * **(只有蚂蚁矿机S9)** *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
+  * *voltage* - 超控'6'号运算板以伏V为单位的全局芯片电压设置（默认值='hash_chain_global.voltage'）
 
 *******************************************
 温度和风扇控制（Temperature and Fan Control）
@@ -293,7 +293,6 @@
   * *enabled（启用）* 的值可以是开启自动调整功能 *true* ， 或关闭自动调整功能 *false* 。
   * *psu_power_limit（电源功率限制）* 的值可以是一个（最小100最大5000）的数值，代表（以瓦为单位）包括控制板以及三块运算板在内的矿机电源输入功率限制。
 
-Alternatively, it's possible to turn on autotuning automatically after the installation finishes with the ``Set Power Limit`` option (or with the ``--power-limit POWER_LIMIT``   argument in the installation command).
 此外，在固件安装完成后，可以通过``Set Power Limit`` 选项指定自动调整功能的自动运行（或者在安装命令使用``--power-limit POWER_LIMIT``参数） 
 
 *********************
