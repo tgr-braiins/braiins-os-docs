@@ -369,15 +369,26 @@ MAC地址和IP地址（MAC & IP address）
 
 本配置能允许对固件矿机型号自动检测的超控。从而能手动解决由于运算板上存储运算版信息的EEPROM内存损坏，造成的读不出板的情况。如果开启本配置，矿机型号是由 **[format] - model** 定义的。
 
-要想开启本功能，请在矿机上的 ``/etc/bosminer.toml`` 文件中加入以下几行的内容。
+要想开启本功能，请在矿机上的 ``/etc/bosminer.toml`` 文件中加入以下几行的内容。这样，型号将从**model**项提取。
 
   ::
 
      [model_detection]
      use_config_fallback = true
 
-也可以用下方命令，批量管理本功能：
+**例子:** 矿机是``Antminer S17``但EEPROM包含错误的消息，即它是``Antminer T17e``。为了超控型号检查并设置zheng却得型号，``Antminer S17``, 请纠正``model``项兵添加上面的行。
 
-  .. code:: bash
+  ``/etc/bosminer.toml`` - **Wrong model**的内容
+
+  ::
+
+     [格式]
+     版本 = '1.2+'
+     型号 = 'Antminer T17e'
+     generator = 'BOSer (boser-antminer 0.1.0-4b746172)'
+     时间戳 = 1629888291
+     ...
+
+``/etc/bosminer.toml`` - **Correct model, after editing**的内容
 
      ssh root@IP_ADDRESS 'echo -e "\n[model_detection] \nuse_config_fallback = true" >> /etc/bosminer.toml'
