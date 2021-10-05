@@ -56,7 +56,6 @@ Features
   * Limitations of BTC Tools when using with Braiins OS+:
 
     * Settings in Overclock/Underclock section does not affect Braiins OS+
-    * LPM checkbox works for S9 only and enables/disables asicboost. However, pools that support mining.configure and version rolling are still required.
     * Enhanced LPM will turn autotuning on and set miner's power limit to 2/3 of the default power limit for the miner
     * Disabling Enhanced LPM keeps autotuning on its last state and sets miner's power limit to the default power limit for the miner (hardware specific)
     * Note: both LPM and Enhanced LPM options are used only when "Power Control" is checked. Otherwise, machine specific settings is kept.
