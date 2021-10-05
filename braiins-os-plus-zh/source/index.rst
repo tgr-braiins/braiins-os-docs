@@ -48,7 +48,6 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
   * Braiins OS+固件支持BTC Tools运维软件上除以下以外的所有功能：
 
     * “超频”/“降频”功能对Braiins OS+没用
-    * 勾选“低功耗模式”（Low Power Mode, LPM）只在S9上有用，用于开启/关闭Asicboost。但对支持阶层协议拓展的mining.configure命令的矿池，版本滚动（Version Rolling）必须开启
     * “低功耗增强模式”（Enhanced LPM）会启动自动调整，并让矿机在三分之二的默认功耗下运行
     * 禁用“低功耗增强模式”（Enhanced LPM）会让自动调整状态不变，并让矿机在默认功耗下运行（默认值大小取决于矿机型号）
     * 注：“低功耗模式”和“低功耗增强模式”只有在勾选“功耗控制”（Power Control)的情况下才能开启。不勾选则使用的是矿机上的设置。
