@@ -83,16 +83,6 @@ Join our Telegram group:
 Changelog
 *********
 
-21.09.1
----------------------------
-
-This is a minor release that extends X19 power supply limit for immersion setups.
-
-* Antminer X19
-
-  * [feature] Extend power limit upto 6500 W on APW12. This is for modified PSU's that can handle this power limit!
-
-
 21.09
 ---------------------------
 
