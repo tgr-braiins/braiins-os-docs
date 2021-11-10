@@ -37,8 +37,8 @@ BOSminer можно управлять с помощью командной ст
 
 ::
 
-	/etc/init.d/bosmniner stop
-	/etc/init.d/bosmniner start
+	/etc/init.d/bosminer stop
+	/etc/init.d/bosminer start
 
 Альтернативно, BOSminer можно настроить на `System -> Startup` странице и он перезапускается каждый раз, когда пользователь нажимает на `Save & Apply` кнопку на `Miner -> Configuration` странице.
 

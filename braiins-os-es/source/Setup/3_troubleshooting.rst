@@ -40,8 +40,8 @@ Para iniciar o detener BOSminer, use los siguientes comandos:
 
 ::
 
-	/etc/init.d/bosmniner stop
-	/etc/init.d/bosmniner start
+	/etc/init.d/bosminer stop
+	/etc/init.d/bosminer start
 
 Alternativamente, BOSminer puede controlarse en la página `System -> Startup` y se reinicia
 cada vez que el usuario pulsa el botón `Save & Apply` en la página `Miner -> Configuration`.

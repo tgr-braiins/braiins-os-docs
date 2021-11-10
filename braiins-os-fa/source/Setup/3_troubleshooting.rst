@@ -37,7 +37,7 @@ BOSminer میتواند با استفاده از ترمینال خط فرمان 
 
 ::
 
-	/etc/init.d/bosmniner stop
-	/etc/init.d/bosmniner start
+	/etc/init.d/bosminer stop
+	/etc/init.d/bosminer start
 
 همچنین BOSminer میتواند از صفحه `System > Startup` کنترل شود. هر بار کاربر بر روی `Save and Apply` در صفحه `Miner -> Configuration` کلیک کند، ریستارت میشود.
