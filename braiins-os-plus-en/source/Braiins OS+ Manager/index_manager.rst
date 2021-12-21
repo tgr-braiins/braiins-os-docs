@@ -22,32 +22,14 @@ Braiins OS+ Manager
 
 Braiins OS+ Manager is a cloud-based platform that allows you to remotely configure your mining devices running the Braiins OS+ firmware as well as continuously receive data about their performance.
 
+.. note::
+   Braiins OS+ Manager is currently closed for new registrations.
+
 The data are being sent over the Stratum V2 protocol and using the same channel that is used for collecting the dev fee, thus not burdening your network with another connection.
 
 The main object in the Braiins OS+ Manager is a group of devices called Farm. Every Farm has its Farm ID. It is a string you have to set on your Braiins OS+ devices if you wish to connect them to the Farm. Once connected, the devices send their performance data to the Braiins OS+ Manager every 120 seconds.
 
 Every Farm has its configuration. When you update and save new configuration, it will be propagated to a device once the Manager receives next performance data payload from the device. Since the same config is applied to all devices in a Farm, **we strongly recommend that you create a separate farm for each device type** or simply a group of devices (even of the same type) you wish to configure differently.
-
-*******
-Sign Up
-*******
-
-To use Braiins OS+ Manager, simply `signup here <https://manager.braiins.com/#/register>`_.
-
-After you enter your email address, we will send you confirmation email. After following the link in the email, you will be prompted to choose your password and setup two-factor authentication.
-
-*************
-Create a Farm
-*************
-
-Once you are logged, start with creating a Farm:
-
-1. Open the Farm creation dialogue by clicking on the '+' symbol.
-2. Choose a name you wish to use for your farm. You can change the name later.
-3. Enter mining credentials. You will be able to change the credentials later as well as add other pools.
-4. The Farm ID for your farm has been created.
-
-The Farm ID is a string you have to set on your Braiins OS+ devices you wish to connect to the Farm. 
 
 *************************
 Connect Devices to a Farm
