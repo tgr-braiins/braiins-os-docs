@@ -23,7 +23,7 @@ Braiins OS+ Manager
 Braiins OS+ Manager (Gestor Braiins OS+) es una plataforma basada en la nube que le permite configurar sus dispositivos de minería corriendo el firmware Braiins OS+ de forma remota y también recibe continuamente datos sobre su rendimiento.
 
 .. note::
-   Braiins OS+ Manager is currently closed for new registrations.
+   Braiins OS+ Manager en este momento se encuentra cerrado a nuevos registros.
 
 Los datos se están enviando a través del protocolo Stratum V2 y usan el mismo canal utilizado para recaudar la comisión de desarrollo, para no agobiar su red con otra conexión.
 
