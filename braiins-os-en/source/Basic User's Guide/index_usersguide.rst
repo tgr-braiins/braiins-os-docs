@@ -83,7 +83,7 @@ Miner Signalization (LED)
 Miner LED signalization depends on its operational mode. There are two
 modes (*recovery* and *normal*) which are signaled by the **green** and
 **red LEDs** on the front panel. The LED on the control board (inside)
-always shows the *heartbeat* (i.e. flashes at a load average based
+always shows the *heartbeat* (i.e.flashes at a load average based
 rate).
 
 Recovery Mode

@@ -35,24 +35,24 @@ Currently supported devices are Bitmain’s Antminer S9, s9i, S9j, S17, S17 Pro,
 Features
 ********
 
- * State-of-the-art autotuning optimization to maximize hash rate or efficiency
- * Open-source operating system
- * Stratum V2 implementation with improved data efficiency and hashrate hijacking prevention
- * CGminer replacement (BOSminer) written from scratch in Rust language
- * Quick startup (5-7 seconds)
- * No random crashes due to undefined behavior
- * Bulk installation
- * Automatic updates with the standard opkg system
- * Fully customizable fan control (enables immersion cooling)
- * Advanced monitoring to prevent overheating and other issues
- * Auto-upgrade mechanism
- * Dynamic Power Scaling, which lowers the power limit in case of high temperatures, for continuous mining
- * **BTC Tools Support**
+* State-of-the-art autotuning optimization to maximize hash rate or efficiency
+* Open-source operating system
+* Stratum V2 implementation with improved data efficiency and hashrate hijacking prevention
+* CGminer replacement (BOSminer) written from scratch in Rust language
+* Quick startup (5-7 seconds)
+* No random crashes due to undefined behavior
+* Bulk installation
+* Automatic updates with the standard opkg system
+* Fully customizable fan control (enables immersion cooling)
+* Advanced monitoring to prevent overheating and other issues
+* Auto-upgrade mechanism
+* Dynamic Power Scaling, which lowers the power limit in case of high temperatures, for continuous mining
+* **BTC Tools Support**
 
   * Braiins OS+ is supported by BTC Tools - batch management tool for miners. New versions of Braiins OS+ are supported - upgrade via Toolbox if you are using versions before 20.11. S9 and as well as x17 miners with Braiins OS+ are supported. BTC Tools for Windows/Linux can be downloaded here `here <https://btccom.zendesk.com/hc/en-us/articles/360020105012>`_. On the same page, documenation on how to use BTC Tools is available.
-
+  
   * With exception of the below, Braiins OS+ supports all features of BTC Tools.
-
+  
   * Limitations of BTC Tools when using with Braiins OS+:
 
     * Settings in Overclock/Underclock section does not affect Braiins OS+
@@ -76,7 +76,7 @@ Join our Telegram group:
   * `RU group <https://t.me/BraiinsOS_RU>`_
   * `ZH group <https://t.me/BraiinsOS_ZH>`_
 
-  You can also `send VIP request <https://help.slushpool.com/en/support/tickets/new>`_ to our support team.
+You can also `send VIP request <https://help.slushpool.com/en/support/tickets/new>`_ to our support team.
 
 
 *********
@@ -97,7 +97,7 @@ This is a major release that provides support for Antminer S19J Pro (beta)
   * [feature] log reason for miner shutdown
   * [bug] fixed issue with per-hashboard hashrate showing the total hashrate in the graphs
   * [bug] voltage ramping has been reworked and is now quicker
-  * [bug] Bosminer with tuning off now correctly starts with user defined configuration
+  * [bug] Bosminer with autotuning off now correctly starts with user defined configuration
   * [bug] Removed logrotate information from syslog
 
 * Antminer X17, X19

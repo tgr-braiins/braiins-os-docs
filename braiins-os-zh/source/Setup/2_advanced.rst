@@ -399,8 +399,8 @@ listen                                监听矿机识别广播（当按下IP rep
 
   #扫描从10.10.0.0到10.255.255.255的网络范围
   bos-toolbox.bat discover scan 10.0.0.0/8
-  
-  .. _bosbox_command:
+
+.. _bosbox_command:
 
 ================================================
 使用BOS工具箱在矿机上运行自定义命令
@@ -1050,6 +1050,8 @@ BOS到BOS（Bos2Bos）脚本
     miner fault_light off
     
     .. _miner_nightly:
+
+.. _miner_nightly:
 
 ==============================================
 使用矿机工具（Miner tool）开启/关闭预先发行版（Nightly Version）推送
