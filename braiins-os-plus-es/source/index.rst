@@ -89,46 +89,46 @@ Registro de Cambios
 21.12
 ---------------------------
 
-This is a major release that provides support for Antminer S19J Pro (beta)
+Este es un lanzamiento mayor que provee soporte para la Antminer S19J Pro (beta)
 
-* All Mining Hardware
+* Todo el Hardware de minería
 
-  * [feature] autotune profile is being added to the Get Help files, for better support
-  * [feature] immersion mode toggle button added to the web interface
-  * [feature] logs are now less verbose, annoying temperature messages have been removed
-  * [feature] logs no longer contain color codes as it confuses web log console
-  * [feature] log reason for miner shutdown
-  * [bug] fixed issue with per-hashboard hashrate showing the total hashrate in the graphs
-  * [bug] voltage ramping has been reworked and is now quicker
-  * [bug] Bosminer with autotuning off now correctly starts with user defined configuration
-  * [bug] Removed logrotate information from syslog
+  * [característica] el perfil de autoajuste ahora se añade a los archivos de Obtener Ayuda, para un mejor soporte
+  * [característica] añadido botón de cambio para modo inmersión a la interfaz web
+  * [característica] los registros ahora son menos verbosos, los fastidiosos mensajes de temperatura han sido removidos
+  * [característica] los registros ya no contienen códigos de color que confunden la cónsola web
+  * [característica] registrar la razón del detenimiento del minero
+  * [fallo] arreglado problema con la tasa de hash por hashboard mostrando el total de la tasa de hash en las gráficas
+  * [fallo] la elevación de voltaje ha sido reelaborada y ahora es mas rápida
+  * [fallo] Bosminer con el autoajuste apagado ahora inicia correctamente con la configuración definida
+  * [fallo] Removida la información logrotate de syslog
 
 * Antminer X17, X19
 
-  * [feature] support for Antminer S19J Pro (beta)
-  * [feature] improved power consumption prediction for Antminer S19J Pro
-  * [feature] chip temperature for the X19 models is being estimated based on PCB temperature
-  * [feature] removed fan override for the autotuning, default is 100%
-  * [bug] fixed an issue with chips not reachable on X19 models
+  * [característica] soporte para la Antminer S19J Pro (beta)
+  * [característica] mejorado la predicción de consumo de potencia para la Antminer S19J Pro
+  * [característica] temperatura de chip para los modelos X19 está siendo estimada basado en la temperatura PCB
+  * [característica] eliminada la invalidación de ventilador del autoajuste, por defecto es 100%
+  * [fallo] arreglado un problema de chips inalcanzables en modelos X19
 
-* Known issues:
+* Problemas conocidos:
 
-  * Aftermarket control boards sometimes freeze completely
+  * Las tarjetas controladoras del mercado postventa a veces se congelan completamente
 
 21.09.3
 ---------------------------
 
-This is a minor bug fix release for Antminer X19 family
+Este es un lanzamiento que arregla fallos menores para la familia Antminer X19
 
-* Antminer family
+* Familia Antminer
 
-  * [bug] machine override in bosminer.toml no longer causes the web frontend to block pool settings
-  * [feature] EEPROM content is written into system log when autodetection fails for troubleshooting reasons
+  * [fallo] invalidación de máquina en bosminer.toml ya no ocasiona que el web frontend bloquee la configuración de pool
+  * [característica] el contenido del EEPROM se escribe en el registro del sistema cuando falla la autodetección por razones de solución de problemas
 
 * Antminer X19
 
-  * [bug] fixed autodetection problem that was confusing some S19Pro for S19 machines
-  * [feature] further improve autodetection of S19 machines
+  * [fallo] arreglado problema de autodetección que estaba confundiendo algunas S19Pro por máquinas S19
+  * [característica] mas mejoras en la autodetección de máquinas S19
 
 21.09.2
 ---------------------------
@@ -137,17 +137,17 @@ This is a miner bug fix release for Antminer X17/X19 family
 
 * Antminer X17, X19
 
-  * [bug] enable tuner configuration for S17Pro machine
-  * [bug] fixed power controller lockups
+  * [fallo] activar la configuración del ajuste para la máquina S17Pro
+  * [fallo] arreglado bloqueos del controlador de potencia
 
 21.09.1
 ---------------------------
 
-This is a minor release that extends X19 power supply limit for immersion setups.
+Este es un lanzamiento menor que extiende el suministro de potencia límite para instalaciones de inmersión.
 
 * Antminer X19
 
-  * [feature] Extend power limit upto 6500 W on APW12. This is for modified PSU's that can handle this power limit!
+  * [característica] Extendido el límite de potencia hasta 6500 W en la APW12. ¡Esto es para PSU's modificados que puedan manejar este límite de potencia!
 
 21.09
 ---------------------------
