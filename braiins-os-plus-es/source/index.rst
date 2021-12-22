@@ -86,6 +86,69 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+21.12
+---------------------------
+
+This is a major release that provides support for Antminer S19J Pro (beta)
+
+* All Mining Hardware
+
+  * [feature] autotune profile is being added to the Get Help files, for better support
+  * [feature] immersion mode toggle button added to the web interface
+  * [feature] logs are now less verbose, annoying temperature messages have been removed
+  * [feature] logs no longer contain color codes as it confuses web log console
+  * [feature] log reason for miner shutdown
+  * [bug] fixed issue with per-hashboard hashrate showing the total hashrate in the graphs
+  * [bug] voltage ramping has been reworked and is now quicker
+  * [bug] Bosminer with autotuning off now correctly starts with user defined configuration
+  * [bug] Removed logrotate information from syslog
+
+* Antminer X17, X19
+
+  * [feature] support for Antminer S19J Pro (beta)
+  * [feature] improved power consumption prediction for Antminer S19J Pro
+  * [feature] chip temperature for the X19 models is being estimated based on PCB temperature
+  * [feature] removed fan override for the autotuning, default is 100%
+  * [bug] fixed an issue with chips not reachable on X19 models
+
+* Known issues:
+
+  * Aftermarket control boards sometimes freeze completely
+
+21.09.3
+---------------------------
+
+This is a minor bug fix release for Antminer X19 family
+
+* Antminer family
+
+  * [bug] machine override in bosminer.toml no longer causes the web frontend to block pool settings
+  * [feature] EEPROM content is written into system log when autodetection fails for troubleshooting reasons
+
+* Antminer X19
+
+  * [bug] fixed autodetection problem that was confusing some S19Pro for S19 machines
+  * [feature] further improve autodetection of S19 machines
+
+21.09.2
+---------------------------
+
+This is a miner bug fix release for Antminer X17/X19 family
+
+* Antminer X17, X19
+
+  * [bug] enable tuner configuration for S17Pro machine
+  * [bug] fixed power controller lockups
+
+21.09.1
+---------------------------
+
+This is a minor release that extends X19 power supply limit for immersion setups.
+
+* Antminer X19
+
+  * [feature] Extend power limit upto 6500 W on APW12. This is for modified PSU's that can handle this power limit!
+
 21.09
 ---------------------------
 

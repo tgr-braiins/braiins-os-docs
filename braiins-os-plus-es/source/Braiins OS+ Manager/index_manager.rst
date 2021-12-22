@@ -22,32 +22,14 @@ Braiins OS+ Manager
 
 Braiins OS+ Manager (Gestor Braiins OS+) es una plataforma basada en la nube que le permite configurar sus dispositivos de minería corriendo el firmware Braiins OS+ de forma remota y también recibe continuamente datos sobre su rendimiento.
 
+.. note::
+   Braiins OS+ Manager is currently closed for new registrations.
+
 Los datos se están enviando a través del protocolo Stratum V2 y usan el mismo canal utilizado para recaudar la comisión de desarrollo, para no agobiar su red con otra conexión.
 
 El principal objeto dentro de Braiins OS+ Manager es un grupo de dispositivos denominado Farm (Granja). Cada Granja tiene su Farm ID. Esta es una frase que debe colocar a sus dispositivos Braiins OS+ si desea conectarlos a la Granja. Una vez conectados, los dispositivos enviarán sus datos de rendimiento al Braiins OS+ Manager cada 120 segundos.
 
 Cada Granja tiene su configuración. Cuando actualiza y guarda la nueva configuración, esta será propagada al dispositivo en lo que Manager reciba la siguiente carga con los datos de rendimiento desde el dispositivo. Ya que la misma configuración es aplicada a todos los dispositivos dentro de una Granja, **recomendamos encarecidamente que cree granjas separadas por tipo de dispositivo** o simplemente agrupar los dispositivos (incluso del mismo tipo) si desea configurarlos de manera diferente.
-
-***********
-Inscribirse
-***********
-
-Para usar Braiins OS+ Manager, simplemente `inscríbase aquí <https://manager.braiins.com/#/register>`_.
-
-Luego de introducir su dirección de correo, le estaremos enviando un correo de confirmación. Después de seguir el enlace del correo, se le pedirá que escoja una contraseña y configurar su autenticación de dos pasos (2FA).
-
-****************
-Crear una Granja
-****************
-
-Cuando haya ingresado, empiece creando una Granja:
-
-1. Abra el diálogo de creación de Granja haciendo clic al símbolo '+'.
-2. Escoja un nombre que desee usar para su granja. Puede cambiar luego el nombre.
-3. Ingrese las credenciales de minería. Podrá cambiar luego las credenciales y también añadir otros pools.
-4. La Farm ID para su granja ha sido creada.
-
-La Farm ID es una frase que debe poner en sus dispositivos Braiins OS+ que desee conectar a la Granja.
 
 **********************************
 Connectar Dispositivos a la Granja
