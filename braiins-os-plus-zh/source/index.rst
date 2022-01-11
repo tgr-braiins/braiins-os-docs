@@ -23,14 +23,17 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-
 ####
 简介
 ####
 
-Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相当可靠的 `Braiins OS <https://zh.braiins-os.com/community-edition>`_ 社区版的基础上，额外提供独有的矿机自动调整算法。当用户能提供最大允许的功耗（瓦数）时，系统将自动优化挖矿过程，让矿机算力最大化。这一过程具有输入普适性，让您能基于经济上的考虑，对矿机进行最大化效率或最高哈希率的优化。内部测试显示，在低功耗设置下，蚂蚁矿机S9运行我们固件能到达70J/THs或甚至更好的能耗比。在更高功耗设置下，能提升20%多的算力（与蚂蚁矿机S9原厂设置下的13.5 TH/秒 ~ 94J/TH相比）。
+Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相当可靠的 `Braiins OS <https://zh.braiins-os.com/community-edition>`_ 社区版的基础上，额外提供独有的矿机自动调整算法。当用户能提供最大允许的功耗（瓦数）时，系统将自动优化挖矿过程，让矿机算力最大化。这一过程具有输入普适性，让您能基于经济上的考虑，对矿机进行最大化效率或最高哈希率的优化。内部测试显示，在低功耗设置下，蚂蚁矿机S9运行我们固件能到达70J/THs或甚至更好的能耗比。在更高功耗设置下，能提升20%多的算力（与蚂蚁矿机S9原厂设置下的13.5 TH/秒 ~ 94J/TH相比）
 
-固件目前支持蚂蚁矿机S9、S9i、S9j、S17、S17 Pro、S17+、T1、T17+、S17e和T17e。也即将发布对蚂蚁矿机S19、T19系列和对神马M20S的支持。
+固件目前支持蚂蚁矿机S9、S9i、S9j、S17、S17 Pro、S17+、T1、T17+、S17e和T17e。也即将发布对蚂蚁矿机S19、T19系列和对神马M20S的支持
+
+********
+固件特性
+********
  
  * 具有能提高算力或效率的高级自动调整优化功能
  * 开源的操作系统
@@ -39,24 +42,40 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
  * 快速开机（5-7秒）
  * 未定义行为不会导致莫名其妙的死机
  * 批量安装
- * 基于标准opkg包系统的自动更新邀请加入）
+ * OPKG标准自动更新
+ * 风扇自定义完全控制（可适用于液冷）
+ * 高级监控功能，预防过热和其他问题
+ * 自动更新机制
+ * 动态功率调节模式，能在高温情况下自动降低功率，让挖矿不中断 
  * **对BTC Tools运维软件的支持**
 
-  * BTC Tools批量运维软件现已新增对我们Braiins OS+固件20.11版本及以上的支持。
-  支持蚂蚁S9以及17系列矿机，请在这里下载用于Windows/Linux上的BTC Tools， `说明书也在下载页 <https://btccom.zendesk.com/hc/en-us/articles/360020105012>`_。
+  * BTC Tools批量运维软件现已新增对我们Braiins OS+固件20.11版本及以上的支持
+  型号支持蚂蚁S9以及17系列矿机，请在这里下载用于Windows/Linux上的BTC Tools， `说明书也在下载页 <https://btccom.zendesk.com/hc/zh-cn/articles/360020105012>`_
 
   * Braiins OS+固件支持BTC Tools运维软件上除以下以外的所有功能：
 
     * “超频”/“降频”功能对Braiins OS+没用
-    * “低功耗增强模式”（Enhanced LPM）会启动自动调整，并让矿机在三分之二的默认功耗下运行
+    * “低功耗增强模式”（Enhanced LPM）会启动自动调整，并让矿机在默认功耗值的三分之二下运行
     * 禁用“低功耗增强模式”（Enhanced LPM）会让自动调整状态不变，并让矿机在默认功耗下运行（默认值大小取决于矿机型号）
-    * 注：“低功耗模式”和“低功耗增强模式”只有在勾选“功耗控制”（Power Control)的情况下才能开启。不勾选则使用的是矿机上的设置。
+    * 注：“低功耗模式”和“低功耗增强模式”只有在勾选“功耗控制”（Power Control)的情况下才能开启。不勾选则使用的是矿机上的设置
     * 使用BTC Tools不能开关固件内置的自动调整功能以及设置目标功耗值
     * 缺失部分属性描述
     * 如果在固件中配置了多个矿池组，在BTC Tools中只会显示最优先的那个矿池
 
-您也可以向我们的客服团队 `发送VIP请求 <https://help.slushpool.com/en/support/tickets/new>`_ 。
+*******************
+客服和联系方式
+*******************
 
+您有任何问题？
+欢迎随时联系我们的开发和技术团队。
+
+加入我们的电报群：
+
+  * `英语群 <https://t.me/BraiinsOS>`_
+  * `俄语群 <https://t.me/BraiinsOS_RU>`_
+  * `中文群 <https://t.me/BraiinsOS_ZH>`_ （也有微信群，可先加客服微信Braiins）
+
+您也可以向我们的客服团队 `发送VIP请求 <https://help.slushpool.com/zh-CN/support/tickets/new>`_ 
 
 *********
 更新日志
@@ -69,66 +88,66 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 
 * 在所有类型的矿机上
 
-  *【特性】 autotune profile is being added to the Get Help files, for better support
-  *【特性】 immersion mode toggle button added to the web interface
-  *【特性】 logs are now less verbose, annoying temperature messages have been removed
-  *【特性】 logs no longer contain color codes as it confuses web log console
-  *【特性】 log reason for miner shutdown
-  *【BUG修复】 fixed issue with per-hashboard hashrate showing the total hashrate in the graphs
-  *【BUG修复】 voltage ramping has been reworked and is now quicker
-  *【BUG修复】 Bosminer with autotuning off now correctly starts with user defined configuration
-  *【BUG修复】 Removed logrotate information from syslog
+  * 【特性】 在诊断包中新增了自动调整参数，方便更好地诊断
+  * 【特性】 在矿机网页后台中新加入按钮，一键进入液冷模式
+  * 【特性】 降低日志冗余程度，去掉了烦人的温度信息
+  * 【特性】 日志不再含有让网页日志控制台混淆的颜色代码
+  * 【特性】 日志加入对矿机关机原因的记录
+  * 【BUG修复】 修复了在矿机网页后台数据图表中，单算力板的算力显示为矿机总算力的错误
+  * 【BUG修复】 重新设计电压斜升调整的算法，现在更快了
+  * 【BUG修复】 BOSminer在自动调整关闭状态下，用用户自定义的配置也能正常挖矿了
+  * 【BUG修复】 从系统日志syslog中移除了日志分割logrotate信息
 
 * 蚂蚁矿机S17和T17系列，S19和T19系列上
 
-  *【特性】 为蚂蚁矿机S19J Pro的Beta版支持
-  *【特性】 improved power consumption prediction for Antminer S19J Pro
-  *【特性】 chip temperature for the X19 models is being estimated based on PCB temperature
-  *【特性】 removed fan override for the autotuning, default is 100%
-  * BUG修复】 fixed an issue with chips not reachable on X19 models
+  * 【特性】 为蚂蚁矿机S19J Pro的Beta版支持
+  * 【特性】 改进了对蚂蚁矿机S19J Pro的功耗值预测
+  * 【特性】 用运算板温度，估算蚂蚁19系列矿机的算力芯片温度
+  * 【特性】 移除了开启自动调整时风扇超控这一选项，风扇默认100%
+  * 【BUG修复】 修复了在蚂蚁19系列上算力芯片无响应的问题
 
-* Known issues:
+* 已知问题 ：
 
-  * Aftermarket control boards sometimes freeze completely
+  * 在副厂控制板上有时会完全死机
 
 21.09.3
 ---------------------------
 
-This is a minor bug fix release for Antminer X19 family
+本次发布是修复蚂蚁19系列的一些小问题的次要更新
 
-* Antminer family
+* 在所有类型的蚂蚁矿机上
 
-  * [bug] machine override in bosminer.toml no longer causes the web frontend to block pool settings
-  * [feature] EEPROM content is written into system log when autodetection fails for troubleshooting reasons
+  * 【BUG修复】 修改bosminer.toml配置文件超控矿机不再会造成矿机网页前端锁定矿池设定
+  * 【特性】 如果矿机型号自动识别出问题，矿机算力板EEPROM储存器上的内容将会被加载到系统日志中，以便排障
 
-* Antminer X19
+* 在蚂蚁矿机19系列上
 
-  * [bug] fixed autodetection problem that was confusing some S19Pro for S19 machines
-  * [feature] further improve autodetection of S19 machines
+  * 【BUG修复】 修复了部分S19机器自动识别错误识别成S19Pro的问题
+  * 【特性】 进一步改进了对S19机型自动识别的能力
 
 21.09.2
 ---------------------------
 
-This is a miner bug fix release for Antminer X17/X19 family
+本次发布是修复蚂蚁17和19系列的一些小问题的次要更新
 
 * 蚂蚁矿机S17和T17系列，S19和T19系列上 
 
-  * [bug] enable tuner configuration for S17Pro machine
-  * [bug] fixed power controller lockups
+  * 【BUG修复】 修复了S17Pro机型上的调整器启动问题
+  * 【BUG修复】 修复了功率控制器锁死的问题
 
 21.09.1
 ---------------------------
 
-本次发布是提高用于浸没式冷却的S19系列和T19系列电源功耗限制的次要更新。
+本次发布是提高用于浸没式冷却的S19系列和T19系列电源功耗限制的次要更新
 
 * 蚂蚁矿机S19和T19系列
 
-  * 【特性】 将APW12电源的功率限值提高到6500。这是针对能够处理这种功率限制的改装电源而已!
+  * 【特性】 将APW12电源的功率限值提高到6500W。注意，高功率仅能用于能带动这么高功率的改装电源
 
 21.09
 ---------------------------
 
-本次发布对矿机网页后台界面进行了大改动，并对SD卡刷安装进行了优化。
+本次发布对矿机网页后台界面进行了大改动，并对SD卡刷安装进行了优化
 
 * 在所有类型的矿机上
 
@@ -152,21 +171,21 @@ This is a miner bug fix release for Antminer X17/X19 family
 21.06
 ---------------------------
 
-本次发布是为蚂蚁矿机S17和T17系列（包含S17e和T17e）提供改进支持的重要更新。
+本次发布是为蚂蚁矿机S17和T17系列（包含S17e和T17e）提供改进支持的重要更新
 
 * 在蚂蚁矿机17系列上
 
-  * [特性] 改进的自动调整确保矿机在用户设定的功率等级到达优化的性能
-  * [特性] 对S17e 和T17e 的支持
-  * [特性] 对 T17、 T17+,、S17、 S17+改进的支持
-  * [特性] Braiins OS+管家现在支持整个S17和T17系列
-  * [特性] 改进的动态功率调节。当矿机的温度低于过热温度至少5度，并风扇运行低于80%时，动态功率调节现在也会自动提高功率限制。
-  * [特性]  只有在使用Braiins OS+管家的情况下，BOSminer才会运行并忽略不正确的配置，以便能修为配置。如果不适用Braiins OS+管家，BOSminer会在不正确的配置下自动关闭。
+  * 【特性】 改进的自动调整确保矿机在用户设定的功率等级到达优化的性能
+  * 【特性】 对S17e 和T17e 的支持
+  * 【特性】 对 T17、 T17+,、S17、 S17+改进的支持
+  * 【特性】 Braiins OS+管家现在支持整个S17和T17系列
+  * 【特性】 改进的动态功率调节。当矿机的温度低于过热温度至少5度，并风扇运行低于80%时，动态功率调节现在也会自动提高功率限制
+  * 【特性】  只有在使用Braiins OS+管家的情况下，BOSminer才会运行并忽略不正确的配置，以便能修为配置。如果不适用Braiins OS+管家，BOSminer会在不正确的配置下自动关闭
 
 21.04
 ---------------------------
 
-本次发布新增对蚂蚁矿机S9的Braiins OS+管家的重要支持。Braiins OS+管家（Braiins OS+ Manager）是我们的矿机运维监控云平台。
+本次发布新增对蚂蚁矿机S9的Braiins OS+管家的重要支持。Braiins OS+管家（Braiins OS+ Manager）是我们的矿机运维监控云平台
 
 * 在所有类型的矿机上
 
@@ -197,11 +216,11 @@ This is a miner bug fix release for Antminer X17/X19 family
 * 在所有类型的矿机上
 
   * 【BUG修复】 修复了预先发布版版本不对的问题
-  * 【BUG修复】 修复了网络设置中仅用了DHCP服务器的问题。由此之前带来的不便，敬请谅解。
+  * 【BUG修复】 修复了网络设置中仅用了DHCP服务器的问题。由此之前带来的不便，敬请谅解
 
 * 在蚂蚁矿机X17系列上
 
-  * 【特性】 对未解锁官方固件锁的矿机，我们现提供从准备SD卡到上机自动卡刷的一条龙解决方案。
+  * 【特性】 对未解锁官方固件锁的矿机，我们现提供从准备SD卡到上机自动卡刷的一条龙解决方案
   * 【特性】 现在对使用Macronix品牌NAND闪存的17系列机器完全支持
   * 【特性】 新增配置选项  [model_detection] （矿机型号检测），允许矿工超控运算板型号自动检测。从而能手动解决由于运算板上存储运算版信息的EEPROM内存损坏，造成的读不出板的情况。详见 use_config_fallback 部分的内容
   * 【特性】 新的FPGA允许最高超频到950 MHz（请注意：这么高的频率一般只能在液冷的情况下使用！）
@@ -214,7 +233,7 @@ This is a miner bug fix release for Antminer X17/X19 family
 
 * 在所有类型的矿机上
 
-  * 【特性】 BOS工具箱现有版本一个工具箱就能支持所有矿机型号。并且在批量操作（安装，配置，卸载等）时，可以自动识别矿机列表csv文件中的S9或X17系列矿机。
+  * 【特性】 BOS工具箱现有版本一个工具箱就能支持所有矿机型号。并且在批量操作（安装，配置，卸载等）时，可以自动识别矿机列表csv文件中的S9或X17系列矿机
 
 * 在蚂蚁矿机X17系列上
   * 【特性】 全系在超频时最高频率限制为750 MHz
@@ -225,12 +244,12 @@ This is a miner bug fix release for Antminer X17/X19 family
   * 【BUG修复】 已解决自动调整运作时API锁定的问题，矿机网页后台的图表在自动调整重启期间不再会无反应
 
 * 在蚂蚁矿机S9上
-  * 【特性】 - 一个BOS工具箱就能同时管理Braiins OS和Braiins OS+，一般默认为Braiins OS+。希望使用开源社区版的用户，请在安装时使用 --open-source 这个参数。
+  * 【特性】 - 一个BOS工具箱就能同时管理Braiins OS和Braiins OS+，一般默认为Braiins OS+。希望使用开源社区版的用户，请在安装时使用 --open-source 这个参数
 
 20.10
 ---------------------------
 
-本次发布是为蚂蚁矿机S17+新增Beta版支持的重要更新。
+本次发布是为蚂蚁矿机S17+新增Beta版支持的重要更新
 
 * 在所有类型的矿机上
 
@@ -238,8 +257,8 @@ This is a miner bug fix release for Antminer X17/X19 family
   * 【特性】 BOSminer监控只会在当BOSminer停止运行时让风扇运转，给矿机降温
   * 【BUG修复】 解决了阶层Stratum客户端显示 'Stratum: unexpected accepted solution #0' 的问题
   * 【BUG修复】 解决了阶层Stratum客户端状态不正常的BUG（例如显示诸如像 "ERRO BUG: 'finish_shutdown_or_recover' 或 unexpected state 'Starting'" 这样的问题）
-  * 【特性】 推荐计划现更好地支持同时支持推广多种不同的矿机类型。
-  * 【特性】 当BOS管理协议发生故障，从阶层Stratum V2协议连接切换到备用连接时，抽水也将同时被中继过去。
+  * 【特性】 推荐计划现更好地支持同时支持推广多种不同的矿机类型
+  * 【特性】 当BOS管理协议发生故障，从阶层Stratum V2协议连接切换到备用连接时，抽水也将同时被中继过去
 
 * 在蚂蚁矿机S9上
 
@@ -257,7 +276,7 @@ This is a miner bug fix release for Antminer X17/X19 family
 20.09.1
 ---------------------------
 
-本次发布旨在修复部分Bug。
+本次发布旨在修复部分Bug
 
 * 在所有类型的矿机上
 
@@ -274,11 +293,11 @@ This is a miner bug fix release for Antminer X17/X19 family
 20.09
 ---------------------------
 
-本次发布包括对蚂蚁矿机S17和S17 Pro的支持，和对S9系列的维护性更新。
+本次发布包括对蚂蚁矿机S17和S17 Pro的支持，和对S9系列的维护性更新
 
 * 在所有类型的矿机上
 
-  * 【特性】推荐计划——您可以推广Braiins OS+获得回扣和佣金。联系我们获得您的专属固件安装包（带有您的推荐ID和配置文件），并邀请其他用户安装，您就能获得固件抽水的一部分作为您的回扣。
+  * 【特性】推荐计划——您可以推广Braiins OS+获得回扣和佣金。联系我们获得您的专属固件安装包（带有您的推荐ID和配置文件），并邀请其他用户安装，您就能获得固件抽水的一部分作为您的回扣
 
 * 已知问题
 
@@ -288,7 +307,7 @@ This is a miner bug fix release for Antminer X17/X19 family
 20.06
 ---------------------------
 
-本次更新的发布旨在通过应用新功能和修复关键问题，改进Braiins OS+和BOS工具箱的可用性。 
+本次更新的发布旨在通过应用新功能和修复关键问题，改进Braiins OS+和BOS工具箱的可用性
 
   * 在所有类型的矿机上
 
@@ -301,7 +320,7 @@ This is a miner bug fix release for Antminer X17/X19 family
     * 【BUG修复】修复了在系统刷新缓冲区前关闭矿机时 *bosminer.toml* 文件为空的问题
     * 【BUG修复】IP Report按钮能正常使用了
     * 【特性】自动调整子系统现已可以保存性能配置文件到/etc/bosminer-autotune.json文件中。性能配置文件在每个功率等级，对每个编号的算力板都会进行记录
-    * 【特性】动态功率调节现能在矿机达到用户设定的 *过热温度（Hot Tempreture）* 的情况下，自动降低矿机的功率限值。一旦达到最小功率限值，矿机将关机冷却。矿机将在用户设定的一段时间后，自动重启并恢复到原工作功率限值挖矿。
+    * 【特性】动态功率调节现能在矿机达到用户设定的 *过热温度（Hot Tempreture）* 的情况下，自动降低矿机的功率限值。一旦达到最小功率限值，矿机将关机冷却。矿机将在用户设定的一段时间后，自动重启并恢复到原工作功率限值挖矿
 
   * 在蚂蚁矿机S9上
 
@@ -311,7 +330,7 @@ This is a miner bug fix release for Antminer X17/X19 family
 20.04
 ---------------------------
 
-本次发布的更新解决了大多数用户遇到的一些问题，例如安装/卸载的困难以及S9矿机上I2C控制器的一个主要问题。同时，我们也提供了固件的预先发行版了，现在使用 **BOS** 工具箱您就能启用它。
+本次发布的更新解决了大多数用户遇到的一些问题，例如安装/卸载的困难以及S9矿机上I2C控制器的一个主要问题。同时，我们也提供了固件的预先发行版了，现在使用 **BOS** 工具箱您就能启用它
 
   * 在所有类型的矿机上
 
@@ -349,7 +368,7 @@ This is a miner bug fix release for Antminer X17/X19 family
 已知问题
 ************
 
-以下列出了已发布版本中存在的已知问题。
+以下列出了已发布版本中存在的已知问题
 
 20.03 (更新于 3/30/2020)
 -------------------------
