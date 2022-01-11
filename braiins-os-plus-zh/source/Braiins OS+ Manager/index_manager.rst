@@ -22,7 +22,7 @@ Braiins OS+管家
 
 Braiins OS+管家是用于远程配置装有Braiins OS+固件矿机的云端管理和监控平台。
 
-.. note::
+.. 注意::
    Braiins OS+管家目前不接受新的注册。
 
 其数据通过阶层Stratum V2协议实现传送，相同于固件抽水的通道，并不会增加网络上的负载。
