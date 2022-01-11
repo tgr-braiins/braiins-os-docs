@@ -65,27 +65,27 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 21.12
 ---------------------------
 
-This is a major release that provides support for Antminer S19J Pro (beta)
+本次发布是为蚂蚁矿机S19J Pro新增Beta版支持的重要更新
 
-* All Mining Hardware
+* 在所有类型的矿机上
 
-  * [feature] autotune profile is being added to the Get Help files, for better support
-  * [feature] immersion mode toggle button added to the web interface
-  * [feature] logs are now less verbose, annoying temperature messages have been removed
-  * [feature] logs no longer contain color codes as it confuses web log console
-  * [feature] log reason for miner shutdown
-  * [bug] fixed issue with per-hashboard hashrate showing the total hashrate in the graphs
-  * [bug] voltage ramping has been reworked and is now quicker
-  * [bug] Bosminer with autotuning off now correctly starts with user defined configuration
-  * [bug] Removed logrotate information from syslog
+  *【特性】 autotune profile is being added to the Get Help files, for better support
+  *【特性】 immersion mode toggle button added to the web interface
+  *【特性】 logs are now less verbose, annoying temperature messages have been removed
+  *【特性】 logs no longer contain color codes as it confuses web log console
+  *【特性】 log reason for miner shutdown
+  *【BUG修复】 fixed issue with per-hashboard hashrate showing the total hashrate in the graphs
+  *【BUG修复】 voltage ramping has been reworked and is now quicker
+  *【BUG修复】 Bosminer with autotuning off now correctly starts with user defined configuration
+  *【BUG修复】 Removed logrotate information from syslog
 
-* Antminer X17, X19
+* 蚂蚁矿机S17和T17系列，S19和T19系列上
 
-  * [feature] support for Antminer S19J Pro (beta)
-  * [feature] improved power consumption prediction for Antminer S19J Pro
-  * [feature] chip temperature for the X19 models is being estimated based on PCB temperature
-  * [feature] removed fan override for the autotuning, default is 100%
-  * [bug] fixed an issue with chips not reachable on X19 models
+  *【特性】 为蚂蚁矿机S19J Pro的Beta版支持
+  *【特性】 improved power consumption prediction for Antminer S19J Pro
+  *【特性】 chip temperature for the X19 models is being estimated based on PCB temperature
+  *【特性】 removed fan override for the autotuning, default is 100%
+  * BUG修复】 fixed an issue with chips not reachable on X19 models
 
 * Known issues:
 
@@ -111,7 +111,7 @@ This is a minor bug fix release for Antminer X19 family
 
 This is a miner bug fix release for Antminer X17/X19 family
 
-* 蚂蚁矿机S17和T17系列，S19和T19系列
+* 蚂蚁矿机S17和T17系列，S19和T19系列上 
 
   * [bug] enable tuner configuration for S17Pro machine
   * [bug] fixed power controller lockups
