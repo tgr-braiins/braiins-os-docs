@@ -111,7 +111,7 @@ This is a minor bug fix release for Antminer X19 family
 
 This is a miner bug fix release for Antminer X17/X19 family
 
-* Antminer X17, X19
+* 蚂蚁矿机S17和T17系列，S19和T19系列
 
   * [bug] enable tuner configuration for S17Pro machine
   * [bug] fixed power controller lockups
@@ -119,11 +119,11 @@ This is a miner bug fix release for Antminer X17/X19 family
 21.09.1
 ---------------------------
 
-This is a minor release that extends X19 power supply limit for immersion setups.
+本次发布是提高用于浸没式冷却的S19系列和T19系列电源功耗限制的次要更新。
 
-* Antminer X19
+* 蚂蚁矿机S19和T19系列
 
-  * [feature] Extend power limit upto 6500 W on APW12. This is for modified PSU's that can handle this power limit!
+  * 【特性】 将APW12电源的功率限值提高到6500。这是针对能够处理这种功率限制的改装电源而已!
 
 21.09
 ---------------------------
