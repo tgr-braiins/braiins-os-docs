@@ -90,7 +90,7 @@ This is a minor bug-fix release for the x19 and x17
 
 * Antminer family
 
-  * [bug] fixed performance problem on S19J and S19JPro due to wrong initialization sequence
+  * [bug] fixed performance problem on S19JPro due to wrong initialization sequence
   * [bug] adjust maximum frequency for S19JPro so that preheat doesn't exceed maximum allowed frequency on higher power limits
   * [bug] wait for voltage to settle in power controller on x17 models
 

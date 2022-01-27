@@ -93,7 +93,7 @@ Este es un lanzamiento que arregla fallos menores para las familias x19 y x17
 
 * Familia Antminer
 
-  * [fallo] arreglado problema de rendimiento en la S19J y S19JPro debido a una secuencia de inicialización incorrecta
+  * [fallo] arreglado problema de rendimiento en la S19JPro debido a una secuencia de inicialización incorrecta
   * [fallo] ajustada la frecuencia máxima para la S19JPro de manera que el pre-calentamiento no exceda la frecuencia máxima permitida con límites de potencia elevados
   * [fallo] esperar la estabilización de voltaje en el control de potencia para los modelos x17
 
