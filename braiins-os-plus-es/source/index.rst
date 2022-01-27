@@ -97,12 +97,6 @@ Este es un lanzamiento que arregla fallos menores para las familias x19, x17 y W
   * [fallo] ajustada la frecuencia máxima para la S19JPro de manera que el pre-calentamiento no exceda la frecuencia máxima permitida con límites de potencia elevados
   * [fallo] esperar la estabilización de voltaje en el control de potencia para los modelos x17
 
-* Familia WhatsMiner
-
-  * [fallo] la des-instalación ahora espera correctamente que bosminer se detenga antes de proceder
-  * [fallo] prevenir el agotamiento de espacio de la NAND durante la des-instalación
-  * [fallo] corregido el valor por defecto de ventiladores_mínimos a 2, en la interfaz web
-
 21.12
 ---------------------------
 
