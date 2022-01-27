@@ -81,6 +81,23 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 更新日志
 *********
 
+21.12.1
+---------------------------
+
+This is a minor bug-fix release for the x19, x17 and WhatsMiner family
+
+* Antminer family
+
+  * [bug] fixed performance problem on S19J and S19JPro due to wrong initialization sequence
+  * [bug] adjust maximum frequency for S19JPro so that preheat doesn't exceed maximum allowed frequency on higher power limits
+  * [bug] wait for voltage to settle in power controller on x17 models
+
+* WhatsMiner family
+
+  * [bug] uninstall now properly waits for bosminer shutdown before proceeding
+  * [bug] prevent running out of NAND space during uninstall
+  * [bug] corrected wrong default value for min_fans to 2, in the web interface
+
 21.12
 ---------------------------
 
