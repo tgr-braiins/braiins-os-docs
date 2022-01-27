@@ -89,19 +89,19 @@ Registro de Cambios
 21.12.1
 ---------------------------
 
-This is a minor bug-fix release for the x19, x17 and WhatsMiner family
+Este es un lanzamiento que arregla fallos menores para las familias x19, x17 y WhatsMiner
 
-* Antminer family
+* Familia Antminer
 
-  * [bug] fixed performance problem on S19J and S19JPro due to wrong initialization sequence
-  * [bug] adjust maximum frequency for S19JPro so that preheat doesn't exceed maximum allowed frequency on higher power limits
-  * [bug] wait for voltage to settle in power controller on x17 models
+  * [fallo] arreglado problema de rendimiento en la S19J y S19JPro debido a una secuencia de inicialización incorrecta
+  * [fallo] ajustada la frecuencia máxima para la S19JPro de manera que el pre-calentamiento no exceda la frecuencia máxima permitida con límites de potencia elevados
+  * [fallo] esperar la estabilización de voltaje en el control de potencia para los modelos x17
 
-* WhatsMiner family
+* Familia WhatsMiner
 
-  * [bug] uninstall now properly waits for bosminer shutdown before proceeding
-  * [bug] prevent running out of NAND space during uninstall
-  * [bug] corrected wrong default value for min_fans to 2, in the web interface
+  * [fallo] la des-instalación ahora espera correctamente que bosminer se detenga antes de proceder
+  * [fallo] prevenir el agotamiento de espacio de la NAND durante la des-instalación
+  * [fallo] corregido el valor por defecto de ventiladores_mínimos a 2, en la interfaz web
 
 21.12
 ---------------------------
