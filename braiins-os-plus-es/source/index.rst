@@ -89,7 +89,7 @@ Registro de Cambios
 21.12.1
 ---------------------------
 
-Este es un lanzamiento que arregla fallos menores para las familias x19, x17 y WhatsMiner
+Este es un lanzamiento que arregla fallos menores para las familias x19 y x17
 
 * Familia Antminer
 

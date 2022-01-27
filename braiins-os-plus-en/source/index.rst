@@ -86,7 +86,7 @@ Changelog
 21.12.1
 ---------------------------
 
-This is a minor bug-fix release for the x19, x17 and WhatsMiner family
+This is a minor bug-fix release for the x19 and x17
 
 * Antminer family
 

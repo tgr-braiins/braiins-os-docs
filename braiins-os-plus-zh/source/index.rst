@@ -84,7 +84,7 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 21.12.1
 ---------------------------
 
-This is a minor bug-fix release for the x19, x17 and WhatsMiner family
+This is a minor bug-fix release for the x19 and x17 family
 
 * Antminer family
 
