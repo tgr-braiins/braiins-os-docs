@@ -85,19 +85,14 @@ Braiins OS + представляет улучшенную операционн�
 21.12.1
 ---------------------------
 
-This is a minor bug-fix release for the x19, x17 and WhatsMiner family
+Это выпуск с небольшими исправлениями ошибок для x19, x17
 
-* Antminer family
+* семья Antminer
 
-  * [bug] fixed performance problem on S19J and S19JPro due to wrong initialization sequence
-  * [bug] adjust maximum frequency for S19JPro so that preheat doesn't exceed maximum allowed frequency on higher power limits
-  * [bug] wait for voltage to settle in power controller on x17 models
+  * [буг] исправлена проблема с производительностью на S19J и S19JPro из-за неправильной последовательности инициализации
+  * [буг] отрегулирована максимальная частота для S19JPro, чтобы предварительный нагрев не превышал максимально допустимую частоту при более высоких пределах мощности
+  * [буг] ожидание стабилизации напряжения в контроллере питания на моделях x17
 
-* WhatsMiner family
-
-  * [bug] uninstall now properly waits for bosminer shutdown before proceeding
-  * [bug] prevent running out of NAND space during uninstall
-  * [bug] corrected wrong default value for min_fans to 2, in the web interface
 
 21.12
 ---------------------------
