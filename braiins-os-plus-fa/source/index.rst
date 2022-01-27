@@ -90,20 +90,20 @@ Braiins OS+ سیستم عاملی برای ماینرهای ASIC است که ب�
 21.12.1
 ---------------------------
 
-This is a minor bug-fix release for the x19, x17 and WhatsMiner family
+این یک نسخه رفع اشکال جزئی برای دستگاه‌های x19، x17 و WhatsMiner است
 
-* Antminer family
+* دستگاه‌های Antminer
 
-  * [bug] fixed performance problem on S19J and S19JPro due to wrong initialization sequence
-  * [bug] adjust maximum frequency for S19JPro so that preheat doesn't exceed maximum allowed frequency on higher power limits
-  * [bug] wait for voltage to settle in power controller on x17 models
+  * [bug] رفع مشکل عملکرد در S19J و S19JPro به دلیل راه‌اندازی اولیه اشتباه
+  * [bug] تنظیم حداکثر فرکانس را برای S19 Pro تا پیش گرم کردن از حداکثر فرکانس مجاز در محدودیت های توان بالاتر تجاوز نکند
+  * [bug] انتظار برای ثابت شدن ولتاژ در کنترلر پاور مدل های x17 
 
-* WhatsMiner family
+*  دستگاه‌های WhatsMiner
 
-  * [bug] uninstall now properly waits for bosminer shutdown before proceeding
-  * [bug] prevent running out of NAND space during uninstall
-  * [bug] corrected wrong default value for min_fans to 2, in the web interface
-
+  * [bug] در هنگام حذف فریم‌ور تا خاموش شدن کامل bosminer منتظر می ماند 
+  * [bug] از کم آوردن فضای NAND در هنگاه حذف جلوگیری می کند
+  * [bug] مقدار پیش فرض اشتباه را برای min_fans به ۲ در رابط وب اصلاح شده است
+  
 21.12
 ---------------------------
 
