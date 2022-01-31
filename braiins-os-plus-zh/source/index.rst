@@ -84,13 +84,14 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 21.12.1
 ---------------------------
 
-This is a minor bug-fix release for the x19 and x17 family
+本次发布是改进蚂蚁矿机S19/T19和S17/T17系列的次要更新
 
-* Antminer family
+* 蚂蚁矿机
 
-  * [bug] fixed performance problem on S19JPro due to wrong initialization sequence
-  * [bug] adjust maximum frequency for S19JPro so that preheat doesn't exceed maximum allowed frequency on higher power limits
-  * [bug] wait for voltage to settle in power controller on x17 models
+  * [BUG修复] 修复了S19J Pro上由于错误的初始化顺序生产的性能问题
+  * [BUG修复] 调整S19J Pro 的最大频率以便在高的功耗限值下预热不超过最大允许的频率
+  * [BUG修复] 在S17和T17系列上等到功耗控制器的电压稳定
+
 
 21.12
 ---------------------------
