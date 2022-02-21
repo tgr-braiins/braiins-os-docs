@@ -90,16 +90,16 @@ Braiins OS+ سیستم عاملی برای ماینرهای ASIC است که ب�
 22.02
 ---------------------------
 
-* All families
+* تمامی دستگاه‌ها
 
-  * [bug] SD card auto-upgrade is now on by default
-  * [feature] hashboards that fail to initialize are now automatically being disabled without additional attempts
+  * [bug] امکان آپدیت خودکار در حالت کارت اس دی نیز فعال است
+  * [feature] هشبوردهایی که نمی توانند مقداردهی اولیه شوند، اکنون به طور خودکار و بدون تلاش اضافی غیرفعال می شوند
 
-* Antminer family
+* دستگاه‌های Antminer
 
-  * [feature] support for C71 control board based S19J machines
-  * [feature] due to imprecise power estimates, the maximum overclocking frequency for S19J/S19JPro machines was set to 740MHz
-  * [feature] improved power estimate for S19 Pro model - for proper power measurements always measure at the wall!
+  * [feature] پشتیبانی از دستگاه های S19J مبتنی بر بوردهای کنترل C71
+  * [feature] به دلیل تخمین های نادقیق توان، حداکثر فرکانس اورکلاک برای ماشین های S19J/S19JPro روی 740 مگاهرتز تنظیم شد.
+  * [feature] تخمین توان مصرفی بهبود یافته برای مدل S19 Pro - برای اندازه‌گیری دقیق همیشه از تابلو برق اندازه گیری نمایید!
 
 21.12.1
 ---------------------------
