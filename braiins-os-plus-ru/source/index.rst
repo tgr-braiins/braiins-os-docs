@@ -82,6 +82,20 @@ Braiins OS + представляет улучшенную операционн�
 Журнал изменений
 ****************
 
+22.02
+---------------------------
+
+* All families
+
+  * [bug] SD card auto-upgrade is now on by default
+  * [feature] hashboards that fail to initialize are now automatically being disabled without additional attempts
+
+* Antminer family
+
+  * [feature] support for C71 control board based S19J machines
+  * [feature] due to imprecise power estimates, the maximum overclocking frequency for S19J/S19JPro machines was set to 740MHz
+  * [feature] improved power estimate for S19 Pro model - for proper power measurements always measure at the wall!
+
 21.12.1
 ---------------------------
 
