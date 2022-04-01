@@ -9,7 +9,6 @@
    Configuration/index*
    Basic User's Guide/index*
    Development/index*
-   Braiins OS+ Manager/index*
 
 ---------------
 
@@ -85,6 +84,31 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 *******************
 Registro de Cambios
 *******************
+
+22.02.2
+---------------------------
+
+Este lanzamiento es una pequeña mejora que cubre el soporte a las métricas Prometheus, arreglo menor para el cliente stratum V1 y problemas con el archivo de soporte.
+
+* Todas las familias
+
+  * [fallo] El cliente Stratum V1 ahora ahora resiste recibir respuestas de confirmación fuera de orden de las participaciones
+  * [característica] BOSminer ahora provee un juego útil de métricas Prometheus para herramientas de monitoreo avanzado en granjas basado en el combo Prometheus + Grafana. Las métricas están disponibles en `:8081/metrics`, ej:, 10.10.10.10:8081/metrics - se proveerá una guía apropiada en el próximo lanzamiento.
+  * [fallo] El archivo de soporte tiene la extensión de nombre de archivo correcta (.zip)
+
+22.02.1
+---------------------------
+
+Este lanzamiento es una pequeña mejora/arreglo de fallo que mejora el soporte a la familia Antminer X19
+
+* Todas las familias
+
+  * [característica] El archivo de soporte ahora se comprime con la contraseña 'braiins' para eliminar problemas con los filtros de spam
+
+* Familia Antminer
+
+  * [característica] Añadida detección de modelos S19a
+  * [fallo] Mejorado ajuste para los modelos S19J Pro y S19J
 
 22.02
 ---------------------------
