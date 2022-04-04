@@ -42,7 +42,7 @@ Setup
 Quick Start
 -----------
 
-- ``git clone https://github.com/braiins/farm-monitor.git``
+- ``git clone https://github.com/braiins/bos-farm-monitor.git``
 - Change list of IP address ranges to scan in ``/supercronic/scan_crontab``
 - ``docker-compose up -d``
 - Go to localhost:3000
@@ -79,9 +79,9 @@ You can clone the repository using git:
 
    sudo apt update
    sudo apt install git
-   git clone https://github.com/braiins/farm-monitor.git
+   git clone https://github.com/braiins/bos-farm-monitor.git
 
-You can download zip file with all the files `https://github.com/braiins/farm-monitor/archive/refs/heads/master.zip <https://github.com/braiins/farm-proxy/archive/refs/heads/master.zip>`__
+You can download zip file with all the files `https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip <https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip>`__
 
 Prometheus Configuration
 ------------------------
@@ -128,17 +128,16 @@ some of the most typical elements in the farm topology are:
 
 To achieve this you have the following options:
 
-  * **Use subnets and parse octets of IP addresses**
+ **Use subnets and parse octets of IP addresses**
    If you have static IP addresses and you are using these to organize your
    miners, the easiest way to prepare data for reporting is to enhance
    prometheus configuration with relabels derived from IP addresses. The
    example below shows how to do it. You can obviously use different names
    than section, tank, miner.
 
-   relabel_configs:
-
    .. code-block::
 
+      relabel_configs:
       # Extract the second octet of IPv4 address
       - source_labels: ["__address__"]
         regex: "\\d+\\.(\\d+)\\.\\d+\\.\\d+.*"
@@ -151,21 +150,24 @@ To achieve this you have the following options:
       - source_labels: ["__address__"]
         regex: "\\d+\\.\\d+\\.\\d+\\.(\\d+).*"
         target_label: "miner"
-  * **Use separate jobs together with optional custom label**
+ 
+ **Use separate jobs together with optional custom label**
    One configuration of Prometheus (stored in prometheus.yml) can contain multiple jobs. For example, you can create separate jobs for each building or container. Each metric has a job label, making it a very convenient approach to group instances (miners). In case when you have other (non-mining) jobs in your configuration, you might want to add a custom label to each job so that you can use that label for filtering/grouping. An example that could be used in relabel_configs section to add building label to each instance that is monitored by the job with value “Bulding A”:
 
    .. code-block::
 
       - target_label: "building"
         replacement: "Building A"
-  * **Use multiple prometheus instances**
+ **Use multiple prometheus instances**
    In the case of thousands or more miners it might be easier to setup a separate Prometheus instance for each group of miners. Refer to Prometheus documentation on how to setup `federation <https://prometheus.io/docs/prometheus/latest/federation/>`__.
-  * **Use username/workername and re-labels (not recommended)**
+
+ **Use username/workername and re-labels (not recommended)**
    Using username/workername for encoding information about physical location of miners is a typically used approach with legacy monitoring applications. This approach does not work well with how Prometheus manages and stores time-series, which is nothing like a traditional relational database. We do not recommend using username/workername for structuring you farm with prometheus for the following reasons:
 
    -  majority of metrics do not have worker name as labels and joins would need to be created in queries (slows things down, prone to errors)
    -  there can be multiple usernames / workernames associated with a single miner; this makes the joins even more difficult (necessary pre-aggregation with logic which value to choose)
-  * **Use multiple IP ranges with scan approach**
+
+ **Use multiple IP ranges with scan approach**
    If you have miners with IP assigned by DHCP and you are using scanning of your network to get miners to Prometheus, you can define multiple network ranges and each range can have a unique value defined and assigned to label (more on that in the following section).
 
 **Adding miners to configuration**
