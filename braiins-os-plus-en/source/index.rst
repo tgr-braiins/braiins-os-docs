@@ -9,7 +9,7 @@
    Configuration/index*
    Basic User's Guide/index*
    Development/index*
-   Braiins OS+ Manager/index*
+   Monitoring Braiins OS+ with Prometheus and Grafana/index*
 
 ---------------
 
@@ -82,6 +82,31 @@ You can also `send VIP request <https://help.slushpool.com/en/support/tickets/ne
 *********
 Changelog
 *********
+
+22.02.2
+---------------------------
+
+This is a minor improvement release that covers Prometheus metrics support, minor stratum V1 client fix and support archive issues.
+
+* All families
+
+  * [bug] Stratum V1 client is now resilient to receiving out of order share acknowledgement responses
+  * [feature] BOSminer now provides a useful set of Prometheus metrics for advanced farm monitoring tools based on Prometheus + Grafana combo. The metrics are available at `:8081/metrics`, e.g., 10.10.10.10:8081/metrics - proper guide to be provided in the following release.
+  * [bug] Support file has correct filename extension (.zip)
+
+22.02.1
+---------------------------
+
+This is a minor improvement/bug fix release that improves Antminer X19 family support
+
+* All families
+
+  * [feature] Support archive is now being zipped with 'braiins' password to eliminate spam filter issues
+
+* Antminer family
+
+  * [feature] Added detection of S19a models
+  * [bug] Improved tuner for S19J Pro and S19J models
 
 22.02
 ---------------------------

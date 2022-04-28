@@ -9,7 +9,7 @@
    Configuration/index*
    Basic User's Guide/index*
    Development/index*
-   Braiins OS+ Manager/index*
+   Monitoring Braiins OS+ with Prometheus and Grafana/index*
 
 ---------------
 
