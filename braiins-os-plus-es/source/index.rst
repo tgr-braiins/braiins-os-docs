@@ -86,6 +86,26 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+22.02.4
+---------------------------
+
+This is a minor release fixing bugs related to just released Braiins FarmProxy and Pause/Resume feature
+
+* All families
+  * [feature] There is FarmProxy link in all global link bars in web UI
+  * [bug] Braiins FarmProxy support for dev-fee aggregation has been fixed
+  * [bug] Fixed an issue with Pause/Resume logic that was preventing resume of mining when using the drain
+
+22.02.3
+---------------------------
+
+This is a minor improvement release that brings X19 images for public use.
+
+* Antminer family
+
+  * [feature] a universal X17/X19 SD card image (**the s17 image file contains support for X19 models as well**) is now available and boots on control boards with secure boot enabled
+  * [feature] improved power model for S19J and S19J Pro
+
 22.02.2
 ---------------------------
 
