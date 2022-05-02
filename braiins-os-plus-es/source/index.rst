@@ -89,23 +89,23 @@ Registro de Cambios
 22.02.4
 ---------------------------
 
-This is a minor release fixing bugs related to just released Braiins FarmProxy and Pause/Resume feature
+Este es un lanzamiento menor que arregla fallos relacionados con Braiins FarmProxy y la caracteristica Pausar/Continuar
 
-* All families
+* Todas las familias
 
-  * [feature] There is FarmProxy link in all global link bars in web UI
-  * [bug] Braiins FarmProxy support for dev-fee aggregation has been fixed
-  * [bug] Fixed an issue with Pause/Resume logic that was preventing resume of mining when using the drain
+  * [característica] Hay un enlace FarmProxy en todas las barras globales de la interfaz web
+  * [fallo] Arreglado soporte a la agregación de la tasa de desarrollo con Braiins FarmProxy
+  * [fallo] Arreglado un fallo en la lógica de Pausar/Continuar que estaba impidiendo la reanudación al utilizar el drenaje
 
 22.02.3
 ---------------------------
 
-This is a minor improvement release that brings X19 images for public use.
+Este lanzamiento es una pequeña mejora que trae las imágenes X19 para uso público.
 
-* Antminer family
+* Familia Antminer
 
-  * [feature] a universal X17/X19 SD card image (**the s17 image file contains support for X19 models as well**) is now available and boots on control boards with secure boot enabled
-  * [feature] improved power model for S19J and S19J Pro
+  * [característica] una imagen de tarjeta SD universal X17/X19 (**el archivo de imagen s17 también contiene soporta para modelos X19**) está ahora disponible y arranca en tarjetas de control con arranque seguro habilitado
+  * [característica] mejorado el modelo de potencia para la S19J y S19J Pro
 
 22.02.2
 ---------------------------
@@ -135,16 +135,16 @@ Este lanzamiento es una pequeña mejora/arreglo de fallo que mejora el soporte a
 22.02
 ---------------------------
 
-* All families
+* Todas las familias
 
-  * [bug] SD card auto-upgrade is now on by default
-  * [feature] hashboards that fail to initialize are now automatically being disabled without additional attempts
+  * [fallo] la auto-actualización en tarjeta SD está ahora activada por defecto
+  * [característica] las tarjetas de hash que fallen en inicializar ahora se desactivan automáticamente sin intentos adicionales
 
-* Antminer family
+* Familia Antminer
 
-  * [feature] support for C71 control board based S19J machines
-  * [feature] due to imprecise power estimates, the maximum overclocking frequency for S19J/S19JPro machines was set to 740MHz
-  * [feature] improved power estimate for S19 Pro model - for proper power measurements always measure at the wall!
+  * [característica] soporte para las máquinas S19J basadas en la tarjeta de control C71
+  * [característica] debido a los estimados imprecisos de potencia, la frecuencia máxima de overclocking para las máquinas S19J/S19JPro se fijó a 740MHz
+  * [característica] mejorada la estimación de potencia para el modelo S19 Pro - para mediciones adecuadas ¡mida siempre en la pared!
 
 21.12.1
 ---------------------------
