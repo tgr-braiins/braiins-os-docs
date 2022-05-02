@@ -89,6 +89,7 @@ Changelog
 This is a minor release fixing bugs related to just released Braiins FarmProxy and Pause/Resume feature
 
 * All families
+
   * [feature] There is FarmProxy link in all global link bars in web UI
   * [bug] Braiins FarmProxy support for dev-fee aggregation has been fixed
   * [bug] Fixed an issue with Pause/Resume logic that was preventing resume of mining when using the drain
