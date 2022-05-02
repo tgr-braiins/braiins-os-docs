@@ -104,7 +104,7 @@ Este lanzamiento es una pequeña mejora que trae las imágenes X19 para uso púb
 
 * Familia Antminer
 
-  * [característica] una imagen de tarjeta SD universal X17/X19 (**el archivo de imagen s17 también contiene soporta para modelos X19**) está ahora disponible y arranca en tarjetas de control con arranque seguro habilitado
+  * [característica] una imagen de tarjeta SD universal X17/X19 (**el archivo de imagen s17 también contiene soporte para modelos X19**) está ahora disponible y arranca en tarjetas de control con arranque seguro habilitado
   * [característica] mejorado el modelo de potencia para la S19J y S19J Pro
 
 22.02.2
