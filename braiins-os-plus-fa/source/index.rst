@@ -90,23 +90,24 @@ Braiins OS+ سیستم عاملی برای ماینرهای ASIC است که ب�
 22.02.4
 ---------------------------
 
-This is a minor release fixing bugs related to just released Braiins FarmProxy and Pause/Resume feature
+این یک نسخه بهبود جزئی است برای رفع ایرادات مرتبط با انتشار Braiins FarmProxy و همچنین امکان Pause/Resume.
 
-* All families
+* تمامی دستگاه‌ها
 
-  * [feature] There is FarmProxy link in all global link bars in web UI
-  * [bug] Braiins FarmProxy support for dev-fee aggregation has been fixed
-  * [bug] Fixed an issue with Pause/Resume logic that was preventing resume of mining when using the drain
+  * [feature] لینک FarmProxy در تمام نوار بالا در رابط کاربری وب وجود دارد
+  * [bug] پشتیبانی Braiins FarmProxy برای تجمیع dev-fee رفع شده است
+  * [bug] مشکلی در منطق Pause/Resume که مانع از ادامه استخراج در هنگام استفاده از drain می‌شد، برطرف شد.
+  
 
 22.02.3
 ---------------------------
 
-This is a minor improvement release that brings X19 images for public use.
+این نسخه بهبود جزئی است که ایمیج X19 را برای استفاده عمومی به فراهم میکند.
 
-* Antminer family
+* دستگاه‌های Antminer
 
-  * [feature] a universal X17/X19 SD card image (**the s17 image file contains support for X19 models as well**) is now available and boots on control boards with secure boot enabled
-  * [feature] improved power model for S19J and S19J Pro
+  * [feature] یک فایل ایمیج اس دی کارت کلی برای X17/X19 (**فایل ایمیج s17 از مدل های x19 نیز پشتیبانی می کند**) اکنون در دسترس است و می تواند برای کنترل بوردهای دارای secure boot فعال مورد استفاده قرار گیرد.
+  * [feature] بهبود کنترل پاور در دستگاه‌های S19J و S19J Pro 
 
 22.02.2
 ---------------------------
