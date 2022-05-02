@@ -84,23 +84,23 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 22.02.4
 ---------------------------
 
-This is a minor release fixing bugs related to just released Braiins FarmProxy and Pause/Resume feature
+本次发布是改进有关刚发布的Braiins矿场代理和暂停/恢复功能的次要更新。
 
-* All families
+* 蚂蚁矿机和神马矿机上
 
-  * [feature] There is FarmProxy link in all global link bars in web UI
-  * [bug] Braiins FarmProxy support for dev-fee aggregation has been fixed
-  * [bug] Fixed an issue with Pause/Resume logic that was preventing resume of mining when using the drain
+  * [特性] 在官网用户界面的所有全局添加了矿场代理的链接
+  * [BUG修复] 修复了矿场代理对开发商费用聚合的支持
+  * [BUG修复] 修复了暂停/恢复功逻辑问题，该问题在使用排算力管时阻止了挖矿的恢复
 
 22.02.3
 ---------------------------
 
-This is a minor improvement release that brings X19 images for public use.
+本次发布是公开S19系列固件安装映像的的次要更新。
 
-* Antminer family
+* 蚂蚁矿机上
 
-  * [feature] a universal X17/X19 SD card image (**the s17 image file contains support for X19 models as well**) is now available and boots on control boards with secure boot enabled
-  * [feature] improved power model for S19J and S19J Pro
+  * [特性] 通用的S17/T17系列和的S19/T19系列SD卡映像(**S17系列文件也包含对S19和T19系列的支持 **) 现在可用，并在安全启动已启用的控制板上启动。
+  * [特性] 改进了S19J和19J Pro的功耗型号
 
 22.02.2
 ---------------------------
