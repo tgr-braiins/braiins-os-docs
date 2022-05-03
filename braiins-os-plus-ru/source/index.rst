@@ -85,23 +85,23 @@ Braiins OS + представляет улучшенную операционн�
 22.02.4
 ---------------------------
 
-This is a minor release fixing bugs related to just released Braiins FarmProxy and Pause/Resume feature
+Это второстепенный релиз, исправляющий ошибки, связанные с только что выпущенными функциями Braiins FarmProxy и Pause/Resume.
 
-* All families
+* Все модели
 
-  * [feature] There is FarmProxy link in all global link bars in web UI
-  * [bug] Braiins FarmProxy support for dev-fee aggregation has been fixed
-  * [bug] Fixed an issue with Pause/Resume logic that was preventing resume of mining when using the drain
+  * [функция] Ссылка FarmProxy есть во всех глобальных панелях в веб-интерфейсе.
+  * [буг] Поддержка Braiins FarmProxy для агрегирования devfee была исправлена.
+  * [буг] Исправлена проблема с логикой паузы/возобновления, которая препятствовала возобновлению майнинга при использовании стока.
 
 22.02.3
 ---------------------------
 
-This is a minor improvement release that brings X19 images for public use.
+Это выпуск с небольшими улучшениями, который предоставляет образы X19 для общего пользования.
 
-* Antminer family
+* Семья Antminer
 
-  * [feature] a universal X17/X19 SD card image (**the s17 image file contains support for X19 models as well**) is now available and boots on control boards with secure boot enabled
-  * [feature] improved power model for S19J and S19J Pro
+  * [функция] универсальный образ SD-карты X17/X19 (**файл образа s17 также поддерживает модели X19**) теперь доступен и загружается на платах управления с включенной безопасной загрузкой
+  * [функция] улучшенная модель мощности для S19J и S19J Pro
 
 22.02.2
 ---------------------------
