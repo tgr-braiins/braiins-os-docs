@@ -9,12 +9,12 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-############
-Connectivity
-############
+###########
+Подключение
+###########
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm Proxy supports downstream connections via unsecured Stratum V1, secured Stratum V1 and secured Stratum V2 in header-only mode. For the upstream, only V1 connections are used (due to job limitation for header-only V2). Secured V1 is used for dev fee, unsecured V1 for client hashrate. Therefore Braiins Farm Proxy has a secured certificate storage.
+Braiins Farm Proxy поддерживает нисходящие соединения через незащищенный Stratum V1, защищенный Stratum V1 и защищенный Stratum V2 в режиме только заголовков. Для восходящего потока используются только соединения V1 (из-за ограничения задания для V2, состоящего только из заголовков). Защищенный V1 используется для devfee, незащищенный V1 — для хешрейта клиента. Поэтому Braiins Farm Proxy имеет защищенное хранилище сертификатов.
