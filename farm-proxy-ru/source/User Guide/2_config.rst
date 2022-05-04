@@ -324,51 +324,51 @@ Server
  * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
  * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
  * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
- * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Slushpool username for which Braiins OS+ discount is applied,
- * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
+ * **slushpool_bos_bonus**: строка: с учетом регистра, минимальная длина 0 (необязательно), имя пользователя на Slush Pool, для которого применяется бонус Braiins OS+,
+ * **bos_referral_code**: строка: с учетом регистра, минимальная длина 6 (необязательно), необходимо предоставить реферальный код Braiins OS+ полной длины.
    
-Target
-------
+Цель
+----
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the target endpoint,
- * **url**: string (mandatory), URL of the mining pool,
- * **user_identity**: string: case-sensitive with minimal length 1 (mandatory),
- * **identity_pass_through**: boolean (true/false, optional), propagation of an individual worker identity to the target pool (submitting feature to upstream), default is *false*,
- * **extranonce_size**: integer (optional), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
- * **aggregation**: integer (optional), number of aggregated workers (ASICs) per one upstream connection, default is *50*.
+ * **name**: строка: с учетом регистра, с минимальной длиной 1 (обязательно), имя целевой конечной точки,
+ * **url**: строка (обязательно), URL пула майнинга,
+ * **user_identity**: строка: с учетом регистра, минимальной длины 1 (обязательно),
+ * **identity_pass_through**: логическое значение (true/false, необязательно), распространение идентификатора отдельного воркера в целевой пул (отправка функции в восходящий поток), по умолчанию *false*,
+ * **extranonce_size**: целое число (необязательно), экстранонс принудительно применяется к целевому пулу, должен быть как минимум на 2 больше, чем *extranonce_size* *сервера*, по умолчанию *6* (**некоторые пулы требуют не более 4 экстранонсов!: AntPool, Binance Pool , Луксор**),
+ * **aggregation**: целое число (необязательно), количество объединенных рабочих процессов (ASIC) на одно восходящее соединение, по умолчанию *50*.
    
-Routing
--------
+Маршрутизация
+-------------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing domain,
- * **from**: list (mandatory), list of servers which are used as aggregation proxies.
+ * **name**: строка: с учетом регистра, минимальная длина 1 (обязательно), имя домена маршрутизации,
+ * **from**: список (обязательно), список серверов, которые используются в качестве прокси агрегации.
    
-Routing Goal
-------------
-
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing goal,
- * **hr_weight:** integer (optional), weight for the preferred ratio of hashrate distribution.
-   
-Routing Goal Level
+Цель маршрутизации
 ------------------
 
- * **targets**: list (mandatory), list of targets which are applied as target endpoints in the routing domain.
+ * **name**: строка: с учетом регистра, минимальная длина 1 (обязательно), имя цели маршрутизации,
+ * **hr_weight:** целое число (необязательно), вес для предпочтительного соотношения распределения хешрейта.
+   
+Целевой уровень маршрутизации
+-----------------------------
+
+ * **targets**: список (обязательный), список целей, которые применяются в качестве целевых конечных точек в домене маршрутизации.
 
 **************************
-Accompanying Configuration
+Сопутствующая конфигурация
 **************************
 
-Other configuration is predefined in the file *docker-compose.yml* which is an essential application for running Braiins Farm Proxy as a multi-container Docker stack. This config file is designed in a way to require as few edits as possible. Docker-compose consists of the configuration of these services:
+Другая конфигурация предопределена в файле *docker-compose.yml*, который является важным приложением для запуска Braiins Farm Proxy в качестве многоконтейнерного стека Docker. Этот файл конфигурации разработан таким образом, чтобы требовалось как можно меньше правок. Docker-compose состоит из настройки этих сервисов:
 
- * **Prometheus**: runs on port **9090**, it can be accessed in your browser, e.g. ``http://<your-host>:9090/``
- * **Node Exporter**: runs on port **9100**, it can be accessed in your browser, e.g. ``http:/<your-host>:9100/``
- * **Grafana**: runs on port **3000**, it can be accessed in your browser, e.g. ``http://<your-host>:3000/``
+ * **Prometheus**: работает на порту **9090**, к нему можно получить доступ в вашем браузере, например ``http://<your-host>:9090/``
+ * **Node Exporter**: работает на порту **9100**, к нему можно получить доступ в вашем браузере, например ``http:/<your-host>:9100/``
+ * **Grafana**: работает на порту **3000**, к нему можно получить доступ в вашем браузере, например ``http://<your-host>:3000/``
 
-Grafana is crucial for the monitoring of mining with Braiins Farm Proxy. Prometheus can be useful in case the user wants to build their own graphs for Grafana dashboards. Node Exporter is an exporter of OS and server metrics for Prometheus database.
+Grafana имеет решающее значение для мониторинга майнинга с помощью Braiins Farm Proxy. Prometheus может быть полезен, если пользователь хочет построить свои собственные графики для информационных панелей Grafana. Node Exporter — экспортер метрик ОС и сервера для базы данных Prometheus.
 
 .. attention::
 
-   The file *docker-compose.yml* refers to a configuration file **sample.toml** in the configuration of the farm-proxy container. If the farm operator has his own configuration file and wants to address it to the farm-proxy, sample.toml must be replaced by that file. Below you can see the farm-proxy configuration in the *docker-compose.yml.*
+   Файл *docker-compose.yml* ссылается на файл конфигурации **sample.toml** в конфигурации контейнера прокси фермы. Если оператор фермы имеет свой собственный файл конфигурации и хочет адресовать его прокси-серверу фермы, файл sample.toml необходимо заменить этим файлом. Ниже вы можете увидеть конфигурацию фермы-прокси в файле *docker-compose.yml.*
 
 
 .. code-block:: shell
