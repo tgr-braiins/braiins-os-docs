@@ -10,11 +10,11 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 #################
-High Availability
+در دسترس بودن بالا
 #################
 
 .. contents::
   :local:
   :depth: 2
 
-To mitigate the single point of failure of Braiins Farm Proxy, it is recommended to have multiple instances of Braiins Farm Proxy running. Miners should access these instances through a round-robin DNS record, not directly.
+برای کاهش نقطه عدم موفقیت Braiins Farm Proxy ، توصیه می شود چند Braiins Farm Proxy راه اندازی کنید. ماینرها باید از طریق یک رکورد round-robin DNS به آنها دسترسی داشته باشند و نه به صورت مستقیم.
