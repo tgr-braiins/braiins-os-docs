@@ -177,7 +177,7 @@ Braiins Farm Proxy is saving its logs within a Docker container. Docker is confi
 
  * all available logs: ``docker logs farm-proxy``
  * last 200 logs: ``docker logs farm-proxy –-tail 200``
- * logs from last 20 minutes: ``docker logs farm-proxy --since "2m"``
+ * logs from last 20 minutes: ``docker logs farm-proxy --since "20m"``
  * logs since timestamp: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
  * logs in time interval: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
