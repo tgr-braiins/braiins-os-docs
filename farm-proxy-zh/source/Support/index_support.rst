@@ -10,7 +10,7 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 #################
-Support & Contact
+客服 & 联系方式
 #################
 
 .. toctree::
@@ -19,4 +19,4 @@ Support & Contact
 
    *
 
-Have questions? Our dev and support teams are always available to help. You can `send request <https://help.slushpool.com/support/tickets/new>`_ to our support team. You can also join our Telegram `group <https://t.me/iidiscussion>`_.
+您有任何问题? 我们的开发和客服团队随时愿意为您提供帮助。您可以向我们客服团队 `提交工单 <https://help.slushpool.com/support/tickets/new>`_ 。您也可以加入我们的电报 `群 <https://t.me/iidiscussion>`_.
