@@ -10,7 +10,7 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ###########
-Terminology
+术语
 ###########
 
 .. contents::
