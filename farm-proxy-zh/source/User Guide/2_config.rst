@@ -167,7 +167,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **Multiple owners of the workers**: The farm has dedicated workers for mining on Slush Pool with listening port 3336 and other workers dedicated to Antpool mining on port 3337. Antpool requires maximal extranonce to be 4 and it has to be configured in Braiins Farm Proxy configuration. This example configuration is suitable in the case that the workers have 2 owners and thus multiple servers are defined and used. Multiple instances of Braiins Farm Proxy (let’s say in our example it’s 2 Raspberry Pi machines) with 2 different configurations can be used.
+* **矿机有多个所有者**。矿场的一部分矿机在Slush Pool上挖矿，监听端口为3336，其他矿机连接到蚂蚁矿池上，使用3337端口。蚂蚁矿池要求超额随机数 (extraNonce）为4，所以这个需要在Braiin矿场代理配置。这个配置的例子适用于矿机有2个主人的情况，因此需要定义和使用多个服务器。Braiins矿场代理的多个实例（在我们的例子是2台Raspberry Pi机器），可以使用2种不同的配置。
    
 .. code-block:: shell
 
