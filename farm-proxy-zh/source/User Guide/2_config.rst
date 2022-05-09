@@ -10,66 +10,65 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 #############
-Configuration
+配置
 #############
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm Proxy configuration can be split into two main categories - routing configuration and configuration of the accompanying programs (which are Prometheus and Grafana).
+Braiins矿场代理idea配置可以分位两个主要部分：布线配置和附属程序的配置（就是Prometheus和Grafana）。
 
 *********************
-Routing Configuration
+布线配置
 *********************
 
-Routing configuration is done in the TOML files using a specific structure. The structure of the config file corresponds to the diagram of hashrate routing and uses the terminology explained above. Configuration is explained in example setups in the further text.
+布线配置是在TOML文件中使用一个特定的结构完成的。配置文件的结构与算力布线的图表相对应，并使用上面解释的术语。在以下的文章中解释配置的例子。
 
-Braiins Farm Proxy has 3 predefined example TOML configurations which are allocated in the directory *./farm-proxy/config*:
+Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配置实例：
 
-  * *minimal.toml*: the smallest configuration file you can have with one server, one target and default aggregation.
-  * *sample.toml*: contains some other parameters and comments explaining them. It is used as the default configuration file in *docker-compose.yml*. Also contains one server, one target.
-  * *two_servers_two_targets.toml*: example how to expose more servers for miners or define a backup server for Braiins Farm Proxy.
+  * *minimal.toml*: 这是一个最小的配置文件，使用一个服务器、一个目标和默认聚合。
+  * *sample.toml*: 包含一些其他参数和它们解释。用在*docker-compose.yml*的默认配置文件。也包含一个服务器和一个目标。
+  * *two_servers_two_targets.toml*: 如何给矿工部署多个服务器，或者为Braiins矿场代理定义一个备份服务器的例子。
 
-Routing configuration consists of 5 segments: Server, Target, Routing, Routing Goal and Routing Goal Level.
+布线配置包含5个部分：服务器、目标、布线、布线目标，布线目标级别。
 
-Server
+服务器
 ======
 
-Server is a template for downstream connections. Each server can be utilized only in a single routing domain.
+服务器是下游连接的一个模板。每个服务器只能在一个布线域上使用。
 
 .. code-block:: shell
 
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<slushpool username>"
-      bos_referral_code = "<Braiins OS+ referral code>"
+      slushpool_bos_bonus = "<slushpool上的用户名>"
+      bos_referral_code = "<Braiins OS+推荐计划号>"
 
 
 
-* **name**: name of the server. It is visible as a value of “server” dimension in all downstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **port**: defines port Braiins Farm Proxy will open and accept miner’s connections on.
-* **slushpool_bos_bonus**: Slushpool username for which Braiins OS+ bonus is applied.
-* **bos_referral_code**: Braiins OS+ referral code.
+* **name**: 服务器的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
+* **port**: 指Braiins矿场代理所打开并其上接受矿工连接的端口。
+* **slushpool_bos_bonus**: 应用Braiins OS+推荐计划的Slushpool上的用户名。
+* **bos_referral_code**: Braiins OS+推荐计划号。
    
-Target
+目标
 ======
 
-Target is a template for upstream connections. It can be shared among multiple routing domains.
+目标是一个上游连接的模板。多个布线域可以用它。
 
 .. code-block:: shell
 
       [[target]]
       name = "MP-GL1"
       url = "stratum+tcp://<mining-pool-address>"
-      user_identity = "<userName.workerName>"
+      user_identity = "<userName.workerName（用户名.矿工名）>"
 
-* **name**: name of the target. It is visible as a value of “upstream” dimension in all upstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **url**: URL of the mining pool.
+* **name**: 目标的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
 * **user_identity**: identity under which hashrate shall be submitted. The **userName** must exist on the target pool otherwise the pool does not have a key to link your hashrate to your account.
 
-Routing Domain
+布线域
 ==============
 
 Routing domain defines boundaries and preferences for hashrate allocation to the desired targets.
@@ -90,7 +89,7 @@ Routing domain defines boundaries and preferences for hashrate allocation to the
 
 In case the farmer uses Braiins OS+ on his devices, **routing of dev fee is done automatically.**
 
-Workers Configuration
+矿工配置
 =====================
 
 To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be reconfigured. The URL of the Pool in the workers’ firmware configuration has to be set as:
@@ -100,7 +99,7 @@ To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be
 
 It is recommended to have a backup pool connection on your miner too in case Braiins Farm Proxy is not working.
 
-Example Configurations
+配置的例子
 ======================
 
 To make a better understanding of Braiins Farm Proxy usage and configuration, let’s go through 3 examples.
