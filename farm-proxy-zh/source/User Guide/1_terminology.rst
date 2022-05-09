@@ -40,6 +40,6 @@ Braiins矿场代理是一个软件应用程序，矿场代理通过多个监听�
   |pic2|
 
 
-.. rubric:: Footnotes
+.. rubric:: 注脚
 
 .. [#f1] 对于Braiins矿场代理来说，服务器指监听端口，跟一般的服务器不一样。
