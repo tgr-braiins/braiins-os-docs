@@ -227,7 +227,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       [[routing.goal.level]]
       targets = ["Antpool-2"]
 
-* **Diversification of pools**: A farm which allocates hashrate into 3 pools using 1 Braiins Farm Proxy instance with 1 server and multiple upstream target endpoints with hashrate allocation 100:80:20 ~ approx. 50% of hashrate goes to the goal “Goal SP”, 40% of hashrate goes to the goal “Goal Ant” and 10% goes to the goal “Goal BTC.com”.
+* **矿池的多样化**。一个矿场使用1个Braiins矿场代理实例和1个服务器以及多个上游目标终端，将算力分配到3个矿池上，算力分配比例为100:80:20~约50%的算力分配到目标 "Goal SP"，40%的算力分配到目标 "Goal Ant"，10%分配到目标 "Goal BTC.com"。
 
 .. code-block:: shell
 
@@ -308,17 +308,18 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       targets = ["BTCcom-2"]
 
 * **Different location of the mining operation**: Mining farms with several physical mining containers or buildings in different locations would use a Braiins Farm Proxy instance in each of the locations or for each container with one downstream server and one upstream target with different worker identifiers at each location / container to differentiate the hashrate from each location / container. It is possible to link the Farm Proxies hierarchically to aggregate hashrate from Farm Proxies of individual containers via another Braiins Farm Proxy instance.
+**不同的矿场地点**。一家矿场在不同地点有多个物理建筑，该矿场在每个地点或每个集装箱使用一个Braiins Farm Proxy实例，在每个地点/集装箱有一个下游服务器和一个上游目标，有不同的工人标识符，以区分每个地点/集装箱的hashrate。可以通过另一个Braiins Farm Proxy实例，将Farm Proxy分层连接起来，从单个容器的Farm Proxy中汇总hashrate。
    
-Configuration Parameters
+配置参数
 ========================
 
-List of both mandatory and optional parameters available in the Braiins Farm Proxy configuration. Parameters are assigned to the corresponding configuration sections.
+在Braiins矿场配置中有强制性和可选性参数的列表。参数分配到相应的配置部分。
 
-Server
+服务器
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the server,
- * **port**: integer (mandatory), port dedicated to the Braiins Farm Proxy,
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），服务器的名称，
+ * **port**: 整数 (强制的)，专供Braiins矿场代理的端口，
  * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*,
  * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
  * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
@@ -326,32 +327,32 @@ Server
  * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Slushpool username for which Braiins OS+ discount is applied,
  * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
    
-Target
+目标
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the target endpoint,
- * **url**: string (mandatory), URL of the mining pool,
- * **user_identity**: string: case-sensitive with minimal length 1 (mandatory),
- * **identity_pass_through**: boolean (true/false, optional), propagation of an individual worker identity to the target pool (submitting feature to upstream), default is *false*,
- * **extranonce_size**: integer (optional), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
- * **aggregation**: integer (optional), number of aggregated workers (ASICs) per one upstream connection, default is *50*.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），目标终端的名称，
+ * **url**: 串 (强制的), 矿池的挖矿URL地址，
+ * **user_identity**: 串: 大小写敏感，最小长度为1 (强制的)，
+ * **identity_pass_through**: 布尔值 (真/假，可选的), propagation of an individual worker identity to the target pool (submitting feature to upstream), 默认为 *false*,
+ * **extranonce_size**: 整数 (可选的), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
+ * **aggregation**: 整数 (可选的)，每上游连接聚合矿工（ASIC矿机）的数字，默认为*50*。
    
-Routing
+布线
 -------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing domain,
- * **from**: list (mandatory), list of servers which are used as aggregation proxies.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），布线域的名称。
+ * **from**: 列表 (强制的)， 用作聚合代理的服务器的列表。
    
-Routing Goal
+布线目标
 ------------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing goal,
- * **hr_weight:** integer (optional), weight for the preferred ratio of hashrate distribution.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），布线目标的名称。
+ * **hr_weight:** 整数 (可选的)，首选算力分布比例的权重。
    
-Routing Goal Level
+布线目标级别
 ------------------
 
- * **targets**: list (mandatory), list of targets which are applied as target endpoints in the routing domain.
+ * **targets**: 列表 (强制的)，在布线域中作为目标端点应用的目标列表。
 
 **************************
 Accompanying Configuration
