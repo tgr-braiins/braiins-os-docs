@@ -66,12 +66,12 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       user_identity = "<userName.workerName（用户名.矿工名）>"
 
 * **name**: 目标的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
-* **user_identity**: identity under which hashrate shall be submitted. The **userName** must exist on the target pool otherwise the pool does not have a key to link your hashrate to your account.
+* **user_identity**: 提交算力的身份。该**用户名**需要在目标矿池存在，要不矿池无法将您的算力连接到您的账户。
 
 布线域
 ==============
 
-Routing domain defines boundaries and preferences for hashrate allocation to the desired targets.
+布线域定义了向所需目标分配算力的边界和偏好。
 
 .. code-block:: shell
 
@@ -83,28 +83,28 @@ Routing domain defines boundaries and preferences for hashrate allocation to the
       [[routing.goal.level]]
       targets = ["MP-GL1"]
 
-* **from**: List of servers which are used in the Braiins Farm Proxy as aggregation proxies.
-* **goal**: List of routing rules. Attribute **name** of the goal is visible in the Grafana dashboard for upstream related measures. Attribute **hr_weight** stands for hashrate distribution ratio preference. Beware of the weight and not the percentage. For example, the ratio of weights 2:1 will distribute the hashrate into target endpoints approx. 67% of hashrate goes into target with weight 2 and 33% of hashrate goes into target with weight 1. In the example configurations further down, you can see how to distribute hashrate into several targets.
-* Routing goal level lists the **targets** which should be applied as upstream endpoints.
+* **from**: 在Braiins矿场代理中作为聚合代理使用的服务器列表。
+* **goal**: 布线规则的列表。 目标的**名称**属性在Grafana仪表盘中可见，它用于上游相关措施。**hr_weight**属性指算力分布比例的偏好。要注意的是权重而不是百分比。例如，权重2:1的比例将把算力分配到目标端点，大约67%的算力进入权重2的目标，33%的算力进入权重1的目标。在以下的配置例子，您可以看如何将算力分配到几个目标。
+* 布线目标级别列出用在上游端点应用的**目标**。
 
-In case the farmer uses Braiins OS+ on his devices, **routing of dev fee is done automatically.**
+如果矿机上使用Braiins OS+固件，则**开发商费用的布线是自动的**  
 
 矿工配置
 =====================
 
-To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be reconfigured. The URL of the Pool in the workers’ firmware configuration has to be set as:
+为了将矿场的算力指向Braiins矿场代理，矿工必须重新配置。矿工的固件配置中的矿池URL地中必须设置为：
 
- * Stratum V1: ``stratum+tcp://<farm-proxy-url>:<server_port>``
- *  Stratum V2: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
+ * 阶层Stratum V1协议: ``stratum+tcp://<farm-proxy-url>:<server_port>``
+ * 阶层Stratum V2协议: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
 
-It is recommended to have a backup pool connection on your miner too in case Braiins Farm Proxy is not working.
+建议您矿机上配置一个备份矿池连接，以防Braiins矿场代理不工作。
 
 配置的例子
 ======================
 
-To make a better understanding of Braiins Farm Proxy usage and configuration, let’s go through 3 examples.
+为更好地理解Braiins矿场代理的使用和配置，以下有3个例子。
 
-* **Minimal configuration**: the easiest possible configuration, one server, one target pool. It is not suitable for the real world for its simplicity but it describes the logic of the configuration.
+* **最低配置**: the easiest possible configuration, one server, one target pool. It is not suitable for the real world for its simplicity but it describes the logic of the configuration. * **Minimal configuration**最简单的配置，一个服务器，一个目标矿池。它的简单性不适合用在现实世界，但能描述配置的逻辑。
 
 .. code-block:: shell
 
@@ -126,7 +126,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       targets = ["SP-GL"]
 
 
-* **Basic configuration**: Example with a mining operation in a single facility located in Europe. The primary target is Slush Pool (EU URL), but it is backed up by general and Russian Slush Pool URLs. The farm has 700 hundred ASIC machines and its desired aggregation is 100. It means that there should be between 6 and 7 upstream connections to the target. The farm’s revenue is increased by utilizing BOS+ firmware and mining on Slush Pool.
+* **基本配置**: 一个欧洲的矿场为例。主要目标是Slush Pool（EU URL挖矿地址），使用Slush Pool矿池的通用和俄罗斯的挖矿URL地址作为备份。矿场有7万台ASIC矿机，其期望的聚集度为100。这意味着，应该有6到7个上游连接到目标。该矿场使用BOS+固件提高算力并在Slush Pool矿池上挖矿。
 
 .. code-block:: shell
 
