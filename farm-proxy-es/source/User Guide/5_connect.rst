@@ -17,4 +17,4 @@ Conectividad
   :local:
   :depth: 2
 
-Braiins Farm Proxy soporta conexiones agua abajo mediante Stratum V1 inseguro, Stratum V1 seguro y Stratum V2 seguro en modo solo-encabezado. Para las aguas arriba, solo se usan conexiones V1 (debido a la limitación de trabajo para V2 solo-encabezado). V1 seguro se usa para la tarifa de desarrollo, V1 inseguro para la tasa de hash del cliente. Por lo tanto Braiins Farm Proxy tiene un almacenamiento de certificado seguro.
+Braiins Farm Proxy soporta conexiones aguas abajo mediante Stratum V1 inseguro, Stratum V1 seguro y Stratum V2 seguro en modo solo-encabezado. Para las aguas arriba, solo se usan conexiones V1 (debido a la limitación de trabajo para V2 solo-encabezado). V1 seguro se usa para la tarifa de desarrollo, V1 inseguro para la tasa de hash del cliente. Por lo tanto Braiins Farm Proxy tiene un almacenamiento de certificado seguro.
