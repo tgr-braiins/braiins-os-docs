@@ -17,12 +17,12 @@ Limitations
   :local:
   :depth: 2
 
-The first version of Braiins Farm Proxy has a couple of known limitations which will be resolved in the future versions.
+La primera versión de Braiins Farm Proxy tiene un par de limitaciones conocidas que serán resueltas en versiones futuras.
 
- 1.  **Linux 64bit** and **ARM 64bit and 32bit** are supported,
- 2.  Minimum HW requirement is **Raspberry Pi 3**,
- 3.  Braiins Farm Proxy supports only **1 routing domain**. It can limit a farm with broad needs for several routing rules. This limitation can be mitigated by using several Braiins Farm Proxy instances. For example, if you have multiple locations or need to send different hashrate to different pools, you need to use Braiins Farm Proxy for each of the locations/destinations. Of course, you can combine both approaches,
- 4.  Braiins Farm Proxy contains a certificate which is used for the dev fee hashrate aggregation. Currently there is no automatic **certificate renewal** mechanism so that a new certificate has to be renewed manually by upgrading to the latest version of Braiins Farm Proxy from Github public repository. Maximal certificate validity is 3 months,
- 5.  There is no **GUI** for configuration of hashrate routing. Configuration has to be done in the config TOML file,
- 6.  Tested **miners** were Antminers S9, X17, X19, Whatsminers M2x/M3x and Avalon miners with stock firmware and Braiins OS+,
- 7.  There is a **tradeoff** between hashrate aggregation and monitoring of individual miners on target pool’s dashboard. This is relevant only for the case that there is used attribute *identity_pass_through = true* in the TOML config file (within [target] definition). Higher level of aggregation means that individual miners are sending submits slower due to high upstream difficulty (proxy with the high aggregation factor gets a job with a high difficulty from the target pool). In such cases individual miners can appear on the pool's dashboard as inactive. It is not a limitation of the Braiins Farm Proxy but its logical feature.
+ 1.  Compatible con **Linux 64bit** y **ARM 64bit y 32bit**,
+ 2.  El requisito mínimo de HW es **Raspberry Pi 3**,
+ 3.  Braiins Farm Proxy soporta solo **1 dominio de ruta**. Puede limitar una granja con necesidades amplias para varias reglas de enrutamiento. Esta limitación puede ser mitigada usando varias instancias de Braiins Farm Proxy. Por ejemplo, si tiene múltiples lugares/destinos. Por supuesto, puede combinar ambos enfoques,
+ 4.  Braiins Farm Proxy contiene un certificado que se usa para la agregación de la tasa de hash de la tarifa de desarrollo. En estos momentos no hay mecanismo de **renovación de certificado** automática así que un nuevo certificado debe renovarse manualmente actualizando a la última versión del repositorio público de Github. La validez máxima de un certificado es 3 meses,
+ 5.  No hay **GUI** para la configuración del enrutamiento de tasa de hash. La configuración debe hacerse en el archivo de configuración TOML,
+ 6.  Los **mineros** probados fueron Antminers S9, X17, X19, Whatsminers M2x/M3x y Avalon miners con firmware de serie y Braiins OS+,
+ 7.  Hay un **intercambio** entre la agregación de la tasa de hash y el monitoreo de equipos individuales en el tablero del pool objetivo. Eso es solo relevante para el caso que se esté usando el atributo *identity_pass_through = true* en el archivo de configuración TOML (dentro de la definición [target]). Un nivel mayor de agregación significa que los mineros individuales están mandando envíos mas lento debido a la alta dificultad aguas arriba (un proxy con alto factor de agregación obtiene un trabajo de dificultad alta desde el pool objetivo). En esos casos los mineros individuales pueden aparecer en el tablero del pool como inactivos. No es una limitación de Braiins Farm Proxy sino su característica lógica.
