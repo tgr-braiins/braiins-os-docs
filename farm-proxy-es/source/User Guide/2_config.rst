@@ -50,7 +50,7 @@ Server es una plantilla para conexiones downstream (aguas abajo). Cada servidor 
 
 * **name**: nombre del servidor. Es visible como un valor de la dimensión “server” en todas las métricas downstream (envíos, participaciones, conexiones) en monitoreo Grafana.
 * **port**: define el puerto que Braiins Farm Proxy abrirá y aceptará conexiones de mineros.
-* **slushpool_bos_bonus**: Nombre de usuario Slushpool para el cual el bono Braiins OS+ es aplicado.
+* **slushpool_bos_bonus**: Nombre de usuario Slush Pool para el cual el bono Braiins OS+ es aplicado.
 * **bos_referral_code**: Código de referido Braiins OS+.
    
 Objetivo
