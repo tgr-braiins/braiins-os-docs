@@ -104,7 +104,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
 
 为更好地理解Braiins矿场代理的使用和配置，以下有3个例子。
 
-* **最低配置**: the easiest possible configuration, one server, one target pool. It is not suitable for the real world for its simplicity but it describes the logic of the configuration. * **Minimal configuration**最简单的配置，一个服务器，一个目标矿池。它的简单性不适合用在现实世界，但能描述配置的逻辑。
+* **最低配置**：最简单的配置，一个服务器，一个目标矿池。它的简单性不适合用在现实世界，但能描述配置的逻辑。
 
 .. code-block:: shell
 
@@ -307,8 +307,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       [[routing.goal.level]]
       targets = ["BTCcom-2"]
 
-* **Different location of the mining operation**: Mining farms with several physical mining containers or buildings in different locations would use a Braiins Farm Proxy instance in each of the locations or for each container with one downstream server and one upstream target with different worker identifiers at each location / container to differentiate the hashrate from each location / container. It is possible to link the Farm Proxies hierarchically to aggregate hashrate from Farm Proxies of individual containers via another Braiins Farm Proxy instance.
-**不同的矿场地点**。一家矿场在不同地点有多个物理建筑，该矿场在每个地点或每个集装箱使用一个Braiins Farm Proxy实例，在每个地点/集装箱有一个下游服务器和一个上游目标，有不同的工人标识符，以区分每个地点/集装箱的hashrate。可以通过另一个Braiins Farm Proxy实例，将Farm Proxy分层连接起来，从单个容器的Farm Proxy中汇总hashrate。
+* **不同的矿场地点**。一家矿场在不同地点有多个物理挖矿箱或者建筑，该矿场在每个地点或每个挖矿箱使用一个Braiins矿场代理实例，在每个地点/挖矿箱有一个下游服务器和一个上游目标，有不同的矿工标识符，以分别每个地点/挖矿箱的算力。通过另一个Braiins矿场代理实例，可以将矿场代理分层连接起来，从单个容器的矿场代理中汇总算力。
    
 配置参数
 ========================
@@ -320,12 +319,12 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
 
  * **name**: 串: 大小写敏感，最小长度为1 (强制的），服务器的名称，
  * **port**: 整数 (强制的)，专供Braiins矿场代理的端口，
- * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*,
- * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
- * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
- * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
- * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Slushpool username for which Braiins OS+ discount is applied,
- * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
+ * **extranonce_size**: 整数 (可选的)，下游设备（ASIC）所提供的超额随机数，必须至少*target*的*extranonce_size*标值少2， 默认为 *4*，
+ * **validates_hash_rate**: 布尔值 (真/假，可选的)， 代理是否需要验证来自下游的提交的参数， 默认为 *true*，
+ * **use_empty_extranonce1**: 布尔值 (真/假，可选的)， 定义是否可以使用多一个字节的超额随机数（不是每个设备都支持这个）的参数，默认为 *false*,
+ * **submission_rate**: real (可选的)，所需的下游提交率（矿工 → 代理）定义为每1秒的提交数量，默认为*0.2*（每5秒1次提交）。
+ * **slushpool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Slushpool用户名，
+ * **bos_referral_code**: 串: 大小写敏感，最小长度为6 (可选的), 为获得优惠要提供全长的Braiins OS+推荐计划号。
    
 目标
 ------
@@ -333,8 +332,8 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
  * **name**: 串: 大小写敏感，最小长度为1 (强制的），目标终端的名称，
  * **url**: 串 (强制的), 矿池的挖矿URL地址，
  * **user_identity**: 串: 大小写敏感，最小长度为1 (强制的)，
- * **identity_pass_through**: 布尔值 (真/假，可选的), propagation of an individual worker identity to the target pool (submitting feature to upstream), 默认为 *false*,
- * **extranonce_size**: 整数 (可选的), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
+ * **identity_pass_through**: 布尔值 (真/假，可选的)，将单个矿工身份传播到目标矿池上（向上游提交功能）， 默认为 *false*,
+ * **extranonce_size**: 整数 (可选的)，向目标矿池所强制的超额随机数， 必须比*server*的*extranonce_size*标至少高2，默认为*6*（**一些矿池需要超额随机数至多4!: AntPool, Binance Pool, Luxor**）
  * **aggregation**: 整数 (可选的)，每上游连接聚合矿工（ASIC矿机）的数字，默认为*50*。
    
 布线
@@ -355,21 +354,21 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
  * **targets**: 列表 (强制的)，在布线域中作为目标端点应用的目标列表。
 
 **************************
-Accompanying Configuration
+监控配置
 **************************
 
-Other configuration is predefined in the file *docker-compose.yml* which is an essential application for running Braiins Farm Proxy as a multi-container Docker stack. This config file is designed in a way to require as few edits as possible. Docker-compose consists of the configuration of these services:
+其他配置是在*docker-compose.yml*文件中预定义的，这是运行Braiins矿场代理作为多容器Docker堆栈的一个基本应用。这个配置文件的设计使它需要尽可能少的编辑。Docker-compose包括这些服务的配置:
+ * **Prometheus**: 在**9090**端口运行，可以通过浏览器访问，例如 ``http://<your-host>:9090/``
+ * **Node Exporter**: 在**9100**端口运行，可以通过浏览器访问，例如 ``http:/<your-host>:9100/``
+ * **Grafana**: 在**3000**端口运行，可以通过浏览器访问，例如 ``http://<your-host>:3000/``
 
- * **Prometheus**: runs on port **9090**, it can be accessed in your browser, e.g. ``http://<your-host>:9090/``
- * **Node Exporter**: runs on port **9100**, it can be accessed in your browser, e.g. ``http:/<your-host>:9100/``
- * **Grafana**: runs on port **3000**, it can be accessed in your browser, e.g. ``http://<your-host>:3000/``
+Grafana对于监控Braiins矿场代理的挖矿很重要。如果用户想为Grafana仪表盘建立自己的图表，Prometheus就很有用。Node Exporter是Prometheus数据库的操作系统和服务器指标的导出器。
 
-Grafana is crucial for the monitoring of mining with Braiins Farm Proxy. Prometheus can be useful in case the user wants to build their own graphs for Grafana dashboards. Node Exporter is an exporter of OS and server metrics for Prometheus database.
-
-.. attention::
+.. 注意::
 
    The file *docker-compose.yml* refers to a configuration file **sample.toml** in the configuration of the farm-proxy container. If the farm operator has his own configuration file and wants to address it to the farm-proxy, sample.toml must be replaced by that file. Below you can see the farm-proxy configuration in the *docker-compose.yml.*
 
+ *docker-compose.yml*文件指的是矿场代理容器配置中的一个配置**sample.toml*的文件。如果矿场经营者有自己的配置文件想用，那s需要用这个文件来代替sample.toml。下面你可以看到*docker-compose.yml.*中的矿场代理配置。
 
 .. code-block:: shell
 
