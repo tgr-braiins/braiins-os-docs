@@ -35,7 +35,7 @@ Al principio se requiere instalar un par de requisitos:
 
 **RPi**
 
-  * Siga cualquiera de los muchos manuales - e.g. https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
+  * Siga cualquiera de los muchos manuales - ej: https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
 
 **Verifique los requisitos Instalados**
 
