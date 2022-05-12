@@ -19,7 +19,7 @@
 
 如果使用Braiins OS+固件22.02.01版本或者更新的版本，Braiins矿场代理自动聚合开发费用。**因此，建议使用Braiins OS+固件最新的版本**。对于比22.02.01更早的版本，你必须给矿工提供一个提示，以聚合开发费用。这个提示是：
 
- * Creation of pool group named “bos-management”
+ * 创建叫做C“bos-management”的矿池组
 
   .. |pic3| image:: ../_static/bos_management.png
       :width: 100%
