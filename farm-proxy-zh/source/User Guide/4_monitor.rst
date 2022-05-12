@@ -31,35 +31,35 @@ Grafana使用端口3000并可以通过浏览器fangwen``http://<your_host>:3000/
 
 仪表板显示以下指标和图表：
 
- * Left hand side of the dashboard can be switched for standard hashrate to dev fee hashrate.
+ * 仪表板的左侧可以切换从标准算力到开发生费用算力。
 
-   * Hashrate in time: downstream and upstream hashrates in the last 5 minutes, 1 hour and 24hours,
-   * Hashrate according to the validity: downstream and upstream hashrates by accepted or invalid shares in the last 3 hours,
-   * Hashrate time series according to the validity: downstream and upstream hashrates categorized by validity in the last 3 hours.
+   * 时间上的算力：过去5分钟、1小时和24小时内的下游和上游算力。
+   * 按照有效性的算力：在过去的3小时内，下游和上游的算力由接受或无效的股份。
+   * 按照有效性的算力时间序列：在过去3小时内，下游和上游的算力按有效性分类。
 
- * Right hand side is static.
+ * 右手边是不变的。
 
-   * Version of the Braiins Farm Proxy,
-   * Time of starting Braiins Farm Proxy,
-   * Number of downstream and upstream connections,
-   * Corresponding Aggregation,
-   * Aggregation time series in the last 3 hours.
+   * Braiins矿场代理的版本。
+   * 启动Braiins矿场代理的时间。
+   * 下游和上游连接的数量。
+   * 对应的聚合。
+   * 过去3小时内的聚集时间序列。
 
-Grafana also contains a second default dashboard called Debug Dashboard FP which pays attention to detailed metrics for debugging purposes.
+Grafana还包含第二个默认的仪表盘，叫做Debug Dashboard FP，关注的是用于调试的详细指标。
 
-Farms can make their own dashboards based on the available data in Prometheus database to meet their specific needs.
+矿场可以发挥Prometheus数据库中的可用数据来制作自己的仪表盘，以满足他们的具体需求。
 
 *****************************
-Enriching Existing Dashboards
+改进存在的仪表板
 *****************************
 
-In case the farm is already running Prometheus and Grafana and wants to enrich it with Braiins Farm Proxy metrics and dashboards, the following steps can be done to achieve it:
+如果矿场已经在运行Prometheus和Grafana，并希望用Braiins矿场代理的指标和仪表盘来改进它们，可以通过以下步骤来实现:
 
-* adding scrapping configuration for Prometheus,
+*为Prometheus添加刮削配置，
 
-   * farm-proxy: ``http://<farm_proxy>:8080/metrics``,
-   * nodeexporter (if running): ``http://<farm_proxy>:9100/metrics``,
-* importing dashboards to Grafana from farm-proxy/monitoring/grafana/dashboards.
+   * farm-proxy。``http://<farm_proxy>:8080/metrics``。
+   * nodeexporter（如果正在运行）。``http://<farm_proxy>:9100/metrics``。
+*从farm-proxy/monitoring/grafana/dashboards导入仪表盘到Grafana。
 
 *************
 报告API
