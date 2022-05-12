@@ -10,7 +10,7 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ##########
-Monitoring
+监控
 ##########
 
 .. contents::
@@ -18,10 +18,10 @@ Monitoring
   :depth: 2
 
 *****************
-Grafana Dashboard
+Grafana仪表板
 *****************
 
-Grafana sits on port 3000 and can be accessed in your browser ``http://<your_host>:3000/``.Grafana is fed by scraped data from the Prometheus database. A simple dashboard called “Client Dashboard” is already prepared.
+Grafana使用端口3000并可以通过浏览器fangwen``http://<your_host>:3000/``。Grafana使用从Prometheus数据库所刮取的数据。一个名为 "客户仪表板"的简单仪表板已经准备好了。
 
   .. |pic6| image:: ../_static/dashboard.png
       :width: 100%
@@ -29,7 +29,7 @@ Grafana sits on port 3000 and can be accessed in your browser ``http://<your_hos
 
   |pic6|
 
-The dashboards shows following metrics and graphs:
+仪表板显示以下指标和图表：
 
  * Left hand side of the dashboard can be switched for standard hashrate to dev fee hashrate.
 
@@ -62,12 +62,12 @@ In case the farm is already running Prometheus and Grafana and wants to enrich i
 * importing dashboards to Grafana from farm-proxy/monitoring/grafana/dashboards.
 
 *************
-Reporting API
+报告API
 *************
 
-Users of Braiins Farm Proxy can lose visibility of individual workers in the pool dashboard because of the aggregation. Therefore, Braiins Farm Proxy includes a reporting API which contains data about individual workers in JSON format. The reporting dataset consists of 5-minute time slots accumulating accepted/rejected shares delivered by individual miners. The amount of slots is configurable and the default is 288 which is equivalent to a single day. On each 5-minute edge, the oldest slot is dismissed and a new one is spawned. Workers which did not submit within the slot are not included in the result (and assumed delivered no shares whatsoever).
+Braiins矿场代理可能会因算力聚合而失去在矿池仪表板上的单个矿工的可见性。因此，Braiins矿场代理包括一个报告API，其中包含JSON格式的单个矿机的数据。报告数据集由5分钟的时间段组成，累积单个矿工交付的接受/拒绝的份额。时间段的数量是可以配置的，默认是288，相当于一天。在每个5分钟的边缘，最旧的时段被解散，新的时段被生成。没有在时间段提交的矿工不包括在结果中（并假设没有交付任何股份）。
 
-The API can be called as ``curl localhost:8080/report``. Example dataset is shown below:
+API叫做``curl localhost:8080/report``. 以下有例子:
 
 .. code-block:: json
 
@@ -170,15 +170,15 @@ The API can be called as ``curl localhost:8080/report``. Example dataset is show
       ]
 
 ****
-Logs
+日志
 ****
 
-Braiins Farm Proxy is saving its logs within a Docker container. Docker is configured to store a maximum of 5 GB of logs. Log rotation and compression is in place. The number of log files is set to be 50 and the logic is that the oldest file is dismissed and a new one is spawned. The maximum size of 1 file is 100 MB. Here are some useful commands for investigating the logs (for more detail see ``docker logs --help``):
+Braiins矿场代理正在Docker容器内保存其日志。Docker配置为存储最大5GB的日志。使用日志旋转和压缩。日志文件的数量设置为50个日志，其逻辑是，最旧的文件被解散，从而可以输入新的文件。1个文件的最大尺寸是100MB。以下有一些调查日志的有用命令（为更多细节写``docker logs --help``）：
 
- * all available logs: ``docker logs farm-proxy``
- * last 200 logs: ``docker logs farm-proxy –-tail 200``
- * logs from last 20 minutes: ``docker logs farm-proxy --since "2m"``
- * logs since timestamp: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
- * logs in time interval: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
+ * 所有可看的日志: ``docker logs farm-proxy``
+ * 最近200日志: ``docker logs farm-proxy –-tail 200``
+ * 过去20分钟的日志: ``docker logs farm-proxy --since "2m"``
+ * 自时间戳以来的日志: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
+ * 时间间隔的日志: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
-Logs are saved in */var/lib/docker/containers/<container_id>/<container_id>-json.log*.
+日志保存在 */var/lib/docker/containers/<container_id>/<container_id>-json.log*文件里。
