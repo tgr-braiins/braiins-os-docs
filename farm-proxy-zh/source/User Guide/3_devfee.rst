@@ -35,23 +35,21 @@
 
   |pic4|
 
-It is also possible to use Braiins Farm Proxy purely for dev fee aggregation (and not the rest of your hashrate). It can be useful for farms with their own aggregation proxy but running Braiins OS+ on its devices. In such case, the setting of Braiins Farm Proxy for dev fee only routing depends on the Braiins OS+ version:
-
 Braiins矿场代理也可以用于聚合总算里的开发商费用部分而已（而不是其他算力）。这个功能对使用自己的聚合代理，但同时使用Braiins OS+固件的矿场很有用。
-在这种情况下，Braiins矿场代理的设置取决于Braiins OS+的版本，只用于开发费的布线。
+在这种情况下，Braiins矿场代理的设置取决于Braiins OS+的版本，只用于开发费的布线:
 
 
 **Braiins OS+ 22.02.01和更新的版本:**
 
-1. Go to configuration of each miner and on the first row fill the URL of the **farm's own proxy** ``stratum+tcp://<own-proxy>:port`` and on the **second row fill the URL of Braiins Farm Proxy** ``stratum+tcp://<farm-proxy>:port``. It will work as a backup for clients' hashrate and at the same time **it will be used for devfee aggregation**.
-   
+1. 访问每个矿机的配置，在第一行填写**矿场自己的代理**的UR地址``stratum+tcp://<own-proxy>:port``，在**第二行填写Braiins矿场代理的URL地址**``stratum+tcp://<farm-proxy>:port``。这样代理作为客户算力的备份，同时**用于开发商费用的聚合**。
+
   .. |pic5| image:: ../_static/devfee_aggregation.png
       :width: 100%
       :alt: Devfee Aggregation
 
   |pic5|
 
-2. In the Braiins Farm Proxy config file set up the **farm's own proxy** as a target endpoint.
+2. 在Braiins矿场代理配置文件中，将**矿场自己的代理**设置为目标端点。
 
 .. code-block:: shell
 
@@ -75,6 +73,6 @@ Braiins矿场代理也可以用于聚合总算里的开发商费用部分而已�
 
 **比Braiins OS+ 22.02.01更旧的版本:**
 
-1. Go to configuration of each miner, create a “bos-management” group if it doesn’t already exist and **fill the bos-management group with the URL of Braiins Farm Proxy** ``stratum+tcp://<farm-proxy>:port``. It will be used for devfee aggregation.
+1.访问每个矿机的配置，如果已经不存在，创建一个 "bos-management "组并**将Braiins矿场代理URL地址填写到bos-management组里**``stratum+tcp://<farm-proxy>:port``。这样用于开发商费用的聚合。
 
-2. In the Braiins Farm Proxy config file, set up the **farm's own proxy** as a target endpoint, see previous example.
+2. 在Braiins矿场代理配置文件中，将**矿场自己的代理**设置为目标端点，可以参考以上的例子。
