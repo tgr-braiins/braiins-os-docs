@@ -34,6 +34,10 @@ Braiins Farm Proxy دارای ۳ نمونه از پیش تعریف شده TOML �
 
 پیکربندی مسیریابی از ۵ بخش تشکیل شده است: سرور، هدف، مسیریابی، هدف مسیریابی و سطح هدف مسیریابی.
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/grZ3aQG9mHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Server 
 =======
 
