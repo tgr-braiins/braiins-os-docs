@@ -33,6 +33,10 @@ Braiins Farm Proxy has 3 predefined example TOML configurations which are alloca
 
 Routing configuration consists of 5 segments: Server, Target, Routing, Routing Goal and Routing Goal Level.
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/grZ3aQG9mHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Server
 ======
 
