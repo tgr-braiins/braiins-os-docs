@@ -33,6 +33,10 @@ Braiins Farm Proxy tiene 3 ejemplos predefinidos de configuraciones TOML que est
 
 La configuración de enrutamiento consiste de 5 segmentos: Servidor, Objetivo, Enrutamiento, Meta de Enrutamiento y Nivel Meta de Enrutamiento.
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/grZ3aQG9mHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Servidor
 ========
 
