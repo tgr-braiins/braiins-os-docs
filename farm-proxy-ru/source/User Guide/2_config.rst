@@ -322,12 +322,12 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
 Сервер
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the server,
- * **port**: integer (mandatory), port dedicated to the Braiins Farm Proxy,
- * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*,
- * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
- * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
- * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
+ * **name**: строка: с учетом регистра, минимальной длины 1 (обязательно), имя сервера,
+ * **port**: целое число (обязательно), порт, выделенный для Braiins Farm Proxy,
+ * **extranonce_size**: целое число (необязательно), дополнительный одноразовый номер, предоставляемый нисходящему устройству (ASIC), должен быть как минимум на 2 меньше, чем *extranonce_size* *цели*, по умолчанию *4*,
+ * **validates_hash_rate**: логический (true/false, необязательный), параметр, определяющий, должен ли прокси-сервер проверять отправку из нисходящего потока, по умолчанию *true*,
+ * **use_empty_extranonce1**: логическое значение (true/false, необязательный параметр), параметр, определяющий, можно ли использовать еще 1 дополнительный байт nonce (не каждое устройство поддерживает это), по умолчанию *false*,
+ * **submission_rate**: реальная (необязательно), желаемая скорость отправки в нисходящем направлении (майнер -> прокси), определяемая как количество отправок в одну секунду, по умолчанию *0,2* (1 отправка за 5 секунд),
  * **slushpool_bos_bonus**: строка: с учетом регистра, минимальная длина 0 (необязательно), имя пользователя на Slush Pool, для которого применяется бонус Braiins OS+,
  * **bos_referral_code**: строка: с учетом регистра, минимальная длина 6 (необязательно), необходимо предоставить реферальный код Braiins OS+ полной длины.
    
