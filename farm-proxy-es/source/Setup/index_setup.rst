@@ -61,6 +61,10 @@ La pila Docker consiste de los siguientes contenedores:
 
 Un binario independiente del Braiins Farm Proxy puede descargarse desde el Github público `aquí <https://github.com/braiins/farm-proxy/releases>`_.
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AXfyDhbx4WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 *******
 Iniciar
 *******
