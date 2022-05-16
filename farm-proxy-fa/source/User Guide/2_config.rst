@@ -365,9 +365,9 @@ Routing Goal Level
 
 پیکربندی دیگر در فایل *docker-compose.yml* از پیش تعریف شده است که یک برنامه ضروری برای اجرای Braiins Farm Proxy به عنوان یک پشته Docker چند کانتینری است. این فایل پیکربندی به گونه ای طراحی شده است که به حداقل ویرایش ممکن نیاز دارد. Docker-compose شامل پیکربندی این خدمات است:
 
- * **Prometheus**: runs on port **9090**, it can be accessed in your browser, e.g. ``http://<your-host>:9090/``
- * **Node Exporter**: runs on port **9100**, it can be accessed in your browser, e.g. ``http:/<your-host>:9100/``
- * **Grafana**: runs on port **3000**, it can be accessed in your browser, e.g. ``http://<your-host>:3000/``
+ * **Prometheus**: روی پورت **9090** اجرا می شود، می توان به آن در مرورگر خود به آدرس مقابل دسترسی داشت، به عنوان مثال. ``http://<your-host>:9090/``
+ * **Node Exporter**: روی پورت **9100** اجرا می شود، می توان به آن در مرورگر خود به آدرس مقابل دسترسی داشت، به عنوان مثال. ``http:/<your-host>:9100/``
+ * **Grafana**: روی پورت **3000** اجرا می شود، می توان به آن در مرورگر خود به آدرس مقابل دسترسی داشت، به عنوان مثال. ``http://<your-host>:3000/``
 
 Grafana برای مانیتورینگ بر استخراج با Braiins Farm Proxy بسیار مهم است. Prometheus می تواند مفید باشد در صورتی که کاربر بخواهد نمودارهای خود را برای داشبورد Grafana بسازد. Node Exporter صادرکننده پارامترهای سیستم عامل و سرور برای پایگاه داده Prometheus است.
 
