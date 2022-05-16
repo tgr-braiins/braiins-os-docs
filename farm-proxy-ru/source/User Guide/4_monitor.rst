@@ -10,18 +10,18 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ##########
-Monitoring
+Мониторинг
 ##########
 
 .. contents::
   :local:
   :depth: 2
 
-*****************
-Grafana Dashboard
-*****************
+*************************
+Панель управления Графана
+*************************
 
-Grafana sits on port 3000 and can be accessed in your browser ``http://<your_host>:3000/``.Grafana is fed by scraped data from the Prometheus database. A simple dashboard called “Client Dashboard” is already prepared.
+Grafana находится на порту 3000, и к ней можно получить доступ в вашем браузере ``http://<your_host>:3000/``. Grafana работает с очищенными данными из базы данных Prometheus. Простая панель под названием «Панель клиента» уже готова.
 
   .. |pic6| image:: ../_static/dashboard.png
       :width: 100%
@@ -29,45 +29,45 @@ Grafana sits on port 3000 and can be accessed in your browser ``http://<your_hos
 
   |pic6|
 
-The dashboards shows following metrics and graphs:
+На информационных панелях отображаются следующие показатели и графики:
 
- * Left hand side of the dashboard can be switched for standard hashrate to dev fee hashrate.
+ * Левая сторона панели инструментов может быть переключена со стандартного хэшрейта на хешрейт devfee.
 
-   * Hashrate in time: downstream and upstream hashrates in the last 5 minutes, 1 hour and 24hours,
-   * Hashrate according to the validity: downstream and upstream hashrates by accepted or invalid shares in the last 3 hours,
-   * Hashrate time series according to the validity: downstream and upstream hashrates categorized by validity in the last 3 hours.
+   * Хешрейт во времени: хешрейты входящего и исходящего потока за последние 5 минут, 1 час и 24 часа,
+   * Хешрейт в зависимости от валидности: хешрейты входящего и исходящего потока по принятым или недействительным решениям за последние 3 часа,
+   * Временные ряды хешрейта в зависимости от действительности: хешрейты нисходящей и восходящей ветвей, классифицированные по действительности за последние 3 часа.
 
- * Right hand side is static.
+ * Правая сторона статична.
 
-   * Version of the Braiins Farm Proxy,
-   * Time of starting Braiins Farm Proxy,
-   * Number of downstream and upstream connections,
-   * Corresponding Aggregation,
-   * Aggregation time series in the last 3 hours.
+   * Версия Braiins Farm Proxy,
+   * Время запуска Braiins Farm Proxy,
+   * Количество нисходящих и восходящих соединений,
+   * Соответствующая агрегация,
+   * Временные ряды агрегации за последние 3 часа.
 
-Grafana also contains a second default dashboard called Debug Dashboard FP which pays attention to detailed metrics for debugging purposes.
+Grafana также содержит вторую панель мониторинга по умолчанию под названием Debug Dashboard FP, которая уделяет внимание подробным метрикам для целей отладки.
 
-Farms can make their own dashboards based on the available data in Prometheus database to meet their specific needs.
+Фермы могут создавать свои собственные информационные панели на основе доступных данных в базе данных Prometheus для удовлетворения своих конкретных потребностей.
 
-*****************************
-Enriching Existing Dashboards
-*****************************
+**********************************************
+Расширение существующих информационных панелей
+**********************************************
 
-In case the farm is already running Prometheus and Grafana and wants to enrich it with Braiins Farm Proxy metrics and dashboards, the following steps can be done to achieve it:
+Если ферма уже использует Prometheus и Grafana и хочет обогатить ее метриками и информационными панелями Braiins Farm Proxy, для этого нужно выполнить следующие шаги:
 
-* adding scrapping configuration for Prometheus,
+* добавление конфигурации утилизации для Prometheus,
 
    * farm-proxy: ``http://<farm_proxy>:8080/metrics``,
-   * nodeexporter (if running): ``http://<farm_proxy>:9100/metrics``,
-* importing dashboards to Grafana from farm-proxy/monitoring/grafana/dashboards.
+   * nodeexporter (если запущен): ``http://<farm_proxy>:9100/metrics``,
+* импорт дашбордов в Grafana из farm-proxy/monitoring/grafana/dashboards.
 
-*************
-Reporting API
-*************
+**********
+API отчеты
+**********
 
-Users of Braiins Farm Proxy can lose visibility of individual workers in the pool dashboard because of the aggregation. Therefore, Braiins Farm Proxy includes a reporting API which contains data about individual workers in JSON format. The reporting dataset consists of 5-minute time slots accumulating accepted/rejected shares delivered by individual miners. The amount of slots is configurable and the default is 288 which is equivalent to a single day. On each 5-minute edge, the oldest slot is dismissed and a new one is spawned. Workers which did not submit within the slot are not included in the result (and assumed delivered no shares whatsoever).
+Пользователи Braiins Farm Proxy могут потерять видимость отдельных работников на панели инструментов пула из-за агрегации. Поэтому Braiins Farm Proxy включает в себя API отчеты, которые содержат данные об отдельных воркерах в формате JSON. Набор данных для отчетов состоит из 5-минутных временных интервалов, в которых накапливаются принятые/отклоненные решения, доставленные отдельными майнерами. Количество слотов настраивается, по умолчанию установлено 288, что эквивалентно одному дню. При каждом 5-минутном перевесе самый старый слот закрывается и создается новый. Воркеры, которые не отправились в течение слота, не включаются в результат (и предполагается, что они вообще не доставили решения).
 
-The API can be called as ``curl localhost:8080/report``. Example dataset is shown below:
+API запрос можно сделать через ``curl localhost:8080/report``. Пример набора данных показан ниже:
 
 .. code-block:: json
 
@@ -170,15 +170,15 @@ The API can be called as ``curl localhost:8080/report``. Example dataset is show
       ]
 
 ****
-Logs
+Логи
 ****
 
-Braiins Farm Proxy is saving its logs within a Docker container. Docker is configured to store a maximum of 5 GB of logs. Log rotation and compression is in place. The number of log files is set to be 50 and the logic is that the oldest file is dismissed and a new one is spawned. The maximum size of 1 file is 100 MB. Here are some useful commands for investigating the logs (for more detail see ``docker logs --help``):
+Braiins Farm Proxy сохраняет свои логи в контейнере Docker. Docker настроен на хранение не более 5 ГБ логов. Производится ротация и сжатие логов. Количество файлов лога установлено равным 50, и логика заключается в том, что самый старый файл удаляется и создается новый. Максимальный размер 1 файла — 100 МБ. Вот несколько полезных команд для исследования логов (подробнее см. ``docker logs --help``):
 
- * all available logs: ``docker logs farm-proxy``
- * last 200 logs: ``docker logs farm-proxy –-tail 200``
- * logs from last 20 minutes: ``docker logs farm-proxy --since "20m"``
- * logs since timestamp: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
- * logs in time interval: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
+ * все доступные логи: ``docker logs farm-proxy``
+ * последних 200 логов: ``docker logs farm-proxy –-tail 200``
+ * логи за последних 20 минут: ``docker logs farm-proxy --since "2m"``
+ * логи с указаного времени: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
+ * логи во временном интервале: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
-Logs are saved in */var/lib/docker/containers/<container_id>/<container_id>-json.log*.
+Логи сохраняются в */var/lib/docker/containers/<container_id>/<container_id>-json.log*.
