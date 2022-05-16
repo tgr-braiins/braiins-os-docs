@@ -42,4 +42,4 @@ Braiins Farm Proxy — это приложение, которое приним�
 
 .. rubric:: Footnotes
 
-.. [#f1] Servers are listening ports in terms of Braiins Farm Proxy, don’t confuse it with classical server.
+.. [#f1] Серверы - это порты с точки зрения Braiins Farm Proxy, не путайте его с классическим сервером.
