@@ -50,7 +50,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
 
 * **name**: 服务器的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
 * **port**: 指Braiins矿场代理所打开并其上接受矿工连接的端口。
-* **slushpool_bos_bonus**: 应用Braiins OS+推荐计划的Slushpool上的用户名。
+* **slushpool_bos_bonus**: 应用Braiins OS+推荐计划的Slush Pool上的用户名。
 * **bos_referral_code**: Braiins OS+推荐计划号。
    
 目标
@@ -323,7 +323,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
  * **validates_hash_rate**: 布尔值 (真/假，可选的)， 代理是否需要验证来自下游的提交的参数， 默认为 *true*，
  * **use_empty_extranonce1**: 布尔值 (真/假，可选的)， 定义是否可以使用多一个字节的超额随机数（不是每个设备都支持这个）的参数，默认为 *false*,
  * **submission_rate**: real (可选的)，所需的下游提交率（矿工 → 代理）定义为每1秒的提交数量，默认为*0.2*（每5秒1次提交）。
- * **slushpool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Slushpool用户名，
+ * **slushpool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Slush Pool用户名，
  * **bos_referral_code**: 串: 大小写敏感，最小长度为6 (可选的), 为获得优惠要提供全长的Braiins OS+推荐计划号。
    
 目标
