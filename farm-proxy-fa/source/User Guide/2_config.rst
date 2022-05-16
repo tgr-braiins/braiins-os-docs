@@ -51,7 +51,7 @@ Server
 
 * **name**: نام سرور. این به عنوان یک مقدار بعد "سرور" در تمام معیارهای مربوط به پایین دست (submits, shares, connections) در نظارت Grafana قابل مشاهده است.
 * **port**: پورتی را تعریف می کند که Braiins Farm Proxy باز می شود و اتصالات ماینر را می پذیرد.
-* **slushpool_bos_bonus**: نام کاربری Slushpool که پاداش +Braiins OS برای آن اعمال می شود.
+* **slushpool_bos_bonus**: نام کاربری Slush Pool که پاداش +Braiins OS برای آن اعمال می شود.
 * **bos_referral_code**: کد ارجاع +Braiins OS.
    
 Target
@@ -325,7 +325,7 @@ Server
  * **validates_hash_rate**: boolean (true/false, اختیاری), پارامتر تعیین می کند که آیا پروکسی باید ارسال را از پایین دست اعتبار سنجی کند، پیش فرض *true* است،
  * **use_empty_extranonce1**: boolean (true/false, اختیاری), پارامتر تعیین می کند که آیا می توان از 1 بایت بیشتر از nonce اضافی استفاده کرد (هر دستگاهی آن را پشتیبانی نمی کند)، پیش فرض *false* است،
  * **submission_rate**: real (اختیاری), نرخ ارسال مورد نظر پایین‌دستی (miner -> proxy) که به‌عنوان تعداد ارسال‌ها در یک ثانیه تعریف می‌شود، پیش‌فرض *0.2* (1 ارسال در هر 5 ثانیه) است.
- * **slushpool_bos_bonus**: string: حساس به حروف کوچک با حداقل طول 0 (اختیاری)، نام کاربری Slushpool که برای آن تخفیف +‌Braiins OS اعمال می شود،
+ * **slushpool_bos_bonus**: string: حساس به حروف کوچک با حداقل طول 0 (اختیاری)، نام کاربری Slush Pool که برای آن تخفیف +‌Braiins OS اعمال می شود،
  * **bos_referral_code**: string: حساس به حروف کوچک و بزرگ با حداقل طول 6 (اختیاری)، کد ارجاع +Braiins OS در طول کامل برای دریافت جایزه ارائه می شود.
    
 Target
