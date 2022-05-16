@@ -43,5 +43,5 @@ Caracteristicas
 
  * **Vigilancia regular** en el tablero Grafana incluido en el Braiins Farm Proxy, con la posibilidad de construir su propia solución personalizada de vigilancia mediante una **API de vigilancia**.
  * Los usuarios de Braiins OS+ pueden beneficiarse de la **agregación de la tasa de desarrollo** para mas ahorro de ancho de banda. Braiins Farm Proxy puede agregar tanto la tasa de hash de la granja como la tasa de hash de la tasa de desarrollo.
- * Si el punto final objetivo es SlushPool, una **conexión cifrada** tiene soporte para asegurar la privacidad de los datos y la protección del secuestro de la tasa de hash.
+ * Si el punto final objetivo es Slush Pool, una **conexión cifrada** tiene soporte para asegurar la privacidad de los datos y la protección del secuestro de la tasa de hash.
  * Braiins Farm Proxy es completamente software **gratuito**.
