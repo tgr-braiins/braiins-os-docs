@@ -10,19 +10,19 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ###########
-Limitations
+محدودیت
 ###########
 
 .. contents::
   :local:
   :depth: 2
 
-The first version of Braiins Farm Proxy has a couple of known limitations which will be resolved in the future versions.
+اولین نسخه Braiins Farm Proxy دارای چند محدودیت شناخته شده است که در نسخه های بعدی برطرف خواهند شد.
 
- 1.  **Linux 64bit** and **ARM 64bit and 32bit** are supported,
- 2.  Minimum HW requirement is **Raspberry Pi 3**,
- 3.  Braiins Farm Proxy supports only **1 routing domain**. It can limit a farm with broad needs for several routing rules. This limitation can be mitigated by using several Braiins Farm Proxy instances. For example, if you have multiple locations or need to send different hashrate to different pools, you need to use Braiins Farm Proxy for each of the locations/destinations. Of course, you can combine both approaches,
- 4.  Braiins Farm Proxy contains a certificate which is used for the dev fee hashrate aggregation. Currently there is no automatic **certificate renewal** mechanism so that a new certificate has to be renewed manually by upgrading to the latest version of Braiins Farm Proxy from Github public repository. Maximal certificate validity is 3 months,
- 5.  There is no **GUI** for configuration of hashrate routing. Configuration has to be done in the config TOML file,
- 6.  Tested **miners** were Antminers S9, X17, X19, Whatsminers M2x/M3x and Avalon miners with stock firmware and Braiins OS+,
- 7.  There is a **tradeoff** between hashrate aggregation and monitoring of individual miners on target pool’s dashboard. This is relevant only for the case that there is used attribute *identity_pass_through = true* in the TOML config file (within [target] definition). Higher level of aggregation means that individual miners are sending submits slower due to high upstream difficulty (proxy with the high aggregation factor gets a job with a high difficulty from the target pool). In such cases individual miners can appear on the pool's dashboard as inactive. It is not a limitation of the Braiins Farm Proxy but its logical feature.
+ 1. **Linux 64bit** و **ARM 64bit , 32bit** پشتیبانی می شوند،
+ 2. حداقل سخت افزار مورد نیاز **Raspberry Pi 3** است،
+ 3. Braiins Farm Proxy فقط *1 routing domain** را پشتیبانی می کند. این می تواند فارمی را با نیازهای گسترده به چندین قانون مسیریابی محدود کند. این محدودیت را می توان با استفاده از چند نمونه Braiins Farm Proxy کاهش داد. برای مثال، اگر چندین مکان دارید یا نیاز به ارسال هش ریت های مختلف به استخرهای مختلف دارید، باید از Braiins Farm Proxy برای هر یک از مکان ها/مقصدها استفاده کنید. البته، شما می توانید هر دو روش را ترکیب کنید،
+ 4. Braiins Farm Proxy حاوی گواهینامه ای است که برای تجمیع نرخ هش نرخ توسعه دهنده استفاده می شود. در حال حاضر هیچ مکانیزم **تمدید گواهی** خودکار وجود ندارد به طوری که گواهی جدید باید به صورت دستی با ارتقاء به آخرین نسخه Braiins Farm Proxy از مخزن عمومی Github تمدید شود. حداکثر اعتبار گواهی ۳ ماه است،
+ 5. هیچ **رابط گرافیکی** برای پیکربندی مسیریابی هش ریت وجود ندارد. پیکربندی باید در فایل پیکربندی TOML انجام شود،
+ 6. **ماینرهای** آزمایش شده Antminers S9، X17، X19، Whatsminers M2x/M3x و Avalon ماینرهایی با فریم‌ور کارخانه و +Braiins OS بودند.
+ 7. یک **تعادل ** بین تجمیع هش ریت و نظارت بر ماینرهای به صورت انفرادی در داشبورد استخر وجود دارد. این فقط برای مواردی مرتبط است که از ویژگی *identity_pass_through = true* در فایل پیکربندی TOML (در تعریف [target]) استفاده شده باشد. سطح بالاتر تجمیع به این معنی است که ماینرها به دلیل دشواری بالا در upstream ارسال‌ها را کندتر ارسال می‌کنند (پراکسی با ضریب تجمع بالا تسکی با دشواری بالا از استخر هدف دریافت می‌کند). در چنین مواردی، ماینرها و ورکرهای آنها می توانند در داشبورد استخر به عنوان غیرفعال ظاهر شوند. این یک محدودیت برای Braiins Farm Proxy نیست، بلکه ویژگی منطقی آن است.

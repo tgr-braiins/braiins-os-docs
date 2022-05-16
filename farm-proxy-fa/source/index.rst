@@ -1,7 +1,7 @@
 .. toctree::
    :hidden:
    :maxdepth: 3
-   :caption: Table of Contents:
+   :caption: فهرست مطالب:
    :glob:
 
    self
@@ -23,25 +23,25 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 
-############
-Introduction
-############
+#######
+مقدمه
+#######
 
-Braiins Farm Proxy is a free, standalone application which is run locally onsite at the farm. The aim of the proxy is to conserve bandwidth while aggregating SHA256 hashrate from individual workers and routing it to the target destinations, which are usually mining pools. Workers are configured to connect to the proxy. Braiins Farm Proxy can be set up to connect to several target pool(s) with backup pool(s) as a failover. The proxy optimizes the pool IP addresses and selects the endpoints with lowest latency or packet loss. It is also able to encrypt the pool connection for better privacy and security in case Slush Pool is used as an endpoint.
+Braiins Farm Proxy یک برنامه رایگان و مستقل است که به صورت محلی در فارم اجرا می شود. هدف پراکسی حفظ پهنای باند و در عین حال جمع آوری هش‌ریت SHA256 از تک تک ورکرها(دستگاه‌های ماینر) و مسیریابی آن به مقاصد هدف است که معمولاً استخرهای استخراج هستند. ورکرها برای اتصال به پراکسی پیکربندی شده اند. Braiins Farm Proxy را می توان برای اتصال به چندین استخر (های) هدف با استخر(های) پشتیبان به عنوان failover تنظیم کرد. پراکسی آدرس های IP استخر را بهینه می کند و نقاط پایانی با کمترین تأخیر یا از دست دادن بسته را انتخاب می کند. همچنین می‌تواند اتصال استخر را برای حفظ حریم خصوصی و امنیت بهتر در صورت استفاده از Slush Pool به عنوان نقطه پایانی رمزگذاری کند.
 
 ********
-Features
+امکانات
 ********
 
- * **Bandwidth conservation** due to the hashrate aggregation and therefore higher upstream `share difficulty <https://braiins.com/blog/bitcoin-mining-pools-luck-shares-estimated-hashrate>`_, resulting in fewer data transfers to submit the same amount of shares.
+* **حفظ پهنای باند** به دلیل تجمیع شدن هش ریت و در نتیجه به خاطر `سختی سهام <https://braiins.com/blog/bitcoin-mining-pools-luck-shares-estimated-hashrate>`_ بالاتر در upstream، که منجر به کاهش مصرف داده برای ارسال همان مقدار سهام می گردد.
 
- * **Network optimization** based on a Braiins Farm Proxy component which constantly monitors connection quality and automatically directs hashrate to the optimal performing endpoint.
+ * **بهینه سازی شبکه** بر اساس این امکان Braiins Farm Proxy دائماً کیفیت اتصال را کنترل می کند و به طور خودکار هش ریت را به نقطه پایانی با عملکرد مطلوبتر هدایت می کند.
 
- * Braiins Farm Proxy can be used with **any pool** for bitcoin mining.
+ * Braiins Farm Proxy را می توان با **هر استخر** برای استخراج بیت کوین استفاده کرد.
 
- * **Automatic switch** to the backup endpoint if the target pool stops responding.
+ * **سوئیچ خودکار** به استخر پشتیبان اگر استخر اصلی دیگر پاسخ ندهد.
 
- * **Regular monitoring** in Grafana dashboard bundled in the Braiins Farm Proxy, with the possibility to build your own custom monitoring solution via a **monitoring API**.
- * Braiins OS+ users can benefit from **dev fee hashrate aggregation** for more bandwidth savings. Braiins Farm Proxy can aggregate both the farm’s hashrate and dev fee hashrate.
- * If the target endpoint is SlushPool, an **encrypted connection** is supported to ensure data privacy and protection from hashrate hijacking.
- * Braiins Farm Proxy is completely **free** software.
+ * **نظارت منظم** در داشبورد Grafana همراه با Braiins Farm Proxy، با امکان ساخت مانیتورینگ سفارشی خود از طریق **API monitoring**.
+ * کاربران +Braiins OS برای صرفه جویی در پهنای باند بیشتر می توانند از **تجمیع هش ریت کارمزد توسعه** بهره مند شوند. Braiins Farm Proxy می تواند هم هش ریت فارم و هم هش ریت کارمزد توسعه را تجمیع کند.
+ * اگر نقطه پایانی هدف SlushPool باشد، یک **اتصال رمزگذاری شده** برای اطمینان از حریم خصوصی داده ها و محافظت در برابر ربودن هش ریت پشتیبانی می شود.
+ * Braiins Farm Proxy یک نرم افزار کاملا **رایگان** است.

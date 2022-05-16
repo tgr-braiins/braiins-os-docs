@@ -9,9 +9,9 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-##########
-User Guide
-##########
+###############
+راهنمای کاربر
+###############
 
 .. toctree::
    :maxdepth: 3

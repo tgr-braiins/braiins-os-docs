@@ -10,33 +10,33 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 #############
-Configuration
+Configuración
 #############
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm Proxy configuration can be split into two main categories - routing configuration and configuration of the accompanying programs (which are Prometheus and Grafana).
+La configuración de Braiins Farm Proxy puede dividirse en dos categorías principales - configuración de enrutamiento y la configuración de los programas acompañantes (que son Prometheus y Grafana).
 
-*********************
-Routing Configuration
-*********************
+*****************************
+Configuración de enrutamiento
+*****************************
 
-Routing configuration is done in the TOML files using a specific structure. The structure of the config file corresponds to the diagram of hashrate routing and uses the terminology explained above. Configuration is explained in example setups in the further text.
+La configuración de enrutamiento se hace en el archivo TOML utilizando una estructura específica. La estructura del archivo de configuración corresponde con el diagrama de enrutamiento de tasa de hash y usa la terminología explicada arriba. La configuración es explicada en ajustes de ejemplo en el texto adicional.
 
-Braiins Farm Proxy has 3 predefined example TOML configurations which are allocated in the directory *./farm-proxy/config*:
+Braiins Farm Proxy tiene 3 ejemplos predefinidos de configuraciones TOML que están ubicadas en el directorio *./farm-proxy/config*:
 
-  * *minimal.toml*: the smallest configuration file you can have with one server, one target and default aggregation.
-  * *sample.toml*: contains some other parameters and comments explaining them. It is used as the default configuration file in *docker-compose.yml*. Also contains one server, one target.
-  * *two_servers_two_targets.toml*: example how to expose more servers for miners or define a backup server for Braiins Farm Proxy.
+  * *minimal.toml*: el archivo mas pequeño de configuración que puede tener un servidor, un objetivo y agregación por defecto.
+  * *sample.toml*: contiene algunos otros parámetros y comentarios explicándolos. Se usa como la configuración predeterminada en el archivo *docker-compose.yml*. También contiene un servidor, un objetivo.
+  * *two_servers_two_targets.toml*: ejemplo de como exponer mas servidores a los mineros o definir un servidor de respaldo para Braiins Farm Proxy.
 
-Routing configuration consists of 5 segments: Server, Target, Routing, Routing Goal and Routing Goal Level.
+La configuración de enrutamiento consiste de 5 segmentos: Servidor, Objetivo, Enrutamiento, Meta de Enrutamiento y Nivel Meta de Enrutamiento.
 
-Server
-======
+Servidor
+========
 
-Server is a template for downstream connections. Each server can be utilized only in a single routing domain.
+Server es una plantilla para conexiones downstream (aguas abajo). Cada servidor puede utilizarse solo por un dominio de enrutamiento.
 
 .. code-block:: shell
 
@@ -48,15 +48,15 @@ Server is a template for downstream connections. Each server can be utilized onl
 
 
 
-* **name**: name of the server. It is visible as a value of “server” dimension in all downstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **port**: defines port Braiins Farm Proxy will open and accept miner’s connections on.
-* **slushpool_bos_bonus**: Slushpool username for which Braiins OS+ bonus is applied.
-* **bos_referral_code**: Braiins OS+ referral code.
+* **name**: nombre del servidor. Es visible como un valor de la dimensión “server” en todas las métricas downstream (envíos, participaciones, conexiones) en monitoreo Grafana.
+* **port**: define el puerto que Braiins Farm Proxy abrirá y aceptará conexiones de mineros.
+* **slushpool_bos_bonus**: Nombre de usuario Slush Pool para el cual el bono Braiins OS+ es aplicado.
+* **bos_referral_code**: Código de referido Braiins OS+.
    
-Target
-======
+Objetivo
+========
 
-Target is a template for upstream connections. It can be shared among multiple routing domains.
+Target es una plantilla para conexiones upstream (aguas arriba). Puede ser compartido entre varios dominios de enrutamiento.
 
 .. code-block:: shell
 
@@ -65,14 +65,14 @@ Target is a template for upstream connections. It can be shared among multiple r
       url = "stratum+tcp://<mining-pool-address>"
       user_identity = "<userName.workerName>"
 
-* **name**: name of the target. It is visible as a value of “upstream” dimension in all upstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **url**: URL of the mining pool.
-* **user_identity**: identity under which hashrate shall be submitted. The **userName** must exist on the target pool otherwise the pool does not have a key to link your hashrate to your account.
+* **name**: nombre del objetivo. Es visible como un valor de la dimensión “upstream” en todas las métricas upstream (envíos, participaciones, conexiones) en monitoreo Grafana.
+* **url**: URL (enlace) del pool minero.
+* **user_identity**: identidad bajo la cual la tasa de hash será enviada. El **NombreUsuario** debe existir en el pool objetivo de lo contrario el pool no tiene la forma de asociar su tasa de hash con su cuenta.
 
-Routing Domain
-==============
+Dominio de Enrutamiento
+=======================
 
-Routing domain defines boundaries and preferences for hashrate allocation to the desired targets.
+El dominio de enrutamiento define fronteras y preferencias para la asignación de tasa de hash a los objetivos deseados.
 
 .. code-block:: shell
 
@@ -84,28 +84,28 @@ Routing domain defines boundaries and preferences for hashrate allocation to the
       [[routing.goal.level]]
       targets = ["MP-GL1"]
 
-* **from**: List of servers which are used in the Braiins Farm Proxy as aggregation proxies.
-* **goal**: List of routing rules. Attribute **name** of the goal is visible in the Grafana dashboard for upstream related measures. Attribute **hr_weight** stands for hashrate distribution ratio preference. Beware of the weight and not the percentage. For example, the ratio of weights 2:1 will distribute the hashrate into target endpoints approx. 67% of hashrate goes into target with weight 2 and 33% of hashrate goes into target with weight 1. In the example configurations further down, you can see how to distribute hashrate into several targets.
-* Routing goal level lists the **targets** which should be applied as upstream endpoints.
+* **from**: Lista de servidores que son usados en Braiins Farm Proxy como proxies de agregación.
+* **goal**: Lista de las reglas de enrutamiento. El atributo **name** del objetivo es visible en el tablero Grafana para medidas upstream relacionadas. El atributo **hr_weight** significa la proporción de la preferencia de distribución de la tasa de hash. Tenga cuidado del peso y no del porcentaje. Por ejemplo, la proporción de pesos 2:1 distribuirá la tasa de hash a los puntos finales objetivo aproximadamente 67% de la tasa de hash irá a un objetivo con peso 2 y 33% de la tasa de hash irá a un objetivo con peso 1. En el ejemplo de configuraciones mas abajo, puede ver como distribuir la tasa de hash en varios objetivos.
+* El nivel de la meta de enrutamiento lista los **targets** que serán aplicados como puntos finales upstream.
 
-In case the farmer uses Braiins OS+ on his devices, **routing of dev fee is done automatically.**
+En caso de que el granjero use Braiins OS+ en sus dispositivos, **el enrutamiento de la tasa de desarrollo se hace automáticamente.**
 
-Workers Configuration
-=====================
+Configuración de los Equipos
+============================
 
-To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be reconfigured. The URL of the Pool in the workers’ firmware configuration has to be set as:
+Para apuntar la tasa de hash al Braiins Farm Proxy, los equipos deben ser reconfigurados. El (enlace) URL del pool en el firmware de los equipos debe colocarse como:
 
- * Stratum V1: ``stratum+tcp://<farm-proxy-url>:<server_port>``
- *  Stratum V2: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
+ * Stratum V1: ``stratum+tcp://<dirección-farm-proxy>:<puerto_servidor>``
+ *  Stratum V2: ``stratum2+tcp://<dirección-farm-proxy>:<puerto_servidor>/<llave_pública>``
 
-It is recommended to have a backup pool connection on your miner too in case Braiins Farm Proxy is not working.
+Se recomienda tener una conexión pool de respaldo en su minero también en caso de que Braiins Farm Proxy no esté funcionando.
 
-Example Configurations
-======================
+Configuraciones de Ejemplo
+==========================
 
-To make a better understanding of Braiins Farm Proxy usage and configuration, let’s go through 3 examples.
+Para tener un mejor entendimiento del uso y configuración de Braiins Farm Proxy, vayamos a través de 3 ejemplos.
 
-* **Minimal configuration**: the easiest possible configuration, one server, one target pool. It is not suitable for the real world for its simplicity but it describes the logic of the configuration.
+* **Configuración mínima**: la configuración mas fácil posible, un servidor un pool objetivo. No es adecuado para el mundo real por su simplicidad pero describe la lógica de la configuración.
 
 .. code-block:: shell
 
@@ -127,7 +127,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       targets = ["SP-GL"]
 
 
-* **Basic configuration**: Example with a mining operation in a single facility located in Europe. The primary target is Slush Pool (EU URL), but it is backed up by general and Russian Slush Pool URLs. The farm has 700 hundred ASIC machines and its desired aggregation is 100. It means that there should be between 6 and 7 upstream connections to the target. The farm’s revenue is increased by utilizing BOS+ firmware and mining on Slush Pool.
+* **Configuración básica**: Ejemplo de una operación minera en un en una sola instalación ubicada en Europa. El objetivo primario es Slush Pool (dirección EU), pero está respaldada por direcciones general y Rusa. La granja tiene 700 máquinas ASIC y su agregación deseada es 100. Eso significa que deben haber entre 6 y 7 conexiones upstream hacia el target. El ingreso de la granja es aumentado por utilizar el firmware BOS+ y minar en Slush Pool.
 
 .. code-block:: shell
 
@@ -168,7 +168,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **Multiple owners of the workers**: The farm has dedicated workers for mining on Slush Pool with listening port 3336 and other workers dedicated to Antpool mining on port 3337. Antpool requires maximal extranonce to be 4 and it has to be configured in Braiins Farm Proxy configuration. This example configuration is suitable in the case that the workers have 2 owners and thus multiple servers are defined and used. Multiple instances of Braiins Farm Proxy (let’s say in our example it’s 2 Raspberry Pi machines) with 2 different configurations can be used.
+* **Dueños múltiples de los equipos**: La granja tiene equipos dedicados a la minería en Slush Pool con el puerto de escucha 3336 y otros equipos dedicados a la minería en Antpool en el puerto 3337. Antpool requiere un extranonce máximo de 4 y debe ser configurado en la configuración de  Braiins Farm Proxy configuration. Esta configuración de ejemplo es adecuada en el caso de que los equipos tengan 2 dueños y por o tanto múltiples servidores son definidos y utilizados. Instancias múltiples de Braiins Farm Proxy (digamos en nuestro ejemplo que son 2 máquinas Raspberry Pi) con 2 configuraciones diferentes pueden ser utilizadas.
    
 .. code-block:: shell
 
@@ -228,7 +228,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["Antpool-2"]
 
-* **Diversification of pools**: A farm which allocates hashrate into 3 pools using 1 Braiins Farm Proxy instance with 1 server and multiple upstream target endpoints with hashrate allocation 100:80:20 ~ approx. 50% of hashrate goes to the goal “Goal SP”, 40% of hashrate goes to the goal “Goal Ant” and 10% goes to the goal “Goal BTC.com”.
+* **Diversificación de pools**: Una granja que dedica su tasa de hash a 3 pools utilizando 1 instancia servidor de Braiins Farm Proxy y múltiples puntos finales objetivo con una asignación de tasa de hash 100:80:20 ~ aproximadamente 50% de la tasa de hash va para la meta “Goal SP”, 40% de la tasa de hash va para la meta “Goal Ant” y 10% va para la meta “Goal BTC.com”.
 
 .. code-block:: shell
 
@@ -308,67 +308,67 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["BTCcom-2"]
 
-* **Different location of the mining operation**: Mining farms with several physical mining containers or buildings in different locations would use a Braiins Farm Proxy instance in each of the locations or for each container with one downstream server and one upstream target with different worker identifiers at each location / container to differentiate the hashrate from each location / container. It is possible to link the Farm Proxies hierarchically to aggregate hashrate from Farm Proxies of individual containers via another Braiins Farm Proxy instance.
+* **Ubicación diferente de la operación minera**: Granjas de minería con varios contenedores mineros o en edificios en ubicaciones distintas usarían una instancia de Braiins Farm Proxy para cada una de las ubicaciones o por cada contenedor con un servidor downstream y un objetivo upstream con distintos identificadores de equipo para cada ubicación / contenedor para diferenciar la tasa de hash de cada ubicación / contenedor. Es posible enlazar los Farm Proxies jerárquicamente para agregar tasa de hash desde Farm Proxies de contenedores individuales via otra instancia de Braiins Farm Proxy.
    
-Configuration Parameters
-========================
+Parametros de Configuración
+===========================
 
-List of both mandatory and optional parameters available in the Braiins Farm Proxy configuration. Parameters are assigned to the corresponding configuration sections.
+Lista de parametros tanto obligatorios como opcionales disponibles en la configuración Braiins Farm Proxy configuration. Los parámetros son asignados a las secciones de configuración correspondientes.
 
 Server
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the server,
- * **port**: integer (mandatory), port dedicated to the Braiins Farm Proxy,
- * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*,
- * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
- * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
- * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
- * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Slushpool username for which Braiins OS+ discount is applied,
- * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
+ * **name**: frase: distingue mayúsculas y minúsculas con longitud mínima 1 (obligatorio), nombre del servidor,
+ * **port**: entero (obligatorio), puerto dedicado al Braiins Farm Proxy,
+ * **extranonce_size**: entero (opcional), extranonce provisto al dispositivo downstream (ASIC), debe ser al menos 2 menos que *extranonce_size* del *target*, por defecto es *4*,
+ * **validates_hash_rate**: booleano (true/false, opcional), parámetro que define si el proxy debe validar el envío de downstream, por defecto es *true*,
+ * **use_empty_extranonce1**: booleano (true/false, opcional), parámetro que define si 1 byte mas de extra nonce puede ser usado (no todo dispositivo lo admite), por defecto es *false*,
+ * **submission_rate**: real (opcional), tasa de presentación downstream deseada (minero -> proxy) definida como número de envíos por segundo, por defecto es *0.2* (1 envío cada 5 segundos),
+ * **slushpool_bos_bonus**: frase: distingue mayúsculas y minúsculas con longitud mínima 0 (opcional), Nombre de usuario Slushpool a quien se le aplica el descuento de Braiins OS+,
+ * **bos_referral_code**: frase: distingue mayúsculas y minúsculas con longitud mínima 6 (opcional), El código de remisión Braiins OS+ se le proporcionará con toda su longitud para recibir el bono.
    
 Target
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the target endpoint,
- * **url**: string (mandatory), URL of the mining pool,
- * **user_identity**: string: case-sensitive with minimal length 1 (mandatory),
- * **identity_pass_through**: boolean (true/false, optional), propagation of an individual worker identity to the target pool (submitting feature to upstream), default is *false*,
- * **extranonce_size**: integer (optional), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
- * **aggregation**: integer (optional), number of aggregated workers (ASICs) per one upstream connection, default is *50*.
+ * **name**: frase: distingue mayúsculas y minúsculas con longitud mínima 1 (obligatorio), nombre del punto final objetivo,
+ * **url**: string (obligatorio), dirección URL del pool de minería,
+ * **user_identity**: frase: distingue mayúsculas y minúsculas con longitud mínima 1 (obligatorio),
+ * **identity_pass_through**: booleano (true/false, opcional), propagación de la identidad de un equipo individual al pool objetivo (caracteristica de envío para upstream), por defecto *false*,
+ * **extranonce_size**: entero (opcional), extranonce aplicado al pool objetivo, debe ser al menos 2 mas que *extranonce_size* del *server*, por defecto es *6* (**¡algunos pool requieren extranonce como máximo 4!: AntPool, Binance Pool, Luxor**),
+ * **aggregation**: entero (opcional), número de equipos agregados (ASICs) por una conexión upstream, por defecto es *50*.
    
 Routing
 -------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing domain,
- * **from**: list (mandatory), list of servers which are used as aggregation proxies.
+ * **name**: frase: distingue mayúsculas y minúsculas con longitud mínima 1 (obligatorio), nombre del dominio de enrutamiento,
+ * **from**: lista (obligatoria), lista de servidores que serán usados como proxies de agregación.
    
 Routing Goal
 ------------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing goal,
- * **hr_weight:** integer (optional), weight for the preferred ratio of hashrate distribution.
+ * **name**: frase: distingue mayúsculas y minúsculas con longitud mínima 1 (obligatorio), nombre de la meta de enrutamiento,
+ * **hr_weight:** entero (opcional), peso de la relación de preferencia de la distribución de la tasa de hash.
    
 Routing Goal Level
 ------------------
 
- * **targets**: list (mandatory), list of targets which are applied as target endpoints in the routing domain.
+ * **targets**: lista (obligatoria), lista de objetivos que son aplicados como puntos finales en el dominio de enrutamiento.
 
 **************************
-Accompanying Configuration
-**************************
+Configuración Acompañante
+*************************
 
-Other configuration is predefined in the file *docker-compose.yml* which is an essential application for running Braiins Farm Proxy as a multi-container Docker stack. This config file is designed in a way to require as few edits as possible. Docker-compose consists of the configuration of these services:
+Otra configuración está predefinida en el archivo *docker-compose.yml* que es una aplicación esencial para correr Braiins Farm Proxy como una pila multi-contenedores Docker. Este archivo de configuración está diseñado de forma que requiera tan pocas ediciones como sea posible. Docker-compose consiste de la configuración de estos servicios:
 
- * **Prometheus**: runs on port **9090**, it can be accessed in your browser, e.g. ``http://<your-host>:9090/``
- * **Node Exporter**: runs on port **9100**, it can be accessed in your browser, e.g. ``http:/<your-host>:9100/``
- * **Grafana**: runs on port **3000**, it can be accessed in your browser, e.g. ``http://<your-host>:3000/``
+ * **Prometheus**: corre en el puerto **9090**, puede accederse con su navegador, ej: ``http://<su-host>:9090/``
+ * **Node Exporter**: corre en el puerto **9100**, puede accederse con su navegador, ej: ``http:/<su-host>:9100/``
+ * **Grafana**: corre en el puerto **3000**, puede accederse con su navegador, ej: ``http://<su-host>:3000/``
 
-Grafana is crucial for the monitoring of mining with Braiins Farm Proxy. Prometheus can be useful in case the user wants to build their own graphs for Grafana dashboards. Node Exporter is an exporter of OS and server metrics for Prometheus database.
+Grafana es crucial para el monitoreo de la minería con Braiins Farm Proxy. Prometheus puede ser útil en caso de que el usuario quiera hacer sus propias gráficas para tablero Grafana. Node Exporter es un exportador de métricas de sistema operativo para la base de datos Prometheus.
 
 .. attention::
 
-   The file *docker-compose.yml* refers to a configuration file **sample.toml** in the configuration of the farm-proxy container. If the farm operator has his own configuration file and wants to address it to the farm-proxy, sample.toml must be replaced by that file. Below you can see the farm-proxy configuration in the *docker-compose.yml.*
+   El archivo *docker-compose.yml* refiere a un archivo de configuración **sample.toml** en la configuración del contenedor farm-proxy. Si el operador de la granja tiene su propio archivo de configuración y quiere abordarlo al farm-proxy, sample.toml debería reemplazarse por ese archivo. Abajo puede ver una configuración de farm-proxy en el *docker-compose.yml.*
 
 
 .. code-block:: shell

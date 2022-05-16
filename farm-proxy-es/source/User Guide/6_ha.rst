@@ -9,12 +9,12 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-#################
-High Availability
-#################
+###################
+Alta Disponibilidad
+###################
 
 .. contents::
   :local:
   :depth: 2
 
-To mitigate the single point of failure of Braiins Farm Proxy, it is recommended to have multiple instances of Braiins Farm Proxy running. Miners should access these instances through a round-robin DNS record, not directly.
+Para mitigar el solo punto de fallo de Braiins Farm Proxy, se recomienda tener instancias múltiples de Braiins Farm Proxy corriendo. Los mineros deberían acceder a esas instancias a través de un registro DNS round-robin, no directamente.

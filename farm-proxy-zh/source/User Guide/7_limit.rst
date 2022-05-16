@@ -10,19 +10,19 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ###########
-Limitations
+限制
 ###########
 
 .. contents::
   :local:
   :depth: 2
 
-The first version of Braiins Farm Proxy has a couple of known limitations which will be resolved in the future versions.
+Braiins矿场代理的第一个版本有几个已知的限制，在未来的版本中将解决。
 
- 1.  **Linux 64bit** and **ARM 64bit and 32bit** are supported,
- 2.  Minimum HW requirement is **Raspberry Pi 3**,
- 3.  Braiins Farm Proxy supports only **1 routing domain**. It can limit a farm with broad needs for several routing rules. This limitation can be mitigated by using several Braiins Farm Proxy instances. For example, if you have multiple locations or need to send different hashrate to different pools, you need to use Braiins Farm Proxy for each of the locations/destinations. Of course, you can combine both approaches,
- 4.  Braiins Farm Proxy contains a certificate which is used for the dev fee hashrate aggregation. Currently there is no automatic **certificate renewal** mechanism so that a new certificate has to be renewed manually by upgrading to the latest version of Braiins Farm Proxy from Github public repository. Maximal certificate validity is 3 months,
- 5.  There is no **GUI** for configuration of hashrate routing. Configuration has to be done in the config TOML file,
- 6.  Tested **miners** were Antminers S9, X17, X19, Whatsminers M2x/M3x and Avalon miners with stock firmware and Braiins OS+,
- 7.  There is a **tradeoff** between hashrate aggregation and monitoring of individual miners on target pool’s dashboard. This is relevant only for the case that there is used attribute *identity_pass_through = true* in the TOML config file (within [target] definition). Higher level of aggregation means that individual miners are sending submits slower due to high upstream difficulty (proxy with the high aggregation factor gets a job with a high difficulty from the target pool). In such cases individual miners can appear on the pool's dashboard as inactive. It is not a limitation of the Braiins Farm Proxy but its logical feature.
+ 1.  支持**Linux 64bit** 和 **ARM 64bit and 32bit**，
+ 2.  最低硬件要求是**Raspberry Pi 3**,
+ 3.  Braiins矿场代理仅支持**一个布线域**。它可以限制一个矿场对几个布线规则的广泛需求。这种限制可以通过使用几个Braiins矿场代理实例来减轻。例如，如果您有多个地点或需要发送不同的算力到不同的矿池，您需要为每个地点/目的地使用Braiins矿场代理。当然，你可以结合这两种方法。
+ 4.  Braiins矿场代理包含一个证书，用于进行开发商费用算力聚合。目前没有自动的**证书更新机制**，所以必须通过升级到Github公共资源库中的Braiins矿场代理的最新版本来手动更新新的证书。最大的证书有效期是3个月。
+ 5.  算力布线配置没有**图形用户界面**。 配置需要通过TOML文件配置。
+ 6.  测试的**矿机**是跑原厂固件和Braiins OS+固件的蚂蚁矿机S9、S17和T17系列、S19和T19系列、神马 M2x/M3x和阿瓦隆矿机。
+ 7.  在目标矿池的仪表盘上，算力聚合和监控单个矿工之间存在**有得必有失的情况**。这只适用于在TOML配置文件中使用*identity_pass_through = true*属性的情况（在[目标]定义中）。较高的聚合水平意味着单个矿工由于上游的高难度（具有高聚合系数的代理从目标矿池中获得高难度的作业），发送提交的速度较慢。在这种情况下，单个矿工会在矿池的仪表板上显示为不活动状态。这不是Braiins矿场代理的限制，而是其逻辑功能。

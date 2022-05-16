@@ -10,69 +10,68 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 #############
-Configuration
+配置
 #############
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm Proxy configuration can be split into two main categories - routing configuration and configuration of the accompanying programs (which are Prometheus and Grafana).
+Braiins矿场代理idea配置可以分位两个主要部分：布线配置和附属程序的配置（就是Prometheus和Grafana）。
 
 *********************
-Routing Configuration
+布线配置
 *********************
 
-Routing configuration is done in the TOML files using a specific structure. The structure of the config file corresponds to the diagram of hashrate routing and uses the terminology explained above. Configuration is explained in example setups in the further text.
+布线配置是在TOML文件中使用一个特定的结构完成的。配置文件的结构与算力布线的图表相对应，并使用上面解释的术语。在以下的文章中解释配置的例子。
 
-Braiins Farm Proxy has 3 predefined example TOML configurations which are allocated in the directory *./farm-proxy/config*:
+Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配置实例：
 
-  * *minimal.toml*: the smallest configuration file you can have with one server, one target and default aggregation.
-  * *sample.toml*: contains some other parameters and comments explaining them. It is used as the default configuration file in *docker-compose.yml*. Also contains one server, one target.
-  * *two_servers_two_targets.toml*: example how to expose more servers for miners or define a backup server for Braiins Farm Proxy.
+  * *minimal.toml*: 这是一个最小的配置文件，使用一个服务器、一个目标和默认聚合。
+  * *sample.toml*: 包含一些其他参数和它们解释。用在*docker-compose.yml*的默认配置文件。也包含一个服务器和一个目标。
+  * *two_servers_two_targets.toml*: 如何给矿工部署多个服务器，或者为Braiins矿场代理定义一个备份服务器的例子。
 
-Routing configuration consists of 5 segments: Server, Target, Routing, Routing Goal and Routing Goal Level.
+布线配置包含5个部分：服务器、目标、布线、布线目标，布线目标级别。
 
-Server
+服务器
 ======
 
-Server is a template for downstream connections. Each server can be utilized only in a single routing domain.
+服务器是下游连接的一个模板。每个服务器只能在一个布线域上使用。
 
 .. code-block:: shell
 
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<slushpool username>"
-      bos_referral_code = "<Braiins OS+ referral code>"
+      slushpool_bos_bonus = "<slushpool上的用户名>"
+      bos_referral_code = "<Braiins OS+推荐计划号>"
 
 
 
-* **name**: name of the server. It is visible as a value of “server” dimension in all downstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **port**: defines port Braiins Farm Proxy will open and accept miner’s connections on.
-* **slushpool_bos_bonus**: Slushpool username for which Braiins OS+ bonus is applied.
-* **bos_referral_code**: Braiins OS+ referral code.
+* **name**: 服务器的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
+* **port**: 指Braiins矿场代理所打开并其上接受矿工连接的端口。
+* **slushpool_bos_bonus**: 应用Braiins OS+推荐计划的Slushpool上的用户名。
+* **bos_referral_code**: Braiins OS+推荐计划号。
    
-Target
+目标
 ======
 
-Target is a template for upstream connections. It can be shared among multiple routing domains.
+目标是一个上游连接的模板。多个布线域可以用它。
 
 .. code-block:: shell
 
       [[target]]
       name = "MP-GL1"
       url = "stratum+tcp://<mining-pool-address>"
-      user_identity = "<userName.workerName>"
+      user_identity = "<userName.workerName（用户名.矿工名）>"
 
-* **name**: name of the target. It is visible as a value of “upstream” dimension in all upstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **url**: URL of the mining pool.
-* **user_identity**: identity under which hashrate shall be submitted. The **userName** must exist on the target pool otherwise the pool does not have a key to link your hashrate to your account.
+* **name**: 目标的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
+* **user_identity**: 提交算力的身份。该**用户名**需要在目标矿池存在，要不矿池无法将您的算力连接到您的账户。
 
-Routing Domain
+布线域
 ==============
 
-Routing domain defines boundaries and preferences for hashrate allocation to the desired targets.
+布线域定义了向所需目标分配算力的边界和偏好。
 
 .. code-block:: shell
 
@@ -84,28 +83,28 @@ Routing domain defines boundaries and preferences for hashrate allocation to the
       [[routing.goal.level]]
       targets = ["MP-GL1"]
 
-* **from**: List of servers which are used in the Braiins Farm Proxy as aggregation proxies.
-* **goal**: List of routing rules. Attribute **name** of the goal is visible in the Grafana dashboard for upstream related measures. Attribute **hr_weight** stands for hashrate distribution ratio preference. Beware of the weight and not the percentage. For example, the ratio of weights 2:1 will distribute the hashrate into target endpoints approx. 67% of hashrate goes into target with weight 2 and 33% of hashrate goes into target with weight 1. In the example configurations further down, you can see how to distribute hashrate into several targets.
-* Routing goal level lists the **targets** which should be applied as upstream endpoints.
+* **from**: 在Braiins矿场代理中作为聚合代理使用的服务器列表。
+* **goal**: 布线规则的列表。 目标的**名称**属性在Grafana仪表盘中可见，它用于上游相关措施。**hr_weight**属性指算力分布比例的偏好。要注意的是权重而不是百分比。例如，权重2:1的比例将把算力分配到目标端点，大约67%的算力进入权重2的目标，33%的算力进入权重1的目标。在以下的配置例子，您可以看如何将算力分配到几个目标。
+* 布线目标级别列出用在上游端点应用的**目标**。
 
-In case the farmer uses Braiins OS+ on his devices, **routing of dev fee is done automatically.**
+如果矿机上使用Braiins OS+固件，则**开发商费用的布线是自动的**  
 
-Workers Configuration
+矿工配置
 =====================
 
-To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be reconfigured. The URL of the Pool in the workers’ firmware configuration has to be set as:
+为了将矿场的算力指向Braiins矿场代理，矿工必须重新配置。矿工的固件配置中的矿池URL地中必须设置为：
 
- * Stratum V1: ``stratum+tcp://<farm-proxy-url>:<server_port>``
- *  Stratum V2: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
+ * 阶层Stratum V1协议: ``stratum+tcp://<farm-proxy-url>:<server_port>``
+ * 阶层Stratum V2协议: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
 
-It is recommended to have a backup pool connection on your miner too in case Braiins Farm Proxy is not working.
+建议您矿机上配置一个备份矿池连接，以防Braiins矿场代理不工作。
 
-Example Configurations
+配置的例子
 ======================
 
-To make a better understanding of Braiins Farm Proxy usage and configuration, let’s go through 3 examples.
+为更好地理解Braiins矿场代理的使用和配置，以下有3个例子。
 
-* **Minimal configuration**: the easiest possible configuration, one server, one target pool. It is not suitable for the real world for its simplicity but it describes the logic of the configuration.
+* **最低配置**：最简单的配置，一个服务器，一个目标矿池。它的简单性不适合用在现实世界，但能描述配置的逻辑。
 
 .. code-block:: shell
 
@@ -127,7 +126,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       targets = ["SP-GL"]
 
 
-* **Basic configuration**: Example with a mining operation in a single facility located in Europe. The primary target is Slush Pool (EU URL), but it is backed up by general and Russian Slush Pool URLs. The farm has 700 hundred ASIC machines and its desired aggregation is 100. It means that there should be between 6 and 7 upstream connections to the target. The farm’s revenue is increased by utilizing BOS+ firmware and mining on Slush Pool.
+* **基本配置**: 一个欧洲的矿场为例。主要目标是Slush Pool（EU URL挖矿地址），使用Slush Pool矿池的通用和俄罗斯的挖矿URL地址作为备份。矿场有7万台ASIC矿机，其期望的聚集度为100。这意味着，应该有6到7个上游连接到目标。该矿场使用BOS+固件提高算力并在Slush Pool矿池上挖矿。
 
 .. code-block:: shell
 
@@ -168,7 +167,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **Multiple owners of the workers**: The farm has dedicated workers for mining on Slush Pool with listening port 3336 and other workers dedicated to Antpool mining on port 3337. Antpool requires maximal extranonce to be 4 and it has to be configured in Braiins Farm Proxy configuration. This example configuration is suitable in the case that the workers have 2 owners and thus multiple servers are defined and used. Multiple instances of Braiins Farm Proxy (let’s say in our example it’s 2 Raspberry Pi machines) with 2 different configurations can be used.
+* **矿机有多个所有者**。矿场的一部分矿机在Slush Pool上挖矿，监听端口为3336，其他矿机连接到蚂蚁矿池上，使用3337端口。蚂蚁矿池要求超额随机数 (extraNonce）为4，所以这个需要在Braiin矿场代理配置。这个配置的例子适用于矿机有2个主人的情况，因此需要定义和使用多个服务器。Braiins矿场代理的多个实例（在我们的例子是2台Raspberry Pi机器），可以使用2种不同的配置。
    
 .. code-block:: shell
 
@@ -228,7 +227,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["Antpool-2"]
 
-* **Diversification of pools**: A farm which allocates hashrate into 3 pools using 1 Braiins Farm Proxy instance with 1 server and multiple upstream target endpoints with hashrate allocation 100:80:20 ~ approx. 50% of hashrate goes to the goal “Goal SP”, 40% of hashrate goes to the goal “Goal Ant” and 10% goes to the goal “Goal BTC.com”.
+* **矿池的多样化**。一个矿场使用1个Braiins矿场代理实例和1个服务器以及多个上游目标终端，将算力分配到3个矿池上，算力分配比例为100:80:20~约50%的算力分配到目标 "Goal SP"，40%的算力分配到目标 "Goal Ant"，10%分配到目标 "Goal BTC.com"。
 
 .. code-block:: shell
 
@@ -308,68 +307,68 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["BTCcom-2"]
 
-* **Different location of the mining operation**: Mining farms with several physical mining containers or buildings in different locations would use a Braiins Farm Proxy instance in each of the locations or for each container with one downstream server and one upstream target with different worker identifiers at each location / container to differentiate the hashrate from each location / container. It is possible to link the Farm Proxies hierarchically to aggregate hashrate from Farm Proxies of individual containers via another Braiins Farm Proxy instance.
+* **不同的矿场地点**。一家矿场在不同地点有多个物理挖矿箱或者建筑，该矿场在每个地点或每个挖矿箱使用一个Braiins矿场代理实例，在每个地点/挖矿箱有一个下游服务器和一个上游目标，有不同的矿工标识符，以分别每个地点/挖矿箱的算力。通过另一个Braiins矿场代理实例，可以将矿场代理分层连接起来，从单个容器的矿场代理中汇总算力。
    
-Configuration Parameters
+配置参数
 ========================
 
-List of both mandatory and optional parameters available in the Braiins Farm Proxy configuration. Parameters are assigned to the corresponding configuration sections.
+在Braiins矿场配置中有强制性和可选性参数的列表。参数分配到相应的配置部分。
 
-Server
+服务器
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the server,
- * **port**: integer (mandatory), port dedicated to the Braiins Farm Proxy,
- * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*,
- * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
- * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
- * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
- * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Slushpool username for which Braiins OS+ discount is applied,
- * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），服务器的名称，
+ * **port**: 整数 (强制的)，专供Braiins矿场代理的端口，
+ * **extranonce_size**: 整数 (可选的)，下游设备（ASIC）所提供的超额随机数，必须至少*target*的*extranonce_size*标值少2， 默认为 *4*，
+ * **validates_hash_rate**: 布尔值 (真/假，可选的)， 代理是否需要验证来自下游的提交的参数， 默认为 *true*，
+ * **use_empty_extranonce1**: 布尔值 (真/假，可选的)， 定义是否可以使用多一个字节的超额随机数（不是每个设备都支持这个）的参数，默认为 *false*,
+ * **submission_rate**: real (可选的)，所需的下游提交率（矿工 → 代理）定义为每1秒的提交数量，默认为*0.2*（每5秒1次提交）。
+ * **slushpool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Slushpool用户名，
+ * **bos_referral_code**: 串: 大小写敏感，最小长度为6 (可选的), 为获得优惠要提供全长的Braiins OS+推荐计划号。
    
-Target
+目标
 ------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the target endpoint,
- * **url**: string (mandatory), URL of the mining pool,
- * **user_identity**: string: case-sensitive with minimal length 1 (mandatory),
- * **identity_pass_through**: boolean (true/false, optional), propagation of an individual worker identity to the target pool (submitting feature to upstream), default is *false*,
- * **extranonce_size**: integer (optional), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
- * **aggregation**: integer (optional), number of aggregated workers (ASICs) per one upstream connection, default is *50*.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），目标终端的名称，
+ * **url**: 串 (强制的), 矿池的挖矿URL地址，
+ * **user_identity**: 串: 大小写敏感，最小长度为1 (强制的)，
+ * **identity_pass_through**: 布尔值 (真/假，可选的)，将单个矿工身份传播到目标矿池上（向上游提交功能）， 默认为 *false*,
+ * **extranonce_size**: 整数 (可选的)，向目标矿池所强制的超额随机数， 必须比*server*的*extranonce_size*标至少高2，默认为*6*（**一些矿池需要超额随机数至多4!: AntPool, Binance Pool, Luxor**）
+ * **aggregation**: 整数 (可选的)，每上游连接聚合矿工（ASIC矿机）的数字，默认为*50*。
    
-Routing
+布线
 -------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing domain,
- * **from**: list (mandatory), list of servers which are used as aggregation proxies.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），布线域的名称。
+ * **from**: 列表 (强制的)， 用作聚合代理的服务器的列表。
    
-Routing Goal
+布线目标
 ------------
 
- * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the routing goal,
- * **hr_weight:** integer (optional), weight for the preferred ratio of hashrate distribution.
+ * **name**: 串: 大小写敏感，最小长度为1 (强制的），布线目标的名称。
+ * **hr_weight:** 整数 (可选的)，首选算力分布比例的权重。
    
-Routing Goal Level
+布线目标级别
 ------------------
 
- * **targets**: list (mandatory), list of targets which are applied as target endpoints in the routing domain.
+ * **targets**: 列表 (强制的)，在布线域中作为目标端点应用的目标列表。
 
 **************************
-Accompanying Configuration
+监控配置
 **************************
 
-Other configuration is predefined in the file *docker-compose.yml* which is an essential application for running Braiins Farm Proxy as a multi-container Docker stack. This config file is designed in a way to require as few edits as possible. Docker-compose consists of the configuration of these services:
+其他配置是在*docker-compose.yml*文件中预定义的，这是运行Braiins矿场代理作为多容器Docker堆栈的一个基本应用。这个配置文件的设计使它需要尽可能少的编辑。Docker-compose包括这些服务的配置:
+ * **Prometheus**: 在**9090**端口运行，可以通过浏览器访问，例如 ``http://<your-host>:9090/``
+ * **Node Exporter**: 在**9100**端口运行，可以通过浏览器访问，例如 ``http:/<your-host>:9100/``
+ * **Grafana**: 在**3000**端口运行，可以通过浏览器访问，例如 ``http://<your-host>:3000/``
 
- * **Prometheus**: runs on port **9090**, it can be accessed in your browser, e.g. ``http://<your-host>:9090/``
- * **Node Exporter**: runs on port **9100**, it can be accessed in your browser, e.g. ``http:/<your-host>:9100/``
- * **Grafana**: runs on port **3000**, it can be accessed in your browser, e.g. ``http://<your-host>:3000/``
+Grafana对于监控Braiins矿场代理的挖矿很重要。如果用户想为Grafana仪表盘建立自己的图表，Prometheus就很有用。Node Exporter是Prometheus数据库的操作系统和服务器指标的导出器。
 
-Grafana is crucial for the monitoring of mining with Braiins Farm Proxy. Prometheus can be useful in case the user wants to build their own graphs for Grafana dashboards. Node Exporter is an exporter of OS and server metrics for Prometheus database.
-
-.. attention::
+.. 注意::
 
    The file *docker-compose.yml* refers to a configuration file **sample.toml** in the configuration of the farm-proxy container. If the farm operator has his own configuration file and wants to address it to the farm-proxy, sample.toml must be replaced by that file. Below you can see the farm-proxy configuration in the *docker-compose.yml.*
 
+ *docker-compose.yml*文件指的是矿场代理容器配置中的一个配置**sample.toml*的文件。如果矿场经营者有自己的配置文件想用，那s需要用这个文件来代替sample.toml。下面你可以看到*docker-compose.yml.*中的矿场代理配置。
 
 .. code-block:: shell
 

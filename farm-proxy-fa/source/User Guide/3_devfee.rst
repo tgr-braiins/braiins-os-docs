@@ -10,16 +10,16 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ###################
-Dev Fee Aggregation
+تجمیع کارمزد توسعه
 ###################
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm Proxy settles dev fee aggregation automatically in case Braiins OS+ is targeted to Braiins Farm Proxy since Braiins OS+ version 22.02.01. **Therefore it is recommended to use the latest Braiins OS+ version**. For releases older than 22.02.01 you have to give a hint to the worker to aggregate the dev fee. This hint means:
+در صورتی که +‌Braiins OS نسخه  22.02.01، یا بالاتر باشد، Braiins Farm Proxy به طور خودکار هش‌ریت dev fee   را تجمیع میکند. **بنابراین توصیه می شود از آخرین نسخه +‌Braiins OS** استفاده کنید. برای نسخه‌های قدیمی‌تر از 22.02.01، باید به ورکر را به صورت دستی (مثال پایین) تنظیم نمایید تا هش‌ریت dev fee را تجمیع کند. مثال:
 
- * Creation of pool group named “bos-management”
+ * ایجاد گروه استخر با نام “bos-management”
 
   .. |pic3| image:: ../_static/bos_management.png
       :width: 100%
@@ -27,7 +27,7 @@ Braiins Farm Proxy settles dev fee aggregation automatically in case Braiins OS+
 
   |pic3|
 
- * Enter the URL of Braiins Farm Proxy and port of configured server within the Braiins Farm Proxy (any of the servers). Restart of BOS miners is required.
+ * آدرس URL مرتبط با Braiins Farm Proxy و پورت سرور پیکربندی شده را در Braiins Farm Proxy (هر یک از سرورها) وارد کنید. راه اندازی مجدد BOSminer مورد نیاز است.
 
   .. |pic4| image:: ../_static/pool_groups.png
       :width: 100%
@@ -35,11 +35,11 @@ Braiins Farm Proxy settles dev fee aggregation automatically in case Braiins OS+
 
   |pic4|
 
-It is also possible to use Braiins Farm Proxy purely for dev fee aggregation (and not the rest of your hashrate). It can be useful for farms with their own aggregation proxy but running Braiins OS+ on its devices. In such case, the setting of Braiins Farm Proxy for dev fee only routing depends on the Braiins OS+ version:
+همچنین می توان از Braiins Farm Proxy صرفاً برای تجمیع هش ریت dev fee (و نه بقیه هش ریت) استفاده کرد. این می تواند برای فارم هایی که پراکسی خود را دارند اما +Braiins OS را روی دستگاه های خود اجرا می کنند، مفید باشد. در چنین حالتی، تنظیم Braiins Farm Proxy برای مسیریابی فقط dev fee به نسخه +Braiins OS بستگی دارد:
 
-**Braiins OS+ 22.02.01 and newer:**
+**Braiins OS+ 22.02.01 و جدیدتر:**
 
-1. Go to configuration of each miner and on the first row fill the URL of the **farm's own proxy** ``stratum+tcp://<own-proxy>:port`` and on the **second row fill the URL of Braiins Farm Proxy** ``stratum+tcp://<farm-proxy>:port``. It will work as a backup for clients' hashrate and at the same time **it will be used for devfee aggregation**.
+1. به پیکربندی هر ماینر بروید و در ردیف اول آدرس **پراکسی فارم خود** ``stratum+tcp://<own-proxy>:port`` را پر کنید و در **ردیف دوم URL مربوط به Braiins Farm Proxy را پر کنید ``stratum+tcp://<farm-proxy>:port``. این به عنوان یک پشتیبان برای هش ریت کلاینت ها کار می کند و در عین حال **برای تجمیع dev fee** استفاده می شود.
    
   .. |pic5| image:: ../_static/devfee_aggregation.png
       :width: 100%
@@ -47,7 +47,7 @@ It is also possible to use Braiins Farm Proxy purely for dev fee aggregation (an
 
   |pic5|
 
-2. In the Braiins Farm Proxy config file set up the **farm's own proxy** as a target endpoint.
+2. در فایل پیکربندی Braiins Farm Proxy **پراکسی فارم خود** را به عنوان نقطه پایانی هدف تنظیم کنید.
 
 .. code-block:: shell
 
@@ -69,8 +69,8 @@ It is also possible to use Braiins Farm Proxy purely for dev fee aggregation (an
       [[routing.goal.level]]
       targets = ["Farm's own proxy"]
 
-**Braiins OS+ older than 22.02.01:**
+**Braiins OS+ قدیمی تر از 22.02.01:**
 
-1. Go to configuration of each miner, create a “bos-management” group if it doesn’t already exist and **fill the bos-management group with the URL of Braiins Farm Proxy** ``stratum+tcp://<farm-proxy>:port``. It will be used for devfee aggregation.
+1. به پیکربندی هر ماینر بروید، یک گروه "bos-management" در صورتی که قبلا وجود ندارد ایجاد کنید و **گروه bos-management را با URL Proxy Braiins Farm پر کنید** ``stratum+tcp://<farm-proxy>:port``. برای جمع آوری devfee استفاده خواهد شد.
 
-2. In the Braiins Farm Proxy config file, set up the **farm's own proxy** as a target endpoint, see previous example.
+2. در فایل پیکربندی Braiins Farm Proxy، **پراکسی فارم خود** را به عنوان نقطه پایانی هدف تنظیم کنید، مثال قبلی را ببینید.

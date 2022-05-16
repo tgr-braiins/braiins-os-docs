@@ -9,19 +9,19 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-##########
-Monitoring
-##########
+##############
+Monitorización
+##############
 
 .. contents::
   :local:
   :depth: 2
 
-*****************
-Grafana Dashboard
-*****************
+***************
+Tablero Grafana
+***************
 
-Grafana sits on port 3000 and can be accessed in your browser ``http://<your_host>:3000/``.Grafana is fed by scraped data from the Prometheus database. A simple dashboard called “Client Dashboard” is already prepared.
+Grafana se encuentra en el puerto 3000 y se puede acceder desde su navegador ``http://<su_host>:3000/``.Grafana se alimenta de los datos reunidos por la base de datos Prometheus. Un tablero sencillo llamado “Client Dashboard” ya está preparado.
 
   .. |pic6| image:: ../_static/dashboard.png
       :width: 100%
@@ -29,45 +29,45 @@ Grafana sits on port 3000 and can be accessed in your browser ``http://<your_hos
 
   |pic6|
 
-The dashboards shows following metrics and graphs:
+Los tableros muestran las siguientes métricas y gráficas:
 
- * Left hand side of the dashboard can be switched for standard hashrate to dev fee hashrate.
+ * Del lado a mano izquierda del tablero se puede cambiar de tasa de hash normal a la tasa de hash de la tarifa de desarrollo.
 
-   * Hashrate in time: downstream and upstream hashrates in the last 5 minutes, 1 hour and 24hours,
-   * Hashrate according to the validity: downstream and upstream hashrates by accepted or invalid shares in the last 3 hours,
-   * Hashrate time series according to the validity: downstream and upstream hashrates categorized by validity in the last 3 hours.
+   * Tasa de hash en el tiempo: tasas de hash aguas abajo y aguas arriba en los últimos 5 minutos, 1 hora y 24horas,
+   * Tasa de hash según la validez: tasas de hash aguas abajo y aguas arriba por participaciones aceptadas o invalidas en las últimas 3 horas,
+   * Tasa de hash serie de tiempo según la validez: tasas de hash aguas abajo y aguas arriba categorizadas por validez en las últimas 3 horas.
 
- * Right hand side is static.
+ * El lado a mano derecha es estático.
 
-   * Version of the Braiins Farm Proxy,
-   * Time of starting Braiins Farm Proxy,
-   * Number of downstream and upstream connections,
-   * Corresponding Aggregation,
-   * Aggregation time series in the last 3 hours.
+   * Versión del Braiins Farm Proxy,
+   * Tiempo de empezar Braiins Farm Proxy,
+   * Número de conexiones aguas abajo y aguas arriba,
+   * Agregación Correspondiente,
+   * Serie de tiempo de agregación en las últimas 3 horas.
 
-Grafana also contains a second default dashboard called Debug Dashboard FP which pays attention to detailed metrics for debugging purposes.
+Grafana también contiene un segundo tablero predeterminado llamado Debug Dashboard FP que presta atención a métricas detalladas con fines de depuración.
 
-Farms can make their own dashboards based on the available data in Prometheus database to meet their specific needs.
+Las granjas pueden hacer sus propios tableros basados en los datos disponibles la base de datos Prometheus para alcanzar sus necesidades específicas.
 
-*****************************
-Enriching Existing Dashboards
-*****************************
+**************************************
+Enriquecimiento de Tableros Existentes
+**************************************
 
-In case the farm is already running Prometheus and Grafana and wants to enrich it with Braiins Farm Proxy metrics and dashboards, the following steps can be done to achieve it:
+En caso de que la granja ya esté corriendo Prometheus y Grafana y quiere enriquecerlo con las métricas de Braiins Farm Proxy metrics y sus tableros, los pasos siguientes pueden hacerse para lograrlo:
 
-* adding scrapping configuration for Prometheus,
+* agregación de la configuración de recolección de datos para Prometheus,
 
    * farm-proxy: ``http://<farm_proxy>:8080/metrics``,
-   * nodeexporter (if running): ``http://<farm_proxy>:9100/metrics``,
-* importing dashboards to Grafana from farm-proxy/monitoring/grafana/dashboards.
+   * nodeexporter (si está corriendo): ``http://<farm_proxy>:9100/metrics``,
+* importación de tableros a Grafana desde farm-proxy/monitoring/grafana/dashboards.
 
-*************
-Reporting API
-*************
+**************
+API de reporte
+**************
 
-Users of Braiins Farm Proxy can lose visibility of individual workers in the pool dashboard because of the aggregation. Therefore, Braiins Farm Proxy includes a reporting API which contains data about individual workers in JSON format. The reporting dataset consists of 5-minute time slots accumulating accepted/rejected shares delivered by individual miners. The amount of slots is configurable and the default is 288 which is equivalent to a single day. On each 5-minute edge, the oldest slot is dismissed and a new one is spawned. Workers which did not submit within the slot are not included in the result (and assumed delivered no shares whatsoever).
+Los usuarios de Braiins Farm Proxy pueden perder la visibilidad de equipos individuales en el tablero del pool debido a la agregación. Por lo tanto, Braiins Farm Proxy incluye una API de reporte que contiene datos sobre equipos individuales en formato JSON. El reporte del conjunto de datos consiste en franjas de tiempo de 5-minutos acumulando participaciones aceptadas/rechazadas que han sido entregadas a los equipos individuales. La cantidad de franjas es configurable y por defecto es 288 lo cual es equivalente a un solo día. En cada borde de 5-minutos, la franja mas vieja es descartada y se genera una nueva. Los equipos que no enviaron durante la franja no son incluidos en el resultado (y se asume que no entregó ninguna participación).
 
-The API can be called as ``curl localhost:8080/report``. Example dataset is shown below:
+La API puede se llaada con ``curl localhost:8080/report``. Un conjunto de datos de ejemplo se muestra a continuación:
 
 .. code-block:: json
 
@@ -169,16 +169,16 @@ The API can be called as ``curl localhost:8080/report``. Example dataset is show
         }
       ]
 
-****
-Logs
-****
+*********
+Registros
+*********
 
-Braiins Farm Proxy is saving its logs within a Docker container. Docker is configured to store a maximum of 5 GB of logs. Log rotation and compression is in place. The number of log files is set to be 50 and the logic is that the oldest file is dismissed and a new one is spawned. The maximum size of 1 file is 100 MB. Here are some useful commands for investigating the logs (for more detail see ``docker logs --help``):
+Braiins Farm Proxy guarda sus registros dentro de un contenedor Docker. Docker está configurado para almacenar un máximo de 5 GB de registros. La compresión y rotación de registros está puesta. El número de archivos de registro está fijado en 50 y la lógica es que el archivo mas viejo es descartado y uno nuevo es generado. El tamaño máximo de 1 archivo es 100 MB. Aquí hay algunos comandos útiles para la investigación de los registros (para mas detalles, vea ``docker logs --help``):
 
- * all available logs: ``docker logs farm-proxy``
- * last 200 logs: ``docker logs farm-proxy –-tail 200``
- * logs from last 20 minutes: ``docker logs farm-proxy --since "2m"``
- * logs since timestamp: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
- * logs in time interval: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
+ * todos los registros disponibles: ``docker logs farm-proxy``
+ * últimos 200 registros: ``docker logs farm-proxy –-tail 200``
+ * registros de los últimos 20 minutos: ``docker logs farm-proxy --since "20m"``
+ * registros desde la última marca de tiempo: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
+ * registros en un intervalo de tiempo: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
-Logs are saved in */var/lib/docker/containers/<container_id>/<container_id>-json.log*.
+Los registros se guardan en */var/lib/docker/containers/<container_id>/<container_id>-json.log*.

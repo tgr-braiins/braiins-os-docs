@@ -9,9 +9,9 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-###############
-Troubleshooting
-###############
+#####################
+Solución de Problemas
+#####################
 
 .. toctree::
    :maxdepth: 3
@@ -19,14 +19,14 @@ Troubleshooting
 
    *
 
-**Problems With Downstream Connectivity**
+**Problemas Con la Conexión aguas abajo**
 
-If there is a problem connecting to Braiins Farm Proxy, the BOSminer can take a while to reconnect. The longer the problem persists, the longer it takes for the retries. It has graceful slowdown: retry immediately, if fail, retry after 1 second, if fail after 2 second, if fail after 4 seconds... It can go all the way to 1 hour between retries. In such cases the solution is either restart BOSminer or wait.
+Si hay un problema para conectarse a Braiins Farm Proxy, a BOSminer le puede tomar un tiempo para reconectar. Entre mas persista el problema, mas tiempo tomará para los re-intentos. Tiene ralentización elegante: re-intenta inmediatamente, si falla, re-intenta luego de 1 segundo, si falla luego de 2 segundos, si falla luego de 4 segundos... Podría tardar hasta 1 hora entre re-intentos. En ese caso la solución es o reiniciar BOSminer o esperar.
 
 **Raspberry Pi**
 
-Prometheus and Grafana are quite demanding when it comes to Raspberry Pi resources. For the sake of the proxy running smoothly, it is advised to remove Prometheus and Grafana from the *docker-compose.yml* and run it on a different device.
+Prometheus y Grafana son bastante exigentes cuando se trata de recursos Raspberry Pi. Por el bien de que el funcione sin problemas, se recomienda remover Prometheus y Grafana del *docker-compose.yml* y correrlos en un dispositivo diferente.
 
-**Rejected Hashrate**
+**Tasa de hash Rechazada**
 
-In case of detecting rejected hashrate from downstream or upstream, please contact Braiins support. To solve the issues, information from Grafana “Debug Dashboard” and logs will provide much help to our support team.
+En caso de detectar tasa de hash rechazada desde aguar arriba o aguas abajo, por favor contacte a soporte de Braiins. Para resolver los problemas, la información de “Debug Dashboard” y los registros (logs) proveerá mucha ayuda a nuestro equipo de soporte.
