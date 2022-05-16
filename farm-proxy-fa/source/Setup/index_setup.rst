@@ -9,9 +9,9 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-#####
-Setup
-#####
+##########
+راه اندازی
+##########
 
 .. toctree::
    :maxdepth: 3
@@ -19,25 +19,25 @@ Setup
 
    *
 
-************
-Installation
-************
+*******
+نصب
+*******
 
-Braiins Farm Proxy has its own public Github `repository <https://github.com/braiins/farm-proxy>`_ and it is basically a stack of 4 Docker containers. You can easily install it with the Linux terminal of the hardware which will host the proxy.
+نرم افزار Braiins Farm Proxy دارای `مخرن <https://github.com/braiins/farm-proxy>`_ عمومی در Github است و در واقع شامل ۴ کانتینر Docker می باشد. شما می توانید به راحتی با استفاده از خط فرمان دستگاه لینوکسی که به عنوان میزبان پراکسی خواهد بود نصب را انجام دهید.
 
-At the beginning it is required to install a couple of prerequisites:
+برای شروع نیاز هست تا یکسری پیش نیاز ها را نصب کنید:
 
 **Linux**
 
- * Follow `docker installation instructions <https://docs.docker.com/engine/install/ubuntu/>`_
- * Follow `optional docker post installation steps <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`_
- * Follow `docker-compose installation <https://docs.docker.com/compose/install/>`_
+ * مشاهده `مراحل نصب داکر <https://docs.docker.com/engine/install/ubuntu/>`_
+ * مشاهده `مراحل نصب داکر پست، اختیاری <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`_
+ * مشاهده `docker-compose مراحل نصب <https://docs.docker.com/compose/install/>`_
 
 **RPi**
 
-  * Follow one of the many manuals - e.g. https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
+  * یکی از راهنماهای متعدد را دنبال کنید - برای مثال: https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
 
-**Verify Prerequisites Installed**
+**بررسی و تایید نصب پیش نیازها**
 
 ::
 
@@ -45,7 +45,7 @@ At the beginning it is required to install a couple of prerequisites:
       docker-compose --version
       git --version
 
-**Download Braiins Farm Proxy Repository**
+**دانلود مخزن Braiins Farm Proxy**
 
 ::
 
@@ -53,45 +53,45 @@ At the beginning it is required to install a couple of prerequisites:
       sudo apt install git
       git clone https://github.com/braiins/farm-proxy.git
 
-Docker stack consists of following containers:
- * *farm-proxy*: container with the Braiins Farm Proxy binary,
- * *grafana*: container with Grafana application,
- * *nodeexporter*: container with the exporter of hardware and OS data for Prometheus database,
- * *prometheus*: container with the Prometheus database.
+پشته Docker شامل کانتینرهای زیر می باشد:
+ * *farm-proxy*: کانتینری شامل فایل اجرایی Braiins Farm Proxy,
+ * *grafana*: کانتینری شامل برنامه Grafana
+ * *nodeexporter*: کانتینری برای استخراج داده‌های سخت افزار و سیستم عامل برای دیتابیس Prometheus,
+ * *prometheus*: کانتینری شامل دیتابیس Prometheus.
 
-A standalone binary of Braiins Farm Proxy can be downloaded from the public Github `here <https://github.com/braiins/farm-proxy/releases>`_.
+یک فایل اجرایی مستقل از Braiins Farm Proxy را می توان از Github `دانلود کرد <https://github.com/braiins/farm-proxy/releases>`_.
 
 *****
 Start
 *****
 
-When the mining operation with usage of Braiins Farm Proxy is configured by the farm operator, the proxy can get started (configuration itself is described in detail in the following text). Run the command in the Linux terminal ``docker-compose up -d``.To see if all the Docker containers are running, hit command ``docker ps`` to list them and check their status.
+هنگامی که عملیات استخراج با استفاده از Braiins Farm Proxy توسط اپراتور فارم پیکربندی می شود، پراکسی می تواند شروع به کار کند (پیکربندی به طور مفصل در متن زیر توضیح داده شده است). دستور ``docker-compose up -d`` را در ترمینال لینوکس اجرا کنید. برای اینکه ببینید آیا همه کانتینرهای Docker در حال اجرا هستند، دستور ``docker ps`` را اجرا کنید تا آنها لیست شوند و وضعیت آنها بررسی شود.
 
 *******
 Restart
 *******
 
-In case Braiins Farm Proxy needs a restart, run the command ``docker restart farm-proxy``. The command will restart only the farm-proxy container. Restart of farm-proxy is needed in case of any changes in TOML configuration file. If you wish to restart another Docker container it can be done similarly by replacing “farm-proxy” with the name of the container that needs a restart.
+در صورتی که Braiins Farm Proxy نیاز به راه اندازی مجدد داشته باشد، دستور ``docker restart farm-proxy`` را اجرا کنید. این فرمان فقط کانتینر فارم پروکسی را مجددا راه اندازی می کند. در صورت هر گونه تغییر در فایل پیکربندی TOML، به راه اندازی مجدد farm-proxy نیاز است. اگر می‌خواهید کانتینر Docker دیگری را مجدداً راه‌اندازی کنید، می‌توانید به طور مثال با جایگزین کردن «farm-proxy» با نام کانتینری که نیاز به راه‌اندازی مجدد دارد، انجام دهید.
 
 ****
 Stop
 ****
 
-Sometimes the mining operator may want to stop Braiins Farm Proxy. It can be done in Linux terminal with the command ``docker stop farm-proxy``. It is needed in case of any changes in the file *docker-compose.yml*. To run proxy again, run the command ``docker-compose up -d farm-proxy``. If you wish to stop another Docker container it can be done similarly.
+گاهی اوقات اپراتور ماینینگ ممکن است بخواهد Braiins Farm Proxy را متوقف کند. این کار را می توان در ترمینال لینوکس با دستور ``docker stop farm-proxy`` انجام داد. این در صورت هر گونه تغییر در فایل *docker-compose.yml* لازم است. برای اجرای دوباره پراکسی، دستور ``docker-compose up -d farm-proxy`` را اجرا کنید. اگر می‌خواهید کانتینر Docker دیگری را متوقف کنید، می‌توانید به همین ترتیب انجام دهید.
 
 *******
 Upgrade
 *******
 
-It is recommended to follow the Braiins Farm Proxy Github repository and get notified if a new version is available. To upgrade to a newer version just run the command ``git pull origin master`` in the Linux terminal. If you made any changes in the configuration files you might want to save the modified files or stash them with command ``git stash`` before the upgrade.
+توصیه می شود مخزن Braiins Farm Proxy Github را دنبال کنید و در صورت موجود بودن نسخه جدید مطلع شوید. برای ارتقاء به نسخه جدیدتر کافیست دستور ``git pull origin master`` را در ترمینال لینوکس اجرا کنید. اگر تغییری در فایل‌های پیکربندی ایجاد کردید، ممکن است بخواهید فایل‌های اصلاح‌شده را ذخیره کنید یا آنها را با دستور ``git stash`` قبل از ارتقا ذخیره کنید.
 
 *********
 Uninstall
 *********
 
-To completely remove farm-proxy and out-of-the-box monitoring from your system you need to perform the following steps:
+برای حذف کامل نظارت بر فارم و پراکسی از سیستم خود، باید مراحل زیر را انجام دهید:
 
-1. Stop farm-proxy & out-of-the-box monitoring: ``docker-compose down``,
-2. Remove containers: ``docker container prune``,
-3. Remove images: ``docker image prune -a``,
-4. Remove stored monitoring data: ``docker volume prune``.
+1. متوقف کردن مانیتورینگ و پراکسی و خارج از جعبه: ``docker-compose down``
+2. ظروف را بردارید: ``docker container prune``
+3. تصاویر را حذف کنید: ``docker image prune -a``
+4. داده های نظارتی ذخیره شده را حذف کنید: ``docker volume prune``

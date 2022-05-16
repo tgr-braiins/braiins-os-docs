@@ -10,7 +10,7 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ###############
-Troubleshooting
+疑难解答
 ###############
 
 .. toctree::
@@ -19,14 +19,15 @@ Troubleshooting
 
    *
 
-**Problems With Downstream Connectivity**
+**下游连接的问题**
 
-If there is a problem connecting to Braiins Farm Proxy, the BOSminer can take a while to reconnect. The longer the problem persists, the longer it takes for the retries. It has graceful slowdown: retry immediately, if fail, retry after 1 second, if fail after 2 second, if fail after 4 seconds... It can go all the way to 1 hour between retries. In such cases the solution is either restart BOSminer or wait.
+如果连接到Braiins矿场代理时出现问题，BOSminer可能需要一段时间才能重新连接。问题持续的时间越长，重试的时间就越长。重试逐渐减速：立即重试，如果失败，1秒后重试，2秒后失败，4秒后失败...... 甚至到一个小时。在这种情况下，解决方案就是重启BOSminer，或者等待。
+
 
 **Raspberry Pi**
 
-Prometheus and Grafana are quite demanding when it comes to Raspberry Pi resources. For the sake of the proxy running smoothly, it is advised to remove Prometheus and Grafana from the *docker-compose.yml* and run it on a different device.
+说到Raspberry Pi资源，Prometheus和Grafana的要求较高。为了让代理顺利运行，建议从*docker-compose.yml*中删除Prometheus和Grafana，并在别的设备上运行。
 
-**Rejected Hashrate**
+**已拒绝算力**
 
-In case of detecting rejected hashrate from downstream or upstream, please contact Braiins support. To solve the issues, information from Grafana “Debug Dashboard” and logs will provide much help to our support team.
+如果从下游或上游检测到被拒绝的算力，请联系到Braiins客服团队。 为了解决问题，请给我么客服团队提供Grafana "Debug Dashboard "的消息和日志。
