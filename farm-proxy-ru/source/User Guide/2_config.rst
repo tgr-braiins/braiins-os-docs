@@ -9,34 +9,34 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-#############
-Configuration
-#############
+############
+Конфигурация
+############
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm Proxy configuration can be split into two main categories - routing configuration and configuration of the accompanying programs (which are Prometheus and Grafana).
+Конфигурацию Braiins Farm Proxy можно разделить на две основные категории — настройка маршрутизации и настройка сопутствующих программ (таких как Prometheus и Grafana).
 
-*********************
-Routing Configuration
-*********************
+***********************
+Настройка маршрутизации
+***********************
 
-Routing configuration is done in the TOML files using a specific structure. The structure of the config file corresponds to the diagram of hashrate routing and uses the terminology explained above. Configuration is explained in example setups in the further text.
+Конфигурация маршрутизации выполняется в файлах TOML с использованием определенной структуры. Структура конфигурационного файла соответствует схеме маршрутизации хешрейта и использует терминологию, описанную выше. Конфигурация объясняется в примерах настроек в дальнейшем тексте.
 
-Braiins Farm Proxy has 3 predefined example TOML configurations which are allocated in the directory *./farm-proxy/config*:
+Braiins Farm Proxy имеет 3 предопределенных примера конфигурации TOML, которые размещены в каталоге *./farm-proxy/config*:
 
-  * *minimal.toml*: the smallest configuration file you can have with one server, one target and default aggregation.
-  * *sample.toml*: contains some other parameters and comments explaining them. It is used as the default configuration file in *docker-compose.yml*. Also contains one server, one target.
-  * *two_servers_two_targets.toml*: example how to expose more servers for miners or define a backup server for Braiins Farm Proxy.
+  * *minimal.toml*: самый маленький файл конфигурации с одним сервером, одной целью и агрегацией по умолчанию.
+  * *sample.toml*: содержит некоторые другие параметры и поясняющие их комментарии. Он используется в качестве файла конфигурации по умолчанию в *docker-compose.yml*. Также содержит один сервер, одну цель.
+  * *two_servers_two_targets.toml*: пример, как открыть больше серверов для майнеров или определить резервный сервер для Braiins Farm Proxy.
 
-Routing configuration consists of 5 segments: Server, Target, Routing, Routing Goal and Routing Goal Level.
+Конфигурация маршрутизации состоит из 5 сегментов: сервер, цель, маршрутизация, цель маршрутизации и уровень цели маршрутизации..
 
-Server
+Сервер
 ======
 
-Server is a template for downstream connections. Each server can be utilized only in a single routing domain.
+Сервер (server) — это шаблон для нисходящих подключений. Каждый сервер может использоваться только в одном домене маршрутизации.
 
 .. code-block:: shell
 
@@ -48,15 +48,15 @@ Server is a template for downstream connections. Each server can be utilized onl
 
 
 
-* **name**: name of the server. It is visible as a value of “server” dimension in all downstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **port**: defines port Braiins Farm Proxy will open and accept miner’s connections on.
-* **slushpool_bos_bonus**: Slushpool username for which Braiins OS+ bonus is applied.
-* **bos_referral_code**: Braiins OS+ referral code.
+* **name**: имя сервера. Он виден как значение измерения «сервер» во всех метриках, связанных с нисходящим потоком (отправки, общие ресурсы, подключения) в мониторинге Grafana.
+* **port**: определяет порт, который Braiins Farm Proxy будет открывать и принимать соединения майнера.
+* **slushpool_bos_bonus**: имя пользователя Slush Pool, для которого применяется бонус Braiins OS+.
+* **bos_referral_code**: Braiins OS+ реферал.
    
-Target
-======
+Цель
+====
 
-Target is a template for upstream connections. It can be shared among multiple routing domains.
+Цель (terget) — это шаблон для восходящих соединений. Он может использоваться совместно несколькими доменами маршрутизации.
 
 .. code-block:: shell
 
@@ -65,14 +65,14 @@ Target is a template for upstream connections. It can be shared among multiple r
       url = "stratum+tcp://<mining-pool-address>"
       user_identity = "<userName.workerName>"
 
-* **name**: name of the target. It is visible as a value of “upstream” dimension in all upstream related metrics (submits, shares, connections) in Grafana monitoring.
-* **url**: URL of the mining pool.
-* **user_identity**: identity under which hashrate shall be submitted. The **userName** must exist on the target pool otherwise the pool does not have a key to link your hashrate to your account.
+* **name**: имя цели. Оно видно как значение параметра «восходящий соединения» (upstream) во всех показателях, связанных с восходящим потоком (отправки, общие ресурсы, подключения) в мониторинге Grafana.
+* **url**: URL майнинг-пула.
+* **user_identity**: идентификатор, под которым должен быть представлен хешрейт. **userName** должен существовать в целевом пуле, иначе у пула нет ключа для привязки вашего хешрейта к вашей учетной записи.
 
-Routing Domain
-==============
+Домен маршрутизации
+===================
 
-Routing domain defines boundaries and preferences for hashrate allocation to the desired targets.
+Домен маршрутизации определяет границы и предпочтения для выделения хешрейта желаемым целям.
 
 .. code-block:: shell
 
@@ -84,28 +84,28 @@ Routing domain defines boundaries and preferences for hashrate allocation to the
       [[routing.goal.level]]
       targets = ["MP-GL1"]
 
-* **from**: List of servers which are used in the Braiins Farm Proxy as aggregation proxies.
-* **goal**: List of routing rules. Attribute **name** of the goal is visible in the Grafana dashboard for upstream related measures. Attribute **hr_weight** stands for hashrate distribution ratio preference. Beware of the weight and not the percentage. For example, the ratio of weights 2:1 will distribute the hashrate into target endpoints approx. 67% of hashrate goes into target with weight 2 and 33% of hashrate goes into target with weight 1. In the example configurations further down, you can see how to distribute hashrate into several targets.
-* Routing goal level lists the **targets** which should be applied as upstream endpoints.
+* **from**: Список серверов, которые используются в Braiins Farm Proxy в качестве прокси-агрегаторов.
+* **goal**: Список правил маршрутизации. Атрибут **name** цели виден на панели управления Grafana для показателей, связанных с восходящим потоком. Атрибут **hr_weight** означает предпочтительный коэффициент распределения хешрейта. обратите внимание на вес, а не процента. Например, соотношение весов 2:1 будет распределять хэшрейт по целевым конечным точкам прибл. 67% хэшрейта идет на цель с весом 2, а 33% хешрейта идет на цель с весом 1. В приведенных ниже примерах конфигураций вы можете увидеть, как распределить хэшрейт на несколько целей.
+* На уровне целей маршрутизации перечислены **цели**, которые следует применять в качестве конечных точек восходящего потока данных.
 
-In case the farmer uses Braiins OS+ on his devices, **routing of dev fee is done automatically.**
+В случае, если в ферме используется Braiins OS+, **маршрутизация devfee выполняется автоматически.**
 
-Workers Configuration
+Конфигурация воркеров
 =====================
 
-To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be reconfigured. The URL of the Pool in the workers’ firmware configuration has to be set as:
+Чтобы направить хешрейт фермы на Braiins Farm Proxy, необходимо перенастроить рабочие процессы. URL-адрес пула в конфигурации воркеров должен быть установлен как:
 
  * Stratum V1: ``stratum+tcp://<farm-proxy-url>:<server_port>``
  *  Stratum V2: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
 
-It is recommended to have a backup pool connection on your miner too in case Braiins Farm Proxy is not working.
+Рекомендуется также иметь соединение с резервным пулом на вашем майнере на случай, если Braiins Farm Proxy не работает.
 
-Example Configurations
-======================
+Примеры конфигураций
+====================
 
-To make a better understanding of Braiins Farm Proxy usage and configuration, let’s go through 3 examples.
+Чтобы лучше понять использование и настройку Braiins Farm Proxy, давайте рассмотрим 3 примера.
 
-* **Minimal configuration**: the easiest possible configuration, one server, one target pool. It is not suitable for the real world for its simplicity but it describes the logic of the configuration.
+* **Минимальная конфигурация**: максимально простая конфигурация, один сервер, один целевой пул. Она не подходит для реального мира из-за своей простоты, но описывает логику конфигурации.
 
 .. code-block:: shell
 
@@ -127,7 +127,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       targets = ["SP-GL"]
 
 
-* **Basic configuration**: Example with a mining operation in a single facility located in Europe. The primary target is Slush Pool (EU URL), but it is backed up by general and Russian Slush Pool URLs. The farm has 700 hundred ASIC machines and its desired aggregation is 100. It means that there should be between 6 and 7 upstream connections to the target. The farm’s revenue is increased by utilizing BOS+ firmware and mining on Slush Pool.
+* **Базовая конфигурация**: Пример майнинга на одном объекте, расположенном в Европе. Основным пулом является Slush Pool (URL-адрес ЕС), но он поддерживается общими и российскими URL-адресами Slush Pool. На ферме 700 сотен ASIC-машин, а желаемая агрегация — 100. Это означает, что к цели должно быть от 6 до 7 восходящих подключений. Доход фермы увеличивается за счет использования прошивки BOS+ и майнинга на Slush Pool.
 
 .. code-block:: shell
 
@@ -168,7 +168,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **Multiple owners of the workers**: The farm has dedicated workers for mining on Slush Pool with listening port 3336 and other workers dedicated to Antpool mining on port 3337. Antpool requires maximal extranonce to be 4 and it has to be configured in Braiins Farm Proxy configuration. This example configuration is suitable in the case that the workers have 2 owners and thus multiple servers are defined and used. Multiple instances of Braiins Farm Proxy (let’s say in our example it’s 2 Raspberry Pi machines) with 2 different configurations can be used.
+* **Несколько владельцев воркеров**: на ферме есть выделенные воркеры для майнинга на Slush Pool с портом прослушивания 3336 и другие воркеры, выделенные для майнинга на Antpool на порту 3337. Antpool требует, чтобы максимальное экстранонс было равно 4, и это необходимо настроить в конфигурации Braiins Farm Proxy. Этот пример конфигурации подходит в том случае, если у воркеров 2 владельца и, таким образом, определено и используется несколько серверов. Можно использовать несколько экземпляров Braiins Farm Proxy (скажем, в нашем примере это 2 машины Raspberry Pi) с 2 различными конфигурациями.
    
 .. code-block:: shell
 
@@ -228,7 +228,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["Antpool-2"]
 
-* **Diversification of pools**: A farm which allocates hashrate into 3 pools using 1 Braiins Farm Proxy instance with 1 server and multiple upstream target endpoints with hashrate allocation 100:80:20 ~ approx. 50% of hashrate goes to the goal “Goal SP”, 40% of hashrate goes to the goal “Goal Ant” and 10% goes to the goal “Goal BTC.com”.
+* **Диверсификация пулов**: ферма, которая распределяет хэшрейт на 3 пула, используя 1 экземпляр Braiins Farm Proxy с 1 сервером и несколькими целевыми конечными точками восходящего потока с распределением хешрейта 100:80:20 ~ прибл. 50% хешрейта идет на цель «Цель SP», 40% хешрейта идет на цель «Цель Ant» и 10% идет на цель «Цель BTC.com».
 
 .. code-block:: shell
 
@@ -308,14 +308,14 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["BTCcom-2"]
 
-* **Different location of the mining operation**: Mining farms with several physical mining containers or buildings in different locations would use a Braiins Farm Proxy instance in each of the locations or for each container with one downstream server and one upstream target with different worker identifiers at each location / container to differentiate the hashrate from each location / container. It is possible to link the Farm Proxies hierarchically to aggregate hashrate from Farm Proxies of individual containers via another Braiins Farm Proxy instance.
+* **Разное расположение майнинг-ферм**: майнинговые фермы с несколькими физическими майнинговыми контейнерами или зданиями в разных местах будут использовать экземпляр Braiins Farm Proxy в каждом из местоположений или для каждого контейнера с одним подчиненным сервером и одной вышестоящей целью с разными воркер-процессами. Устанавливаются разные идентификаторы в каждом местоположении/контейнере, чтобы отличать хешрейт от каждого местоположения/контейнера. Можно иерархически связать прокси-серверы фермы для агрегирования хэшрейта от прокси-серверов ферм отдельных контейнеров через другой экземпляр Braiins Farm Proxy.
    
-Configuration Parameters
-========================
+Параметры конфигурации
+======================
 
-List of both mandatory and optional parameters available in the Braiins Farm Proxy configuration. Parameters are assigned to the corresponding configuration sections.
+Список обязательных и необязательных параметров, доступных в конфигурации Braiins Farm Proxy. Параметры назначаются соответствующим разделам конфигурации.
 
-Server
+Сервер
 ------
 
  * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the server,

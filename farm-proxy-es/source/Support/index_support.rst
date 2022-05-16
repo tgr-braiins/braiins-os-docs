@@ -9,9 +9,9 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-#################
-Support & Contact
-#################
+##################
+Contacto y Soporte
+##################
 
 .. toctree::
    :maxdepth: 3
@@ -19,4 +19,4 @@ Support & Contact
 
    *
 
-Have questions? Our dev and support teams are always available to help. You can `send request <https://help.slushpool.com/support/tickets/new>`_ to our support team. You can also join our Telegram `group <https://t.me/iidiscussion>`_.
+¿Tiene preguntas? Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar. Puede `enviar la solicitud <https://help.slushpool.com/support/tickets/new>`_ a nuestro equipo de soporte. También puede unirse a nuestro `grupo <https://t.me/iidiscussion>`_ de Telegram.

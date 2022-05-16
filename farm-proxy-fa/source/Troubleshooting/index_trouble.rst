@@ -9,9 +9,9 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-###############
-Troubleshooting
-###############
+#########
+عیب یابی
+#########
 
 .. toctree::
    :maxdepth: 3
@@ -19,14 +19,14 @@ Troubleshooting
 
    *
 
-**Problems With Downstream Connectivity**
+**مشکلات در ارتباطات Downstream**
 
-If there is a problem connecting to Braiins Farm Proxy, the BOSminer can take a while to reconnect. The longer the problem persists, the longer it takes for the retries. It has graceful slowdown: retry immediately, if fail, retry after 1 second, if fail after 2 second, if fail after 4 seconds... It can go all the way to 1 hour between retries. In such cases the solution is either restart BOSminer or wait.
+اگر مشکلی در اتصال به Braiins Farm Proxy وجود داشته باشد، BOSminer ممکن است مدتی طول بکشد تا دوباره وصل شود. هر چه مدت زمان طولانی تری مشکل باقی بماند، مدت زمان بیشتری برای تلاش مجدد طول می کشد. کندی برازنده ای دارد: بلافاصله دوباره امتحان کنید، اگر ناموفق بود، بعد از 1 ثانیه دوباره امتحان کنید، اگر بعد از 2 ثانیه شکست خورد، اگر بعد از 4 ثانیه شکست خورد... بین تلاش های مجدد می تواند تا 1 ساعت طول بکشد. در چنین مواردی راه حل یا راه اندازی مجدد BOSminer است یا صبر کنید.
 
 **Raspberry Pi**
 
-Prometheus and Grafana are quite demanding when it comes to Raspberry Pi resources. For the sake of the proxy running smoothly, it is advised to remove Prometheus and Grafana from the *docker-compose.yml* and run it on a different device.
+وقتی صحبت از منابع Raspberry Pi به میان می آید، Prometheus و Grafana منابع زیادی را به خود اختصاص می دهند. برای اینکه پراکسی بدون مشکل کار کند، توصیه می شود Prometheus و Grafana را از *docker-compose.yml* حذف کنید و آن را روی دستگاه دیگری اجرا کنید.
 
 **Rejected Hashrate**
 
-In case of detecting rejected hashrate from downstream or upstream, please contact Braiins support. To solve the issues, information from Grafana “Debug Dashboard” and logs will provide much help to our support team.
+در صورت شناسایی Rejected hashrate از downstream یا upstream لطفاً با پشتیبانی Braiins تماس بگیرید. برای حل مشکلات، اطلاعات Grafana > Debug Dashboard و logs کمک زیادی به تیم پشتیبانی ما می کند.

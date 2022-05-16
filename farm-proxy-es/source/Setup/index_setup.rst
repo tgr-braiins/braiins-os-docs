@@ -19,25 +19,25 @@ Setup
 
    *
 
-************
-Installation
-************
+***********
+Instalación
+***********
 
-Braiins Farm Proxy has its own public Github `repository <https://github.com/braiins/farm-proxy>`_ and it is basically a stack of 4 Docker containers. You can easily install it with the Linux terminal of the hardware which will host the proxy.
+Braiins Farm Proxy tiene su propio `repositorio <https://github.com/braiins/farm-proxy>`_ Github público y es básicamente una pila de 4 contenedores Docker. Puede instalar fácilmente con la terminal Linux del equipo que alojará al proxy.
 
-At the beginning it is required to install a couple of prerequisites:
+Al principio se requiere instalar un par de requisitos:
 
 **Linux**
 
- * Follow `docker installation instructions <https://docs.docker.com/engine/install/ubuntu/>`_
- * Follow `optional docker post installation steps <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`_
- * Follow `docker-compose installation <https://docs.docker.com/compose/install/>`_
+ * Siga las `instrucciones de instalación docker <https://docs.docker.com/engine/install/ubuntu/>`_
+ * Siga los `pasos opcionales post instalación docker <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`_
+ * Siga la `instalación docker-compose <https://docs.docker.com/compose/install/>`_
 
 **RPi**
 
-  * Follow one of the many manuals - e.g. https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
+  * Siga cualquiera de los muchos manuales - ej: https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
 
-**Verify Prerequisites Installed**
+**Verifique los requisitos Instalados**
 
 ::
 
@@ -45,7 +45,7 @@ At the beginning it is required to install a couple of prerequisites:
       docker-compose --version
       git --version
 
-**Download Braiins Farm Proxy Repository**
+**Descargue el Repositorio Braiins Farm Proxy**
 
 ::
 
@@ -53,45 +53,45 @@ At the beginning it is required to install a couple of prerequisites:
       sudo apt install git
       git clone https://github.com/braiins/farm-proxy.git
 
-Docker stack consists of following containers:
- * *farm-proxy*: container with the Braiins Farm Proxy binary,
- * *grafana*: container with Grafana application,
- * *nodeexporter*: container with the exporter of hardware and OS data for Prometheus database,
- * *prometheus*: container with the Prometheus database.
+La pila Docker consiste de los siguientes contenedores:
+ * *farm-proxy*: contenedor con el binario Braiins Farm Proxy,
+ * *grafana*: contenedor con la aplicación Grafana,
+ * *nodeexporter*: contenedor con el exportador de datos de equipo y sistema operativo para la base de datos Prometheus,
+ * *prometheus*: contenedor con la base de datos Prometheus.
 
-A standalone binary of Braiins Farm Proxy can be downloaded from the public Github `here <https://github.com/braiins/farm-proxy/releases>`_.
-
-*****
-Start
-*****
-
-When the mining operation with usage of Braiins Farm Proxy is configured by the farm operator, the proxy can get started (configuration itself is described in detail in the following text). Run the command in the Linux terminal ``docker-compose up -d``.To see if all the Docker containers are running, hit command ``docker ps`` to list them and check their status.
+Un binario independiente del Braiins Farm Proxy puede descargarse desde el Github público `aquí <https://github.com/braiins/farm-proxy/releases>`_.
 
 *******
-Restart
+Iniciar
 *******
 
-In case Braiins Farm Proxy needs a restart, run the command ``docker restart farm-proxy``. The command will restart only the farm-proxy container. Restart of farm-proxy is needed in case of any changes in TOML configuration file. If you wish to restart another Docker container it can be done similarly by replacing “farm-proxy” with the name of the container that needs a restart.
-
-****
-Stop
-****
-
-Sometimes the mining operator may want to stop Braiins Farm Proxy. It can be done in Linux terminal with the command ``docker stop farm-proxy``. It is needed in case of any changes in the file *docker-compose.yml*. To run proxy again, run the command ``docker-compose up -d farm-proxy``. If you wish to stop another Docker container it can be done similarly.
-
-*******
-Upgrade
-*******
-
-It is recommended to follow the Braiins Farm Proxy Github repository and get notified if a new version is available. To upgrade to a newer version just run the command ``git pull origin master`` in the Linux terminal. If you made any changes in the configuration files you might want to save the modified files or stash them with command ``git stash`` before the upgrade.
+Cuando la operación minera con el uso de Braiins Farm Proxy se configura por el operador de la granja, el proxy puede iniciarse (la configuración misma es descrita en detalle en el texto siguiente). Corra el comando en la terminal Linux ``docker-compose up -d``.Para ver si todos los contenedores Docker están corriendo, presione el comando ``docker ps`` para listarlos y revisar sus estados.
 
 *********
-Uninstall
+Reiniciar
 *********
 
-To completely remove farm-proxy and out-of-the-box monitoring from your system you need to perform the following steps:
+En caso de que Braiins Farm Proxy necesite un reinicio, corra el comando ``docker restart farm-proxy``. El comando reiniciará solo el contenedor de farm-proxy. El reinicio de farm-proxy es necesario en caso de cualquier cambio al archivo de configuración TOML. Si desea reiniciar otro contenedor Docker puede hacerse de manera similar reemplazando “farm-proxy” con el nombre del contenedor que necesite reiniciar.
 
-1. Stop farm-proxy & out-of-the-box monitoring: ``docker-compose down``,
-2. Remove containers: ``docker container prune``,
-3. Remove images: ``docker image prune -a``,
-4. Remove stored monitoring data: ``docker volume prune``.
+*******
+Detener
+*******
+
+A veces el operador minero podría desear detener Braiins Farm Proxy. Puede hacerse en la terminal Linux con el comando ``docker stop farm-proxy``. Es necesario en caso de cambios en el archivo *docker-compose.yml*. Para correr el proxy de nuevo, corra el comando ``docker-compose up -d farm-proxy``. Si desea detener otro contenedor Docker puede hacerlo de manera similar.
+
+**********
+Actualizar
+**********
+
+Es recomendado seguir el repositorio Github Braiins Farm Proxy y recibir la notificación si una versión nueva está disponible. Para actualizar a una nueva versión solo corra el comando ``git pull origin master`` en la terminal Linux. Si hizo algún cambio a los archivos de configuración podría querer guardar los archivos modificados o esconderlos con el comando ``git stash`` antes de actualizar.
+
+***********
+Desinstalar
+***********
+
+Para remover completamente farm-proxy y la supervisión inmediata de su sistema necesita hacer los siguientes pasos:
+
+1. Detener farm-proxy y supervisión inmediata: ``docker-compose down``,
+2. Remover contenedores: ``docker container prune``,
+3. Remover imágenes: ``docker image prune -a``,
+4. Remover datos de vigilancia almacenados: ``docker volume prune``.

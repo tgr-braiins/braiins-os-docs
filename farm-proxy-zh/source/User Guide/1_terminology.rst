@@ -10,20 +10,20 @@
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
 ###########
-Terminology
+术语
 ###########
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm proxy is a software application that accepts hashrate through multiple listening ports **[Servers]** [#f1]_ transferring it to the multiple endpoints **[Targets]** by following defined rules **[Routing goals]**. Targets are referred to a list of endpoints **[Routing goal levels]**. A collection of Servers, Routing goals and Routing goal levels is referred to as the **Routing domain**.
+Braiins矿场代理是一个软件应用程序，矿场代理通过多个监听端口**服务器**[#f1]_接受算力并将它转移到多个端点**目标**。代理按照定义的规则**布线目标**转移算力。目标指的是端点的列表**布线目标级别**。服务器、布线目标和布线目标级别的集合叫做**布线域**。
 
-Connections from miners to the Braiins Farm Proxy are referred to as **Downstream** connections. Connections from Braiins Farm Proxy to a mining pool are referred to as **Upstream** connections.
+从矿机到Braiins矿场代理的连接叫做**下游**连接。从Braiins矿场代理到矿池的连接叫做**上游**连接。
 
-Used Terminology is put into context with use of following diagrams.
+使用的术语要跟以下图表参考。
 
-**Diagram Of Hashrate Routing**
+**算力布线的图表**
 
   .. |pic1| image:: ../_static/routing_diagram.png
       :width: 100%
@@ -31,7 +31,7 @@ Used Terminology is put into context with use of following diagrams.
 
   |pic1|
 
-**Diagram Interpretation**
+**图标解释**
 
   .. |pic2| image:: ../_static/diagram_interpretation.png
       :width: 100%
@@ -40,6 +40,6 @@ Used Terminology is put into context with use of following diagrams.
   |pic2|
 
 
-.. rubric:: Footnotes
+.. rubric:: 注脚
 
-.. [#f1] Servers are listening ports in terms of Braiins Farm Proxy, don’t confuse it with classical server.
+.. [#f1] 对于Braiins矿场代理来说，服务器指监听端口，跟一般的服务器不一样。
