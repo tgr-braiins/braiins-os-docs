@@ -61,6 +61,10 @@ Docker堆栈包含以下的容器:
 
 Braiins矿场代理的独立二进制文件可以从公共的Github `下载 <https://github.com/braiins/farm-proxy/releases>`_.
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AXfyDhbx4WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 *****
 启动
 *****
