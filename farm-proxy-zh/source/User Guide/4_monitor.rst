@@ -177,7 +177,7 @@ Braiins矿场代理正在Docker容器内保存其日志。Docker配置为存储�
 
  * 所有可看的日志: ``docker logs farm-proxy``
  * 最近200日志: ``docker logs farm-proxy –-tail 200``
- * 过去20分钟的日志: ``docker logs farm-proxy --since "2m"``
+ * 过去20分钟的日志: ``docker logs farm-proxy --since "20m"``
  * 自时间戳以来的日志: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
  * 时间间隔的日志: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
