@@ -9,9 +9,9 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-###############
-Troubleshooting
-###############
+##############
+Поиск проблемы
+##############
 
 .. toctree::
    :maxdepth: 3
@@ -19,14 +19,14 @@ Troubleshooting
 
    *
 
-**Problems With Downstream Connectivity**
+**Проблемы с подключением**
 
-If there is a problem connecting to Braiins Farm Proxy, the BOSminer can take a while to reconnect. The longer the problem persists, the longer it takes for the retries. It has graceful slowdown: retry immediately, if fail, retry after 1 second, if fail after 2 second, if fail after 4 seconds... It can go all the way to 1 hour between retries. In such cases the solution is either restart BOSminer or wait.
+Если есть проблема с подключением к Braiins Farm Proxy, BOSminer может занять некоторое время для повторного подключения. Чем дольше сохраняется проблема, тем больше времени требуется для повторных попыток. Замедление выглядит так: повтор попытки немедленно, если сбой, повтор попытки через 1 секунду, если сбой - через 2 секунды, если сбой - через 4 секунды ... Между повторами может пройти аж до 1 часа. В таких случаях решение либо перезапустить BOSminer, либо подождать.
 
 **Raspberry Pi**
 
-Prometheus and Grafana are quite demanding when it comes to Raspberry Pi resources. For the sake of the proxy running smoothly, it is advised to remove Prometheus and Grafana from the *docker-compose.yml* and run it on a different device.
+Prometheus и Grafana довольно требовательны к ресурсам Raspberry Pi. Для бесперебойной работы прокси рекомендуется удалить Prometheus и Grafana из *docker-compose.yml* и запустить это на другом устройстве.
 
-**Rejected Hashrate**
+**Отклоненный хэшрейт**
 
-In case of detecting rejected hashrate from downstream or upstream, please contact Braiins support. To solve the issues, information from Grafana “Debug Dashboard” and logs will provide much help to our support team.
+В случае обнаружения отклонения хэшрейта от нижестоящего или восходящего потока, обратитесь в службу поддержки Braiins. Для решения проблем приложите к запросу информацию из Grafana «Debug Dashboard» - логи окажут большую помощь нашей команде поддержки.
