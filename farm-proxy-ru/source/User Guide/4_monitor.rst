@@ -177,7 +177,7 @@ Braiins Farm Proxy сохраняет свои логи в контейнере 
 
  * все доступные логи: ``docker logs farm-proxy``
  * последних 200 логов: ``docker logs farm-proxy –-tail 200``
- * логи за последних 20 минут: ``docker logs farm-proxy --since "2m"``
+ * логи за последних 20 минут: ``docker logs farm-proxy --since "20m"``
  * логи с указаного времени: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
  * логи во временном интервале: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
