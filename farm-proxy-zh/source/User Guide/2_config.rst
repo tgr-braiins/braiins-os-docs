@@ -33,6 +33,10 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
 
 布线配置包含5个部分：服务器、目标、布线、布线目标，布线目标级别。
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/grZ3aQG9mHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 服务器
 ======
 
