@@ -324,7 +324,7 @@ Server
  * **validates_hash_rate**: booleano (true/false, opcional), parámetro que define si el proxy debe validar el envío de downstream, por defecto es *true*,
  * **use_empty_extranonce1**: booleano (true/false, opcional), parámetro que define si 1 byte mas de extra nonce puede ser usado (no todo dispositivo lo admite), por defecto es *false*,
  * **submission_rate**: real (opcional), tasa de presentación downstream deseada (minero -> proxy) definida como número de envíos por segundo, por defecto es *0.2* (1 envío cada 5 segundos),
- * **slushpool_bos_bonus**: frase: distingue mayúsculas y minúsculas con longitud mínima 0 (opcional), Nombre de usuario Slushpool a quien se le aplica el descuento de Braiins OS+,
+ * **slushpool_bos_bonus**: frase: distingue mayúsculas y minúsculas con longitud mínima 0 (opcional), Nombre de usuario Slush Pool a quien se le aplica el descuento de Braiins OS+,
  * **bos_referral_code**: frase: distingue mayúsculas y minúsculas con longitud mínima 6 (opcional), El código de remisión Braiins OS+ se le proporcionará con toda su longitud para recibir el bono.
    
 Target
