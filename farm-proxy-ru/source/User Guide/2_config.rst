@@ -31,7 +31,11 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
   * *sample.toml*: содержит некоторые другие параметры и поясняющие их комментарии. Он используется в качестве файла конфигурации по умолчанию в *docker-compose.yml*. Также содержит один сервер, одну цель.
   * *two_servers_two_targets.toml*: пример, как открыть больше серверов для майнеров или определить резервный сервер для Braiins Farm Proxy.
 
-Конфигурация маршрутизации состоит из 5 сегментов: сервер, цель, маршрутизация, цель маршрутизации и уровень цели маршрутизации..
+Конфигурация маршрутизации состоит из 5 сегментов: сервер, цель, маршрутизация, цель маршрутизации и уровень цели маршрутизации.
+
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/grZ3aQG9mHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Сервер
 ======
