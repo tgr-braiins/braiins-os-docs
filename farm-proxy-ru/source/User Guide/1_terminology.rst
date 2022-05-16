@@ -9,21 +9,21 @@
     </script>
     <script type='text/javascript' src='https://euc-widget.freshworks.com/widgets/77000003511.js' async defer></script>
 
-###########
-Terminology
-###########
+############
+Терминология
+############
 
 .. contents::
   :local:
   :depth: 2
 
-Braiins Farm proxy is a software application that accepts hashrate through multiple listening ports **[Servers]** [#f1]_ transferring it to the multiple endpoints **[Targets]** by following defined rules **[Routing goals]**. Targets are referred to a list of endpoints **[Routing goal levels]**. A collection of Servers, Routing goals and Routing goal levels is referred to as the **Routing domain**.
+Braiins Farm Proxy — это приложение, которое принимает хешрейт через несколько портов прослушивания. **[Сервера]** [#f1]_ передают данные на несколько конечных точек **[Целей]** следуя определенным правилам **[Целям маршрутизации]**. Цели относятся к списку конечных точек **[Целевым уровням маршрутизации]**. Набор серверов, целей маршрутизации и уровней целей маршрутизации называем **Доменами маршрутизации**.
 
-Connections from miners to the Braiins Farm Proxy are referred to as **Downstream** connections. Connections from Braiins Farm Proxy to a mining pool are referred to as **Upstream** connections.
+Соединения майнеров с Braiins Farm Proxy называем **нисходящими** соединениями. Соединения от Braiins Farm Proxy с майнинговым пулом называем **восходящими** соединениями.
 
-Used Terminology is put into context with use of following diagrams.
+Используемая терминология помещена в контекст с использованием следующих схем.
 
-**Diagram Of Hashrate Routing**
+**Схема маршрутизации хэшрейта**
 
   .. |pic1| image:: ../_static/routing_diagram.png
       :width: 100%
@@ -31,7 +31,7 @@ Used Terminology is put into context with use of following diagrams.
 
   |pic1|
 
-**Diagram Interpretation**
+**Интерпретация схемы**
 
   .. |pic2| image:: ../_static/diagram_interpretation.png
       :width: 100%
