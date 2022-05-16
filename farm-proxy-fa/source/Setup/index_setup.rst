@@ -61,6 +61,10 @@
 
 یک فایل اجرایی مستقل از Braiins Farm Proxy را می توان از Github `دانلود کرد <https://github.com/braiins/farm-proxy/releases>`_.
 
+.. raw:: html
+
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AXfyDhbx4WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 *****
 Start
 *****
