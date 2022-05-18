@@ -24,13 +24,13 @@
 
 
 ############
-Introduction
+介绍
 ############
 
 Braiins Farm Proxy is a free, standalone application which is run locally onsite at the farm. The aim of the proxy is to conserve bandwidth while aggregating SHA256 hashrate from individual workers and routing it to the target destinations, which are usually mining pools. Workers are configured to connect to the proxy. Braiins Farm Proxy can be set up to connect to several target pool(s) with backup pool(s) as a failover. The proxy optimizes the pool IP addresses and selects the endpoints with lowest latency or packet loss. It is also able to encrypt the pool connection for better privacy and security in case Slush Pool is used as an endpoint.
 
 ********
-Features
+特性
 ********
 
  * **Bandwidth conservation** due to the hashrate aggregation and therefore higher upstream `share difficulty <https://braiins.com/blog/bitcoin-mining-pools-luck-shares-estimated-hashrate>`_, resulting in fewer data transfers to submit the same amount of shares.
