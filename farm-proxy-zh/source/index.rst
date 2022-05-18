@@ -43,5 +43,5 @@ Braiins Farm Proxy is a free, standalone application which is run locally onsite
 
  * **Regular monitoring** in Grafana dashboard bundled in the Braiins Farm Proxy, with the possibility to build your own custom monitoring solution via a **monitoring API**.
  * Braiins OS+ users can benefit from **dev fee hashrate aggregation** for more bandwidth savings. Braiins Farm Proxy can aggregate both the farm’s hashrate and dev fee hashrate.
- * If the target endpoint is SlushPool, an **encrypted connection** is supported to ensure data privacy and protection from hashrate hijacking.
- * Braiins Farm Proxy is completely **free** software.
+ * 如果目标终端是Slush Pool矿池， 那就支持**加密连接**来保证数据隐私并防止算力劫持。
+ * Braiins矿场代理是完全**免费的**软件。
