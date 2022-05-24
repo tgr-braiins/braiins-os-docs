@@ -353,7 +353,7 @@ the file ``/etc/bosminer.toml``. The syntax is the following:
 
 The *enabled* line can hold values *true* for enabled Dynamic Power Scaling, or *false* for disabled Dynamic Power Scaling.
 The *power_step* can hold numeric values (min. 100 and max. 1000), representing the power limit step-down (in Watts), which happens each time miner hits *HOT* temperature.
-The *min_psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the minimal PSU power limit for the Dynamyc Power Scaling. If *psu_power_limit* is at *min_psu_power_limit* level and miner is still *HOT* and *shutdown_enabled* is true, then miner is shut down for a period of time, defined in the *shutdown_duration* value (in hours). After that, miner is started but with the initial value of *psu_power_limit* (*PSU power limit* in the *Autotuning* section).
+The *min_psu_power_limit* can hold numeric values (min. 100 and max. 5000), representing the minimal PSU power limit for the Dynamic Power Scaling. If *psu_power_limit* is at *min_psu_power_limit* level and miner is still *HOT* and *shutdown_enabled* is true, then miner is shut down for a period of time, defined in the *shutdown_duration* value (in hours). After that, miner is started but with the initial value of *psu_power_limit* (*PSU power limit* in the *Autotuning* section).
 
 ************
 Auto-upgrade
