@@ -26,7 +26,7 @@
 
 **Raspberry Pi**
 
-说到Raspberry Pi资源，Prometheus和Grafana的要求较高。为了让代理顺利运行，建议从*docker-compose.yml*中删除Prometheus和Grafana，并在别的设备上运行。
+说到Raspberry Pi资源，Prometheus和Grafana的要求较高。为了让代理顺利运行，建议从 *docker-compose.yml* 中删除Prometheus和Grafana，并在别的设备上运行。
 
 **已拒绝算力**
 

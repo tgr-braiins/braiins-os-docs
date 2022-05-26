@@ -21,7 +21,7 @@
 Grafana仪表板
 *****************
 
-Grafana使用端口3000并可以通过浏览器fangwen``http://<your_host>:3000/``。Grafana使用从Prometheus数据库所刮取的数据。一个名为 "客户仪表板"的简单仪表板已经准备好了。
+Grafana使用端口3000并可以通过浏览器fangwen ``http://<your_host>:3000/``。Grafana使用从Prometheus数据库所刮取的数据。一个名为 "客户仪表板"的简单仪表板已经准备好了。
 
   .. |pic6| image:: ../_static/dashboard.png
       :width: 100%
@@ -55,11 +55,11 @@ Grafana还包含第二个默认的仪表盘，叫做Debug Dashboard FP，关注�
 
 如果矿场已经在运行Prometheus和Grafana，并希望用Braiins矿场代理的指标和仪表盘来改进它们，可以通过以下步骤来实现:
 
-*为Prometheus添加刮削配置，
+* 为Prometheus添加刮削配置，
 
    * farm-proxy。``http://<farm_proxy>:8080/metrics``。
    * nodeexporter（如果正在运行）。``http://<farm_proxy>:9100/metrics``。
-*从farm-proxy/monitoring/grafana/dashboards导入仪表盘到Grafana。
+* 从farm-proxy/monitoring/grafana/dashboards导入仪表盘到Grafana。
 
 *************
 报告API
@@ -67,7 +67,7 @@ Grafana还包含第二个默认的仪表盘，叫做Debug Dashboard FP，关注�
 
 Braiins矿场代理可能会因算力聚合而失去在矿池仪表板上的单个矿工的可见性。因此，Braiins矿场代理包括一个报告API，其中包含JSON格式的单个矿机的数据。报告数据集由5分钟的时间段组成，累积单个矿工交付的接受/拒绝的份额。时间段的数量是可以配置的，默认是288，相当于一天。在每个5分钟的边缘，最旧的时段被解散，新的时段被生成。没有在时间段提交的矿工不包括在结果中（并假设没有交付任何股份）。
 
-API叫做``curl localhost:8080/report``. 以下有例子:
+API叫做 ``curl localhost:8080/report``. 以下有例子:
 
 .. code-block:: json
 
@@ -173,7 +173,7 @@ API叫做``curl localhost:8080/report``. 以下有例子:
 日志
 ****
 
-Braiins矿场代理正在Docker容器内保存其日志。Docker配置为存储最大5GB的日志。使用日志旋转和压缩。日志文件的数量设置为50个日志，其逻辑是，最旧的文件被解散，从而可以输入新的文件。1个文件的最大尺寸是100MB。以下有一些调查日志的有用命令（为更多细节写``docker logs --help``）：
+Braiins矿场代理正在Docker容器内保存其日志。Docker配置为存储最大5GB的日志。使用日志旋转和压缩。日志文件的数量设置为50个日志，其逻辑是，最旧的文件被解散，从而可以输入新的文件。1个文件的最大尺寸是100MB。以下有一些调查日志的有用命令（为更多细节写 ``docker logs --help``）：
 
  * 所有可看的日志: ``docker logs farm-proxy``
  * 最近200日志: ``docker logs farm-proxy –-tail 200``
@@ -181,4 +181,4 @@ Braiins矿场代理正在Docker容器内保存其日志。Docker配置为存储�
  * 自时间戳以来的日志: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
  * 时间间隔的日志: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
 
-日志保存在 */var/lib/docker/containers/<container_id>/<container_id>-json.log*文件里。
+日志保存在 */var/lib/docker/containers/<container_id>/<container_id>-json.log* 文件里。

@@ -25,10 +25,10 @@ Braiins矿场代理idea配置可以分位两个主要部分：路由配置和附
 
 路由配置是在TOML文件中使用一个特定的结构完成的。配置文件的结构与算力布线的图表相对应，并使用上面解释的术语。在以下的文章中解释配置的例子。
 
-Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配置实例：
+Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML配置实例：
 
   * *minimal.toml*: 这是一个最小的配置文件，使用一个服务器、一个目标和默认聚合。
-  * *sample.toml*: 包含一些其他参数和它们解释。用在*docker-compose.yml*的默认配置文件。也包含一个服务器和一个目标。
+  * *sample.toml*: 包含一些其他参数和它们解释。用在 *docker-compose.yml* 的默认配置文件。也包含一个服务器和一个目标。
   * *two_servers_two_targets.toml*: 如何给矿工部署多个服务器，或者为Braiins矿场代理定义一个备份服务器的例子。
 
 路由配置包含5个部分：服务器、目标、路由、路由目标，路由目标级别。
@@ -70,7 +70,7 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       user_identity = "<userName.workerName（用户名.矿工名）>"
 
 * **name**: 目标的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
-* **user_identity**: 提交算力的身份。该**用户名**需要在目标矿池存在，要不矿池无法将您的算力连接到您的账户。
+* **user_identity**: 提交算力的身份。该 **用户名** 需要在目标矿池存在，要不矿池无法将您的算力连接到您的账户。
 
 路由域
 ==============
@@ -88,10 +88,10 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
       targets = ["MP-GL1"]
 
 * **from**: 在Braiins矿场代理中作为聚合代理使用的服务器列表。
-* **goal**: 布线规则的列表。 目标的**名称**属性在Grafana仪表盘中可见，它用于上游相关措施。**hr_weight**属性指算力分布比例的偏好。要注意的是权重而不是百分比。例如，权重2:1的比例将把算力分配到目标端点，大约67%的算力进入权重2的目标，33%的算力进入权重1的目标。在以下的配置例子，您可以看如何将算力分配到几个目标。
-* 布线目标级别列出用在上游端点应用的**目标**。
+* **goal**: 布线规则的列表。 目标的 **名称** 属性在Grafana仪表盘中可见，它用于上游相关措施。**hr_weight** 属性指算力分布比例的偏好。要注意的是权重而不是百分比。例如，权重2:1的比例将把算力分配到目标端点，大约67%的算力进入权重2的目标，33%的算力进入权重1的目标。在以下的配置例子，您可以看如何将算力分配到几个目标。
+* 布线目标级别列出用在上游端点应用的 **目标**。
 
-如果矿机上使用Braiins OS+固件，则**开发商费用的布线是自动的**  
+如果矿机上使用Braiins OS+固件，则 **开发商费用的布线是自动的**  
 
 矿工配置
 =====================
@@ -323,10 +323,10 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
 
  * **name**: 串: 大小写敏感，最小长度为1 (强制的），服务器的名称，
  * **port**: 整数 (强制的)，专供Braiins矿场代理的端口，
- * **extranonce_size**: 整数 (可选的)，下游设备（ASIC）所提供的超额随机数，必须至少*target*的*extranonce_size*标值少2， 默认为 *4*，
+ * **extranonce_size**: 整数 (可选的)，下游设备（ASIC）所提供的超额随机数，必须至少 *target* 的 *extranonce_size* 标值少2， 默认为 *4*，
  * **validates_hash_rate**: 布尔值 (真/假，可选的)， 代理是否需要验证来自下游的提交的参数， 默认为 *true*，
  * **use_empty_extranonce1**: 布尔值 (真/假，可选的)， 定义是否可以使用多一个字节的超额随机数（不是每个设备都支持这个）的参数，默认为 *false*,
- * **submission_rate**: real (可选的)，所需的下游提交率（矿工 → 代理）定义为每1秒的提交数量，默认为*0.2*（每5秒1次提交）。
+ * **submission_rate**: real (可选的)，所需的下游提交率（矿工 → 代理）定义为每1秒的提交数量，默认为 0.2（每5秒1次提交）。
  * **slushpool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Slush Pool用户名，
  * **bos_referral_code**: 串: 大小写敏感，最小长度为6 (可选的), 为获得优惠要提供全长的Braiins OS+推荐计划号。
    
@@ -337,8 +337,8 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
  * **url**: 串 (强制的), 矿池的挖矿URL地址，
  * **user_identity**: 串: 大小写敏感，最小长度为1 (强制的)，
  * **identity_pass_through**: 布尔值 (真/假，可选的)，将单个矿工身份传播到目标矿池上（向上游提交功能）， 默认为 *false*,
- * **extranonce_size**: 整数 (可选的)，向目标矿池所强制的超额随机数， 必须比*server*的*extranonce_size*标至少高2，默认为*6*（**一些矿池需要超额随机数至多4!: AntPool, Binance Pool, Luxor**）
- * **aggregation**: 整数 (可选的)，每上游连接聚合矿工（ASIC矿机）的数字，默认为*50*。
+ * **extranonce_size**: 整数 (可选的)，向目标矿池所强制的超额随机数， 必须比 *server* 的 *extranonce_size* 标至少高2，默认为 6（**一些矿池需要超额随机数至多4!: AntPool, Binance Pool, Luxor**）
+ * **aggregation**: 整数 (可选的)，每上游连接聚合矿工（ASIC矿机）的数字，默认为 50。
    
 布线
 -------
@@ -361,18 +361,17 @@ Braiin矿场代理在*./farm-proxy/config*路径具有三个预定义的TOML配�
 监控配置
 **************************
 
-其他配置是在*docker-compose.yml*文件中预定义的，这是运行Braiins矿场代理作为多容器Docker堆栈的一个基本应用。这个配置文件的设计使它需要尽可能少的编辑。Docker-compose包括这些服务的配置:
- * **Prometheus**: 在**9090**端口运行，可以通过浏览器访问，例如 ``http://<your-host>:9090/``
- * **Node Exporter**: 在**9100**端口运行，可以通过浏览器访问，例如 ``http:/<your-host>:9100/``
- * **Grafana**: 在**3000**端口运行，可以通过浏览器访问，例如 ``http://<your-host>:3000/``
+其他配置是在 *docker-compose.yml* 文件中预定义的，这是运行Braiins矿场代理作为多容器Docker堆栈的一个基本应用。这个配置文件的设计使它需要尽可能少的编辑。Docker-compose包括这些服务的配置:
+
+ * **Prometheus**: 在 **9090** 端口运行，可以通过浏览器访问，例如 ``http://<your-host>:9090/``
+ * **Node Exporter**: 在 **9100** 端口运行，可以通过浏览器访问，例如 ``http:/<your-host>:9100/``
+ * **Grafana**: 在 **3000** 端口运行，可以通过浏览器访问，例如 ``http://<your-host>:3000/``
 
 Grafana对于监控Braiins矿场代理的挖矿很重要。如果用户想为Grafana仪表盘建立自己的图表，Prometheus就很有用。Node Exporter是Prometheus数据库的操作系统和服务器指标的导出器。
 
-.. 注意::
+.. attention::
 
-   The file *docker-compose.yml* refers to a configuration file **sample.toml** in the configuration of the farm-proxy container. If the farm operator has his own configuration file and wants to address it to the farm-proxy, sample.toml must be replaced by that file. Below you can see the farm-proxy configuration in the *docker-compose.yml.*
-
- *docker-compose.yml*文件指的是矿场代理容器配置中的一个配置**sample.toml*的文件。如果矿场经营者有自己的配置文件想用，那s需要用这个文件来代替sample.toml。下面你可以看到*docker-compose.yml.*中的矿场代理配置。
+ *docker-compose.yml* 文件指的是矿场代理容器配置中的一个配置 **sample.toml** 的文件。如果矿场经营者有自己的配置文件想用，那s需要用这个文件来代替sample.toml。下面你可以看到*docker-compose.yml.*中的矿场代理配置。
 
 .. code-block:: shell
 
