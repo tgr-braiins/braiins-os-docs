@@ -1,0 +1,94 @@
+# server for a rig 1
+[[server]]
+name = "S1"
+# Port to listen on
+port = 3336
+
+# server for a rig 2
+[[server]]
+name = "S2"
+# Port to listen on
+port = 3337
+
+# server for a rig 3
+[[server]]
+name = "S3"
+# Port to listen on
+port = 3338
+
+# server for a rig 4
+[[server]]
+name = "S4"
+# Port to listen on
+port = 3339
+
+
+# server for a rig 5
+[[server]]
+name = "S5"
+# Port to listen on
+port = 3340
+
+# account 1
+[[target]]
+name = "SP1"
+url = "stratum+tcp://stratum.slushpool.com:3333"
+user_identity = "account1.fp"
+
+# account 2
+[[target]]
+name = "SP2"
+url = "stratum+tcp://stratum.slushpool.com:3333"
+user_identity = "account2.fp"
+
+# account 3
+[[target]]
+name = "SP3"
+url = "stratum+tcp://stratum.slushpool.com:3333"
+user_identity = "account3.fp"
+
+# account 4
+[[target]]
+name = "SP4"
+url = "stratum+tcp://stratum.slushpool.com:3333"
+user_identity = "account4.fp"
+
+# account 5
+[[target]]
+name = "SP5"
+url = "stratum+tcp://stratum.slushpool.com:3333"
+user_identity = "account5.fp"
+
+[[routing]]
+name = "RD"
+from = ["S1","S2","S3","S4","S5"]
+
+[[routing.goal]]
+name = "Goal 1"
+
+[[routing.goal.level]]
+targets = ["SP1"]
+
+[[routing.goal]]
+name = "Goal 2"
+
+[[routing.goal.level]]
+targets = ["SP2"]
+
+[[routing.goal]]
+name = "Goal 3"
+
+[[routing.goal.level]]
+targets = ["SP3"]
+
+[[routing.goal]]
+name = "Goal 4"
+
+[[routing.goal.level]]
+targets = ["SP4"]
+
+[[routing.goal]]
+name = "Goal 5"
+
+[[routing.goal.level]]
+targets = ["SP5"]
