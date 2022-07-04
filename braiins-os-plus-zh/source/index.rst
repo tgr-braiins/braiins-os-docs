@@ -81,6 +81,15 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 更新日志
 *********
 
+22.05
+---------------------------
+
+This is a minor release containing improved power curves for selected Antminers models.
+
+* Antminer family
+
+  * [feature] Power curve matrix has been added for models S19J and S19 pro so the estimation of power consumption is now more accurate
+
 22.02.4
 ---------------------------
 

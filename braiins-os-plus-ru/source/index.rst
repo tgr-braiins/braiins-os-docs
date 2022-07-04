@@ -82,6 +82,15 @@ Braiins OS + представляет улучшенную операционн�
 Журнал изменений
 ****************
 
+22.05
+---------------------------
+
+This is a minor release containing improved power curves for selected Antminers models.
+
+* Antminer family
+
+  * [feature] Power curve matrix has been added for models S19J and S19 pro so the estimation of power consumption is now more accurate
+
 22.02.4
 ---------------------------
 
