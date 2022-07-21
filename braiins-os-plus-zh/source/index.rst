@@ -81,6 +81,19 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 更新日志
 *********
 
+22.06
+---------------------------
+
+This is a major release for Beaglebone control boards only.
+
+* Antminer family
+
+  * [feature] Added support for Beagle Bone based control boards (including tuner, but excluding the auto-upgrade functionality)
+
+**Note:** this release won't run on other than Beaglebone control board equipped miners.
+
+**Note:** not sure which control board you have? check `here <https://braiins.com/blog/bitcoin-mining-control-board-variations>`_
+
 22.05
 ---------------------------
 
