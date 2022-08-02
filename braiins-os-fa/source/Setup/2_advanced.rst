@@ -388,11 +388,11 @@ save_apply                            ذخیره و اعمال تنظیمات ا
 
     برای خط فرمان **Windows**: ::
 
-      bos-toolbox.bat discover ARGUMENTS
+      bos-toolbox.bat ARGUMENTS
 
     برای خط فرمان **Linux**: ::
       
-     ./bos-toolbox discover ARGUMENTS
+     ./bos-toolbox ARGUMENTS
 
     **توجه** *زمانی که از BOS Toolbox برای لینوکس استفاده می‌کنید، لازم است برای قابل اجرا کردن کردن فایل از دستور زیر استفاده کنید (این برای یکبار کافی‌ است):* ::
   
@@ -421,13 +421,13 @@ listen                                گوش فرا دادن به پخش‌ها�
 ::
 
  #اسکن شبکه در محدوده رنج آی پی 10.10.10.0 - 10.10.10.255
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #اسکن شبکه در محدوده رنج آی پی 10.10.0.0 - 10.10.255.255
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #اسکن شبکه در محدوده رنج آی پی 10.0.0.0 - 10.255.255.255
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_command:
 

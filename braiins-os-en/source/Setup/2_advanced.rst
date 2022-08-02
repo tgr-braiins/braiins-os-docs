@@ -365,11 +365,11 @@ Scan the network to identify miners using BOS Toolbox
 
     For **Windows** command terminal: ::
 
-      bos-toolbox.bat discover ARGUMENTS
+      bos-toolbox.bat ARGUMENTS
 
     For **Linux** command terminal: ::
       
-      ./bos-toolbox discover ARGUMENTS
+      ./bos-toolbox ARGUMENTS
 
     **Note:** *when using BOS Toolbox for Linux, you need to make it executable with the following command (this has to be done only once):* ::
   
@@ -398,13 +398,13 @@ listen                                listen for incoming broadcast from devices
 ::
 
   #scan the network, in the range 10.10.10.0 - 10.10.10.255
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #scan the network, in the range 10.10.0.0 - 10.10.255.255
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #scan the network, in the range 10.0.0.0 - 10.255.255.255
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_command:
 

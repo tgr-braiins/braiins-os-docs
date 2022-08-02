@@ -313,13 +313,13 @@ Verbose                               -v, --verbose                         Repo
 ::
 
   #scan the network, in the range 10.10.10.0 - 10.10.10.255
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #scan the network, in the range 10.10.0.0 - 10.10.255.255
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #scan the network, in the range 10.0.0.0 - 10.255.255.255
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_listen:
 
@@ -340,7 +340,7 @@ GUI Options                           Arguments                             Desc
 Save output                           -o OUTPUT, --output OUTPUT            Save list of found IP addresses to a file
 Format                                --format FORMAT                       change default formatting string for device information; the
                                                                             tags '{IP}' and '{MAC}' will be replaced with actual data
-*N/A* - Not implemented               -h, --help                                                                  Show this help message and exit
+*N/A* - Not implemented               -h, --help                            Show this help message and exit
 ====================================  ====================================  ============================================================
 
 .. _bosbox_command:

@@ -318,13 +318,13 @@ Verbose                               -v, --verbose                         Со
 ::
 
   #scan the network, in the range 10.10.10.0 - 10.10.10.255
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #scan the network, in the range 10.10.0.0 - 10.10.255.255
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #scan the network, in the range 10.0.0.0 - 10.255.255.255
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
   
 .. _bosbox_listen:
 

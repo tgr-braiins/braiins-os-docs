@@ -360,11 +360,11 @@ save_apply                            保存并应用之前从CSV文件复制（
 
     在 **Windows** 上的命令提示行请用： ::
 
-      bos-toolbox.bat discover ARGUMENTS
+      bos-toolbox.bat ARGUMENTS
 
     在 **Linux** 上的Terminal控制终端请用： ::
       
-      ./bos-toolbox discover ARGUMENTS
+      ./bos-toolbox ARGUMENTS
       
     **请注意：** *当在Linux系统中使用BOS工具箱时，您需要先使用以下命令让BOS工具箱变得可执行（一次就够）：* ::
   
@@ -392,13 +392,13 @@ listen                                监听矿机识别广播（当按下IP rep
 ::
 
   #扫描从10.10.10.0到10.10.10.255的网络范围
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #扫描从10.10.0.0到10.10.255.255的网络范围
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #扫描从10.10.0.0到10.255.255.255的网络范围
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_command:
 

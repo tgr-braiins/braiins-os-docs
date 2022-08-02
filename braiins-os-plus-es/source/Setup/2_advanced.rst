@@ -314,13 +314,13 @@ Verbose                               -v, --verbose                         Repo
 ::
 
   #escanear la red, en el rango 10.10.10.0 - 10.10.10.255
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #escanear la red, en el rango 10.10.0.0 - 10.10.255.255
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #escanear la red, en el rango 10.0.0.0 - 10.255.255.255
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_listen:
 
@@ -1323,7 +1323,7 @@ listen                                escuchar transmisión entrande desde los d
 
 ::
 
-  ./bos-toolbox.bat discover scan 10.10.10.0/24
+  ./bos-toolbox.bat scan 10.10.10.0/24
 
 Este comando va explorar la red, en el rango 10.10.10.0 - 10.10.10.255 y mostrará los mineros que encuentre con sus direcciones IP.
 

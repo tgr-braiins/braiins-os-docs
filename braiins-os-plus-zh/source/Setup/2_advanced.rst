@@ -297,7 +297,7 @@ GUI选项                               参数                                  
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
   * 创建一个txt文本文件，然后在文件内按需输入矿机IP地址， **一个IP地址一行！** 保存文本文件后，再将文件后缀从".txt"改为".csv"（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）* 中可以进行查询，或用Braiins OS+管家或BTCTool批量扫描导出）。批量表格和BOS工具箱需在同一路径下（同一文件夹中）。  
   * 下载BOS+工具箱后，双击（Windows上）或使用命令行 ``./bos-toolbox`` （Linux上）打开工具箱。
-  * 在 **扫描（discover scan）** 部分，选择刚刚创建的csv批量表格文件确定要操作的 **矿机名** 范围，然后点击 **启动** 。
+  * 在 **扫描（scan）** 部分，选择刚刚创建的csv批量表格文件确定要操作的 **矿机名** 范围，然后点击 **启动** 。
   
 
 您可以使用下方的 **参数** 调整网络扫描和矿机发现进程：
@@ -318,13 +318,13 @@ GUI选项                                参数                                 
 ::
 
   #扫描从10.10.10.0到10.10.10.255的网络范围
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #扫描从10.10.0.0到10.10.255.255的网络范围
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #扫描从10.10.0.0到10.255.255.255的网络范围
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_listen:
 
@@ -335,7 +335,7 @@ GUI选项                                参数                                 
   * 在我们 `官网 <https://zh.braiins-os.com/plus/download/>`_ 上下载 **BOS工具箱** 。
   * 创建一个txt文本文件，然后在文件内按需输入矿机IP地址， **一个IP地址一行！** 保存文本文件后，再将文件后缀从".txt"改为".csv"（矿机的IP地址在矿机网页端界面中的 *Status（状态）-> Overview（总览）* 中可以进行查询，或用Braiins OS+管家或BTCTool批量扫描导出）。批量表格和BOS工具箱需在同一路径下（同一文件夹中）。  
   * 下载BOS+工具箱后，双击（Windows上）或使用命令行 ``./bos-toolbox`` （Linux上）打开工具箱。
-  * 在 **监听（discover listen）** 部分，选择刚刚创建的csv批量表格文件确定要操作的 **矿机名** 范围，然后点击 **启动** 。
+  * 在 **监听（listen）** 部分，选择刚刚创建的csv批量表格文件确定要操作的 **矿机名** 范围，然后点击 **启动** 。
     
   您可以使用下方的 **参数** 调整监听的进程：
   

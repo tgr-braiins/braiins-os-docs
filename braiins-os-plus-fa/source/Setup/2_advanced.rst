@@ -314,13 +314,13 @@ Verbose                               -v, --verbose                         گز
 ::
 
  #اسکن شبکه در محدوده رنج آی پی 10.10.10.0 - 10.10.10.255
-  bos-toolbox.bat discover scan 10.10.10.0/24
+  bos-toolbox.bat scan 10.10.10.0/24
 
   #اسکن شبکه در محدوده رنج آی پی 10.10.0.0 - 10.10.255.255
-  bos-toolbox.bat discover scan 10.10.0.0/16
+  bos-toolbox.bat scan 10.10.0.0/16
 
   #اسکن شبکه در محدوده رنج آی پی 10.0.0.0 - 10.255.255.255
-  bos-toolbox.bat discover scan 10.0.0.0/8
+  bos-toolbox.bat scan 10.0.0.0/8
 
 .. _bosbox_listen:
 
