@@ -21,7 +21,11 @@ Monitoring
 Grafana Dashboard
 *****************
 
-Grafana sits on port 3000 and can be accessed in your browser ``http://<your_host>:3000/``.Grafana is fed by scraped data from the Prometheus database. A simple dashboard called “Client Dashboard” is already prepared.
+Grafana sits on port 3000 and can be accessed in your browser ``http://<your_host>:3000/``.Grafana is fed by scraped data from the Prometheus database. There are two types dashboards which are already prepared:
+
+1. Farm Proxy dashboards, which are focusing on hashrate aggregation and network quality. There are two available dashboards:
+
+A simple dashboard called “Client Dashboard”, which is a default dashboard.
 
   .. |pic6| image:: ../_static/dashboard.png
       :width: 100%
@@ -29,7 +33,7 @@ Grafana sits on port 3000 and can be accessed in your browser ``http://<your_hos
 
   |pic6|
 
-The dashboards shows following metrics and graphs:
+The dashboard shows following metrics and graphs:
 
  * Left hand side of the dashboard can be switched for standard hashrate to dev fee hashrate.
 
@@ -45,9 +49,15 @@ The dashboards shows following metrics and graphs:
    * Corresponding Aggregation,
    * Aggregation time series in the last 3 hours.
 
-Grafana also contains a second default dashboard called Debug Dashboard FP which pays attention to detailed metrics for debugging purposes.
+Other dashboard is called "Debug Dashboard FP" which pays attention to detailed metrics for debugging purposes.
+
+2. Farm Monitor dashboards, which are displaying graphs and metrics about the farm and defined (scanned) miners. Currently, only miners with Braiins OS+ firmware can be monitored in these dashboards, but Braiins plans to support relevant miner models running on stock firmware in the near future. Detailed info about these dashboards is provided in the next chapter :ref:`Monitoring Braiins OS+ with Prometheus and Grafana`.
 
 Farms can make their own dashboards based on the available data in Prometheus database to meet their specific needs.
+
+.. attention::
+
+   On a short timeframe, it is usual for hashrate on downstream and upstream to differ. The shorter the timeframe, the higher the possible difference. On the one hand, the upstream difficulty (difficulty set by mining pool) is high because only more valuable shares are propagated, on the other hand downstream difficulty is low because it is a difficulty set to the individual miner. It implies that there are lots of submits (with low difficulty) on downstream and a few submits (with high difficulty) on upstream. Since submitting follows the Poisson process, the variance of the event of submit is quite high and on the short timeframe there are not many submits, especially on upstream. This fact makes downstream and upstream hashrate different on 5 minutes or even 1 hour timeframes. With a longer observation window, the hashrates become closer and 1 day hashrate should be almost identical on downstream and upstream.
 
 *****************************
 Enriching Existing Dashboards
@@ -58,8 +68,9 @@ In case the farm is already running Prometheus and Grafana and wants to enrich i
 * adding scrapping configuration for Prometheus,
 
    * farm-proxy: ``http://<farm_proxy>:8080/metrics``,
+   * 
    * nodeexporter (if running): ``http://<farm_proxy>:9100/metrics``,
-* importing dashboards to Grafana from farm-proxy/monitoring/grafana/dashboards.
+* importing dashboards to Grafana from farm-proxy/monitoring/grafana/provisioning/default_dashboards.
 
 *************
 Reporting API
@@ -179,6 +190,6 @@ Braiins Farm Proxy is saving its logs within a Docker container. Docker is confi
  * last 200 logs: ``docker logs farm-proxy –-tail 200``
  * logs from last 20 minutes: ``docker logs farm-proxy --since "20m"``
  * logs since timestamp: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
- * logs in time interval: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
+ * logs in time interval: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until "2022-03-30T05:21:36"``
 
 Logs are saved in */var/lib/docker/containers/<container_id>/<container_id>-json.log*.

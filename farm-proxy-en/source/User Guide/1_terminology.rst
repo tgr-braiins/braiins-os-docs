@@ -17,7 +17,7 @@ Terminology
   :local:
   :depth: 2
 
-Braiins Farm proxy is a software application that accepts hashrate through multiple listening ports **[Servers]** [#f1]_ transferring it to the multiple endpoints **[Targets]** by following defined rules **[Routing goals]**. Targets are referred to a list of endpoints **[Routing goal levels]**. A collection of Servers, Routing goals and Routing goal levels is referred to as the **Routing domain**.
+Braiins Farm proxy is a software application that accepts hashrate through multiple listening ports **Servers** [#f1]_ transferring it to the multiple endpoints **Targets** by following defined rules **Routing goals**. Targets are referred to a list of endpoints **Routing goal levels**. A collection of Servers, Routing goals and Routing goal levels is referred to as the **Routing domain**.
 
 Connections from miners to the Braiins Farm Proxy are referred to as **Downstream** connections. Connections from Braiins Farm Proxy to a mining pool are referred to as **Upstream** connections.
 

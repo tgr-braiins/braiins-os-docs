@@ -55,8 +55,8 @@ At the beginning it is required to install a couple of prerequisites:
 
 Docker stack consists of following containers:
  * *farm-proxy*: container with the Braiins Farm Proxy binary,
+ * *bos_scanner*: container with the ssh scanner, which scans for miners with Braiins OS+ firmware on a defined network for the purpose of preparing data for the Grafana dashboard **Farm Dashboard**,
  * *grafana*: container with Grafana application,
- * *nodeexporter*: container with the exporter of hardware and OS data for Prometheus database,
  * *prometheus*: container with the Prometheus database.
 
 A standalone binary of Braiins Farm Proxy can be downloaded from the public Github `here <https://github.com/braiins/farm-proxy/releases>`_.
@@ -87,7 +87,7 @@ Sometimes the mining operator may want to stop Braiins Farm Proxy. It can be don
 Upgrade
 *******
 
-It is recommended to follow the Braiins Farm Proxy Github repository and get notified if a new version is available. To upgrade to a newer version just run the command ``git pull origin master`` in the Linux terminal. If you made any changes in the configuration files you might want to save the modified files or stash them with command ``git stash`` before the upgrade.
+Braiins  recommends miners to monitor the Braiins Farm Proxy Github repository to be  notified if a new version is available. To upgrade to a newer version just run the command ``git pull origin master`` in the Linux terminal. If you made any changes in the configuration files you might want to save the modified files or stash them with command ``git stash`` before the upgrade. If you made any changes in the docker-compose.yml file, you will need to make them again after the upgrade since the ``git pull`` pulls the docker-compose.yml from the Github repository.
 
 *********
 Uninstall
@@ -98,4 +98,5 @@ To completely remove farm-proxy and out-of-the-box monitoring from your system y
 1. Stop farm-proxy & out-of-the-box monitoring: ``docker-compose down``,
 2. Remove containers: ``docker container prune``,
 3. Remove images: ``docker image prune -a``,
-4. Remove stored monitoring data: ``docker volume prune``.
+4. Remove stored monitoring data: ``docker volume prune``,
+5. Remove the folder: ``rm -rf farm-proxy/``.
