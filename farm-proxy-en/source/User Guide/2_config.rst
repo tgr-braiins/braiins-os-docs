@@ -17,7 +17,7 @@ Configuration
   :local:
   :depth: 2
 
-Braiins Farm Proxy configuration can be split into two main categories - routing configuration and configuration of the accompanying programs (which are Prometheus and Grafana).
+Braiins Farm Proxy configuration can be split into two main categories - routing configuration and configuration of the accompanying programs (which are BOS Scanner, Prometheus and Grafana).
 
 *********************
 Routing Configuration
@@ -47,14 +47,14 @@ Server is a template for downstream connections. Each server can be utilized onl
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<slushpool username>"
+      slushpool_bos_bonus = "<Braiins Pool username>"
       bos_referral_code = "<Braiins OS+ referral code>"
 
 
 
 * **name**: name of the server. It is visible as a value of “server” dimension in all downstream related metrics (submits, shares, connections) in Grafana monitoring.
 * **port**: defines port Braiins Farm Proxy will open and accept miner’s connections on.
-* **slushpool_bos_bonus**: Slush Pool username for which Braiins OS+ bonus is applied.
+* **slushpool_bos_bonus**: Braiins Pool username for which Braiins OS+ bonus is applied.
 * **bos_referral_code**: Braiins OS+ referral code.
    
 Target
@@ -131,7 +131,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       targets = ["SP-GL"]
 
 
-* **Basic configuration**: Example with a mining operation in a single facility located in Europe. The primary target is Slush Pool (EU URL), but it is backed up by general and Russian Slush Pool URLs. The farm has 700 hundred ASIC machines and its desired aggregation is 100. It means that there should be between 6 and 7 upstream connections to the target. The farm’s revenue is increased by utilizing BOS+ firmware and mining on Slush Pool.
+* **Basic configuration**: Example with a mining operation in a single facility located in Europe. The primary target is Braiins Pool (EU URL), but it is backed up by general and Russian Braiins Pool URLs. The farm has 700 hundred ASIC machines and its desired aggregation is 100. It means that there should be between 6 and 7 upstream connections to the target. The farm’s revenue is increased by utilizing BOS+ firmware and mining on Braiins Pool.
 
 .. code-block:: shell
 
@@ -172,7 +172,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **Multiple owners of the workers**: The farm has dedicated workers for mining on Slush Pool with listening port 3336 and other workers dedicated to Antpool mining on port 3337. Antpool requires maximal extranonce to be 4 and it has to be configured in Braiins Farm Proxy configuration. This example configuration is suitable in the case that the workers have 2 owners and thus multiple servers are defined and used. Multiple instances of Braiins Farm Proxy (let’s say in our example it’s 2 Raspberry Pi machines) with 2 different configurations can be used.
+* **Multiple owners of the workers**: The farm has dedicated workers for mining on Braiins Pool with listening port 3336 and other workers dedicated to Antpool mining on port 3337. Antpool requires maximal extranonce to be 4 and it has to be configured in Braiins Farm Proxy configuration. This example configuration is suitable in the case that the workers have 2 owners and thus multiple servers are defined and used. Multiple instances of Braiins Farm Proxy (let’s say in our example it’s 2 Raspberry Pi machines) with 2 different configurations can be used.
    
 .. code-block:: shell
 
@@ -189,13 +189,13 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[target]]
       name = "SP-EU"
       url = "stratum+tcp://eu.stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
       url = "stratum+tcp://stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50                                                      
 
       [[target]]
@@ -216,10 +216,10 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       from = ["s1","s2"]
       [[routing.goal]]
       name = "Goal SP"
-      # Primary Slush Pool
+      # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -245,13 +245,13 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[target]]
       name = "SP-EU"
       url = "stratum+tcp://eu.stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
       url = "stratum+tcp://stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
@@ -285,10 +285,10 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[routing.goal]]
       name = "Goal SP"
       hr_weight = 100
-      # Primary Slush Pool
+      # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -328,7 +328,7 @@ Server
  * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
  * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
  * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
- * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Slush Pool username for which Braiins OS+ discount is applied,
+ * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Braiins Pool username for which Braiins OS+ discount is applied,
  * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
    
 Target
@@ -364,11 +364,11 @@ Accompanying Configuration
 
 Other configuration is predefined in the file *docker-compose.yml* which is an essential application for running Braiins Farm Proxy as a multi-container Docker stack. This config file is designed in a way to require as few edits as possible. Docker-compose consists of the configuration of these services:
 
+ * **BOS Scanner**: scans network on ssh port 8081, on which miners with Braiins OS+ firmware expose metrics to be scraped by Prometheus and visualized in Grafana dashboards, which are included in the directory ``./monitoring/grafana/provisioning/default_dashboards/farm-monitor/``. Configuration of ranges of the IP addresses for the scanning is done in the file **scan_crontab**, more info about it is provided in the following chapter :ref:`Monitoring Braiins OS+ with Prometheus and Grafana`,
  * **Prometheus**: runs on port **9090**, it can be accessed in your browser, e.g. ``http://<your-host>:9090/``
- * **Node Exporter**: runs on port **9100**, it can be accessed in your browser, e.g. ``http:/<your-host>:9100/``
  * **Grafana**: runs on port **3000**, it can be accessed in your browser, e.g. ``http://<your-host>:3000/``
 
-Grafana is crucial for the monitoring of mining with Braiins Farm Proxy. Prometheus can be useful in case the user wants to build their own graphs for Grafana dashboards. Node Exporter is an exporter of OS and server metrics for Prometheus database.
+Grafana is crucial for the monitoring of mining with Braiins Farm Proxy. Prometheus feeds Grafana with data and can be useful in case the user wants to build their own graphs for Grafana dashboards.
 
 .. attention::
 
