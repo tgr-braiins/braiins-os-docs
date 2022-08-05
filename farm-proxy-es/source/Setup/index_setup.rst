@@ -55,8 +55,8 @@ Al principio se requiere instalar un par de requisitos:
 
 La pila Docker consiste de los siguientes contenedores:
  * *farm-proxy*: contenedor con el binario Braiins Farm Proxy,
+ * *bos_scanner*: contenedor con el escáner ssh, que escanea en busca de mineros con firmware Braiins OS+ en una red definida con el fin de preparar los datos para el tablero de Grafana **Farm Dashboard**,
  * *grafana*: contenedor con la aplicación Grafana,
- * *nodeexporter*: contenedor con el exportador de datos de equipo y sistema operativo para la base de datos Prometheus,
  * *prometheus*: contenedor con la base de datos Prometheus.
 
 Un binario independiente del Braiins Farm Proxy puede descargarse desde el Github público `aquí <https://github.com/braiins/farm-proxy/releases>`_.
