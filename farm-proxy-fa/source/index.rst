@@ -7,6 +7,7 @@
    self
    Setup/index*
    User Guide/index*
+   Monitoring Braiins OS+ with Prometheus and Grafana/index*
    Troubleshooting/index*
    Support/index*
 

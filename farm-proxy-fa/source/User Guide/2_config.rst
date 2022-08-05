@@ -17,7 +17,7 @@
   :local:
   :depth: 2
 
-پیکربندی Braiins Farm Proxy را می توان به دو دسته اصلی تقسیم کرد - پیکربندی مسیریابی و پیکربندی برنامه های همراه (که Prometheus و Grafana هستند).
+پیکربندی Braiins Farm Proxy را می توان به دو دسته اصلی تقسیم کرد - پیکربندی مسیریابی و پیکربندی برنامه های همراه (که Prometheus و Grafana ,BOS Scanner هستند).
 
 *********************
 پیکربندی مسیریابی
@@ -48,7 +48,7 @@ Server
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<slushpool username>"
+      slushpool_bos_bonus = "<Braiins Pool username>"
       bos_referral_code = "<Braiins OS+ referral code>"
 
 
@@ -190,13 +190,13 @@ Workers پیکربندی
       [[target]]
       name = "SP-EU"
       url = "stratum+tcp://eu.stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
       url = "stratum+tcp://stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50                                                      
 
       [[target]]
@@ -246,13 +246,13 @@ Workers پیکربندی
       [[target]]
       name = "SP-EU"
       url = "stratum+tcp://eu.stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
       url = "stratum+tcp://stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
@@ -366,10 +366,9 @@ Routing Goal Level
 پیکربندی دیگر در فایل *docker-compose.yml* از پیش تعریف شده است که یک برنامه ضروری برای اجرای Braiins Farm Proxy به عنوان یک پشته Docker چند کانتینری است. این فایل پیکربندی به گونه ای طراحی شده است که به حداقل ویرایش ممکن نیاز دارد. Docker-compose شامل پیکربندی این خدمات است:
 
  * **Prometheus**: روی پورت **9090** اجرا می شود، می توان به آن در مرورگر خود به آدرس مقابل دسترسی داشت، به عنوان مثال. ``http://<your-host>:9090/``
- * **Node Exporter**: روی پورت **9100** اجرا می شود، می توان به آن در مرورگر خود به آدرس مقابل دسترسی داشت، به عنوان مثال. ``http:/<your-host>:9100/``
  * **Grafana**: روی پورت **3000** اجرا می شود، می توان به آن در مرورگر خود به آدرس مقابل دسترسی داشت، به عنوان مثال. ``http://<your-host>:3000/``
 
-Grafana برای مانیتورینگ بر استخراج با Braiins Farm Proxy بسیار مهم است. Prometheus می تواند مفید باشد در صورتی که کاربر بخواهد نمودارهای خود را برای داشبورد Grafana بسازد. Node Exporter صادرکننده پارامترهای سیستم عامل و سرور برای پایگاه داده Prometheus است.
+Grafana برای مانیتورینگ بر استخراج با Braiins Farm Proxy بسیار مهم است. Prometheus داده ها را برای Grafana تامین می کنم و می تواند مفید باشد در صورتی که کاربر بخواهد نمودارهای خود را برای داشبورد Grafana بسازد.
 
 .. attention::
 
