@@ -21,7 +21,11 @@ Monitorización
 Tablero Grafana
 ***************
 
-Grafana se encuentra en el puerto 3000 y se puede acceder desde su navegador ``http://<su_host>:3000/``.Grafana se alimenta de los datos reunidos por la base de datos Prometheus. Un tablero sencillo llamado “Client Dashboard” ya está preparado.
+Grafana se encuentra en el puerto 3000 y se puede acceder desde su navegador ``http://<su_host>:3000/``.Grafana se alimenta de los datos reunidos por la base de datos Prometheus. Hay dos tipos de tableros que ya están preparados:
+
+1. Tableros de Farm Proxy, que se centran en la agregación de tasa de hash y la calidad de la red. Hay dos paneles disponibles:
+
+Un tablero simple llamado "Client Dashboard", que es un tablero por defecto.
 
   .. |pic6| image:: ../_static/dashboard.png
       :width: 100%
@@ -29,7 +33,7 @@ Grafana se encuentra en el puerto 3000 y se puede acceder desde su navegador ``h
 
   |pic6|
 
-Los tableros muestran las siguientes métricas y gráficas:
+El tablero muestra las siguientes métricas y gráficas:
 
  * Del lado a mano izquierda del tablero se puede cambiar de tasa de hash normal a la tasa de hash de la tarifa de desarrollo.
 
@@ -45,9 +49,15 @@ Los tableros muestran las siguientes métricas y gráficas:
    * Agregación Correspondiente,
    * Serie de tiempo de agregación en las últimas 3 horas.
 
-Grafana también contiene un segundo tablero predeterminado llamado Debug Dashboard FP que presta atención a métricas detalladas con fines de depuración.
+Otro tablero llamado "Debug Dashboard FP" que presta atención a las métricas detalladas con fines de depuración.
+
+2. Farm Monitor dashboards, which are displaying graphs and metrics about the farm and defined (scanned) miners. Currently, only miners with Braiins OS+ firmware can be monitored in these dashboards, but Braiins plans to support relevant miner models running on stock firmware in the near future. Detailed info about these dashboards is provided in the next chapter :ref:`Monitoring Braiins OS+ with Prometheus and Grafana`.
 
 Las granjas pueden hacer sus propios tableros basados en los datos disponibles la base de datos Prometheus para alcanzar sus necesidades específicas.
+
+.. attention::
+
+   En un plazo de tiempo corto, es habitual que la tasa de hash en el flujo descendente y en el ascendente difiera. Cuanto más corto sea el plazo, mayor será la posible diferencia. Por un lado, la dificultad de subida (dificultad establecida por el pool de minería) es alta porque sólo se propagan las participaciones más valiosas, por otro lado la dificultad de bajada es baja porque es una dificultad establecida para el minero individual. Esto implica que hay muchos envíos (con una dificultad baja) en el flujo descendente y pocos envíos (con una dificultad alta) en el flujo ascendente. Como el envío sigue el proceso de Poisson, la varianza del evento de envío es bastante alta y en el corto plazo no hay muchos envíos, especialmente en el flujo ascendente. Este hecho hace que las tasas de hash descendente y ascendente sean diferentes en plazos de 5 minutos o incluso de 1 hora. Con una ventana de observación más larga, las tasas de hash se acercan más y la tasa de hash de 1 día debería ser casi idéntica en downstream y upstream.
 
 **************************************
 Enriquecimiento de Tableros Existentes
@@ -58,8 +68,9 @@ En caso de que la granja ya esté corriendo Prometheus y Grafana y quiere enriqu
 * agregación de la configuración de recolección de datos para Prometheus,
 
    * farm-proxy: ``http://<farm_proxy>:8080/metrics``,
+   *
    * nodeexporter (si está corriendo): ``http://<farm_proxy>:9100/metrics``,
-* importación de tableros a Grafana desde farm-proxy/monitoring/grafana/dashboards.
+* importación de tableros a Grafana desde farm-proxy/monitoring/grafana/provisioning/default_dashboards.
 
 **************
 API de reporte
@@ -179,6 +190,6 @@ Braiins Farm Proxy guarda sus registros dentro de un contenedor Docker. Docker e
  * últimos 200 registros: ``docker logs farm-proxy –-tail 200``
  * registros de los últimos 20 minutos: ``docker logs farm-proxy --since "20m"``
  * registros desde la última marca de tiempo: ``docker logs farm-proxy --since "2022-03-30T05:20:00"``
- * registros en un intervalo de tiempo: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until 2022-03-30T05:21:36"``
+ * registros en un intervalo de tiempo: ``docker logs farm-proxy --since "2022-03-30T05:20:00" --until "2022-03-30T05:21:36"``
 
 Los registros se guardan en */var/lib/docker/containers/<container_id>/<container_id>-json.log*.
