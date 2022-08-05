@@ -87,7 +87,7 @@ A veces el operador minero podría desear detener Braiins Farm Proxy. Puede hace
 Actualizar
 **********
 
-Es recomendado seguir el repositorio Github Braiins Farm Proxy y recibir la notificación si una versión nueva está disponible. Para actualizar a una nueva versión solo corra el comando ``git pull origin master`` en la terminal Linux. Si hizo algún cambio a los archivos de configuración podría querer guardar los archivos modificados o esconderlos con el comando ``git stash`` antes de actualizar.
+Braiins recomienda a los mineros vigilar el repositorio Github Braiins Farm Proxy para ser notificados si una versión nueva está disponible. Para actualizar a una nueva versión solo corra el comando ``git pull origin master`` en la terminal Linux. Si hizo algún cambio a los archivos de configuración podría querer guardar los archivos modificados o esconderlos con el comando ``git stash`` antes de actualizar. Si ha realizado algún cambio en el archivo docker-compose.yml, tendrá que hacerlos de nuevo después de la actualización ya que el ``git pull`` jala el docker-compose.yml del repositorio Github.
 
 ***********
 Desinstalar
@@ -98,4 +98,5 @@ Para remover completamente farm-proxy y la supervisión inmediata de su sistema 
 1. Detener farm-proxy y supervisión inmediata: ``docker-compose down``,
 2. Remover contenedores: ``docker container prune``,
 3. Remover imágenes: ``docker image prune -a``,
-4. Remover datos de vigilancia almacenados: ``docker volume prune``.
+4. Remover datos de vigilancia almacenados: ``docker volume prune``,
+5. Remover la carpeta: ``rm -rf farm-proxy/``.
