@@ -17,7 +17,7 @@ Terminología
   :local:
   :depth: 2
 
-Braiins Farm proxy es una aplicación de software que acepta tasa de hash a través de múltiples puertos de escucha **[Servers]** [#f1]_ transfiriéndola a los múltiples puntos finales **[Targets]** siguiendo reglas definidas **[Routing goals]**. Los objetivos se refieren a una lista de puntos finales **[Routing goal levels]**. Una colección de Servidores, Objetivos de ruta y Niveles de objetivos de ruta se denomina como el **Routing domain**.
+Braiins Farm proxy es una aplicación de software que acepta tasa de hash a través de múltiples puertos de escucha **Servers** [#f1]_ transfiriéndola a los múltiples puntos finales **Targets** siguiendo reglas definidas **Routing goals**. Los objetivos se refieren a una lista de puntos finales **Routing goal levels**. Una colección de Servidores, Objetivos de ruta y Niveles de objetivos de ruta se denomina como el **Routing domain**.
 
 Las conexiones desde los mineros al Braiins Farm Proxy son definidas como conexiones **Downstream** (aguas abajo). Las conexiones desde Braiins Farm Proxy al pool de minería son definidas como conexiones **Upstream** (aguas arriba).
 
