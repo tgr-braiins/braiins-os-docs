@@ -55,7 +55,7 @@ Server
 
 * **name**: نام سرور. این به عنوان یک مقدار بعد "سرور" در تمام معیارهای مربوط به پایین دست (submits, shares, connections) در نظارت Grafana قابل مشاهده است.
 * **port**: پورتی را تعریف می کند که Braiins Farm Proxy باز می شود و اتصالات ماینر را می پذیرد.
-* **slushpool_bos_bonus**: نام کاربری Slush Pool که پاداش +Braiins OS برای آن اعمال می شود.
+* **slushpool_bos_bonus**: نام کاربری Braiins Pool که پاداش +Braiins OS برای آن اعمال می شود.
 * **bos_referral_code**: کد ارجاع +Braiins OS.
    
 Target
@@ -132,7 +132,7 @@ Workers پیکربندی
       targets = ["SP-GL"]
 
 
-* **پیکربندی پایه**: به عنوان مثال با یک عملیات ماینینگ در یک مرکز واحد واقع در اروپا. هدف اصلی Slush Pool (URL اتحادیه اروپا) است، اما توسط URL های عمومی و روسی Slush Pool پشتیبانی می شود. فارم دارای ۷۰۰۰۰ دستگاه ASIC است و تجمع مورد نظر آن 100 است. یعنی باید بین ۶ تا ۷ اتصال upstream به هدف وجود داشته باشد. درآمد فارم با استفاده از فریم‌ور +Braiins OS و استخراج در Slush Pool افزایش می یابد.
+* **پیکربندی پایه**: به عنوان مثال با یک عملیات ماینینگ در یک مرکز واحد واقع در اروپا. هدف اصلی Braiins Pool (URL اتحادیه اروپا) است، اما توسط URL های عمومی و روسی Braiins Pool پشتیبانی می شود. فارم دارای ۷۰۰۰۰ دستگاه ASIC است و تجمع مورد نظر آن 100 است. یعنی باید بین ۶ تا ۷ اتصال upstream به هدف وجود داشته باشد. درآمد فارم با استفاده از فریم‌ور +Braiins OS و استخراج در Braiins Pool افزایش می یابد.
 
 .. code-block:: shell
 
@@ -173,7 +173,7 @@ Workers پیکربندی
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **مالک‌های چندگانه ورکرها**: فارم دارای ورکرهای اختصاص داده شده برای استخراج در Slush Pool با پورت 3336 و سایر ورکرها به استخراج در Antpool در پورت 3337 اختصاص داده شده اند. این پیکربندی مثال برای مواردی مناسب است که ورکرها ۲ مالک داشته باشند و بنابراین چندین سرور تعریف و استفاده می شود. چندین سخت‌افزار پیاده سازی شده از Braiins Farm Proxy (بگذارید در مثال ما بگوییم ۲ دستگاه Raspberry Pi هستند) با ۲ پیکربندی مختلف می توانند استفاده شوند.
+* **مالک‌های چندگانه ورکرها**: فارم دارای ورکرهای اختصاص داده شده برای استخراج در Braiins Pool با پورت 3336 و سایر ورکرها به استخراج در Antpool در پورت 3337 اختصاص داده شده اند. این پیکربندی مثال برای مواردی مناسب است که ورکرها ۲ مالک داشته باشند و بنابراین چندین سرور تعریف و استفاده می شود. چندین سخت‌افزار پیاده سازی شده از Braiins Farm Proxy (بگذارید در مثال ما بگوییم ۲ دستگاه Raspberry Pi هستند) با ۲ پیکربندی مختلف می توانند استفاده شوند.
    
 .. code-block:: shell
 
@@ -217,10 +217,10 @@ Workers پیکربندی
       from = ["s1","s2"]
       [[routing.goal]]
       name = "Goal SP"
-      # Primary Slush Pool
+      # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -286,10 +286,10 @@ Workers پیکربندی
       [[routing.goal]]
       name = "Goal SP"
       hr_weight = 100
-      # Primary Slush Pool
+      # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -329,7 +329,7 @@ Server
  * **validates_hash_rate**: boolean (true/false, اختیاری), پارامتر تعیین می کند که آیا پروکسی باید ارسال را از پایین دست اعتبار سنجی کند، پیش فرض *true* است،
  * **use_empty_extranonce1**: boolean (true/false, اختیاری), پارامتر تعیین می کند که آیا می توان از 1 بایت بیشتر از nonce اضافی استفاده کرد (هر دستگاهی آن را پشتیبانی نمی کند)، پیش فرض *false* است،
  * **submission_rate**: real (اختیاری), نرخ ارسال مورد نظر پایین‌دستی (miner -> proxy) که به‌عنوان تعداد ارسال‌ها در یک ثانیه تعریف می‌شود، پیش‌فرض *0.2* (1 ارسال در هر 5 ثانیه) است.
- * **slushpool_bos_bonus**: string: حساس به حروف کوچک با حداقل طول 0 (اختیاری)، نام کاربری Slush Pool که برای آن تخفیف +‌Braiins OS اعمال می شود،
+ * **slushpool_bos_bonus**: string: حساس به حروف کوچک با حداقل طول 0 (اختیاری)، نام کاربری Braiins Pool که برای آن تخفیف +‌Braiins OS اعمال می شود،
  * **bos_referral_code**: string: حساس به حروف کوچک و بزرگ با حداقل طول 6 (اختیاری)، کد ارجاع +Braiins OS در طول کامل برای دریافت جایزه ارائه می شود.
    
 Target
