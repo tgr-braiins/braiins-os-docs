@@ -11,68 +11,66 @@
 
 .. _monitoring:
 
-==================================================
-Monitoring Braiins OS+ with Prometheus and Grafana
-==================================================
+=============================================
+Мониторинг Braiins OS+ с Prometheus и Grafana
+=============================================
 
 .. contents::
   :local:
   :depth: 2
 
-Introduction
-============
+Введение
+========
 
-Starting with Braiins OS+ 22.02.2, each miner is producing statistics in form that can be easily digested by Prometheus. Prometheus data can be then visualized in Grafana.
+Начиная с Braiins OS+ 22.02.2, каждый майнер выдает статистику в форме, которую Prometheus легко усваивает. Затем данные Prometheus можно визуализировать в Grafana.
 
-Prometheus is an open-source systems monitoring and alerting toolkit. Prometheus collects and stores its metrics as time series data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called labels.
+Prometheus — это набор инструментов для мониторинга и оповещения систем с открытым исходным кодом. Prometheus собирает и хранит свои метрики в виде данных временных рядов, т. е. информация о метриках хранится с отметкой времени, в которую она была записана, наряду с необязательными парами ключ-значение, называемыми метками.
 
-Grafana open source is open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics. It provides you with tools to turn your time-series database data into insightful graphs and visualizations.
-
-Prometheus + Grafana is almost an industry standard for monitoring, visualization, and alerting. For Braiins OS+, endpoint for Prometheus metrics is available at ``[IP ADDRESS]:8081/metrics``.
+Grafana с открытым исходным кодом — это программное обеспечение для визуализации и аналитики с открытым исходным кодом. Оно позволяет вам запрашивать, визуализировать, предупреждать и исследовать ваши показатели. Оно предоставляет вам инструменты для преобразования данных базы данных временных рядов в подробные графики и визуализации.
 
 .. attention::
    
-   The monitoring can be run either as a standalone application or it is already bundled in the Braiins Farm Proxy docker stack.
+   Мониторинг можно запускать либо как отдельное приложение, либо оно уже включено в стек докеров Braiins Farm Proxy.
 
-Limitations
+Ограничения
 -----------
 
--  Only limited set of metrics is available for S9 devices
--  Monitoring only works for miners with Braiins OS+ installed
--  Supported architectures for ssh scanner are Linux AMD64, RPi 64bit or 32bit
+- Для устройств S9 доступен только ограниченный набор показателей.
+- Мониторинг работает только для майнеров с установленной Braiins OS+
+- Поддерживаемые архитектуры для ssh-сканера: Linux AMD64, RPi 64-бит или 32-бит.
 
-Setup
-=====
+Установка
+=========
 
-Quick Start
------------
+Быстрый запуск
+--------------
 
-Quick start for the case that the monitoring is run as standalone app (not as a part of Braiins Farm Proxy).
+Быстрый запуск в случае, если мониторинг выполняется как отдельное приложение (не как часть Braiins Farm Proxy).
 
 - ``git clone https://github.com/braiins/bos-farm-monitor.git``
-- Change list of IP address ranges to scan in ``./scan_crontab``
+- Измените список диапазонов IP-адресов для сканирования ``./scan_crontab``
 - ``docker-compose up -d``
-- Go to localhost:3000
+- Перейдите в localhost:3000
 
-Prerequisites
--------------
+Предварительные требования
+--------------------------
 
 **Linux**
 
--  Follow `docker installation instructions <https://docs.docker.com/engine/install/ubuntu/>`__
--  Follow `optional docker post installation steps <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`__
--  Follow `docker-compose installation <https://docs.docker.com/compose/install/>`__
+-  Слудуйте `инструкции по установке докера <https://docs.docker.com/engine/install/ubuntu/>`__
+-  Слудуйте `необязательным шагам установки поста докера <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`__
+-  Слудуйте `установке docker-compose <https://docs.docker.com/compose/install/>`__
 
 **RPi**
 
--  Follow one of the many manuals - e.g. https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
+-  Следуйте одному из многих руководств - например https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
 
-Installation
-------------
+Установка
+---------
 
-Quick start in case that the monitoring is run as standalone app (not as a part of Braiins Farm Proxy).
+Быстрый старт, если мониторинг запускается как отдельное приложение (не как часть Braiins Farm Proxy).
 
-**Verify prerequisite installed**
+**Убедитесь, что необходимые компоненты установлены**
 
 .. code-block::
 
@@ -80,9 +78,9 @@ Quick start in case that the monitoring is run as standalone app (not as a part 
     docker-compose --version
     git --version
 
-**Download Braiins Repository**
+**Скачайте репозиторий Braiins**
 
-You can clone the repository using git:
+Вы можете клонировать репозиторий, используя git:
 
 .. code-block::
 
@@ -90,58 +88,52 @@ You can clone the repository using git:
    sudo apt install git
    git clone https://github.com/braiins/bos-farm-monitor.git
 
-You can download zip file with all the files `https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip <https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip>`__
+Вы можете скачать zip файл со всеми файлами `https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip <https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip>`__
 
-Prometheus Configuration
-------------------------
+Конфигурация Prometheus
+-----------------------
 
-Before you can start monitoring your farm, you will need to prepare
-configuration based on examples in the config directory. There are two
-files:
+Прежде чем вы сможете начать мониторинг своей фермы, вам необходимо подготовить конфигурацию на основе примеров в каталоге config. 
+Есть два файла:
 
 -  ``/config/prometheus_scan.yml``
 -  ``/config/prometheus_static.yml``
 
-The only major difference between the two is that “scan” is best to be
-used in case your miners have IP addresses assigned by DHCP, while
-“static” can be used when your miners have static IP addresses.
+Единственная существенная разница между ними состоит в том, что «scan» лучше всего.
+используется, если ваши майнеры имеют IP-адреса, назначенные DHCP, в то время как
+«static» можно использовать, когда ваши майнеры имеют статические IP-адреса.
 
-**Default Configuration**
+**Конфигурация по умолчанию**
 
-The default configuration in has the following features:
+Конфигурация по умолчанию имеет следующие функции:
 
--  Job for scraping Braiins OS+ metrics named braiinsos-data
--  Relabeling of metrics endpoint addresses (removal of 8081 port)
--  Parsing of IP addresses:
+- Задание по сбору метрик Braiins OS+ под названием braiinsos-data.
+- Перемаркировка адресов конечных точек метрик (удаление порта 8081)
+- Парсинг IP-адресов:
 
-   -  Second octet: label ``site_id``
-   -  Third octet: label ``subnet_id``
-   -  Fourth octet: label ``host_id``
+   -  Второй октет: label ``site_id``
+   -  Третий октет: label ``subnet_id``
+   -  Четвертый октет: label ``host_id``
 
--  Removal of some more data intense metrics (you can add them back, just make sure you instance is sized appropriately)
--  Static label building for prometheus_static.yml - label is assigned dynamically when prometheus_scan.yml is used (more on this later).
+- Удаление некоторых более интенсивных данных метрик (вы можете добавить их обратно, просто убедитесь, что размер вашего экземпляра соответствует размеру)
+- Создание статической метки для prometheus_static.yml - метка назначается динамически при использовании prometheus_scan.yml (подробнее об этом позже).
 
-**Structure Your Farm for Good Observability**
+**Организуйте свою ферму так, чтобы ее было легко мониторить**
 
-For a bigger farm, you might want to group miners into some logical
-groupings so that you can see performance by individual components. The
-grouping might differ depending on the size and structure of your farm,
-some of the most typical elements in the farm topology are:
+Для более крупной фермы вы можете сгруппировать майнеров в несколько логических
+групп, чтобы вы могли видеть производительность отдельных компонентов. 
+Группировка может отличаться в зависимости от размера и структуры вашей фермы,
+некоторые из наиболее типичных элементов топологии фермы:
 
--  Building
--  Section
--  Tank
--  Aisle
--  Row
+-  Здание
+-  Секция
+-  Танк
+-  Ряд
 
-To achieve this you have the following options:
+Для этого у вас есть следующие варианты:
 
- **Use subnets and parse octets of IP addresses**
-   If you have static IP addresses and you are using these to organize your
-   miners, the easiest way to prepare data for reporting is to enhance
-   prometheus configuration with relabels derived from IP addresses. The
-   example below shows how to do it. You can obviously use different names
-   than section, tank, miner.
+ **Использовать подсети и анализировать октеты IP-адресов**
+   Если у вас есть статические IP-адреса и вы используете их для организации своих майнеров, самый простой способ подготовить данные для отчетов — улучшить конфигурацию prometheus с помощью переименования, полученного из IP-адресов. Пример ниже показывает, как это сделать. Вы, конечно, можете использовать другие названия, кроме раздела, резервуара, майнера.
 
    .. code-block::
 
@@ -159,24 +151,25 @@ To achieve this you have the following options:
         regex: "\\d+\\.\\d+\\.\\d+\\.(\\d+).*"
         target_label: "miner"
  
- **Use separate jobs together with optional custom label**
-   One configuration of Prometheus (stored in prometheus.yml) can contain multiple jobs. For example, you can create separate jobs for each building or container. Each metric has a job label, making it a very convenient approach to group instances (miners). In case when you have other (non-mining) jobs in your configuration, you might want to add a custom label to each job so that you can use that label for filtering/grouping. An example that could be used in relabel_configs section to add building label to each instance that is monitored by the job with value “Bulding A”:
+ **Используйте отдельные задания вместе с дополнительной пользовательской меткой**
+   OКонфигурация Prometheus (хранится в prometheus.yml) может содержать несколько заданий. Например, вы можете создавать отдельные задания для каждого здания или контейнера. Каждая метрика имеет метку задания, что делает ее очень удобным подходом к групповым экземплярам (майнерам). В случае, если в вашей конфигурации есть другие (не связанные с майнингом) задания, вы можете добавить к каждому заданию собственную метку, чтобы использовать эту метку для фильтрации/группировки. Пример, который можно использовать в разделе relabel_configs для добавления метки здания к каждому экземпляру, отслеживаемому заданием, со значением «Здание A».:
 
    .. code-block::
 
       - target_label: "building"
         replacement: "Building A"
- **Use multiple prometheus instances**
-   In the case of thousands or more miners it might be easier to setup a separate Prometheus instance for each group of miners. Refer to Prometheus documentation on how to setup `federation <https://prometheus.io/docs/prometheus/latest/federation/>`__.
+        
+ **Используйте несколько экземпляров prometheus**
+   В случае тысяч или более майнеров может быть проще настроить отдельный экземпляр Prometheus для каждой группы майнеров. Обратитесь к документации Prometheus о том, как настроить `федерацию <https://prometheus.io/docs/prometheus/latest/federation/>`__.
 
- **Use username/workername and re-labels (not recommended)**
-   Using username/workername for encoding information about physical location of miners is a typically used approach with legacy monitoring applications. This approach does not work well with how Prometheus manages and stores time-series, which is nothing like a traditional relational database. We do not recommend using username/workername for structuring you farm with prometheus for the following reasons:
+ **Использовать имя пользователя/рабочее имя и переназначать ярлыки (не рекомендуется)**
+   Использование username/workername для кодирования информации о физическом местоположении майнеров — обычно используемый подход с устаревшими приложениями мониторинга. Этот подход плохо работает с тем, как Prometheus управляет временными рядами и хранит их, что не имеет ничего общего с традиционной реляционной базой данных. Мы не рекомендуем использовать username/workername для структурирования вашей фермы с prometheus по следующим причинам.:
 
-   -  majority of metrics do not have worker name as labels and joins would need to be created in queries (slows things down, prone to errors)
-   -  there can be multiple usernames / workernames associated with a single miner; this makes the joins even more difficult (necessary pre-aggregation with logic which value to choose)
+   - большинство метрик не имеют workername, так как метки и соединения должны быть созданы в запросах (замедляет работу, подвержено ошибками)
+   - с одним майнером может быть связано несколько username/workername; это делает соединения еще более сложными (необходима предварительная агрегация с логикой, какое значение выбрать)
 
- **Use multiple IP ranges with scan approach**
-   If you have miners with IP assigned by DHCP and you are using scanning of your network to get miners to Prometheus, you can define multiple network ranges and each range can have a unique value defined and assigned to label (more on that in the following section).
+ **Используйте несколько диапазонов IP-адресов со сканированием**
+   Если у вас есть майнеры с IP-адресом, назначенным DHCP, и вы используете сканирование своей сети для доставки майнеров в Prometheus, вы можете определить несколько сетевых диапазонов, и каждый диапазон может иметь уникальное значение, определенное и присвоенное метке (подробнее об этом в следующем разделе).
 
 **Adding miners to configuration**
 
