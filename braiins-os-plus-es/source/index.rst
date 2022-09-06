@@ -86,27 +86,50 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+22.08
+---------------------------
+
+Este es un lanzamiento mayor que trae la Tarjeta de Control BeagleBone Black para uso público y el modo Tasa de Hash Objetivo para el Autoajuste.
+
+* Familia Antminer X19
+
+  * [característica] Modo Tasa de Hash Objetivo para el Autoajuste
+  * [mejora] Mejoradas Curvas de Potencia para la S19j PRO y S19 PRO
+
+* Familia Antminer X17
+
+  * [característica] Modo Tasa de Hash Objetivo para el Autoajuste
+  * [mejora] Ajustado límite de potencia predeterminado para la familia Antminer X17
+
+**NOTA:** 
+
+* Los límites de potencia por defecto para la familia X17 están ahora alineados a los limites de potencia de serie basados en la variante de la máquina. El anterior límite de potencia por defecto de 1700W es ahora de 2200W, lo que hará que el consumo y la tasa de hash se ajusten más a las especificaciones de serie.
+
+* **IMPORTANTE:** Si actualmente está ejecutando muchos dispositivos X17 en el límite de potencia por defecto, esta actualización causará un aumento significativo en el consumo de energía. Para evitarlo, puede simplemente cambiar ligeramente el límite de potencia de sus máquinas (por ejemplo, a 1710W) para que la actualización no provoque ningún cambio importante.
+
+* Si instala Braiins OS+ en un dispositivo de serie, o ha estado utilizando un límite de potencia definido por el usuario, este cambio no le afectará en absoluto.
+
 22.06
 ---------------------------
 
-This is a major release for Beaglebone control boards only.
+Este es un lanzamiento mayor solo para tarjetas de control Beaglebone.
 
-* Antminer family
+* Familia Antminer
 
-  * [feature] Added support for Beagle Bone based control boards (including tuner, but excluding the auto-upgrade functionality)
+  * [característica] Añadido soporta para tarjetas de control Beagle Bone (incluyendo sintonizador, pero excluyendo la funcionalidad de auto-actualizar)
 
-**Note:** this release won't run on other than Beaglebone control board equipped miners.
+**Nota:** este lanzamiento no correrá en otros mineros equipados con tarjeta de control Beaglebone.
 
-**Note:** not sure which control board you have? check `here <https://braiins.com/blog/bitcoin-mining-control-board-variations>`_
+**Nota:** ¿No sabe que tarjeta de control tiene? revise `aquí <https://braiins.com/blog/bitcoin-mining-control-board-variations>`_
 
 22.05
 ---------------------------
 
-This is a minor release containing improved power curves for selected Antminers models.
+Este es un lanzamiento menor que contiene curvas de potencia mejoradas para los modelos de Antminers elegidos.
 
-* Antminer family
+* Familia Antminer
 
-  * [feature] Power curve matrix has been added for models S19J and S19 pro so the estimation of power consumption is now more accurate
+  * [característica] Añadida matriz de curva de potencia para los modelos S19J y S19 pro para que la estimación del consumo de potencia sea mas precisa
 
 22.02.4
 ---------------------------
