@@ -80,6 +80,28 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 *********
 更新日志
 *********
+22.08
+---------------------------
+
+本次发布是公开Beaglebone Black控制板并添加自动调整的算力目标功能的重要更新。
+
+* 蚂蚁矿机S19和T19系列上
+
+  * [特性] 自动调整的算力目标模式 
+  * [优化] 改进S19j PRO和S19 PRO的功率曲线
+
+* 蚂蚁矿机S17和T17系列上
+
+  * [特性] 自动调整的算力目标模式 
+  * [优化] 调整了蚂蚁矿机S17和T17系列的功耗限制的默认
+
+**注意:** 
+
+* S17和T17系列的默认功率限制现在与基于机器型号的原厂功率限制相一致。以前的默认功率限制为1700W，现在是2200W，这将使消耗和算力输出更接近于原厂规格。
+
+* **重要:** 如果您目前在默认的功率限制下运行许多S17和T17系列设备，这次固件更新将导致功耗的显著增加。为了防止这种情况，您可以将您的机器的功率限制稍微改变一下（例如改为1710W），这样升级就不会造成任何重大变化。
+
+* 如果您在原厂设备上安装了Braiins OS+，或者一直在使用用户定义的功率限制，这个变化根本不会影响您。
 
 22.06
 ---------------------------
@@ -97,11 +119,11 @@ This is a major release for Beaglebone control boards only.
 22.05
 ---------------------------
 
-This is a minor release containing improved power curves for selected Antminers models.
+本次发布是改进所选蚂蚁矿机型号功率曲线的次要更新
 
-* Antminer family
+* 蚂蚁矿机上
 
-  * [feature] Power curve matrix has been added for models S19J and S19 pro so the estimation of power consumption is now more accurate
+  * [特性] S19J和S19pro型号增加了功率曲线矩阵，让功耗的估计更加准确。
 
 22.02.4
 ---------------------------
