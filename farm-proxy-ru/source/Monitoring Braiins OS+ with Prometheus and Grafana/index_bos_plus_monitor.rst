@@ -171,36 +171,32 @@ Grafana с открытым исходным кодом — это програ�
  **Используйте несколько диапазонов IP-адресов со сканированием**
    Если у вас есть майнеры с IP-адресом, назначенным DHCP, и вы используете сканирование своей сети для доставки майнеров в Prometheus, вы можете определить несколько сетевых диапазонов, и каждый диапазон может иметь уникальное значение, определенное и присвоенное метке (подробнее об этом в следующем разделе).
 
-**Adding miners to configuration**
+**Добавление майнеров в конфигурацию**
 
-There are the following basic options how to add your miners to the
-configuration:
+Существуют следующие основные варианты, как добавить свои майнеры в
+конфигурация:
 
--  Use service discovery options provided by Prometheus
--  List IP addresses in the configuration file manually
+- Используйте параметры обнаружения сервисов, предоставляемые Prometheus.
+- Добавьте IP-адресоа в файл конфигурации вручную
 
-Listing IP addresses directly works best when IP addresses assigned to
-miners are static. In the case of DHCP, service discovery is a better
-option.
+Список IP-адресов напрямую работает лучше всего, когда IP-адреса, назначенные майнерам, являются статическими. В случае DHCP обнаружение службы является лучшим вариантом.
 
-**Service Discovery**
+**Обнаружение службы**
 
-File-based service discovery is the option enabled by default. To start
-using it, you will need to configure file ``./scan_crontab`` in a
-text editor. Current examples are:
+Обнаружение служб на основе файлов — это параметр, включенный по умолчанию. Чтобы начать использовать его, вам нужно настроить файл ``./scan_crontab`` в текстовом редакторе. Текущие примеры::
 
 .. code-block::
 
     * */3 * * * * * ssh_scan.sh "1.2.3.0-255" "Building A"
     * */3 * * * * * ssh_scan.sh "1.2.0-255.3" "Building B"
 
-Each line will scan the defined IP range for responding miners and will store the list so that it is available to prometheus. The string “Building A” / “Building B” can be an arbitrary name. Currently, it will get dynamically mapped to label building. The scan is performed every three minutes - you can change it based on the size of your farm and your needs. In case you are not familiar with the cron syntax, it is explained `here <https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html>`__.
+Каждая строка будет сканировать определенный диапазон IP-адресов в поисках отвечающих майнеров и сохранять список, чтобы он был доступен для Prometheus. Строка "Здание А" / "Здание Б" может быть произвольным названием. В настоящее время он будет динамически сопоставляться с созданием меток. Сканирование выполняется каждые три минуты — вы можете изменить его в зависимости от размера вашей фермы и ваших потребностей. Если вы не знакомы с синтаксисом cron, это объясняется `здесь <https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html>`__.
 
-**List IP addresses**
+**Список IP-адресов**
 
-In order to use a static list of IP addresses, you need to change the file ``docker-compose.yml``,
+Для того, чтобы использовать статический список IP-адресов, вам необходимо изменить файл ``docker-compose.yml``,
 
-First, comment-out the crontab image so that dynamic scan is disabled:
+Во-первых, закомментируйте изображение crontab, чтобы отключить динамическое сканирование:
 
 .. code-block::
 
@@ -212,90 +208,89 @@ First, comment-out the crontab image so that dynamic scan is disabled:
    #  - scanner_data:/mnt:rw
    # network_mode: "host"
 
-Second, comment-out the dynamic scanning and enable use of a different
-configuration file. It should look like this after changes:
+Во-вторых, закомментируйте динамическое сканирование и включите использование другого файла конфигурации. Так должно выглядеть после изменений:
 
 .. code-block::
 
    #- '--config.file=/etc/prometheus/prometheus_scan.yml'
    - '--config.file=/etc/prometheus/prometheus_static.yml'
 
-IP addresses are listed as an array in the configuration file
-`prometheus_static.yml`. Change the entries with list of your miners:
+IP-адреса перечислены в виде массива в файле конфигурации.
+`prometheus_static.yml`. Измените записи со списком ваших майнеров:
 
 .. code-block:
 
    - targets: ['10.35.31.2:8081','10.35.32.2:8081']
 
-Note that:
+Обратите внимание, что:
 
--  Port has to be added at the end of the IP address. Port 8081 is where the metrics for Prometheus are available
--  IP addresses are quoted and separated by comma
+- Порт должен быть добавлен в конце IP-адреса. Порт 8081 — это место, где доступны метрики для Prometheus.
+- IP-адреса указаны в кавычках и разделены запятой.
 
-In case you do not have static IP addresses, the IP address of any miner can change. If you still want to use this static approach, try to increase the lease time to high value (e.g. 48 hours) for your DHCP server, so that IP address is re-assigned even when the miner is offline for some time.
+В случае, если у вас нет статических IP-адресов, IP-адрес любого майнера может измениться. Если вы все еще хотите использовать этот статический подход, попробуйте увеличить время аренды до высокого значения (например, 48 часов) для вашего DHCP-сервера, чтобы IP-адрес переназначался, даже если майнер некоторое время находится в автономном режиме.
 
-In order to get all the miners to the list you can scan your farm for devices using BOS Toolbox and generate configuration from results. You can use either UX or command-line to get the list.
+Чтобы добавить все майнеры в список, вы можете просканировать свою ферму на наличие устройств с помощью BOS Toolbox и сгенерировать конфигурацию на основе результатов. Вы можете использовать либо UX, либо командную строку, чтобы получить список.
 
-Command-line example (linux):
+Пример командной строки (linux):
 
 .. code-block::
 
    ./bos-toolbox scan -o ips.txt 10.10.0.0/16
    cat ips.txt \| sed "s/.*/'&:8081'/" \| paste -sd',' \| sed "s/.*/[&]/"
 
-The first command will scan all IP addresses in the range 10.10.0.0 and 10.10.255.255. The second will print an array with IP addresses that you can paste in the configuration.
+Первая команда просканирует все IP-адреса в диапазоне 10.10.0.0 и 10.10.255.255. Вторая напечатает массив с IP-адресами, которые вы можете вставить в конфигурацию.
 
-Only miners with Braiins OS+ can be monitored. In case you are using miners without Braiins OS+, it is better to use:
+Мониторинг возможен только для майнеров с Braiins OS+. Если вы используете майнеры без Braiins OS+, лучше использовать:
 
 .. code-block::
    
    ./bos-toolbox scan 10.10.0.0/16 &> ips.txt
    grep "\| bOS" ips.txt \| cut -d"(" -f2 \| cut -"d)" -f1 \| sed "s/.*/'&:8081'/" \| paste -sd',' \| sed "s/.*/[&]/"
 
-For different IP ranges you can use:
+Для разных диапазонов IP вы можете использовать:
 
 -  10.10.10.0/24 for range 10.10.10.0 - 10.10.10.255
 -  10.10.0.0/16 for range 10.10.0.0 to 10.10.255.255
 -  10.0.0.0/8 for range 10.0.0.0 to 10.255.255.25
 
-Start monitoring
+Начать мониторинг
 ----------------
 
 .. code-block::
 
    docker-compose up -d
 
-You can verify that container is running using `docker ps`.
+Вы можете убедиться, что контейнер работает, используя `docker ps`.
 
-Now you can go to: `http://<your_host>:3000`.
+Теперь вы можете перейти к: `http://<your_host>:3000`.
 
-Operations
-----------
+Операции
+--------
 
-**Changing configuration**
+**Изменение конфигурации**
 
-Change configuration file according to your needs
+Измените файл конфигурации в соответствии с вашими потребностями
 
 .. code-block::
 
    docker-compose restart prometheus
 
-**Updating to newer version**
+**Обновление до более новой версии**
 
 .. code-block::
 
    git pull origin master
    docker-compose up -d
 
-Dashboards
-==========
+Панели мониторинга
+==================
 
-In our repository we provide sample dashboards that can get you started to prepare monitoring for your farm the best suits your needs.
+В нашем репозитории мы предоставляем образцы информационных панелей, которые помогут вам начать подготовку мониторинга для вашей фермы в соответствии с вашими потребностями.
 
-Farm Dashboard
---------------
+Панель управления фермой
+------------------------
 
-This is the high-level dashboard that monitors all of the miners in your farm. It has a built-in data source selector in case you have multiple prometheus instances running. It also features several drill-down reports highlighted in the screenshot below:
+Это панель инструментов высокого уровня, которая отслеживает всех майнеров на вашей ферме. Он имеет встроенный селектор источника данных на случай, если у вас запущено несколько экземпляров prometheus. Он также содержит несколько детализированных отчетов, выделенных на снимке экрана ниже:
 
   .. |pic3| image:: ../_static/monitoring_dashboard.png
       :width: 100%
@@ -303,24 +298,24 @@ This is the high-level dashboard that monitors all of the miners in your farm. I
 
   |pic3|
 
-Parts highlighted in red will lead you to a drill-down report listing the instances. Parts highlighted in blue will go directly to the miner UX.
+Части, выделенные красным, приведут вас к детализированному отчету со списком экземпляров. Части, выделенные синим цветом, перейдут непосредственно в UX майнера.
 
-Example Farm Dashboard - By Building
-------------------------------------
+Пример панели управления фермой — по строению
+---------------------------------------------
 
-Dashboard has a feature where rows of grafana panels are automatically displayed for each defined building. This is created dynamically based on the values of the building label. The full flow is as follows in the example configuration:
+Панель инструментов имеет функцию, при которой ряды панелей Grafana автоматически отображаются для каждого определенного здания. Это создается динамически на основе значений метки здания. Полный поток выглядит следующим образом в примере конфигурации:
 
--  two separate jobs are created in prometheus.yml
--  each job has label building added with value representing the building
--  grafana dashboard has parameter building defined which is linked to building label
--  row header has $building as a name - this will get expanded with label values
--  each panel has $building as a filter
+- в prometheus.yml создаются два отдельных задания
+- к каждой работе добавлено здание метки со значением, представляющим здание
+- на панели инструментов grafana определено построение параметров, которое связано с меткой здания.
+- заголовок строки имеет $building в качестве имени - он будет расширен значениями метки
+- каждая панель имеет фильтр $building
 
-Metrics and Labels
-==================
-Every time series is uniquely identified by its metric name and optional key-value pairs called labels. The metric name specifies the general feature of a system that is measured. Labels enable Prometheus's dimensional data model: any given combination of labels for the same metric name identifies a particular dimensional instantiation of that metric. The query language allows filtering and aggregation based on these dimensions.
+Метрики и ярлыки
+================
+Каждый временной ряд однозначно идентифицируется своим именем метрики и необязательными парами ключ-значение, называемыми метками. Имя метрики определяет общую характеристику измеряемой системы. Метки включают многомерную модель данных Prometheus: любая заданная комбинация меток для одного и того же имени метрики идентифицирует конкретное многомерное воплощение этой метрики. Язык запросов позволяет выполнять фильтрацию и агрегирование на основе этих параметров.
 
-Overview:
+Обзор:
 
 -  ``application_version_details (instance, version_full, toolchain)``
 -  ``client_status (instance, connection_type, host, protocol, user, worker)``
@@ -335,56 +330,56 @@ Overview:
 -  ``stratum_rejected_submits_counter (instance, host, user, worker, protocol, connection_type)``
 -  ``tuner_stage (instance, hashboard)``
 
-Application Version Details
----------------------------
+Сведения о версии приложения
+----------------------------
 
-Version of the application which is producing time series.
+Версия приложения, создающего временные ряды.
 
 ``application_version_details``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  version_full: version of the application
--  toolchain
+- instance: IP-адрес майнера
+- version_full: версия приложения
+- toolchain
    
-Client Status
--------------
+Статус клиента
+--------------
 
-Status of the client: (stopped = 0, running = 1 , failed = -1)
+Статус клиента: (stopped = 0, running = 1 , failed = -1)
 
 ``client_status``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+- instance: IP-адрес майнера
+- connection_type: тип соединения, который может быть либо *user*, либо *dev-fee*
+- host: URL-адрес хоста, обычно URL-адрес пула или прокси
+- protocol: протокол майнинга
+- user: обычно имя пользователя майнинг-пула клиента
+- worker: имя воркера
 
 
-Hashboard Nominal Hashrate (Gh/s)
+Hashboard Номинальный хешрейт (Gh/s)
 ---------------------------------
 
-Nominal hashrate for each hashboard in Gh/s.
+Номинальный хэшрейт для каждого хэшборда в Gh/s.
 
 ``hashboard_nominal_hashrate_gigahashes_per_second``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  hashboard: rank of the hashboard
+- instance: IP-адрес майнера
+- hashboard: ранг хэшборда
 
-Hashboard Shares
+Решения хэшборда
 ----------------
 
-Number of valid shares produced by hashboards. Hashboard shares can be used to calculate real hashrate for hashboard, miner, or other group. This metric does not provide information whether shares were accepted by target - stratum_accepted_shares_counter should be used for this.
+Количество действительных решений, созданных хэшбордами. Решения хэшборда можно использовать для расчета реального хэшрейта для хэшборда, майнера или другой группы. Эта метрика не предоставляет информацию о том, были ли решения приняты целью — для этого следует использовать stratum_accepted_shares_counter.
 
 ``hashboard_shares (counter)``
 
-**Labels**
+**Ярлыки**
 
 -  instance: IP address of the miner
 -  hashboard: rank of the hashboard
