@@ -381,25 +381,25 @@ Hashboard Номинальный хешрейт (Gh/s)
 
 **Ярлыки**
 
--  instance: IP address of the miner
--  hashboard: rank of the hashboard
--  type: type of the shares with respect to its validity, *valid* - valid shares, *invalid* - invalid shares, *duplicate* - duplicated shares
+- instance: IP-адрес майнера
+- hashboard: ранг хэшборда
+- type: тип решений относительно их действительности, *valid* - действительные решения, *invalid* - недействительные решения, *duplicate* - дублированные решения
 
-**Examples**
+**Примеры**
 
-Average number of hashes per second over last 20 seconds for all instances:
+Среднее количество хэшей в секунду за последние 20 секунд для всех инстанций:
 
 .. code-block::
 
    sum(rate(hashboard_shares[20s])) * 2^32
 
-Average number of hashes per second over last 20 seconds by instance:
+Среднее количество хэшей в секунду за последние 20 секунд по инстанциям:
 
 .. code-block::
 
    sum by(instance) (rate(hashboard_shares[20s])) * 2^32
 
-Average number of hashes per second over last 20 seconds for all instances by miner type:
+Среднее количество хэшей в секунду за последние 20 секунд для всех инстанций по типу майнера:
 
 .. code-block::
 
@@ -408,105 +408,102 @@ Average number of hashes per second over last 20 seconds for all instances by mi
       * on(instance) group_left(model) count by (instance, model) (miner_metadata)
    )
 
-Miner Metadata
---------------
+Метаданные майнера
+------------------
 
 ``miner_metadata``
 
-**Labels**
+**Ярлыки**
 
-- instance: IP address of the miner
-- model: model of the miner
-- os_version: version of the firmware
+- instance: IP-адрес майнера
+- model: модель майнера
+- os_version: версия прошивки
 
-**Examples**
+**Примеры**
 
-Number of miners by model:
+Количество майнеров по моделям:
 
 .. code-block::
 
    count_values by (model) ("x", miner_metadata)
 
-Miner Power
------------
+Мощность майнера
+----------------
 
 ``miner_power``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  type: 3 types, *estimated* - estimated power, *limit* - power limit, *psu* - measured power, *wall*
--  socket
+- instance: IP-адрес майнера
+- type: 3 типа, *retimated* - расчетная мощность, *limit* - ограничение мощности, *psu* - измеренная мощность, *wall*
+- разъем
 
-**Examples**
+**Примеры**
 
-Total estimated power consumption for all instances:
+Суммарное расчетное энергопотребление для всех экземпляров:
 
 .. code-block::
 
    sum(miner_power{type="estimated"})
 
-Total power limit for all instances:
+Общий предел мощности для всех инстанций:
 
 .. code-block::
 
   sum(miner_power{type="limit"})
 
-Stratum Accepted Shares Counter
--------------------------------
+Счетчик принятых решений Stratum
+--------------------------------
 
-Total number of shares accepted by target. For one instance, there are
-typically more targets, represented by host label.
+Общее количество решений, принятых целью. Например, обычно существует больше целей, представленных меткой хоста.
 
 ``stratum_accepted_shares_counter (counter)``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+- instance: IP-адрес майнера
+- connection_type: тип соединения, который может быть либо *user*, либо *dev-fee*
+- host: URL-адрес хоста, обычно URL-адрес пула или прокси
+- protocol: протокол майнинга
+- user: обычно имя пользователя майнинг-пула клиента
+- worker: имя воркера
 
-**Examples**
+**Примеры**
 
-Average number of accepted shares per second over last 20 seconds for
-all instances by target:
+Среднее количество принятых решений в секунду за последние 20 секунд для всех инстанций по цели:
 
 .. code-block::
 
    sum by(host) (rate(stratum_accepted_shares_counter[20s]))
 
-Stratum Rejected Shares Counter
--------------------------------
+Счетчик отклоненных решений Stratum
+-----------------------------------
 
-Total number of shares rejected by target.
+Общее количество решений, отклоненных целью.
 
 ``stratum_rejected_shares_counter (counter)``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+- instance: IP-адрес майнера
+- connection_type: тип соединения, который может быть либо *user*, либо *dev-fee*
+- host: URL-адрес хоста, обычно URL-адрес пула или прокси
+- protocol: протокол майнинга
+- user: обычно имя пользователя майнинг-пула клиента
+- worker: имя воркера
 
-**Examples**
+**Примеры**
 
-Average number of rejected shares per second over last 20 seconds for all instances by target:
+Среднее количество отклоненных решений в секунду за последние 20 секунд для всех инстанций по цели:
 
 .. code-block::
 
    sum by(host) (rate(stratum_rejected_shares_counter[20s]))
 
-Stratum Accepted Submits Counter
+Счетчик принятых решений Stratum
 --------------------------------
 
-Total number of submits accepted by target. For one instance, there are
-typically more targets, represented by host label.
+Общее количество отправлений, принятых целью. Например, обычно имеется больше целей, представленных меткой хоста.
 
 ``stratum_accepted_submits_counter (counter)``
 
