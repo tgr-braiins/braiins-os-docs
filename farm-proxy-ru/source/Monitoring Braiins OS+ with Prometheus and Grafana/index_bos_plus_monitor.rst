@@ -507,74 +507,73 @@ Hashboard Номинальный хешрейт (Gh/s)
 
 ``stratum_accepted_submits_counter (counter)``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+- instance: IP-адрес майнера
+- connection_type: тип соединения, который может быть либо *user*, либо *dev-fee*
+- хост: URL-адрес хоста, обычно URL-адрес пула или прокси
+- protocol: протокол майнинга
+- user: обычно имя пользователя майнинг-пула клиента
+- worker: имя воркера
 
-**Examples**
+**Примеры**
 
-Average number of accepted submits per second over last 20 seconds for
-all instances by target:
+Среднее количество принятых отправок в секунду за последние 20 секунд для всех инстанций по цели:
 
 .. code-block::
 
    sum by(host) (rate(stratum_accepted_submits_counter[20s]))
 
-Stratum Rejected Submits Counter
---------------------------------
+Счетчик отклоненных решений Stratum
+-----------------------------------------
 
-Total number of submits rejected by target.
+Общее количество отправлений, отклоненных целью.
 
 ``stratum_rejected_submits_counter (counter)``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+- instance: IP-адрес майнера
+- connection_type: тип соединения, который может быть либо *user*, либо *dev-fee*
+- host: URL-адрес хоста, обычно URL-адрес пула или прокси
+- protocol: протокол майнинга
+- user: обычно имя пользователя майнинг-пула клиента
+- worker: имя воркера
 
-**Examples**
+**Примеры**
 
-Average number of rejected submits per second over last 20 seconds for all instances by target:
+Среднее количество отклоненных решений в секунду за последние 20 секунд для всех экземпляров по цели:
 
 .. code-block::
 
    sum by(host) (rate(stratum_rejected_submits_counter[20s]))
 
 
-Temperature
+Температура
 -----------
 
-Every available temperature sensor will provide the data. There might be sensor at different locations (pcb or chip).
+Каждый доступный датчик температуры предоставит данные. Там может быть датчик в разных местах (печатная плата или чип).
 
 ``temperature``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
+- instance: IP-адрес майнера
 -  chip_addr
 -  chip_in_domain
 -  voltage_domain
 -  hashboard
 -  location: chip|pcb
 
-**Examples**
+**Примеры**
 
-Average maximum temperature across all instances (miners):
+Средняя максимальная температура по всем инстанциям (майнеры):
 
 .. code-block::
 
    avg(max by (instance) (temperature))
 
-Average maximum temperature across all instances (miners) by miner type:
+Средняя максимальная температура по всем инстанциям (майнерам) по типу майнера:
 
 .. code-block::
 
@@ -583,37 +582,37 @@ Average maximum temperature across all instances (miners) by miner type:
      group_left(model) count by (instance, model) (miner_metadata)
    )
 
-Tuner stage
------------
+Тюнер
+-----
 
-Stage of the tuner:
+Этапы тюнера:
 
--  2: testing performance profile
--  3: tuning individual chips
--  4: stable
--  6: manual configuration running
+- 2: тестирование профиля тюнера
+- 3: настройка отдельных чипов
+- 4: стабильный
+- 6: выполняется ручная настройка
 
 ``tuner_stage``
 
-**Labels**
+**Ярлыки**
 
--  instance: IP address of the miner
--  hashboard: rank of the hashboard
+- instance: IP-адрес майнера
+- hashboard: ранг хэшборда
 
-**Examples**
+**Примерв**
 
-Number of instances by stage:
+Количество инстанций по этапам:
 
 .. code-block::
 
    count_values ("Stage", max by (instance) (tuner_stage))
 
-Other Examples
+Другие примеры
 --------------
 
-**Extracting parts of IP address**
+**Извлечение частей IP-адреса**
 
-If you are managing your farm by assigning different IP ranges to different parts of your farm, grouping metrics by octet of IP address might be useful. Example for maximum chip temperature by 3rd octet:
+Если вы управляете своей фермой, назначая разные диапазоны IP-адресов разным частям фермы, группировка показателей по октету IP-адреса может оказаться полезной. Пример максимальной температуры чипа по 3-му октету:
 
 .. code-block::
 
@@ -621,14 +620,14 @@ If you are managing your farm by assigning different IP ranges to different part
      temperature{location="chip"}, "segment", "$1", "instance","\\d+\\.\\d+\\.(\\d+)\\.\\d+.*"
    ))
 
-If you need to do this for many/all metrics, it is better to have parts of the IP address as custom labels. See the Configuration section with an example.
+Если вам нужно сделать это для многих/всех метрик, лучше использовать части IP-адреса в качестве настраиваемых меток. См. раздел Конфигурация с примером.
 
-Getting Help
-============
+Помощь
+======
 
-For more information about Prometheus and Grafana, please refer to the official documentation:
+Для получения дополнительной информации о Prometheus и Grafana обратитесь к официальной документации:
 
 -  `Prometheus Documentation <https://prometheus.io/docs/introduction/overview/>`__
 -  `Grafana Documentation <https://grafana.com/docs/>`__
 
-In case you have questions that are specific to monitoring of Braiins OS+ miners with Prometheus and Grafana, please contact our support team on Telegram.
+Если у вас есть вопросы, касающиеся мониторинга майнеров Braiins OS+ с помощью Prometheus и Grafana, свяжитесь с нашей службой поддержки в Telegram.
