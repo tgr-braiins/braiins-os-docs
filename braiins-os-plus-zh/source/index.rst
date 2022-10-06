@@ -80,6 +80,15 @@ Braiins OS+ 是专为ASIC矿机设计的增强性操作系统。它在已经相�
 *********
 更新日志
 *********
+
+22.08.1
+
+This is a minor release that fixes minor bugs related to pools connections.
+
+* All families
+
+  * [bug fixes] Minor bugs related to pools connections
+
 22.08
 ---------------------------
 

@@ -86,6 +86,14 @@ Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar.
 Registro de Cambios
 *******************
 
+22.08.1
+
+This is a minor release that fixes minor bugs related to pools connections.
+
+* All families
+
+  * [bug fixes] Minor bugs related to pools connections
+  
 22.08
 ---------------------------
 

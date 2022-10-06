@@ -82,6 +82,14 @@ Braiins OS + представляет улучшенную операционн�
 Журнал изменений
 ****************
 
+22.08.1
+
+This is a minor release that fixes minor bugs related to pools connections.
+
+* All families
+
+  * [bug fixes] Minor bugs related to pools connections
+  
 22.08
  ---------------------------
 

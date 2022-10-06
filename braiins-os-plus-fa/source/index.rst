@@ -87,6 +87,37 @@ Braiins OS+ سیستم عاملی برای ماینرهای ASIC است که ب�
 تغییرات نسخه
 ************
 
+22.08.1
+
+This is a minor release that fixes minor bugs related to pools connections.
+
+* All families
+
+  * [bug fixes] Minor bugs related to pools connections
+
+22.08
+---------------------------
+
+This is a major release that brings BeagleBone Black Control Board for public use and Hashrate Target mode for Autotuning.
+
+* Antminer X19 family
+
+  * [feature] Hashrate Target mode for Autotuning 
+  * [improvement] Improved Power Curves for S19j PRO and S19 PRO
+
+* Antminer X17 family
+
+  * [feature] Hashrate Target mode for Autotuning 
+  * [improvement] Adjusted power limit defaults for Antminer X17 family
+
+**NOTE:** 
+
+* The default power limits for the X17 family are now aligned with the stock power limits based on the machine variant. The previous default power limit of 1700W is now 2200W, which will more closely match the consumption and hashrate output to the stock specifications.
+
+* **IMPORTANT:** If you are currently running many X17 devices at the default power limit, this update will cause a significant increase in power consumption. To prevent that, you can simply change the power limit on your machines slightly (e.g. to 1710W) so that the upgrade does not cause any major changes.
+
+* If you install Braiins OS+ on a stock device, or have been using a user defined power limit, this change will not impact you at all.
+
 22.06
 ---------------------------
 
