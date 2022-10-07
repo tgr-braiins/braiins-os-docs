@@ -88,11 +88,11 @@ Registro de Cambios
 
 22.08.1
 
-Esta es una versión menor que corrige errores menores relacionados con las conexiones del pool.
+Este es un lanzamiento menor que arregla fallas menores relacionadas a las conexiones con los pool.
 
 * Todas las familias
 
-  * [corrección de errores] Errores menores relacionados con las conexiones del pool
+  * [arreglo de fallos] Fallos menores relacionados a las conexiones con los pool
   
 22.08
 ---------------------------
