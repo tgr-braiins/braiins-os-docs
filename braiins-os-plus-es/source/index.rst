@@ -88,11 +88,11 @@ Registro de Cambios
 
 22.08.1
 
-This is a minor release that fixes minor bugs related to pools connections.
+Esta es una versión menor que corrige errores menores relacionados con las conexiones del pool.
 
-* All families
+* Todas las familias
 
-  * [bug fixes] Minor bugs related to pools connections
+  * [corrección de errores] Errores menores relacionados con las conexiones del pool
   
 22.08
 ---------------------------
