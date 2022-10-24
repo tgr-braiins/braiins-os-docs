@@ -12,67 +12,67 @@
 .. _monitoring:
 
 ==================================================
-Monitoring Braiins OS+ with Prometheus and Grafana
+مانیتورینگ بر Braiins OS+ با Prometheus و Grafana
 ==================================================
 
-.. contents::
+.. فهرست::
   :local:
   :depth: 2
 
-Introduction
+مقدمه
 ============
 
-Starting with Braiins OS+ 22.02.2, each miner is producing statistics in form that can be easily digested by Prometheus. Prometheus data can be then visualized in Grafana.
+با شروع با Braiins OS + 22.02.2، هر ماینر آماری را به شکلی تولید می کند که به راحتی توسط Prometheus قابل هضم باشد. سپس داده های Prometheus را می توان در Grafana مشاهده کرد.
 
-Prometheus is an open-source systems monitoring and alerting toolkit. Prometheus collects and stores its metrics as time series data, i.e. metrics information is stored with the timestamp at which it was recorded, alongside optional key-value pairs called labels.
+Prometheus یک جعبه ابزار مانیتورینگ و هشدار سیستم منبع باز است. Prometheus معیارهای خود را به عنوان داده های سری زمانی جمع آوری و ذخیره می کند، یعنی اطلاعات متریک با مهر زمانی که در آن ثبت شده است، در کنار جفت های اختیاری کلید-مقدار به نام برچسب ها ذخیره می شود.
 
-Grafana open source is open source visualization and analytics software. It allows you to query, visualize, alert on, and explore your metrics. It provides you with tools to turn your time-series database data into insightful graphs and visualizations.
+نسخه متن باز Grafana یک نرم افزار تجسم و تجزیه و تحلیل متن باز است. به شما امکان می دهد معیارهای خود را پرس و جو کنید، تجسم کنید، هشدار دهید و کاوش کنید. این ابزارها را در اختیار شما قرار می دهد تا داده های پایگاه داده سری زمانی خود را به نمودارها و تجسم های روشنگر تبدیل کنید.
 
-Prometheus + Grafana is almost an industry standard for monitoring, visualization, and alerting. For Braiins OS+, endpoint for Prometheus metrics is available at ``[IP ADDRESS]:8081/metrics``.
+Prometheus + Grafana تقریباً یک استاندارد صنعتی برای مانیتورینگ، تجسم و هشدار است. برای Braiins OS+، نقطه پایانی معیارهای Prometheus در ``[IP ADDRESS]:8081/metrics`` موجود است.
 
-.. attention::
+.. توجه::
    
-   The monitoring can be run either as a standalone application or it is already bundled in the Braiins Farm Proxy docker stack.
+   مانیتورینگ را می توان به عنوان یک برنامه مستقل اجرا کرد یا به صورت پشته Docker Proxy Braiins Farm همراه شده است.
 
-Limitations
+محدودیت ها
 -----------
 
--  Only limited set of metrics is available for S9 devices
--  Monitoring only works for miners with Braiins OS+ installed
--  Supported architectures for ssh scanner are Linux AMD64, RPi 64bit or 32bit
+-  فقط مجموعه محدودی از معیارها برای دستگاه های S9 در دسترس است
+-  مانیتورینگ فقط برای ماینرهایی که Braiins OS+ نصب کرده اند کار می کند
+-  معماری های پشتیبانی شده برای اسکنر ssh لینوکس AMD64، RPi 64bit یا 32bit هستند.
 
-Setup
+راه اندازی
 =====
 
-Quick Start
+شروع سریع
 -----------
 
-Quick start for the case that the monitoring is run as standalone app (not as a part of Braiins Farm Proxy).
+شروع سریع برای مواردی که مانیتورینگ به عنوان یک برنامه مستقل اجرا می شود (نه به عنوان بخشی از Braiins Farm Proxy).
 
 - ``git clone https://github.com/braiins/bos-farm-monitor.git``
-- Change list of IP address ranges to scan in ``./scan_crontab``
+- فهرست محدوده آدرس IP را برای اسکن در ``./scan_crontab`` تغییر دهید
 - ``docker-compose up -d``
-- Go to localhost:3000
+- به localhost:3000 بروید
 
-Prerequisites
+پیش نیازها
 -------------
 
 **Linux**
 
--  Follow `docker installation instructions <https://docs.docker.com/engine/install/ubuntu/>`__
--  Follow `optional docker post installation steps <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`__
--  Follow `docker-compose installation <https://docs.docker.com/compose/install/>`__
+-  دستورالعمل‌های `نصب docker را دنبال کنید <https://docs.docker.com/engine/install/ubuntu/>`__
+-  مراحل `نصب اختیاری docker post را دنبال کنید <https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user>`__
+-  مراحل `نصب docker-compose را دنبال کنید <https://docs.docker.com/compose/install/>`__
 
 **RPi**
 
--  Follow one of the many manuals - e.g. https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
+-  یکی از راهنماهای متعدد را دنبال کنید - به عنوان مثال. https://jfrog.com/connect/post/install-docker-compose-on-raspberry-pi/
 
-Installation
+نصب
 ------------
 
-Quick start in case that the monitoring is run as standalone app (not as a part of Braiins Farm Proxy).
+شروع سریع در صورتی که مانیتورینگ به عنوان یک برنامه مستقل اجرا شود (نه به عنوان بخشی از Braiins Farm Proxy).
 
-**Verify prerequisite installed**
+**تأیید پیش نیاز نصب شده**
 
 .. code-block::
 
@@ -80,9 +80,9 @@ Quick start in case that the monitoring is run as standalone app (not as a part 
     docker-compose --version
     git --version
 
-**Download Braiins Repository**
+**تأیید پیش نیاز نصب شده**
 
-You can clone the repository using git:
+می توانید با استفاده از git مخزن را کلون کنید:
 
 .. code-block::
 
@@ -90,58 +90,54 @@ You can clone the repository using git:
    sudo apt install git
    git clone https://github.com/braiins/bos-farm-monitor.git
 
-You can download zip file with all the files `https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip <https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip>`__
+می توانید فایل فشرده را با تمام فایل ها دانلود کنید `https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip <https://github.com/braiins/bos-farm-monitor/archive/refs/heads/master.zip>`__
 
-Prometheus Configuration
+Prometheus پیکربندی
 ------------------------
 
-Before you can start monitoring your farm, you will need to prepare
-configuration based on examples in the config directory. There are two
-files:
+قبل از اینکه بتوانید مانیتورینگ بر فارم خود را شروع کنید، باید آماده شوید
+:پیکربندی بر اساس مثال هایی در دایرکتوری پیکربندی. فایل ها دو تا هستند
+
 
 -  ``/config/prometheus_scan.yml``
 -  ``/config/prometheus_static.yml``
 
-The only major difference between the two is that “scan” is best to be
-used in case your miners have IP addresses assigned by DHCP, while
-“static” can be used when your miners have static IP addresses.
+تنها تفاوت عمده بین این دو این است که "scan" بهترین کار است
+در صورتی که ماینرهای شما دارای آدرس IP اختصاص داده شده توسط DHCP باشند، استفاده می شود
+زمانی که ماینرهای شما آدرس IP ایستا دارند، می توان از "static" استفاده کرد.
 
-**Default Configuration**
+**پیکربندی پیش فرض**
 
-The default configuration in has the following features:
+پیکربندی پیش فرض در دارای ویژگی های زیر است:
 
--  Job for scraping Braiins OS+ metrics named braiinsos-data
--  Relabeling of metrics endpoint addresses (removal of 8081 port)
--  Parsing of IP addresses:
+-  کار برای اسکرپینگ معیارهای Braiins OS+ با نام braiinsos-data
+-  برچسب گذاری مجدد آدرس های نقطه پایانی متریک (حذف پورت 8081)
+-  تجزیه آدرس های IP:
 
-   -  Second octet: label ``site_id``
-   -  Third octet: label ``subnet_id``
-   -  Fourth octet: label ``host_id``
+   -  اکتت دوم: برچسب ``site_id``
+   -  اکتت سوم: برچسب ``subnet_id``
+   -  هشتم چهارم: برچسب ``host_id``
 
--  Removal of some more data intense metrics (you can add them back, just make sure you instance is sized appropriately)
--  Static label building for prometheus_static.yml - label is assigned dynamically when prometheus_scan.yml is used (more on this later).
+-  حذف برخی از معیارهای پرقدرت داده (شما می توانید آنها را دوباره اضافه کنید، فقط مطمئن شوید که اندازه نمونه شما مناسب است)
+-  ساخت برچسب استاتیک برای prometheus_static.yml - برچسب زمانی که از prometheus_scan.yml استفاده می شود به صورت پویا اختصاص داده می شود (در ادامه در این مورد بیشتر توضیح خواهیم داد).
 
-**Structure Your Farm for Good Observability**
+**فارم خود را برای مشاهده خوب ساختار دهید**
 
-For a bigger farm, you might want to group miners into some logical
-groupings so that you can see performance by individual components. The
-grouping might differ depending on the size and structure of your farm,
-some of the most typical elements in the farm topology are:
+برای یک فارم بزرگتر، ممکن است بخواهید استخراج کنندگان را به چند گروه منطقی گروه بندی کنید
+گروه بندی به طوری که بتوانید عملکرد را بر اساس اجزای جداگانه مشاهده کنید. این
+گروه بندی ممکن است بسته به اندازه و ساختار فارم شما متفاوت باشد،
+برخی از معمول ترین عناصر در توپولوژی فارم عبارتند از:
 
--  Building
--  Section
--  Tank
--  Aisle
--  Row
+-  ساختمان
+-  بخش
+-  تانکر
+-  راهرو
+-  ردیف
 
-To achieve this you have the following options:
+برای رسیدن به این هدف شما گزینه های زیر را دارید:
 
- **Use subnets and parse octets of IP addresses**
-   If you have static IP addresses and you are using these to organize your
-   miners, the easiest way to prepare data for reporting is to enhance
-   prometheus configuration with relabels derived from IP addresses. The
-   example below shows how to do it. You can obviously use different names
-   than section, tank, miner.
+ **از زیرشبکه ها استفاده کنید و اکتت آدرس های IP را تجزیه کنید**
+   اگر آدرس‌های IP ثابت دارید و از آن‌ها برای سازماندهی ماینرهای خود استفاده می‌کنید، ساده‌ترین راه برای آماده‌سازی داده‌ها برای گزارش‌دهی، بهبود پیکربندی Prometheus با برچسب‌های مجدد مشتق شده از آدرس‌های IP است. مثال زیر نحوه انجام آن را نشان می دهد. بدیهی است که می توانید از نام های متفاوتی نسبت به بخش، مخزن، ماینر استفاده کنید.
 
    .. code-block::
 
@@ -159,55 +155,53 @@ To achieve this you have the following options:
         regex: "\\d+\\.\\d+\\.\\d+\\.(\\d+).*"
         target_label: "miner"
  
- **Use separate jobs together with optional custom label**
-   One configuration of Prometheus (stored in prometheus.yml) can contain multiple jobs. For example, you can create separate jobs for each building or container. Each metric has a job label, making it a very convenient approach to group instances (miners). In case when you have other (non-mining) jobs in your configuration, you might want to add a custom label to each job so that you can use that label for filtering/grouping. An example that could be used in relabel_configs section to add building label to each instance that is monitored by the job with value “Bulding A”:
+ **از کارهای جداگانه همراه با یک برچسب سفارشی اختیاری استفاده کنید**
+یک پیکربندی از Prometheus (ذخیره شده در prometheus.yml) می تواند شامل چندین کار باشد. به عنوان مثال، می توانید برای هر ساختمان یا کانتینر کارهای جداگانه ایجاد کنید. هر معیار دارای یک برچسب کاری است، که آن را به یک رویکرد بسیار راحت برای نمونه های گروهی (غیراستخراج کننده) تبدیل می کند. در صورتی که کارهای دیگری (غیر استخراج) در پیکربندی خود دارید، ممکن است بخواهید یک برچسب سفارشی به هر کار اضافه کنید تا بتوانید از آن برچسب برای فیلتر کردن/گروه‌بندی استفاده کنید. مثالی که می تواند در بخش relabel_configs برای افزودن یک برچسب ساختمان به هر نمونه ای که توسط کار با مقدار "Building A" مانیتورینگ می شود، استفاده شود:
 
    .. code-block::
 
       - target_label: "building"
         replacement: "Building A"
- **Use multiple prometheus instances**
-   In the case of thousands or more miners it might be easier to setup a separate Prometheus instance for each group of miners. Refer to Prometheus documentation on how to setup `federation <https://prometheus.io/docs/prometheus/latest/federation/>`__.
 
- **Use username/workername and re-labels (not recommended)**
-   Using username/workername for encoding information about physical location of miners is a typically used approach with legacy monitoring applications. This approach does not work well with how Prometheus manages and stores time-series, which is nothing like a traditional relational database. We do not recommend using username/workername for structuring you farm with prometheus for the following reasons:
+ **از چندین نمونه Prometheus استفاده کنید**
+   در مورد هزاران یا بیشتر ماینر، ممکن است تنظیم یک نمونه Prometheus جداگانه برای هر گروه از ماینرها آسان تر باشد. به اسناد پرومته در مورد نحوه راه اندازی `فدراسیون <https://prometheus.io/docs/prometheus/latest/federation/>`__ مراجعه کنید.
 
-   -  majority of metrics do not have worker name as labels and joins would need to be created in queries (slows things down, prone to errors)
-   -  there can be multiple usernames / workernames associated with a single miner; this makes the joins even more difficult (necessary pre-aggregation with logic which value to choose)
+ **استفاده از نام کاربری/نام ورکر و برچسب‌های مجدد (توصیه نمی‌شود)**
+استفاده از نام کاربری/نام ورکر برای رمزگذاری اطلاعات مربوط به مکان فیزیکی ماینرها یک رویکرد معمولی است که در برنامه های نظارت قدیمی استفاده می شود. این رویکرد با نحوه مدیریت و ذخیره سری های زمانی Prometheus که هیچ شباهتی به پایگاه داده های سنتی رابطه ای ندارد، به خوبی کار نمی کند. ما استفاده از نام کاربری/نام ورکر را برای ساختار مزرعه خود با Prometheus به دلایل زیر توصیه نمی کنیم:
 
- **Use multiple IP ranges with scan approach**
-   If you have miners with IP assigned by DHCP and you are using scanning of your network to get miners to Prometheus, you can define multiple network ranges and each range can have a unique value defined and assigned to label (more on that in the following section).
+   -  اکثر معیارها دارای نام ورکر به عنوان برچسب نیستند و پیوندها باید در پرس و جو ایجاد شوند (کارها را کند می کند، مستعد خطا)
+   -  ممکن است چندین نام کاربری / نام ورکر مرتبط با یک ماینر وجود داشته باشد. این پیوندها را حتی دشوارتر می کند (پیش تجمیع ضروری با منطق که کدام مقدار را انتخاب کنید)
 
-**Adding miners to configuration**
+ **از چندین محدوده IP با رویکرد اسکن استفاده کنید**
+   اگر ماینرهایی با IP اختصاص داده شده توسط DHCP دارید و از اسکن شبکه خود برای انتقال ماینرها به Prometheus استفاده می کنید، می توانید چندین محدوده شبکه را تعریف کنید و هر محدوده می تواند یک مقدار منحصر به فرد تعریف شده و به برچسب اختصاص داده شود (در بخش بعدی در مورد آن بیشتر توضیح دهید. ).
 
-There are the following basic options how to add your miners to the
-configuration:
+**افزودن ماینرها به پیکربندی**
 
--  Use service discovery options provided by Prometheus
--  List IP addresses in the configuration file manually
+گزینه های اساسی زیر برای اضافه کردن ماینرها به پیکربندی وجود دارد:
 
-Listing IP addresses directly works best when IP addresses assigned to
-miners are static. In the case of DHCP, service discovery is a better
-option.
+-  از گزینه های کشف خدمات ارائه شده توسط Prometheus استفاده کنید
+-  آدرس های IP را در فایل پیکربندی به صورت دستی فهرست کنید
+
+فهرست کردن آدرس های IP به طور مستقیم زمانی بهترین کار را دارد که آدرس های IP اختصاص داده شده به ماینرها ثابت باشند. در مورد DHCP، کشف سرویس گزینه بهتری است.
 
 **Service Discovery**
 
-File-based service discovery is the option enabled by default. To start
-using it, you will need to configure file ``./scan_crontab`` in a
-text editor. Current examples are:
+کشف سرویس مبتنی بر فایل گزینه ای است که به طور پیش فرض فعال شده است. برای شروع
+با استفاده از آن، باید فایل ``./scan_crontab`` را در یک پیکربندی کنید
+ویرایشگر متن نمونه های فعلی عبارتند از:
 
 .. code-block::
 
     * */3 * * * * * ssh_scan.sh "1.2.3.0-255" "Building A"
     * */3 * * * * * ssh_scan.sh "1.2.0-255.3" "Building B"
 
-Each line will scan the defined IP range for responding miners and will store the list so that it is available to prometheus. The string “Building A” / “Building B” can be an arbitrary name. Currently, it will get dynamically mapped to label building. The scan is performed every three minutes - you can change it based on the size of your farm and your needs. In case you are not familiar with the cron syntax, it is explained `here <https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html>`__.
+هر خط محدوده IP تعریف شده را برای ماینرهای پاسخگو اسکن می کند و لیست را ذخیره می کند تا در دسترس Prometheus باشد. رشته "Building A" / "Building B" می تواند یک نام دلخواه باشد. در حال حاضر، به صورت پویا به ساختمان برچسب نگاشت می شود. اسکن هر سه دقیقه انجام می شود - می توانید آن را بر اساس اندازه مزرعه و نیازهای خود تغییر دهید. در صورتی که با سینتکس cron آشنایی ندارید، در `اینجا <https://www.netiq.com/documentation/cloud-manager-2-5/ncm-reference/data/bexyssf.html>`__ توضیح داده شده است.
 
-**List IP addresses**
+**آدرس های IP را فهرست کنید**
 
-In order to use a static list of IP addresses, you need to change the file ``docker-compose.yml``,
+برای استفاده از یک لیست ثابت از آدرس های IP، باید فایل ``docker-compose.yml`` را تغییر دهید،
 
-First, comment-out the crontab image so that dynamic scan is disabled:
+ابتدا، crontab را کامنت کنید تا اسکن پویا غیرفعال شود:
 
 .. code-block::
 
@@ -219,16 +213,15 @@ First, comment-out the crontab image so that dynamic scan is disabled:
    #  - scanner_data:/mnt:rw
    # network_mode: "host"
 
-Second, comment-out the dynamic scanning and enable use of a different
-configuration file. It should look like this after changes:
+دوم، اسکن پویا را کامنت کنید و استفاده از یک فایل پیکربندی متفاوت را فعال کنید. پس از تغییرات باید به این صورت باشد:
 
 .. code-block::
 
    #- '--config.file=/etc/prometheus/prometheus_scan.yml'
    - '--config.file=/etc/prometheus/prometheus_static.yml'
 
-IP addresses are listed as an array in the configuration file
-`prometheus_static.yml`. Change the entries with list of your miners:
+آدرس های IP به صورت یک آرایه در فایل پیکربندی فهرست شده اند
+`prometheus_static.yml`. ورودی ها را با لیستی از ماینرهای خود تغییر دهید:
 
 .. code-block:
 
@@ -236,73 +229,73 @@ IP addresses are listed as an array in the configuration file
 
 Note that:
 
--  Port has to be added at the end of the IP address. Port 8081 is where the metrics for Prometheus are available
--  IP addresses are quoted and separated by comma
+- پورت باید در انتهای آدرس IP اضافه شود. پورت 8081 جایی است که معیارهای Prometheus در دسترس هستند
+- آدرس های IP داخل '' و با کاما از هم جدا می شوند
 
-In case you do not have static IP addresses, the IP address of any miner can change. If you still want to use this static approach, try to increase the lease time to high value (e.g. 48 hours) for your DHCP server, so that IP address is re-assigned even when the miner is offline for some time.
+در صورتی که آدرس IP ثابت ندارید، آدرس IP هر ماینر می تواند تغییر کند. اگر همچنان می‌خواهید از این رویکرد استاتیک استفاده کنید، سعی کنید زمان اجاره را برای سرور DHCP خود به مقدار بالایی (مثلاً 48 ساعت) افزایش دهید، به طوری که حتی زمانی که ماینر برای مدتی آفلاین است، آدرس IP دوباره تخصیص داده شود.
 
-In order to get all the miners to the list you can scan your farm for devices using BOS Toolbox and generate configuration from results. You can use either UX or command-line to get the list.
+برای اینکه همه ماینرها را به لیست بیاورید، می‌توانید مزرعه خود را برای دستگاه‌هایی با استفاده از جعبه ابزار BOS اسکن کنید و از نتایج پیکربندی ایجاد کنید. برای دریافت لیست می توانید از UX یا خط فرمان استفاده کنید.
 
-Command-line example (linux):
+مثال خط فرمان (لینوکس):
 
 .. code-block::
 
    ./bos-toolbox scan -o ips.txt 10.10.0.0/16
    cat ips.txt \| sed "s/.*/'&:8081'/" \| paste -sd',' \| sed "s/.*/[&]/"
 
-The first command will scan all IP addresses in the range 10.10.0.0 and 10.10.255.255. The second will print an array with IP addresses that you can paste in the configuration.
+دستور اول تمام آدرس های IP در محدوده 10.10.0.0 و 10.10.255.255 را اسکن می کند. دومی آرایه‌ای با آدرس‌های IP چاپ می‌کند که می‌توانید آن را در پیکربندی جای‌گذاری کنید.
 
-Only miners with Braiins OS+ can be monitored. In case you are using miners without Braiins OS+, it is better to use:
+فقط ماینرهایی که دارای فریم‌ور Braiins OS+ هستند قابل نظارت هستند. اگر از ماینرهای بدون Braiins OS+ استفاده می کنید، بهتر است از موارد زیر استفاده کنید:
 
 .. code-block::
    
    ./bos-toolbox scan 10.10.0.0/16 &> ips.txt
    grep "\| bOS" ips.txt \| cut -d"(" -f2 \| cut -"d)" -f1 \| sed "s/.*/'&:8081'/" \| paste -sd',' \| sed "s/.*/[&]/"
 
-For different IP ranges you can use:
+برای محدوده های IP مختلف می توانید از:
 
 -  10.10.10.0/24 for range 10.10.10.0 - 10.10.10.255
 -  10.10.0.0/16 for range 10.10.0.0 to 10.10.255.255
 -  10.0.0.0/8 for range 10.0.0.0 to 10.255.255.25
 
-Start monitoring
+شروع مانیتورینگ
 ----------------
 
 .. code-block::
 
    docker-compose up -d
 
-You can verify that container is running using `docker ps`.
+می‌توانید تأیید کنید که container با استفاده از آن در حال اجرا است `docker ps`.
 
-Now you can go to: `http://<your_host>:3000`.
+حالا به مسیر مقابل مراجعه کنید: `http://<your_host>:3000`.
 
-Operations
+عملیات
 ----------
 
-**Changing configuration**
+**تغییر پیکربندی**
 
-Change configuration file according to your needs
+فایل پیکربندی را با توجه به نیاز خود تغییر دهید
 
 .. code-block::
 
    docker-compose restart prometheus
 
-**Updating to newer version**
+**به روز رسانی به نسخه جدیدترn**
 
 .. code-block::
 
    git pull origin master
    docker-compose up -d
 
-Dashboards
+داشبوردها
 ==========
 
-In our repository we provide sample dashboards that can get you started to prepare monitoring for your farm the best suits your needs.
+در مخزن خود، ما داشبوردهای نمونه ارائه می دهیم که می تواند شما را به آماده سازی نظارت برای مزرعه خود که به بهترین وجه با نیازهای شما مطابقت دارد، شروع کند.
 
-Farm Dashboard
+داشبورد فارم
 --------------
 
-This is the high-level dashboard that monitors all of the miners in your farm. It has a built-in data source selector in case you have multiple prometheus instances running. It also features several drill-down reports highlighted in the screenshot below:
+این داشبورد سطح بالایی است که همه ماینرهای فارم شما را زیر نظر دارد. در صورتی که چندین نمونه Prometheus در حال اجرا هستید، دارای یک انتخابگر منبع داده داخلی است. همچنین دارای چندین گزارش تمرینی است که در تصویر زیر مشخص شده اند:
 
   .. |pic3| image:: ../_static/monitoring_dashboard.png
       :width: 100%
@@ -310,24 +303,24 @@ This is the high-level dashboard that monitors all of the miners in your farm. I
 
   |pic3|
 
-Parts highlighted in red will lead you to a drill-down report listing the instances. Parts highlighted in blue will go directly to the miner UX.
+قسمت‌هایی که با رنگ قرمز مشخص شده‌اند شما را به یک گزارش تمرینی هدایت می‌کنند که نمونه‌ها را فهرست می‌کند. قسمت هایی که با رنگ آبی مشخص شده اند مستقیماً به ماینر UX می روند.
 
-Example Farm Dashboard - By Building
-------------------------------------
+نمونه داشبورد فارم - بر اساس ساختمان
+-------------------------------------
 
-Dashboard has a feature where rows of grafana panels are automatically displayed for each defined building. This is created dynamically based on the values of the building label. The full flow is as follows in the example configuration:
+داشبورد دارای ویژگی است که در آن ردیف هایی از پانل های Grafana به طور خودکار برای هر ساختمان تعریف شده نمایش داده می شود. این به صورت پویا بر اساس مقادیر برچسب ساختمان ایجاد می شود. جریان کامل در پیکربندی مثال به شرح زیر است:
 
--  two separate jobs are created in prometheus.yml
--  each job has label building added with value representing the building
--  grafana dashboard has parameter building defined which is linked to building label
--  row header has $building as a name - this will get expanded with label values
--  each panel has $building as a filter
+- دو شغل مجزا در prometheus.yml ایجاد می شود
+- هر شغل دارای یک ساختمان برچسب است که با یک مقدار نشان دهنده ساختمان اضافه شده است
+- داشبورد Grafana دارای پارامتر ساختمان تعریف شده است که به برچسب ساختمان مرتبط است
+- هدر ردیف دارای $building به عنوان نام است - این با مقادیر برچسب گسترش می یابد
+- هر پنل دارای $building به عنوان فیلتر است
 
-Metrics and Labels
+معیارها و برچسب ها
 ==================
-Every time series is uniquely identified by its metric name and optional key-value pairs called labels. The metric name specifies the general feature of a system that is measured. Labels enable Prometheus's dimensional data model: any given combination of labels for the same metric name identifies a particular dimensional instantiation of that metric. The query language allows filtering and aggregation based on these dimensions.
+هر سری زمانی منحصراً با نام متریک و جفت‌های اختیاری کلید-مقدار به نام برچسب‌ها مشخص می‌شود. نام متریک ویژگی کلی یک سیستم را که اندازه گیری می شود مشخص می کند. برچسب‌ها مدل داده‌های ابعادی پرومتئوس را فعال می‌کنند: هر ترکیب معینی از برچسب‌ها برای همان نام متریک، نمونه ابعادی خاصی از آن متریک را مشخص می‌کند. زبان پرس و جو امکان فیلتر کردن و تجمیع را بر اساس این ابعاد می دهد.
 
-Overview:
+بررسی اجمالی:
 
 -  ``application_version_details (instance, version_full, toolchain)``
 -  ``client_status (instance, connection_type, host, protocol, user, worker)``
@@ -342,76 +335,76 @@ Overview:
 -  ``stratum_rejected_submits_counter (instance, host, user, worker, protocol, connection_type)``
 -  ``tuner_stage (instance, hashboard)``
 
-Application Version Details
+جزئیات نسخه برنامه
 ---------------------------
 
-Version of the application which is producing time series.
+نسخه برنامه ای که در حال تولید سری های زمانی است.
 
 ``application_version_details``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  version_full: version of the application
+-  instance: آدرس IP ماینر
+-  version_full: نسخه برنامه
 -  toolchain
    
-Client Status
+وضعیت کلاینت
 -------------
 
-Status of the client: (stopped = 0, running = 1 , failed = -1)
+وضعیت کلاینت: (متوقف = 0, در حال اجرا = 1 , متوقف = -1)
 
 ``client_status``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+-  instance: آدرس IP ماینر
+-  connection_type: نوع اتصال، که می تواند یکی باشد *user* یا *dev-fee*
+-  host: URL میزبان، معمولاً URL استخر یا پروکسی
+-  protocol: پروتکل استخراج
+-  user: معمولاً نام کاربری استخر ماینینگ مشتری
+-  worker: نام ورکر
 
 
-Hashboard Nominal Hashrate (Gh/s)
+هش‌ریت اسمی هشبورد (Gh/s)
 ---------------------------------
 
-Nominal hashrate for each hashboard in Gh/s.
+هش‌ریت اسمی برای هر هشبورد بر حسب Gh/s.
 
 ``hashboard_nominal_hashrate_gigahashes_per_second``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  hashboard: rank of the hashboard
+-  instance: آدرس IP ماینر
+-  hashboard: رنک هشبورد
 
-Hashboard Shares
-----------------
+سهام های هشبورد
+------------------
 
-Number of valid shares produced by hashboards. Hashboard shares can be used to calculate real hashrate for hashboard, miner, or other group. This metric does not provide information whether shares were accepted by target - stratum_accepted_shares_counter should be used for this.
+تعداد سهام معتبر تولید شده توسط هشبورد. از اشتراک های هشبورد می توان برای محاسبه هش ریت واقعی برای هشبورد، ماینر یا گروه های دیگر استفاده کرد. این معیار اطلاعاتی در مورد اینکه آیا سهام توسط هدف پذیرفته شده است ارائه نمی دهد - stratum_accepted_shares_counter باید برای این مورد استفاده شود.
 
 ``hashboard_shares (counter)``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  hashboard: rank of the hashboard
--  type: type of the shares with respect to its validity, *valid* - valid shares, *invalid* - invalid shares, *duplicate* - duplicated shares
+-  instance: آدرس IP ماینر
+-  hashboard: رنک هشبورد
+-  type: نوع سهام از نظر اعتبار، *valid* - سهام معتبر، * invalid* - سهام نامعتبر، * duplicate* - سهام تکراری
 
-**Examples**
+**مثال‌ها**
 
-Average number of hashes per second over last 20 seconds for all instances:
+میانگین تعداد هش در هر ثانیه در 20 ثانیه گذشته برای همه موارد:
 
 .. code-block::
 
    sum(rate(hashboard_shares[20s])) * 2^32
 
-Average number of hashes per second over last 20 seconds by instance:
+میانگین تعداد هش در هر ثانیه در 20 ثانیه گذشته برای یک مورد:
 
 .. code-block::
 
    sum by(instance) (rate(hashboard_shares[20s])) * 2^32
 
-Average number of hashes per second over last 20 seconds for all instances by miner type:
+میانگین تعداد هش در هر ثانیه در 20 ثانیه گذشته برای همه نمونه‌ها بر اساس نوع ماینر:
 
 .. code-block::
 
@@ -420,91 +413,89 @@ Average number of hashes per second over last 20 seconds for all instances by mi
       * on(instance) group_left(model) count by (instance, model) (miner_metadata)
    )
 
-Miner Metadata
+فراداده ماینر
 --------------
 
 ``miner_metadata``
 
-**Labels**
+**برچسب‌ها**
 
-- instance: IP address of the miner
-- model: model of the miner
-- os_version: version of the firmware
+-  instance: آدرس IP ماینر
+- model: مدل ماینر
+- os_version: نسخه فریم‌ور
 
-**Examples**
+**مثال‌ها**
 
-Number of miners by model:
+تعداد ماینرها بر اساس مدل:
 
 .. code-block::
 
    count_values by (model) ("x", miner_metadata)
 
-Miner Power
+توان ماینر
 -----------
 
 ``miner_power``
 
-**Labels**
+**برچسب‌ها**
 
 -  instance: IP address of the miner
 -  type: 3 types, *estimated* - estimated power, *limit* - power limit, *psu* - measured power, *wall*
 -  socket
 
-**Examples**
+**مثال‌ها**
 
-Total estimated power consumption for all instances:
+کل مصرف برق تخمینی برای همه موارد:
 
 .. code-block::
 
    sum(miner_power{type="estimated"})
 
-Total power limit for all instances:
+محدودیت توان کل برای همه موارد:
 
 .. code-block::
 
   sum(miner_power{type="limit"})
 
-Stratum Accepted Shares Counter
--------------------------------
+شمارشگر سهام پذیرفته شده Stratum
+---------------------------------
 
-Total number of shares accepted by target. For one instance, there are
-typically more targets, represented by host label.
+تعداد کل سهام پذیرفته شده توسط هدف. به عنوان مثال، معمولاً اهداف بیشتری وجود دارد که توسط برچسب میزبان نشان داده می شود.
 
 ``stratum_accepted_shares_counter (counter)``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+-  instance: آدرس IP ماینر
+-  connection_type: نوع اتصال، که می تواند یکی باشد *user* یا *dev-fee*
+-  host: URL میزبان، معمولاً URL استخر یا پروکسی
+-  protocol: پروتکل استخراج
+-  user: معمولاً نام کاربری استخر ماینینگ مشتری
+-  worker: نام ورکر
 
-**Examples**
+**مثال‌ها**
 
-Average number of accepted shares per second over last 20 seconds for
-all instances by target:
+میانگین تعداد سهام پذیرفته شده در هر ثانیه در 20 ثانیه گذشته برای همه موارد بر اساس هدف:
 
 .. code-block::
 
    sum by(host) (rate(stratum_accepted_shares_counter[20s]))
 
-Stratum Rejected Shares Counter
+شمارشگر سهام رد شده Stratum
 -------------------------------
 
 Total number of shares rejected by target.
 
 ``stratum_rejected_shares_counter (counter)``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+-  instance: آدرس IP ماینر
+-  connection_type: نوع اتصال، که می تواند یکی باشد *user* یا *dev-fee*
+-  host: URL میزبان، معمولاً URL استخر یا پروکسی
+-  protocol: پروتکل استخراج
+-  user: معمولاً نام کاربری استخر ماینینگ مشتری
+-  worker: نام ورکر
 
 **Examples**
 
@@ -517,62 +508,61 @@ Average number of rejected shares per second over last 20 seconds for all instan
 Stratum Accepted Submits Counter
 --------------------------------
 
-Total number of submits accepted by target. For one instance, there are
-typically more targets, represented by host label.
+تعداد کل ارسال های پذیرفته شده توسط هدف. به عنوان مثال، معمولاً اهداف بیشتری وجود دارد که توسط برچسب میزبان نشان داده می شود.
 
 ``stratum_accepted_submits_counter (counter)``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+-  instance: آدرس IP ماینر
+-  connection_type: نوع اتصال، که می تواند یکی باشد *user* یا *dev-fee*
+-  host: URL میزبان، معمولاً URL استخر یا پروکسی
+-  protocol: پروتکل استخراج
+-  user: معمولاً نام کاربری استخر ماینینگ مشتری
+-  worker: نام ورکر
 
-**Examples**
+**مثال‌ها**
 
-Average number of accepted submits per second over last 20 seconds for
-all instances by target:
+میانگین تعداد ارسال های پذیرفته شده در هر ثانیه در 20 ثانیه گذشته برای
+همه موارد بر اساس هدف:
 
 .. code-block::
 
    sum by(host) (rate(stratum_accepted_submits_counter[20s]))
 
-Stratum Rejected Submits Counter
+شمارشگر ارسال‌های رد شده Stratum
 --------------------------------
 
-Total number of submits rejected by target.
+تعداد کل ارسال‌های رد شده توسط هدف.
 
 ``stratum_rejected_submits_counter (counter)``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  connection_type: type of the connection, which could be either *user* or *dev-fee*
--  host: URL of the host, usually URL of the pool or proxy
--  protocol: mining protocol
--  user: usually mining pool username of the client
--  worker: name of the worker
+-  instance: آدرس IP ماینر
+-  connection_type: نوع اتصال، که می تواند یکی باشد *user* یا *dev-fee*
+-  host: URL میزبان، معمولاً URL استخر یا پروکسی
+-  protocol: پروتکل استخراج
+-  user: معمولاً نام کاربری استخر ماینینگ مشتری
+-  worker: نام ورکر
 
-**Examples**
+**مثال‌ها**
 
-Average number of rejected submits per second over last 20 seconds for all instances by target:
+میانگین تعداد ارسال‌های رد شده در هر ثانیه در 20 ثانیه گذشته برای همه موارد بر اساس هدف:
 
 .. code-block::
 
    sum by(host) (rate(stratum_rejected_submits_counter[20s]))
 
 
-Temperature
------------
+دما
+------
 
-Every available temperature sensor will provide the data. There might be sensor at different locations (pcb or chip).
+هر سنسور دمای موجود داده ها را ارائه می دهد. ممکن است سنسورهایی در مکان های مختلف (PCB یا تراشه) وجود داشته باشد.
 
 ``temperature``
 
-**Labels**
+**برچسب‌ها**
 
 -  instance: IP address of the miner
 -  chip_addr
@@ -581,15 +571,15 @@ Every available temperature sensor will provide the data. There might be sensor 
 -  hashboard
 -  location: chip|pcb
 
-**Examples**
+**مثال‌ها**
 
-Average maximum temperature across all instances (miners):
+میانگین حداکثر دما در همه موارد (ماینرها):
 
 .. code-block::
 
    avg(max by (instance) (temperature))
 
-Average maximum temperature across all instances (miners) by miner type:
+میانگین حداکثر دما در همه نمونه ها (ماینرها) بر اساس نوع ماینر:
 
 .. code-block::
 
@@ -598,10 +588,10 @@ Average maximum temperature across all instances (miners) by miner type:
      group_left(model) count by (instance, model) (miner_metadata)
    )
 
-Tuner stage
+مراحل تیونر
 -----------
 
-Stage of the tuner:
+مرحله های تیونر:
 
 -  2: testing performance profile
 -  3: tuning individual chips
@@ -610,25 +600,25 @@ Stage of the tuner:
 
 ``tuner_stage``
 
-**Labels**
+**برچسب‌ها**
 
--  instance: IP address of the miner
--  hashboard: rank of the hashboard
+-  instance: آی پی آدرس ماینر
+-  hashboard: رنک هشبورد
 
-**Examples**
+**مثال‌ها**
 
-Number of instances by stage:
+تعداد instatceها بر اساس مرحله:
 
 .. code-block::
 
    count_values ("Stage", max by (instance) (tuner_stage))
 
-Other Examples
+مثال‌های دیگر
 --------------
 
 **Extracting parts of IP address**
 
-If you are managing your farm by assigning different IP ranges to different parts of your farm, grouping metrics by octet of IP address might be useful. Example for maximum chip temperature by 3rd octet:
+اگر فارم خود را با تخصیص محدوده IP های مختلف به بخش های مختلف مزرعه خود مدیریت می کنید، گروه بندی معیارها بر اساس یک هشتاد آدرس IP ممکن است مفید باشد. مثالی برای حداکثر دمای تراشه تا اکتت سوم:
 
 .. code-block::
 
@@ -636,14 +626,14 @@ If you are managing your farm by assigning different IP ranges to different part
      temperature{location="chip"}, "segment", "$1", "instance","\\d+\\.\\d+\\.(\\d+)\\.\\d+.*"
    ))
 
-If you need to do this for many/all metrics, it is better to have parts of the IP address as custom labels. See the Configuration section with an example.
+اگر برای بسیاری از معیارها نیاز به انجام این کار دارید، بهتر است قسمت هایی از آدرس IP را به عنوان برچسب های سفارشی داشته باشید. برای مثال به بخش پیکربندی مراجعه کنید.
 
-Getting Help
+ دریافت کمک
 ============
 
-For more information about Prometheus and Grafana, please refer to the official documentation:
+برای اطلاعات بیشتر در مورد Prometheus و Grafana، لطفاً به مستندات رسمی مراجعه کنید:
 
--  `Prometheus Documentation <https://prometheus.io/docs/introduction/overview/>`__
--  `Grafana Documentation <https://grafana.com/docs/>`__
+-  `Prometheus مستندات <https://prometheus.io/docs/introduction/overview/>`__
+-  `Grafana مستندات <https://grafana.com/docs/>`__
 
-In case you have questions that are specific to monitoring of Braiins OS+ miners with Prometheus and Grafana, please contact our support team on Telegram.
+اگر سؤالی دارید که مربوط به مانیتورینگ بر ماینرهای Braiins OS+ با Prometheus و Grafana است، لطفاً با تیم پشتیبانی ما در تلگرام تماس بگیرید..
