@@ -7,6 +7,7 @@
    self
    Setup/index*
    User Guide/index*
+   Monitoring Braiins OS+ with Prometheus and Grafana/index*
    Troubleshooting/index*
    Support/index*
 
@@ -27,7 +28,7 @@
 Introducción
 ############
 
-Braiins Farm Proxy es una aplicación gratuita, independiente que se corre localmente en el sitio de la granja. El objetivo de este proxy es conservar ancho de banda mientras agrega la tasa de hash SHA256 de equipos individuales y los dirije hacia los puntos finales, que usualmente son pools de minería. Los equipos son configurados para conectarse al proxy. Braiins Farm Proxy puede configurarse para conectar muchos pool(s) objetivo con pool(s) de respaldo como un failover. El proxy optimiza las direcciones IP y selecciona los puntos finales con la menor latencia y pérdida de paquetes. También es capaz de cifrar la conexión al pool para mejor privacidad y seguridad en caso de usar Slush Pool como un punto final.
+Braiins Farm Proxy es una aplicación gratuita, independiente que se corre localmente en el sitio de la granja. El objetivo de este proxy es conservar ancho de banda mientras agrega la tasa de hash SHA256 de equipos individuales y los dirije hacia los puntos finales, que usualmente son pools de minería. Los equipos son configurados para conectarse al proxy. Braiins Farm Proxy puede configurarse para conectar muchos pool(s) objetivo con pool(s) de respaldo como un failover. El proxy optimiza las direcciones IP y selecciona los puntos finales con la menor latencia y pérdida de paquetes. También es capaz de cifrar la conexión al pool para mejor privacidad y seguridad en caso de usar Braiins Pool como un punto final.
 
 ***************
 Caracteristicas
@@ -43,5 +44,5 @@ Caracteristicas
 
  * **Vigilancia regular** en el tablero Grafana incluido en el Braiins Farm Proxy, con la posibilidad de construir su propia solución personalizada de vigilancia mediante una **API de vigilancia**.
  * Los usuarios de Braiins OS+ pueden beneficiarse de la **agregación de la tasa de desarrollo** para mas ahorro de ancho de banda. Braiins Farm Proxy puede agregar tanto la tasa de hash de la granja como la tasa de hash de la tasa de desarrollo.
- * Si el punto final objetivo es Slush Pool, una **conexión cifrada** tiene soporte para asegurar la privacidad de los datos y la protección del secuestro de la tasa de hash.
+ * Si el punto final objetivo es Braiins Pool, una **conexión cifrada** tiene soporte para asegurar la privacidad de los datos y la protección del secuestro de la tasa de hash.
  * Braiins Farm Proxy es completamente software **gratuito**.
