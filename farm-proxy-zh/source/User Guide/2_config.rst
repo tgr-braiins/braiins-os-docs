@@ -47,14 +47,14 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<slushpool上的用户名>"
+      braiinspool_bos_bonus = "<braiinspool上的用户名>"
       bos_referral_code = "<Braiins OS+推荐计划号>"
 
 
 
 * **name**: 服务器的名称。在Grafana监控的所有下游相关指标（提交、份额、连接）可见它作为"服务器"维度的值。
 * **port**: 指Braiins矿场代理所打开并其上接受矿工连接的端口。
-* **slushpool_bos_bonus**: 应用Braiins OS+推荐计划的Slush Pool上的用户名。
+* **braiinspool_bos_bonus**: 应用Braiins OS+推荐计划的Braiins Pool上的用户名。
 * **bos_referral_code**: Braiins OS+推荐计划号。
    
 目标
@@ -119,7 +119,7 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiinspool.com"
       user_identity = "simpleFarm.worker"
 
       [[routing]]
@@ -130,7 +130,7 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
       targets = ["SP-GL"]
 
 
-* **基本配置**: 一个欧洲的矿场为例。主要目标是Slush Pool（EU URL挖矿地址），使用Slush Pool矿池的通用和俄罗斯的挖矿URL地址作为备份。矿场有7万台ASIC矿机，其期望的聚集度为100。这意味着，应该有6到7个上游连接到目标。该矿场使用BOS+固件提高算力并在Slush Pool矿池上挖矿。
+* **基本配置**: 一个欧洲的矿场为例。主要目标是Braiins Pool（EU URL挖矿地址），使用Braiins Pool矿池的通用和俄罗斯的挖矿URL地址作为备份。矿场有7万台ASIC矿机，其期望的聚集度为100。这意味着，应该有6到7个上游连接到目标。该矿场使用BOS+固件提高算力并在Braiins Pool矿池上挖矿。
 
 .. code-block:: shell
 
@@ -141,19 +141,19 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-RU"
-      url = "stratum+tcp://ru-west.stratum.slushpool.com"
+      url = "stratum+tcp://ru-west.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
@@ -171,7 +171,7 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
       [[routing.goal.level]]
       targets = ["SP-RU"]
 
-* **矿机有多个所有者**。矿场的一部分矿机在Slush Pool上挖矿，监听端口为3336，其他矿机连接到蚂蚁矿池上，使用3337端口。蚂蚁矿池要求超额随机数 (extraNonce）为4，所以这个需要在Braiin矿场代理配置。这个配置的例子适用于矿机有2个主人的情况，因此需要定义和使用多个服务器。Braiins矿场代理的多个实例（在我们的例子是2台Raspberry Pi机器），可以使用2种不同的配置。
+* **矿机有多个所有者**。矿场的一部分矿机在Braiins Pool上挖矿，监听端口为3336，其他矿机连接到蚂蚁矿池上，使用3337端口。蚂蚁矿池要求超额随机数 (extraNonce）为4，所以这个需要在Braiin矿场代理配置。这个配置的例子适用于矿机有2个主人的情况，因此需要定义和使用多个服务器。Braiins矿场代理的多个实例（在我们的例子是2台Raspberry Pi机器），可以使用2种不同的配置。
    
 .. code-block:: shell
 
@@ -187,14 +187,14 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      url = "stratum+tcp://eu.stratum.braiins.com"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      url = "stratum+tcp://stratum.braiins.com"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50                                                      
 
       [[target]]
@@ -215,10 +215,10 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
       from = ["s1","s2"]
       [[routing.goal]]
       name = "Goal SP"
-      # Primary Slush Pool
+      # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -243,14 +243,14 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      url = "stratum+tcp://eu.stratum.braiins.com"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
-      user_identity = "slushPoolUser.proxy"
+      url = "stratum+tcp://stratum.braiins.com"
+      user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
@@ -284,10 +284,10 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
       [[routing.goal]]
       name = "Goal SP"
       hr_weight = 100
-      # Primary Slush Pool
+      # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -327,7 +327,7 @@ Braiins矿场代理在 *./farm-proxy/config* 路径具有三个预定义的TOML�
  * **validates_hash_rate**: 布尔值 (真/假，可选的)， 代理是否需要验证来自下游的提交的参数， 默认为 *true*，
  * **use_empty_extranonce1**: 布尔值 (真/假，可选的)， 定义是否可以使用多一个字节的超额随机数（不是每个设备都支持这个）的参数，默认为 *false*,
  * **submission_rate**: real (可选的)，所需的下游提交率（矿工 → 代理）定义为每1秒的提交数量，默认为 0.2（每5秒1次提交）。
- * **slushpool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Slush Pool用户名，
+ * **braiinspool_bos_bonus**: 串: 大小写敏感，最小长度为0 (可选的), 适用于Braiins OS+推荐计划的Braiins Pool用户名，
  * **bos_referral_code**: 串: 大小写敏感，最小长度为6 (可选的), 为获得优惠要提供全长的Braiins OS+推荐计划号。
    
 目标

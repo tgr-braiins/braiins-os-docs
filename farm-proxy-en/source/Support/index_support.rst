@@ -19,4 +19,4 @@ Support & Contact
 
    *
 
-Have questions? Our dev and support teams are always available to help. You can `send request <https://help.slushpool.com/support/tickets/new>`_ to our support team. You can also join our Telegram `group <https://t.me/iidiscussion>`_.
+Have questions? Our dev and support teams are always available to help. You can `send request <https://help.braiins.com/support/tickets/new>`_ to our support team. You can also join our Telegram `group <https://t.me/iidiscussion>`_.s

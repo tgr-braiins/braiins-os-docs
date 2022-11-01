@@ -47,14 +47,14 @@ Server is a template for downstream connections. Each server can be utilized onl
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<Braiins Pool username>"
+      braiinspool_bos_bonus = "<Braiins Pool username>"
       bos_referral_code = "<Braiins OS+ referral code>"
 
 
 
 * **name**: name of the server. It is visible as a value of “server” dimension in all downstream related metrics (submits, shares, connections) in Grafana monitoring.
 * **port**: defines port Braiins Farm Proxy will open and accept miner’s connections on.
-* **slushpool_bos_bonus**: Braiins Pool username for which Braiins OS+ bonus is applied.
+* **braiinspool_bos_bonus**: Braiins Pool username for which Braiins OS+ bonus is applied.
 * **bos_referral_code**: Braiins OS+ referral code.
    
 Target
@@ -100,7 +100,7 @@ Workers Configuration
 To point the farm’s hashrate to the Braiins Farm Proxy, the workers have to be reconfigured. The URL of the Pool in the workers’ firmware configuration has to be set as:
 
  * Stratum V1: ``stratum+tcp://<farm-proxy-url>:<server_port>``
- *  Stratum V2: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
+ * Stratum V2: ``stratum2+tcp://<farm-proxy-url>:<server_port>/<public_key>``
 
 It is recommended to have a backup pool connection on your miner too in case Braiins Farm Proxy is not working.
 
@@ -120,7 +120,7 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "simpleFarm.worker"
 
       [[routing]]
@@ -142,19 +142,19 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-RU"
-      url = "stratum+tcp://ru-west.stratum.slushpool.com"
+      url = "stratum+tcp://ru-west.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
@@ -184,17 +184,18 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[server]]
       name = "s2"
       port = 3337
-      extranonce_size = 2
+      extranonce_size = 3
+      use_empty_extranonce1 = true
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50                                                      
 
@@ -240,17 +241,18 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       [[server]]
       name = "s1"
       port = 3336
-      extranonce_size = 2
+      extranonce_size = 3
+      use_empty_extranonce1 = true
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
@@ -313,6 +315,10 @@ To make a better understanding of Braiins Farm Proxy usage and configuration, le
       targets = ["BTCcom-2"]
 
 * **Different location of the mining operation**: Mining farms with several physical mining containers or buildings in different locations would use a Braiins Farm Proxy instance in each of the locations or for each container with one downstream server and one upstream target with different worker identifiers at each location / container to differentiate the hashrate from each location / container. It is possible to link the Farm Proxies hierarchically to aggregate hashrate from Farm Proxies of individual containers via another Braiins Farm Proxy instance.
+
+.. attention::
+
+   It is recommended to use minimal *extranonce_size = 3* in the server section. From practice lower *extranonoce_size* can produce duplicate submits when hashing with **Whatsminers** ASICs running on the stock firmware. This fact is probably connected either to the version rolling or nTime rolling.
    
 Configuration Parameters
 ========================
@@ -324,11 +330,11 @@ Server
 
  * **name**: string: case-sensitive with minimal length 1 (mandatory), name of the server,
  * **port**: integer (mandatory), port dedicated to the Braiins Farm Proxy,
- * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*,
+ * **extranonce_size**: integer (optional), extranonce provided to the downstream device (ASIC), must be at least by 2 less than *extranonce_size* of the *target*, default is *4*, it is **recommended to use minimal value 3**,
  * **validates_hash_rate**: boolean (true/false, optional), parameter defining if the proxy has to validate submit from downstream, default is *true*,
- * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it), default is *false*,
+ * **use_empty_extranonce1**: boolean (true/false, optional), parameter defining if 1 more byte of extra nonce can be used (not every device supports it, but if you are mining on a pool with a max extranonce size = 4, it is recommended to set *use_empty_extranonce1 = true* and *extranonce_size = 3*), default is *false*,
  * **submission_rate**: real (optional), desired downstream submission rate (miner -> proxy) defined as number of submits per one seconds, default is *0.2* (1 submit per 5 seconds),
- * **slushpool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Braiins Pool username for which Braiins OS+ discount is applied,
+ * **braiinsspool_bos_bonus**: string: case-sensitive with minimal length 0 (optional), Braiins Pool username for which Braiins OS+ discount is applied,
  * **bos_referral_code**: string: case-sensitive with minimal length 6 (optional), Braiins OS+ referral code in the full length shall be provided to get the bonus.
    
 Target
@@ -338,7 +344,7 @@ Target
  * **url**: string (mandatory), URL of the mining pool,
  * **user_identity**: string: case-sensitive with minimal length 1 (mandatory),
  * **identity_pass_through**: boolean (true/false, optional), propagation of an individual worker identity to the target pool (submitting feature to upstream), default is *false*,
- * **extranonce_size**: integer (optional), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server*, default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
+ * **extranonce_size**: integer (optional), extranonce enforced to the target pool, must be at least by 2 higher than *extranonce_size* of the *server* (in case you use paramameter *use_empty_extranonce1 = true*, the extranonce_size of the target can be just by 1 higher than the extranonce_size of the server), default is *6* (**some pools require extranonce at most 4!: AntPool, Binance Pool, Luxor**),
  * **aggregation**: integer (optional), number of aggregated workers (ASICs) per one upstream connection, default is *50*.
    
 Routing

@@ -47,14 +47,14 @@ Server es una plantilla para conexiones downstream (aguas abajo). Cada servidor 
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<Braiins Pool username>"
+      braiinspool_bos_bonus = "<Braiins Pool username>"
       bos_referral_code = "<Braiins OS+ referral code>"
 
 
 
 * **name**: nombre del servidor. Es visible como un valor de la dimensión “server” en todas las métricas downstream (envíos, participaciones, conexiones) en monitoreo Grafana.
 * **port**: define el puerto que Braiins Farm Proxy abrirá y aceptará conexiones de mineros.
-* **slushpool_bos_bonus**: Nombre de usuario Braiins Pool para el cual el bono Braiins OS+ es aplicado.
+* **braiinspool_bos_bonus**: Nombre de usuario Braiins Pool para el cual el bono Braiins OS+ es aplicado.
 * **bos_referral_code**: Código de referido Braiins OS+.
    
 Objetivo
@@ -120,7 +120,7 @@ Para tener un mejor entendimiento del uso y configuración de Braiins Farm Proxy
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "simpleFarm.worker"
 
       [[routing]]
@@ -142,19 +142,19 @@ Para tener un mejor entendimiento del uso y configuración de Braiins Farm Proxy
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-RU"
-      url = "stratum+tcp://ru-west.stratum.slushpool.com"
+      url = "stratum+tcp://ru-west.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
@@ -188,13 +188,13 @@ Para tener un mejor entendimiento del uso y configuración de Braiins Farm Proxy
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50                                                      
 
@@ -244,13 +244,13 @@ Para tener un mejor entendimiento del uso y configuración de Braiins Farm Proxy
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
@@ -328,7 +328,7 @@ Server
  * **validates_hash_rate**: booleano (true/false, opcional), parámetro que define si el proxy debe validar el envío de downstream, por defecto es *true*,
  * **use_empty_extranonce1**: booleano (true/false, opcional), parámetro que define si 1 byte mas de extra nonce puede ser usado (no todo dispositivo lo admite), por defecto es *false*,
  * **submission_rate**: real (opcional), tasa de presentación downstream deseada (minero -> proxy) definida como número de envíos por segundo, por defecto es *0.2* (1 envío cada 5 segundos),
- * **slushpool_bos_bonus**: frase: distingue mayúsculas y minúsculas con longitud mínima 0 (opcional), Nombre de usuario Braiins Pool a quien se le aplica el descuento de Braiins OS+,
+ * **braiinspool_bos_bonus**: frase: distingue mayúsculas y minúsculas con longitud mínima 0 (opcional), Nombre de usuario Braiins Pool a quien se le aplica el descuento de Braiins OS+,
  * **bos_referral_code**: frase: distingue mayúsculas y minúsculas con longitud mínima 6 (opcional), El código de remisión Braiins OS+ se le proporcionará con toda su longitud para recibir el bono.
    
 Target

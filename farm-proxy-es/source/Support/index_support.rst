@@ -19,4 +19,4 @@ Contacto y Soporte
 
    *
 
-¿Tiene preguntas? Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar. Puede `enviar la solicitud <https://help.slushpool.com/support/tickets/new>`_ a nuestro equipo de soporte. También puede unirse a nuestro `grupo <https://t.me/iidiscussion>`_ de Telegram.
+¿Tiene preguntas? Nuestros equipos de desarrollo y soporte siempre están disponibles para ayudar. Puede `enviar la solicitud <https://help.braiins.com/support/tickets/new>`_ a nuestro equipo de soporte. También puede unirse a nuestro `grupo <https://t.me/iidiscussion>`_ de Telegram.

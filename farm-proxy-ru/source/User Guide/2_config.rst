@@ -47,14 +47,14 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
       [[server]]
       name = "s1"
       port = 3336
-      slushpool_bos_bonus = "<Braiins Pool username>"
+      braiinspool_bos_bonus = "<Braiins Pool username>"
       bos_referral_code = "<Braiins OS+ referral code>"
 
 
 
 * **name**: имя сервера. Он виден как значение измерения «сервер» во всех метриках, связанных с нисходящим потоком (отправки, общие ресурсы, подключения) в мониторинге Grafana.
 * **port**: определяет порт, который Braiins Farm Proxy будет открывать и принимать соединения майнера.
-* **slushpool_bos_bonus**: имя пользователя Braiins Pool, для которого применяется бонус Braiins OS+.
+* **braiinspool_bos_bonus**: имя пользователя Braiins Pool, для которого применяется бонус Braiins OS+.
 * **bos_referral_code**: Braiins OS+ реферал.
    
 Цель
@@ -120,7 +120,7 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "simpleFarm.worker"
 
       [[routing]]
@@ -131,7 +131,7 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
       targets = ["SP-GL"]
 
 
-* **Базовая конфигурация**: Пример майнинга на одном объекте, расположенном в Европе. Основным пулом является Slush Pool (URL-адрес ЕС), но он поддерживается общими и российскими URL-адресами Braiins Pool. На ферме 700 сотен ASIC-машин, а желаемая агрегация — 100. Это означает, что к цели должно быть от 6 до 7 восходящих подключений. Доход фермы увеличивается за счет использования прошивки BOS+ и майнинга на Braiins Pool.
+* **Базовая конфигурация**: Пример майнинга на одном объекте, расположенном в Европе. Основным пулом является Braiins Pool (URL-адрес ЕС), но он поддерживается общими и российскими URL-адресами Braiins Pool. На ферме 700 сотен ASIC-машин, а желаемая агрегация — 100. Это означает, что к цели должно быть от 6 до 7 восходящих подключений. Доход фермы увеличивается за счет использования прошивки BOS+ и майнинга на Braiins Pool.
 
 .. code-block:: shell
 
@@ -142,19 +142,19 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
       [[target]]
       name = "SP-RU"
-      url = "stratum+tcp://ru-west.stratum.slushpool.com"
+      url = "stratum+tcp://ru-west.stratum.braiins.com"
       user_identity = "basicFarm.proxy"
       aggregation = 100
 
@@ -188,13 +188,13 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50                                                      
 
@@ -219,7 +219,7 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
       # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -244,13 +244,13 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
 
       [[target]]
       name = "SP-EU"
-      url = "stratum+tcp://eu.stratum.slushpool.com"
+      url = "stratum+tcp://eu.stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
       [[target]]
       name = "SP-GL"
-      url = "stratum+tcp://stratum.slushpool.com"
+      url = "stratum+tcp://stratum.braiins.com"
       user_identity = "braiinsPoolUser.proxy"
       aggregation = 50
 
@@ -288,7 +288,7 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
       # Primary Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-EU"]
-      # Back-up Slush Pool
+      # Back-up Braiins Pool
       [[routing.goal.level]]
       targets = ["SP-GL"]
       #
@@ -328,7 +328,7 @@ Braiins Farm Proxy имеет 3 предопределенных примера 
  * **validates_hash_rate**: логический (true/false, необязательный), параметр, определяющий, должен ли прокси-сервер проверять отправку из нисходящего потока, по умолчанию *true*,
  * **use_empty_extranonce1**: логическое значение (true/false, необязательный параметр), параметр, определяющий, можно ли использовать еще 1 дополнительный байт nonce (не каждое устройство поддерживает это), по умолчанию *false*,
  * **submission_rate**: реальная (необязательно), желаемая скорость отправки в нисходящем направлении (майнер -> прокси), определяемая как количество отправок в одну секунду, по умолчанию *0,2* (1 отправка за 5 секунд),
- * **slushpool_bos_bonus**: строка: с учетом регистра, минимальная длина 0 (необязательно), имя пользователя на Braiins Pool, для которого применяется бонус Braiins OS+,
+ * **braiinspool_bos_bonus**: строка: с учетом регистра, минимальная длина 0 (необязательно), имя пользователя на Braiins Pool, для которого применяется бонус Braiins OS+,
  * **bos_referral_code**: строка: с учетом регистра, минимальная длина 6 (необязательно), необходимо предоставить реферальный код Braiins OS+ полной длины.
    
 Цель
